@@ -8,7 +8,17 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-primary/5 py-20 md:py-32">
+    <section className="relative overflow-hidden py-20 md:py-32">
+      {/* Full Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src="/images/hands.png" 
+          alt="AI and Human Connection" 
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 to-primary/10"></div>
+      </div>
+      
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -42,7 +52,7 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("#services")}
-                className="font-semibold text-lg"
+                className="font-semibold text-lg hover:bg-primary hover:text-primary-foreground hover:border-primary"
               >
                 View Services
               </Button>
@@ -66,41 +76,7 @@ export const Hero = () => {
 
           {/* Right Visual */}
           <div className="relative fade-in lg:block hidden">
-            <div className="relative z-10 bg-card rounded-2xl shadow-2xl p-8 space-y-6 hover-lift">
-              <div className="flex items-center justify-between p-4 bg-primary/10 rounded-lg">
-                <div>
-                  <p className="text-sm text-muted-foreground">Active Projects</p>
-                  <p className="text-2xl font-bold text-primary">127</p>
-                </div>
-                <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center">
-                  <div className="h-6 w-6 bg-primary rounded-full animate-pulse"></div>
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="h-3 bg-secondary rounded-full w-full"></div>
-                <div className="h-3 bg-secondary rounded-full w-5/6"></div>
-                <div className="h-3 bg-secondary rounded-full w-4/6"></div>
-              </div>
-              
-              <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="p-4 bg-accent/10 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-accent">98%</p>
-                  <p className="text-xs text-muted-foreground mt-1">Uptime</p>
-                </div>
-                <div className="p-4 bg-primary/10 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-primary">24/7</p>
-                  <p className="text-xs text-muted-foreground mt-1">Support</p>
-                </div>
-                <div className="p-4 bg-accent/10 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-accent">3x</p>
-                  <p className="text-xs text-muted-foreground mt-1">Growth</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Background decorative elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/0 rounded-full blur-3xl"></div>
           </div>
         </div>
       </div>

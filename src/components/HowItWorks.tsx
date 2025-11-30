@@ -1,4 +1,4 @@
-const steps = [
+  const steps = [
   {
     number: "01",
     title: "Discovery",
@@ -38,10 +38,10 @@ export const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary to-transparent -translate-x-4"></div>
+                <div className="hidden lg:block absolute "></div>
               )}
               <div className="space-y-4">
-                <div className="text-5xl font-bold text-primary/20">{step.number}</div>
+                <div className="text-5xl font-bold text-primary/60">{step.number}</div>
                 <h3 className="text-2xl font-bold">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {step.description}

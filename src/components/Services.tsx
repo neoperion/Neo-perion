@@ -4,8 +4,8 @@ import { Card } from "@/components/ui/card";
 const services = [
   {
     icon: Bot,
-    title: "AI & Automation Setup",
-    description: "We integrate AI assistants and intelligent workflows into your existing tool stack, automating repetitive tasks and boosting productivity.",
+    title: "UI/UX Design", 
+    description: "Creating intuitive and engaging user interfaces that enhance user experience across web and mobile platforms.",
   },
   {
     icon: Puzzle,
@@ -19,8 +19,8 @@ const services = [
   },
   {
     icon: Cloud,
-    title: "Cloud & Analytics Support",
-    description: "Expert help deploying, monitoring, and understanding your data with robust cloud infrastructure and analytics solutions.",
+    title: "Data & Analytics Support",
+    description: "Providing expert assistance in deploying, monitoring, and interpreting your data through robust cloud infrastructure and advanced analytics solutions.",
   },
 ];
 

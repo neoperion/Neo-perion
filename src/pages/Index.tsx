@@ -1,14 +1,10 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { TrustedBy } from "@/components/TrustedBy";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Services } from "@/components/Services";
 import { WhyVTSHA } from "@/components/WhyVTSHA";
-import { Solutions } from "@/components/Solutions";
 import { UseCases } from "@/components/UseCases";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Metrics } from "@/components/Metrics";
-import { Pricing } from "@/components/Pricing";
-import { TechStack } from "@/components/TechStack";
 import { FAQ } from "@/components/FAQ";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
@@ -20,18 +16,24 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <TrustedBy />
-        <Services />
-        <WhyVTSHA />
-        <Solutions />
-        <UseCases />
-        <HowItWorks />
-        <Metrics />
-        <Pricing />
-        <TechStack />
-        <FAQ />
-        <About />
-        <Contact />
+        <ScrollReveal direction="left">
+          <Services />
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <UseCases />
+        </ScrollReveal>
+        <ScrollReveal direction="left">
+          <HowItWorks />
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <WhyVTSHA />
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <About />
+        </ScrollReveal>
+        <ScrollReveal direction="left">
+          <Contact />
+        </ScrollReveal>
       </main>
       <Footer />
     </div>

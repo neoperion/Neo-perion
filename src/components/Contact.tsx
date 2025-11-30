@@ -4,10 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, CheckCircle2 } from "lucide-react";
+import { Mail, CheckCircle2, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,32 +17,62 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+    setIsSubmitting(true);
+
+    try {
+      // Get current timestamp
+      const currentTime = new Date().toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        time: currentTime, // Add this line
+        to_name: 'VTSHA Team',
+      };
+
+      console.log('Sending email with params:', templateParams);
+
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      console.log('EmailJS Response:', response);
+
+      if (response.status === 200) {
+        toast({
+          title: "✅ Successfully sent!",
+          description: "Your message has been sent successfully. We'll get back to you soon!",
+        });
+        setFormData({ name: '', email: '', company: '', message: '' });
+      }
+    } catch (error: unknown) {
+      console.error('EmailJS Error:', error);
+      const errorMessage = error && typeof error === 'object' && 'text' in error 
+        ? (error as { text: string }).text 
+        : "Failed to send message. Please try again.";
       toast({
-        title: "Missing information",
-        description: "Please fill in all required fields.",
+        title: "❌ Failed to send",
+        description: errorMessage,
         variant: "destructive",
       });
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Simulate form submission
-    toast({
-      title: "Message sent!",
-      description: "Thanks! We'll get back to you within 24 hours.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-    });
   };
 
   return (
@@ -167,9 +199,17 @@ export const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
+                disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-semibold"
               >
-                Send message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send message"
+                )}
               </Button>
             </form>
           </div>

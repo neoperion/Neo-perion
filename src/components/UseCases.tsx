@@ -45,7 +45,7 @@ export const UseCases = () => {
                 key={useCase.title}
                 className="p-8 hover-lift cursor-pointer relative overflow-hidden"
               >
-                <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
+                <Badge className="absolute top-4 right-4 bg-black text-white">
                   {useCase.tag}
                 </Badge>
                 <div className="h-14 w-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
