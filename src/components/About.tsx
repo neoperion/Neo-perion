@@ -49,8 +49,7 @@ export const About = () => {
             <div className="p-6 bg-primary/10 border-l-4 border-primary rounded-r-lg">
               <p className="font-semibold text-lg mb-2">Our mission</p>
               <p className="text-muted-foreground leading-relaxed">
-                To make enterprise-grade technology accessible and manageable for 
-                growing businesses, without the enterprise complexity or price tag.
+                Run the business daily like we mean it, deliver every project clean, grow our client circle, launch our product, and turn trust into our biggest flex — 6 months of nonstop execution until success is just our default setting.
               </p>
             </div>
           </div>

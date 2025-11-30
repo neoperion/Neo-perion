@@ -22,6 +22,7 @@ export const Header = () => {
             <span className="text-2xl font-bold">
               <span className="text-primary">VT-</span>
               <span className="text-foreground">SHA</span>
+                      <span className="text-foreground">  TECH</span>
             </span>
           </a>
 

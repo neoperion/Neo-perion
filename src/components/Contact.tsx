@@ -130,7 +130,7 @@ export const Contact = () => {
                   href="mailto:contact@vtsha.com"
                   className="text-primary hover:underline"
                 >
-                  contact@vtsha.com
+                  +91 7339125472
                 </a>
               </div>
             </div>

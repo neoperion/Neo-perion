@@ -25,18 +25,19 @@ export const Hero = () => {
           <div className="space-y-8 fade-in">
             <div className="inline-block">
               <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                Service-Based SaaS for Growing Teams
+               
               </span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Scale your business with{" "}
-              <span className="gradient-text">smart, reliable</span> SaaS services
+              Where Quality {" "}
+              <span className="gradient-text">Isn’t a Trend-</span>It’s How It’s Always Been Done.
+
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              VTSHA helps companies leverage SaaS-based solutions, automation, and tech services 
-              without complexity. Focus on growth while we handle the tech infrastructure.
+Solutions that run smooth, clients that stay loyal, results that speak louder than marketing. 
+We build it, launch it, and support you every step.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
