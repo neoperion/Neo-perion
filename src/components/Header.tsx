@@ -15,15 +15,20 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-100 dark:bg-gray-800 backdrop-blur-lg border-b border-border">
+    <header className="sticky top-0 z-50 backdrop-blur-lg border-b border-border" style={{ background: 'rgba(2, 4, 10, 0.85)' }}>
       <nav className="container mx-auto px-4 lg:px-8 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center">
-            <span className="text-2xl font-bold">
-              <span className="text-primary">VT-</span>
-              <span className="text-foreground">SHA</span>
-                      <span className="text-foreground">  TECH</span>
-            </span>
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3">
+            <img 
+              src="/images/np-logo.png" 
+              alt="NP Logo" 
+              className="h-9 w-auto"
+            />
+            <img 
+              src="/images/neo-perion-text.png" 
+              alt="NEO PERION" 
+              className="h-7 w-150px"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -36,9 +41,10 @@ export const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -46,7 +52,7 @@ export const Header = () => {
           <div className="hidden md:block">
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold"
+              className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold shadow-glow transition-all duration-300"
             >
               Contact us
             </Button>
@@ -54,7 +60,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -73,7 +79,7 @@ export const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </a>

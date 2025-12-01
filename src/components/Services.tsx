@@ -26,11 +26,12 @@ const services = [
 
 export const Services = () => {
   return (
-    <section id="services" className="py-20 md:py-32">
+    <section id="services" className="py-20 md:py-32" style={{ backgroundColor: '#02040A' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            What we do at VTSHA
+          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">Our Services</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            What we do at <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             End-to-end SaaS services to support and scale your digital operations
@@ -43,12 +44,12 @@ export const Services = () => {
             return (
               <Card
                 key={service.title}
-                className="p-6 hover-lift cursor-pointer bg-card border-border"
+                className="p-6 hover-lift cursor-pointer bg-card border-border transition-all duration-300"
               >
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 border border-primary/20">
                   <Icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
                 <p className="text-muted-foreground">{service.description}</p>
               </Card>
             );

@@ -19,27 +19,32 @@ export const Footer = () => {
     }
   };
 
-  return (    <footer className="border-t border-border bg-sky-300 text-white
-  ">
+  return (    <footer className="border-t bg-background text-foreground" style={{ backgroundColor: '#020308', borderTopColor: 'rgba(148, 163, 184, 0.2)' }}>
 
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Tagline */}
           <div>
-            <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold">
-                <span className="text-primary">VT-</span>
-                <span className="text-white">SHA</span>
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/images/np-logo.png" 
+                alt="NP Logo" 
+                className="h-10 w-auto"
+              />
+              <img 
+                src="/images/neo-perion-text.png" 
+                alt="NEO PERION" 
+                className="h-7 w-auto"
+              />
             </div>
-            <p className="text-sm text-white-500">
+            <p className="text-sm text-muted-foreground">
               Smart, reliable SaaS services for growing teams
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white-500">Quick Links</h3>
+            <h3 className="font-semibold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.href}>
@@ -49,7 +54,7 @@ export const Footer = () => {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="text-sm text-white-300 hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>
@@ -60,18 +65,18 @@ export const Footer = () => {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold mb-4 text-white-500">Connect</h3>
+            <h3 className="font-semibold mb-4 text-foreground">Connect</h3>
             <div className="flex gap-4">
               <a
                 href="#"
-                className="h-10 w-10 bg-sky-300 rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-white"
+                className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="#"
-                className="h-10 w-10 bg-sky-300 rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-white"
+                className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
@@ -80,9 +85,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-blue-700 text-center">
-          <p className="text-sm text-white-500">
-            © {currentYear} VTSHA. All rights reserved.
+        <div className="pt-8 border-t text-center" style={{ borderTopColor: 'rgba(148, 163, 184, 0.15)' }}>
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} NEO PERION. All rights reserved.
           </p>
         </div>
       </div>

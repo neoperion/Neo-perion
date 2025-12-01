@@ -8,28 +8,23 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
+    <section className="relative overflow-hidden py-20 md:py-32" style={{ background: 'radial-gradient(circle at top left, #111827 0%, #02040A 50%, #000000 100%)' }}>
       {/* Full Background Image */}
       <div className="absolute inset-0 -z-10">
         <img 
           src="/images/hands.png" 
           alt="AI and Human Connection" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 to-primary/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-primary/5"></div>
       </div>
       
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 fade-in">
-            <div className="inline-block">
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-               
-              </span>
-            </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
               Where Quality {" "}
               <span className="gradient-text">Isn’t a Trend-</span>It’s How It’s Always Been Done.
 
@@ -44,16 +39,16 @@ We build it, launch it, and support you every step.
               <Button
                 size="lg"
                 onClick={() => scrollToSection("#contact")}
-                className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-lg shadow-lg"
+                className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-lg shadow-glow transition-all duration-300 hover:scale-105"
               >
-                Get Started with VTSHA
+                Get Started with NEO PERION
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("#services")}
-                className="font-semibold text-lg hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                className="font-semibold text-lg border-2 border-muted-foreground/30 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               >
                 View Services
               </Button>
@@ -76,8 +71,15 @@ We build it, launch it, and support you every step.
           </div>
 
           {/* Right Visual */}
-          <div className="relative fade-in lg:block hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/0 rounded-full blur-3xl"></div>
+          <div className="relative fade-in lg:flex hidden justify-center items-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+            <div className="relative flex justify-center items-center">
+              <img 
+                src="/images/human.png" 
+                alt="Innovation Visual" 
+                className="w-full max-w-lg h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </div>

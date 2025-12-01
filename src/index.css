@@ -8,77 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    /* Premium Dark Theme - Main Background: #02040A */
+    --background: 222 71% 2%;
+    --foreground: 220 9% 90%; /* Silver tone #E5E7EB */
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    /* Section surfaces - #050816 */
+    --card: 227 71% 4%;
+    --card-foreground: 220 9% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover: 227 71% 4%;
+    --popover-foreground: 220 9% 90%;
 
-    --primary: 186 100% 45%;
+    /* Accent color - Electric Cyan */
+    --primary: 186 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 186 100% 55%;
+    --primary-glow: 186 100% 60%;
 
-    --secondary: 215 20% 96%;
-    --secondary-foreground: 215 25% 15%;
+    /* Subtle dark surface */
+    --secondary: 227 40% 6%;
+    --secondary-foreground: 220 9% 90%;
 
-    --muted: 215 20% 96%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted backgrounds */
+    --muted: 227 40% 6%;
+    --muted-foreground: 220 9% 64%; /* #9CA3AF */
 
-    --accent: 25 95% 60%;
+    /* Accent for highlights */
+    --accent: 186 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 90%;
-    --input: 215 20% 90%;
-    --ring: 186 100% 45%;
+    /* Borders - #2F3138 */
+    --border: 225 8% 20%;
+    --input: 225 20% 15%;
+    --ring: 186 100% 50%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(289, 91%, 56%), hsl(289 100% 55%));
+    /* Dark theme gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(186, 100%, 50%), hsl(194, 100%, 55%));
     --gradient-accent: linear-gradient(135deg, hsl(186, 100%, 50%), hsl(194, 100%, 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(186 100% 98%));
+    --gradient-hero: radial-gradient(circle at top left, #111827 0%, #02040A 50%, #000000 100%);
     
-    --shadow-soft: 0 4px 20px -4px hsl(186 100% 45% / 0.15);
-    --shadow-medium: 0 8px 30px -6px hsl(186 100% 45% / 0.2);
-    --shadow-glow: 0 0 40px hsl(186 100% 55% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(186 100% 50% / 0.25);
+    --shadow-medium: 0 8px 30px -6px hsl(186 100% 50% / 0.3);
+    --shadow-glow: 0 0 40px hsl(186 100% 60% / 0.4);
     
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 215 30% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 215 25% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 215 25% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 186 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 186 100% 60%;
-
-    --secondary: 215 25% 16%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 215 25% 16%;
-    --muted-foreground: 215 15% 65%;
-
-    --accent: 25 95% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 186 100% 50%;
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -90,16 +67,20 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'kern' 1;
+    background-color: #02040A;
   }
   
   html {
     scroll-behavior: smooth;
+    background-color: #02040A;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
+    color: hsl(var(--foreground));
   }
-}
+  }
+
 
 @layer utilities {
   .gradient-text {
@@ -108,7 +89,13 @@ All colors MUST be HSL.
   }
   
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 hover:-translate-y-1;
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .hover-lift:hover {
+    box-shadow: 0 8px 30px -6px hsl(186 100% 50% / 0.3);
+    border-color: hsl(var(--primary));
   }
   
   .fade-in {

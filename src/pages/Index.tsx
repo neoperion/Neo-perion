@@ -12,7 +12,7 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: '#02040A' }}>
       <Header />
       <main>
         <Hero />
@@ -27,6 +27,9 @@ const Index = () => {
         </ScrollReveal>
         <ScrollReveal direction="right">
           <WhyVTSHA />
+        </ScrollReveal>
+        <ScrollReveal direction="left">
+          <FAQ />
         </ScrollReveal>
         <ScrollReveal direction="right">
           <About />

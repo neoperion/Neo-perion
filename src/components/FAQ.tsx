@@ -34,10 +34,11 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">FAQ</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             Frequently asked questions
           </h2>
         </div>
@@ -47,9 +48,9 @@ export const FAQ = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="border border-border rounded-lg px-6 bg-card"
+              className="border border-border rounded-lg px-6 bg-card hover:border-primary/50 transition-all duration-300"
             >
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">

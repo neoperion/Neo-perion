@@ -39,7 +39,7 @@ export const Contact = () => {
         company: formData.company,
         message: formData.message,
         time: currentTime, // Add this line
-        to_name: 'VTSHA Team',
+        to_name: 'NEO PERION Team',
       };
 
       console.log('Sending email with params:', templateParams);
@@ -76,12 +76,13 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Let's build with VTSHA
+            <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">Get In Touch</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+              Let's build with <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               Ready to transform your operations? Reach out for a free consultation.
@@ -92,7 +93,7 @@ export const Contact = () => {
             {/* Left: Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-4">What happens next?</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">What happens next?</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
@@ -121,10 +122,10 @@ export const Contact = () => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-secondary/50 rounded-lg border border-border">
+              <div className="p-6 bg-card rounded-lg border border-border">
                 <div className="flex items-center gap-3 mb-2">
                   <Mail className="h-5 w-5 text-primary" />
-                  <span className="font-semibold">Direct contact</span>
+                  <span className="font-semibold text-foreground">Direct contact</span>
                 </div>
                 <a
                   href="mailto:contact@vtsha.com"
@@ -200,7 +201,7 @@ export const Contact = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-semibold"
+                className="w-full bg-primary hover:bg-primary-glow text-primary-foreground font-semibold shadow-glow transition-all duration-300"
               >
                 {isSubmitting ? (
                   <>

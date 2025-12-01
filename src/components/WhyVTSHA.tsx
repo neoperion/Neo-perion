@@ -10,12 +10,13 @@ const benefits = [
 
 export const WhyVTSHA = () => {
   return (
-    <section id="why-vtsha" className="py-20 md:py-32 bg-secondary/30">
+    <section id="why-vtsha" className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Why choose VTSHA?
+            <p className="text-sm uppercase tracking-wider text-muted-foreground">Why Us</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Why choose <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>?
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We believe technology should empower growth, not complicate it. 
@@ -32,7 +33,7 @@ export const WhyVTSHA = () => {
             {benefits.map((benefit) => (
               <div
                 key={benefit}
-                className="flex items-start gap-4 p-4 bg-background rounded-lg hover-lift"
+                className="flex items-start gap-4 p-4 bg-background rounded-lg hover-lift border border-border transition-all duration-300"
               >
                 <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <p className="text-foreground">{benefit}</p>

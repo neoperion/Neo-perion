@@ -50,12 +50,17 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Manrope', 'Poppins', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        'soft': '0 4px 20px -4px hsl(186 100% 50% / 0.25)',
+        'medium': '0 8px 30px -6px hsl(186 100% 50% / 0.3)',
+        'glow': '0 0 40px hsl(186 100% 60% / 0.4)',
       },
       keyframes: {
         "accordion-down": {

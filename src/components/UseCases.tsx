@@ -25,15 +25,16 @@ const useCases = [
 
 export const UseCases = () => {
   return (
-    <section className="py-20 md:py-32 bg-secondary/30">
+    <section className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">Use Cases</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             Built for modern teams
           </h2>
           <p className="text-lg text-muted-foreground">
             Whether you're launching your first product or scaling an established business, 
-            VTSHA adapts to your needs
+            <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> adapts to your needs
           </p>
         </div>
 
@@ -43,15 +44,15 @@ export const UseCases = () => {
             return (
               <Card
                 key={useCase.title}
-                className="p-8 hover-lift cursor-pointer relative overflow-hidden"
+                className="p-8 hover-lift cursor-pointer relative overflow-hidden bg-card border-border transition-all duration-300"
               >
-                <Badge className="absolute top-4 right-4 bg-black text-white">
+                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground border border-primary/50">
                   {useCase.tag}
                 </Badge>
-                <div className="h-14 w-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <div className="h-14 w-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
                   <Icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{useCase.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{useCase.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {useCase.description}
                 </p>

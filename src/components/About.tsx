@@ -25,14 +25,15 @@ const values = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-secondary/30">
+    <section id="about" className="py-20 md:py-32" style={{ backgroundColor: '#02040A' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold">About VTSHA</h2>
+            <p className="text-sm uppercase tracking-wider text-muted-foreground">About</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">About <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span></h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                VTSHA was founded to help teams leverage SaaS and automation without 
+                <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> was founded to help teams leverage SaaS and automation without 
                 the confusion that often comes with rapid tech adoption.
               </p>
               <p>
@@ -47,7 +48,7 @@ export const About = () => {
               </p>
             </div>
             <div className="p-6 bg-primary/10 border-l-4 border-primary rounded-r-lg">
-              <p className="font-semibold text-lg mb-2">Our mission</p>
+              <p className="font-semibold text-lg mb-2 text-foreground">Our mission</p>
               <p className="text-muted-foreground leading-relaxed">
                 Run the business daily like we mean it, deliver every project clean, grow our client circle, launch our product, and turn trust into our biggest flex — 6 months of nonstop execution until success is just our default setting.
               </p>
@@ -60,10 +61,10 @@ export const About = () => {
               return (
                 <div
                   key={value.title}
-                  className="p-6 bg-background rounded-lg border border-border hover-lift"
+                  className="p-6 bg-background rounded-lg border border-border hover-lift transition-all duration-300"
                 >
                   <Icon className="h-8 w-8 text-primary mb-4" />
-                  <h3 className="font-bold mb-2">{value.title}</h3>
+                  <h3 className="font-bold mb-2 text-foreground">{value.title}</h3>
                   <p className="text-sm text-muted-foreground">{value.description}</p>
                 </div>
               );
