@@ -53,7 +53,7 @@ All colors MUST be HSL.
     
     --shadow-soft: 0 4px 20px -4px hsl(186 100% 50% / 0.25);
     --shadow-medium: 0 8px 30px -6px hsl(186 100% 50% / 0.3);
-    --shadow-glow: 0 0 40px hsl(186 100% 60% / 0.4);
+    --shadow-glow: 0 0 15px hsl(186 10% 70% / 0.15);
     
     --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -96,6 +96,10 @@ All colors MUST be HSL.
   .hover-lift:hover {
     box-shadow: 0 8px 30px -6px hsl(186 100% 50% / 0.3);
     border-color: hsl(var(--primary));
+  }
+  
+  .shadow-glow {
+    box-shadow: none;
   }
   
   .fade-in {

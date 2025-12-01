@@ -39,7 +39,7 @@ We build it, launch it, and support you every step.
               <Button
                 size="lg"
                 onClick={() => scrollToSection("#contact")}
-                className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-lg shadow-glow transition-all duration-300 hover:scale-105"
+                className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-lg shadow-glow transition-all duration-300 hover:scale-102"
               >
                 Get Started with NEO PERION
                 <ArrowRight className="ml-2 h-5 w-5" />
