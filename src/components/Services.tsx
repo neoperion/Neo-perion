@@ -20,7 +20,7 @@ const services = [
   {
     icon: Cloud,
     title: "Data & Analytics Support",
-    description: "Providing expert assistance in deploying, monitoring, and interpreting your data through robust cloud infrastructure and advanced analytics solutions.",
+    description: "Delivering expert guidance in deploying, monitoring, and interpreting your data through scalable infrastructure and cutting-edge analytics solutions built for real-world impact.",
   },
 ];
 

@@ -128,10 +128,12 @@ export const Contact = () => {
                   <span className="font-semibold text-foreground">Direct contact</span>
                 </div>
                 <a
-                  href="mailto:contact@vtsha.com"
-                  className="text-primary hover:underline"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=neoperion@gmail.com"
+                  className="text-primary hover:underline cursor-pointer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  +91 7339125472
+                  neoperion@gmail.com
                 </a>
               </div>
             </div>
