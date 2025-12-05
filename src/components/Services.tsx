@@ -1,5 +1,6 @@
 import { Bot, Puzzle, Globe, Cloud } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const services = [
   {
@@ -42,16 +43,25 @@ export const Services = () => {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <Card
-                key={service.title}
-                className="p-6 hover-lift cursor-pointer bg-card border-border transition-all duration-300"
-              >
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 border border-primary/20">
-                  <Icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </Card>
+              <div key={service.title} className="relative h-full rounded-[1.25rem]">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={2}
+                />
+                <Card
+                  className="p-6 hover-lift cursor-pointer border-border transition-all duration-300 relative z-10 h-full flex flex-col"
+                >
+                  <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 border border-primary/20">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
+                  <p className="text-muted-foreground flex-grow">{service.description}</p>
+                </Card>
+              </div>
             );
           })}
         </div>

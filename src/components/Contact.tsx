@@ -150,7 +150,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  placeholder="John Doe"
+                  placeholder=""
                   required
                 />
               </div>
@@ -166,7 +166,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  placeholder="john@company.com"
+                  placeholder=""
                   required
                 />
               </div>
@@ -179,7 +179,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, company: e.target.value })
                   }
-                  placeholder="Acme Inc."
+                  placeholder=""
                 />
               </div>
 
@@ -193,7 +193,7 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  placeholder="Tell us about your project, goals, or challenges..."
+                  placeholder=""
                   rows={6}
                   required
                 />

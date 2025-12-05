@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const benefits = [
   "Clear, no-jargon communication that keeps everyone aligned",
@@ -31,12 +32,21 @@ export const WhyVTSHA = () => {
 
           <div className="space-y-4">
             {benefits.map((benefit) => (
-              <div
-                key={benefit}
-                className="flex items-start gap-4 p-4 bg-background rounded-lg hover-lift border border-border transition-all duration-300"
-              >
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-foreground">{benefit}</p>
+              <div key={benefit} className="relative rounded-lg h-20">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={2}
+                />
+                <div
+                  className="flex items-center gap-4 p-4 rounded-lg hover-lift border border-border transition-all duration-300 relative z-10 h-full"
+                >
+                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0" />
+                  <p className="text-foreground">{benefit}</p>
+                </div>
               </div>
             ))}
           </div>

@@ -1,18 +1,37 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GooeyNav from "@/components/GooeyNav";
 
-const navLinks = [
+const navItems = [
+  { label: "Home", href: "#" },
+  { label: "Services", href: "#services" },
+  { label: "About Us", href: "#about" },
+  { label: "Contact Us", href: "#contact" },
 ];
+
+const navLinks = navItems;
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (href === "#") {
+      // Scroll to top for Home
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // Scroll to specific section
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
     setMobileMenuOpen(false);
   };
+
+  // Add scroll handlers to nav items
+  const navItemsWithScroll = navItems.map((item) => ({
+    ...item,
+    onClick: () => scrollToSection(item.href),
+  }));
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-lg border-b border-border" style={{ background: 'rgba(2, 4, 10, 0.85)' }}>
@@ -31,22 +50,12 @@ export const Header = () => {
             />
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+          {/* Desktop Navigation with Gooey Effect */}
+          <div className="hidden md:flex items-center gap-4">
+            <GooeyNav
+              items={navItemsWithScroll}
+              initialActiveIndex={0}
+            />
           </div>
 
           <div className="hidden md:block">

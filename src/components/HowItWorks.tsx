@@ -1,4 +1,4 @@
-  const steps = [
+const steps = [
   {
     number: "01",
     title: "Discovery",
@@ -21,6 +21,8 @@
   },
 ];
 
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+
 export const HowItWorks = () => {
   return (
     <section className="py-20 md:py-32" style={{ backgroundColor: '#02040A' }}>
@@ -37,16 +39,26 @@ export const HowItWorks = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={step.number} className="relative">
+            <div key={step.number} className="relative h-full">
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute "></div>
               )}
-              <div className="space-y-4">
-                <div className="text-5xl font-bold text-primary/60">{step.number}</div>
-                <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
+              <div className="relative rounded-lg h-full">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={2}
+                />
+                <div className="space-y-4 relative z-10 p-6 rounded-lg border border-border h-full flex flex-col">
+                  <div className="text-5xl font-bold text-primary/60">{step.number}</div>
+                  <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed flex-grow">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

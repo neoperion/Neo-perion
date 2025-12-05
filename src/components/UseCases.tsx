@@ -1,6 +1,7 @@
 import { Rocket, Briefcase, Building2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const useCases = [
   {
@@ -42,21 +43,30 @@ export const UseCases = () => {
           {useCases.map((useCase) => {
             const Icon = useCase.icon;
             return (
-              <Card
-                key={useCase.title}
-                className="p-8 hover-lift cursor-pointer relative overflow-hidden bg-card border-border transition-all duration-300"
-              >
-                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground border border-primary/50">
-                  {useCase.tag}
-                </Badge>
-                <div className="h-14 w-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
-                  <Icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-foreground">{useCase.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {useCase.description}
-                </p>
-              </Card>
+              <div key={useCase.title} className="relative h-full rounded-[1.25rem]">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={2}
+                />
+                <Card
+                  className="p-8 hover-lift cursor-pointer relative overflow-hidden border-border transition-all duration-300 h-full z-10 flex flex-col"
+                >
+                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground border border-primary/50">
+                    {useCase.tag}
+                  </Badge>
+                  <div className="h-14 w-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
+                    <Icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">{useCase.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed flex-grow">
+                    {useCase.description}
+                  </p>
+                </Card>
+              </div>
             );
           })}
         </div>

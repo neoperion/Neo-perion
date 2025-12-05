@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const faqs = [
   {
@@ -45,18 +46,27 @@ export const FAQ = () => {
 
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border border-border rounded-lg px-6 bg-card hover:border-primary/50 transition-all duration-300"
-            >
-              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <div key={index} className="relative rounded-lg min-h-16">
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={2}
+              />
+              <AccordionItem
+                value={`item-${index}`}
+                className="border border-border rounded-lg px-6 hover:border-primary/50 transition-all duration-300 relative z-10"
+              >
+                <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </div>
           ))}
         </Accordion>
       </div>
