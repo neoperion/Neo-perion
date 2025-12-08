@@ -9,10 +9,12 @@ import { FAQ } from "@/components/FAQ";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#02040A' }}>
+      <SEO />
       <Header />
       <main>
         <Hero />
