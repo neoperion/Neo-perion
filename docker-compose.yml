@@ -1,0 +1,11 @@
+﻿version: '3.8'
+
+services:
+  neo-perion:
+    build: .
+    ports:
+      - "3000:8080"
+    container_name: neo-perion-app
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
