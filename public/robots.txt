@@ -1,4 +1,9 @@
-# Allow all crawlers
+# Block Vercel deployment domain
+User-agent: *
+Disallow: /
+Host: neo-perion.vercel.app
+
+# Allow all crawlers for main domain
 User-agent: *
 Allow: /
 
