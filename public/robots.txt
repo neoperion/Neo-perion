@@ -1,17 +1,23 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Google specific
 User-agent: Googlebot
 Allow: /
 
+# Bing
 User-agent: Bingbot
 Allow: /
 
+# Twitter
 User-agent: Twitterbot
 Allow: /
 
+# Facebook
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /
 
 # Sitemap
 Sitemap: https://www.neoperion.com/sitemap.xml
+Sitemap: https://neoperion.com/sitemap.xml
