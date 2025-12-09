@@ -277,7 +277,7 @@ const GooeyNav = ({
           position: absolute;
           inset: -3px;
           border-radius: 8px;
-          background: rgba(255, 255, 255, 0.15);
+          background: white;
           opacity: 0;
           transform: scale(0.8);
           transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
