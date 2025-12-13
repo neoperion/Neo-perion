@@ -1,4 +1,4 @@
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const footerLinks = [
   { label: "Home", href: "#" },
@@ -68,18 +68,40 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4 text-foreground">Connect</h3>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/neoperion?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/neo-perion-643228393"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/neoperion"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
-                aria-label="Twitter"
+                aria-label="Facebook"
               >
-                <Twitter size={20} />
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://wa.me/917339125472?text=Hello"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 text-muted-foreground"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>

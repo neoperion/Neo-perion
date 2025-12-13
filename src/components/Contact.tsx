@@ -128,16 +128,25 @@ export const Contact = () => {
                   <span className="font-semibold text-foreground">Direct contact</span>
                 </div>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=neoperion@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@www.neoperion.com"
                   className="text-primary hover:underline cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  neoperion@gmail.com
+                  hello@www.neoperion.com
                 </a>
+                <a
+                  href="tel:+917339125472"
+                  className="block mt-2 text-primary hover:underline cursor-pointer"
+                >
+                  +91 73391 25472
+                </a>
+                <a>
+                  Chennai, Tamil Nadu, India
+                </a>
+                  
               </div>
             </div>
-
             {/* Right: Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
