@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import LightRays from "@/components/LightRays";
 
 export const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -9,32 +10,50 @@ export const Hero = () => {
 
   return (
     <section className="relative overflow-hidden py-20 md:py-32" style={{ background: 'radial-gradient(circle at top left, #111827 0%, #02040A 50%, #000000 100%)' }}>
+      {/* Light Rays Background */}
+      <div className="absolute inset-0 w-full h-full opacity-40 z-0">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00d4ff"
+          raysSpeed={0.8}
+          lightSpread={1.5}
+          rayLength={1.8}
+          pulsating={false}
+          fadeDistance={1.2}
+          saturation={1.2}
+          followMouse={true}
+          mouseInfluence={0.15}
+          noiseAmount={0.05}
+          distortion={0.1}
+        />
+      </div>
+
       {/* Full Background Image */}
       <div className="absolute inset-0 -z-10">
-        <img 
-          src="/images/hands.png" 
-          alt="AI and Human Connection" 
+        <img
+          src="/images/hands.png"
+          alt="AI and Human Connection"
           className="w-full h-full object-cover opacity-10"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-primary/5"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 fade-in">
-            
+
             <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
               Where Quality {" "}
               <span className="gradient-text">Isn’t a Trend-</span>It’s How It’s Always Been Done.
 
             </h1>
-            
+
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-Solutions that run smooth, clients that stay loyal, results that speak louder than marketing. 
-We build it, launch it, and support you every step.
+              Solutions that run smooth, clients that stay loyal, results that speak louder than marketing.
+              We build it, launch it, and support you every step.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
@@ -53,7 +72,7 @@ We build it, launch it, and support you every step.
                 View Services
               </Button>
             </div>
-            
+
             <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-primary" />
@@ -74,9 +93,9 @@ We build it, launch it, and support you every step.
           <div className="relative slide-up lg:flex hidden justify-center items-center">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10"></div>
             <div className="relative flex justify-center items-center">
-              <img 
-                src="/images/human.png" 
-                alt="Innovation Visual" 
+              <img
+                src="/images/human.png"
+                alt="Innovation Visual"
                 className="w-full max-w-lg h-auto object-contain drop-shadow-2xl"
               />
             </div>
