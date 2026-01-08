@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, CheckCircle2, Loader2, Phone, MapPin } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
@@ -62,8 +62,8 @@ export const Contact = () => {
       }
     } catch (error: unknown) {
       console.error('EmailJS Error:', error);
-      const errorMessage = error && typeof error === 'object' && 'text' in error 
-        ? (error as { text: string }).text 
+      const errorMessage = error && typeof error === 'object' && 'text' in error
+        ? (error as { text: string }).text
         : "Failed to send message. Please try again.";
       toast({
         title: "❌ Failed to send",
@@ -122,19 +122,46 @@ export const Contact = () => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-card rounded-lg border border-border">
-                <div className="flex items-center gap-3 mb-2">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">Direct contact</span>
+              <div className="p-6 bg-card rounded-lg border border-border space-y-4">
+                <div className="mb-4">
+                  <span className="font-semibold text-foreground text-lg">Direct contact</span>
                 </div>
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=neoperion@gmail.com"
-                  className="text-primary hover:underline cursor-pointer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  neoperion@gmail.com
-                </a>
+
+                {/* Email */}
+                <div className="flex items-start gap-3">
+                  <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <a
+                      href="mailto:hello@www.neoperion.com"
+                      className="text-primary hover:underline cursor-pointer"
+                    >
+                      hello@www.neoperion.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-start gap-3">
+                  <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <a
+                      href="tel:+919363578670"
+                      className="text-primary hover:underline cursor-pointer"
+                    >
+                      +91 9363578670
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-muted-foreground">
+                      Chennai, Tamil Nadu, India
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
