@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import FloatingLines from "@/components/FloatingLines";
+import TiltedCard from "@/components/TiltedCard";
 
 // Interactive Workflow Section Component
 function WorkflowSection() {
@@ -368,7 +369,7 @@ export default function AboutPage() {
       {/* 2. WHO WE ARE */}
       <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
         <div data-fade>
-          <h2 className="text-4xl font-bold mb-12 text-[#E5E7EB]">Who we are</h2>
+          <h2 className="text-4xl font-bold mb-12 text-[#E5E7EB] text-center">Who we are</h2>
           <div className="space-y-6 text-lg text-[#9CA3AF] leading-relaxed">
             <p>
               NEO PERION was founded to help teams navigate SaaS and automation without confusion, chaos, or unnecessary complexity. We've seen businesses struggle with fragmented tools, rushed implementations, and vendors who vanish once the project ships. We decided to build differently.
@@ -386,7 +387,7 @@ export default function AboutPage() {
 
       {/* 3. WHAT WE BELIEVE IN */}
       <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB]" data-fade>What drives our work</h2>
+        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>What drives our work</h2>
         <div className="grid md:grid-cols-2 gap-6" data-fade>
           {[
             { title: 'Stability over hype', desc: 'We build solutions meant to last — not experiments that break after launch.' },
@@ -413,41 +414,76 @@ export default function AboutPage() {
         <div className="divider-light max-w-6xl mx-auto" />
       </div>
 
-      {/* 5. WHY NEO PERION */}
+
+
+
+
+      {/* 6. MEET THE FOUNDER */}
       <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-[#E5E7EB]" data-fade>Why teams choose NEO PERION</h2>
-        <div className="space-y-4" data-fade>
-          {[
-            'Clear, no-nonsense communication',
-            'Predictable delivery timelines',
-            'Transparent pricing and scope',
-            'Human support — not ticket-only systems',
-            'Flexible engagement for startups & SMEs',
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 pb-4">
-              <Check size={20} className="text-[#00d4ff] flex-shrink-0" />
-              <span className="text-lg text-[#9CA3AF]">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Meet the Founder</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 justify-items-center" data-fade>
+          <div className="flex flex-col items-center gap-6">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Vasantaraj</h3>
+            <TiltedCard
+              imageSrc="/images/founder.jpg"
+              altText="Founder Vision"
+              captionText="Vaanth Raj"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={12}
+              scaleOnHover={1.15}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={false}
+            />
+            <p className="text-xl text-[#9CA3AF] font-medium">CEO </p>
+          </div>
 
-      <div className="px-8 lg:px-16">
-        <div className="divider-light max-w-6xl mx-auto" />
-      </div>
+          <div className="flex flex-col items-center gap-6">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Adhi Ganesh</h3>
+            <TiltedCard
+              imageSrc="/images/adhi.png"
+              altText="Founder Execution"
+              captionText="Adhi Ganesh K"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={12}
+              scaleOnHover={1.15}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={false}
+            />
+            <p className="text-xl text-[#9CA3AF] font-medium">COO</p>
+          </div>
 
-      {/* 6. MISSION STATEMENT */}
-      <section className="px-8 lg:px-16 py-32 bg-gradient-to-br from-[#050816] to-[#02040A] border border-[#2F3138] rounded-lg mx-8 lg:mx-16 my-24">
-        <div className="max-w-3xl mx-auto text-center" data-fade>
-          <h2 className="text-3xl lg:text-4xl font-bold mb-8 leading-tight text-[#E5E7EB]">
-            Run the business daily like we mean it. Deliver every project clean. Support our clients long after launch. Build trust until it becomes our strongest asset.
-          </h2>
+          <div className="flex flex-col items-center gap-6">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Tamilselvan</h3>
+            <TiltedCard
+              imageSrc="/images/founder.jpg"
+              altText="Founder Growth"
+              captionText="Tamilselvan"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={12}
+              scaleOnHover={1.15}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={false}
+            />
+            <p className="text-xl text-[#9CA3AF] font-medium">CTO</p>
+          </div>
         </div>
       </section>
 
       {/* 7. VALUES */}
       <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB]" data-fade>Our values</h2>
+        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Our values</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8" data-fade>
           {['Stability', 'Transparency', 'Respect for time', 'Long-term thinking', 'Ownership mindset'].map((value, i) => (
             <div key={i} className="text-center">
