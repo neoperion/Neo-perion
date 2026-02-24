@@ -1,31 +1,12 @@
-import { Bot, Puzzle, Globe, Cloud } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-
-const services = [
-  {
-    icon: Bot,
-    title: "UI/UX Design", 
-    description: "Creating intuitive and engaging user interfaces that enhance user experience across web and mobile platforms.",
-  },
-  {
-    icon: Puzzle,
-    title: "Custom SaaS Solutions",
-    description: "Tailor-made SaaS tools designed specifically to fit your unique business processes and operational needs.",
-  },
-  {
-    icon: Globe,
-    title: "Web & App Modernization",
-    description: "Transform existing platforms to be faster, cleaner, and more scalable with modern architecture and best practices.",
-  },
-  {
-    icon: Cloud,
-    title: "Data & Analytics Support",
-    description: "Delivering expert guidance in deploying, monitoring, and interpreting your data through scalable infrastructure and cutting-edge analytics solutions built for real-world impact.",
-  },
-];
+import { servicesData } from "@/data/servicesData";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export const Services = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="services" className="py-20 md:py-32" style={{ backgroundColor: '#02040A' }}>
       <div className="container mx-auto px-4 lg:px-8">
@@ -40,10 +21,14 @@ export const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service) => {
+          {servicesData.slice(0, 4).map((service) => {
             const Icon = service.icon;
             return (
-              <div key={service.title} className="relative h-full rounded-[1.25rem]">
+              <div
+                key={service.slug}
+                className="relative h-full rounded-[1.25rem] cursor-pointer"
+                onClick={() => navigate(`/services/${service.slug}`)}
+              >
                 <GlowingEffect
                   spread={40}
                   glow={true}
@@ -59,11 +44,25 @@ export const Services = () => {
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground flex-grow">{service.description}</p>
+                  <p className="text-muted-foreground flex-grow">{service.shortDescription}</p>
+                  <div className="mt-4 flex items-center gap-1.5 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn more</span>
+                    <ArrowRight size={14} />
+                  </div>
                 </Card>
               </div>
             );
           })}
+        </div>
+
+        {/* View all services link */}
+        <div className="text-center mt-12">
+          <button
+            onClick={() => navigate('/services')}
+            className="text-primary hover:text-primary/80 text-sm font-medium transition-colors flex items-center gap-2 mx-auto"
+          >
+            View all services <ArrowRight size={16} />
+          </button>
         </div>
       </div>
     </section>

@@ -7,15 +7,31 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.neoperion.com/</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- About Page - Founders & Leadership -->
+  <url>
+    <loc>https://www.neoperion.com/about</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.neoperion.com/services</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <!-- Services Section -->
   <url>
     <loc>https://www.neoperion.com/#services</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,7 +39,7 @@
   <!-- Use Cases Section -->
   <url>
     <loc>https://www.neoperion.com/#use-cases</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,7 +47,7 @@
   <!-- How It Works Section -->
   <url>
     <loc>https://www.neoperion.com/#how-it-works</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -39,7 +55,7 @@
   <!-- Why Choose Us Section -->
   <url>
     <loc>https://www.neoperion.com/#why-us</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -47,25 +63,87 @@
   <!-- FAQ Section -->
   <url>
     <loc>https://www.neoperion.com/#faq</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  
-  <!-- About Section -->
-  <url>
-    <loc>https://www.neoperion.com/#about</loc>
-    <lastmod>2025-12-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   
   <!-- Contact Section -->
   <url>
     <loc>https://www.neoperion.com/#contact</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Listing -->
+  <url>
+    <loc>https://www.neoperion.com/blog</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Individual Blog Posts -->
+  <url>
+    <loc>https://www.neoperion.com/blog/ai-traffic-violation-detection</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/reinforcement-learning-traffic-control</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/ai-solar-panel-monitoring</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/user-behavior-analytics-system</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/web-performance-analytics</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/ai-career-guidance-system</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/ai-medical-image-analysis</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/environmental-monitoring-ai</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/donation-management-platform</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neoperion.com/blog/digital-engineering-company</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

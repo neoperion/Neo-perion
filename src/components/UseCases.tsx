@@ -34,7 +34,7 @@ export const UseCases = () => {
             Built for modern teams
           </h2>
           <p className="text-lg text-muted-foreground">
-            Whether you're launching your first product or scaling an established business, 
+            Whether you're launching your first product or scaling an established business,
             <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> adapts to your needs
           </p>
         </div>

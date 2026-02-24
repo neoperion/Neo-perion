@@ -29,9 +29,9 @@ export const About = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-wider text-muted-foreground">About</p>
+            <p className="text-sm uppercase tracking-wider text-[#00d4ff]/80">About</p>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">About <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span></h2>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-lg text-[#00d4ff]/60 leading-relaxed">
               <p>
                 <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> was founded to help teams leverage SaaS and automation without 
                 the confusion that often comes with rapid tech adoption.
@@ -49,7 +49,7 @@ export const About = () => {
             </div>
             <div className="p-6 bg-primary/10 border-l-4 border-primary rounded-r-lg">
               <p className="font-semibold text-lg mb-2 text-foreground">Our mission</p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-[#00d4ff]/70 leading-relaxed">
                 Run the business daily like we mean it, deliver every project clean, grow our client circle, launch our product, and turn trust into our biggest flex — 6 months of nonstop execution until success is just our default setting.
               </p>
             </div>
@@ -65,7 +65,7 @@ export const About = () => {
                 >
                   <Icon className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-bold mb-2 text-foreground">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <p className="text-sm text-[#00d4ff]/60">{value.description}</p>
                 </div>
               );
             })}

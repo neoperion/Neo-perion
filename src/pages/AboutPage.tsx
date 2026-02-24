@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Shield, Eye, Clock, Lightbulb, Fingerprint } from 'lucide-react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -148,8 +148,170 @@ export default function AboutPage() {
   return (
     <div className="bg-[#02040A] text-[#E5E7EB]">
       <SEO
-        title="About Us - NEO PERION"
-        description="Learn about NEO PERION - We build software partnerships, not just products. Discover our mission, values, and how we work with teams to deliver stable, scalable SaaS solutions."
+        title="About NEO PERION | Founders - Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO)"
+        description="Meet the founders of NEO PERION — Vasantharaj S (CEO), Adhi Ganesh K (COO), and Tamilselvan (CTO). We build software partnerships, not just products. Discover our mission, values, and leadership team delivering stable, scalable SaaS solutions."
+        keywords="NEO PERION, NEO PERION CEO, NEO PERION founder, Vasantharaj S, Vasantharaj NEO PERION, Adhi Ganesh K, Adhi Ganesh NEO PERION COO, Tamilselvan CTO, NEO PERION CTO, NEO PERION leadership, NEO PERION team, SaaS company founders, NEO PERION about, software company India, NEO PERION Chennai"
+        url="https://www.neoperion.com/about"
+        type="website"
+        ogImage="https://www.neoperion.com/images/np-logo.png"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "NEO PERION",
+            "alternateName": "NEOPERION",
+            "url": "https://www.neoperion.com",
+            "logo": "https://www.neoperion.com/images/np-logo.png",
+            "image": "https://www.neoperion.com/images/np-logo.png",
+            "description": "NEO PERION is a leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions. Founded by Vasantharaj S, Adhi Ganesh K, and Tamilselvan.",
+            "foundingDate": "2024",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "Vasantharaj S",
+                "jobTitle": "Chief Executive Officer (CEO)",
+                "image": "https://www.neoperion.com/images/founder.jpg",
+                "url": "https://www.neoperion.com/about",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "NEO PERION"
+                }
+              },
+              {
+                "@type": "Person",
+                "name": "Adhi Ganesh K",
+                "jobTitle": "Chief Operating Officer (COO)",
+                "image": "https://www.neoperion.com/images/adhi.png",
+                "url": "https://www.neoperion.com/about",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "NEO PERION"
+                }
+              },
+              {
+                "@type": "Person",
+                "name": "Tamilselvan",
+                "jobTitle": "Chief Technology Officer (CTO)",
+                "image": "https://www.neoperion.com/images/tamilselvan.jpg",
+                "url": "https://www.neoperion.com/about",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "NEO PERION"
+                }
+              }
+            ],
+            "member": [
+              {
+                "@type": "Person",
+                "name": "Vasantharaj S",
+                "jobTitle": "CEO & Founder",
+                "image": "https://www.neoperion.com/images/founder.jpg"
+              },
+              {
+                "@type": "Person",
+                "name": "Adhi Ganesh K",
+                "jobTitle": "COO & Co-Founder",
+                "image": "https://www.neoperion.com/images/adhi.png"
+              },
+              {
+                "@type": "Person",
+                "name": "Tamilselvan",
+                "jobTitle": "CTO & Co-Founder",
+                "image": "https://www.neoperion.com/images/tamilselvan.jpg"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/neoperion",
+              "https://twitter.com/neoperion"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "Customer Service",
+              "email": "contact@neoperion.com"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Vasantharaj S",
+            "alternateName": "Vaanth Raj",
+            "jobTitle": "Chief Executive Officer",
+            "description": "Vasantharaj S is the CEO and Founder of NEO PERION, a SaaS company specializing in Web Development, Mobile Apps, Data Analytics & AI Automation.",
+            "image": "https://www.neoperion.com/images/founder.jpg",
+            "url": "https://www.neoperion.com/about",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "NEO PERION",
+              "url": "https://www.neoperion.com"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "knowsAbout": ["SaaS", "Web Development", "AI Automation", "Software Engineering", "Business Strategy"]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adhi Ganesh K",
+            "jobTitle": "Chief Operating Officer",
+            "description": "Adhi Ganesh K is the COO and Co-Founder of NEO PERION, leading operations and ensuring seamless delivery of SaaS solutions.",
+            "image": "https://www.neoperion.com/images/adhi.png",
+            "url": "https://www.neoperion.com/about",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "NEO PERION",
+              "url": "https://www.neoperion.com"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "knowsAbout": ["Operations Management", "SaaS", "Business Development", "Project Management"]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Tamilselvan",
+            "jobTitle": "Chief Technology Officer",
+            "description": "Tamilselvan is the CTO and Co-Founder of NEO PERION, driving the technology vision and leading engineering teams in building cutting-edge SaaS products.",
+            "image": "https://www.neoperion.com/images/tamilselvan.jpg",
+            "url": "https://www.neoperion.com/about",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "NEO PERION",
+              "url": "https://www.neoperion.com"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "knowsAbout": ["Software Architecture", "AI", "Cloud Computing", "Full Stack Development", "Technology Strategy"]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About NEO PERION",
+            "description": "Learn about NEO PERION — the founders, mission, values, and leadership team building stable, scalable SaaS solutions.",
+            "url": "https://www.neoperion.com/about",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "NEO PERION"
+            }
+          }
+        ]}
       />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -418,16 +580,20 @@ export default function AboutPage() {
 
 
 
-      {/* 6. MEET THE FOUNDER */}
-      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Meet the Founder</h2>
+      {/* 6. MEET THE FOUNDERS - SEO-optimized with Schema.org microdata */}
+      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto" itemScope itemType="https://schema.org/Organization">
+        <meta itemProp="name" content="NEO PERION" />
+        <meta itemProp="url" content="https://www.neoperion.com" />
+        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Meet the Founders</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 justify-items-center" data-fade>
-          <div className="flex flex-col items-center gap-6">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Vasantaraj</h3>
+
+          {/* Vasantharaj S - CEO */}
+          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Vasantharaj S</h3>
             <TiltedCard
               imageSrc="/images/founder.jpg"
-              altText="Founder Vision"
-              captionText="Vaanth Raj"
+              altText="Vasantharaj S - CEO and Founder of NEO PERION"
+              captionText="Vasantharaj S"
               containerHeight="300px"
               containerWidth="300px"
               imageHeight="300px"
@@ -438,14 +604,19 @@ export default function AboutPage() {
               showTooltip={true}
               displayOverlayContent={false}
             />
-            <p className="text-xl text-[#9CA3AF] font-medium">CEO </p>
-          </div>
+            <link itemProp="image" href="https://www.neoperion.com/images/founder.jpg" />
+            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">CEO & Founder</p>
+            <meta itemProp="url" content="https://www.neoperion.com/about" />
+            <span className="sr-only" itemProp="description">Vasantharaj S is the CEO and Founder of NEO PERION, a SaaS company based in Chennai, Tamil Nadu, India, specializing in Web Development, Mobile Apps, Data Analytics and AI Automation solutions.</span>
+            <meta itemProp="worksFor" content="NEO PERION" />
+          </article>
 
-          <div className="flex flex-col items-center gap-6">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Adhi Ganesh</h3>
+          {/* Adhi Ganesh K - COO */}
+          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Adhi Ganesh K</h3>
             <TiltedCard
               imageSrc="/images/adhi.png"
-              altText="Founder Execution"
+              altText="Adhi Ganesh K - COO and Co-Founder of NEO PERION"
               captionText="Adhi Ganesh K"
               containerHeight="300px"
               containerWidth="300px"
@@ -457,14 +628,19 @@ export default function AboutPage() {
               showTooltip={true}
               displayOverlayContent={false}
             />
-            <p className="text-xl text-[#9CA3AF] font-medium">COO</p>
-          </div>
+            <link itemProp="image" href="https://www.neoperion.com/images/adhi.png" />
+            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">COO & Co-Founder</p>
+            <meta itemProp="url" content="https://www.neoperion.com/about" />
+            <span className="sr-only" itemProp="description">Adhi Ganesh K is the COO and Co-Founder of NEO PERION, leading operations and delivery of SaaS solutions from Chennai, Tamil Nadu, India.</span>
+            <meta itemProp="worksFor" content="NEO PERION" />
+          </article>
 
-          <div className="flex flex-col items-center gap-6">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]">Tamilselvan</h3>
+          {/* Tamilselvan - CTO */}
+          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
+            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Tamilselvan</h3>
             <TiltedCard
-              imageSrc="/images/founder.jpg"
-              altText="Founder Growth"
+              imageSrc="/images/tamilselvan.jpg"
+              altText="Tamilselvan - CTO and Co-Founder of NEO PERION"
               captionText="Tamilselvan"
               containerHeight="300px"
               containerWidth="300px"
@@ -475,24 +651,121 @@ export default function AboutPage() {
               showMobileWarning={false}
               showTooltip={true}
               displayOverlayContent={false}
+              objectPosition="top"
             />
-            <p className="text-xl text-[#9CA3AF] font-medium">CTO</p>
-          </div>
+            <link itemProp="image" href="https://www.neoperion.com/images/tamilselvan.jpg" />
+            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">CTO & Co-Founder</p>
+            <meta itemProp="url" content="https://www.neoperion.com/about" />
+            <span className="sr-only" itemProp="description">Tamilselvan is the CTO and Co-Founder of NEO PERION, driving the technology vision and leading engineering teams in building SaaS products from Chennai, Tamil Nadu, India.</span>
+            <meta itemProp="worksFor" content="NEO PERION" />
+          </article>
+
+        </div>
+
+        {/* Hidden SEO content for AI crawlers and search engines */}
+        <div className="sr-only" aria-hidden="true">
+          <h3>NEO PERION Leadership Team</h3>
+          <p>NEO PERION was founded by Vasantharaj S (CEO), Adhi Ganesh K (COO), and Tamilselvan (CTO). Based in Chennai, Tamil Nadu, India, NEO PERION is a technology company specializing in SaaS services, web development, mobile app development, AI automation, and data analytics solutions.</p>
+          <p>Vasantharaj S, also known as Vaanth Raj, is the Chief Executive Officer (CEO) and Founder of NEO PERION. He leads the company's vision and strategy.</p>
+          <p>Adhi Ganesh K is the Chief Operating Officer (COO) and Co-Founder of NEO PERION. He oversees operations and ensures seamless delivery of solutions.</p>
+          <p>Tamilselvan is the Chief Technology Officer (CTO) and Co-Founder of NEO PERION. He drives the technology roadmap and leads the engineering team.</p>
+          <p>Contact NEO PERION at contact@neoperion.com. Visit https://www.neoperion.com for more information about our services.</p>
         </div>
       </section>
 
       {/* 7. VALUES */}
-      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Our values</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8" data-fade>
-          {['Stability', 'Transparency', 'Respect for time', 'Long-term thinking', 'Ownership mindset'].map((value, i) => (
-            <div key={i} className="text-center">
-              <div className="w-12 h-12 rounded-full bg-[#050816] border border-[#2F3138] mx-auto mb-4 flex items-center justify-center">
-                <div className="w-6 h-6 rounded-full bg-[#00d4ff] opacity-20" />
+      <section className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
+        <div className="text-center mb-20" data-fade>
+          <p className="text-sm font-medium tracking-[0.2em] uppercase text-[#00d4ff] mb-4">What we stand for</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#E5E7EB]">Our values</h2>
+        </div>
+
+        {/* Top row — 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5" data-fade>
+          {[
+            { icon: Shield, num: '01', title: 'Stability', desc: 'We build systems that last — engineered for resilience, not quick fixes.', color: '#00d4ff' },
+            { icon: Eye, num: '02', title: 'Transparency', desc: 'No hidden agendas. Clear communication at every stage of the process.', color: '#a855f7' },
+            { icon: Clock, num: '03', title: 'Respect for time', desc: 'We value your time like our own — fast responses, realistic timelines.', color: '#10b981' },
+          ].map((value, i) => {
+            const Icon = value.icon;
+            return (
+              <div
+                key={i}
+                className="value-card group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 cursor-default"
+                style={{ '--accent': value.color } as React.CSSProperties}
+              >
+                {/* Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] to-[#050816] rounded-2xl border border-[#1a1d2e] group-hover:border-[color:var(--accent)] transition-colors duration-500" style={{ opacity: 1 }} />
+
+                {/* Glow on hover */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-3xl" style={{ background: value.color }} />
+
+                {/* Large background number */}
+                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.03] group-hover:text-white/[0.06] transition-all duration-700 select-none pointer-events-none">
+                  {value.num}
+                </span>
+
+                <div className="relative z-10">
+                  {/* Icon with colored ring */}
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500" style={{ background: `${value.color}10`, border: `1px solid ${value.color}25` }}>
+                    <Icon size={24} style={{ color: value.color }} className="opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-[#E5E7EB] mb-3 group-hover:text-white transition-colors duration-300">
+                    {value.title}
+                  </h3>
+
+                  <p className="text-sm text-[#6B7280] leading-relaxed group-hover:text-[#9CA3AF] transition-colors duration-300">
+                    {value.desc}
+                  </p>
+                </div>
               </div>
-              <p className="text-sm font-medium text-[#9CA3AF]">{value}</p>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Bottom row — 2 wider cards, centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto" data-fade>
+          {[
+            { icon: Lightbulb, num: '04', title: 'Long-term thinking', desc: 'Every decision is made with your future growth in mind. We design for scale, not just today.', color: '#f59e0b' },
+            { icon: Fingerprint, num: '05', title: 'Ownership mindset', desc: 'We treat your product as our own — with care, pride, and full accountability.', color: '#ec4899' },
+          ].map((value, i) => {
+            const Icon = value.icon;
+            return (
+              <div
+                key={i}
+                className="value-card group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 cursor-default"
+                style={{ '--accent': value.color } as React.CSSProperties}
+              >
+                {/* Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] to-[#050816] rounded-2xl border border-[#1a1d2e] group-hover:border-[color:var(--accent)] transition-colors duration-500" />
+
+                {/* Glow on hover */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-3xl" style={{ background: value.color }} />
+
+                {/* Large background number */}
+                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.03] group-hover:text-white/[0.06] transition-all duration-700 select-none pointer-events-none">
+                  {value.num}
+                </span>
+
+                <div className="relative z-10 flex items-start gap-6">
+                  {/* Icon with colored ring */}
+                  <div className="w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-500" style={{ background: `${value.color}10`, border: `1px solid ${value.color}25` }}>
+                    <Icon size={24} style={{ color: value.color }} className="opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-[#E5E7EB] mb-3 group-hover:text-white transition-colors duration-300">
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-[#6B7280] leading-relaxed group-hover:text-[#9CA3AF] transition-colors duration-300">
+                      {value.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

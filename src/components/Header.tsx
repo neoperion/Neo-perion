@@ -5,8 +5,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
+  { label: "Blogs", href: "/blog" },
   { label: "Contact Us", href: "#contact" },
 ];
 

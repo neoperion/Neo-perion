@@ -1,10 +1,27 @@
-# Block Vercel deployment domain
+# Allow all crawlers for the main domain
 User-agent: *
-Disallow: /
-Host: neo-perion.vercel.app
+Allow: /
 
-# Allow all crawlers for main domain
-User-agent: *
+# Allow AI chatbot crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 # Google specific

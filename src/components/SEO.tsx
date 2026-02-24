@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   url?: string;
   type?: string;
+  jsonLd?: object | object[];
 }
 
 export const SEO = ({
@@ -15,8 +16,14 @@ export const SEO = ({
   keywords = "SaaS services, web development, mobile app development, AI automation, data analytics, business automation, NEO PERION, cloud solutions, digital transformation",
   ogImage = "https://www.neoperion.com/images/np-logo.png",
   url = "https://www.neoperion.com/",
-  type = "website"
+  type = "website",
+  jsonLd
 }: SEOProps) => {
+
+  const jsonLdString = jsonLd
+    ? JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd)
+    : null;
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -32,6 +39,8 @@ export const SEO = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="NEO PERION" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -39,6 +48,11 @@ export const SEO = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+
+      {/* JSON-LD Structured Data */}
+      {jsonLdString && (
+        <script type="application/ld+json">{jsonLdString}</script>
+      )}
     </Helmet>
   );
 };

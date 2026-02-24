@@ -15,17 +15,17 @@ export const WhyVTSHA = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-wider text-muted-foreground">Why Us</p>
+            <p className="text-sm uppercase tracking-wider text-[#00d4ff]/80">Why Us</p>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               Why choose <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>?
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We believe technology should empower growth, not complicate it. 
-              Our approach focuses on delivering simple, stable, and scalable solutions 
+            <p className="text-lg text-[#00d4ff]/60 leading-relaxed">
+              We believe technology should empower growth, not complicate it.
+              Our approach focuses on delivering simple, stable, and scalable solutions
               while building lasting partnerships with our clients.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Every team deserves clarity in their tech decisions and reliability 
+            <p className="text-lg text-[#00d4ff]/60 leading-relaxed">
+              Every team deserves clarity in their tech decisions and reliability
               in their service providers. That's the foundation we build on.
             </p>
           </div>
