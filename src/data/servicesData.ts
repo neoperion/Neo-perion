@@ -1,4 +1,4 @@
-import { Bot, Puzzle, Globe, Cloud, Smartphone, Brain, Megaphone } from "lucide-react";
+import { Bot, Globe, Cloud, Smartphone, Brain, Megaphone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface ServiceFeature {
@@ -43,7 +43,7 @@ export const servicesData: ServiceData[] = [
         shortDescription: "Creating intuitive and engaging user interfaces that enhance user experience across web and mobile platforms.",
         heroHeadline: "Interfaces that users love",
         heroSubtext: "We design beautiful, intuitive digital experiences that keep users engaged and drive meaningful business outcomes. Every pixel matters.",
-        color: "#00d4ff",
+        color: "hsl(186, 80%, 42%)",
         overview: "Great design isn't just about aesthetics — it's about solving problems. At NEO PERION, our UI/UX design process starts with understanding your users: their goals, frustrations, and behavior patterns. We then translate those insights into clean, intuitive interfaces that feel natural to use.\n\nOur designers work hand-in-hand with developers from day one. This means designs aren't just pretty mockups — they're production-ready blueprints built with real technical constraints in mind. The result? Faster delivery, fewer revisions, and experiences that actually work.\n\nWhether you're building a new product from scratch or redesigning an existing platform, we bring the strategic thinking and craft needed to make your digital presence stand out.",
         features: [
             {
@@ -86,65 +86,15 @@ export const servicesData: ServiceData[] = [
         ctaText: "Start designing your product"
     },
     {
-        slug: "custom-saas-solutions",
-        icon: Puzzle,
-        title: "Custom SaaS Solutions",
-        tagline: "Built for your workflow",
-        shortDescription: "Tailor-made SaaS tools designed specifically to fit your unique business processes and operational needs.",
-        heroHeadline: "Software that fits your business, not the other way around",
-        heroSubtext: "Off-the-shelf software forces you to adapt. We build custom SaaS platforms that adapt to you — your workflows, your processes, your rules.",
-        color: "#a855f7",
-        overview: "Every business operates differently. The way you manage orders, handle customer relationships, or track internal processes is unique to your organization. Generic software can only get you so far before workarounds and spreadsheets start filling the gaps.\n\nThat's where custom SaaS comes in. We build tailored platforms that mirror your actual workflows — no more forcing your team into someone else's process. From multi-tenant architectures to role-based access control, we engineer solutions that scale with your business.\n\nOur approach is lean: we start with your most critical workflow, build a focused MVP, and iterate based on real usage. This means you see value fast and only pay for what you actually need.",
-        features: [
-            {
-                title: "Multi-Tenant Architecture",
-                description: "We design SaaS platforms that serve multiple clients from a single codebase with complete data isolation. Each tenant gets their own environment while you maintain one deployment."
-            },
-            {
-                title: "Role-Based Access Control (RBAC)",
-                description: "Granular permission systems that let you control exactly who can see, edit, and manage different parts of the application. From admin to viewer, every role is precisely defined."
-            },
-            {
-                title: "Subscription & Billing Integration",
-                description: "We integrate with Stripe, Razorpay, or your preferred payment gateway to handle subscriptions, invoicing, usage-based billing, and payment lifecycle management."
-            },
-            {
-                title: "API-First Design",
-                description: "Every feature is built as an API first. This means your SaaS platform can integrate with any external tool, support mobile apps, and enable third-party developer ecosystems."
-            },
-            {
-                title: "Scalable Cloud Infrastructure",
-                description: "Built on AWS, GCP, or Azure with auto-scaling, load balancing, and database optimization. Your platform handles 10 users the same way it handles 10,000."
-            },
-            {
-                title: "Analytics & Admin Dashboard",
-                description: "Built-in analytics to track user behavior, feature adoption, revenue metrics, and system health. You'll always know how your SaaS product is performing."
-            }
-        ],
-        process: [
-            { step: "01", title: "Audit", description: "We map your current workflows, identify bottlenecks, and define the exact problems the SaaS product needs to solve." },
-            { step: "02", title: "Architect", description: "System design, database schema, API contracts, and infrastructure planning — all documented before coding begins." },
-            { step: "03", title: "Build", description: "Agile sprints with working demos every 2 weeks. You see real progress and can course-correct early." },
-            { step: "04", title: "Scale", description: "Production deployment, performance monitoring, and continuous optimization as your user base grows." }
-        ],
-        technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Stripe", "Kubernetes"],
-        faqs: [
-            { question: "How much does a custom SaaS product cost?", answer: "It depends on complexity. A focused MVP typically starts from ₹5-10L and takes 8-12 weeks. Larger platforms with multiple modules can range from ₹15-50L. We always start with a scoping session to give you an accurate estimate." },
-            { question: "Can you build on top of our existing system?", answer: "Yes. We can extend existing codebases, build new modules that integrate via APIs, or help you gradually migrate from legacy systems to modern architecture." },
-            { question: "Who owns the code?", answer: "You do. 100%. We build on your infrastructure, use your repositories, and hand over everything at the end. No vendor lock-in." }
-        ],
-        ctaText: "Build your custom SaaS"
-    },
-    {
         slug: "web-app-modernization",
         icon: Globe,
-        title: "Web & App Modernization",
-        tagline: "Upgrade without disruption",
-        shortDescription: "Transform existing platforms to be faster, cleaner, and more scalable with modern architecture and best practices.",
-        heroHeadline: "Modernize without starting over",
-        heroSubtext: "Your legacy systems hold critical business logic. We upgrade the technology without losing what works — faster, more reliable, and future-proof.",
-        color: "#10b981",
-        overview: "Legacy systems don't need to be thrown away. They represent years of business logic, user workflows, and institutional knowledge. The problem isn't the logic — it's the outdated technology and architecture holding it back.\n\nWe specialize in incremental modernization. Rather than risky full rewrites, we identify the highest-impact parts of your system and modernize them first. Slow database queries get optimized. Monolithic backends get decomposed into services. Ancient frontends get replaced with modern, responsive interfaces.\n\nThe result is a system that performs like new software but retains the business logic and data your team relies on. No disruption, no long migrations, no lost functionality.",
+        title: "Future-Ready Web & App Development",
+        tagline: "Build for today. Scale for tomorrow.",
+        shortDescription: "Transform legacy platforms and build modern web & app experiences — faster, cleaner, and architected to scale with your business.",
+        heroHeadline: "Web & apps built to outlast change",
+        heroSubtext: "From legacy rewrites to ground-up builds — we engineer web and app platforms that perform at scale, adapt to change, and stay ahead of what comes next.",
+        color: "hsl(186, 80%, 42%)",
+        overview: "Most platforms weren't built to handle what business demands today. As user expectations, traffic volumes, and feature complexity grow, the gap between legacy code and modern requirements widens fast.\n\nWe bridge that gap without disrupting what works. Our approach is incremental and deliberate — replacing the weakest layers first while keeping your core business logic intact. Every sprint delivers measurable improvement: faster load times, cleaner architecture, and a codebase your team can confidently maintain.\n\nThe result isn't just modernized software. It's a platform engineered to grow with your business — scalable, secure, and built to last.",
         features: [
             {
                 title: "Legacy System Migration",
@@ -183,7 +133,7 @@ export const servicesData: ServiceData[] = [
             { question: "How long does modernization take?", answer: "It depends on system size, but most projects see significant improvements within 4-8 weeks. We work in sprints so you get value continuously, not just at the end." },
             { question: "Do we need to stop development during modernization?", answer: "No. We work alongside your existing team. New features can continue shipping while we modernize the underlying architecture in parallel." }
         ],
-        ctaText: "Modernize your platform"
+        ctaText: "Start your transformation"
     },
     {
         slug: "data-analytics",
@@ -193,7 +143,7 @@ export const servicesData: ServiceData[] = [
         shortDescription: "Delivering expert guidance in deploying, monitoring, and interpreting your data through scalable infrastructure and cutting-edge analytics solutions.",
         heroHeadline: "Turn raw data into business intelligence",
         heroSubtext: "Data without insight is just noise. We build the pipelines, dashboards, and models that transform your data into actionable decisions.",
-        color: "#f59e0b",
+        color: "hsl(186, 80%, 42%)",
         overview: "Most businesses are sitting on a goldmine of data — customer behavior, sales patterns, operational metrics — but lack the infrastructure to actually use it. Spreadsheets and manual reports only get you so far.\n\nWe build end-to-end data infrastructure: from collection and storage to processing, visualization, and predictive modeling. Our approach focuses on answering specific business questions rather than building abstract data lakes.\n\nWhether you need real-time dashboards for your operations team, predictive models for inventory management, or automated reporting for stakeholders, we design data systems that deliver actionable insights — not just pretty charts.",
         features: [
             {
@@ -243,7 +193,7 @@ export const servicesData: ServiceData[] = [
         shortDescription: "High-performance mobile applications built for iOS and Android using modern frameworks that deliver native-quality experiences.",
         heroHeadline: "Apps that feel native on every device",
         heroSubtext: "We build mobile applications that users love — fast, beautiful, and reliable across iOS and Android from a single codebase.",
-        color: "#ec4899",
+        color: "hsl(186, 80%, 42%)",
         overview: "Mobile users expect perfection. Slow load times, janky animations, or confusing navigation will get your app uninstalled. We build mobile applications that meet these high standards while keeping development efficient.\n\nUsing React Native and Flutter, we develop cross-platform applications from a single codebase — meaning you get iOS and Android coverage without doubling your budget. When native performance is critical, we build platform-specific modules that deliver 60fps animations and hardware-level access.\n\nFrom offline-first architectures for field workers to real-time sync for collaborative tools, our mobile apps are engineered for real-world usage conditions — not just demo-day scenarios.",
         features: [
             {
@@ -293,7 +243,7 @@ export const servicesData: ServiceData[] = [
         shortDescription: "Integrate AI-powered automations, chatbots, and intelligent workflows that reduce manual effort and accelerate decision-making.",
         heroHeadline: "Automate the repetitive, amplify the human",
         heroSubtext: "We integrate AI and automation into your existing workflows — eliminating busywork, reducing errors, and freeing your team to focus on high-value tasks.",
-        color: "#06b6d4",
+        color: "hsl(186, 80%, 42%)",
         overview: "AI isn't magic — it's engineering. The real value of AI in business isn't chatbots that sound human. It's the mundane, repetitive tasks that eat hours of your team's time every week: data entry, document processing, classification, routing, scheduling, and reporting.\n\nWe build practical AI automations that solve specific, measurable problems. Whether it's an intelligent document processor that extracts data from invoices, a recommendation engine that personalizes user experiences, or an automated QA system that catches errors before they reach production.\n\nOur approach is always ROI-first: we identify the highest-impact automation opportunities, build targeted solutions, and measure the actual time and money saved. No hype, just results.",
         features: [
             {
@@ -343,7 +293,7 @@ export const servicesData: ServiceData[] = [
         shortDescription: "Strategic digital marketing that boosts brand visibility, drives qualified traffic, and converts leads through SEO, social media, PPC, and content strategies.",
         heroHeadline: "Marketing that drives measurable growth",
         heroSubtext: "We don't just run ads — we build comprehensive digital marketing strategies that generate leads, build brand authority, and deliver measurable ROI.",
-        color: "#f97316",
+        color: "hsl(186, 80%, 42%)",
         overview: "Digital marketing isn't about being everywhere — it's about being in the right places with the right message at the right time. Most businesses waste budget on channels that don't work or campaigns that don't convert because they lack a cohesive strategy.\n\nWe take a data-driven approach to digital marketing. Every campaign starts with clear KPIs, audience research, and competitive analysis. We then execute across the channels that matter most for your business — whether that's SEO for long-term organic growth, PPC for immediate lead generation, or content marketing for thought leadership.\n\nWhat makes us different? We're a tech company first. That means we bring engineering precision to marketing: automated reporting, A/B testing at scale, conversion tracking that actually works, and landing pages optimized for performance.",
         features: [
             {

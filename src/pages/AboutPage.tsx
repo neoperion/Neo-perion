@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Check, Shield, Eye, Clock, Lightbulb, Fingerprint } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight, Shield, Eye, Clock, Lightbulb, Fingerprint } from 'lucide-react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -21,41 +22,27 @@ function WorkflowSection() {
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const sectionHeight = sectionRef.current.offsetHeight;
-
-      // Calculate which step should be active based on scroll position
       const scrollProgress = (windowHeight / 2 - rect.top) / sectionHeight;
       const stepIndex = Math.max(0, Math.min(3, Math.floor(scrollProgress * 5)));
-
       setActiveStep(stepIndex);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="px-8 lg:px-16 py-32 max-w-6xl mx-auto relative"
-    >
-      {/* Heading */}
-      <div className="mb-32 opacity-0 text-center" style={{ animation: 'fadeIn 0.8s ease-out 0.1s forwards' }}>
-        <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight text-[#E5E7EB]">
-          How we work with you
-        </h2>
+    <section ref={sectionRef} className="px-8 lg:px-16 py-32 max-w-6xl mx-auto relative">
+      <div className="mb-24 text-center">
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Process</p>
+        <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground">How we work with you</h2>
       </div>
-
-      {/* Workflow */}
       <div className="space-y-28">
         {steps.map((step, i) => {
           const isActive = activeStep === i;
-
           return (
             <div
               key={i}
@@ -65,11 +52,9 @@ function WorkflowSection() {
                 transform: isActive ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(12px)',
               }}
             >
-              {/* Background number - left side */}
               <div
-                className="flex-shrink-0 text-[100px] lg:text-[140px] font-bold leading-none transition-all duration-1000 ease-out"
+                className="flex-shrink-0 text-[100px] lg:text-[140px] font-black leading-none transition-all duration-1000 ease-out text-primary"
                 style={{
-                  color: '#00d4ff',
                   opacity: isActive ? 0.2 : 0.05,
                   transform: isActive ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
                   minWidth: '120px',
@@ -77,20 +62,15 @@ function WorkflowSection() {
               >
                 {step.num}
               </div>
-
-              {/* Content - right side with clear separation */}
               <div className="relative z-10 flex-1 pt-4">
-                {/* Title */}
                 <h3
-                  className="text-2xl lg:text-3xl font-medium tracking-tight mb-4 transition-colors duration-700"
+                  className="text-2xl lg:text-3xl font-black tracking-tight mb-4 transition-colors duration-700"
                   style={{
-                    color: isActive ? '#E5E7EB' : '#6B7280',
+                    color: isActive ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))',
                   }}
                 >
                   {step.title}
                 </h3>
-
-                {/* Description - fade in/out */}
                 <div
                   className="overflow-hidden transition-all duration-700"
                   style={{
@@ -98,7 +78,7 @@ function WorkflowSection() {
                     opacity: isActive ? 1 : 0,
                   }}
                 >
-                  <p className="text-base text-[#9CA3AF] leading-relaxed max-w-xl">
+                  <p className="text-base text-muted-foreground/70 leading-relaxed max-w-xl">
                     {step.desc}
                   </p>
                 </div>
@@ -107,31 +87,15 @@ function WorkflowSection() {
           );
         })}
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
 
 export default function AboutPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-
-      // Intersection Observer for fade-in effects
       const elements = document.querySelectorAll('[data-fade]');
       elements.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -140,13 +104,13 @@ export default function AboutPage() {
         }
       });
     };
-
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="bg-[#02040A] text-[#E5E7EB]">
+    <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="About NEO PERION | Founders - Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO)"
         description="Meet the founders of NEO PERION — Vasantharaj S (CEO), Adhi Ganesh K (COO), and Tamilselvan (CTO). We build software partnerships, not just products. Discover our mission, values, and leadership team delivering stable, scalable SaaS solutions."
@@ -313,170 +277,34 @@ export default function AboutPage() {
           }
         ]}
       />
+
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        * {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
         [data-fade] {
           opacity: 0;
           transform: translateY(12px);
           transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
         [data-fade].fade-in {
           opacity: 1;
           transform: translateY(0);
         }
-        
-        .hero-dots {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          opacity: 0.03;
+        @keyframes heroIn {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        
-        .dot {
-          position: absolute;
-          width: 2px;
-          height: 2px;
-          background: currentColor;
-          border-radius: 50%;
-        }
-        
-        .button-primary {
-          padding: 12px 28px;
-          background: #00d4ff;
-          color: #02040A;
-          border: none;
-          border-radius: 6px;
-          font-size: 14px;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .button-primary:hover {
-          background: #00b8e6;
-          transform: translateY(-1px);
-          box-shadow: 0 8px 30px -6px rgba(0, 212, 255, 0.4);
-        }
-        
-        .button-secondary {
-          padding: 12px 28px;
-          background: transparent;
-          color: #E5E7EB;
-          border: 1px solid #2F3138;
-          border-radius: 6px;
-          font-size: 14px;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .button-secondary:hover {
-          border-color: #00d4ff;
-          background: #050816;
-        }
-        
-        .divider-light {
-          height: 1px;
-          background: linear-gradient(to right, transparent, #2F3138, transparent);
-        }
-        
-        .card-principle {
-          padding: 32px;
-          border: 1px solid #2F3138;
-          border-radius: 8px;
-          transition: all 0.3s ease;
-          background: #050816;
-        }
-        
-        .card-principle:hover {
-          border-color: #00d4ff;
-          background: #0a0f1e;
-          box-shadow: 0 8px 30px -6px rgba(0, 212, 255, 0.2);
-        }
-        
-        /* Hero Grid Animations */
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(1deg);
-          }
-        }
-        
-        @keyframes gridPulse {
-          0%, 100% {
-            opacity: 0.3;
-            border-color: #2F3138;
-          }
-          50% {
-            opacity: 0.6;
-            border-color: #00d4ff;
-          }
-        }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-grid-pulse {
-          animation: gridPulse 3s ease-in-out infinite;
-        }
-        
-        /* Hero Text Animations - Professional SaaS Style */
-        @keyframes heroHeadline {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes heroSubtext {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-hero-headline {
-          animation: heroHeadline 1s ease-out 0.2s both;
-        }
-        
-        .animate-hero-subtext {
-          animation: heroSubtext 0.9s ease-out 0.5s both;
-        }
-        
-        .animate-hero-subtext-2 {
-          animation: heroSubtext 0.9s ease-out 0.7s both;
-        }
-        
-        .animate-hero-cta {
-          animation: heroSubtext 0.9s ease-out 0.9s both;
-        }
+        .animate-hero-1 { animation: heroIn 0.9s ease-out 0.1s both; }
+        .animate-hero-2 { animation: heroIn 0.9s ease-out 0.3s both; }
+        .animate-hero-3 { animation: heroIn 0.9s ease-out 0.5s both; }
+        .animate-hero-4 { animation: heroIn 0.9s ease-out 0.7s both; }
       `}</style>
 
       <Header />
 
-      {/* 1. HERO SECTION */}
-      <section className="min-h-screen flex items-center justify-between px-8 lg:px-16 py-32 bg-gradient-to-br from-[#050816] to-[#02040A] relative overflow-hidden">
-        {/* Floating Lines Background */}
-        <div className="absolute inset-0 w-full h-full opacity-30 pointer-events-auto">
+      {/* ── HERO ── */}
+      <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-card to-background">
+        <div className="absolute inset-0 w-full h-full opacity-15 pointer-events-auto">
           <FloatingLines
-            linesGradient={['#00d4ff', '#0099cc', '#006699']}
+            linesGradient={['#15b0c1', '#0d8fa0', '#0a6e7c']}
             enabledWaves={['middle', 'bottom']}
             lineCount={[8, 6]}
             lineDistance={[3, 4]}
@@ -493,103 +321,130 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="hero-dots pointer-events-none">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="dot"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="max-w-2xl relative z-10 pointer-events-auto">
-          <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[#E5E7EB] animate-hero-headline">
-            We build software partnerships — not just products.
-          </h1>
-          <p className="text-lg text-[#9CA3AF] mb-8 leading-relaxed max-w-lg animate-hero-subtext">
-            At NEO PERION, we design, build, and support SaaS systems that stay stable, scale smoothly, and actually make teams faster.
-          </p>
-          <p className="text-base text-[#6B7280] mb-8 max-w-lg animate-hero-subtext-2">
-            No jargon. No disappearing after launch. Just clear thinking and reliable execution.
-          </p>
-          <div className="flex gap-4 animate-hero-cta">
-            <button className="button-primary flex items-center gap-2">
-              Work with us <ArrowRight size={16} />
-            </button>
-            <button className="button-secondary">
-              How we work
-            </button>
+        <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10 w-full">
+          <div className="max-w-3xl">
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-6 animate-hero-1">
+              About NEO PERION
+            </p>
+            <h1 className="text-6xl lg:text-8xl font-black tracking-tight leading-none mb-8 text-foreground animate-hero-2">
+              Built on<br />
+              <span className="text-primary">Partnership.</span>
+            </h1>
+            <p className="text-lg text-muted-foreground/70 leading-relaxed max-w-lg mb-3 animate-hero-3">
+              At NEO PERION, we design, build, and support SaaS systems that stay stable, scale smoothly, and actually make teams faster.
+            </p>
+            <p className="text-base text-muted-foreground/50 leading-relaxed max-w-lg mb-10 animate-hero-3">
+              No jargon. No disappearing after launch. Just clear thinking and reliable execution.
+            </p>
+            <div className="flex flex-wrap gap-4 animate-hero-4">
+              <button
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-bold bg-primary text-primary-foreground hover:-translate-y-0.5 transition-all duration-300"
+                style={{ boxShadow: '0 8px 30px -6px hsl(186 80% 42% / 0.4)' }}
+              >
+                Work with us <ArrowRight size={15} />
+              </button>
+              <button
+                onClick={() => document.querySelector('#how-we-work')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-lg border border-border/60 text-muted-foreground text-sm font-medium hover:border-primary/40 hover:text-foreground transition-all duration-300"
+              >
+                How we work
+              </button>
+            </div>
           </div>
         </div>
-
       </section>
 
-      {/* 2. WHO WE ARE */}
-      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <div data-fade>
-          <h2 className="text-4xl font-bold mb-12 text-[#E5E7EB] text-center">Who we are</h2>
-          <div className="space-y-6 text-lg text-[#9CA3AF] leading-relaxed">
-            <p>
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
+        <div className="h-px bg-gradient-to-r from-primary/30 via-border/60 to-transparent" />
+      </div>
+
+      {/* ── WHO WE ARE ── */}
+      <section id="who-we-are" className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start" data-fade>
+          <div>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-6">Who we are</p>
+            <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight">
+              We build<br />partnerships,<br />not just products.
+            </h2>
+          </div>
+          <div className="space-y-6 lg:pt-2">
+            <p className="text-lg text-muted-foreground/70 leading-relaxed">
               NEO PERION was founded to help teams navigate SaaS and automation without confusion, chaos, or unnecessary complexity. We've seen businesses struggle with fragmented tools, rushed implementations, and vendors who vanish once the project ships. We decided to build differently.
             </p>
-            <p>
+            <p className="text-base text-muted-foreground/55 leading-relaxed">
               Our work focuses on stability, clarity, and long-term impact — systems that don't just launch, but keep running clean as your business grows.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="px-8 lg:px-16">
-        <div className="divider-light max-w-6xl mx-auto" />
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
       </div>
 
-      {/* 3. WHAT WE BELIEVE IN */}
-      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>What drives our work</h2>
-        <div className="grid md:grid-cols-2 gap-6" data-fade>
+      {/* ── WHAT DRIVES OUR WORK ── */}
+      <section id="how-we-work" className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
+        <div className="mb-16" data-fade>
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Principles</p>
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground">What drives our work</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-5">
           {[
-            { title: 'Stability over hype', desc: 'We build solutions meant to last — not experiments that break after launch.' },
-            { title: 'Clarity over complexity', desc: 'Simple systems beat complicated ones. Always.' },
-            { title: 'Partnership over projects', desc: 'We think long-term, not just delivery day.' },
-            { title: 'Execution over promises', desc: 'We ship, support, and stay accountable.' },
+            { num: '01', title: 'Stability over hype', desc: 'We build solutions meant to last — not experiments that break after launch.' },
+            { num: '02', title: 'Clarity over complexity', desc: 'Simple systems beat complicated ones. Always.' },
+            { num: '03', title: 'Partnership over projects', desc: 'We think long-term, not just delivery day.' },
+            { num: '04', title: 'Execution over promises', desc: 'We ship, support, and stay accountable.' },
           ].map((principle, i) => (
-            <div key={i} className="card-principle" data-fade>
-              <h3 className="font-semibold text-lg text-[#E5E7EB] mb-3">{principle.title}</h3>
-              <p className="text-[#9CA3AF] text-sm leading-relaxed">{principle.desc}</p>
+            <div
+              key={i}
+              className="group relative rounded-2xl border border-border/50 bg-card/40 p-8 hover:border-primary/35 hover:bg-card transition-all duration-300 cursor-default"
+              data-fade
+            >
+              <span className="absolute top-6 right-6 text-[72px] font-black leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-all duration-700 select-none pointer-events-none">
+                {principle.num}
+              </span>
+              <div className="relative z-10">
+                <h3 className="font-black text-xl tracking-tight text-foreground mb-3">{principle.title}</h3>
+                <p className="text-muted-foreground/60 text-sm leading-relaxed">{principle.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="px-8 lg:px-16">
-        <div className="divider-light max-w-6xl mx-auto" />
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
       </div>
 
-      {/* 4. HOW WE WORK - Interactive Scroll Section */}
+      {/* ── HOW WE WORK — Interactive Scroll ── */}
       <WorkflowSection />
 
-      <div className="px-8 lg:px-16">
-        <div className="divider-light max-w-6xl mx-auto" />
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
       </div>
 
-
-
-
-
-      {/* 6. MEET THE FOUNDERS - SEO-optimized with Schema.org microdata */}
-      <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto" itemScope itemType="https://schema.org/Organization">
+      {/* ── MEET THE FOUNDERS ── */}
+      <section className="px-8 lg:px-16 py-28 max-w-6xl mx-auto" itemScope itemType="https://schema.org/Organization">
         <meta itemProp="name" content="NEO PERION" />
         <meta itemProp="url" content="https://www.neoperion.com" />
-        <h2 className="text-4xl font-bold mb-16 text-[#E5E7EB] text-center" data-fade>Meet the Founders</h2>
+
+        <div className="text-center mb-20" data-fade>
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Leadership</p>
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground">Meet the founders</h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 justify-items-center" data-fade>
 
-          {/* Vasantharaj S - CEO */}
-          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Vasantharaj S</h3>
+          {/* Vasantharaj S — CEO */}
+          <article className="flex flex-col items-center gap-5" itemScope itemType="https://schema.org/Person" itemProp="founder">
             <TiltedCard
               imageSrc="/images/founder.jpg"
               altText="Vasantharaj S - CEO and Founder of NEO PERION"
@@ -605,15 +460,17 @@ export default function AboutPage() {
               displayOverlayContent={false}
             />
             <link itemProp="image" href="https://www.neoperion.com/images/founder.jpg" />
-            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">CEO & Founder</p>
+            <div className="text-center">
+              <h3 className="text-xl font-black tracking-tight text-foreground" itemProp="name">Vasantharaj S</h3>
+              <p className="text-sm font-semibold text-primary/80 mt-1" itemProp="jobTitle">CEO & Founder</p>
+            </div>
             <meta itemProp="url" content="https://www.neoperion.com/about" />
             <span className="sr-only" itemProp="description">Vasantharaj S is the CEO and Founder of NEO PERION, a SaaS company based in Chennai, Tamil Nadu, India, specializing in Web Development, Mobile Apps, Data Analytics and AI Automation solutions.</span>
             <meta itemProp="worksFor" content="NEO PERION" />
           </article>
 
-          {/* Adhi Ganesh K - COO */}
-          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Adhi Ganesh K</h3>
+          {/* Adhi Ganesh K — COO */}
+          <article className="flex flex-col items-center gap-5" itemScope itemType="https://schema.org/Person" itemProp="founder">
             <TiltedCard
               imageSrc="/images/adhi.png"
               altText="Adhi Ganesh K - COO and Co-Founder of NEO PERION"
@@ -629,15 +486,17 @@ export default function AboutPage() {
               displayOverlayContent={false}
             />
             <link itemProp="image" href="https://www.neoperion.com/images/adhi.png" />
-            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">COO & Co-Founder</p>
+            <div className="text-center">
+              <h3 className="text-xl font-black tracking-tight text-foreground" itemProp="name">Adhi Ganesh K</h3>
+              <p className="text-sm font-semibold text-primary/80 mt-1" itemProp="jobTitle">COO & Co-Founder</p>
+            </div>
             <meta itemProp="url" content="https://www.neoperion.com/about" />
             <span className="sr-only" itemProp="description">Adhi Ganesh K is the COO and Co-Founder of NEO PERION, leading operations and delivery of SaaS solutions from Chennai, Tamil Nadu, India.</span>
             <meta itemProp="worksFor" content="NEO PERION" />
           </article>
 
-          {/* Tamilselvan - CTO */}
-          <article className="flex flex-col items-center gap-6" itemScope itemType="https://schema.org/Person" itemProp="founder">
-            <h3 className="text-2xl font-semibold text-[#E5E7EB]" itemProp="name">Tamilselvan</h3>
+          {/* Tamilselvan — CTO */}
+          <article className="flex flex-col items-center gap-5" itemScope itemType="https://schema.org/Person" itemProp="founder">
             <TiltedCard
               imageSrc="/images/tamilselvan.jpg"
               altText="Tamilselvan - CTO and Co-Founder of NEO PERION"
@@ -654,7 +513,10 @@ export default function AboutPage() {
               objectPosition="top"
             />
             <link itemProp="image" href="https://www.neoperion.com/images/tamilselvan.jpg" />
-            <p className="text-xl text-[#9CA3AF] font-medium" itemProp="jobTitle">CTO & Co-Founder</p>
+            <div className="text-center">
+              <h3 className="text-xl font-black tracking-tight text-foreground" itemProp="name">Tamilselvan</h3>
+              <p className="text-sm font-semibold text-primary/80 mt-1" itemProp="jobTitle">CTO & Co-Founder</p>
+            </div>
             <meta itemProp="url" content="https://www.neoperion.com/about" />
             <span className="sr-only" itemProp="description">Tamilselvan is the CTO and Co-Founder of NEO PERION, driving the technology vision and leading engineering teams in building SaaS products from Chennai, Tamil Nadu, India.</span>
             <meta itemProp="worksFor" content="NEO PERION" />
@@ -673,49 +535,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 7. VALUES */}
-      <section className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
+      </div>
+
+      {/* ── VALUES ── */}
+      <section id="our-values" className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
         <div className="text-center mb-20" data-fade>
-          <p className="text-sm font-medium tracking-[0.2em] uppercase text-[#00d4ff] mb-4">What we stand for</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#E5E7EB]">Our values</h2>
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">What we stand for</p>
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground">Our values</h2>
         </div>
 
         {/* Top row — 3 cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5" data-fade>
           {[
-            { icon: Shield, num: '01', title: 'Stability', desc: 'We build systems that last — engineered for resilience, not quick fixes.', color: '#00d4ff' },
-            { icon: Eye, num: '02', title: 'Transparency', desc: 'No hidden agendas. Clear communication at every stage of the process.', color: '#a855f7' },
-            { icon: Clock, num: '03', title: 'Respect for time', desc: 'We value your time like our own — fast responses, realistic timelines.', color: '#10b981' },
+            { icon: Shield,      num: '01', title: 'Stability',        desc: 'We build systems that last — engineered for resilience, not quick fixes.' },
+            { icon: Eye,         num: '02', title: 'Transparency',     desc: 'No hidden agendas. Clear communication at every stage of the process.' },
+            { icon: Clock,       num: '03', title: 'Respect for time', desc: 'We value your time like our own — fast responses, realistic timelines.' },
           ].map((value, i) => {
             const Icon = value.icon;
             return (
               <div
                 key={i}
-                className="value-card group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 cursor-default"
-                style={{ '--accent': value.color } as React.CSSProperties}
+                className="group relative overflow-hidden rounded-2xl p-8 border border-border/50 bg-card/40 hover:border-primary/35 hover:bg-card transition-all duration-500 hover:-translate-y-1 cursor-default"
               >
-                {/* Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] to-[#050816] rounded-2xl border border-[#1a1d2e] group-hover:border-[color:var(--accent)] transition-colors duration-500" style={{ opacity: 1 }} />
-
-                {/* Glow on hover */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-3xl" style={{ background: value.color }} />
-
-                {/* Large background number */}
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.03] group-hover:text-white/[0.06] transition-all duration-700 select-none pointer-events-none">
+                {/* Glow */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-15 transition-opacity duration-700 blur-3xl bg-primary" />
+                {/* Index watermark */}
+                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-all duration-700 select-none pointer-events-none">
                   {value.num}
                 </span>
-
                 <div className="relative z-10">
-                  {/* Icon with colored ring */}
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500" style={{ background: `${value.color}10`, border: `1px solid ${value.color}25` }}>
-                    <Icon size={24} style={{ color: value.color }} className="opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-primary/10 border border-primary/20">
+                    <Icon size={22} className="text-primary opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-
-                  <h3 className="text-xl font-bold text-[#E5E7EB] mb-3 group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-xl font-black tracking-tight text-foreground mb-3 group-hover:text-white transition-colors duration-300">
                     {value.title}
                   </h3>
-
-                  <p className="text-sm text-[#6B7280] leading-relaxed group-hover:text-[#9CA3AF] transition-colors duration-300">
+                  <p className="text-sm text-muted-foreground/60 leading-relaxed group-hover:text-muted-foreground/80 transition-colors duration-300">
                     {value.desc}
                   </p>
                 </div>
@@ -724,41 +582,33 @@ export default function AboutPage() {
           })}
         </div>
 
-        {/* Bottom row — 2 wider cards, centered */}
+        {/* Bottom row — 2 wider cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto" data-fade>
           {[
-            { icon: Lightbulb, num: '04', title: 'Long-term thinking', desc: 'Every decision is made with your future growth in mind. We design for scale, not just today.', color: '#f59e0b' },
-            { icon: Fingerprint, num: '05', title: 'Ownership mindset', desc: 'We treat your product as our own — with care, pride, and full accountability.', color: '#ec4899' },
+            { icon: Lightbulb,   num: '04', title: 'Long-term thinking', desc: 'Every decision is made with your future growth in mind. We design for scale, not just today.' },
+            { icon: Fingerprint, num: '05', title: 'Ownership mindset',  desc: 'We treat your product as our own — with care, pride, and full accountability.' },
           ].map((value, i) => {
             const Icon = value.icon;
             return (
               <div
                 key={i}
-                className="value-card group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 cursor-default"
-                style={{ '--accent': value.color } as React.CSSProperties}
+                className="group relative overflow-hidden rounded-2xl p-8 border border-border/50 bg-card/40 hover:border-primary/35 hover:bg-card transition-all duration-500 hover:-translate-y-1 cursor-default"
               >
-                {/* Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] to-[#050816] rounded-2xl border border-[#1a1d2e] group-hover:border-[color:var(--accent)] transition-colors duration-500" />
-
-                {/* Glow on hover */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-3xl" style={{ background: value.color }} />
-
-                {/* Large background number */}
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.03] group-hover:text-white/[0.06] transition-all duration-700 select-none pointer-events-none">
+                {/* Glow */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-15 transition-opacity duration-700 blur-3xl bg-primary" />
+                {/* Index watermark */}
+                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-all duration-700 select-none pointer-events-none">
                   {value.num}
                 </span>
-
                 <div className="relative z-10 flex items-start gap-6">
-                  {/* Icon with colored ring */}
-                  <div className="w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-500" style={{ background: `${value.color}10`, border: `1px solid ${value.color}25` }}>
-                    <Icon size={24} style={{ color: value.color }} className="opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center bg-primary/10 border border-primary/20">
+                    <Icon size={22} className="text-primary opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-
                   <div>
-                    <h3 className="text-xl font-bold text-[#E5E7EB] mb-3 group-hover:text-white transition-colors duration-300">
+                    <h3 className="text-xl font-black tracking-tight text-foreground mb-3 group-hover:text-white transition-colors duration-300">
                       {value.title}
                     </h3>
-                    <p className="text-sm text-[#6B7280] leading-relaxed group-hover:text-[#9CA3AF] transition-colors duration-300">
+                    <p className="text-sm text-muted-foreground/60 leading-relaxed group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {value.desc}
                     </p>
                   </div>
@@ -769,32 +619,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="px-8 lg:px-16">
-        <div className="divider-light max-w-6xl mx-auto" />
-      </div>
-
-      {/* 8. CLOSING CTA */}
-      <section className="px-8 lg:px-16 py-32 max-w-4xl mx-auto text-center">
-        <div data-fade>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-[#E5E7EB]">
-            Let's build something that actually works.
-          </h2>
-          <p className="text-lg text-[#9CA3AF] mb-12 max-w-2xl mx-auto leading-relaxed">
-            If you're looking for a reliable tech partner — not just another vendor — we should talk.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="button-primary">
-              Book a free discovery call
-            </button>
-            <button className="button-secondary">
-              Contact us
-            </button>
+      {/* ── CLOSING CTA ── */}
+      <section className="py-20 border-t border-border/40">
+        <div className="max-w-6xl mx-auto px-8 lg:px-16">
+          <div
+            className="rounded-2xl border border-border/50 bg-card/40 px-10 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+            data-fade
+          >
+            <div>
+              <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Ready to build?</p>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground leading-tight mb-4">
+                Let's build something<br />
+                <span className="text-primary">that actually works.</span>
+              </h2>
+              <p className="text-muted-foreground/60 text-[14px] leading-relaxed max-w-md">
+                If you're looking for a reliable tech partner — not just another vendor — we should talk.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 shrink-0">
+              <button
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
+                className="px-8 py-3.5 rounded-lg text-sm font-bold hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap"
+                style={{ background: 'hsl(186, 80%, 42%)', color: '#02040A', boxShadow: '0 8px 30px -6px hsl(186 80% 42% / 0.4)' }}
+              >
+                Book a free discovery call
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
+                className="px-8 py-3.5 rounded-lg border border-border/60 text-muted-foreground text-sm font-medium hover:border-primary/40 hover:text-foreground transition-all duration-300 whitespace-nowrap"
+              >
+                Contact us
+              </button>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer spacing */}
-      <div className="h-24" />
 
       <Footer />
     </div>

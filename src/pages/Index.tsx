@@ -13,7 +13,7 @@ import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#02040A' }}>
+    <div className="min-h-screen bg-background">
       <SEO />
       <Header />
       <main>

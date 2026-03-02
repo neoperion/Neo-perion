@@ -25,25 +25,22 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const HowItWorks = () => {
   return (
-    <section className="py-20 md:py-32" style={{ backgroundColor: '#02040A' }}>
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">Our Process</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Our Process</p>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-foreground">
             How working with <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> works
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground/70 text-[15px] leading-relaxed">
             A simple, transparent process from first contact to ongoing partnership
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <div key={step.number} className="relative h-full">
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute "></div>
-              )}
-              <div className="relative rounded-lg h-full">
+              <div className="relative rounded-xl h-full">
                 <GlowingEffect
                   spread={40}
                   glow={true}
@@ -52,10 +49,10 @@ export const HowItWorks = () => {
                   inactiveZone={0.01}
                   borderWidth={2}
                 />
-                <div className="space-y-4 relative z-10 p-6 rounded-lg border border-border h-full flex flex-col">
-                  <div className="text-5xl font-bold text-primary/60">{step.number}</div>
-                  <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed flex-grow">
+                <div className="relative z-10 p-6 rounded-xl border border-border/60 h-full flex flex-col gap-3">
+                  <div className="text-[52px] font-black leading-none text-primary/15 select-none">{step.number}</div>
+                  <h3 className="text-[17px] font-black tracking-tight text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground/70 text-[13.5px] leading-relaxed flex-grow">
                     {step.description}
                   </p>
                 </div>

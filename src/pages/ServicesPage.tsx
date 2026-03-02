@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ArrowRight, BarChart3, Shield, Code2, Zap, Users, CheckCircle2, ExternalLink } from 'lucide-react';
+import { ArrowRight, BarChart3, Code2, Zap, Users, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -21,6 +21,9 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
+    // Unified accent color — all cards use the theme primary
+    const accent = 'hsl(186, 80%, 42%)';
+
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!cardRef.current) return;
         const rect = cardRef.current.getBoundingClientRect();
@@ -33,11 +36,8 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
     return (
         <div
             ref={cardRef}
-            className={`group relative rounded-3xl cursor-pointer transition-all duration-700 ease-out overflow-hidden ${isLarge ? 'md:col-span-2 md:row-span-2' : ''
-                }`}
-            style={{
-                minHeight: isLarge ? '420px' : '280px',
-            }}
+            className={`group relative rounded-2xl cursor-pointer transition-all duration-700 ease-out overflow-hidden ${isLarge ? 'md:col-span-2 md:row-span-2' : ''}`}
+            style={{ minHeight: isLarge ? '420px' : '280px' }}
             onClick={() => navigate(`/services/${service.slug}`)}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
@@ -45,12 +45,12 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
             data-fade
         >
             {/* Animated gradient border */}
-            <div className="absolute inset-0 rounded-3xl p-[1px] overflow-hidden">
+            <div className="absolute inset-0 rounded-2xl p-[1px] overflow-hidden">
                 <div
                     className="absolute inset-0 transition-opacity duration-500"
                     style={{
                         background: isHovered
-                            ? `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, ${service.color}50, transparent 50%)`
+                            ? `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, ${accent}50, transparent 50%)`
                             : 'transparent',
                         opacity: isHovered ? 1 : 0,
                     }}
@@ -58,12 +58,12 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
             </div>
 
             {/* Card body */}
-            <div className="absolute inset-[1px] rounded-3xl bg-gradient-to-br from-[#0c1222] via-[#080e1c] to-[#060a14] overflow-hidden">
+            <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-card via-card/90 to-background overflow-hidden">
                 {/* Floating orb → follows mouse on hover */}
                 <div
                     className="absolute w-[200px] h-[200px] rounded-full transition-all duration-700 blur-[80px] pointer-events-none"
                     style={{
-                        background: service.color,
+                        background: accent,
                         opacity: isHovered ? 0.12 : 0.04,
                         left: isHovered ? `calc(${mousePos.x}% - 100px)` : '-40px',
                         top: isHovered ? `calc(${mousePos.y}% - 100px)` : '-40px',
@@ -78,7 +78,7 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
                         lineHeight: 1,
                         right: isLarge ? '20px' : '10px',
                         bottom: isLarge ? '-30px' : '-25px',
-                        color: service.color,
+                        color: accent,
                         opacity: isHovered ? 0.08 : 0.03,
                     }}
                 >
@@ -93,55 +93,52 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
                             <div
                                 className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
                                 style={{
-                                    background: `linear-gradient(135deg, ${service.color}18, ${service.color}08)`,
-                                    border: `1px solid ${service.color}25`,
-                                    boxShadow: isHovered ? `0 0 24px -4px ${service.color}30` : 'none',
+                                    background: `linear-gradient(135deg, ${accent}18, ${accent}08)`,
+                                    border: `1px solid ${accent}25`,
+                                    boxShadow: isHovered ? `0 0 24px -4px ${accent}30` : 'none',
                                 }}
                             >
-                                <Icon size={24} style={{ color: service.color }} />
+                                <Icon size={24} style={{ color: accent }} />
                             </div>
 
                             <div
-                                className="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-500 opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0"
-                                style={{ borderColor: `${service.color}40`, background: `${service.color}10` }}
+                                className="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-500 ease-out opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0"
+                                style={{ borderColor: `${accent}40`, background: `${accent}10` }}
                             >
-                                <ExternalLink size={14} style={{ color: service.color }} />
+                                <ExternalLink size={14} style={{ color: accent }} />
                             </div>
                         </div>
 
                         {/* Tagline */}
-                        <p
-                            className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
-                            style={{ color: '#00d4ff', opacity: 0.8 }}
-                        >
+                        <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-2 text-primary/60 group-hover:text-primary/80 transition-colors duration-300">
                             {service.tagline}
                         </p>
 
                         {/* Title */}
-                        <h3 className={`font-bold text-white mb-3 transition-colors duration-300 ${isLarge ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>
+                        <h3 className={`font-bold text-foreground/90 mb-3 tracking-tight transition-colors duration-300 group-hover:text-white ${isLarge ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>
                             {service.title}
                         </h3>
 
                         {/* Description — only on large cards */}
                         {isLarge && (
-                            <p className="text-sm text-[#00d4ff]/60 leading-relaxed mb-6 max-w-lg group-hover:text-[#00d4ff]/80 transition-colors duration-500">
+                            <p className="text-sm text-muted-foreground/70 leading-relaxed mb-6 max-w-lg group-hover:text-foreground/70 transition-colors duration-500">
                                 {service.shortDescription}
                             </p>
                         )}
 
-                        {/* Feature chips — show on large cards, or on hover for small */}
+                        {/* Feature chips */}
                         <div className={`flex flex-wrap gap-2 ${isLarge ? '' : 'mt-3'}`}>
                             {service.features.slice(0, isLarge ? 4 : 2).map((f, j) => (
                                 <span
                                     key={j}
-                                    className="inline-flex items-center gap-1.5 text-[11px] font-medium px-3 py-1.5 rounded-full transition-all duration-300"
+                                    className="inline-flex items-center gap-1 text-[11px] font-medium px-3 py-1.5 rounded-full transition-all duration-300"
                                     style={{
-                                        background: `${service.color}08`,
-                                        border: `1px solid ${service.color}15`,
-                                        color: `${service.color}cc`,
+                                        background: `${accent}08`,
+                                        border: `1px solid ${accent}15`,
+                                        color: `${accent}cc`,
                                     }}
                                 >
-                                    <CheckCircle2 size={10} style={{ color: service.color }} />
+                                    <CheckCircle2 size={10} style={{ color: accent }} />
                                     {f.title}
                                 </span>
                             ))}
@@ -150,16 +147,12 @@ function BentoCard({ service, index, isLarge, navigate }: { service: typeof serv
 
                     {/* Bottom: learn more */}
                     <div className="flex items-center gap-2 mt-4">
-                        <span
-                            className="text-sm font-medium transition-all duration-300 group-hover:tracking-wide"
-                            style={{ color: '#00d4ff', opacity: 0.8 }}
-                        >
+                        <span className="text-sm font-medium text-primary/60 transition-colors duration-300 group-hover:text-primary">
                             Explore service
                         </span>
                         <ArrowRight
                             size={14}
-                            className="transition-all duration-500 group-hover:translate-x-2"
-                            style={{ color: '#00d4ff', opacity: 0.8 }}
+                            className="text-primary/60 transition-all duration-400 ease-out group-hover:text-primary group-hover:translate-x-1.5"
                         />
                     </div>
                 </div>
@@ -187,11 +180,10 @@ export default function ServicesPage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Bento layout: indices 0, 3, 6 are large
     const isLargeCard = (i: number) => i === 0 || i === 4;
 
     return (
-        <div className="bg-[#02040A] text-[#E5E7EB]">
+        <div className="bg-background text-foreground">
             <SEO
                 title="Services - NEO PERION | UI/UX, SaaS, Web Modernization, AI, Data Analytics & Digital Marketing"
                 description="Explore NEO PERION's full range of services: UI/UX Design, Custom SaaS Solutions, Web & App Modernization, Data Analytics, Mobile Development, AI Automation, and Digital Marketing."
@@ -231,10 +223,10 @@ export default function ServicesPage() {
             <Header />
 
             {/* ═══════ HERO ═══════ */}
-            <section className="min-h-[75vh] flex items-center justify-center px-8 lg:px-16 py-36 bg-gradient-to-b from-[#050816] via-[#030710] to-[#02040A] relative overflow-hidden">
+            <section className="min-h-[80vh] flex items-center pt-32 pb-20 px-8 lg:px-16 bg-gradient-to-br from-card to-background relative overflow-hidden">
                 <div className="absolute inset-0 w-full h-full opacity-15 pointer-events-auto">
                     <FloatingLines
-                        linesGradient={['#00d4ff', '#0099cc', '#006699']}
+                        linesGradient={['#15b0c1', '#0d8fa0', '#0a6e7c']}
                         enabledWaves={['middle', 'bottom']}
                         lineCount={[8, 6]}
                         lineDistance={[3, 4]}
@@ -251,42 +243,47 @@ export default function ServicesPage() {
                     />
                 </div>
 
-                <div className="max-w-3xl relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00d4ff]/20 bg-[#00d4ff]/5 text-[#00d4ff]/80 text-xs font-medium tracking-wider uppercase mb-8 animate-hero-subtext" style={{ animationDelay: '0s' }}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-                        Our Services
-                    </div>
+                <div className="max-w-6xl mx-auto relative z-10 w-full">
+                    <div className="max-w-2xl">
+                        <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-primary/70 mb-6 animate-hero-subtext">
+                            Our Services
+                        </p>
 
-                    <h1 className="text-5xl lg:text-7xl font-black leading-[1.05] mb-6 animate-hero-headline">
-                        <span className="text-white">Solutions that</span>
-                        <br />
-                        <span className="bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#f97316] text-transparent bg-clip-text">
-                            drive growth
-                        </span>
-                    </h1>
+                        <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-none mb-6 text-foreground animate-hero-headline">
+                            Solutions that<br />
+                            <span className="text-primary">drive growth</span>
+                        </h1>
 
-                    <p className="text-lg text-[#00d4ff]/60 mb-10 leading-relaxed max-w-xl mx-auto animate-hero-subtext">
-                        From design to deployment — we build, modernize, and scale software systems that move your business forward.
-                    </p>
+                        <p className="text-[15px] text-muted-foreground/70 mb-10 leading-relaxed animate-hero-subtext">
+                            From design to deployment — we build, modernize, and scale software systems that move your business forward.
+                        </p>
 
-                    <div className="flex gap-4 justify-center animate-hero-cta">
-                        <button
-                            onClick={() => { navigate('/'); setTimeout(() => { document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }, 100); }}
-                            className="group px-7 py-3.5 bg-white text-[#02040A] rounded-xl text-sm font-bold hover:bg-[#E5E7EB] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(255,255,255,0.15)] flex items-center gap-2"
-                        >
-                            Start a project
-                            <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
-                        </button>
+                        <div className="flex flex-wrap gap-4 animate-hero-cta">
+                            <button
+                                onClick={() => { navigate('/'); setTimeout(() => { document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }, 100); }}
+                                className="group px-7 py-3.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
+                                style={{ background: 'hsl(186, 80%, 42%)', color: '#02040A', boxShadow: '0 8px 30px -6px hsl(186 80% 42% / 0.4)' }}
+                            >
+                                Start a project
+                                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                            </button>
+                            <button
+                                onClick={() => navigate('/about')}
+                                className="px-7 py-3.5 rounded-xl text-sm font-medium text-muted-foreground border border-border/60 hover:border-primary/40 hover:text-foreground hover:bg-primary/5 transition-all duration-300"
+                            >
+                                Learn about us
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* ═══════ SCROLLING MARQUEE ═══════ */}
-            <div className="overflow-hidden border-y border-[#1a1d2e]/50 py-4 bg-[#050816]/30">
+            <div className="overflow-hidden border-y border-border/50 py-4 bg-card/30">
                 <div className="flex animate-marquee whitespace-nowrap">
                     {[...servicesData, ...servicesData].map((s, i) => (
-                        <span key={i} className="inline-flex items-center gap-3 mx-8 text-sm font-medium text-[#00d4ff]/30">
-                            <span className="w-1 h-1 rounded-full" style={{ background: s.color }} />
+                        <span key={i} className="inline-flex items-center gap-3 mx-8 text-sm font-medium text-muted-foreground/50">
+                            <span className="w-1 h-1 rounded-full bg-primary/50" />
                             {s.title}
                         </span>
                     ))}
@@ -297,12 +294,9 @@ export default function ServicesPage() {
             <section className="px-6 lg:px-12 py-28 max-w-7xl mx-auto">
                 <div className="flex items-end justify-between mb-16" data-fade>
                     <div>
-                        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#00d4ff]/80 mb-3">What we build</p>
-                        <h2 className="text-4xl lg:text-5xl font-black text-white">Our Services</h2>
+                        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary/80 mb-3">What we build</p>
+                        <h2 className="text-4xl lg:text-5xl font-black text-foreground">Our Services</h2>
                     </div>
-                    <p className="text-sm text-[#00d4ff]/50 max-w-xs hidden lg:block leading-relaxed">
-                        Click any service to explore capabilities, process, and technologies in detail.
-                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
@@ -320,71 +314,68 @@ export default function ServicesPage() {
 
             {/* ═══════ DIVIDER ═══════ */}
             <div className="px-8 lg:px-16">
-                <div className="h-[1px] bg-gradient-to-r from-transparent via-[#1a1d2e] to-transparent max-w-6xl mx-auto" />
+                <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent max-w-6xl mx-auto" />
             </div>
 
             {/* ═══════ PROCESS ═══════ */}
             <section className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
-                <div className="text-center mb-20" data-fade>
-                    <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#00d4ff]/80 mb-3">How it works</p>
-                    <h2 className="text-4xl lg:text-5xl font-black text-white">Our Process</h2>
+                <div className="text-center mb-16" data-fade>
+                    <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary/80 mb-3">How it works</p>
+                    <h2 className="text-4xl lg:text-5xl font-black text-foreground">Our Process</h2>
                 </div>
 
-                <div className="relative" data-fade>
-                    {/* Connecting line */}
-                    <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#1a1d2e] to-transparent -translate-y-1/2" />
+                <div data-fade>
+                    {processSteps.map((step, i) => {
+                        const StepIcon = step.icon;
+                        const isLast = i === processSteps.length - 1;
+                        return (
+                            <div key={i} className="group relative">
+                                {/* Top divider */}
+                                <div className="h-px bg-border/50 group-hover:bg-primary/20 transition-colors duration-500" />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {processSteps.map((step, i) => {
-                            const StepIcon = step.icon;
-                            return (
-                                <div key={i} className="group relative text-center p-8 rounded-2xl border border-[#1a1d2e]/60 bg-[#060a14]/80 hover:border-[#00d4ff]/20 hover:bg-[#0c1222] transition-all duration-500 hover:-translate-y-1 backdrop-blur-sm">
-                                    <span className="text-[56px] font-black leading-none text-white/[0.02] group-hover:text-[#00d4ff]/[0.06] transition-all duration-700 absolute top-2 right-4 select-none pointer-events-none">
-                                        {step.num}
-                                    </span>
-                                    <div className="relative z-10">
-                                        <div className="w-12 h-12 rounded-xl bg-[#00d4ff]/8 border border-[#00d4ff]/15 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#00d4ff]/12 group-hover:border-[#00d4ff]/30 group-hover:shadow-[0_0_24px_-6px_rgba(0,212,255,0.2)] transition-all duration-500">
-                                            <StepIcon size={20} className="text-[#00d4ff] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-                                        </div>
-                                        <h3 className="text-base font-bold text-white/90 mb-2 group-hover:text-white transition-colors duration-300">{step.title}</h3>
-                                        <p className="text-[13px] text-[#00d4ff]/60 leading-relaxed group-hover:text-[#00d4ff]/80 transition-colors duration-300">{step.desc}</p>
+                                {/* Left accent bar */}
+                                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-transparent group-hover:bg-primary/40 transition-all duration-500 rounded-r-full" />
+
+                                {/* Row */}
+                                <div className="flex items-center gap-6 lg:gap-10 py-7 pl-6 pr-4 group-hover:bg-primary/[0.025] transition-colors duration-300 rounded-r-xl">
+
+                                    {/* Step number */}
+                                    <div className="shrink-0 w-16 lg:w-20">
+                                        <span className="block text-[9px] font-bold tracking-[0.3em] uppercase text-muted-foreground/25 group-hover:text-primary/40 transition-colors duration-500 mb-0.5">
+                                            Step
+                                        </span>
+                                        <span className="text-[52px] lg:text-[64px] font-black text-foreground/[0.05] group-hover:text-primary/[0.13] transition-colors duration-700 leading-none select-none">
+                                            {step.num}
+                                        </span>
+                                    </div>
+
+                                    {/* Vertical separator */}
+                                    <div className="hidden lg:block w-px self-stretch bg-border/30 shrink-0 group-hover:bg-primary/15 transition-colors duration-500" />
+
+                                    {/* Title */}
+                                    <div className="shrink-0 lg:w-52">
+                                        <h3 className="text-lg lg:text-xl font-bold text-foreground/80 tracking-tight group-hover:text-foreground transition-colors duration-300">
+                                            {step.title}
+                                        </h3>
+                                    </div>
+
+                                    {/* Description — desktop inline */}
+                                    <p className="hidden lg:block flex-1 text-[13px] text-muted-foreground/65 leading-relaxed group-hover:text-foreground/65 transition-colors duration-300">
+                                        {step.desc}
+                                    </p>
+
+                                    {/* Icon */}
+                                    <div className="shrink-0 ml-auto lg:ml-0 w-11 h-11 rounded-xl bg-card border border-border/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/25 group-hover:shadow-[0_0_16px_-4px_hsl(186_80%_42%_/_0.18)] transition-all duration-500">
+                                        <StepIcon size={17} className="text-primary/50 group-hover:text-primary group-hover:opacity-100 transition-all duration-500" />
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
 
-            {/* ═══════ DIVIDER ═══════ */}
-            <div className="px-8 lg:px-16">
-                <div className="h-[1px] bg-gradient-to-r from-transparent via-[#1a1d2e] to-transparent max-w-6xl mx-auto" />
-            </div>
+                                {/* Mobile description */}
+                                <p className="lg:hidden text-[12px] text-muted-foreground/65 leading-relaxed pl-6 pb-5 pr-4">
+                                    {step.desc}
+                                </p>
 
-            {/* ═══════ WHY CHOOSE US ═══════ */}
-            <section className="px-8 lg:px-16 py-28 max-w-6xl mx-auto">
-                <div className="text-center mb-16" data-fade>
-                    <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#00d4ff]/80 mb-3">Why NEO PERION</p>
-                    <h2 className="text-4xl lg:text-5xl font-black text-white">Why teams choose us</h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-fade>
-                    {[
-                        { icon: Shield, title: "Reliable & Stable", desc: "We build systems that don't break. Stability is engineered into everything we deliver.", color: "#10b981" },
-                        { icon: Zap, title: "Fast Execution", desc: "From kickoff to launch in weeks, not months. We move fast without cutting corners.", color: "#f59e0b" },
-                        { icon: Users, title: "Long-term Partners", desc: "We don't disappear after launch. Support, iteration, and scaling are part of the deal.", color: "#a855f7" },
-                    ].map((item, i) => {
-                        const ItemIcon = item.icon;
-                        return (
-                            <div key={i} className="group text-center p-8 rounded-2xl border border-[#1a1d2e]/60 bg-[#060a14]/80 hover:bg-[#0c1222] transition-all duration-500 hover:-translate-y-1">
-                                <div
-                                    className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110"
-                                    style={{ background: `${item.color}10`, border: `1px solid ${item.color}20` }}
-                                >
-                                    <ItemIcon size={22} style={{ color: item.color }} className="opacity-80 group-hover:opacity-100 transition-opacity" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white/90 mb-3 group-hover:text-white transition-colors">{item.title}</h3>
-                                <p className="text-[13px] text-[#00d4ff]/60 leading-relaxed group-hover:text-[#00d4ff]/80 transition-colors">{item.desc}</p>
+                                {isLast && <div className="h-px bg-border/50" />}
                             </div>
                         );
                     })}
@@ -394,22 +385,22 @@ export default function ServicesPage() {
             {/* ═══════ CTA ═══════ */}
             <section className="px-8 lg:px-16 py-28 max-w-4xl mx-auto text-center">
                 <div data-fade>
-                    <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                    <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
                         Ready to build something great?
                     </h2>
-                    <p className="text-lg text-[#00d4ff]/60 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
                         Tell us about your project — we'll get back within 24 hours with a clear plan and honest timeline.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button
                             onClick={() => { navigate('/'); setTimeout(() => { document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }, 100); }}
-                            className="group px-7 py-3.5 bg-white text-[#02040A] rounded-xl text-sm font-bold hover:bg-[#E5E7EB] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(255,255,255,0.15)] flex items-center gap-2 justify-center"
+                            className="group px-7 py-3.5 bg-foreground text-background rounded-xl text-sm font-bold hover:bg-foreground/90 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(255,255,255,0.15)] flex items-center gap-2 justify-center"
                         >
                             Start a project <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
                         <button
                             onClick={() => navigate('/about')}
-                            className="px-7 py-3.5 text-[#00d4ff]/70 border border-[#00d4ff]/20 rounded-xl text-sm font-medium hover:border-[#00d4ff]/40 hover:text-white hover:bg-[#00d4ff]/10 transition-all duration-300"
+                            className="px-7 py-3.5 text-muted-foreground border border-border hover:border-primary/30 rounded-xl text-sm font-medium hover:text-foreground hover:bg-primary/5 transition-all duration-300"
                         >
                             Learn about us
                         </button>

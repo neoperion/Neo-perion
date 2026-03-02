@@ -43,13 +43,17 @@ export const Hero = () => {
           {/* Left Content */}
           <div className="space-y-8 fade-in">
 
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
-              Where Quality {" "}
-              <span className="gradient-text">Isn’t a Trend-</span>It’s How It’s Always Been Done.
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-primary/70">
+              NEO PERION
+            </p>
 
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight text-foreground">
+              Where Quality{" "}
+              <span className="gradient-text">Isn’t a Trend —</span>{" "}
+              It’s How It’s Always Been Done.
             </h1>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-lg text-muted-foreground/75 leading-relaxed max-w-xl">
               Solutions that run smooth, clients that stay loyal, results that speak louder than marketing.
               We build it, launch it, and support you every step.
             </p>
@@ -58,7 +62,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("#contact")}
-                className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-lg shadow-glow transition-all duration-300 hover:scale-102"
+                className="bg-primary hover:bg-primary-glow text-primary-foreground font-bold text-base shadow-glow transition-all duration-300 hover:scale-102"
               >
                 Get Started with NEO PERION
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -67,23 +71,23 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("#services")}
-                className="font-semibold text-lg border-2 border-muted-foreground/30 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                className="font-semibold text-base border border-border/60 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               >
                 View Services
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4">
+            <div className="flex flex-wrap gap-6 text-[13px] text-muted-foreground/60 pt-2">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 <span>No long-term contracts</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 <span>Transparent pricing</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 <span>Human support</span>
               </div>
             </div>

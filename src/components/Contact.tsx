@@ -76,15 +76,15 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
+    <section id="contact" className="py-20 md:py-32 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-wider text-muted-foreground mb-3">Get In Touch</p>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Get In Touch</p>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-foreground">
               Let's build with <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-muted-foreground/70 text-[15px] leading-relaxed">
               Ready to transform your operations? Reach out for a free consultation.
             </p>
           </div>
@@ -93,7 +93,7 @@ export const Contact = () => {
             {/* Left: Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-foreground">What happens next?</h3>
+                <h3 className="text-xl font-black tracking-tight mb-4 text-foreground">What happens next?</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />

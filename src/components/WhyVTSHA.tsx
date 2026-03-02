@@ -11,28 +11,28 @@ const benefits = [
 
 export const WhyVTSHA = () => {
   return (
-    <section id="why-vtsha" className="py-20 md:py-32" style={{ backgroundColor: '#050816' }}>
+    <section id="why-vtsha" className="py-20 md:py-32 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-wider text-[#00d4ff]/80">Why Us</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70">Why Us</p>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
               Why choose <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>?
             </h2>
-            <p className="text-lg text-[#00d4ff]/60 leading-relaxed">
+            <p className="text-[15px] text-muted-foreground/70 leading-relaxed">
               We believe technology should empower growth, not complicate it.
               Our approach focuses on delivering simple, stable, and scalable solutions
               while building lasting partnerships with our clients.
             </p>
-            <p className="text-lg text-[#00d4ff]/60 leading-relaxed">
+            <p className="text-[15px] text-muted-foreground/70 leading-relaxed">
               Every team deserves clarity in their tech decisions and reliability
               in their service providers. That's the foundation we build on.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {benefits.map((benefit) => (
-              <div key={benefit} className="relative rounded-lg h-20">
+              <div key={benefit} className="relative rounded-xl h-[72px]">
                 <GlowingEffect
                   spread={40}
                   glow={true}
@@ -42,10 +42,10 @@ export const WhyVTSHA = () => {
                   borderWidth={2}
                 />
                 <div
-                  className="flex items-center gap-4 p-4 rounded-lg hover-lift border border-border transition-all duration-300 relative z-10 h-full"
+                  className="flex items-center gap-4 px-5 rounded-xl hover-lift border border-border/60 bg-background/50 transition-all duration-300 relative z-10 h-full"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0" />
-                  <p className="text-foreground">{benefit}</p>
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <p className="text-foreground/90 text-[14px]">{benefit}</p>
                 </div>
               </div>
             ))}
