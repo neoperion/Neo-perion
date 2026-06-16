@@ -1,44 +1,29 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { ScrollReveal } from "@/components/ScrollReveal";
+import { SocialProof } from "@/components/SocialProof";
+import { Metrics } from "@/components/Metrics";
 import { Services } from "@/components/Services";
-import { WhyNeoPerion } from "@/components/WhyVTSHA";
-import { UseCases } from "@/components/UseCases";
-import { HowItWorks } from "@/components/HowItWorks";
-import { FAQ } from "@/components/FAQ";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { WhyNeoPerion } from "@/components/WhyNeoPerion";
+import { Philosophy } from "@/components/Philosophy";
+import { HomeCTA } from "@/components/HomeCTA";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <SEO />
       <Header />
       <main>
         <Hero />
-        <ScrollReveal direction="left">
-          <Services />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <UseCases />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <HowItWorks />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <WhyNeoPerion />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <FAQ />
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <About />
-        </ScrollReveal>
-        <ScrollReveal direction="left">
-          <Contact />
-        </ScrollReveal>
+        <SocialProof />
+        <Metrics />
+        <Services />
+        <ProcessTimeline />
+        <WhyNeoPerion />
+        <Philosophy />
+        <HomeCTA />
       </main>
       <Footer />
     </div>

@@ -46,68 +46,11 @@ const NAV_DATA = {
       label: "BUILD WITH NEO PERION",
       title: "Transform your vision into a scalable digital product powered by AI.",
       buttonText: "Book Free Consultation →",
-      href: "#contact",
+      href: "/contact",
       icon: Rocket
     }
   },
-  Technologies: {
-    columns: [
-      {
-        title: "AI PLATFORMS",
-        items: [
-          { label: "Google Gemini", href: "/technologies/gemini", icon: Sparkles, description: "Multimodal AI solutions and intelligent assistants" },
-          { label: "OpenAI", href: "/technologies/openai", icon: Bot, description: "GPT-powered applications and automation" },
-          { label: "Claude", href: "/technologies/claude", icon: MessageSquare, description: "Advanced reasoning and enterprise AI" },
-          { label: "Llama", href: "/technologies/llama", icon: Box, description: "Open-source large language models" },
-          { label: "DeepSeek", href: "/technologies/deepseek", icon: Compass, description: "Efficient AI development and deployment" }
-        ]
-      },
-      {
-        title: "FRONTEND",
-        items: [
-          { label: "React", href: "/technologies/react", icon: Atom, description: "Modern component-based web applications" },
-          { label: "Next.js", href: "/technologies/nextjs", icon: Triangle, description: "SEO-friendly high-performance applications" },
-          { label: "TypeScript", href: "/technologies/typescript", icon: FileCode2, description: "Type-safe scalable development" },
-          { label: "Tailwind CSS", href: "/technologies/tailwind", icon: Paintbrush, description: "Utility-first UI development" }
-        ]
-      },
-      {
-        title: "BACKEND",
-        items: [
-          { label: "Node.js", href: "/technologies/nodejs", icon: Server, description: "Scalable server-side applications" },
-          { label: "Python", href: "/technologies/python", icon: Terminal, description: "AI and automation development" },
-          { label: "FastAPI", href: "/technologies/fastapi", icon: Zap, description: "High-performance API architecture" },
-          { label: "PostgreSQL", href: "/technologies/postgresql", icon: Database, description: "Enterprise-grade databases" }
-        ]
-      },
-      {
-        title: "CLOUD & DEVOPS",
-        items: [
-          { label: "AWS", href: "/technologies/aws", icon: Cloud, description: "Scalable cloud infrastructure" },
-          { label: "Azure", href: "/technologies/azure", icon: Cloud, description: "Enterprise cloud solutions" },
-          { label: "Google Cloud", href: "/technologies/gcp", icon: Cloud, description: "Cloud-native application deployment" },
-          { label: "Docker", href: "/technologies/docker", icon: Box, description: "Containerized environments" },
-          { label: "Kubernetes", href: "/technologies/kubernetes", icon: Network, description: "Container orchestration at scale" }
-        ]
-      },
-      {
-        title: "DATA & AI",
-        items: [
-          { label: "Vector Databases", href: "/technologies/vector-db", icon: Database, description: "AI memory and retrieval systems" },
-          { label: "LangChain", href: "/technologies/langchain", icon: Link, description: "LLM orchestration framework" },
-          { label: "RAG Pipelines", href: "/technologies/rag-pipelines", icon: GitMerge, description: "Retrieval augmented generation systems" },
-          { label: "AI Agents", href: "/technologies/ai-agents", icon: Bot, description: "Autonomous AI workflows" },
-          { label: "MLOps", href: "/technologies/mlops", icon: Settings, description: "Machine learning deployment pipelines" }
-        ]
-      }
-    ],
-    bottomCta: {
-      title: "TECHNOLOGY ECOSYSTEM",
-      description: "Explore our complete AI, Cloud, Data and Engineering capabilities.",
-      buttonText: "Explore Technologies →",
-      href: "/technologies"
-    }
-  },
+
   Industries: {
     columns: [
       {
@@ -205,13 +148,13 @@ const NAV_DATA = {
     cta: {
       label: "LET'S BUILD TOGETHER",
       buttonText: "Schedule a Call →",
-      href: "#contact"
+      href: "/contact"
     }
   }
 };
 
 type NavKey = keyof typeof NAV_DATA;
-const NAV_KEYS: NavKey[] = ["Services", "Technologies", "Industries", "Company"];
+const NAV_KEYS: NavKey[] = ["Services", "Industries", "Company"];
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -257,12 +200,11 @@ export const Header = () => {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-border/50 backdrop-blur-xl"
-      style={{ background: "rgba(2, 4, 10, 0.92)" }}
+      className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl"
       onMouseLeave={() => scheduleClose()}
     >
       {/* ── MAIN NAV ROW ── */}
-      <nav className="container mx-auto px-6 h-20 flex items-center justify-between gap-8">
+      <nav className="container mx-auto px-6 h-[72px] flex items-center justify-between gap-8">
         
         {/* Logo */}
         <a
@@ -270,8 +212,8 @@ export const Header = () => {
           onClick={(e) => { e.preventDefault(); handleNavigation("/"); }}
           className="flex items-center gap-2.5 shrink-0 cursor-pointer"
         >
-          <img src="/images/np-logo.png" alt="NP Logo" className="h-10 w-auto" />
-          <img src="/images/neo-perion-text.png" alt="NEO PERION" className="h-8 w-auto hidden sm:block" />
+          <img src="/images/np-logo.png" alt="Neo Perion Logo" className="w-8 h-8 object-contain" />
+          <img src="/images/neo-perion-text.png" alt="Neo Perion" className="h-4 md:h-5 object-contain mt-0.5" />
         </a>
 
         {/* Desktop Links */}
@@ -285,14 +227,14 @@ export const Header = () => {
                 else openDropdown(key);
               }}
               className={`relative flex items-center gap-1.5 px-4 py-2 text-[15px] font-semibold transition-colors duration-200 group ${
-                activeDropdown === key ? "text-cyan-400" : "text-slate-300 hover:text-white"
+                activeDropdown === key ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {key}
               <ChevronDown
                 size={14}
                 className={`opacity-50 transition-transform duration-200 ${
-                  activeDropdown === key ? "rotate-180 opacity-100 text-cyan-400" : ""
+                  activeDropdown === key ? "rotate-180 opacity-100 text-blue-600" : ""
                 }`}
               />
             </button>
@@ -302,14 +244,14 @@ export const Header = () => {
         {/* Desktop CTA & Mobile Hamburger */}
         <div className="flex items-center gap-4 shrink-0">
           <button
-            onClick={() => handleNavigation("#contact")}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-sm bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
+            onClick={() => handleNavigation("/contact")}
+            className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-sm bg-blue-600 hover:bg-blue-700 transition-all duration-300"
           >
             CONTACT <ArrowRight size={16} strokeWidth={3} />
           </button>
           
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 text-white hover:bg-white/5 rounded-lg transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className={`transition-transform duration-300 ${mobileMenuOpen ? "rotate-90" : "rotate-0"}`}>
@@ -332,20 +274,20 @@ export const Header = () => {
             onMouseLeave={() => scheduleClose()}
           >
             <div className="container mx-auto px-6">
-              <div className="bg-white rounded-[24px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] p-8 border border-slate-200/50">
+              <div className="bg-white rounded-[24px] shadow-2xl p-8 border border-slate-200">
                 <div className="flex flex-col">
-                  <div className={`flex gap-6 ${activeDropdown === 'Industries' || activeDropdown === 'Technologies' || activeDropdown === 'Services' ? 'divide-x divide-slate-100' : ''}`}>
+                  <div className={`flex gap-6 ${activeDropdown === 'Industries' || activeDropdown === 'Services' ? 'divide-x divide-slate-100' : ''}`}>
                     {/* Columns */}
                     {NAV_DATA[activeDropdown].columns.map((col: any, idx) => (
-                      <div key={idx} className={`flex-1 ${activeDropdown === 'Industries' || activeDropdown === 'Technologies' || activeDropdown === 'Services' ? 'pl-6 first:pl-0' : ''}`}>
+                      <div key={idx} className={`flex-1 ${activeDropdown === 'Industries' || activeDropdown === 'Services' ? 'pl-6 first:pl-0' : ''}`}>
                         {col.href ? (
                           <button onClick={() => handleNavigation(col.href)} className="block text-left mb-6 group w-full">
                             {col.icon && (
-                              <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-4 group-hover:bg-cyan-100 transition-colors">
+                              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
                                 <col.icon size={24} />
                               </div>
                             )}
-                            <h4 className="text-[13px] font-bold tracking-[0.1em] uppercase text-slate-900 group-hover:text-cyan-600 transition-colors">
+                            <h4 className="text-[13px] font-bold tracking-[0.1em] uppercase text-slate-900 group-hover:text-blue-600 transition-colors font-display">
                               {col.title}
                             </h4>
                             {col.description && (
@@ -357,11 +299,11 @@ export const Header = () => {
                         ) : (
                           <div className="mb-6">
                             {col.icon && (
-                              <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-4">
+                              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
                                 <col.icon size={24} />
                               </div>
                             )}
-                            <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-400">
+                            <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-500 font-display">
                               {col.title}
                             </h4>
                             {col.description && (
@@ -378,16 +320,16 @@ export const Header = () => {
                               <button
                                 key={item.label}
                                 onClick={() => handleNavigation(item.href)}
-                                className="group/item flex items-start justify-between gap-4 p-3 rounded-xl hover:bg-slate-50 hover:shadow-[inset_0_0_0_1px_rgba(6,182,212,0.2)] transition-all duration-300 w-full text-left"
+                                className="group/item flex items-start justify-between gap-4 p-3 rounded-xl hover:bg-slate-50 transition-all duration-300 w-full text-left"
                               >
                                 <div className="flex items-start gap-3">
                                   {Icon && (
-                                    <div className="mt-0.5 text-slate-400 group-hover/item:text-cyan-600 transition-colors shrink-0">
+                                    <div className="mt-0.5 text-slate-400 group-hover/item:text-blue-600 transition-colors shrink-0">
                                       <Icon size={20} strokeWidth={2} />
                                     </div>
                                   )}
                                   <div>
-                                    <span className="block text-[15px] font-bold text-slate-800 group-hover/item:text-cyan-700 group-hover/item:scale-[1.02] transition-transform origin-left duration-300">
+                                    <span className="block text-[15px] font-bold text-slate-700 group-hover/item:text-blue-600 transition-colors duration-300">
                                       {item.label}
                                     </span>
                                     {item.description && (
@@ -398,7 +340,7 @@ export const Header = () => {
                                   </div>
                                 </div>
                                 <div className="shrink-0 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 mt-0.5">
-                                  <ArrowRight size={18} className="text-cyan-600" />
+                                  <ArrowRight size={18} className="text-blue-600" />
                                 </div>
                               </button>
                             );
@@ -410,19 +352,16 @@ export const Header = () => {
                     {/* CTA Banner Column (if exists) */}
                     {(NAV_DATA[activeDropdown] as any).cta && (
                       <div className="w-80 shrink-0 border-l border-slate-100 pl-8 flex flex-col justify-stretch">
-                        <div className="bg-gradient-to-br from-[#0A0F24] via-blue-900 to-cyan-800 rounded-2xl p-8 text-white shadow-2xl h-full flex flex-col justify-between relative overflow-hidden group">
-                          {/* Decorative subtle background elements */}
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400 opacity-20 blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
-                          <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500 opacity-20 blur-2xl rounded-full transform -translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
+                        <div className="bg-slate-900 rounded-2xl p-8 text-white h-full flex flex-col justify-between relative overflow-hidden group">
                           
                           <div className="relative z-10">
-                            <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 backdrop-blur-md shadow-lg">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6">
                               {(() => {
                                 const CtaIcon = (NAV_DATA[activeDropdown] as any).cta.icon;
-                                return CtaIcon ? <CtaIcon size={24} className="text-cyan-300" /> : <Rocket size={24} className="text-cyan-300" />;
+                                return CtaIcon ? <CtaIcon size={24} className="text-blue-400" /> : <Rocket size={24} className="text-blue-400" />;
                               })()}
                             </div>
-                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-cyan-400 mb-3">
+                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-400 mb-3">
                               {(NAV_DATA[activeDropdown] as any).cta.label}
                             </p>
                             <h4 className="text-[22px] font-bold mb-4 leading-snug">
@@ -432,7 +371,7 @@ export const Header = () => {
                           
                           <button
                             onClick={() => handleNavigation((NAV_DATA[activeDropdown] as any).cta.href)}
-                            className="relative z-10 flex items-center justify-between w-full bg-white text-blue-900 px-5 py-3.5 rounded-xl font-bold text-[14px] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-[1.02] transition-all duration-300 mt-8 group/btn"
+                            className="relative z-10 flex items-center justify-between w-full bg-blue-600 text-white px-5 py-3.5 rounded-xl font-bold text-[14px] hover:bg-blue-500 transition-all duration-300 mt-8 group/btn"
                           >
                             {(NAV_DATA[activeDropdown] as any).cta.buttonText.replace(' →', '')}
                             <ArrowRight size={18} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -445,18 +384,18 @@ export const Header = () => {
                   {/* BOTTOM CTA BANNER */}
                   {(NAV_DATA[activeDropdown] as any).bottomCta && (
                     <div 
-                      className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between group cursor-pointer bg-white" 
+                      className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between group cursor-pointer bg-transparent" 
                       onClick={() => handleNavigation((NAV_DATA[activeDropdown] as any).bottomCta.href)}
                     >
                       <div className="flex items-center gap-6">
-                        <span className="text-[12px] font-bold tracking-[0.1em] uppercase text-slate-900">
+                        <span className="text-[12px] font-bold tracking-[0.1em] uppercase text-slate-900 font-display">
                           {(NAV_DATA[activeDropdown] as any).bottomCta.title}
                         </span>
                         <span className="text-[14px] text-slate-500 font-medium">
                           {(NAV_DATA[activeDropdown] as any).bottomCta.description}
                         </span>
                       </div>
-                      <button className="flex items-center gap-1.5 text-cyan-600 font-bold text-[14px] group-hover:text-cyan-700 transition-colors">
+                      <button className="flex items-center gap-1.5 text-blue-600 font-bold text-[14px] group-hover:text-blue-500 transition-colors">
                         <span className="group-hover:scale-[1.02] transition-transform origin-right">{(NAV_DATA[activeDropdown] as any).bottomCta.buttonText.replace(' →', '')}</span>
                         <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -476,20 +415,20 @@ export const Header = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-[#050816] border-t border-white/10"
+            className="md:hidden overflow-hidden bg-white border-t border-slate-100"
           >
             <div className="px-4 py-4 space-y-2 max-h-[80vh] overflow-y-auto">
               {NAV_KEYS.map((key) => (
-                <div key={key} className="border-b border-white/5 pb-2">
+                <div key={key} className="border-b border-slate-100 pb-2">
                   <button
                     onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
-                    className="w-full flex items-center justify-between py-3 px-2 text-white font-semibold"
+                    className="w-full flex items-center justify-between py-3 px-2 text-slate-900 font-bold"
                   >
                     {key}
                     <ChevronDown
                       size={18}
                       className={`transition-transform duration-300 ${
-                        mobileExpanded === key ? "rotate-180 text-cyan-400" : "opacity-50"
+                        mobileExpanded === key ? "rotate-180 text-blue-600" : "opacity-50"
                       }`}
                     />
                   </button>
@@ -505,7 +444,7 @@ export const Header = () => {
                         <div className="pl-4 pr-2 py-2 space-y-6">
                           {NAV_DATA[key].columns.map((col, idx) => (
                             <div key={idx}>
-                              <p className="text-[10px] font-bold tracking-widest uppercase text-cyan-500 mb-3 pl-2">
+                              <p className="text-[10px] font-bold tracking-widest uppercase text-blue-600 mb-3 pl-2">
                                 {col.title}
                               </p>
                               <div className="space-y-1">
@@ -513,7 +452,7 @@ export const Header = () => {
                                   <button
                                     key={item.label}
                                     onClick={() => handleNavigation(item.href)}
-                                    className="w-full text-left px-2 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-3"
+                                    className="w-full text-left px-2 py-2.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors flex items-center gap-3 font-semibold"
                                   >
                                     {item.icon && <item.icon size={16} className="opacity-50" />}
                                     {item.label}
@@ -531,8 +470,8 @@ export const Header = () => {
 
               <div className="pt-6 pb-4 px-2">
                 <button
-                  onClick={() => handleNavigation("#contact")}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-white font-bold text-sm bg-gradient-to-r from-cyan-600 to-blue-600 shadow-lg"
+                  onClick={() => handleNavigation("/contact")}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-white font-bold text-sm bg-blue-600 hover:bg-blue-700"
                 >
                   CONTACT <ArrowRight size={16} strokeWidth={3} />
                 </button>

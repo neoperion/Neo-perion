@@ -50,7 +50,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Manrope', 'Poppins', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter Tight', 'sans-serif'],
+        editorial: ['Instrument Serif', 'serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
