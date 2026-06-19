@@ -75,7 +75,7 @@ export const BlogPage: React.FC = () => {
 
           {blogsLoading ? (
             <div className="py-32 flex justify-center items-center">
-              <div className="w-8 h-8 rounded-full border-4 border-cyan-500/20 border-t-cyan-500 animate-spin" />
+              <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
             </div>
           ) : (
             <>

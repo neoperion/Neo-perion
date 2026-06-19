@@ -34,7 +34,7 @@ export const ServiceFaq: React.FC<Props> = ({ service }) => {
                 className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
               >
                 <span className="font-bold text-white pr-8">{faq.question}</span>
-                <ChevronDown className={`w-5 h-5 text-cyan-400 shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-5 h-5 text-neo-blue shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
               </button>
               
               <AnimatePresence>

@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+              <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-neo-blue to-neo-highlight">
                 Neo Perion
               </span>
             </Link>
@@ -23,11 +23,11 @@ export const Footer: React.FC = () => {
               Transforming ideas into enterprise-grade AI and scalable digital products.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors"><Instagram className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors"><Github className="h-5 w-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors"><Youtube className="h-5 w-5" /></a>
+              <a href="#" className="text-slate-400 hover:text-neo-blue transition-colors"><Linkedin className="h-5 w-5" /></a>
+              <a href="#" className="text-slate-400 hover:text-neo-blue transition-colors"><Twitter className="h-5 w-5" /></a>
+              <a href="#" className="text-slate-400 hover:text-neo-blue transition-colors"><Instagram className="h-5 w-5" /></a>
+              <a href="#" className="text-slate-400 hover:text-neo-blue transition-colors"><Github className="h-5 w-5" /></a>
+              <a href="#" className="text-slate-400 hover:text-neo-blue transition-colors"><Youtube className="h-5 w-5" /></a>
             </div>
           </div>
 
@@ -35,11 +35,11 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Services</h4>
             <ul className="space-y-4">
-              <li><Link to="/services/product-development" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Product Development</Link></li>
-              <li><Link to="/services/web-development" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Web Development</Link></li>
-              <li><Link to="/services/mobile-development" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Mobile Development</Link></li>
-              <li><Link to="/services/artificial-intelligence" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">AI Solutions</Link></li>
-              <li><Link to="/services/business-automation" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Business Automation</Link></li>
+              <li><Link to="/services/enterprise-product-engineering" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Product Engineering</Link></li>
+              <li><Link to="/services/cloud-native-web-platforms" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Web Platforms</Link></li>
+              <li><Link to="/services/mobile-product-engineering" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Mobile Engineering</Link></li>
+              <li><Link to="/services/ai-systems-automation" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">AI Systems</Link></li>
+              <li><Link to="/services/intelligent-operations-automation" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Business Automation</Link></li>
             </ul>
           </div>
 
@@ -47,10 +47,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Industries</h4>
             <ul className="space-y-4">
-              <li><Link to="/industries#education" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Education & EdTech</Link></li>
-              <li><Link to="/industries#startups" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Startups & Founders</Link></li>
-              <li><Link to="/industries#smbs" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">SMBs & Enterprise</Link></li>
-              <li><Link to="/industries#healthcare" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Healthcare</Link></li>
+              <li><Link to="/industries#education" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Education & EdTech</Link></li>
+              <li><Link to="/industries#startups" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Startups & Founders</Link></li>
+              <li><Link to="/industries#smbs" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">SMBs & Enterprise</Link></li>
+              <li><Link to="/industries#healthcare" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Healthcare</Link></li>
             </ul>
           </div>
 
@@ -58,11 +58,11 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Resources</h4>
             <ul className="space-y-4">
-              <li><Link to="/blog" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Blog</Link></li>
-              <li><Link to="/case-studies" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Case Studies</Link></li>
-              <li><Link to="/careers" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Careers</Link></li>
-              <li><Link to="/privacy" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">Terms of Service</Link></li>
+              <li><Link to="/blog" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Blog</Link></li>
+              <li><Link to="/case-studies" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Case Studies</Link></li>
+              <li><Link to="/careers" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Careers</Link></li>
+              <li><Link to="/privacy" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -71,8 +71,8 @@ export const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-6">Contact</h4>
             <ul className="space-y-4">
               <li className="text-slate-400 text-sm">Chennai, Tamil Nadu, India</li>
-              <li><a href="mailto:hello@neoperion.com" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">hello@neoperion.com</a></li>
-              <li><a href="tel:+919876543210" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">+91 98765 43210</a></li>
+              <li><a href="mailto:hello@neoperion.com" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">hello@neoperion.com</a></li>
+              <li><a href="tel:+919876543210" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">+91 98765 43210</a></li>
             </ul>
           </div>
         </div>
@@ -87,9 +87,9 @@ export const Footer: React.FC = () => {
             <Input 
               type="email" 
               placeholder="Enter your email" 
-              className="bg-slate-900 border-white/10 text-white min-w-[250px] focus:border-cyan-400/50"
+              className="bg-slate-900 border-white/10 text-white min-w-[250px] focus:border-neo-blue/50"
             />
-            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-slate-900">
+            <Button type="submit" className="bg-neo-blue hover:bg-neo-blue text-slate-900">
               Subscribe
             </Button>
           </form>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Neo Perion Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-slate-500">
-            <button onClick={() => setVisible(true)} className="hover:text-cyan-400 transition-colors">
+            <button onClick={() => setVisible(true)} className="hover:text-neo-blue transition-colors">
               Cookie Settings
             </button>
             <span>MIT License (Internal)</span>

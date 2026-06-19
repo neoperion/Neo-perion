@@ -24,7 +24,7 @@ export const IndustriesSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative h-80 rounded-2xl p-6 flex flex-col justify-end overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-md cursor-pointer hover:border-cyan-500/50 transition-colors"
+              className="group relative h-80 rounded-2xl p-6 flex flex-col justify-end overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-md cursor-pointer hover:border-neo-blue/50 transition-colors"
             >
               {/* Fallback gradient background for when images aren't present */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10" />
@@ -32,16 +32,16 @@ export const IndustriesSection: React.FC = () => {
 
               <div className="relative z-20">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-neo-blue transition-colors">
                     {industry.title}
                   </h3>
-                  <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-cyan-400 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-neo-blue transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                 </div>
                 
                 <ul className="space-y-2 mb-0">
                   {industry.solutions?.map((solution, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 group-hover:bg-cyan-400 transition-colors" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-neo-blue/50 group-hover:bg-neo-blue transition-colors" />
                       {solution}
                     </li>
                   ))}

@@ -24,7 +24,7 @@ export const BlogPost: React.FC = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#050816] flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-4 border-cyan-500/20 border-t-cyan-500 animate-spin" />
+        <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
       </div>
     );
   }
@@ -34,7 +34,7 @@ export const BlogPost: React.FC = () => {
       <div className="min-h-screen bg-[#050816] flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-white mb-4">Post Not Found</h1>
         <p className="text-slate-400 mb-8">The article you are looking for does not exist.</p>
-        <button onClick={() => navigate('/blog')} className="px-6 py-3 bg-cyan-500 text-slate-900 rounded-lg font-bold">
+        <button onClick={() => navigate('/blog')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
           Back to Blog
         </button>
       </div>
@@ -84,14 +84,14 @@ export const BlogPost: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
           <button 
             onClick={() => navigate('/blog')}
-            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors mb-8 group"
+            className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Articles
           </button>
 
           <div className="mb-12">
-            <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-cyan-400 text-sm font-bold rounded-full uppercase tracking-widest mb-6">
+            <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-neo-blue text-sm font-bold rounded-full uppercase tracking-widest mb-6">
               {blog.category}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">

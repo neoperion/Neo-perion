@@ -16,7 +16,7 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group relative bg-slate-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col h-full"
+      className="group relative bg-slate-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-neo-blue/50 transition-all flex flex-col h-full"
     >
       <Link to={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${post.title}`} />
       
@@ -28,14 +28,14 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0 }) => {
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-4 left-4 z-20">
-          <span className="px-3 py-1 bg-slate-900/80 backdrop-blur-md text-cyan-400 text-xs font-bold rounded-full uppercase tracking-wider">
+          <span className="px-3 py-1 bg-slate-900/80 backdrop-blur-md text-neo-blue text-xs font-bold rounded-full uppercase tracking-wider">
             {post.category}
           </span>
         </div>
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors line-clamp-2">
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neo-blue transition-colors line-clamp-2">
           {post.title}
         </h3>
         <p className="text-slate-400 text-sm mb-6 line-clamp-3 flex-grow">

@@ -42,7 +42,7 @@ export const ServiceHero: React.FC<Props> = ({ service }) => {
           className="flex justify-center mb-8"
         >
           <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md">
-            <Icon className="w-8 h-8 text-cyan-400" />
+            <Icon className="w-8 h-8 text-neo-blue" />
           </div>
         </motion.div>
 
@@ -69,7 +69,7 @@ export const ServiceHero: React.FC<Props> = ({ service }) => {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <button onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+          <button onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 rounded-xl bg-neo-blue hover:bg-neo-blue text-slate-900 font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]">
             Explore {service.title}
           </button>
         </motion.div>

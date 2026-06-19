@@ -11,14 +11,14 @@ export const WhyNeoPerion = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-4">Why Neo Perion</p>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Why Neo Perion</p>
             <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
-              An engineering partner <br /> built for the <span className="text-cyan-400">AI era</span>.
+              An engineering partner <br /> built for the <span className="text-neo-blue">AI era</span>.
             </h2>
           </div>
           <button 
             onClick={() => navigate('/contact')}
-            className="flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors group"
+            className="flex items-center gap-2 text-neo-blue font-bold hover:text-neo-blue transition-colors group"
           >
             Start your project <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -28,10 +28,10 @@ export const WhyNeoPerion = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px] md:auto-rows-[280px]">
           
           {/* AI Expertise - Large Square */}
-          <div className="md:col-span-2 md:row-span-2 rounded-3xl p-8 md:p-12 bg-gradient-to-br from-cyan-950/40 to-[#0A0F24] border border-cyan-500/20 hover:border-cyan-500/40 transition-colors flex flex-col relative overflow-hidden group">
-            <div className="absolute right-0 top-0 w-64 h-64 bg-cyan-500/10 blur-[80px] rounded-full group-hover:bg-cyan-500/20 transition-colors"></div>
-            <div className="h-16 w-16 bg-cyan-500/20 rounded-2xl flex items-center justify-center mb-8 border border-cyan-400/30">
-              <Brain className="h-8 w-8 text-cyan-400" />
+          <div className="md:col-span-2 md:row-span-2 rounded-3xl p-8 md:p-12 bg-gradient-to-br from-cyan-950/40 to-[#0A0F24] border border-neo-blue/20 hover:border-neo-blue/40 transition-colors flex flex-col relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-64 h-64 bg-neo-blue/10 blur-[80px] rounded-full group-hover:bg-neo-blue/20 transition-colors"></div>
+            <div className="h-16 w-16 bg-neo-blue/20 rounded-2xl flex items-center justify-center mb-8 border border-neo-blue/30">
+              <Brain className="h-8 w-8 text-neo-blue" />
             </div>
             <h3 className="text-3xl font-display font-bold text-white mb-4">Deep AI Expertise</h3>
             <p className="text-slate-400 text-lg leading-relaxed flex-grow">

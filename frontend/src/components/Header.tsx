@@ -15,30 +15,26 @@ const NAV_DATA = {
   Services: {
     columns: [
       {
-        title: "AI & Intelligence",
+        title: "AI & Automation",
         items: [
-          { label: "Artificial Intelligence", href: "/services/artificial-intelligence", icon: Brain, description: "AI-powered business solutions, automation and predictive analytics." },
-          { label: "Advanced AI", href: "/services/advanced-ai", icon: Sparkles, description: "Next-generation reasoning models and deep learning." },
-          { label: "AI Agents", href: "/services/ai-agents", icon: Bot, description: "Autonomous workflows and intelligent agent networks." },
-          { label: "RAG Systems", href: "/services/rag-systems", icon: Database, description: "Knowledge retrieval and contextual AI search." },
-          { label: "Machine Learning", href: "/services/machine-learning", icon: LineChart, description: "Custom predictive models and data forecasting." }
+          { label: "AI Systems", href: "/services/ai-systems-automation", icon: Brain, description: "RAG architectures and contextual AI integration." },
+          { label: "Deep AI Engineering", href: "/services/deep-ai-engineering", icon: Sparkles, description: "Custom fine-tuned models & neural networks." },
+          { label: "Intelligent Operations", href: "/services/intelligent-operations-automation", icon: Cog, description: "Business workflow automation and ROI scaling." }
         ]
       },
       {
-        title: "Development",
+        title: "Product Engineering",
         items: [
-          { label: "Product Development", href: "/services/product-development", icon: Blocks, description: "End-to-end digital product engineering." },
-          { label: "Web Development", href: "/services/web-development", icon: Code2, description: "High-performance web applications and portals." },
-          { label: "Mobile Development", href: "/services/mobile-development", icon: Smartphone, description: "Native and cross-platform mobile experiences." },
-          { label: "SaaS Development", href: "/services/saas-development", icon: Cloud, description: "Scalable B2B and B2C software architectures." }
+          { label: "Enterprise Product", href: "/services/enterprise-product-engineering", icon: Blocks, description: "End-to-end scalable product development." },
+          { label: "Cloud-Native Web", href: "/services/cloud-native-web-platforms", icon: Cloud, description: "High-performance, secure web applications." },
+          { label: "Mobile Engineering", href: "/services/mobile-product-engineering", icon: Smartphone, description: "Native & React Native mobile experiences." }
         ]
       },
       {
-        title: "Business Solutions",
+        title: "Strategic Consulting",
         items: [
-          { label: "Business Automation", href: "/services/business-automation", icon: Cog, description: "Streamlined operations and intelligent workflows." },
-          { label: "Startup Support", href: "/services/startup-support", icon: Rocket, description: "MVP engineering and technical foundation." },
-          { label: "Technical Consulting", href: "/services/technical-consulting", icon: Lightbulb, description: "Strategic architecture and digital transformation." }
+          { label: "Startup-to-Scale", href: "/services/startup-to-scale-engineering", icon: Rocket, description: "Fractional CTO & technical due diligence prep." },
+          { label: "All Services", href: "/services", icon: Lightbulb, description: "View our complete catalog of capabilities." }
         ]
       }
     ],
@@ -57,48 +53,48 @@ const NAV_DATA = {
         title: "EDUCATION & EDTECH",
         icon: GraduationCap,
         description: "AI-powered learning platforms, LMS systems, student analytics and educational technology solutions.",
-        href: "/industries#education",
+        href: "/industries/education",
         items: [
-          { label: "LMS Platforms", href: "/industries#education" },
-          { label: "Student Analytics", href: "/industries#education" },
-          { label: "AI Learning Assistants", href: "/industries#education" },
-          { label: "Assessment Systems", href: "/industries#education" }
+          { label: "LMS Platforms", href: "/industries/education" },
+          { label: "Student Analytics", href: "/industries/education" },
+          { label: "AI Learning Assistants", href: "/industries/education" },
+          { label: "Assessment Systems", href: "/industries/education" }
         ]
       },
       {
         title: "STARTUPS & FOUNDERS",
         icon: Rocket,
         description: "MVP development, SaaS platforms, startup engineering and technical consulting.",
-        href: "/industries#startups",
+        href: "/industries/startups",
         items: [
-          { label: "MVP Development", href: "/industries#startups" },
-          { label: "SaaS Platforms", href: "/industries#startups" },
-          { label: "Product Engineering", href: "/industries#startups" },
-          { label: "Startup Consulting", href: "/industries#startups" }
+          { label: "MVP Development", href: "/industries/startups" },
+          { label: "SaaS Platforms", href: "/industries/startups" },
+          { label: "Product Engineering", href: "/industries/startups" },
+          { label: "Startup Consulting", href: "/industries/startups" }
         ]
       },
       {
         title: "SMBs & ENTERPRISE",
         icon: Building2,
         description: "Business automation, digital transformation and operational efficiency solutions.",
-        href: "/industries#smb",
+        href: "/industries/smbs",
         items: [
-          { label: "Business Automation", href: "/industries#smb" },
-          { label: "CRM Systems", href: "/industries#smb" },
-          { label: "Analytics Dashboards", href: "/industries#smb" },
-          { label: "ERP Solutions", href: "/industries#smb" }
+          { label: "Business Automation", href: "/industries/smbs" },
+          { label: "CRM Systems", href: "/industries/smbs" },
+          { label: "Analytics Dashboards", href: "/industries/smbs" },
+          { label: "ERP Solutions", href: "/industries/smbs" }
         ]
       },
       {
         title: "HEALTHCARE",
         icon: HeartPulse,
         description: "Healthcare software, patient management systems and AI-powered healthcare solutions.",
-        href: "/industries#healthcare",
+        href: "/industries/healthcare",
         items: [
-          { label: "Patient Platforms", href: "/industries#healthcare" },
-          { label: "Telemedicine", href: "/industries#healthcare" },
-          { label: "AI Diagnostics", href: "/industries#healthcare" },
-          { label: "Healthcare Analytics", href: "/industries#healthcare" }
+          { label: "Patient Platforms", href: "/industries/healthcare" },
+          { label: "Telemedicine", href: "/industries/healthcare" },
+          { label: "AI Diagnostics", href: "/industries/healthcare" },
+          { label: "Healthcare Analytics", href: "/industries/healthcare" }
         ]
       }
     ],
@@ -227,14 +223,14 @@ export const Header = () => {
                 else openDropdown(key);
               }}
               className={`relative flex items-center gap-1.5 px-4 py-2 text-[15px] font-semibold transition-colors duration-200 group ${
-                activeDropdown === key ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+                activeDropdown === key ? "text-neo-blue" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {key}
               <ChevronDown
                 size={14}
                 className={`opacity-50 transition-transform duration-200 ${
-                  activeDropdown === key ? "rotate-180 opacity-100 text-blue-600" : ""
+                  activeDropdown === key ? "rotate-180 opacity-100 text-neo-blue" : ""
                 }`}
               />
             </button>
@@ -245,7 +241,7 @@ export const Header = () => {
         <div className="flex items-center gap-4 shrink-0">
           <button
             onClick={() => handleNavigation("/contact")}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-sm bg-blue-600 hover:bg-blue-700 transition-all duration-300"
+            className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-sm bg-neo-blue hover:bg-neo-highlight transition-all duration-300"
           >
             CONTACT <ArrowRight size={16} strokeWidth={3} />
           </button>
@@ -283,11 +279,11 @@ export const Header = () => {
                         {col.href ? (
                           <button onClick={() => handleNavigation(col.href)} className="block text-left mb-6 group w-full">
                             {col.icon && (
-                              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                              <div className="w-12 h-12 rounded-xl bg-neo-blue/10 text-neo-blue flex items-center justify-center mb-4 group-hover:bg-neo-blue/20 transition-colors">
                                 <col.icon size={24} />
                               </div>
                             )}
-                            <h4 className="text-[13px] font-bold tracking-[0.1em] uppercase text-slate-900 group-hover:text-blue-600 transition-colors font-display">
+                            <h4 className="text-[13px] font-bold tracking-[0.1em] uppercase text-slate-900 group-hover:text-neo-blue transition-colors font-display">
                               {col.title}
                             </h4>
                             {col.description && (
@@ -299,7 +295,7 @@ export const Header = () => {
                         ) : (
                           <div className="mb-6">
                             {col.icon && (
-                              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                              <div className="w-12 h-12 rounded-xl bg-neo-blue/10 text-neo-blue flex items-center justify-center mb-4">
                                 <col.icon size={24} />
                               </div>
                             )}
@@ -324,12 +320,12 @@ export const Header = () => {
                               >
                                 <div className="flex items-start gap-3">
                                   {Icon && (
-                                    <div className="mt-0.5 text-slate-400 group-hover/item:text-blue-600 transition-colors shrink-0">
+                                    <div className="mt-0.5 text-slate-400 group-hover/item:text-neo-blue transition-colors shrink-0">
                                       <Icon size={20} strokeWidth={2} />
                                     </div>
                                   )}
                                   <div>
-                                    <span className="block text-[15px] font-bold text-slate-700 group-hover/item:text-blue-600 transition-colors duration-300">
+                                    <span className="block text-[15px] font-bold text-slate-700 group-hover/item:text-neo-blue transition-colors duration-300">
                                       {item.label}
                                     </span>
                                     {item.description && (
@@ -340,7 +336,7 @@ export const Header = () => {
                                   </div>
                                 </div>
                                 <div className="shrink-0 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 mt-0.5">
-                                  <ArrowRight size={18} className="text-blue-600" />
+                                  <ArrowRight size={18} className="text-neo-blue" />
                                 </div>
                               </button>
                             );
@@ -358,10 +354,10 @@ export const Header = () => {
                             <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6">
                               {(() => {
                                 const CtaIcon = (NAV_DATA[activeDropdown] as any).cta.icon;
-                                return CtaIcon ? <CtaIcon size={24} className="text-blue-400" /> : <Rocket size={24} className="text-blue-400" />;
+                                return CtaIcon ? <CtaIcon size={24} className="text-neo-highlight" /> : <Rocket size={24} className="text-neo-highlight" />;
                               })()}
                             </div>
-                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-400 mb-3">
+                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-neo-highlight mb-3">
                               {(NAV_DATA[activeDropdown] as any).cta.label}
                             </p>
                             <h4 className="text-[22px] font-bold mb-4 leading-snug">
@@ -371,7 +367,7 @@ export const Header = () => {
                           
                           <button
                             onClick={() => handleNavigation((NAV_DATA[activeDropdown] as any).cta.href)}
-                            className="relative z-10 flex items-center justify-between w-full bg-blue-600 text-white px-5 py-3.5 rounded-xl font-bold text-[14px] hover:bg-blue-500 transition-all duration-300 mt-8 group/btn"
+                            className="relative z-10 flex items-center justify-between w-full bg-neo-blue text-white px-5 py-3.5 rounded-xl font-bold text-[14px] hover:bg-neo-highlight transition-all duration-300 mt-8 group/btn"
                           >
                             {(NAV_DATA[activeDropdown] as any).cta.buttonText.replace(' →', '')}
                             <ArrowRight size={18} className="transform group-hover/btn:translate-x-1 transition-transform" />
@@ -395,7 +391,7 @@ export const Header = () => {
                           {(NAV_DATA[activeDropdown] as any).bottomCta.description}
                         </span>
                       </div>
-                      <button className="flex items-center gap-1.5 text-blue-600 font-bold text-[14px] group-hover:text-blue-500 transition-colors">
+                      <button className="flex items-center gap-1.5 text-neo-blue font-bold text-[14px] group-hover:text-neo-highlight transition-colors">
                         <span className="group-hover:scale-[1.02] transition-transform origin-right">{(NAV_DATA[activeDropdown] as any).bottomCta.buttonText.replace(' →', '')}</span>
                         <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -428,7 +424,7 @@ export const Header = () => {
                     <ChevronDown
                       size={18}
                       className={`transition-transform duration-300 ${
-                        mobileExpanded === key ? "rotate-180 text-blue-600" : "opacity-50"
+                        mobileExpanded === key ? "rotate-180 text-neo-blue" : "opacity-50"
                       }`}
                     />
                   </button>
@@ -444,7 +440,7 @@ export const Header = () => {
                         <div className="pl-4 pr-2 py-2 space-y-6">
                           {NAV_DATA[key].columns.map((col, idx) => (
                             <div key={idx}>
-                              <p className="text-[10px] font-bold tracking-widest uppercase text-blue-600 mb-3 pl-2">
+                              <p className="text-[10px] font-bold tracking-widest uppercase text-neo-blue mb-3 pl-2">
                                 {col.title}
                               </p>
                               <div className="space-y-1">
@@ -471,7 +467,7 @@ export const Header = () => {
               <div className="pt-6 pb-4 px-2">
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-white font-bold text-sm bg-blue-600 hover:bg-blue-700"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-white font-bold text-sm bg-neo-blue hover:bg-neo-highlight"
                 >
                   CONTACT <ArrowRight size={16} strokeWidth={3} />
                 </button>

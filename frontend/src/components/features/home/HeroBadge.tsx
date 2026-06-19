@@ -8,10 +8,10 @@ export const HeroBadge: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
-      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 backdrop-blur-md mb-6"
+      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neo-blue/10 border border-neo-blue/20 backdrop-blur-md mb-6"
     >
-      <Sparkles className="h-4 w-4 text-cyan-400" />
-      <span className="text-sm font-medium text-cyan-300">
+      <Sparkles className="h-4 w-4 text-neo-blue" />
+      <span className="text-sm font-medium text-neo-blue">
         Neo Perion V2.0 Now Live
       </span>
     </motion.div>

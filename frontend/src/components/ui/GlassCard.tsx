@@ -16,7 +16,7 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         whileHover={hoverGlow ? { y: -4, boxShadow: `0 20px 40px ${glowColor.replace(/[\d.]+\)$/g, '0.1)')}` } : {}}
         className={cn(
           'relative rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md transition-all duration-300',
-          hoverGlow && 'hover:border-cyan-400/40',
+          hoverGlow && 'hover:border-neo-blue/40',
           className
         )}
         {...props}

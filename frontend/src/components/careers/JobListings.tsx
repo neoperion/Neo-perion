@@ -32,7 +32,7 @@ export function JobListings() {
       
       {loading ? (
         <div className="flex justify-center py-20">
-          <div className="w-8 h-8 rounded-full border-2 border-cyan-500 border-t-transparent animate-spin"></div>
+          <div className="w-8 h-8 rounded-full border-2 border-neo-blue border-t-transparent animate-spin"></div>
         </div>
       ) : jobs.length === 0 ? (
         <div className="text-center py-20 border border-dashed border-white/10 rounded-2xl">
@@ -44,10 +44,10 @@ export function JobListings() {
             <div 
               key={job.id} 
               onClick={() => navigate(`/company/careers/${job.slug || job.id}`)}
-              className="group p-6 rounded-2xl border border-white/5 bg-[#0a0a0a] hover:border-cyan-500/30 transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
+              className="group p-6 rounded-2xl border border-white/5 bg-[#0a0a0a] hover:border-neo-blue/30 transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
             >
               <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{job.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neo-blue transition-colors">{job.title}</h3>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
                   <span className="flex items-center gap-1.5"><MapPin size={14} /> {job.location}</span>
                   <span className="flex items-center gap-1.5"><Clock size={14} /> {job.employment_type || 'Full Time'}</span>
@@ -55,7 +55,7 @@ export function JobListings() {
                 </div>
               </div>
               <div className="flex items-center justify-end">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/10 group-hover:text-cyan-400 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-neo-blue/10 group-hover:text-neo-blue transition-colors">
                   <ArrowRight size={18} />
                 </div>
               </div>

@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
               className="text-5xl md:text-7xl font-display font-bold text-white tracking-tight leading-[1.1] mb-6"
             >
               From Idea to Product <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-highlight">
                 Powered by AI
               </span>
             </motion.h1>
@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => {
               className="mt-8 flex flex-wrap gap-4 text-sm font-medium text-slate-400"
             >
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <div className="w-1.5 h-1.5 rounded-full bg-neo-blue" />
                 AI First Company
               </div>
               <div className="flex items-center gap-2">

@@ -21,7 +21,7 @@ export const ServiceCaseStudies: React.FC<Props> = ({ service }) => {
               See how our {service.title.toLowerCase()} expertise has transformed businesses.
             </p>
           </div>
-          <button className="text-cyan-400 font-bold flex items-center gap-2 hover:text-cyan-300 transition-colors group pb-2">
+          <button className="text-neo-blue font-bold flex items-center gap-2 hover:text-neo-blue transition-colors group pb-2">
             View full portfolio
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -37,7 +37,7 @@ export const ServiceCaseStudies: React.FC<Props> = ({ service }) => {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
             <div className="relative z-20">
-              <p className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-2">Enterprise Tech</p>
+              <p className="text-neo-blue text-sm font-bold tracking-widest uppercase mb-2">Enterprise Tech</p>
               <h3 className="text-2xl font-bold text-white">Scaling to 1M+ Users</h3>
             </div>
           </motion.div>

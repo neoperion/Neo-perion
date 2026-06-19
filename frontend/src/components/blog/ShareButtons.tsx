@@ -28,7 +28,7 @@ export const ShareButtons: React.FC<Props> = ({ url, title }) => {
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`}
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-neo-blue hover:border-neo-blue/50 transition-all"
         >
           <Linkedin className="w-4 h-4" />
         </a>
@@ -37,7 +37,7 @@ export const ShareButtons: React.FC<Props> = ({ url, title }) => {
           href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-neo-blue hover:border-neo-blue/50 transition-all"
         >
           <Twitter className="w-4 h-4" />
         </a>
@@ -46,14 +46,14 @@ export const ShareButtons: React.FC<Props> = ({ url, title }) => {
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-neo-blue hover:border-neo-blue/50 transition-all"
         >
           <Facebook className="w-4 h-4" />
         </a>
 
         <button 
           onClick={copyToClipboard}
-          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+          className="w-10 h-10 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-neo-blue hover:border-neo-blue/50 transition-all"
         >
           {copied ? <CheckCircle2 className="w-4 h-4 text-green-400" /> : <LinkIcon className="w-4 h-4" />}
         </button>

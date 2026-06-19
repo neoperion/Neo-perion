@@ -9,7 +9,7 @@ export const BlogHero: React.FC = () => {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-cyan-400 font-bold tracking-widest uppercase mb-4 text-sm"
+          className="text-neo-blue font-bold tracking-widest uppercase mb-4 text-sm"
         >
           NEO PERION BLOG
         </motion.p>
@@ -20,7 +20,7 @@ export const BlogHero: React.FC = () => {
           className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 tracking-tight"
         >
           Insights, AI & <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-500">
             Product Engineering
           </span>
         </motion.h1>

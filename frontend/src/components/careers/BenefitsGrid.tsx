@@ -14,7 +14,7 @@ export function BenefitsGrid() {
   return (
     <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto border-t border-white/5">
       <div className="mb-16 text-center">
-        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-4">Life at NP</p>
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Life at NP</p>
         <h2 className="text-4xl font-black text-white">Why join us?</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
@@ -22,8 +22,8 @@ export function BenefitsGrid() {
           const Icon = benefit.icon;
           return (
             <div key={i} className="p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Icon className="text-cyan-400" size={24} />
+              <div className="w-12 h-12 rounded-xl bg-neo-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Icon className="text-neo-blue" size={24} />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">{benefit.desc}</p>

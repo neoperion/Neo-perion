@@ -24,7 +24,7 @@ export const TechMarquee: React.FC = () => {
           {[...technologies, ...technologies].map((tech, index) => (
             <div 
               key={index} 
-              className="flex items-center justify-center min-w-[120px] px-6 py-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:bg-cyan-500/10 cursor-pointer"
+              className="flex items-center justify-center min-w-[120px] px-6 py-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-neo-blue/50 hover:bg-neo-blue/10 cursor-pointer"
             >
               <span className="text-slate-300 font-medium tracking-wide group-hover:opacity-50 hover:!opacity-100 transition-opacity">
                 {tech}

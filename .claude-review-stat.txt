@@ -1,0 +1,183 @@
+warning: in the working copy of 'frontend/src/components/Metrics.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/ProcessTimeline.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/WhyNeoPerion.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/about/AboutHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/about/CoreValues.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/about/FounderSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/about/MissionVision.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/about/WhyNeoPerion.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/BlogCard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/BlogFilters.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/BlogHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/BlogPagination.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/FeaturedPost.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/MarkdownRenderer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/ReadingProgress.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/ShareButtons.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/blog/TableOfContents.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/careers/BenefitsGrid.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/careers/CareersHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/careers/JobListings.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/caseStudies/CaseStudyCard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/caseStudies/CaseStudyHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/contact/CalendlyEmbed.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/contact/ContactForm.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/contact/ContactHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/contact/LocationMap.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/BentoGrid.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/CaseStudiesPreview.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/CtaSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/HeroActions.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/HeroBadge.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/HeroSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/HeroStats.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/IndustriesSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/ProcessTimeline.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/ServicesSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/TechMarquee.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/TechnologyExpertise.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/features/home/Testimonials.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/layout/Footer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/layout/MobileMenu.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/layout/Navbar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/newsletter/NewsletterHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/newsletter/PastIssues.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/newsletter/SubscriptionForm.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceCTA.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceCaseStudies.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceFaq.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceHero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServicePageTemplate.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceProcess.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceSolutions.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/ServiceTechStack.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/services/StickyCTA.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/shared/CookieConsent.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/shared/CookieModal.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/shared/ErrorBoundary.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/ui/GlassCard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/components/ui/Spinner.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/data/servicesData.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/AboutPage.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/BlogPage.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/BlogPost.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/CareerDetail.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Careers.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/CaseStudies.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/CaseStudyDetail.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Contact.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/FounderLetter.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Index.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/IndustriesPage.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Insights.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Newsletter.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Security.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/ServicesHub.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/SuccessStories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Technologies.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/TechnologyDetail.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/Testimonials.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/admin/ApplicationsAdmin.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/admin/CareersAdmin.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/admin/Dashboard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/admin/LeadsAdmin.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/admin/NewsletterAdmin.tsx', LF will be replaced by CRLF the next time Git touches it
+ frontend/package-lock.json                         |  639 +++++++-
+ frontend/package.json                              |   23 +-
+ frontend/src/App.tsx                               |   20 +-
+ frontend/src/components/Contact.tsx                |   18 +-
+ frontend/src/components/Footer.tsx                 |   50 +-
+ frontend/src/components/Header.tsx                 |   26 +-
+ frontend/src/components/Hero.tsx                   |   15 +-
+ frontend/src/components/Metrics.tsx                |   16 +-
+ frontend/src/components/ProcessTimeline.tsx        |   12 +-
+ frontend/src/components/Services.tsx               |   24 +-
+ frontend/src/components/WhyNeoPerion.tsx           |    2 +-
+ frontend/src/components/WhyVTSHA.tsx               |   14 +-
+ frontend/src/components/about/AboutHero.tsx        |   58 +-
+ frontend/src/components/about/CoreValues.tsx       |    8 +-
+ frontend/src/components/about/FounderSection.tsx   |   93 +-
+ frontend/src/components/about/MissionVision.tsx    |    4 +-
+ frontend/src/components/about/WhyNeoPerion.tsx     |    4 +-
+ frontend/src/components/blog/BlogCard.tsx          |    6 +-
+ frontend/src/components/blog/BlogFilters.tsx       |    4 +-
+ frontend/src/components/blog/BlogHero.tsx          |    4 +-
+ frontend/src/components/blog/BlogPagination.tsx    |    2 +-
+ frontend/src/components/blog/FeaturedPost.tsx      |    6 +-
+ frontend/src/components/blog/MarkdownRenderer.tsx  |    6 +-
+ frontend/src/components/blog/ReadingProgress.tsx   |    2 +-
+ frontend/src/components/blog/ShareButtons.tsx      |    8 +-
+ frontend/src/components/blog/TableOfContents.tsx   |    2 +-
+ frontend/src/components/careers/BenefitsGrid.tsx   |    6 +-
+ frontend/src/components/careers/CareersHero.tsx    |    6 +-
+ frontend/src/components/careers/JobListings.tsx    |    8 +-
+ .../src/components/caseStudies/CaseStudyCard.tsx   |    8 +-
+ .../src/components/caseStudies/CaseStudyHero.tsx   |    4 +-
+ frontend/src/components/contact/CalendlyEmbed.tsx  |    2 +-
+ frontend/src/components/contact/ContactForm.tsx    |   35 +-
+ frontend/src/components/contact/ContactHero.tsx    |    4 +-
+ frontend/src/components/contact/LocationMap.tsx    |   16 +-
+ .../src/components/features/home/BentoGrid.tsx     |    2 +-
+ .../features/home/CaseStudiesPreview.tsx           |    6 +-
+ .../src/components/features/home/CtaSection.tsx    |    2 +-
+ .../src/components/features/home/HeroActions.tsx   |    2 +-
+ .../src/components/features/home/HeroBadge.tsx     |    6 +-
+ .../src/components/features/home/HeroSection.tsx   |    4 +-
+ .../src/components/features/home/HeroStats.tsx     |    4 +-
+ .../components/features/home/IndustriesSection.tsx |    8 +-
+ .../components/features/home/ProcessTimeline.tsx   |    4 +-
+ .../components/features/home/ServicesSection.tsx   |    4 +-
+ .../src/components/features/home/TechMarquee.tsx   |    2 +-
+ .../features/home/TechnologyExpertise.tsx          |    6 +-
+ .../src/components/features/home/Testimonials.tsx  |    6 +-
+ frontend/src/components/layout/Footer.tsx          |   50 +-
+ frontend/src/components/layout/MobileMenu.tsx      |   28 +-
+ frontend/src/components/layout/Navbar.tsx          |   30 +-
+ .../src/components/newsletter/NewsletterHero.tsx   |    4 +-
+ frontend/src/components/newsletter/PastIssues.tsx  |    8 +-
+ .../src/components/newsletter/SubscriptionForm.tsx |    8 +-
+ frontend/src/components/services/ServiceCTA.tsx    |    2 +-
+ .../src/components/services/ServiceCaseStudies.tsx |    4 +-
+ frontend/src/components/services/ServiceFaq.tsx    |    2 +-
+ frontend/src/components/services/ServiceHero.tsx   |    4 +-
+ .../components/services/ServicePageTemplate.tsx    |   88 +-
+ .../src/components/services/ServiceProcess.tsx     |    6 +-
+ .../src/components/services/ServiceSolutions.tsx   |    6 +-
+ .../src/components/services/ServiceTechStack.tsx   |    2 +-
+ frontend/src/components/services/StickyCTA.tsx     |    2 +-
+ frontend/src/components/shared/CookieConsent.tsx   |    6 +-
+ frontend/src/components/shared/CookieModal.tsx     |    2 +-
+ frontend/src/components/shared/ErrorBoundary.tsx   |    2 +-
+ frontend/src/components/ui/GlassCard.tsx           |    2 +-
+ frontend/src/components/ui/Spinner.tsx             |    2 +-
+ frontend/src/data/servicesData.ts                  |  193 +--
+ frontend/src/index.css                             |   55 +-
+ frontend/src/pages/AboutPage.tsx                   |   66 +-
+ frontend/src/pages/BlogPage.tsx                    |    2 +-
+ frontend/src/pages/BlogPost.tsx                    |    8 +-
+ frontend/src/pages/CareerDetail.tsx                |   32 +-
+ frontend/src/pages/Careers.tsx                     |    2 +-
+ frontend/src/pages/CaseStudies.tsx                 |   10 +-
+ frontend/src/pages/CaseStudyDetail.tsx             |   18 +-
+ frontend/src/pages/Contact.tsx                     |    2 +-
+ frontend/src/pages/FounderLetter.tsx               |   12 +-
+ frontend/src/pages/Index.tsx                       |    2 +
+ frontend/src/pages/IndustriesPage.tsx              |    2 +-
+ frontend/src/pages/Insights.tsx                    |    4 +-
+ frontend/src/pages/Newsletter.tsx                  |    2 +-
+ frontend/src/pages/Security.tsx                    |    8 +-
+ frontend/src/pages/ServicesHub.tsx                 |    2 +-
+ frontend/src/pages/ServicesPage.tsx                |    3 +-
+ frontend/src/pages/SuccessStories.tsx              |    6 +-
+ frontend/src/pages/Technologies.tsx                |    8 +-
+ frontend/src/pages/TechnologyDetail.tsx            |   12 +-
+ frontend/src/pages/Testimonials.tsx                |    6 +-
+ frontend/src/pages/admin/ApplicationsAdmin.tsx     |  166 +-
+ frontend/src/pages/admin/CareersAdmin.tsx          |  298 +++-
+ frontend/src/pages/admin/Dashboard.tsx             |  133 +-
+ frontend/src/pages/admin/LeadsAdmin.tsx            |  213 ++-
+ frontend/src/pages/admin/NewsletterAdmin.tsx       |  122 +-
+ frontend/tailwind.config.ts                        |   10 +
+ frontend/tsconfig.node.json                        |    5 +-
+ ui upgradationplan.md                              | 1619 --------------------
+ 98 files changed, 2132 insertions(+), 2358 deletions(-)

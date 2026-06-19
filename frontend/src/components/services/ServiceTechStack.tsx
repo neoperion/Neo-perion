@@ -22,7 +22,7 @@ export const ServiceTechStack: React.FC<Props> = ({ service }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-default"
+              className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium hover:bg-white/10 hover:border-neo-blue/30 transition-all cursor-default"
             >
               {tech}
             </motion.div>

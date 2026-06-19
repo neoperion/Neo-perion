@@ -26,7 +26,7 @@ export const ServicesSection: React.FC = () => {
               We provide end-to-end technology solutions, taking your product from initial architecture to global scale.
             </p>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-cyan-400 font-medium hover:text-cyan-300 transition-colors group">
+          <button className="hidden md:flex items-center gap-2 text-neo-blue font-medium hover:text-neo-blue transition-colors group">
             View All Services
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -42,7 +42,7 @@ export const ServicesSection: React.FC = () => {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group p-8 rounded-2xl border border-white/5 bg-slate-900/20 hover:bg-slate-900/50 transition-colors cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-neo-blue/10 text-neo-blue flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-neo-blue/20 transition-all">
                 {iconMap[service.icon] || <Code className="w-6 h-6" />}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">

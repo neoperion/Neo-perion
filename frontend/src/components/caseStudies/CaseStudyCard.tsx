@@ -16,7 +16,7 @@ export const CaseStudyCard: React.FC<Props> = ({ caseStudy, index = 0 }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative flex flex-col md:flex-row bg-slate-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all mb-12"
+      className="group relative flex flex-col md:flex-row bg-slate-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-neo-blue/50 transition-all mb-12"
     >
       <Link to={`/case-studies/${caseStudy.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${caseStudy.title}`} />
       
@@ -31,7 +31,7 @@ export const CaseStudyCard: React.FC<Props> = ({ caseStudy, index = 0 }) => {
 
       <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full uppercase tracking-wider">
+          <span className="px-3 py-1 bg-neo-blue/10 text-neo-blue text-xs font-bold rounded-full uppercase tracking-wider">
             {caseStudy.industry}
           </span>
           <span className="px-3 py-1 bg-white/5 text-slate-300 text-xs font-bold rounded-full uppercase tracking-wider">
@@ -39,7 +39,7 @@ export const CaseStudyCard: React.FC<Props> = ({ caseStudy, index = 0 }) => {
           </span>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 group-hover:text-neo-blue transition-colors">
           {caseStudy.title}
         </h3>
         
@@ -60,7 +60,7 @@ export const CaseStudyCard: React.FC<Props> = ({ caseStudy, index = 0 }) => {
           )}
         </div>
 
-        <div className="flex items-center gap-2 text-cyan-400 font-bold group-hover:gap-4 transition-all">
+        <div className="flex items-center gap-2 text-neo-blue font-bold group-hover:gap-4 transition-all">
           Read Full Case Study <ArrowRight className="w-4 h-4" />
         </div>
       </div>

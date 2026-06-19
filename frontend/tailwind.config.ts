@@ -48,6 +48,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        neo: {
+          navy: "#030B1D",
+          deep: "#1E5DFF",
+          blue: "#2563FF",
+          bright: "#3B82F6",
+          highlight: "#4AA8FF",
+          light: "#74C8FF",
+          silver: "#E8EDF5",
+          soft: "#64748B",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -61,9 +71,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        'soft': '0 4px 20px -4px hsl(186 80% 42% / 0.2)',
-        'medium': '0 8px 30px -6px hsl(186 80% 42% / 0.25)',
-        'glow': '0 0 40px hsl(186 80% 42% / 0.3)',
+        'soft': '0 4px 20px -4px hsl(223 100% 57% / 0.2)',
+        'medium': '0 8px 30px -6px hsl(223 100% 57% / 0.25)',
+        'glow': '0 0 40px hsl(223 100% 57% / 0.3)',
       },
       keyframes: {
         "accordion-down": {

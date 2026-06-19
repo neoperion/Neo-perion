@@ -24,7 +24,7 @@ export default function Careers() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet>
         <title>Careers | Neo Perion</title>
         <meta name="description" content="Join Neo Perion and build the future of intelligent software." />

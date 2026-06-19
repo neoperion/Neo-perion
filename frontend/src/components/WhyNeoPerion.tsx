@@ -55,7 +55,7 @@ const bentoItems = [
   {
     title: "Long-term Support",
     description: "We don't disappear after launch. We provide ongoing scaling, maintenance, and feature development for years to come.",
-    icon: <Zap className="w-7 h-7 text-cyan-400" />,
+    icon: <Zap className="w-7 h-7 text-neo-blue" />,
     className: "md:col-span-3 md:row-span-1 bg-slate-900 text-white",
     visual: (
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-50"></div>

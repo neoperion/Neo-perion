@@ -59,7 +59,7 @@ export const TechnologyExpertise: React.FC = () => {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`flex items-center gap-3 px-6 py-4 rounded-xl text-left whitespace-nowrap lg:whitespace-normal transition-all duration-300 ${
                   activeCategory === cat.id 
-                    ? 'bg-cyan-500/10 border-l-4 border-cyan-500 text-cyan-400' 
+                    ? 'bg-neo-blue/10 border-l-4 border-neo-blue text-neo-blue' 
                     : 'bg-white/5 border-l-4 border-transparent text-slate-400 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -92,9 +92,9 @@ export const TechnologyExpertise: React.FC = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
-                          className="bg-[#050816] border border-white/5 p-4 rounded-xl flex items-center gap-3 shadow-inner hover:border-cyan-500/30 transition-colors"
+                          className="bg-[#050816] border border-white/5 p-4 rounded-xl flex items-center gap-3 shadow-inner hover:border-neo-blue/30 transition-colors"
                         >
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                          <div className="w-2 h-2 rounded-full bg-neo-blue shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
                           <span className="text-slate-300 font-medium">{item}</span>
                         </motion.div>
                       ))}

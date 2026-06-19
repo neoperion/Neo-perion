@@ -12,7 +12,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet><title>Testimonials | Neo Perion</title></Helmet>
       <Header />
       <main className="pt-32 pb-24">
@@ -23,11 +23,11 @@ export default function Testimonials() {
         <section className="max-w-6xl mx-auto px-8 grid md:grid-cols-3 gap-8">
           {testimonials.map((t,i) => (
             <div key={i} className="p-8 rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent relative">
-               <Quote className="text-cyan-500/20 absolute top-6 right-6" size={60} />
+               <Quote className="text-neo-blue/20 absolute top-6 right-6" size={60} />
                <p className="text-lg text-slate-300 italic relative z-10 mb-8">"{t.text}"</p>
                <div>
                  <p className="font-bold text-white">{t.author}</p>
-                 <p className="text-sm text-cyan-400">{t.role}</p>
+                 <p className="text-sm text-neo-blue">{t.role}</p>
                </div>
             </div>
           ))}

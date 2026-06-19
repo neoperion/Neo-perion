@@ -63,7 +63,7 @@ export function SubscriptionForm() {
 
   return (
     <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 max-w-xl mx-auto relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-cyan-500/20 blur-[50px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-neo-blue/20 blur-[50px] rounded-full pointer-events-none"></div>
       
       <form onSubmit={handleSubmit(onSubmit)} className="relative z-10 space-y-4">
         {errorMsg && (
@@ -75,7 +75,7 @@ export function SubscriptionForm() {
         <div>
           <input 
             {...register('name')}
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
             placeholder="First Name (Optional)"
           />
         </div>
@@ -84,7 +84,7 @@ export function SubscriptionForm() {
           <input 
             {...register('email')}
             type="email"
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
             placeholder="Email Address *"
           />
           {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
@@ -93,7 +93,7 @@ export function SubscriptionForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-4 rounded-lg bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
+          className="w-full py-4 rounded-lg bg-neo-blue text-black font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
         >
           {submitting ? 'Subscribing...' : <>Subscribe to Insights <ArrowRight size={18} /></>}
         </button>

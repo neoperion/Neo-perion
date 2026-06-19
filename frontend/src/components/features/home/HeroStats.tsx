@@ -13,10 +13,10 @@ export const HeroStats: React.FC = () => {
     >
       {homeData.stats.map((stat, index) => (
         <div key={index} className="flex flex-col gap-1">
-          <div className="text-3xl md:text-4xl font-display font-bold text-white flex items-center">
+          <div className="text-3xl md:text-4xl font-display font-bold text-neo-gradient flex items-center">
             <AnimatedCounter end={stat.value} duration={2000} suffix={stat.suffix} />
           </div>
-          <p className="text-slate-400 text-sm font-medium">{stat.label}</p>
+          <p className="text-neo-soft text-sm font-medium">{stat.label}</p>
         </div>
       ))}
     </motion.div>

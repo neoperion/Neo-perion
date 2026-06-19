@@ -8,8 +8,8 @@ export function LocationMap() {
         <h3 className="text-2xl font-bold text-white mb-6">Our Office</h3>
         <div className="space-y-6">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0">
-              <MapPin size={18} className="text-cyan-400" />
+            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
+              <MapPin size={18} className="text-neo-blue" />
             </div>
             <div>
               <p className="text-white font-medium mb-1">Headquarters</p>
@@ -22,24 +22,24 @@ export function LocationMap() {
           </div>
           
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0">
-              <Mail size={18} className="text-cyan-400" />
+            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
+              <Mail size={18} className="text-neo-blue" />
             </div>
             <div>
               <p className="text-white font-medium mb-1">Email</p>
-              <a href="mailto:contact@neoperion.com" className="text-slate-400 text-sm hover:text-cyan-400 transition-colors">
+              <a href="mailto:contact@neoperion.com" className="text-slate-400 text-sm hover:text-neo-blue transition-colors">
                 contact@neoperion.com
               </a>
             </div>
           </div>
           
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0">
-              <Phone size={18} className="text-cyan-400" />
+            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
+              <Phone size={18} className="text-neo-blue" />
             </div>
             <div>
               <p className="text-white font-medium mb-1">Phone</p>
-              <a href="tel:+919876543210" className="text-slate-400 text-sm hover:text-cyan-400 transition-colors">
+              <a href="tel:+919876543210" className="text-slate-400 text-sm hover:text-neo-blue transition-colors">
                 +91 98765 43210
               </a>
             </div>

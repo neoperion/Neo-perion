@@ -32,22 +32,34 @@ export function ContactForm() {
     setErrorMsg('');
     
     try {
-      const { error } = await supabase
-        .from('leads')
-        .insert({
+      const { error } = await supabase.functions.invoke('submit-lead', {
+        body: {
           name: data.name,
           email: data.email,
           phone: data.phone || null,
           company: data.company || null,
-          service_required: data.service_required,
+          project_type: data.service_required,
           budget: data.budget || null,
-          timeline: data.timeline || null,
           message: data.message,
-          status: 'new'
+          source: 'contact'
+        }
+      });
+
+      if (error) {
+        const { error: dbError } = await supabase.from('leads').insert({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || null,
+          company: data.company || null,
+          project_type: data.service_required,
+          budget: data.budget || null,
+          message: data.message,
+          source: 'contact',
+          status: 'new',
         });
-        
-      if (error) throw new Error('Failed to submit form. Please try again later.');
-      
+        if (dbError) throw dbError;
+      }
+
       setSuccess(true);
       reset();
     } catch (err: any) {
@@ -60,14 +72,14 @@ export function ContactForm() {
   if (success) {
     return (
       <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-12 text-center h-full flex flex-col justify-center">
-        <CheckCircle2 className="mx-auto text-cyan-400 mb-6" size={48} />
+        <CheckCircle2 className="mx-auto text-neo-blue mb-6" size={48} />
         <h3 className="text-2xl font-bold text-white mb-4">Message Received</h3>
         <p className="text-slate-400 mb-8 max-w-sm mx-auto">
           Thank you for reaching out. One of our product architects will get back to you within 24 hours.
         </p>
         <button 
           onClick={() => setSuccess(false)}
-          className="text-cyan-400 hover:text-cyan-300 font-medium"
+          className="text-neo-blue hover:text-neo-blue font-medium"
         >
           Send another message
         </button>
@@ -91,7 +103,7 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-slate-300 mb-1.5">Full Name *</label>
             <input 
               {...register('name')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
               placeholder="John Doe"
             />
             {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
@@ -101,7 +113,7 @@ export function ContactForm() {
             <input 
               {...register('email')}
               type="email"
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
               placeholder="john@example.com"
             />
             {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
@@ -113,7 +125,7 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-slate-300 mb-1.5">Company Name</label>
             <input 
               {...register('company')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
               placeholder="Acme Corp"
             />
           </div>
@@ -121,7 +133,7 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone Number</label>
             <input 
               {...register('phone')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
               placeholder="+1 (555) 000-0000"
             />
           </div>
@@ -131,7 +143,7 @@ export function ContactForm() {
           <label className="block text-sm font-medium text-slate-300 mb-1.5">What do you need help with? *</label>
           <select 
             {...register('service_required')}
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors appearance-none"
+            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
           >
             <option value="">Select a service...</option>
             <option value="AI Integration">AI Integration & Automation</option>
@@ -148,7 +160,7 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Budget</label>
             <select 
               {...register('budget')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors appearance-none"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
             >
               <option value="">Select budget range...</option>
               <option value="<$10k">Less than $10,000</option>
@@ -161,7 +173,7 @@ export function ContactForm() {
             <label className="block text-sm font-medium text-slate-300 mb-1.5">Expected Timeline</label>
             <select 
               {...register('timeline')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors appearance-none"
+              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
             >
               <option value="">Select timeline...</option>
               <option value="ASAP">As soon as possible</option>
@@ -177,7 +189,7 @@ export function ContactForm() {
           <textarea 
             {...register('message')}
             rows={4}
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors resize-none"
             placeholder="Tell us about your goals, current challenges, and what you're looking to build..."
           />
           {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}
@@ -186,7 +198,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-4 rounded-lg bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+          className="w-full py-4 rounded-lg bg-neo-blue text-black font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
         >
           {submitting ? 'Sending Message...' : 'Send Message'}
         </button>

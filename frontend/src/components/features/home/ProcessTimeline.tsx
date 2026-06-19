@@ -40,7 +40,7 @@ export const ProcessTimeline: React.FC = () => {
           {/* Animated SVG Line */}
           <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 md:-translate-x-1/2" />
           <motion.div 
-            className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-cyan-500 md:-translate-x-1/2 origin-top"
+            className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-neo-blue md:-translate-x-1/2 origin-top"
             style={{ scaleY }}
           />
 
@@ -62,7 +62,7 @@ export const ProcessTimeline: React.FC = () => {
                   </div>
                   
                   {/* Timeline Node */}
-                  <div className="relative flex-shrink-0 w-14 h-14 rounded-full bg-[#050816] border-2 border-cyan-500 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.5)] z-10">
+                  <div className="relative flex-shrink-0 w-14 h-14 rounded-full bg-[#050816] border-2 border-neo-blue flex items-center justify-center text-neo-blue shadow-[0_0_15px_rgba(6,182,212,0.5)] z-10">
                     {step.icon}
                   </div>
                   

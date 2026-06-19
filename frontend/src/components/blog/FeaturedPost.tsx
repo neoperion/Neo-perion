@@ -27,11 +27,11 @@ export const FeaturedPost: React.FC<Props> = ({ post }) => {
         </div>
         
         <div className="w-full lg:w-2/5 p-8 md:p-12 flex flex-col justify-center relative z-20">
-          <span className="inline-block px-4 py-1.5 bg-cyan-500/10 text-cyan-400 text-sm font-bold rounded-full uppercase tracking-widest w-max mb-6">
+          <span className="inline-block px-4 py-1.5 bg-neo-blue/10 text-neo-blue text-sm font-bold rounded-full uppercase tracking-widest w-max mb-6">
             Featured • {post.category}
           </span>
           
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-tight group-hover:text-cyan-400 transition-colors">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-tight group-hover:text-neo-blue transition-colors">
             {post.title}
           </h2>
           
@@ -52,7 +52,7 @@ export const FeaturedPost: React.FC<Props> = ({ post }) => {
 
           <Link 
             to={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold w-max transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neo-blue hover:bg-neo-blue text-slate-900 font-bold w-max transition-colors"
           >
             Read Article
             <ArrowRight className="w-4 h-4" />

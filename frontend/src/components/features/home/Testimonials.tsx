@@ -43,7 +43,7 @@ export const Testimonials: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <Quote className="w-12 h-12 text-cyan-500/20 mx-auto mb-8" />
+          <Quote className="w-12 h-12 text-neo-blue/20 mx-auto mb-8" />
           
           <div 
             className="relative h-64 md:h-48"
@@ -63,7 +63,7 @@ export const Testimonials: React.FC = () => {
                   "{testimonials[currentIndex].quote}"
                 </p>
                 <div className="flex flex-col items-center">
-                  <h4 className="text-lg font-bold text-cyan-400">{testimonials[currentIndex].name}</h4>
+                  <h4 className="text-lg font-bold text-neo-blue">{testimonials[currentIndex].name}</h4>
                   <p className="text-slate-400">{testimonials[currentIndex].role}</p>
                 </div>
               </motion.div>
@@ -81,7 +81,7 @@ export const Testimonials: React.FC = () => {
                   setTimeout(() => setIsPaused(false), 5000);
                 }}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-cyan-400 w-8' : 'bg-white/20 hover:bg-white/40'
+                  index === currentIndex ? 'bg-neo-blue w-8' : 'bg-white/20 hover:bg-white/40'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

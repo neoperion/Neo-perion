@@ -16,7 +16,7 @@ export default function Technologies() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet><title>Technologies | Neo Perion</title></Helmet>
       <Header />
       <main className="pt-32 pb-24">
@@ -31,10 +31,10 @@ export default function Technologies() {
               <div 
                 key={cat.id} 
                 onClick={() => navigate(`/technologies/${cat.id}`)}
-                className="p-8 rounded-2xl border border-white/5 bg-[#0a0a0a] hover:border-cyan-500/30 transition-all cursor-pointer group"
+                className="p-8 rounded-2xl border border-white/5 bg-[#0a0a0a] hover:border-neo-blue/30 transition-all cursor-pointer group"
               >
-                 <Icon className="text-cyan-400 mb-6" size={32} />
-                 <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">{cat.title}</h3>
+                 <Icon className="text-neo-blue mb-6" size={32} />
+                 <h3 className="text-2xl font-bold mb-4 group-hover:text-neo-blue transition-colors">{cat.title}</h3>
                  <div className="flex flex-wrap gap-2">
                    {cat.items.map(item => (
                      <span key={item} className="px-3 py-1 rounded-full bg-white/5 text-sm text-slate-300 border border-white/10">{item}</span>

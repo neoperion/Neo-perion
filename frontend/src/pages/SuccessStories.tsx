@@ -13,7 +13,7 @@ export default function SuccessStories() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet><title>Success Stories | Neo Perion</title></Helmet>
       <Header />
       <main className="pt-32 pb-24">
@@ -24,8 +24,8 @@ export default function SuccessStories() {
         <section className="max-w-6xl mx-auto px-8 grid md:grid-cols-3 gap-8">
           {stories.map((s,i) => (
             <div key={i} className="p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all">
-               <TrendingUp className="text-cyan-400 mb-6" size={32} />
-               <p className="text-sm text-cyan-400 font-bold mb-2">{s.client}</p>
+               <TrendingUp className="text-neo-blue mb-6" size={32} />
+               <p className="text-sm text-neo-blue font-bold mb-2">{s.client}</p>
                <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
                <p className="text-slate-400 mb-6">{s.desc}</p>
                <div className="p-4 rounded-xl bg-black/50 border border-white/5">

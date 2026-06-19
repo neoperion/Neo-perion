@@ -16,6 +16,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import NotFound from "./pages/NotFound";
 import { ServicePageTemplate } from "./components/services/ServicePageTemplate";
 import IndustriesPage from "@/pages/IndustriesPage";
+import { IndustryPageRouter } from "@/components/industries/IndustryPageRouter";
 
 import FounderLetter from "./pages/FounderLetter";
 import Careers from "./pages/Careers";
@@ -33,6 +34,17 @@ import CareersAdmin from "./pages/admin/CareersAdmin";
 import ApplicationsAdmin from "./pages/admin/ApplicationsAdmin";
 import LeadsAdmin from "./pages/admin/LeadsAdmin";
 import NewsletterAdmin from "./pages/admin/NewsletterAdmin";
+import BlogAdmin from "./pages/admin/BlogAdmin";
+import AdminCaseStudies from "./pages/admin/AdminCaseStudies";
+import AdminTestimonials from "./pages/admin/AdminTestimonials";
+import AdminAnalytics from "./pages/admin/AdminAnalytics";
+import AdminSettings from "./pages/admin/AdminSettings";
+import AdminServices from "./pages/admin/AdminServices";
+
+import { CookieConsent } from "@/shared/CookieConsent";
+import { AdminLayout } from "@/components/admin/AdminLayout";
+import { AdminLogin } from "@/pages/admin/AdminLogin";
+import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
@@ -52,13 +64,15 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes>
+            <ErrorBoundary>
+              <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/company/founder-letter" element={<FounderLetter />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:slug" element={<ServicePageTemplate />} />
               <Route path="/industries" element={<IndustriesPage />} />
+              <Route path="/industries/:slug" element={<IndustryPageRouter />} />
               <Route path="/technologies" element={<Technologies />} />
               <Route path="/technologies/:slug" element={<TechnologyDetail />} />
               <Route path="/blog" element={<BlogPage />} />
@@ -74,16 +88,29 @@ const App = () => (
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/insights" element={<Insights />} />
 
-              {/* Admin Routes (Placeholder) */}
-              <Route path="/admin" element={<Dashboard />} />
-              <Route path="/admin/careers" element={<CareersAdmin />} />
-              <Route path="/admin/applications" element={<ApplicationsAdmin />} />
-              <Route path="/admin/leads" element={<LeadsAdmin />} />
-              <Route path="/admin/newsletter" element={<NewsletterAdmin />} />
+              {/* Admin Login - Outside of AdminLayout Guard */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+
+              {/* Admin Routes */}
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<Dashboard />} />
+                <Route path="blogs" element={<BlogAdmin />} />
+                <Route path="careers" element={<CareersAdmin />} />
+                <Route path="applications" element={<ApplicationsAdmin />} />
+                <Route path="leads" element={<LeadsAdmin />} />
+                <Route path="newsletter" element={<NewsletterAdmin />} />
+                <Route path="case-studies" element={<AdminCaseStudies />} />
+                <Route path="testimonials" element={<AdminTestimonials />} />
+                <Route path="analytics" element={<AdminAnalytics />} />
+                <Route path="settings" element={<AdminSettings />} />
+                <Route path="services" element={<AdminServices />} />
+              </Route>
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
+              </Routes>
+            </ErrorBoundary>
+            <CookieConsent />
           </BrowserRouter>
 
           {/* Floating WhatsApp Button */}

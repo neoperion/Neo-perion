@@ -14,7 +14,7 @@ export function WhyNeoPerion() {
   return (
     <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto border-t border-white/5">
       <div className="mb-16 text-center">
-        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-4">Why Us</p>
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Why Us</p>
         <h2 className="text-4xl lg:text-5xl font-black text-white">The Neo Perion Advantage</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[200px]">
@@ -24,7 +24,7 @@ export function WhyNeoPerion() {
             <div key={i} className={`p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent ${feat.span} group overflow-hidden relative`}>
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Icon className="text-cyan-400 mb-4" size={32} />
+                <Icon className="text-neo-blue mb-4" size={32} />
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">{feat.title}</h3>
                   <p className="text-slate-400">{feat.desc}</p>

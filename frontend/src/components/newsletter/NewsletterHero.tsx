@@ -13,12 +13,12 @@ export function NewsletterHero() {
         />
       </div>
       <div className="max-w-4xl mx-auto px-8 relative z-10 text-center">
-        <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-cyan-400 mb-6 animate-fade-in-up">
+        <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-neo-blue mb-6 animate-fade-in-up">
           NP Insights
         </p>
         <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-tight mb-6 text-white animate-fade-in-up" style={{animationDelay: '100ms'}}>
           Signal over<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-600">
             Noise.
           </span>
         </h1>

@@ -11,7 +11,7 @@ export const ReadingProgress: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1.5 bg-cyan-500 origin-left z-50"
+      className="fixed top-0 left-0 right-0 h-1.5 bg-neo-blue origin-left z-50"
       style={{ scaleX }}
     />
   );

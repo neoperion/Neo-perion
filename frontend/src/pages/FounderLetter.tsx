@@ -22,7 +22,7 @@ export default function FounderLetter() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet>
         <title>Founder's Letter | Neo Perion</title>
         <meta name="description" content="A letter from the CEO on why we built Neo Perion and our shift from agencies to product engineering." />
@@ -32,11 +32,11 @@ export default function FounderLetter() {
 
       <main className="relative pt-32 pb-24">
         {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-neo-blue/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         <article className="max-w-3xl mx-auto px-8 relative z-10">
           <header className="mb-16 text-center animate-fade-in-up">
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-6">Founder's Letter</p>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-6">Founder's Letter</p>
             <h1 className="text-4xl lg:text-6xl font-black text-white leading-tight mb-8">
               Why we built Neo Perion.
             </h1>
@@ -54,7 +54,7 @@ export default function FounderLetter() {
             data-fade 
             style={{transitionDuration: '800ms'}}
           >
-            <p className="first-letter:text-7xl first-letter:font-black first-letter:text-cyan-400 first-letter:mr-3 first-letter:float-left">
+            <p className="first-letter:text-7xl first-letter:font-black first-letter:text-neo-blue first-letter:mr-3 first-letter:float-left">
               The technology industry is broken in a very specific way. Over the last decade, we watched countless companies pour millions of dollars into digital transformation initiatives, only to end up with fragmented tools, unscalable architectures, and massive technical debt.
             </p>
             
@@ -72,7 +72,7 @@ export default function FounderLetter() {
               That realization was the genesis of Neo Perion. We built this company on a simple premise: <strong>Stability over hype, and engineering over outsourcing.</strong> We don't just build apps; we build intelligent, scalable ecosystems powered by AI.
             </p>
 
-            <blockquote className="border-l-4 border-cyan-500 pl-6 my-10 italic text-white/90">
+            <blockquote className="border-l-4 border-neo-blue pl-6 my-10 italic text-white/90">
               "We treat your product as our own. If an architecture won't scale to a million users, we won't recommend it. If a feature adds complexity without value, we'll push back."
             </blockquote>
 
@@ -98,7 +98,7 @@ export default function FounderLetter() {
               <div>
                 <img src="/images/np-logo.png" alt="Signature" className="h-10 mb-4 opacity-50" />
                 <p className="text-white font-bold text-xl">Vasantharaj S</p>
-                <p className="text-cyan-400 text-sm">CEO & Founder, Neo Perion</p>
+                <p className="text-neo-blue text-sm">CEO & Founder, Neo Perion</p>
               </div>
               <div className="text-right text-slate-500 text-sm">
                 <p>Co-Founders:</p>

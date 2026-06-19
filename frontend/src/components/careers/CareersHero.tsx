@@ -13,12 +13,12 @@ export function CareersHero() {
         />
       </div>
       <div className="max-w-4xl mx-auto px-8 relative z-10 text-center">
-        <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-cyan-400 mb-6 animate-fade-in-up">
+        <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-neo-blue mb-6 animate-fade-in-up">
           Careers at Neo Perion
         </p>
         <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-tight mb-8 text-white animate-fade-in-up" style={{animationDelay: '100ms'}}>
           Build the future of<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-600">
             Intelligent Software.
           </span>
         </h1>
@@ -28,7 +28,7 @@ export function CareersHero() {
         <div className="animate-fade-in-up" style={{animationDelay: '300ms'}}>
           <button
             onClick={() => document.getElementById('open-roles')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-3.5 rounded-lg text-sm font-bold bg-cyan-500 text-black hover:bg-cyan-400 transition-all duration-300"
+            className="px-8 py-3.5 rounded-lg text-sm font-bold bg-neo-blue text-black hover:bg-neo-blue transition-all duration-300"
             style={{ boxShadow: '0 8px 30px -6px rgba(6,182,212,0.4)' }}
           >
             View Open Roles

@@ -9,7 +9,7 @@ export function MissionVision() {
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
             <Target size={120} />
           </div>
-          <Target className="text-cyan-400 mb-6" size={32} />
+          <Target className="text-neo-blue mb-6" size={32} />
           <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
           <p className="text-xl text-slate-300 leading-relaxed font-medium">
             Build innovative digital products that solve meaningful problems.
@@ -20,7 +20,7 @@ export function MissionVision() {
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
             <Eye size={120} />
           </div>
-          <Eye className="text-cyan-400 mb-6" size={32} />
+          <Eye className="text-neo-blue mb-6" size={32} />
           <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
           <p className="text-xl text-slate-300 leading-relaxed font-medium">
             Become a globally trusted AI-first product engineering company.

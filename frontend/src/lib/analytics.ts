@@ -1,43 +1,55 @@
-import { getConsent } from '@/components/shared/CookieManager';
+import * as Clarity from '@microsoft/clarity';
+
+let clarityInitialized = false;
+
+function initClarity(projectId: string): void {
+  if (clarityInitialized) return;
+  Clarity.init(projectId);
+  clarityInitialized = true;
+}
 
 export function initAnalytics(): void {
+  const { getConsent } = require('@/components/shared/CookieManager');
   const consent = getConsent();
   if (!consent?.analytics) return;
 
-  const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  const clarityId = import.meta.env.VITE_CLARITY_ID;
+  const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
+  const clarityId = import.meta.env.VITE_CLARITY_ID as string | undefined;
 
-  // Load GA4
-  if (gaId && !(window as any).dataLayer) {
-    const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-    script.async = true;
-    document.head.appendChild(script);
-
+  // GA4
+  if (gaId && !document.getElementById('ga-script')) {
+    const gtagScript = document.createElement('script');
+    gtagScript.id = 'ga-script';
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    gtagScript.async = true;
+    document.head.appendChild(gtagScript);
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(arguments);
-    }
-    (window as any).gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', gaId);
+    function gtag(...args: unknown[]) { window.dataLayer.push(args); }
+    // @ts-ignore
+    window.gtag = gtag;
+    // @ts-ignore
+    window.gtag('js', new Date());
+    // @ts-ignore
+    window.gtag('config', gaId);
   }
 
-  // Load Microsoft Clarity
-  if (clarityId && !(window as any).clarity) {
-    (function(c: any,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", clarityId);
+  // Microsoft Clarity
+  if (clarityId) {
+    initClarity(clarityId);
+    Clarity.consentV2({ ad_Storage: 'denied', analytics_Storage: 'granted' });
   }
 }
 
 export function trackEvent(name: string, params?: Record<string, unknown>): void {
+  const { getConsent } = require('@/components/shared/CookieManager');
   const consent = getConsent();
   if (!consent?.analytics) return;
 
-  if ((window as any).gtag) {
-    (window as any).gtag('event', name, params);
+  if (typeof window.gtag === 'function') {
+    // @ts-ignore
+    window.gtag('event', name, params);
+  }
+  if (clarityInitialized) {
+    Clarity.event(name);
   }
 }

@@ -26,9 +26,9 @@ export const MarkdownRenderer: React.FC<Props> = ({ content }) => {
           ul: ({node, ...props}) => <ul className="list-disc pl-6 text-slate-300 mb-6 space-y-2" {...props} />,
           ol: ({node, ...props}) => <ol className="list-decimal pl-6 text-slate-300 mb-6 space-y-2" {...props} />,
           li: ({node, ...props}) => <li className="pl-2" {...props} />,
-          a: ({node, ...props}) => <a className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4" {...props} />,
+          a: ({node, ...props}) => <a className="text-neo-blue hover:text-neo-blue underline underline-offset-4" {...props} />,
           blockquote: ({node, ...props}) => (
-            <blockquote className="border-l-4 border-cyan-500 pl-6 py-2 my-8 text-xl italic text-slate-400 bg-slate-900/30 rounded-r-xl" {...props} />
+            <blockquote className="border-l-4 border-neo-blue pl-6 py-2 my-8 text-xl italic text-slate-400 bg-slate-900/30 rounded-r-xl" {...props} />
           ),
           code: ({node, inline, className, children, ...props}: any) => {
             const match = /language-(\w+)/.exec(className || '');
@@ -44,7 +44,7 @@ export const MarkdownRenderer: React.FC<Props> = ({ content }) => {
                 </div>
               </div>
             ) : (
-              <code className="bg-slate-800 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-sm" {...props}>
+              <code className="bg-slate-800 text-neo-blue px-1.5 py-0.5 rounded font-mono text-sm" {...props}>
                 {children}
               </code>
             )

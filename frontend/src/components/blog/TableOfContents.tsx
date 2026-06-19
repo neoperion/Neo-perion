@@ -36,7 +36,7 @@ export const TableOfContents: React.FC<Props> = ({ content }) => {
           <a
             key={index}
             href={`#${heading.id}`}
-            className={`block text-sm transition-colors hover:text-cyan-400 ${
+            className={`block text-sm transition-colors hover:text-neo-blue ${
               heading.level === 2 ? 'text-slate-300 font-medium' : 'text-slate-500 pl-4'
             }`}
           >

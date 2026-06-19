@@ -21,7 +21,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           className="fixed inset-0 z-[60] bg-[#050816] flex flex-col"
         >
           <div className="flex items-center justify-between p-6 border-b border-white/10">
-            <span className="text-xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+            <span className="text-xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-neo-blue to-neo-highlight">
               Neo Perion
             </span>
             <button onClick={onClose} className="text-slate-300 p-2">
@@ -33,25 +33,25 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <div className="space-y-4">
               <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Services</h3>
               <div className="flex flex-col space-y-3 pl-4 border-l border-white/10">
-                <Link to="/services/product-development" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Product Development</Link>
-                <Link to="/services/web-development" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Web Development</Link>
-                <Link to="/services/mobile-development" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Mobile Development</Link>
-                <Link to="/services/artificial-intelligence" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Artificial Intelligence</Link>
-                <Link to="/services/business-automation" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Business Automation</Link>
-                <Link to="/services/startup-support" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Startup Support</Link>
-                <Link to="/services/advanced-ai" onClick={onClose} className="text-slate-300 hover:text-cyan-400">Advanced AI</Link>
+                <Link to="/services/enterprise-product-engineering" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Product Engineering</Link>
+                <Link to="/services/cloud-native-web-platforms" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Web Platforms</Link>
+                <Link to="/services/mobile-product-engineering" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Mobile Engineering</Link>
+                <Link to="/services/ai-systems-automation" onClick={onClose} className="text-slate-300 hover:text-neo-blue">AI Systems</Link>
+                <Link to="/services/intelligent-operations-automation" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Business Automation</Link>
+                <Link to="/services/startup-to-scale-engineering" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Startup Support</Link>
+                <Link to="/services/deep-ai-engineering" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Deep AI</Link>
               </div>
             </div>
 
-            <Link to="/industries" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-cyan-400">Industries</Link>
-            <Link to="/case-studies" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-cyan-400">Case Studies</Link>
-            <Link to="/about" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-cyan-400">About</Link>
-            <Link to="/blog" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-cyan-400">Blog</Link>
-            <Link to="/careers" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-cyan-400">Careers</Link>
+            <Link to="/industries" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Industries</Link>
+            <Link to="/case-studies" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Case Studies</Link>
+            <Link to="/about" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">About</Link>
+            <Link to="/blog" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Blog</Link>
+            <Link to="/careers" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Careers</Link>
             
             <div className="pt-6">
               <Link to="/contact" onClick={onClose}>
-                <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-medium rounded-full py-6">
+                <Button className="w-full bg-neo-blue hover:bg-neo-blue text-slate-900 font-medium rounded-full py-6">
                   Book Free Consultation
                 </Button>
               </Link>

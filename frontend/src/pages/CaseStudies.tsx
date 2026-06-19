@@ -39,8 +39,8 @@ export const CaseStudies: React.FC = () => {
                     onClick={() => setActiveIndustry(industry)}
                     className={`px-4 py-2 rounded-lg text-sm transition-all ${
                       activeIndustry === industry
-                        ? 'bg-cyan-500 text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
-                        : 'bg-white/5 text-slate-300 border border-white/10 hover:border-cyan-500/50'
+                        ? 'bg-neo-blue text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                        : 'bg-white/5 text-slate-300 border border-white/10 hover:border-neo-blue/50'
                     }`}
                   >
                     {industry}
@@ -58,8 +58,8 @@ export const CaseStudies: React.FC = () => {
                     onClick={() => setActiveService(service)}
                     className={`px-4 py-2 rounded-lg text-sm transition-all ${
                       activeService === service
-                        ? 'bg-cyan-500 text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
-                        : 'bg-white/5 text-slate-300 border border-white/10 hover:border-cyan-500/50'
+                        ? 'bg-neo-blue text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                        : 'bg-white/5 text-slate-300 border border-white/10 hover:border-neo-blue/50'
                     }`}
                   >
                     {service}
@@ -71,7 +71,7 @@ export const CaseStudies: React.FC = () => {
 
           {isLoading ? (
             <div className="py-32 flex justify-center items-center">
-              <div className="w-8 h-8 rounded-full border-4 border-cyan-500/20 border-t-cyan-500 animate-spin" />
+              <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
             </div>
           ) : (
             <CaseStudyGrid caseStudies={caseStudies} />

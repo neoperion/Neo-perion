@@ -24,7 +24,7 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet>
         <title>Newsletter & Insights | Neo Perion</title>
         <meta name="description" content="Join founders and CTOs who read our weekly deep dives into AI architecture, product engineering, and scaling enterprise SaaS." />

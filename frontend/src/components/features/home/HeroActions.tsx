@@ -11,7 +11,7 @@ export const HeroActions: React.FC = () => {
       transition={{ duration: 0.5, ease: 'easeOut', delay: 0.45 }}
       className="flex flex-col sm:flex-row items-center gap-4 mt-8"
     >
-      <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] flex items-center justify-center gap-2 group">
+      <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-neo-blue hover:bg-neo-blue text-slate-900 font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] flex items-center justify-center gap-2 group">
         {homeData.hero.primaryCta}
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </button>

@@ -32,7 +32,7 @@ export const CookieConsent: React.FC = () => {
           animate={{ y: 0 }}
           exit={{ y: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="fixed bottom-0 left-0 right-0 z-[90] p-4 md:p-6 bg-slate-900/95 backdrop-blur-xl border-t border-cyan-400/20 shadow-[0_-10px_40px_rgba(0,0,0,0.3)]"
+          className="fixed bottom-0 left-0 right-0 z-[90] p-4 md:p-6 bg-slate-900/95 backdrop-blur-xl border-t border-neo-blue/20 shadow-[0_-10px_40px_rgba(0,0,0,0.3)]"
         >
           <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
@@ -40,7 +40,7 @@ export const CookieConsent: React.FC = () => {
                 <span className="text-xl mr-2">🍪</span>
                 We use cookies to deliver and improve our services, analyze site usage, 
                 and if you agree, to customize your experience and market our services to you. 
-                You can read our Cookie Policy <Link to="/privacy#cookies" className="text-cyan-400 hover:underline">here</Link>.
+                You can read our Cookie Policy <Link to="/privacy#cookies" className="text-neo-blue hover:underline">here</Link>.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row w-full md:w-auto items-stretch sm:items-center gap-3 shrink-0">
@@ -60,7 +60,7 @@ export const CookieConsent: React.FC = () => {
               </Button>
               <Button 
                 onClick={handleAcceptAll}
-                className="bg-cyan-500 hover:bg-cyan-600 text-slate-900"
+                className="bg-neo-blue hover:bg-neo-blue text-slate-900"
               >
                 Accept all
               </Button>

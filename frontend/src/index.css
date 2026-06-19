@@ -88,18 +88,19 @@
 @layer utilities {
   .btn-primary {
     @apply inline-flex items-center justify-center;
-    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    background: linear-gradient(135deg, #1E5DFF, #2563FF);
     color: white;
     padding: 14px 28px;
     border-radius: 12px;
     font-weight: 600;
     letter-spacing: -0.2px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    background: linear-gradient(135deg, #2563FF, #4AA8FF);
+    box-shadow: 0 10px 30px rgba(37, 99, 255, 0.20);
   }
 
   .btn-secondary {
@@ -145,6 +146,54 @@
   .premium-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 40px 80px rgba(15,23,42,0.14);
+  }
+  
+  .text-neo-gradient {
+    background: linear-gradient(135deg, #1E5DFF 0%, #2563FF 35%, #4AA8FF 70%, #74C8FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-neo-numbers {
+    background: linear-gradient(135deg, #1E5DFF, #2563FF, #4AA8FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(37,99,255,0.25);
+  }
+
+  .bg-neo-process {
+    background: linear-gradient(135deg, #1E5DFF, #4AA8FF);
+    color: white;
+    box-shadow: 0 10px 25px rgba(37,99,255,0.20);
+  }
+
+  .bg-neo-gradient {
+    background: linear-gradient(135deg, #1E5DFF, #2563FF);
+  }
+
+  .bg-neo-gradient-hover {
+    background: linear-gradient(135deg, #2563FF, #4AA8FF);
+  }
+
+  .neo-glow-text {
+    text-shadow: 0 0 20px rgba(37,99,255,0.25);
+  }
+
+  .neo-glow-box {
+    box-shadow: 0 10px 30px rgba(37,99,255,0.25);
+  }
+  
+  .neo-glow-card {
+    box-shadow: 0 10px 30px rgba(37,99,255,0.08);
+  }
+
+  .neo-glow-btn {
+    box-shadow: 0 10px 30px rgba(37,99,255,0.20);
   }
 }
 

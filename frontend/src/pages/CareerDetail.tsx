@@ -124,7 +124,7 @@ export default function CareerDetail() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#02040A] text-white flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-cyan-500 border-t-transparent animate-spin"></div>
+        <div className="w-8 h-8 rounded-full border-2 border-neo-blue border-t-transparent animate-spin"></div>
       </div>
     );
   }
@@ -132,7 +132,7 @@ export default function CareerDetail() {
   if (!job) return null;
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet>
         <title>{job.title} | Careers | Neo Perion</title>
         <meta name="description" content={job.description.substring(0, 160)} />
@@ -144,7 +144,7 @@ export default function CareerDetail() {
         <div className="max-w-4xl mx-auto px-8">
           <button 
             onClick={() => navigate('/company/careers')}
-            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors mb-12"
+            className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-12"
           >
             <ArrowLeft size={16} /> Back to careers
           </button>
@@ -152,10 +152,10 @@ export default function CareerDetail() {
           <header className="mb-12">
             <h1 className="text-4xl lg:text-5xl font-black text-white mb-6">{job.title}</h1>
             <div className="flex flex-wrap items-center gap-6 text-sm text-slate-300">
-              <span className="flex items-center gap-2"><Briefcase size={16} className="text-cyan-400" /> {job.department}</span>
-              <span className="flex items-center gap-2"><MapPin size={16} className="text-cyan-400" /> {job.location}</span>
-              <span className="flex items-center gap-2"><Clock size={16} className="text-cyan-400" /> {job.employment_type || 'Full Time'}</span>
-              {job.experience_level && <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-cyan-400" /> {job.experience_level}</span>}
+              <span className="flex items-center gap-2"><Briefcase size={16} className="text-neo-blue" /> {job.department}</span>
+              <span className="flex items-center gap-2"><MapPin size={16} className="text-neo-blue" /> {job.location}</span>
+              <span className="flex items-center gap-2"><Clock size={16} className="text-neo-blue" /> {job.employment_type || 'Full Time'}</span>
+              {job.experience_level && <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-neo-blue" /> {job.experience_level}</span>}
             </div>
           </header>
 
@@ -174,7 +174,7 @@ export default function CareerDetail() {
                   <ul className="space-y-3">
                     {job.responsibilities.map((req: string, i: number) => (
                       <li key={i} className="flex items-start gap-3 text-slate-300">
-                        <CheckCircle2 size={20} className="text-cyan-500 shrink-0 mt-0.5" />
+                        <CheckCircle2 size={20} className="text-neo-blue shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -188,7 +188,7 @@ export default function CareerDetail() {
                   <ul className="space-y-3">
                     {job.requirements.map((req: string, i: number) => (
                       <li key={i} className="flex items-start gap-3 text-slate-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-neo-blue mt-2.5 shrink-0" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -219,7 +219,7 @@ export default function CareerDetail() {
                       <label className="block text-sm font-medium text-slate-300 mb-1.5">Full Name *</label>
                       <input 
                         {...register('full_name')}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
                         placeholder="Jane Doe"
                       />
                       {errors.full_name && <p className="text-red-400 text-xs mt-1">{errors.full_name.message}</p>}
@@ -230,7 +230,7 @@ export default function CareerDetail() {
                       <input 
                         {...register('email')}
                         type="email"
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
                         placeholder="jane@example.com"
                       />
                       {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
@@ -240,7 +240,7 @@ export default function CareerDetail() {
                       <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone</label>
                       <input 
                         {...register('phone')}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -257,7 +257,7 @@ export default function CareerDetail() {
                         />
                         <label 
                           htmlFor="resume-upload"
-                          className="flex items-center justify-center gap-2 w-full bg-black/50 border border-dashed border-white/20 hover:border-cyan-500/50 rounded-lg px-4 py-4 text-slate-300 cursor-pointer transition-colors"
+                          className="flex items-center justify-center gap-2 w-full bg-black/50 border border-dashed border-white/20 hover:border-neo-blue/50 rounded-lg px-4 py-4 text-slate-300 cursor-pointer transition-colors"
                         >
                           <Upload size={18} />
                           <span className="text-sm">{resumeFile ? resumeFile.name : 'Upload Resume'}</span>
@@ -270,7 +270,7 @@ export default function CareerDetail() {
                       <label className="block text-sm font-medium text-slate-300 mb-1.5">LinkedIn URL</label>
                       <input 
                         {...register('linkedin')}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
                         placeholder="https://linkedin.com/in/..."
                       />
                       {errors.linkedin && <p className="text-red-400 text-xs mt-1">{errors.linkedin.message}</p>}
@@ -281,7 +281,7 @@ export default function CareerDetail() {
                       <textarea 
                         {...register('cover_letter')}
                         rows={3}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors resize-none"
                         placeholder="Tell us why you'd be a great fit..."
                       />
                     </div>
@@ -289,7 +289,7 @@ export default function CareerDetail() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full py-3.5 rounded-lg bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                      className="w-full py-3.5 rounded-lg bg-neo-blue text-black font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                     >
                       {submitting ? 'Submitting...' : 'Submit Application'}
                     </button>

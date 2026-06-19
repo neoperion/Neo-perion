@@ -72,13 +72,13 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-neo-blue/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-4">Let's Connect</p>
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Let's Connect</p>
           <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-4 text-white">
-            Ready to <span className="text-cyan-400">Scale</span>?
+            Ready to <span className="text-neo-blue">Scale</span>?
           </h2>
           <p className="text-slate-400 text-[15px] leading-relaxed max-w-xl mx-auto">
             Book a direct meeting with our engineering team or send us a message about your project requirements.
@@ -89,8 +89,8 @@ export const Contact = () => {
           {/* Left: Calendly / Book Meeting */}
           <div className="bg-[#0B1120] border border-white/[0.06] rounded-[24px] p-8 flex flex-col h-full shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-cyan-500/10 rounded-xl border border-cyan-500/20">
-                <Calendar className="h-6 w-6 text-cyan-400" />
+              <div className="p-3 bg-neo-blue/10 rounded-xl border border-neo-blue/20">
+                <Calendar className="h-6 w-6 text-neo-blue" />
               </div>
               <h3 className="text-2xl font-display font-bold text-white">Book a Meeting</h3>
             </div>
@@ -114,7 +114,7 @@ export const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-slate-300">
-                  Full Name <span className="text-cyan-400">*</span>
+                  Full Name <span className="text-neo-blue">*</span>
                 </Label>
                 <Input
                   id="name"
@@ -127,7 +127,7 @@ export const Contact = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-slate-300">
-                  Work Email <span className="text-cyan-400">*</span>
+                  Work Email <span className="text-neo-blue">*</span>
                 </Label>
                 <Input
                   id="email"
@@ -151,7 +151,7 @@ export const Contact = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-slate-300">
-                  How can we help? <span className="text-cyan-400">*</span>
+                  How can we help? <span className="text-neo-blue">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -167,7 +167,7 @@ export const Contact = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all duration-300 mt-2"
+                className="w-full bg-neo-blue hover:bg-neo-blue text-white font-bold transition-all duration-300 mt-2"
               >
                 {isSubmitting ? (
                   <>

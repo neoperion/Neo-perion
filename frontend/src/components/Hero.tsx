@@ -51,12 +51,12 @@ const GlassMonolith = () => {
         {/* The Inner Glowing Core */}
         <mesh ref={core}>
           <icosahedronGeometry args={[1.2, 1]} />
-          <meshBasicMaterial color="#2563EB" wireframe />
+          <meshBasicMaterial color="#2563FF" wireframe />
         </mesh>
       </mesh>
       
       {/* Floating data particles inside/around */}
-      <Sparkles count={50} scale={5} size={2} speed={0.4} color="#7C3AED" opacity={0.5} />
+      <Sparkles count={50} scale={5} size={2} speed={0.4} color="#4AA8FF" opacity={0.5} />
     </Float>
   );
 };
@@ -67,8 +67,8 @@ const WebGLCanvas = () => {
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }} gl={{ antialias: true, alpha: true }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-        <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563EB" />
-        <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#7C3AED" />
+        <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563FF" />
+        <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#74C8FF" />
         
         <Environment preset="city" />
         
@@ -103,9 +103,10 @@ export const Hero = () => {
 
             <h1 className="text-5xl md:text-7xl lg:text-[84px] font-black tracking-[-0.02em] leading-[1.05] text-slate-900 font-display">
               Build Software <br/>
-              That <span className="font-serif italic font-normal text-slate-700 relative inline-block">
-                Scales.
-                <div className="absolute bottom-1 left-0 w-full h-[6px] bg-slate-900/10 rounded-full"></div>
+              That <br/>
+              <span className="font-serif italic font-normal text-neo-gradient relative inline-block">
+                Scales
+                <div className="absolute bottom-1 left-0 w-full h-[6px] bg-neo-gradient rounded-full opacity-50"></div>
               </span>
             </h1>
 

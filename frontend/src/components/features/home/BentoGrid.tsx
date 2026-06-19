@@ -25,7 +25,7 @@ const bentoItems = [
   {
     title: 'Future Ready Technology',
     description: 'SOC2 compliant, highly available, and rigorously tested architectures.',
-    icon: <Shield className="w-6 h-6 text-cyan-400" />,
+    icon: <Shield className="w-6 h-6 text-neo-blue" />,
     className: 'md:col-span-1 bg-slate-900/40'
   },
   {

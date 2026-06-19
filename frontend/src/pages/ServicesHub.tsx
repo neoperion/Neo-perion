@@ -46,7 +46,7 @@ export const ServicesHub: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-5xl md:text-7xl font-display font-bold text-white mb-6"
           >
-            Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Expertise</span>
+            Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-highlight">Expertise</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -25,7 +25,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet>
         <title>Contact Us | Neo Perion</title>
         <meta name="description" content="Get in touch with Neo Perion. Let's build something extraordinary together." />
