@@ -60,9 +60,5 @@ export const ServicePageTemplate: React.FC = () => {
     }
   };
 
-  return (
-    <MobileGate mobileOnly fallback={renderDesktop()}>
-      <MobileDynamicService service={service} />
-    </MobileGate>
-  );
+  return renderDesktop();
 };

@@ -235,6 +235,13 @@ export default function ServicesPage() {
                 <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Services</p>
                 <h1 className="text-display-lg text-white tracking-tight">Engineering capabilities.</h1>
                 <p className="text-base text-white/70 mt-3 mb-6">AI-first architecture, scalable systems, and premium product engineering.</p>
+                <button
+                    onClick={() => navigate('/contact')}
+                    className="w-full py-4 bg-white hover:bg-slate-50 text-slate-900 rounded-2xl text-[15px] font-bold transition-all duration-300 flex items-center justify-center gap-2 mb-8"
+                >
+                    Start a project
+                    <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
               <div className="px-mobile-base space-y-4 pb-8">
                 {servicesData.map((s) => (
@@ -247,6 +254,49 @@ export default function ServicesPage() {
                   </button>
                 ))}
               </div>
+
+              {/* Process Section */}
+              <div className="px-mobile-base py-12 border-t border-white/[0.08]">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-neo-highlight mb-3">How We Work</p>
+                <h2 className="text-display-sm text-white tracking-tight mb-8">Engineering Process.</h2>
+                <div className="space-y-4">
+                    {processSteps.map((step, index) => {
+                        const Icon = step.icon;
+                        return (
+                            <div key={index} className="p-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center relative shrink-0">
+                                        <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-neo-highlight text-[#02040A] flex items-center justify-center text-[10px] font-black border-2 border-[#02040A]">
+                                            {step.num}
+                                        </div>
+                                        <Icon className="w-5 h-5 text-neo-highlight" />
+                                    </div>
+                                    <h3 className="text-[16px] font-bold text-white leading-tight">{step.title}</h3>
+                                </div>
+                                <p className="text-[13px] text-white/60 leading-relaxed">{step.desc}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+              </div>
+
+              {/* CTA Section */}
+              <div className="px-mobile-base py-12 border-t border-white/[0.08]">
+                <div className="p-8 rounded-[2rem] bg-gradient-to-br from-neo-highlight/20 to-transparent border border-neo-highlight/30 text-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-neo-highlight/5 blur-xl"></div>
+                    <div className="relative z-10">
+                        <h2 className="text-2xl font-black text-white mb-4 tracking-tight">Ready to scale your technical infrastructure?</h2>
+                        <p className="text-[13px] text-white/70 mb-8 leading-relaxed">Schedule a technical strategy call with our senior architects. No sales pressure, just actionable engineering advice.</p>
+                        <button
+                            onClick={() => navigate('/contact')}
+                            className="w-full py-4 bg-neo-highlight text-[#02040A] rounded-2xl text-[15px] font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform"
+                        >
+                            Book a Strategy Call <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </div>
+                </div>
+              </div>
+
             </div>
           </MobileShell>
         </MobileGate>

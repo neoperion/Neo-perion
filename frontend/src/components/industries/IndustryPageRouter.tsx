@@ -57,9 +57,5 @@ export const IndustryPageRouter: React.FC = () => {
     }
   };
 
-  return (
-    <MobileGate mobileOnly fallback={renderDesktop()}>
-      <MobileDynamicIndustry industry={industry} />
-    </MobileGate>
-  );
+  return renderDesktop();
 };
