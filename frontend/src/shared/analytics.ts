@@ -27,11 +27,11 @@ export function initAnalytics(): void {
 
     window.dataLayer = window.dataLayer || [];
     function gtag(...args: unknown[]) { window.dataLayer.push(args); }
-    // @ts-ignore
+    // @ts-expect-error - Window analytics object types are dynamic
     window.gtag = gtag;
-    // @ts-ignore
+    // @ts-expect-error - Window analytics object types are dynamic
     window.gtag('js', new Date());
-    // @ts-ignore
+    // @ts-expect-error - Window analytics object types are dynamic
     window.gtag('config', gaId);
   }
 
@@ -48,7 +48,7 @@ export function trackEvent(name: string, params?: Record<string, unknown>): void
   if (!consent?.analytics) return;
 
   if (typeof window.gtag === 'function') {
-    // @ts-ignore
+    // @ts-expect-error - Window analytics object types are dynamic
     window.gtag('event', name, params);
   }
   if (clarityInitialized) {
