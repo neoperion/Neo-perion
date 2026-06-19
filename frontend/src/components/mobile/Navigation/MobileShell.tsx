@@ -22,7 +22,7 @@ export function MobileShell({ nav = 'bottom', showFooter = true, children }: Mob
 
   return (
     <>
-      <div className={nav === 'bottom' ? 'pb-20' : 'pt-safe'}>{children}</div>
+      <div className={nav === 'bottom' ? 'pb-32' : 'pt-safe'}>{children}</div>
       {nav === 'top' && (
         <header className="fixed top-0 left-0 right-0 z-mobile-nav md:hidden bg-[rgba(15,23,42,0.78)] backdrop-blur-glass-3 border-b border-white/[0.10] pt-safe-or-4 pb-2 px-mobile-base flex items-center justify-between">
           <a href="/" className="flex items-center gap-2"><img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" /><span className="text-[15px] font-bold text-white">Neo Perion</span></a>

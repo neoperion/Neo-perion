@@ -153,6 +153,16 @@ export default {
           '0%, 100%': { opacity: '0.3' },
           '50%':      { opacity: '1' },
         },
+        "gradient-x": {
+          '0%':   { backgroundPosition: '0% 50%' },
+          '50%':  { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        "crystal-float": {
+          '0%':   { transform: 'translateY(0px) rotate(-3deg)' },
+          '50%':  { transform: 'translateY(-15px) rotate(3deg)' },
+          '100%': { transform: 'translateY(0px) rotate(-3deg)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -163,6 +173,8 @@ export default {
         "glass-shine": "glass-shine 2.5s ease-in-out infinite",
         "nav-float": "nav-float 3s ease-in-out infinite",
         "dot-pulse": "dot-pulse 1.4s ease-in-out infinite",
+        "gradient-x": "gradient-x 3s linear infinite",
+        "crystal-float": "crystal-float 14s ease-in-out infinite",
       },
       backdropBlur: {
         'glass-1': '20px',

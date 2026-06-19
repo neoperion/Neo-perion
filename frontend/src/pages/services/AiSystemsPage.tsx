@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
 import { Database, FileText, Bot, BrainCircuit, MessageSquare, ArrowRight } from 'lucide-react';
+import { MobileGate, MobileShell } from '@/components/mobile';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {

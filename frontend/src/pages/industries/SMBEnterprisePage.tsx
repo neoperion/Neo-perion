@@ -9,9 +9,7 @@ import {
   ArrowRight, ChevronDown, Building2, Settings, Users, PieChart, Briefcase,
   Play, Sparkles, Zap, Star, CheckCircle2, TrendingUp, Clock, DollarSign, BarChart3
 } from 'lucide-react';
-import { MobileGate } from '@/components/mobile/MobileGate';
-import { MobileShell } from '@/components/mobile/MobileShell';
-
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 // ─── Interactive ROI Impact Calculator ──────────────────────
 const ROIImpactCalculator = () => {

@@ -1,84 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, MeshTransmissionMaterial, Float, ContactShadows, Sparkles } from "@react-three/drei";
-import { useRef } from "react";
-import * as THREE from "three";
-
-const GlassMonolith = () => {
-  const mesh = useRef<THREE.Mesh>(null);
-  const core = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (mesh.current && core.current) {
-      const time = state.clock.getElapsedTime();
-      // Gentle constant rotation
-      mesh.current.rotation.y = time * 0.15;
-      mesh.current.rotation.x = Math.sin(time * 0.5) * 0.1;
-      
-      core.current.rotation.y = time * -0.2;
-      core.current.rotation.z = time * 0.1;
-
-      // Subtle mouse interaction
-      const targetX = (state.pointer.x * Math.PI) / 4;
-      const targetY = (state.pointer.y * Math.PI) / 4;
-      
-      mesh.current.rotation.y += 0.05 * (targetX - mesh.current.rotation.y);
-      mesh.current.rotation.x += 0.05 * (-targetY - mesh.current.rotation.x);
-    }
-  });
-
-  return (
-    <Float floatIntensity={2} rotationIntensity={0.5} speed={2}>
-      <mesh ref={mesh} position={[0, 0, 0]}>
-        {/* The Outer Glass Monolith */}
-        <icosahedronGeometry args={[2.5, 0]} />
-        <MeshTransmissionMaterial 
-          backside
-          samples={4}
-          thickness={1.5}
-          chromaticAberration={0.06}
-          anisotropy={0.1}
-          distortion={0.2}
-          distortionScale={0.5}
-          temporalDistortion={0.1}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
-          roughness={0.05}
-          transmission={1}
-          color="#ffffff"
-        />
-        
-        {/* The Inner Glowing Core */}
-        <mesh ref={core}>
-          <icosahedronGeometry args={[1.2, 1]} />
-          <meshBasicMaterial color="#2563FF" wireframe />
-        </mesh>
-      </mesh>
-      
-      {/* Floating data particles inside/around */}
-      <Sparkles count={50} scale={5} size={2} speed={0.4} color="#4AA8FF" opacity={0.5} />
-    </Float>
-  );
-};
-
-const WebGLCanvas = () => {
-  return (
-    <div className="absolute top-0 right-0 w-full md:w-3/5 h-full z-0 opacity-100 hidden md:block">
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }} gl={{ antialias: true, alpha: true }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-        <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563FF" />
-        <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#74C8FF" />
-        
-        <Environment preset="city" />
-        
-        <GlassMonolith />
-        
-        <ContactShadows position={[0, -3.5, 0]} opacity={0.3} scale={15} blur={2.5} far={4} color="#0f172a" />
-      </Canvas>
-    </div>
-  );
-};
+import { ThreeCanvas } from "@/components/features/home/ThreeCanvas";
 
 export const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -88,13 +9,26 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white pt-24 pb-16 md:pt-0 border-b border-slate-900/5">
-      {/* Background Grid Texture */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+      {/* Layer 1: Background Grid Texture */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
       
-      {/* WebGL Refractive Glass Canvas */}
-      <WebGLCanvas />
+      {/* Layer 2: Ambient Glow Behind the Stone */}
+      <div 
+        className="absolute right-[-8%] top-1/2 -translate-y-1/2 w-[650px] h-[650px] z-[1] pointer-events-none hidden md:block"
+        style={{
+          background: 'radial-gradient(circle, rgba(37,99,255,0.28), transparent 70%)',
+          filter: 'blur(30px)',
+        }}
+      />
 
-      {/* Content Container */}
+      {/* Layer 3: Large Stone Background (3D Canvas) */}
+      <div 
+        className="absolute right-[-8%] top-1/2 -translate-y-1/2 w-[650px] h-[650px] z-[2] opacity-[0.45] pointer-events-none hidden md:block"
+      >
+        <ThreeCanvas />
+      </div>
+
+      {/* Layer 4: Content Container */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pointer-events-none">
         <div className="grid lg:grid-cols-[5fr_5fr] gap-12 lg:gap-8 items-center">
           
@@ -134,9 +68,9 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right: Empty space for 3D Canvas */}
-          <div className="hidden md:block pointer-events-auto w-full h-[600px]">
-            {/* The canvas is positioned absolutely to fill the right side of the screen, allowing it to overflow the container gracefully. */}
+          {/* Right: Empty space for 3D Canvas structure spacing */}
+          <div className="hidden md:block pointer-events-none w-full h-[600px]">
+            {/* Kept for spacing on desktop layout so left content doesn't stretch across screen */}
           </div>
           
         </div>
@@ -144,5 +78,3 @@ export const Hero = () => {
     </section>
   );
 };
-
-

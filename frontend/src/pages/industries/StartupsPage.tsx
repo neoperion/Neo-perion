@@ -9,9 +9,7 @@ import {
   ArrowRight, ChevronDown, Rocket, Layers, Lightbulb, TrendingUp,
   Play, Sparkles, Zap, Star, Target, DollarSign, Clock, Shield, Code2, GitMerge
 } from 'lucide-react';
-import { MobileGate } from '@/components/mobile/MobileGate';
-import { MobileShell } from '@/components/mobile/MobileShell';
-
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 // ─── Startup Journey Interactive Slider ──────────────────────
 const StartupJourneySlider = () => {

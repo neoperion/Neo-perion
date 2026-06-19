@@ -9,9 +9,7 @@ import {
   ArrowRight, ChevronDown, HeartPulse, Stethoscope, Video, Brain, Activity,
   Play, Shield, Lock, FileCheck, CheckCircle2, AlertTriangle, Server, Eye
 } from 'lucide-react';
-import { MobileGate } from '@/components/mobile/MobileGate';
-import { MobileShell } from '@/components/mobile/MobileShell';
-
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 // ─── Interactive Compliance Checklist ──────────────────────
 const ComplianceChecklist = () => {

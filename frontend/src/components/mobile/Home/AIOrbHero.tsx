@@ -1,113 +1,208 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Brain, type LucideIcon } from 'lucide-react';
-import { springs, fadeUp } from '@/lib/motion';
+import { motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { useHaptic } from '@/hooks/use-haptic';
-import { cn } from '@/lib/utils';
+import { ThreeCanvas } from '@/components/features/home/ThreeCanvas';
 
 export interface AIOrbHeroProps {
   badge?: string;
   headline: React.ReactNode;
   subheadline: string;
-  trustItems?: string[];
   primaryCta?: { label: string; href: string };
+  trustItems?: string[];
   secondaryCta?: { label: string; href: string };
 }
 
+/* ─── Animated Aurora Mesh ─── */
+function AuroraMesh() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {/* Blob 1 — top-left, soft blue */}
+      <motion.div
+        animate={{
+          x: [0, 30, -20, 0],
+          y: [0, -25, 15, 0],
+          scale: [1, 1.15, 0.95, 1],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -top-20 -left-16 w-[280px] h-[280px] rounded-full bg-gradient-to-br from-sky-200/60 to-blue-300/40 blur-[80px]"
+      />
+      {/* Blob 2 — center-right, lavender */}
+      <motion.div
+        animate={{
+          x: [0, -25, 20, 0],
+          y: [0, 20, -30, 0],
+          scale: [1, 0.9, 1.1, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-1/3 -right-10 w-[240px] h-[240px] rounded-full bg-gradient-to-br from-violet-200/50 to-purple-200/30 blur-[80px]"
+      />
+      {/* Blob 3 — bottom, cyan accent */}
+      <motion.div
+        animate={{
+          x: [0, 15, -15, 0],
+          y: [0, -20, 10, 0],
+          scale: [1, 1.1, 0.92, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -bottom-16 left-1/4 w-[220px] h-[220px] rounded-full bg-gradient-to-tr from-cyan-100/50 to-sky-200/30 blur-[80px]"
+      />
+    </div>
+  );
+}
+
+/* ─── Main Hero ─── */
 export function AIOrbHero({
   badge = 'AI-First Engineering',
   headline,
   subheadline,
-  trustItems = ['AI First', 'Enterprise', 'Startup Friendly'],
   primaryCta = { label: 'Book Free Consultation', href: '/contact' },
-  secondaryCta = { label: 'Explore Services', href: '/services' },
 }: AIOrbHeroProps) {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const orbY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.15, 0.9]);
-  const orbOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.85, 0.5]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -40]);
   const haptic = useHaptic();
+
+  /* Stagger container */
+  const stagger: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 28, filter: 'blur(6px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 260, damping: 22 },
+    },
+  };
 
   return (
     <motion.section
-      ref={ref}
       initial="hidden"
       animate="visible"
-      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
-      className="relative w-full min-h-[100svh] overflow-hidden bg-gradient-to-b from-[#030B1D] via-[#020617] to-[#030B1D] pt-safe-or-4 pb-mobile-3xl"
+      variants={stagger}
+      className="relative w-full min-h-[92vh] flex flex-col justify-center bg-white overflow-hidden"
     >
-      <div aria-hidden="true" className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 50% 100%, rgba(0,229,255,0.4) 0%, transparent 60%), linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '100% 100%, 24px 24px, 24px 24px' }} />
-      <Particles count={20} />
-      <motion.div aria-hidden="true" style={{ y: orbY, scale: orbScale, opacity: orbOpacity }} className="pointer-events-none absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2">
-        <div className="relative h-[280px] w-[280px] sm:h-[340px] sm:w-[340px]">
-          <div className="absolute inset-0 rounded-full ai-orb-glow animate-orb-pulse" />
-          <div className="absolute inset-4 rounded-full ai-orb-base animate-orb-rotate-slow" />
-          <div className="absolute inset-8 rounded-full border border-white/[0.18]" />
-          <div className="absolute inset-12 rounded-full border border-white/[0.10]" />
-          <div className="absolute inset-0 flex items-center justify-center"><span className="text-[10px] font-bold tracking-[0.3em] text-white/80">NP · AI</span></div>
-          <FloatingChip icon={Brain} label="RAG" angle={45} distance={150} delay={0.4} />
-          <FloatingChip icon={Sparkles} label="LLM" angle={135} distance={160} delay={0.6} />
-          <FloatingChip icon={Zap} label="EDGE" angle={225} distance={150} delay={0.8} />
-          <FloatingChip icon={Sparkles} label="AGENT" angle={315} distance={160} delay={1.0} />
-        </div>
-      </motion.div>
+      {/* ── Layer 1: Subtle dot grid ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.35]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #94a3b8 0.8px, transparent 0.8px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
 
-      <motion.div style={{ y: textY }} className="relative z-10 mx-auto max-w-xl flex flex-col items-center px-mobile-base text-center pt-[calc(60vh-60px)]">
-        <motion.div variants={fadeUp} className="mb-4">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.05] backdrop-blur-glass-1 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
-            <span className="h-1.5 w-1.5 rounded-full bg-neo-highlight animate-dot-pulse" />{badge}
+      {/* ── Layer 2: Aurora ambient glow ── */}
+      <AuroraMesh />
+
+      {/* ── Layer 3: 3D Crystal Stone — atmospheric background artifact ── */}
+      <div
+        aria-hidden="true"
+        className="absolute pointer-events-none z-[2] animate-crystal-float"
+        style={{
+          top: '10%',
+          right: '-10%',
+          width: '380px',
+          height: '380px',
+        }}
+      >
+        {/* Ambient radial glow behind stone */}
+        <div
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(37,99,255,0.38), transparent 70%)',
+            width: '300px',
+            height: '300px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            filter: 'blur(20px)',
+          }}
+        />
+        {/* WebGL 3D Stone Canvas */}
+        <div className="absolute inset-0 opacity-[0.55]">
+          <ThreeCanvas />
+        </div>
+      </div>
+
+      {/* ── Layer 4: Content (always the visual priority) ── */}
+      <div className="relative z-10 flex flex-col items-center px-6 pt-16 pb-10">
+        {/* Badge */}
+        <motion.div variants={fadeUp} className="mb-5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-slate-900/10">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neo-blue opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-neo-blue" />
+            </span>
+            {badge}
           </span>
         </motion.div>
-        <motion.h1 variants={fadeUp} className="text-display-xl text-white tracking-tight mb-4">{headline}</motion.h1>
-        <motion.p variants={fadeUp} className="text-base sm:text-lg text-white/70 leading-relaxed max-w-md mb-7">{subheadline}</motion.p>
-        <motion.div variants={fadeUp} className="flex flex-col w-full gap-3 mb-8">
-          <Link to={primaryCta.href} onClick={() => haptic('medium')} className="group h-14 px-6 rounded-3xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(37,99,255,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/20 active:scale-[0.98] transition-transform">
-            {primaryCta.label}<ArrowRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
+
+        {/* Headline */}
+        <motion.h1
+          variants={fadeUp}
+          className="text-[clamp(36px,10vw,52px)] font-black text-center text-slate-900 tracking-tight leading-[1.08] mb-5 font-display max-w-md"
+        >
+          {headline}
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          variants={fadeUp}
+          className="text-center text-[15px] sm:text-base text-slate-700 leading-relaxed max-w-sm mb-8 font-medium"
+        >
+          {subheadline}
+        </motion.p>
+
+        {/* ── Layer 5: CTA Buttons ── */}
+        <motion.div variants={fadeUp} className="flex flex-col items-center gap-3 w-full max-w-xs mb-12">
+          <Link
+            to={primaryCta.href}
+            onClick={() => haptic('medium')}
+            className="group relative w-full h-[52px] rounded-2xl bg-slate-900 text-white font-bold text-[15px] flex items-center justify-center gap-2 overflow-hidden shadow-xl shadow-slate-900/15 active:scale-[0.97] transition-transform"
+          >
+            {/* Hover gradient sweep */}
+            <div className="absolute inset-0 bg-gradient-to-r from-neo-blue via-purple-500 to-neo-blue bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-[gradient-x_3s_linear_infinite] transition-opacity duration-500" />
+            <span className="relative z-10 flex items-center gap-2">
+              {primaryCta.label}
+              <ArrowRight size={16} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
+            </span>
           </Link>
-          <Link to={secondaryCta.href} className="h-12 px-5 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-white/[0.10] transition-colors">
-            {secondaryCta.label}
+
+          <Link
+            to="/services"
+            className="w-full h-[52px] rounded-2xl bg-white/70 backdrop-blur-md border border-slate-200 text-slate-700 font-bold text-[15px] flex items-center justify-center gap-2 active:scale-[0.97] transition-all hover:border-slate-300 hover:bg-white"
+          >
+            Explore Services
           </Link>
         </motion.div>
-        <motion.ul variants={fadeUp} className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] text-white/70">
-          {trustItems.map((t) => (<li key={t} className="inline-flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-neo-highlight" />{t}</li>))}
-        </motion.ul>
-      </motion.div>
-    </motion.section>
-  );
-}
 
-function FloatingChip({ icon: Icon, label, angle, distance, delay }: { icon: LucideIcon; label: string; angle: number; distance: number; delay: number }) {
-  const rad = (angle * Math.PI) / 180;
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
-      transition={{ ...springs.magnetic, delay }}
-      style={{ transform: `translate(${Math.cos(rad) * distance}px, ${Math.sin(rad) * distance}px)` }}
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-    >
-      <div className="h-9 px-3 rounded-full bg-[rgba(15,23,42,0.78)] backdrop-blur-glass-2 border border-white/[0.18] flex items-center gap-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
-        <Icon size={12} /><span className="text-[10px] font-bold tracking-[0.1em] text-white">{label}</span>
+        {/* Trust Tags */}
+        <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {['AI First Company', 'Product Engineers', 'Startup Friendly', 'Enterprise Ready'].map(
+            (tag, i) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-slate-100 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-slate-500 shadow-sm"
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{
+                    backgroundColor: ['#2563FF', '#8B5CF6', '#10B981', '#F59E0B'][i],
+                  }}
+                />
+                {tag}
+              </span>
+            ),
+          )}
+        </motion.div>
+
       </div>
-    </motion.div>
-  );
-}
-
-function Particles({ count = 20 }: { count?: number }) {
-  return (
-    <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
-      {Array.from({ length: count }).map((_, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.8, 0], y: [-10, -40, -80] }}
-          transition={{ duration: 4 + (i % 5), delay: (i * 0.3) % 3, repeat: Infinity, ease: 'linear' }}
-          className="absolute rounded-full bg-neo-highlight"
-          style={{ left: `${(i * 137.5) % 100}%`, top: `${(i * 91.3) % 100}%`, width: 2 + (i % 3), height: 2 + (i % 3) }}
-        />
-      ))}
-    </div>
+    </motion.section>
   );
 }

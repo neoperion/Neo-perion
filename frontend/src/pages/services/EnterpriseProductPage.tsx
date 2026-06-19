@@ -3,7 +3,8 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
-import { Code, Box, GitBranch, Terminal } from 'lucide-react';
+import { Code, Box, GitBranch, Terminal, ArrowRight } from 'lucide-react';
+import { MobileGate, MobileShell } from '@/components/mobile';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {

@@ -330,4 +330,3 @@ export function CloudWebPlatformPage({ service }: Props) {
     </MobileGate>
   );
 }
-}

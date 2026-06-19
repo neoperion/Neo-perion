@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
 import { Check, X, ArrowRight, Cpu } from 'lucide-react';
+import { MobileGate, MobileShell } from '@/components/mobile';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -303,5 +304,4 @@ export function DeepAiEngineeringPage({ service }: Props) {
       </MobileShell>
     </MobileGate>
   );
-}
 }

@@ -1,6 +1,5 @@
 import { Brain, Sparkles, Blocks, Cloud, Smartphone, Cog, Rocket, Target, Zap, Shield, BarChart3, Users, Layers, Lightbulb, type LucideIcon } from 'lucide-react';
 import { AIOrbHero } from './AIOrbHero';
-import { TrustStatsSwipe } from './TrustStatsSwipe';
 import { ServiceCarouselMobile, type ServiceItem } from './ServiceCarouselMobile';
 import { BentoMobile, type BentoCard } from './BentoMobile';
 import { ProcessJourney } from './ProcessJourney';
@@ -37,11 +36,10 @@ const testimonials: Testimonial[] = [
 export function MobileHome() {
   return (
     <MobileShell nav="bottom" showFooter>
-      <AIOrbHero headline={<>From idea to product.<br /><span className="text-neo-highlight">Powered by AI.</span></>}
-        subheadline="We design, engineer, and scale AI-first digital products for ambitious companies."
-        trustItems={['AI First', 'Enterprise', 'Startup Friendly', 'Deep Tech']}
+      <AIOrbHero
+        headline={<>From Idea to Product<br /><span className="bg-gradient-to-r from-neo-blue to-purple-500 bg-clip-text text-transparent">Powered by AI</span></>}
+        subheadline="Neo Perion Solutions develops AI-powered software, SaaS products, automation systems, web applications, and digital platforms that help organizations scale faster."
       />
-      <TrustStatsSwipe />
       <ServiceCarouselMobile services={services} />
       <BentoMobile cards={bentoCards} />
       <ProcessJourney />

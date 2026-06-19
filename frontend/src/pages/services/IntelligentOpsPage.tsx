@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
 import { Workflow, ArrowRight, UserX, UserCheck, Calculator, DollarSign, Clock, LayoutDashboard, Send, Inbox, Database } from 'lucide-react';
+import { MobileGate, MobileShell } from '@/components/mobile';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -395,7 +396,6 @@ export function IntelligentOpsPage({ service }: Props) {
       </MobileShell>
     </MobileGate>
   );
-}
 }
 
 // Add missing Check, FileText import for the above (since I used them without importing)

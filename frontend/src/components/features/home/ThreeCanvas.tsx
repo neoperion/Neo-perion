@@ -1,89 +1,75 @@
-import React, { useMemo, useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
+import { Environment, MeshTransmissionMaterial, Float, ContactShadows, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 
-const ParticleField = () => {
-  const ref = useRef<THREE.Points>(null);
+interface GlassMonolithProps {
+  isMobile: boolean;
+}
+
+const GlassMonolith: React.FC<GlassMonolithProps> = ({ isMobile }) => {
+  const mesh = useRef<THREE.Mesh>(null);
+  const core = useRef<THREE.Mesh>(null);
   
-  // Generate random positions for the particles
-  const [positions] = useState(() => {
-    const count = 500;
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
-    }
-    return positions;
-  });
+  useFrame((state) => {
+    if (mesh.current && core.current) {
+      const time = state.clock.getElapsedTime();
+      
+      // Extremely subtle float/motion
+      mesh.current.rotation.y = time * 0.04;
+      mesh.current.rotation.x = Math.sin(time * 0.25) * 0.04;
+      
+      core.current.rotation.y = time * -0.06;
+      core.current.rotation.z = time * 0.03;
 
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      // Subtle mouse interaction
+      const targetX = (state.pointer.x * Math.PI) / 8;
+      const targetY = (state.pointer.y * Math.PI) / 8;
+      
+      mesh.current.rotation.y += 0.02 * (targetX - mesh.current.rotation.y);
+      mesh.current.rotation.x += 0.02 * (-targetY - mesh.current.rotation.x);
     }
   });
 
   return (
-    <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
-      <PointMaterial
-        transparent
-        color="#06b6d4" // Cyan
-        size={0.05}
-        sizeAttenuation={true}
-        depthWrite={false}
-      />
-    </Points>
-  );
-};
-
-// Node Connections
-const NetworkConnections = () => {
-  const ref = useRef<THREE.LineSegments>(null);
-  const nodeCount = 50;
-
-  const { positions, indices } = useMemo(() => {
-    const positions = new Float32Array(nodeCount * 3);
-    for (let i = 0; i < nodeCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-    }
-
-    const indices = [];
-    for (let i = 0; i < nodeCount; i++) {
-      for (let j = i + 1; j < nodeCount; j++) {
-        // Create connection if nodes are close enough
-        const dx = positions[i * 3] - positions[j * 3];
-        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+    <Float floatIntensity={1} rotationIntensity={0.2} speed={1.2}>
+      <mesh ref={mesh} position={[0, 0, 0]}>
+        {/* The Outer Glass Monolith */}
+        <icosahedronGeometry args={[2.5, 0]} />
+        <MeshTransmissionMaterial 
+          backside
+          samples={isMobile ? 2 : 4} // Lower sample size on mobile to maximize frame rate
+          thickness={1.5}
+          chromaticAberration={0.06}
+          anisotropy={0.1}
+          distortion={0.2}
+          distortionScale={0.5}
+          temporalDistortion={0.1}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          roughness={0.05}
+          transmission={1}
+          color="#ffffff"
+        />
         
-        if (dist < 3.5) {
-          indices.push(i, j);
-        }
-      }
-    }
-    return { positions, indices: new Uint16Array(indices) };
-  }, []);
-
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x += delta / 20;
-      ref.current.rotation.y += delta / 30;
-    }
-  });
-
-  return (
-    <lineSegments ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-        <bufferAttribute attach="index" array={indices} itemSize={1} count={indices.length} />
-      </bufferGeometry>
-      <lineBasicMaterial color="#a855f7" transparent opacity={0.15} />
-    </lineSegments>
+        {/* The Inner Glowing Core */}
+        <mesh ref={core}>
+          <icosahedronGeometry args={[1.2, 1]} />
+          <meshBasicMaterial color="#2563FF" wireframe />
+        </mesh>
+      </mesh>
+      
+      {/* Floating data particles inside/around */}
+      <Sparkles 
+        count={isMobile ? 20 : 45} 
+        scale={5} 
+        size={isMobile ? 1.2 : 2} 
+        speed={0.3} 
+        color="#4AA8FF" 
+        opacity={0.4} 
+      />
+    </Float>
   );
 };
 
@@ -97,27 +83,26 @@ export const ThreeCanvas: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const fallbackBackground = (
-    <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-[#050816] to-[#050816]"></div>
-  );
-
-  // Fallback for mobile devices to maintain high FPS
-  if (isMobile) {
-    return fallbackBackground;
-  }
-
   return (
-    <div className="absolute inset-0 z-0 opacity-60">
-      <ErrorBoundary fallback={fallbackBackground}>
-        <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
-          <fog attach="fog" args={['#050816', 5, 15]} />
-          <ParticleField />
-          <NetworkConnections />
+    <div className="absolute inset-0 z-0 w-full h-full">
+      <ErrorBoundary fallback={null}>
+        <Canvas 
+          camera={{ position: [0, 0, 8], fov: 45 }} 
+          gl={{ antialias: true, alpha: true }}
+          dpr={isMobile ? [1, 1.5] : [1, 2]} // Lower DPR on mobile for smoothness
+        >
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
+          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563FF" />
+          <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#74C8FF" />
+          
+          <Environment preset="city" />
+          
+          <GlassMonolith isMobile={isMobile} />
+          
+          <ContactShadows position={[0, -3.5, 0]} opacity={0.2} scale={15} blur={2.5} far={4} color="#0f172a" />
         </Canvas>
       </ErrorBoundary>
-      {/* Overlay gradient to blend canvas edges */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-[#050816]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-transparent to-[#050816]" />
     </div>
   );
 };
