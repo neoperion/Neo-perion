@@ -1,4 +1,4 @@
-import * as Clarity from '@microsoft/clarity';
+import Clarity from '@microsoft/clarity';
 
 let clarityInitialized = false;
 
@@ -23,14 +23,11 @@ export function initAnalytics(): void {
     gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
     gtagScript.async = true;
     document.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: unknown[]) { window.dataLayer.push(args); }
-    // @ts-expect-error - Window analytics object types are dynamic
-    window.gtag = gtag;
-    // @ts-expect-error - Window analytics object types are dynamic
-    window.gtag('js', new Date());
-    // @ts-expect-error - Window analytics object types are dynamic
-    window.gtag('config', gaId);
+    (window as any).dataLayer = window.dataLayer || [];
+    function gtag(...args: unknown[]) { (window as any).dataLayer.push(args); }
+        (window as any).gtag = gtag;
+        (window as any).gtag('js', new Date());
+        (window as any).gtag('config', gaId);
   }
 
   // Microsoft Clarity
@@ -45,9 +42,8 @@ export function trackEvent(name: string, params?: Record<string, unknown>): void
   const consent = getConsent();
   if (!consent?.analytics) return;
 
-  if (typeof window.gtag === 'function') {
-    // @ts-expect-error - Window analytics object types are dynamic
-    window.gtag('event', name, params);
+  if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', name, params);
   }
   if (clarityInitialized) {
     Clarity.event(name);
