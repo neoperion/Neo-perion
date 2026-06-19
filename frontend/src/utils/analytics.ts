@@ -55,6 +55,6 @@ export const trackShareClick = (platform: string, url: string) => {
 declare global {
   interface Window {
     mixpanel?: any;
-    gtag?: any;
+    gtag?: (...args: any[]) => void;
   }
 }

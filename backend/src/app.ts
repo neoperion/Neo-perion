@@ -29,4 +29,13 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Neo Perion API is running' });
 });
 
+// Root path handler to prevent "Cannot GET /" 404s
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    message: 'Welcome to the Neo Perion API',
+    docs: 'Endpoints are available under /api',
+    health: '/health'
+  });
+});
+
 export default app;

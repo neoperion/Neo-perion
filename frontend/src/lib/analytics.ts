@@ -1,5 +1,12 @@
 import Clarity from '@microsoft/clarity';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 let clarityInitialized = false;
 
 function initClarity(projectId: string): void {

@@ -1,4 +1,12 @@
 import Clarity from '@microsoft/clarity';
+import { getConsent } from './CookieManager';
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 let clarityInitialized = false;
 
@@ -9,8 +17,6 @@ function initClarity(projectId: string): void {
 }
 
 export function initAnalytics(): void {
-  // Lazy import to avoid circular dependency at module-load time
-  const { getConsent } = require('./CookieManager');
   const consent = getConsent();
   if (!consent?.analytics) return;
 
@@ -25,11 +31,11 @@ export function initAnalytics(): void {
     gtagScript.async = true;
     document.head.appendChild(gtagScript);
 
-    (window as any).dataLayer = window.dataLayer || [];
-    function gtag(...args: unknown[]) { (window as any).dataLayer.push(args); }
-        (window as any).gtag = gtag;
-        (window as any).gtag('js', new Date());
-        (window as any).gtag('config', gaId);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: unknown[]) { window.dataLayer.push(args); }
+        window.gtag = gtag;
+        window.gtag('js', new Date());
+        window.gtag('config', gaId);
   }
 
   // Microsoft Clarity
@@ -40,12 +46,11 @@ export function initAnalytics(): void {
 }
 
 export function trackEvent(name: string, params?: Record<string, unknown>): void {
-  const { getConsent } = require('./CookieManager');
   const consent = getConsent();
   if (!consent?.analytics) return;
 
-  if (typeof (window as any).gtag === 'function') {
-        (window as any).gtag('event', name, params);
+  if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
   }
   if (clarityInitialized) {
     Clarity.event(name);
