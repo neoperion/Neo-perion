@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { NewsletterHero } from "@/components/newsletter/NewsletterHero";
 import { SubscriptionForm } from "@/components/newsletter/SubscriptionForm";
 import { PastIssues } from "@/components/newsletter/PastIssues";
+import { MobileGate, MobileShell } from "@/components/mobile";
 
 export default function Newsletter() {
   useEffect(() => {
@@ -24,25 +25,43 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
-      <Helmet>
-        <title>Newsletter & Insights | Neo Perion</title>
-        <meta name="description" content="Join founders and CTOs who read our weekly deep dives into AI architecture, product engineering, and scaling enterprise SaaS." />
-      </Helmet>
+    <MobileGate mobileOnly fallback={
+      <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
+        <Helmet>
+          <title>Newsletter & Insights | Neo Perion</title>
+          <meta name="description" content="Join founders and CTOs who read our weekly deep dives into AI architecture, product engineering, and scaling enterprise SaaS." />
+        </Helmet>
 
-      <Header />
+        <Header />
 
-      <main className="pb-24">
-        <NewsletterHero />
-        
-        <div className="max-w-4xl mx-auto px-8 lg:px-16 -mt-8 relative z-20">
-          <SubscriptionForm />
+        <main className="pb-24">
+          <NewsletterHero />
+          
+          <div className="max-w-4xl mx-auto px-8 lg:px-16 -mt-8 relative z-20">
+            <SubscriptionForm />
+          </div>
+
+          <PastIssues />
+        </main>
+
+        <Footer />
+      </div>
+    }>
+      <MobileShell nav="bottom" showFooter>
+        <div className="w-full pb-8">
+          <main className="pb-12">
+            <NewsletterHero />
+            
+            <div className="px-6 -mt-6 relative z-20">
+              <SubscriptionForm />
+            </div>
+
+            <div className="px-6 mt-12">
+              <PastIssues />
+            </div>
+          </main>
         </div>
-
-        <PastIssues />
-      </main>
-
-      <Footer />
-    </div>
+      </MobileShell>
+    </MobileGate>
   );
 }

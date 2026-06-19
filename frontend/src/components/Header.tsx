@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { MobileMenuV2 } from "@/components/mobile/Navigation/MobileMenuV2";
 
 const NAV_DATA = {
   Services: {
@@ -195,10 +196,11 @@ export const Header = () => {
   };
 
   return (
-    <header
-      className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl"
-      onMouseLeave={() => scheduleClose()}
-    >
+    <>
+      <header
+        className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl"
+        onMouseLeave={() => scheduleClose()}
+      >
       {/* ── MAIN NAV ROW ── */}
       <nav className="container mx-auto px-6 h-[72px] flex items-center justify-between gap-8">
         
@@ -403,79 +405,10 @@ export const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      </header>
 
-      {/* ── MOBILE ACCORDION MENU ── */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-white border-t border-slate-100"
-          >
-            <div className="px-4 py-4 space-y-2 max-h-[80vh] overflow-y-auto">
-              {NAV_KEYS.map((key) => (
-                <div key={key} className="border-b border-slate-100 pb-2">
-                  <button
-                    onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
-                    className="w-full flex items-center justify-between py-3 px-2 text-slate-900 font-bold"
-                  >
-                    {key}
-                    <ChevronDown
-                      size={18}
-                      className={`transition-transform duration-300 ${
-                        mobileExpanded === key ? "rotate-180 text-neo-blue" : "opacity-50"
-                      }`}
-                    />
-                  </button>
-                  
-                  <AnimatePresence>
-                    {mobileExpanded === key && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pl-4 pr-2 py-2 space-y-6">
-                          {NAV_DATA[key].columns.map((col, idx) => (
-                            <div key={idx}>
-                              <p className="text-[10px] font-bold tracking-widest uppercase text-neo-blue mb-3 pl-2">
-                                {col.title}
-                              </p>
-                              <div className="space-y-1">
-                                {col.items.map((item) => (
-                                  <button
-                                    key={item.label}
-                                    onClick={() => handleNavigation(item.href)}
-                                    className="w-full text-left px-2 py-2.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors flex items-center gap-3 font-semibold"
-                                  >
-                                    {item.icon && <item.icon size={16} className="opacity-50" />}
-                                    {item.label}
-                                  </button>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-
-              <div className="pt-6 pb-4 px-2">
-                <button
-                  onClick={() => handleNavigation("/contact")}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-white font-bold text-sm bg-neo-blue hover:bg-neo-highlight"
-                >
-                  CONTACT <ArrowRight size={16} strokeWidth={3} />
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      {/* ── MOBILE MENU OVERLAY (FUTURISTIC) ── */}
+      <MobileMenuV2 open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+    </>
   );
 };

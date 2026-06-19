@@ -6,6 +6,7 @@ import { SEO } from "@/components/SEO";
 import { useNavigate } from 'react-router-dom';
 import { servicesData } from "@/data/servicesData";
 import { motion } from 'framer-motion';
+import { MobileGate, MobileShell } from "@/components/mobile";
 
 const processSteps = [
     { num: "01", title: "Discovery & Architecture", desc: "We dive deep into your business logic, mapping out technical requirements and system architecture before writing a single line of code.", icon: Users },
@@ -22,6 +23,7 @@ export default function ServicesPage() {
     }, []);
 
     return (
+        <MobileGate mobileOnly fallback={
         <div className="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans selection:bg-neo-blue selection:text-white">
             <SEO
                 title="Enterprise Services | Neo Perion"
@@ -226,5 +228,27 @@ export default function ServicesPage() {
 
             <Footer />
         </div>
+        }>
+          <MobileShell nav="bottom" showFooter>
+            <div className="w-full pb-8">
+              <div className="px-mobile-base pt-8">
+                <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Services</p>
+                <h1 className="text-display-lg text-white tracking-tight">Engineering capabilities.</h1>
+                <p className="text-base text-white/70 mt-3 mb-6">AI-first architecture, scalable systems, and premium product engineering.</p>
+              </div>
+              <div className="px-mobile-base space-y-4 pb-8">
+                {servicesData.map((s) => (
+                  <button key={s.slug} onClick={() => navigate(`/services/${s.slug}`)}
+                    className="w-full text-left p-5 rounded-3xl border border-white/[0.10] bg-gradient-to-br from-white/[0.04] to-white/[0.02] backdrop-blur-glass-1 active:scale-[0.98] transition-transform">
+                    <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-neo-highlight mb-1">{s.tagline}</p>
+                    <h3 className="text-[17px] font-bold text-white mb-2">{s.title}</h3>
+                    <p className="text-[12px] text-white/65 line-clamp-3">{s.overview}</p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-[12px] text-neo-highlight font-semibold">Explore <ArrowRight size={12} /></span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </MobileShell>
+        </MobileGate>
     );
 }

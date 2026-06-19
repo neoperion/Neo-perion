@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { CaseStudyHero } from '@/components/caseStudies/CaseStudyHero';
 import { CaseStudyGrid } from '@/components/caseStudies/CaseStudyGrid';
 import { useCaseStudies } from '@/hooks/useCaseStudies';
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 const INDUSTRIES = ['All', 'Healthcare', 'Education', 'Retail & E-commerce', 'Finance', 'Logistics'];
 const SERVICES = ['All', 'AI & Automation', 'SaaS Development', 'Machine Learning', 'Cloud Architecture'];
@@ -16,18 +17,13 @@ export const CaseStudies: React.FC = () => {
   const { data: caseStudies = [], isLoading } = useCaseStudies(activeIndustry, activeService);
 
   return (
-    <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
-      <SEO 
-        title="Case Studies & Work | Neo Perion Solutions"
-        description="Explore how Neo Perion has transformed businesses through AI, enterprise SaaS, and cutting-edge product engineering."
-        url="https://www.neoperion.com/case-studies"
-      />
-      <Header />
-      
-      <main>
-        <CaseStudyHero />
-        
-        <div className="container mx-auto px-4 md:px-6 py-12 max-w-7xl">
+    <MobileGate mobileOnly fallback={
+      <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
+        <SEO title="Case Studies & Work | Neo Perion Solutions" description="Explore how Neo Perion has transformed businesses through AI, enterprise SaaS, and cutting-edge product engineering." url="https://www.neoperion.com/case-studies" />
+        <Header />
+        <main>
+          <CaseStudyHero />
+          <div className="container mx-auto px-4 md:px-6 py-12 max-w-7xl">
           {/* Filters */}
           <div className="flex flex-col md:flex-row gap-6 mb-16 pb-8 border-b border-white/10">
             <div className="flex-1">
@@ -78,9 +74,20 @@ export const CaseStudies: React.FC = () => {
           )}
         </div>
       </main>
-
       <Footer />
     </div>
+    }>
+      <MobileShell nav="bottom" showFooter>
+        <div className="w-full pb-8">
+          <div className="px-mobile-base pt-8">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Case Studies</p>
+            <h1 className="text-display-lg text-white tracking-tight">Real outcomes.</h1>
+            <p className="text-base text-white/70 mt-3 mb-6">Explore how we've transformed businesses through AI and product engineering.</p>
+          </div>
+          <CaseStudyGrid caseStudies={caseStudies} />
+        </div>
+      </MobileShell>
+    </MobileGate>
   );
 };
 

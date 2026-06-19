@@ -8,6 +8,8 @@ import { CloudWebPlatformPage } from '@/pages/services/CloudWebPlatformPage';
 import { MobileProductPage } from '@/pages/services/MobileProductPage';
 import { IntelligentOpsPage } from '@/pages/services/IntelligentOpsPage';
 import { StartupScalePage } from '@/pages/services/StartupScalePage';
+import { MobileGate } from '@/components/mobile';
+import { MobileDynamicService } from '@/components/mobile/Services/MobileDynamicService';
 
 export const ServicePageTemplate: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -33,26 +35,34 @@ export const ServicePageTemplate: React.FC = () => {
     );
   }
 
-  switch (slug) {
-    case 'ai-systems-automation':
-      return <AiSystemsPage service={service} />;
-    case 'deep-ai-engineering':
-      return <DeepAiEngineeringPage service={service} />;
-    case 'enterprise-product-engineering':
-      return <EnterpriseProductPage service={service} />;
-    case 'cloud-native-web-platforms':
-      return <CloudWebPlatformPage service={service} />;
-    case 'mobile-product-engineering':
-      return <MobileProductPage service={service} />;
-    case 'intelligent-operations-automation':
-      return <IntelligentOpsPage service={service} />;
-    case 'startup-to-scale-engineering':
-      return <StartupScalePage service={service} />;
-    default:
-      return (
-        <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
-          <h2>Template Not Implemented</h2>
-        </div>
-      );
-  }
+  const renderDesktop = () => {
+    switch (slug) {
+      case 'ai-systems-automation':
+        return <AiSystemsPage service={service} />;
+      case 'deep-ai-engineering':
+        return <DeepAiEngineeringPage service={service} />;
+      case 'enterprise-product-engineering':
+        return <EnterpriseProductPage service={service} />;
+      case 'cloud-native-web-platforms':
+        return <CloudWebPlatformPage service={service} />;
+      case 'mobile-product-engineering':
+        return <MobileProductPage service={service} />;
+      case 'intelligent-operations-automation':
+        return <IntelligentOpsPage service={service} />;
+      case 'startup-to-scale-engineering':
+        return <StartupScalePage service={service} />;
+      default:
+        return (
+          <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+            <h2>Template Not Implemented</h2>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <MobileGate mobileOnly fallback={renderDesktop()}>
+      <MobileDynamicService service={service} />
+    </MobileGate>
+  );
 };

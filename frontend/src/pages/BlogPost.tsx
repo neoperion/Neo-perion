@@ -11,6 +11,7 @@ import { TableOfContents } from '@/components/blog/TableOfContents';
 import { MarkdownRenderer } from '@/components/blog/MarkdownRenderer';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -66,84 +67,135 @@ export const BlogPost: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
-      <SEO 
-        title={`${blog.seo_title} | Neo Perion`}
-        description={blog.seo_description}
-        url={postUrl}
-        ogImage={blog.cover_image}
-        type="article"
-        jsonLd={blogSchema}
-      />
-      
-      <ReadingProgress />
-      <Header />
+    <MobileGate mobileOnly fallback={
+      <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
+        <SEO 
+          title={`${blog.seo_title} | Neo Perion`}
+          description={blog.seo_description}
+          url={postUrl}
+          ogImage={blog.cover_image}
+          type="article"
+          jsonLd={blogSchema}
+        />
+        
+        <ReadingProgress />
+        <Header />
 
-      <main className="pt-32 pb-24">
-        {/* Article Hero */}
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <button 
-            onClick={() => navigate('/blog')}
-            className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
-          </button>
+        <main className="pt-32 pb-24">
+          {/* Article Hero */}
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+            <button 
+              onClick={() => navigate('/blog')}
+              className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Articles
+            </button>
 
-          <div className="mb-12">
-            <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-neo-blue text-sm font-bold rounded-full uppercase tracking-widest mb-6">
-              {blog.category}
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              {blog.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-              <span className="font-medium text-white">{blog.author}</span>
-              <span className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
+            <div className="mb-12">
+              <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-neo-blue text-sm font-bold rounded-full uppercase tracking-widest mb-6">
+                {blog.category}
               </span>
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                {blog.read_time} min read
-              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                {blog.title}
+              </h1>
+              
+              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                <span className="font-medium text-white">{blog.author}</span>
+                <span className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  {blog.read_time} min read
+                </span>
+              </div>
+            </div>
+
+            <div className="w-full aspect-video rounded-[2rem] overflow-hidden border border-white/10 mb-16">
+              <img 
+                src={blog.cover_image} 
+                alt={blog.title}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          <div className="w-full aspect-video rounded-[2rem] overflow-hidden border border-white/10 mb-16">
+          {/* Article Content & TOC */}
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col lg:flex-row gap-12">
+              {/* Sidebar TOC */}
+              <div className="w-full lg:w-1/4 order-2 lg:order-1">
+                <TableOfContents content={blog.content} />
+              </div>
+              
+              {/* Main Content */}
+              <div className="w-full lg:w-3/4 order-1 lg:order-2">
+                <MarkdownRenderer content={blog.content} />
+                <ShareButtons url={postUrl} title={blog.title} />
+              </div>
+            </div>
+          </div>
+
+          {/* Related Articles */}
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+            <RelatedPosts category={blog.category} currentSlug={blog.slug} />
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    }>
+      <MobileShell nav="bottom" showFooter>
+        <ReadingProgress />
+        <div className="w-full pb-8 pt-8 px-6">
+          <button 
+            onClick={() => navigate('/blog')}
+            className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors mb-6 text-sm font-bold uppercase tracking-wider"
+          >
+            <ArrowLeft size={16} />
+            Back
+          </button>
+          
+          <span className="inline-block px-3 py-1 bg-neo-blue/10 border border-neo-blue/20 text-neo-blue text-[11px] font-bold rounded-lg uppercase tracking-widest mb-4">
+            {blog.category}
+          </span>
+          
+          <h1 className="text-display-sm text-white tracking-tight mb-4">
+            {blog.title}
+          </h1>
+
+          <div className="flex flex-wrap items-center gap-4 text-xs text-white/50 mb-8 border-b border-white/10 pb-6">
+            <span className="font-bold text-white">{blog.author}</span>
+            <span className="flex items-center gap-1.5">
+              <Calendar size={14} />
+              {format(new Date(blog.created_at), 'MMM dd, yyyy')}
+            </span>
+          </div>
+
+          <div className="w-full aspect-video rounded-2xl overflow-hidden border border-white/10 mb-8">
             <img 
               src={blog.cover_image} 
               alt={blog.title}
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
 
-        {/* Article Content & TOC */}
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="flex flex-col lg:flex-row gap-12">
-            {/* Sidebar TOC */}
-            <div className="w-full lg:w-1/4 order-2 lg:order-1">
-              <TableOfContents content={blog.content} />
-            </div>
-            
-            {/* Main Content */}
-            <div className="w-full lg:w-3/4 order-1 lg:order-2">
-              <MarkdownRenderer content={blog.content} />
-              <ShareButtons url={postUrl} title={blog.title} />
-            </div>
+          <div className="prose prose-invert prose-mobile max-w-none">
+            <MarkdownRenderer content={blog.content} />
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <ShareButtons url={postUrl} title={blog.title} />
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <RelatedPosts category={blog.category} currentSlug={blog.slug} />
           </div>
         </div>
-
-        {/* Related Articles */}
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <RelatedPosts category={blog.category} currentSlug={blog.slug} />
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+      </MobileShell>
+    </MobileGate>
   );
 };
 

@@ -14,27 +14,22 @@ import { IndustriesSection } from "@/components/features/home/IndustriesSection"
 import { TechnologyExpertise } from "@/components/features/home/TechnologyExpertise";
 import { CaseStudiesPreview } from "@/components/features/home/CaseStudiesPreview";
 
-const Index = () => {
-  return (
+import { MobileGate, MobileHome } from "@/components/mobile";
+
+const Index = () => (
+  <MobileGate mobileOnly fallback={
     <div className="min-h-screen bg-[#02040A]">
-      <SEO />
-      <Header />
+      <SEO /><Header />
       <main>
-        <Hero />
-        <TechMarquee />
-        <IndustriesSection />
-        <Services />
-        <WhyNeoPerion />
-        <TechnologyExpertise />
-        <ProcessTimeline />
-        <CaseStudiesPreview />
-        <Philosophy />
-        <HomeContact />
-        <HomeCTA />
+        <Hero /><TechMarquee /><IndustriesSection /><Services />
+        <WhyNeoPerion /><TechnologyExpertise /><ProcessTimeline />
+        <CaseStudiesPreview /><Philosophy /><HomeContact /><HomeCTA />
       </main>
       <Footer />
     </div>
-  );
-};
+  }>
+    <MobileHome />
+  </MobileGate>
+);
 
 export default Index;

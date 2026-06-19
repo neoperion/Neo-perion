@@ -1,16 +1,31 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Navbar } from "@/components/layout/Navbar";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AboutHero } from "@/components/about/AboutHero";
 import { CompanyStory } from "@/components/about/CompanyStory";
 import { AboutTimeline } from "@/components/about/AboutTimeline";
 import { EngineeringPrinciples } from "@/components/about/EngineeringPrinciples";
 import { FounderSection } from "@/components/about/FounderSection";
+import { MobileGate } from "@/components/mobile";
+import { MobileAbout } from "@/components/mobile/About/MobileAbout";
+import { useLocation } from 'react-router-dom';
 
 export default function AboutPage() {
+  const location = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
     const handleScroll = () => {
       const elements = document.querySelectorAll('.animate-fade-in-up');
       elements.forEach(el => {
@@ -33,24 +48,13 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-neo-blue/20">
-      <Helmet>
-        <title>About | Neo Perion</title>
-        <meta name="description" content="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products." />
-      </Helmet>
-
-      {/* Navbar might need a prop to be dark text since background is white. Assuming it handles scrolling/transparent states. */}
-      <Navbar />
-      
-      <main>
-        <AboutHero />
-        <CompanyStory />
-        <AboutTimeline />
-        <EngineeringPrinciples />
-        <FounderSection />
-      </main>
-
-      <Footer />
-    </div>
+    <MobileGate mobileOnly fallback={
+      <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-neo-blue/20">
+        <Helmet><title>About | Neo Perion</title><meta name="description" content="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products." /></Helmet>
+        <Header /><main><AboutHero /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
+      </div>
+    }>
+      <MobileAbout />
+    </MobileGate>
   );
 }
