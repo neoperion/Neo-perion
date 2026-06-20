@@ -18,12 +18,12 @@ const DEFAULT_SECTIONS: FooterSection[] = [
     { label: 'SMBs & Enterprise', href: '/industries/smbs' }, { label: 'Healthcare', href: '/industries/healthcare' },
   ]},
   { title: 'Company', links: [
-    { label: 'About Us', href: '/about' }, { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Blog', href: '/blog' }, { label: 'Careers', href: '/careers' }, { label: 'Contact', href: '/contact' },
+    { label: 'About Us', href: '/company/about' }, { label: 'Case Studies', href: '/company/case-studies' },
+    { label: 'Blog', href: '/company/blog' }, { label: 'Careers', href: '/company/careers' }, { label: 'Contact', href: '/contact' },
   ]},
   { title: 'Resources', links: [
-    { label: 'AI Newsletter', href: '/newsletter' }, { label: 'Technology Insights', href: '/insights' },
-    { label: 'Testimonials', href: '/testimonials' }, { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'AI Newsletter', href: '/company/newsletter' }, { label: 'Technology Insights', href: '/company/insights' },
+    { label: 'Testimonials', href: '/company/testimonials' }, { label: 'Privacy Policy', href: '/privacy' },
   ]},
 ];
 

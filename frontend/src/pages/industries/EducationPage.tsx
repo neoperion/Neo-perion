@@ -9,6 +9,7 @@ import {
   ArrowRight, ChevronDown, ChevronRight, BookOpen, BarChart3, Bot, ClipboardCheck,
   GraduationCap, Users, Sparkles, Play, CheckCircle2, Star, Monitor, Zap
 } from 'lucide-react';
+import { MobileGate, MobileShell } from '@/components/mobile';
 
 
 // ─── Interactive LMS Architecture Diagram ──────────────────────
@@ -145,7 +146,7 @@ export function EducationPage() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" size={18} />
                 </button>
                 <button
-                  onClick={() => navigate('/case-studies')}
+                  onClick={() => navigate('/company/case-studies')}
                   className="px-8 py-4 bg-white text-slate-700 rounded-xl font-bold border border-slate-200 hover:border-cyan-300 hover:text-cyan-700 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play size={16} /> View Case Studies
@@ -347,7 +348,7 @@ export function EducationPage() {
                   <p className="text-sm text-slate-400 mb-6 font-semibold">{industry.caseStudyPreview.client}</p>
                   <p className="text-slate-300 leading-relaxed mb-8">{industry.caseStudyPreview.result}</p>
                   <button
-                    onClick={() => navigate('/case-studies')}
+                    onClick={() => navigate('/company/case-studies')}
                     className="group inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors"
                   >
                     Read Full Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

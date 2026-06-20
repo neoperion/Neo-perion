@@ -54,7 +54,7 @@ export const CaseStudiesPreview = () => {
 
               <div>
                 <button
-                  onClick={() => navigate('/case-studies')}
+                  onClick={() => navigate('/company/case-studies')}
                   className="btn-ghost px-0"
                 >
                   Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />

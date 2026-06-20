@@ -68,9 +68,9 @@ export const Footer = () => {
           <div className="lg:col-span-1">
             <h4 className="text-white font-display font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="/about" className="hover:text-neo-blue transition-colors">About Us</a></li>
+              <li><a href="/company/about" className="hover:text-neo-blue transition-colors">About Us</a></li>
               <li><a href="/services" className="hover:text-neo-blue transition-colors">Services</a></li>
-              <li><a href="/careers" className="hover:text-neo-blue transition-colors">Careers</a></li>
+              <li><a href="/company/careers" className="hover:text-neo-blue transition-colors">Careers</a></li>
               <li><a href="/contact" className="hover:text-neo-blue transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -90,8 +90,8 @@ export const Footer = () => {
           <div className="lg:col-span-1">
             <h4 className="text-white font-display font-bold mb-6">Resources</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="/case-studies" className="hover:text-neo-blue transition-colors">Case Studies</a></li>
-              <li><a href="/blog" className="hover:text-neo-blue transition-colors">Blog</a></li>
+              <li><a href="/company/case-studies" className="hover:text-neo-blue transition-colors">Case Studies</a></li>
+              <li><a href="/company/blog" className="hover:text-neo-blue transition-colors">Blog</a></li>
               <li><a href="/technologies" className="hover:text-neo-blue transition-colors">Technologies</a></li>
             </ul>
           </div>

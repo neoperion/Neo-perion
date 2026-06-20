@@ -67,7 +67,7 @@ const App = () => (
             <ErrorBoundary>
               <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/company/about" element={<AboutPage />} />
               <Route path="/company/founder-letter" element={<FounderLetter />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:slug" element={<ServicePageTemplate />} />
@@ -75,18 +75,18 @@ const App = () => (
               <Route path="/industries/:slug" element={<IndustryPageRouter />} />
               <Route path="/technologies" element={<Technologies />} />
               <Route path="/technologies/:slug" element={<TechnologyDetail />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/careers/:slug" element={<CareerDetail />} />
+              <Route path="/company/blog" element={<BlogPage />} />
+              <Route path="/company/blog/:slug" element={<BlogPost />} />
+              <Route path="/company/case-studies" element={<CaseStudies />} />
+              <Route path="/company/case-studies/:slug" element={<CaseStudyDetail />} />
+              <Route path="/company/careers" element={<Careers />} />
+              <Route path="/company/careers/:slug" element={<CareerDetail />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/newsletter" element={<Newsletter />} />
+              <Route path="/company/newsletter" element={<Newsletter />} />
               <Route path="/security" element={<Security />} />
-              <Route path="/success-stories" element={<SuccessStories />} />
-              <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/insights" element={<Insights />} />
+              <Route path="/company/success-stories" element={<SuccessStories />} />
+              <Route path="/company/testimonials" element={<Testimonials />} />
+              <Route path="/company/insights" element={<Insights />} />
 
               {/* Admin Login - Outside of AdminLayout Guard */}
               <Route path="/admin/login" element={<AdminLogin />} />

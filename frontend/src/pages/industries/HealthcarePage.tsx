@@ -155,7 +155,7 @@ export function HealthcarePage() {
                   {industry.ctaText} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
-                  onClick={() => navigate('/case-studies')}
+                  onClick={() => navigate('/company/case-studies')}
                   className="px-8 py-4 bg-white text-slate-700 rounded-xl font-bold border border-slate-200 hover:border-emerald-300 hover:text-emerald-700 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play size={16} /> View Case Studies
@@ -317,7 +317,7 @@ export function HealthcarePage() {
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{industry.caseStudyPreview.title}</h3>
                   <p className="text-sm text-slate-400 mb-6 font-semibold">{industry.caseStudyPreview.client}</p>
                   <p className="text-slate-300 leading-relaxed mb-8">{industry.caseStudyPreview.result}</p>
-                  <button onClick={() => navigate('/case-studies')} className="group inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
+                  <button onClick={() => navigate('/company/case-studies')} className="group inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
                     Read Full Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

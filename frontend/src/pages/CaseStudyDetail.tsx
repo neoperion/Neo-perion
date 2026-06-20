@@ -31,7 +31,7 @@ export const CaseStudyDetail: React.FC = () => {
       <div className="min-h-screen bg-[#050816] flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
         <p className="text-slate-400 mb-8">The case study you are looking for does not exist.</p>
-        <button onClick={() => navigate('/case-studies')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
+        <button onClick={() => navigate('/company/case-studies')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
           Back to Work
         </button>
       </div>
@@ -59,7 +59,7 @@ export const CaseStudyDetail: React.FC = () => {
       {/* Hero */}
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <button 
-          onClick={() => navigate('/case-studies')}
+          onClick={() => navigate('/company/case-studies')}
           className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

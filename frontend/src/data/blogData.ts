@@ -87,8 +87,8 @@ export const blogPosts: BlogPost[] = [
             { question: "Is the system compliant with privacy regulations?", answer: "Yes. We implement data minimization principles — only violation-relevant frames are stored, personal data is encrypted, and access is restricted to authorized enforcement personnel." }
         ],
         internalLinks: [
-            { label: "Adaptive Traffic Signal Optimization", href: "/blog/reinforcement-learning-traffic-control" },
-            { label: "WebAnalyzer – Website Intelligence", href: "/blog/web-performance-analytics" },
+            { label: "Adaptive Traffic Signal Optimization", href: "/company/blog/reinforcement-learning-traffic-control" },
+            { label: "WebAnalyzer – Website Intelligence", href: "/company/blog/web-performance-analytics" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -142,8 +142,8 @@ export const blogPosts: BlogPost[] = [
             { question: "Does it work for pedestrian crossings too?", answer: "Yes. Pedestrian demand is modeled as a separate traffic stream with minimum green time guarantees. The system balances vehicular throughput with pedestrian safety requirements." }
         ],
         internalLinks: [
-            { label: "AI Traffic Violation Detection", href: "/blog/ai-traffic-violation-detection" },
-            { label: "Environmental Monitoring AI", href: "/blog/environmental-monitoring-ai" },
+            { label: "AI Traffic Violation Detection", href: "/company/blog/ai-traffic-violation-detection" },
+            { label: "Environmental Monitoring AI", href: "/company/blog/environmental-monitoring-ai" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -194,8 +194,8 @@ export const blogPosts: BlogPost[] = [
             { question: "What is the accuracy of degradation predictions?", answer: "Our models achieve 90-95% accuracy in predicting power output under given conditions. Degradation trend predictions improve with more historical data, typically reaching high reliability after 6-12 months of monitoring." }
         ],
         internalLinks: [
-            { label: "Environmental Monitoring AI", href: "/blog/environmental-monitoring-ai" },
-            { label: "Polystore Analytics", href: "/blog/user-behavior-analytics-system" },
+            { label: "Environmental Monitoring AI", href: "/company/blog/environmental-monitoring-ai" },
+            { label: "Polystore Analytics", href: "/company/blog/user-behavior-analytics-system" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -250,8 +250,8 @@ export const blogPosts: BlogPost[] = [
             { question: "How fast are the recommendations generated?", answer: "Production recommendations are generated in under 100ms. We use pre-computed user profiles and efficient scoring algorithms to ensure real-time response without compromising recommendation quality." }
         ],
         internalLinks: [
-            { label: "WebAnalyzer – Website Intelligence", href: "/blog/web-performance-analytics" },
-            { label: "AI Traffic Violation Detection", href: "/blog/ai-traffic-violation-detection" },
+            { label: "WebAnalyzer – Website Intelligence", href: "/company/blog/web-performance-analytics" },
+            { label: "AI Traffic Violation Detection", href: "/company/blog/ai-traffic-violation-detection" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -302,8 +302,8 @@ export const blogPosts: BlogPost[] = [
             { question: "What kind of improvements can we expect?", answer: "Clients typically see 15-30% improvement in conversion rates within the first 3 months as data-driven optimizations are implemented. Results vary based on baseline performance and optimization velocity." }
         ],
         internalLinks: [
-            { label: "Polystore Analytics", href: "/blog/user-behavior-analytics-system" },
-            { label: "Neo Perion Journey", href: "/blog/digital-engineering-company" },
+            { label: "Polystore Analytics", href: "/company/blog/user-behavior-analytics-system" },
+            { label: "Neo Perion Journey", href: "/company/blog/digital-engineering-company" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -358,8 +358,8 @@ export const blogPosts: BlogPost[] = [
             { question: "How is this different from career personality tests?", answer: "Personality tests categorize people into broad types. Our system measures specific competencies, maps them to concrete career requirements, identifies skill gaps, and provides actionable learning paths — not just labels." }
         ],
         internalLinks: [
-            { label: "AI Medical Image Analysis", href: "/blog/ai-medical-image-analysis" },
-            { label: "Polystore Analytics", href: "/blog/user-behavior-analytics-system" },
+            { label: "AI Medical Image Analysis", href: "/company/blog/ai-medical-image-analysis" },
+            { label: "Polystore Analytics", href: "/company/blog/user-behavior-analytics-system" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -414,8 +414,8 @@ export const blogPosts: BlogPost[] = [
             { question: "Can this work in resource-limited settings?", answer: "Yes. The cloud-based architecture means facilities don't need expensive on-site hardware. Any location with internet connectivity can access the diagnostic support system." }
         ],
         internalLinks: [
-            { label: "AI Career Guidance System", href: "/blog/ai-career-guidance-system" },
-            { label: "Environmental Monitoring AI", href: "/blog/environmental-monitoring-ai" },
+            { label: "AI Career Guidance System", href: "/company/blog/ai-career-guidance-system" },
+            { label: "Environmental Monitoring AI", href: "/company/blog/environmental-monitoring-ai" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -466,8 +466,8 @@ export const blogPosts: BlogPost[] = [
             { question: "How does weather affect monitoring accuracy?", answer: "Our models account for weather conditions in both image analysis and environmental measurements. Heavy rain or snow may temporarily limit visual analysis, but sensor-based monitoring continues uninterrupted." }
         ],
         internalLinks: [
-            { label: "Solar Panel AI Monitoring", href: "/blog/ai-solar-panel-monitoring" },
-            { label: "Adaptive Traffic Optimization", href: "/blog/reinforcement-learning-traffic-control" },
+            { label: "Solar Panel AI Monitoring", href: "/company/blog/ai-solar-panel-monitoring" },
+            { label: "Adaptive Traffic Optimization", href: "/company/blog/reinforcement-learning-traffic-control" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -518,8 +518,8 @@ export const blogPosts: BlogPost[] = [
             { question: "Can monetary donations be tracked too?", answer: "Yes. Monetary donations are tracked with the same transparency — donors see allocation decisions and impact reports from recipient NGOs." }
         ],
         internalLinks: [
-            { label: "WebAnalyzer – Website Intelligence", href: "/blog/web-performance-analytics" },
-            { label: "Neo Perion Journey", href: "/blog/digital-engineering-company" },
+            { label: "WebAnalyzer – Website Intelligence", href: "/company/blog/web-performance-analytics" },
+            { label: "Neo Perion Journey", href: "/company/blog/digital-engineering-company" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -568,9 +568,9 @@ export const blogPosts: BlogPost[] = [
             { question: "Where is Neo Perion based?", answer: "Neo Perion is based in India with remote collaboration capabilities for global clients. We combine local market understanding with global engineering standards." }
         ],
         internalLinks: [
-            { label: "AI Traffic Violation Detection", href: "/blog/ai-traffic-violation-detection" },
-            { label: "WebAnalyzer – Website Intelligence", href: "/blog/web-performance-analytics" },
-            { label: "Solar Panel AI Monitoring", href: "/blog/ai-solar-panel-monitoring" },
+            { label: "AI Traffic Violation Detection", href: "/company/blog/ai-traffic-violation-detection" },
+            { label: "WebAnalyzer – Website Intelligence", href: "/company/blog/web-performance-analytics" },
+            { label: "Solar Panel AI Monitoring", href: "/company/blog/ai-solar-panel-monitoring" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]

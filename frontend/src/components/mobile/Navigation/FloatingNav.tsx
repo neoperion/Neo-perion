@@ -54,7 +54,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
             const active =
               (q.section === 'services' && location.pathname.startsWith('/services')) ||
               (q.section === 'industries' && location.pathname.startsWith('/industries')) ||
-              (q.section === 'company' && ['/about', '/careers', '/blog', '/case-studies', '/newsletter', '/insights'].some((p) => location.pathname.startsWith(p)));
+              (q.section === 'company' && ['/company/about', '/company/careers', '/company/blog', '/company/case-studies', '/company/newsletter', '/company/insights'].some((p) => location.pathname.startsWith(p)));
             return (
               <button key={q.section} type="button"
                 onClick={() => (onSectionClick ? onSectionClick(q.section as 'services' | 'industries' | 'company') : onOrbClick())}

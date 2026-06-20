@@ -35,7 +35,7 @@ const BlogDetailPage = () => {
                             The article you're looking for doesn't exist or has been moved.
                         </p>
                         <button
-                            onClick={() => navigate("/blog")}
+                            onClick={() => navigate("/company/blog")}
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300"
                         >
                             <ArrowLeft size={15} /> Back to Blog
@@ -107,7 +107,7 @@ const BlogDetailPage = () => {
                     <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
                         {/* Back */}
                         <button
-                            onClick={() => navigate("/blog")}
+                            onClick={() => navigate("/company/blog")}
                             className="inline-flex items-center gap-2 text-muted-foreground/60 hover:text-primary transition-colors mb-10 group text-[13px] font-medium"
                         >
                             <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform duration-200" />

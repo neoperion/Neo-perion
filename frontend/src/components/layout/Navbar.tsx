@@ -61,10 +61,10 @@ export const Navbar: React.FC = () => {
             </div>
             
             <Link to="/industries" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/industries' ? 'text-neo-blue' : 'text-slate-300')}>Industries</Link>
-            <Link to="/case-studies" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/case-studies' ? 'text-neo-blue' : 'text-slate-300')}>Case Studies</Link>
-            <Link to="/about" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/about' ? 'text-neo-blue' : 'text-slate-300')}>About</Link>
-            <Link to="/blog" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/blog' ? 'text-neo-blue' : 'text-slate-300')}>Blog</Link>
-            <Link to="/careers" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/careers' ? 'text-neo-blue' : 'text-slate-300')}>Careers</Link>
+            <Link to="/company/case-studies" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/case-studies' ? 'text-neo-blue' : 'text-slate-300')}>Case Studies</Link>
+            <Link to="/company/about" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/about' ? 'text-neo-blue' : 'text-slate-300')}>About</Link>
+            <Link to="/company/blog" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/blog' ? 'text-neo-blue' : 'text-slate-300')}>Blog</Link>
+            <Link to="/company/careers" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/careers' ? 'text-neo-blue' : 'text-slate-300')}>Careers</Link>
           </div>
 
           <div className="hidden md:flex items-center">

@@ -73,7 +73,7 @@ export const HomeCTA = () => {
                 </button>
                 
                 <button
-                  onClick={() => navigate('/case-studies')}
+                  onClick={() => navigate('/company/case-studies')}
                   className="group px-8 py-4 rounded-xl font-bold text-slate-700 bg-white border border-slate-200 hover:border-neo-blue/30 hover:bg-slate-50 transition-all w-full sm:w-auto flex items-center justify-center gap-2 text-[15px] tracking-wide hover:shadow-soft"
                 >
                   View Our Work

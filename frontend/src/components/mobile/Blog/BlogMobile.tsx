@@ -55,7 +55,7 @@ export function BlogReader({ title, author, publishedAt, readTime, coverImage, c
       </div>
       <header className="px-mobile-base pt-safe-or-4 pb-6">
         <div className="flex items-center justify-between mb-4">
-          <Link to="/blog" className="inline-flex items-center gap-1 text-[12px] text-neo-highlight font-semibold"><ArrowRight size={14} className="rotate-180" /> All Posts</Link>
+          <Link to="/company/blog" className="inline-flex items-center gap-1 text-[12px] text-neo-highlight font-semibold"><ArrowRight size={14} className="rotate-180" /> All Posts</Link>
           <div className="flex items-center gap-2">
             <button type="button" aria-label="Bookmark" onClick={() => setBookmarked((b) => !b)}
               className={cn('h-9 w-9 rounded-full flex items-center justify-center border transition-colors', bookmarked ? 'bg-neo-highlight/15 border-neo-highlight/30 text-neo-highlight' : 'bg-white/[0.05] border-white/[0.10] text-white/70')}>

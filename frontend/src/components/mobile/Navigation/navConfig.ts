@@ -126,34 +126,34 @@ export const desktopNavSections: DesktopSection[] = [
       {
         title: 'ABOUT NEO PERION',
         items: [
-          { label: 'About Us', href: '/about', icon: Building2 },
+          { label: 'About Us', href: '/company/about', icon: Building2 },
           { label: "Founder's Letter", href: '/company/founder-letter', icon: PenTool },
-          { label: 'Vision & Mission', href: '/about#vision', icon: Target },
+          { label: 'Vision & Mission', href: '/company/about#vision', icon: Target },
           { label: 'Security', href: '/security', icon: ShieldCheck },
         ],
       },
       {
         title: 'SOCIAL PROOF',
         items: [
-          { label: 'Case Studies', href: '/case-studies', icon: FileText },
-          { label: 'Success Stories', href: '/success-stories', icon: TrendingUp },
-          { label: 'Testimonials', href: '/testimonials', icon: MessageSquare },
+          { label: 'Case Studies', href: '/company/case-studies', icon: FileText },
+          { label: 'Success Stories', href: '/company/success-stories', icon: TrendingUp },
+          { label: 'Testimonials', href: '/company/testimonials', icon: MessageSquare },
         ],
       },
       {
         title: 'CAREERS',
         items: [
-          { label: 'Join Our Team', href: '/careers', icon: Briefcase },
-          { label: 'Internship Program', href: '/careers/internships', icon: GraduationCap },
-          { label: 'Open Positions', href: '/careers#open-roles', icon: Briefcase },
+          { label: 'Join Our Team', href: '/company/careers', icon: Briefcase },
+          { label: 'Internship Program', href: '/company/careers', icon: GraduationCap },
+          { label: 'Open Positions', href: '/company/careers', icon: Briefcase },
         ],
       },
       {
         title: 'RESOURCES',
         items: [
-          { label: 'Blog', href: '/blog', icon: BookOpen },
-          { label: 'AI Newsletter', href: '/newsletter', icon: Newspaper },
-          { label: 'Technology Insights', href: '/insights', icon: Cpu },
+          { label: 'Blog', href: '/company/blog', icon: BookOpen },
+          { label: 'AI Newsletter', href: '/company/newsletter', icon: Newspaper },
+          { label: 'Technology Insights', href: '/company/insights', icon: Cpu },
         ],
       },
     ],

@@ -44,10 +44,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             </div>
 
             <Link to="/industries" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Industries</Link>
-            <Link to="/case-studies" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Case Studies</Link>
-            <Link to="/about" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">About</Link>
-            <Link to="/blog" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Blog</Link>
-            <Link to="/careers" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Careers</Link>
+            <Link to="/company/case-studies" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Case Studies</Link>
+            <Link to="/company/about" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">About</Link>
+            <Link to="/company/blog" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Blog</Link>
+            <Link to="/company/careers" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Careers</Link>
             
             <div className="pt-6">
               <Link to="/contact" onClick={onClose}>

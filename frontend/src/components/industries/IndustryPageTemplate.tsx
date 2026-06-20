@@ -274,7 +274,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                 {industry.caseStudyPreview.result}
               </p>
               <button
-                onClick={() => navigate('/case-studies')}
+                onClick={() => navigate('/company/case-studies')}
                 className="flex items-center gap-2 font-bold text-white hover:gap-3 transition-all group"
               >
                 View Case Studies
@@ -342,7 +342,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => navigate('/case-studies')}
+              onClick={() => navigate('/company/case-studies')}
               className="px-8 py-4 bg-white/10 text-white rounded-xl font-bold border border-white/30 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
             >
               View Case Studies

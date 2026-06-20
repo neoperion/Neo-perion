@@ -35,7 +35,7 @@ export const BlogPost: React.FC = () => {
       <div className="min-h-screen bg-[#050816] flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-white mb-4">Post Not Found</h1>
         <p className="text-slate-400 mb-8">The article you are looking for does not exist.</p>
-        <button onClick={() => navigate('/blog')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
+        <button onClick={() => navigate('/company/blog')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
           Back to Blog
         </button>
       </div>
@@ -85,7 +85,7 @@ export const BlogPost: React.FC = () => {
           {/* Article Hero */}
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             <button 
-              onClick={() => navigate('/blog')}
+              onClick={() => navigate('/company/blog')}
               className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -151,7 +151,7 @@ export const BlogPost: React.FC = () => {
         <ReadingProgress />
         <div className="w-full pb-8 pt-8 px-6">
           <button 
-            onClick={() => navigate('/blog')}
+            onClick={() => navigate('/company/blog')}
             className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors mb-6 text-sm font-bold uppercase tracking-wider"
           >
             <ArrowLeft size={16} />

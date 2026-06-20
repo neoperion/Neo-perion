@@ -58,9 +58,9 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Resources</h4>
             <ul className="space-y-4">
-              <li><Link to="/blog" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Blog</Link></li>
-              <li><Link to="/case-studies" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Case Studies</Link></li>
-              <li><Link to="/careers" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Careers</Link></li>
+              <li><Link to="/company/blog" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Blog</Link></li>
+              <li><Link to="/company/case-studies" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Case Studies</Link></li>
+              <li><Link to="/company/careers" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Careers</Link></li>
               <li><Link to="/privacy" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">Terms of Service</Link></li>
             </ul>

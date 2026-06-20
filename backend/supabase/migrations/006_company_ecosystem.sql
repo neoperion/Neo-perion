@@ -31,7 +31,11 @@ CREATE TABLE IF NOT EXISTS leads (
     company TEXT,
     industry TEXT,
     budget TEXT,
+    project_type TEXT,
     message TEXT,
+    source TEXT DEFAULT 'website',
+    lead_score INT DEFAULT 0,
+    category TEXT,
     status TEXT DEFAULT 'new',
     created_at TIMESTAMPTZ DEFAULT now()
 );

@@ -89,7 +89,7 @@ export function CaseStudyStory({ eyebrow, client, title, outcome, problem, chall
           <div className="flex flex-wrap gap-2">{techStack.map((t) => (<span key={t} className="h-8 px-3 rounded-full bg-white/[0.05] border border-white/[0.10] text-[11px] font-medium text-white/85 flex items-center">{t}</span>))}</div>
         </section>
       )}
-      <div className="px-mobile-base mt-9"><Link to="/case-studies" className="w-full h-12 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2 active:scale-[0.98]">View All Case Studies <ChevronRight size={14} /></Link></div>
+      <div className="px-mobile-base mt-9"><Link to="/company/case-studies" className="w-full h-12 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2 active:scale-[0.98]">View All Case Studies <ChevronRight size={14} /></Link></div>
     </article>
   );
 }
