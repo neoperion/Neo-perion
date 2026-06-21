@@ -103,7 +103,7 @@ export const EngagementModel: React.FC = () => {
               <div className="flex flex-1 flex-col p-8">
                 <div className="mb-5 flex items-center gap-3">
                   <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-xl ${
+                    className={`flex h-11 w-11 items-center justify-center rounded-[12px] ${
                       highlight ? "bg-brand text-white" : "bg-canvas text-ink border border-hairline"
                     }`}
                   >

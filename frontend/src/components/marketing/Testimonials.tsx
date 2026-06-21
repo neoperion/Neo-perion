@@ -67,8 +67,8 @@ export function Testimonials({ lead, secondary = [], className, ...props }: Test
 
       {secondary.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2">
-          {secondary.map((item) => (
-            <MarketingCard key={item.name} role="surface">
+          {secondary.map((item, idx) => (
+            <MarketingCard key={`${item.name}-${idx}`} role="surface">
               <blockquote className="text-body leading-relaxed">“{item.quote}”</blockquote>
               <div className="mt-4 flex flex-col">
                 <span className="text-sm font-semibold text-ink">{item.name}</span>

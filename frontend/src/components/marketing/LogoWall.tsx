@@ -25,9 +25,9 @@ export function LogoWall({ label, logos, className, ...props }: LogoWallProps) {
         </p>
       ) : null}
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-        {logos.map((logo) => (
+        {logos.map((logo, idx) => (
           <img
-            key={logo.alt}
+            key={`${logo.alt}-${idx}`}
             src={logo.src}
             alt={logo.alt}
             loading="lazy"

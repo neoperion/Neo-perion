@@ -34,7 +34,7 @@ export function BrowserFrame({
       )}
       {...props}
     >
-      <div className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
+      <div aria-hidden className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
         <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
         <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
