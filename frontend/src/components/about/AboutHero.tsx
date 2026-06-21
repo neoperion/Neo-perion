@@ -12,7 +12,7 @@ export function AboutHero() {
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-[64px] font-display font-bold tracking-tight leading-[1.05] text-[#09090B] mb-8 max-w-5xl mx-auto">
             We are engineers first.<br/>
-            Consultants second.
+            Consultants secondss.
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
             Building stable, scalable enterprise products for companies that refuse to move slowly.
