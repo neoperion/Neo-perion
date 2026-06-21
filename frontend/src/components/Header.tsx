@@ -142,8 +142,8 @@ export const Header = () => {
             }}
             className="flex shrink-0 cursor-pointer items-center gap-3"
           >
-            <img src="/images/np-logo.png" alt="" aria-hidden className="h-11 w-11 object-contain" />
-            <span className="font-logo text-[28px] font-bold leading-none tracking-[0.01em]">
+            <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
+            <span className="font-logo text-[14px] leading-none">
               <span className="text-ink">NEO</span> <span className="text-brand">PERION</span>
             </span>
           </a>

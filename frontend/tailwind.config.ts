@@ -77,7 +77,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Inter Tight', 'sans-serif'],
-        logo: ['"Abhaya Libre"', 'Georgia', 'serif'],
+        logo: ['"Press Start 2P"', 'monospace'],
         editorial: ['Instrument Serif', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

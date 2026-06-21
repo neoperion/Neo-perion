@@ -70,8 +70,8 @@ export const Footer = () => {
         <div className="mb-14 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="space-y-6 lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/images/np-logo.png" alt="Neo Perion" className="h-9 w-auto" />
-              <span className="font-logo text-[22px] font-bold tracking-[0.01em]">
+              <img src="/images/np-logo.png" alt="Neo Perion" className="h-8 w-auto" />
+              <span className="font-logo text-[13px] leading-none">
                 <span className="text-ink">NEO</span> <span className="text-brand">PERION</span>
               </span>
             </div>
