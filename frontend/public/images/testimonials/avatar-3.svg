@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Avatar">
+  <rect width="160" height="160" fill="#F1F2F4"/>
+  <rect x="1" y="1" width="158" height="158" fill="none" stroke="#E4E4E7"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="21" fill="#A1A1AA">Avatar</text>
+</svg>
