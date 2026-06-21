@@ -298,6 +298,21 @@
   }
 }
 
+/* ─── Testimonial marquee — intentionally overrides reduced-motion (by request) ─── */
+@keyframes np-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.np-marquee {
+  animation-name: np-marquee !important;
+  animation-duration: 48s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+}
+.np-marquee-group:hover .np-marquee {
+  animation-play-state: paused;
+}
+
 /* ─── Scroll Reveal Animations ─── */
 .reveal {
   opacity: 0;
