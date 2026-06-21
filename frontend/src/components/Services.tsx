@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Bot, Zap, Cloud, Smartphone, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,7 +8,8 @@ import { SectionHeading } from "@/components/marketing/SectionHeading";
 
 interface Capability {
   title: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  // PLACEHOLDER icon — drop your own 24×24 SVG at this path (see icons/ folder).
+  icon: string;
   description: string;
   features: string[];
   cta: string;
@@ -20,7 +21,7 @@ interface Capability {
 const CAPABILITIES: Capability[] = [
   {
     title: "AI Systems",
-    icon: Bot,
+    icon: "/images/home/icons/ai.svg",
     description:
       "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale — evaluated, observable, and production-hardened.",
     features: ["Vector databases", "LLM fine-tuning", "Autonomous agents"],
@@ -30,7 +31,7 @@ const CAPABILITIES: Capability[] = [
   },
   {
     title: "Enterprise Automation",
-    icon: Zap,
+    icon: "/images/home/icons/automation.svg",
     description:
       "Workflow automation, CRM integration, and intelligent document processing that removes manual work without breaking your systems.",
     features: ["RPA integration", "Data pipelines", "Webhook triggers"],
@@ -40,7 +41,7 @@ const CAPABILITIES: Capability[] = [
   },
   {
     title: "Cloud Native Platforms",
-    icon: Cloud,
+    icon: "/images/home/icons/cloud.svg",
     description:
       "Multi-tenant SaaS architectures and scalable backends on AWS/GCP — designed to hold up under real production load.",
     features: ["Microservices", "Kubernetes", "Serverless architecture"],
@@ -50,7 +51,7 @@ const CAPABILITIES: Capability[] = [
   },
   {
     title: "Mobile & Web Products",
-    icon: Smartphone,
+    icon: "/images/home/icons/mobile.svg",
     description:
       "Cross-platform apps, PWAs, and high-performance dashboards — fast, accessible, and built to ship.",
     features: ["React / Next.js", "Flutter", "Real-time subscriptions"],
@@ -111,7 +112,6 @@ export const Services = () => {
         {/* Left — scrolling capability blocks */}
         <div>
           {CAPABILITIES.map((cap, i) => {
-            const Icon = cap.icon;
             const isActive = i === active;
             return (
               <div
@@ -134,12 +134,13 @@ export const Services = () => {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="h-px w-8 bg-hairline" />
-                    <Icon
-                      className={`h-5 w-5 transition-colors duration-300 ${
-                        isActive ? "text-brand" : "text-faint"
+                    <span
+                      className={`flex h-10 w-10 items-center justify-center rounded-[10px] border transition-colors duration-300 ${
+                        isActive ? "border-brand/30 bg-brand/[0.07]" : "border-hairline bg-canvas"
                       }`}
-                      strokeWidth={1.75}
-                    />
+                    >
+                      <img src={cap.icon} alt="" aria-hidden className="h-5 w-5 object-contain" />
+                    </span>
                   </div>
 
                   <h3 className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-bold leading-tight tracking-tight text-ink">
