@@ -65,6 +65,8 @@ const NAV: NavItem[] = [
     ],
     cta: { prompt: "Not sure where to start?", buttonText: "Book a free consultation", href: "/contact" },
   },
+  { kind: "link", label: "Work", href: "/company/case-studies" },
+  { kind: "link", label: "Pricing", href: "#engagement" },
   {
     kind: "dropdown",
     label: "Industries",
@@ -75,16 +77,14 @@ const NAV: NavItem[] = [
       { label: "Healthcare", href: "/industries/healthcare", icon: HeartPulse },
     ],
   },
-  { kind: "link", label: "Work", href: "/company/case-studies" },
-  { kind: "link", label: "Pricing", href: "#engagement" },
   {
     kind: "dropdown",
-    label: "Company",
+    label: "About",
     links: [
       { label: "About Us", href: "/company/about", icon: Building2 },
-      { label: "Case Studies", href: "/company/case-studies", icon: FileText },
       { label: "Success Stories", href: "/company/success-stories", icon: TrendingUp },
       { label: "Testimonials", href: "/company/testimonials", icon: MessageSquare },
+      { label: "Case Studies", href: "/company/case-studies", icon: FileText },
       { label: "Careers", href: "/company/careers", icon: Briefcase },
       { label: "Blog", href: "/company/blog", icon: BookOpen },
       { label: "Newsletter", href: "/company/newsletter", icon: Newspaper },
@@ -144,7 +144,7 @@ export const Header = () => {
         className="fixed left-0 right-0 top-0 z-50 border-b border-hairline bg-paper/90 backdrop-blur-xl"
         onMouseLeave={scheduleClose}
       >
-        <nav className="container mx-auto flex h-[68px] items-center px-6">
+        <nav className="container relative mx-auto flex h-[76px] items-center justify-between px-6">
           {/* Logo — crisp text wordmark, scaled up */}
           <a
             href="/"
@@ -152,16 +152,16 @@ export const Header = () => {
               e.preventDefault();
               handleNavigation("/");
             }}
-            className="mr-10 flex shrink-0 cursor-pointer items-center gap-2.5"
+            className="flex shrink-0 cursor-pointer items-center gap-3"
           >
-            <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="font-display text-[23px] font-bold leading-none tracking-tight text-ink">
+            <img src="/images/np-logo.png" alt="" aria-hidden className="h-11 w-11 object-contain" />
+            <span className="font-display text-[26px] font-bold leading-none tracking-tight text-ink">
               Neo Perion
             </span>
           </a>
 
-          {/* Desktop nav — left-aligned, tight to logo */}
-          <div className="hidden items-center gap-0.5 md:flex">
+          {/* Desktop nav — centered */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 md:flex">
             {NAV.map((item) =>
               item.kind === "dropdown" ? (
                 <button
