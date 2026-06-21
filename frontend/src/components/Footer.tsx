@@ -68,8 +68,9 @@ export const Footer = () => {
 
         {/* Giant faded brand wordmark — top of footer */}
         <div aria-hidden className="pointer-events-none mb-14 select-none overflow-hidden">
-          <div className="whitespace-nowrap text-center font-logo text-[clamp(20px,7vw,80px)] leading-none text-ink/[0.05]">
-            NEO PERION
+          <div className="whitespace-nowrap text-center font-logo text-[clamp(20px,7vw,80px)] leading-none">
+            <span className="text-brand/[0.12]">NEO</span>{" "}
+            <span className="text-ink/[0.05]">PERION</span>
           </div>
         </div>
 
