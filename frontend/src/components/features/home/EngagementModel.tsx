@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Rocket, Repeat, Zap, ArrowRight, Check } from "lucide-react";
 
 import { Section } from "@/components/marketing/Section";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 
 interface Tier {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   name: string;
   duration: string;
   /** PLACEHOLDER price anchor — confirm real ranges before launch. */
@@ -74,82 +73,73 @@ export const EngagementModel: React.FC = () => {
         eyebrow="Engagement model"
         title="Three ways to work with us"
         lead="Pick the shape that matches your stage. Every engagement starts with a free 30-minute architecture review — no pitch, just signal."
-        className="mb-14 max-w-3xl"
+        className="mb-12 max-w-3xl"
       />
 
-      <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3">
-        {TIERS.map((tier, idx) => {
+      {/* Unified divided slab — square corners, popular tier highlighted */}
+      <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-3">
+        {TIERS.map((tier) => {
           const Icon = tier.icon;
           const highlight = tier.highlight;
           return (
-            <motion.div
+            <div
               key={tier.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: idx * 0.06 }}
-              className={`relative flex flex-col overflow-hidden rounded-[16px] border bg-paper transition-[border-color,box-shadow] duration-200 ${
-                highlight
-                  ? "border-brand shadow-[0_8px_30px_rgba(30,93,255,0.10)] md:scale-[1.03]"
-                  : "border-hairline hover:border-faint"
-              }`}
+              className={`relative flex flex-col p-8 ${highlight ? "bg-[#F4F8FF]" : "bg-paper"}`}
             >
-              {highlight && (
-                <div className="bg-brand py-2 text-center text-[10px] font-bold uppercase tracking-[0.15em] text-white">
+              {highlight && <span className="absolute inset-x-0 top-0 h-1 bg-brand" />}
+
+              {highlight ? (
+                <span className="mb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-brand">
                   Most popular
-                </div>
+                </span>
+              ) : (
+                <span className="mb-5 h-[18px]" />
               )}
 
-              <div className="flex flex-1 flex-col p-8">
-                <div className="mb-5 flex items-center gap-3">
-                  <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-[12px] ${
-                      highlight ? "bg-brand text-white" : "bg-canvas text-ink border border-hairline"
-                    }`}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-ink">{tier.name}</h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted2">
-                      {tier.duration}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mb-5 font-display text-3xl font-bold text-ink">{tier.priceFrom}</p>
-
-                <p className="mb-5 text-sm leading-relaxed text-body">{tier.description}</p>
-
-                <div className="mb-6 border-b border-hairline pb-6">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-muted2">
-                    Best for
+              <div className="flex items-center gap-3">
+                <Icon className="h-6 w-6 shrink-0 text-ink" strokeWidth={1.6} />
+                <div>
+                  <h3 className="text-lg font-bold text-ink">{tier.name}</h3>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted2">
+                    {tier.duration}
                   </p>
-                  <p className="text-sm font-medium text-body">{tier.bestFor}</p>
                 </div>
-
-                <ul className="mb-8 flex-1 space-y-2.5">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-body">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to="/contact"
-                  className={`inline-flex h-12 items-center justify-center gap-2 rounded-[12px] px-6 text-sm font-semibold transition-all ${
-                    highlight
-                      ? "bg-brand text-white hover:bg-brand-hover hover:shadow-md"
-                      : "border border-hairline bg-paper text-ink hover:border-faint"
-                  }`}
-                >
-                  {tier.cta}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
-            </motion.div>
+
+              <p className="mt-6 font-display text-[32px] font-bold leading-none text-ink">
+                {tier.priceFrom}
+              </p>
+
+              <p className="mt-4 text-sm leading-relaxed text-body">{tier.description}</p>
+
+              <div className="mt-6 border-t border-hairline pt-5">
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-muted2">
+                  Best for
+                </p>
+                <p className="text-sm font-medium text-body">{tier.bestFor}</p>
+              </div>
+
+              <ul className="mt-6 flex-1 space-y-2.5">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm text-body">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={2.25} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                to="/contact"
+                className={`mt-8 inline-flex h-12 items-center justify-center gap-2 px-6 text-sm font-semibold transition-colors ${
+                  highlight
+                    ? "bg-brand text-white hover:bg-brand-hover"
+                    : "border border-ink/15 text-ink hover:border-ink/40"
+                }`}
+              >
+                {tier.cta}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           );
         })}
       </div>
