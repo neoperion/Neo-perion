@@ -1,5 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Cloud Native — diagram">
-  <rect width="1200" height="750" fill="#EEF1F6"/>
-  <rect x="0.5" y="0.5" width="1199" height="749" fill="none" stroke="#E4E4E7"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="40" fill="#A1A1AA">Cloud Native — diagram</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <pattern id="dots-cl" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#E9EDF3"/>
+    </pattern>
+    <marker id="ah-cl" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#C5CCD8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="750" fill="#FFFFFF"/>
+  <rect width="1200" height="750" fill="url(#dots-cl)"/>
+  <text x="66" y="74" fill="#71717A" font-size="17" font-weight="700" letter-spacing="2.5">CLOUD ARCHITECTURE</text>
+
+  <!-- users -->
+  <g>
+    <rect x="66" y="330" width="160" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="146" y="368" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="600">Users</text>
+    <text x="146" y="390" text-anchor="middle" fill="#71717A" font-size="12.5">web + mobile</text>
+  </g>
+  <line x1="226" y1="372" x2="290" y2="372" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-cl)"/>
+
+  <!-- load balancer / gateway -->
+  <g>
+    <rect x="292" y="330" width="170" height="84" rx="12" fill="#F2F6FF" stroke="#1E5DFF" stroke-width="1.6"/>
+    <circle cx="318" cy="356" r="4" fill="#1E5DFF"/>
+    <text x="377" y="368" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="700">API gateway</text>
+    <text x="377" y="390" text-anchor="middle" fill="#71717A" font-size="12.5">LB + auth</text>
+  </g>
+  <line x1="462" y1="372" x2="524" y2="372" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-cl)"/>
+
+  <!-- kubernetes cluster container -->
+  <g>
+    <rect x="528" y="210" width="380" height="332" rx="18" fill="#FBFCFE" stroke="#1E5DFF" stroke-width="1.4" stroke-dasharray="3 7"/>
+    <text x="552" y="246" fill="#1E5DFF" font-size="13" font-weight="700" letter-spacing="1">KUBERNETES CLUSTER</text>
+
+    <rect x="560" y="270" width="316" height="68" rx="10" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <circle cx="586" cy="304" r="4" fill="#A1A1AA"/>
+    <text x="606" y="309" fill="#0A0A0B" font-size="15" font-weight="600">Auth service</text>
+
+    <rect x="560" y="350" width="316" height="68" rx="10" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <circle cx="586" cy="384" r="4" fill="#A1A1AA"/>
+    <text x="606" y="389" fill="#0A0A0B" font-size="15" font-weight="600">API service</text>
+
+    <rect x="560" y="430" width="316" height="68" rx="10" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <circle cx="586" cy="464" r="4" fill="#A1A1AA"/>
+    <text x="606" y="469" fill="#0A0A0B" font-size="15" font-weight="600">Worker service</text>
+  </g>
+  <line x1="908" y1="384" x2="972" y2="384" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-cl)"/>
+
+  <!-- database cluster (cylinders) -->
+  <g>
+    <path d="M978,330 a78,20 0 0 1 156,0 v92 a78,20 0 0 1 -156,0 z" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <ellipse cx="1056" cy="330" rx="78" ry="20" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <ellipse cx="1056" cy="372" rx="78" ry="20" fill="none" stroke="#E4E4E7" stroke-width="1.2"/>
+    <text x="1056" y="464" text-anchor="middle" fill="#3F3F46" font-size="15" font-weight="600">Postgres cluster</text>
+  </g>
 </svg>

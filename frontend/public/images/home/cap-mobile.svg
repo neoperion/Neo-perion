@@ -1,5 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Mobile & Web — app mockup">
-  <rect width="1200" height="750" fill="#EEF1F6"/>
-  <rect x="0.5" y="0.5" width="1199" height="749" fill="none" stroke="#E4E4E7"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="40" fill="#A1A1AA">Mobile & Web — app mockup</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="750" fill="#FFFFFF"/>
+
+  <!-- sidebar -->
+  <rect x="0" y="0" width="214" height="750" fill="#FCFCFD"/>
+  <line x1="214" y1="0" x2="214" y2="750" stroke="#E4E4E7" stroke-width="1.5"/>
+  <rect x="28" y="30" width="20" height="20" rx="6" fill="#1E5DFF"/>
+  <text x="58" y="46" fill="#0A0A0B" font-size="16" font-weight="700">Neo Perion</text>
+
+  <rect x="20" y="104" width="174" height="42" rx="9" fill="#F2F6FF"/>
+  <circle cx="42" cy="125" r="4" fill="#1E5DFF"/>
+  <text x="58" y="130" fill="#1E5DFF" font-size="14" font-weight="600">Dashboard</text>
+  <circle cx="42" cy="177" r="4" fill="#A1A1AA"/>
+  <text x="58" y="182" fill="#71717A" font-size="14" font-weight="500">Analytics</text>
+  <circle cx="42" cy="225" r="4" fill="#A1A1AA"/>
+  <text x="58" y="230" fill="#71717A" font-size="14" font-weight="500">Projects</text>
+  <circle cx="42" cy="273" r="4" fill="#A1A1AA"/>
+  <text x="58" y="278" fill="#71717A" font-size="14" font-weight="500">Team</text>
+  <circle cx="42" cy="321" r="4" fill="#A1A1AA"/>
+  <text x="58" y="326" fill="#71717A" font-size="14" font-weight="500">Settings</text>
+
+  <!-- top bar -->
+  <line x1="214" y1="74" x2="1200" y2="74" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="246" y="46" fill="#0A0A0B" font-size="20" font-weight="700">Dashboard</text>
+  <rect x="828" y="20" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.4"/>
+  <circle cx="852" cy="38" r="6" fill="none" stroke="#A1A1AA" stroke-width="1.6"/>
+  <line x1="856" y1="42" x2="861" y2="47" stroke="#A1A1AA" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="872" y="43" fill="#A1A1AA" font-size="13">Search…</text>
+  <circle cx="1156" cy="38" r="18" fill="#1E5DFF"/>
+  <text x="1156" y="43" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">NP</text>
+
+  <!-- stat cards -->
+  <g>
+    <rect x="246" y="106" width="290" height="96" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="270" y="138" fill="#71717A" font-size="12.5" font-weight="600">MRR</text>
+    <text x="270" y="174" fill="#0A0A0B" font-size="26" font-weight="700">$48.2k</text>
+    <text x="512" y="138" text-anchor="end" fill="#1E5DFF" font-size="13" font-weight="700">+12%</text>
+  </g>
+  <g>
+    <rect x="556" y="106" width="290" height="96" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="580" y="138" fill="#71717A" font-size="12.5" font-weight="600">Active users</text>
+    <text x="580" y="174" fill="#0A0A0B" font-size="26" font-weight="700">8,420</text>
+    <text x="822" y="138" text-anchor="end" fill="#1E5DFF" font-size="13" font-weight="700">+4%</text>
+  </g>
+  <g>
+    <rect x="866" y="106" width="290" height="96" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="890" y="138" fill="#71717A" font-size="12.5" font-weight="600">Uptime</text>
+    <text x="890" y="174" fill="#0A0A0B" font-size="26" font-weight="700">99.99%</text>
+    <text x="1132" y="138" text-anchor="end" fill="#1E5DFF" font-size="13" font-weight="700">SLA</text>
+  </g>
+
+  <!-- chart card -->
+  <g>
+    <rect x="246" y="226" width="600" height="338" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="270" y="262" fill="#0A0A0B" font-size="16" font-weight="700">Revenue</text>
+    <text x="270" y="284" fill="#71717A" font-size="12.5">last 30 days</text>
+    <line x1="270" y1="340" x2="822" y2="340" stroke="#F0F2F6" stroke-width="1.4"/>
+    <line x1="270" y1="408" x2="822" y2="408" stroke="#F0F2F6" stroke-width="1.4"/>
+    <line x1="270" y1="476" x2="822" y2="476" stroke="#F0F2F6" stroke-width="1.4"/>
+    <path d="M270,470 L330,440 L390,452 L450,400 L510,418 L570,360 L630,372 L690,322 L750,338 L822,300 L822,520 L270,520 Z" fill="#1E5DFF" fill-opacity="0.07"/>
+    <path d="M270,470 L330,440 L390,452 L450,400 L510,418 L570,360 L630,372 L690,322 L750,338 L822,300" fill="none" stroke="#1E5DFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="822" cy="300" r="5" fill="#1E5DFF" stroke="#FFFFFF" stroke-width="2.5"/>
+  </g>
+
+  <!-- activity card -->
+  <g>
+    <rect x="866" y="226" width="290" height="338" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="890" y="262" fill="#0A0A0B" font-size="15" font-weight="700">Recent activity</text>
+
+    <circle cx="902" cy="306" r="12" fill="#EEF1F7"/>
+    <text x="924" y="302" fill="#0A0A0B" font-size="13.5" font-weight="600">Deploy shipped</text>
+    <text x="924" y="320" fill="#71717A" font-size="12">prod • 2m ago</text>
+
+    <circle cx="902" cy="364" r="12" fill="#EEF1F7"/>
+    <text x="924" y="360" fill="#0A0A0B" font-size="13.5" font-weight="600">New signup</text>
+    <text x="924" y="378" fill="#71717A" font-size="12">acme.co • 9m ago</text>
+
+    <circle cx="902" cy="422" r="12" fill="#EEF1F7"/>
+    <text x="924" y="418" fill="#0A0A0B" font-size="13.5" font-weight="600">Payment received</text>
+    <text x="924" y="436" fill="#71717A" font-size="12">$1,200 • 21m ago</text>
+
+    <circle cx="902" cy="480" r="12" fill="#EEF1F7"/>
+    <text x="924" y="476" fill="#0A0A0B" font-size="13.5" font-weight="600">PR merged</text>
+    <text x="924" y="494" fill="#71717A" font-size="12">main • 40m ago</text>
+  </g>
 </svg>
