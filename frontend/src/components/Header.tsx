@@ -96,21 +96,11 @@ const NAV: NavItem[] = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [panelLeft, setPanelLeft] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const handleNavigation = (href: string) => {
     setActiveDropdown(null);
@@ -128,15 +118,10 @@ export const Header = () => {
     }
   };
 
-  const openDropdown = (label: string, trigger: HTMLElement) => {
+  const openDropdown = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     if (openTimer.current) clearTimeout(openTimer.current);
-    const headerLeft = headerRef.current?.getBoundingClientRect().left ?? 0;
-    const left = trigger.getBoundingClientRect().left - headerLeft;
-    openTimer.current = setTimeout(() => {
-      setPanelLeft(left);
-      setActiveDropdown(label);
-    }, 90);
+    openTimer.current = setTimeout(() => setActiveDropdown(label), 90);
   };
 
   const scheduleClose = () => {
@@ -144,34 +129,33 @@ export const Header = () => {
     closeTimer.current = setTimeout(() => setActiveDropdown(null), 160);
   };
 
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (openTimer.current) clearTimeout(openTimer.current);
+  }, []);
+
   const active = NAV.find((n) => n.kind === "dropdown" && n.label === activeDropdown) as
     | DropdownMenu
     | undefined;
-  const panelWide = (active?.links.length ?? 0) > 4;
 
   return (
     <>
       <header
-        ref={headerRef}
-        className={`fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
-          scrolled || active
-            ? "border-hairline bg-paper/85 backdrop-blur-xl"
-            : "border-transparent bg-transparent"
-        }`}
+        className="fixed left-0 right-0 top-0 z-50 border-b border-hairline bg-paper/90 backdrop-blur-xl"
         onMouseLeave={scheduleClose}
       >
-        <nav className="container mx-auto flex h-16 items-center px-6">
-          {/* Logo — crisp text wordmark */}
+        <nav className="container mx-auto flex h-[68px] items-center px-6">
+          {/* Logo — crisp text wordmark, scaled up */}
           <a
             href="/"
             onClick={(e) => {
               e.preventDefault();
               handleNavigation("/");
             }}
-            className="mr-10 flex shrink-0 cursor-pointer items-center gap-2"
+            className="mr-10 flex shrink-0 cursor-pointer items-center gap-2.5"
           >
-            <img src="/images/np-logo.png" alt="" aria-hidden className="h-7 w-7 object-contain" />
-            <span className="font-display text-[19px] font-bold tracking-tight text-ink">
+            <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
+            <span className="font-display text-[23px] font-bold leading-none tracking-tight text-ink">
               Neo Perion
             </span>
           </a>
@@ -182,16 +166,14 @@ export const Header = () => {
               item.kind === "dropdown" ? (
                 <button
                   key={item.label}
-                  onMouseEnter={(e) => openDropdown(item.label, e.currentTarget)}
-                  onClick={(e) =>
+                  onMouseEnter={() => openDropdown(item.label)}
+                  onClick={() =>
                     activeDropdown === item.label
                       ? setActiveDropdown(null)
-                      : openDropdown(item.label, e.currentTarget)
+                      : openDropdown(item.label)
                   }
                   className={`flex items-center gap-1 rounded-lg px-3 py-2 text-[14px] font-medium transition-colors duration-150 ${
-                    activeDropdown === item.label
-                      ? "text-ink"
-                      : "text-muted2 hover:text-ink"
+                    activeDropdown === item.label ? "text-ink" : "text-muted2 hover:text-ink"
                   }`}
                 >
                   {item.label}
@@ -217,12 +199,6 @@ export const Header = () => {
 
           {/* CTA + mobile toggle */}
           <div className="ml-auto flex shrink-0 items-center gap-3">
-            <button
-              onClick={() => handleNavigation("/contact")}
-              className="hidden text-[14px] font-medium text-muted2 transition-colors hover:text-ink md:block"
-            >
-              Sign in
-            </button>
             <Button
               variant="brand"
               size="sm"
@@ -242,34 +218,29 @@ export const Header = () => {
           </div>
         </nav>
 
-        {/* Dropdown panel — anchored under its trigger */}
+        {/* Full-width dropdown — flush to the bar, square corners */}
         <AnimatePresence>
           {active && (
             <motion.div
-              initial={{ opacity: 0, y: -6 }}
+              initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
+              exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute top-full hidden md:block"
-              style={{ left: Math.max(24, panelLeft) }}
+              className="absolute left-0 right-0 top-full hidden border-b border-hairline bg-paper shadow-[0_20px_40px_rgba(15,23,42,0.08)] md:block"
               onMouseEnter={() => {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
               }}
               onMouseLeave={scheduleClose}
             >
-              <div
-                className={`mt-2 overflow-hidden rounded-[14px] border border-hairline bg-paper shadow-[0_16px_50px_rgba(15,23,42,0.12)] ${
-                  panelWide ? "w-[460px]" : "w-[280px]"
-                }`}
-              >
-                <div className={`grid gap-0.5 p-2 ${panelWide ? "grid-cols-2" : "grid-cols-1"}`}>
+              <div className="container mx-auto max-w-[1200px] px-6">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-1 py-6 md:grid-cols-3 lg:grid-cols-4">
                   {active.links.map((link) => {
                     const Icon = link.icon;
                     return (
                       <button
                         key={link.label}
                         onClick={() => handleNavigation(link.href)}
-                        className="group flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-left transition-colors hover:bg-canvas"
+                        className="group flex items-center gap-3 rounded-[10px] px-3 py-3 text-left transition-colors hover:bg-canvas"
                       >
                         <Icon className="h-[18px] w-[18px] shrink-0 text-faint transition-colors group-hover:text-brand" />
                         <span className="text-[14px] font-medium text-body transition-colors group-hover:text-ink">
@@ -282,7 +253,7 @@ export const Header = () => {
                 {active.cta && (
                   <button
                     onClick={() => handleNavigation(active.cta!.href)}
-                    className="group flex w-full items-center justify-between border-t border-hairline bg-canvas px-4 py-3 text-left"
+                    className="group flex w-full items-center justify-between border-t border-hairline py-4 text-left"
                   >
                     <span className="text-[13px] text-muted2">{active.cta.prompt}</span>
                     <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-brand">
