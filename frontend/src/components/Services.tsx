@@ -118,7 +118,7 @@ export const Services = () => {
                 key={cap.title}
                 data-index={i}
                 ref={(el) => (blockRefs.current[i] = el)}
-                className="flex min-h-[58vh] flex-col justify-center border-t border-hairline py-12 first:border-t-0 lg:min-h-[64vh]"
+                className="flex min-h-[44vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
               >
                 <div
                   className={`transition-opacity duration-500 ${

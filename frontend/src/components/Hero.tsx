@@ -63,9 +63,9 @@ export const Hero = () => {
         {/* Right — real product screenshot */}
         <div className="lg:col-span-6">
           <BrowserFrame
-            src="/images/home/placeholder-hero.svg"
+            src="/images/home/hero-product.svg"
             alt="Neo Perion product dashboard"
-            ratio="4/3"
+            ratio="16/10"
           />
         </div>
       </div>
