@@ -58,6 +58,21 @@ export default {
           silver: "#E8EDF5",
           soft: "#64748B",
         },
+        // ─── REDESIGN TOKENS (Pass 1 — Linear/Vercel restraint) ───
+        // One blue (#1E5DFF), ink + disciplined neutrals. New code uses these.
+        ink: "#0A0A0B",
+        body: "#3F3F46",
+        muted2: "#71717A",
+        faint: "#A1A1AA",
+        hairline: "#E4E4E7",
+        canvas: "#FAFAFA",
+        paper: "#FFFFFF",
+        navy: "#08090D",
+        brand: {
+          DEFAULT: "#1E5DFF",
+          hover: "#1A52E6",
+          tint: "rgba(30,93,255,0.06)",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
