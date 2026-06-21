@@ -1,70 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
-  <defs>
-    <pattern id="dots-au" width="34" height="34" patternUnits="userSpaceOnUse">
-      <circle cx="1.5" cy="1.5" r="1.5" fill="#E9EDF3"/>
-    </pattern>
-    <marker id="ah-au" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#C5CCD8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="ah-au-b" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#1E5DFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-  </defs>
-
   <rect width="1200" height="750" fill="#FFFFFF"/>
-  <rect width="1200" height="750" fill="url(#dots-au)"/>
-  <text x="66" y="74" fill="#71717A" font-size="17" font-weight="700" letter-spacing="2.5">WORKFLOW AUTOMATION</text>
 
-  <!-- trigger -->
-  <g>
-    <rect x="66" y="328" width="190" height="92" rx="12" fill="#F2F6FF" stroke="#1E5DFF" stroke-width="1.6"/>
-    <circle cx="92" cy="356" r="4" fill="#1E5DFF"/>
-    <text x="161" y="370" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="700">Trigger</text>
-    <text x="161" y="392" text-anchor="middle" fill="#71717A" font-size="12.5">New lead created</text>
-  </g>
-  <line x1="256" y1="374" x2="326" y2="374" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-au)"/>
+  <!-- sidebar -->
+  <rect x="0" y="0" width="214" height="750" fill="#FCFCFD"/>
+  <line x1="214" y1="0" x2="214" y2="750" stroke="#E4E4E7" stroke-width="1.5"/>
+  <rect x="28" y="30" width="20" height="20" rx="6" fill="#1E5DFF"/>
+  <text x="58" y="46" fill="#0A0A0B" font-size="16" font-weight="700">Neo Perion</text>
+  <rect x="20" y="104" width="174" height="42" rx="9" fill="#F2F6FF"/>
+  <circle cx="42" cy="125" r="4" fill="#1E5DFF"/><text x="58" y="130" fill="#1E5DFF" font-size="14" font-weight="600">Workflows</text>
+  <circle cx="42" cy="177" r="4" fill="#A1A1AA"/><text x="58" y="182" fill="#71717A" font-size="14" font-weight="500">Runs</text>
+  <circle cx="42" cy="225" r="4" fill="#A1A1AA"/><text x="58" y="230" fill="#71717A" font-size="14" font-weight="500">Connections</text>
+  <circle cx="42" cy="273" r="4" fill="#A1A1AA"/><text x="58" y="278" fill="#71717A" font-size="14" font-weight="500">Logs</text>
+  <circle cx="42" cy="321" r="4" fill="#A1A1AA"/><text x="58" y="326" fill="#71717A" font-size="14" font-weight="500">Settings</text>
 
-  <!-- validate -->
-  <g>
-    <rect x="328" y="328" width="190" height="92" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
-    <circle cx="354" cy="356" r="4" fill="#A1A1AA"/>
-    <text x="423" y="370" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="600">Validate &amp; enrich</text>
-    <text x="423" y="392" text-anchor="middle" fill="#71717A" font-size="12.5">dedupe, score</text>
-  </g>
-  <line x1="518" y1="374" x2="582" y2="374" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-au)"/>
+  <!-- top bar -->
+  <line x1="214" y1="74" x2="1200" y2="74" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="246" y="46" fill="#0A0A0B" font-size="20" font-weight="700">Workflows</text>
+  <rect x="1000" y="18" width="156" height="40" rx="10" fill="#1E5DFF"/>
+  <path d="M1026,38 H1040 M1033,31 V45" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <text x="1052" y="43" fill="#FFFFFF" font-size="13.5" font-weight="600">New workflow</text>
 
-  <!-- decision diamond -->
-  <g>
-    <path d="M660,318 L728,374 L660,430 L592,374 Z" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
-    <text x="660" y="379" text-anchor="middle" fill="#0A0A0B" font-size="14" font-weight="600">Qualified?</text>
-  </g>
+  <!-- table header -->
+  <text x="246" y="128" fill="#A1A1AA" font-size="12" font-weight="600" letter-spacing="0.5">WORKFLOW</text>
+  <text x="700" y="128" fill="#A1A1AA" font-size="12" font-weight="600" letter-spacing="0.5">STATUS</text>
+  <text x="852" y="128" fill="#A1A1AA" font-size="12" font-weight="600" letter-spacing="0.5">RUNS (30d)</text>
+  <text x="1024" y="128" fill="#A1A1AA" font-size="12" font-weight="600" letter-spacing="0.5">SUCCESS</text>
+  <line x1="246" y1="146" x2="1168" y2="146" stroke="#E4E4E7" stroke-width="1.4"/>
 
-  <!-- branch yes (up) -->
-  <path d="M728,360 H820 V250 H892" fill="none" stroke="#1E5DFF" stroke-width="2" marker-end="url(#ah-au-b)"/>
-  <text x="800" y="300" fill="#1E5DFF" font-size="12.5" font-weight="700">yes</text>
+  <!-- rows -->
   <g>
-    <rect x="894" y="208" width="206" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
-    <circle cx="920" cy="234" r="4" fill="#1E5DFF"/>
-    <text x="997" y="248" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="600">Route to sales</text>
-    <text x="997" y="270" text-anchor="middle" fill="#71717A" font-size="12.5">assign + notify</text>
+    <text x="246" y="192" fill="#0A0A0B" font-size="15" font-weight="600">Lead routing</text>
+    <text x="246" y="212" fill="#71717A" font-size="12">HubSpot → Slack</text>
+    <rect x="700" y="178" width="68" height="26" rx="13" fill="#ECFDF3"/><circle cx="716" cy="191" r="4" fill="#16A34A"/><text x="726" y="195" fill="#15803D" font-size="12" font-weight="600">Active</text>
+    <text x="852" y="196" fill="#0A0A0B" font-size="14" font-weight="600">1,284</text>
+    <rect x="1024" y="186" width="100" height="6" rx="3" fill="#EEF1F6"/><rect x="1024" y="186" width="98" height="6" rx="3" fill="#1E5DFF"/><text x="1132" y="196" fill="#3F3F46" font-size="12.5">99%</text>
+    <line x1="246" y1="234" x2="1168" y2="234" stroke="#F0F2F6" stroke-width="1.4"/>
   </g>
-
-  <!-- branch no (down) -->
-  <path d="M728,388 H820 V498 H892" fill="none" stroke="#D7DCE5" stroke-width="2" marker-end="url(#ah-au)"/>
-  <text x="802" y="452" fill="#71717A" font-size="12.5" font-weight="700">no</text>
   <g>
-    <rect x="894" y="456" width="206" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
-    <circle cx="920" cy="482" r="4" fill="#A1A1AA"/>
-    <text x="997" y="496" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="600">Nurture queue</text>
-    <text x="997" y="518" text-anchor="middle" fill="#71717A" font-size="12.5">drip sequence</text>
+    <text x="246" y="280" fill="#0A0A0B" font-size="15" font-weight="600">Invoice processing</text>
+    <text x="246" y="300" fill="#71717A" font-size="12">OCR → QuickBooks</text>
+    <rect x="700" y="266" width="68" height="26" rx="13" fill="#ECFDF3"/><circle cx="716" cy="279" r="4" fill="#16A34A"/><text x="726" y="283" fill="#15803D" font-size="12" font-weight="600">Active</text>
+    <text x="852" y="284" fill="#0A0A0B" font-size="14" font-weight="600">642</text>
+    <rect x="1024" y="274" width="100" height="6" rx="3" fill="#EEF1F6"/><rect x="1024" y="274" width="94" height="6" rx="3" fill="#1E5DFF"/><text x="1132" y="284" fill="#3F3F46" font-size="12.5">97%</text>
+    <line x1="246" y1="322" x2="1168" y2="322" stroke="#F0F2F6" stroke-width="1.4"/>
   </g>
-
-  <!-- update CRM -->
   <g>
-    <rect x="120" y="556" width="206" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
-    <circle cx="146" cy="582" r="4" fill="#A1A1AA"/>
-    <text x="223" y="596" text-anchor="middle" fill="#0A0A0B" font-size="16" font-weight="600">Update CRM</text>
-    <text x="223" y="618" text-anchor="middle" fill="#71717A" font-size="12.5">sync record</text>
+    <text x="246" y="368" fill="#0A0A0B" font-size="15" font-weight="600">Onboarding emails</text>
+    <text x="246" y="388" fill="#71717A" font-size="12">Signup → Resend</text>
+    <rect x="700" y="354" width="74" height="26" rx="13" fill="#F4F5F7"/><circle cx="716" cy="367" r="4" fill="#A1A1AA"/><text x="726" y="371" fill="#71717A" font-size="12" font-weight="600">Paused</text>
+    <text x="852" y="372" fill="#0A0A0B" font-size="14" font-weight="600">318</text>
+    <rect x="1024" y="362" width="100" height="6" rx="3" fill="#EEF1F6"/><rect x="1024" y="362" width="100" height="6" rx="3" fill="#1E5DFF"/><text x="1132" y="372" fill="#3F3F46" font-size="12.5">100%</text>
+    <line x1="246" y1="410" x2="1168" y2="410" stroke="#F0F2F6" stroke-width="1.4"/>
   </g>
-  <path d="M660,430 V598 H326" fill="none" stroke="#D7DCE5" stroke-width="2" stroke-dasharray="2 6" marker-end="url(#ah-au)"/>
+  <g>
+    <text x="246" y="456" fill="#0A0A0B" font-size="15" font-weight="600">Ticket triage</text>
+    <text x="246" y="476" fill="#71717A" font-size="12">Zendesk → Linear</text>
+    <rect x="700" y="442" width="68" height="26" rx="13" fill="#ECFDF3"/><circle cx="716" cy="455" r="4" fill="#16A34A"/><text x="726" y="459" fill="#15803D" font-size="12" font-weight="600">Active</text>
+    <text x="852" y="460" fill="#0A0A0B" font-size="14" font-weight="600">2,051</text>
+    <rect x="1024" y="450" width="100" height="6" rx="3" fill="#EEF1F6"/><rect x="1024" y="450" width="96" height="6" rx="3" fill="#1E5DFF"/><text x="1132" y="460" fill="#3F3F46" font-size="12.5">98%</text>
+    <line x1="246" y1="498" x2="1168" y2="498" stroke="#F0F2F6" stroke-width="1.4"/>
+  </g>
+  <g>
+    <text x="246" y="544" fill="#0A0A0B" font-size="15" font-weight="600">Daily revenue sync</text>
+    <text x="246" y="564" fill="#71717A" font-size="12">Stripe → Sheets</text>
+    <rect x="700" y="530" width="68" height="26" rx="13" fill="#ECFDF3"/><circle cx="716" cy="543" r="4" fill="#16A34A"/><text x="726" y="547" fill="#15803D" font-size="12" font-weight="600">Active</text>
+    <text x="852" y="548" fill="#0A0A0B" font-size="14" font-weight="600">30</text>
+    <rect x="1024" y="538" width="100" height="6" rx="3" fill="#EEF1F6"/><rect x="1024" y="538" width="100" height="6" rx="3" fill="#1E5DFF"/><text x="1132" y="548" fill="#3F3F46" font-size="12.5">100%</text>
+  </g>
 </svg>
