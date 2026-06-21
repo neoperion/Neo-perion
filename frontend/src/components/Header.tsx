@@ -71,9 +71,7 @@ const NAV: NavItem[] = [
     viewAll: { label: "About us", href: "/company/about" },
     rows: [
       { label: "Our Story", href: "/company/about" },
-      { label: "Success Stories", href: "/company/success-stories" },
       { label: "Testimonials", href: "/company/testimonials" },
-      { label: "Case Studies", href: "/company/case-studies" },
       { label: "Careers", href: "/company/careers" },
       { label: "Blog & Insights", href: "/company/blog" },
     ],
@@ -227,38 +225,36 @@ export const Header = () => {
               }}
               onMouseLeave={scheduleClose}
             >
-              <div className="container mx-auto grid max-w-[1200px] grid-cols-12 gap-x-16 px-6 py-12">
+              <div className="container mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-14 px-6 py-8">
                 {/* Left — title + description + view all */}
-                <div className="col-span-12 flex flex-col lg:col-span-5">
-                  <h3 className="font-display text-[28px] font-bold leading-tight tracking-tight text-ink">
+                <div className="col-span-12 flex flex-col lg:col-span-4">
+                  <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink">
                     {active.panelTitle}
                   </h3>
-                  <p className="mt-5 max-w-md text-[15px] leading-relaxed text-body">
+                  <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-body">
                     {active.description}
                   </p>
                   <button
                     onClick={() => handleNavigation(active.viewAll.href)}
-                    className="mt-8 inline-flex w-fit items-center rounded-full border border-brand px-6 py-3 text-sm font-semibold text-brand transition-colors duration-200 hover:bg-brand hover:text-white"
+                    className="mt-6 inline-flex w-fit items-center rounded-full border border-brand px-5 py-2.5 text-[13px] font-semibold text-brand transition-colors duration-200 hover:bg-brand hover:text-white"
                   >
                     {active.viewAll.label}
                   </button>
                 </div>
 
-                {/* Right — big rows with circular arrow */}
-                <div className="col-span-12 mt-8 lg:col-span-7 lg:mt-0">
+                {/* Right — compact two-column rows */}
+                <div className="col-span-12 mt-6 grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2 lg:col-span-8 lg:mt-0">
                   {active.rows.map((row, idx) => (
                     <button
                       key={row.href + idx}
                       onClick={() => handleNavigation(row.href)}
-                      className={`group flex w-full items-center justify-between gap-6 py-5 text-left ${
-                        idx === 0 ? "" : "border-t border-hairline"
-                      }`}
+                      className="group flex w-full items-center justify-between gap-4 rounded-[12px] px-4 py-3 text-left transition-colors hover:bg-canvas"
                     >
-                      <span className="text-[22px] font-medium tracking-tight text-ink transition-colors group-hover:text-brand">
+                      <span className="text-[15px] font-semibold text-ink transition-colors group-hover:text-brand">
                         {row.label}
                       </span>
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-white transition-all duration-200 group-hover:bg-brand-hover">
-                        <ChevronRight size={18} />
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-hairline bg-paper text-faint transition-all duration-200 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                        <ChevronRight size={15} />
                       </span>
                     </button>
                   ))}
