@@ -134,13 +134,7 @@ export const Services = () => {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="h-px w-8 bg-hairline" />
-                    <span
-                      className={`flex h-10 w-10 items-center justify-center rounded-[10px] border transition-colors duration-300 ${
-                        isActive ? "border-brand/30 bg-brand/[0.07]" : "border-hairline bg-canvas"
-                      }`}
-                    >
-                      <img src={cap.icon} alt="" aria-hidden className="h-5 w-5 object-contain" />
-                    </span>
+                    <img src={cap.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
                   </div>
 
                   <h3 className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-bold leading-tight tracking-tight text-ink">
