@@ -77,7 +77,8 @@ export const Services = () => {
         </MarketingCard>
 
         {/* Secondary services as text rows */}
-        <div className="divide-y divide-hairline lg:col-span-5">
+        <div className="flex flex-col lg:col-span-5">
+          <div className="flex flex-1 flex-col justify-center divide-y divide-hairline">
           {ROWS.map((row) => {
             const Icon = row.icon;
             return (
@@ -99,6 +100,14 @@ export const Services = () => {
               </button>
             );
           })}
+          </div>
+          <button
+            onClick={() => navigate("/services")}
+            className="group mt-6 inline-flex items-center gap-1.5 self-start border-t border-hairline pt-6 text-sm font-semibold text-brand"
+          >
+            View all capabilities
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </button>
         </div>
       </div>
     </Section>
