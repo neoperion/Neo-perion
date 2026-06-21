@@ -10,7 +10,6 @@ import { SEO } from "@/components/SEO";
 import { WhoWeAre } from "@/components/features/home/WhoWeAre";
 import { IndustriesSection } from "@/components/features/home/IndustriesSection";
 import { TechnologyExpertise } from "@/components/features/home/TechnologyExpertise";
-import { CaseStudiesPreview } from "@/components/features/home/CaseStudiesPreview";
 import { EngagementModel } from "@/components/features/home/EngagementModel";
 import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
 import { HomeFaq } from "@/components/features/home/HomeFaq";
@@ -28,7 +27,6 @@ const Index = () => (
       <WhoWeAre />
       <Services />
       <WhyNeoPerion />
-      <CaseStudiesPreview />
       <HomeTestimonials />
       <EngagementModel />
       <ProcessTimeline />

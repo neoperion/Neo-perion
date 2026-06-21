@@ -11,7 +11,7 @@ export const Hero = () => {
   const primaryBtnRef = useMagnetic(40);
 
   const scrollToWork = () => {
-    document.querySelector("#case-studies")?.scrollIntoView({ behavior: "smooth" });
+    navigate("/company/case-studies");
   };
 
   return (
