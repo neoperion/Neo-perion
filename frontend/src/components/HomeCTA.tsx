@@ -1,58 +1,44 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Workflow, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
+import { Section } from "@/components/marketing/Section";
 
 export const HomeCTA = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
-      <div className="container mx-auto px-6 lg:px-8 max-w-[1200px] relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative max-w-5xl mx-auto rounded-xl border border-[#E4E4E7] bg-white p-10 md:p-16 lg:p-20 shadow-sm"
-        >
-          <div className="relative z-10 text-center flex flex-col items-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neo-blue/5 border border-neo-blue/10 mb-8 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-neo-blue" />
-              <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue">Scale With Certainty</span>
-            </div>
+    <Section bg="navy" rhythm="closing">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="mx-auto flex max-w-3xl flex-col items-center text-center"
+      >
+        <h2 className="font-display text-[clamp(28px,4.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-white">
+          Tell us what you&apos;re building. We&apos;ll tell you how we&apos;d ship it.
+        </h2>
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300">
+          A free 30-minute architecture review with senior engineers. No sales pitch — just a
+          straight answer on how we&apos;d build it and what it takes.
+        </p>
 
-            {/* Title */}
-            <h2 className="text-3xl md:text-5xl lg:text-[44px] font-display font-bold text-[#09090B] leading-[1.2] mb-6 max-w-3xl mx-auto tracking-tight">
-              Your next product deserves <span className="text-neo-blue">engineering</span>, not just development.
-            </h2>
-            
-            {/* Description */}
-            <p className="text-base text-slate-500 font-medium mb-10 max-w-xl mx-auto leading-relaxed">
-              Schedule a technical strategy call with our senior architects. We skip the sales pitch and dive straight into actionable engineering architecture.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => navigate('/contact')}
-                className="w-full sm:w-auto h-11 px-6 bg-[#09090B] text-white rounded-md text-sm font-bold transition-all hover:bg-slate-800 shadow-sm hover:shadow-md inline-flex items-center justify-center gap-2"
-              >
-                Book a strategy call
-                <Workflow className="w-4 h-4" />
-              </button>
-              
-              <button
-                onClick={() => navigate('/company/case-studies')}
-                className="w-full sm:w-auto h-11 px-6 bg-white border border-[#E4E4E7] text-slate-600 rounded-md text-sm font-bold transition-all hover:border-slate-400 inline-flex items-center justify-center gap-2"
-              >
-                See our work
-                <ArrowRight className="w-4 h-4 text-neo-blue" />
-              </button>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <Button variant="brand" size="lg" onClick={() => navigate("/contact")}>
+            Book a strategy call
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+          <button
+            onClick={() => navigate("/company/case-studies")}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-300 transition-colors hover:text-white"
+          >
+            See our work
+            <ArrowRight className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </motion.div>
+    </Section>
   );
 };
