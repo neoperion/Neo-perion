@@ -71,8 +71,8 @@ export const Footer = () => {
           <div className="space-y-6 lg:col-span-2">
             <div className="flex items-center gap-3">
               <img src="/images/np-logo.png" alt="Neo Perion" className="h-9 w-auto" />
-              <span className="font-display text-xl font-bold tracking-tight text-ink">
-                Neo Perion
+              <span className="font-logo text-[22px] font-bold tracking-[0.01em]">
+                <span className="text-ink">NEO</span> <span className="text-brand">PERION</span>
               </span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted2">

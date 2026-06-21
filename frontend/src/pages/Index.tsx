@@ -1,14 +1,12 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { WhyNeoPerion } from "@/components/WhyNeoPerion";
 import { HomeCTA } from "@/components/HomeCTA";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 import { WhoWeAre } from "@/components/features/home/WhoWeAre";
-import { IndustriesSection } from "@/components/features/home/IndustriesSection";
 import { TechnologyExpertise } from "@/components/features/home/TechnologyExpertise";
 import { EngagementModel } from "@/components/features/home/EngagementModel";
 import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
@@ -29,9 +27,7 @@ const Index = () => (
       <WhyNeoPerion />
       <HomeTestimonials />
       <EngagementModel />
-      <ProcessTimeline />
       <TechnologyExpertise />
-      <IndustriesSection />
       <HomeFaq />
       <HomeCTA />
     </main>
