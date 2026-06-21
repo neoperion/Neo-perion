@@ -58,10 +58,26 @@ export default {
           silver: "#E8EDF5",
           soft: "#64748B",
         },
+        // ─── REDESIGN TOKENS (Pass 1 — Linear/Vercel restraint) ───
+        // One blue (#1E5DFF), ink + disciplined neutrals. New code uses these.
+        ink: "#0A0A0B",
+        body: "#3F3F46",
+        muted2: "#71717A",
+        faint: "#A1A1AA",
+        hairline: "#E4E4E7",
+        canvas: "#FAFAFA",
+        paper: "#FFFFFF",
+        navy: "#08090D",
+        brand: {
+          DEFAULT: "#1E5DFF",
+          hover: "#1A52E6",
+          tint: "rgba(30,93,255,0.06)",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Inter Tight', 'sans-serif'],
+        logo: ['"Press Start 2P"', 'monospace'],
         editorial: ['Instrument Serif', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
@@ -163,6 +179,10 @@ export default {
           '50%':  { transform: 'translateY(-15px) rotate(3deg)' },
           '100%': { transform: 'translateY(0px) rotate(-3deg)' },
         },
+        "marquee": {
+          from: { transform: 'translateX(0)' },
+          to:   { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -175,6 +195,7 @@ export default {
         "dot-pulse": "dot-pulse 1.4s ease-in-out infinite",
         "gradient-x": "gradient-x 3s linear infinite",
         "crystal-float": "crystal-float 14s ease-in-out infinite",
+        "marquee": "marquee 40s linear infinite",
       },
       backdropBlur: {
         'glass-1': '20px',

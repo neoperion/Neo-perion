@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="750" fill="#FFFFFF"/>
+
+  <!-- sidebar -->
+  <rect x="0" y="0" width="214" height="750" fill="#FCFCFD"/>
+  <line x1="214" y1="0" x2="214" y2="750" stroke="#E4E4E7" stroke-width="1.5"/>
+  <rect x="28" y="30" width="20" height="20" rx="6" fill="#1E5DFF"/>
+  <text x="58" y="46" fill="#0A0A0B" font-size="16" font-weight="700">Neo Perion</text>
+  <rect x="20" y="104" width="174" height="42" rx="9" fill="#F2F6FF"/>
+  <circle cx="42" cy="125" r="4" fill="#1E5DFF"/><text x="58" y="130" fill="#1E5DFF" font-size="14" font-weight="600">Copilot</text>
+  <circle cx="42" cy="177" r="4" fill="#A1A1AA"/><text x="58" y="182" fill="#71717A" font-size="14" font-weight="500">Library</text>
+  <circle cx="42" cy="225" r="4" fill="#A1A1AA"/><text x="58" y="230" fill="#71717A" font-size="14" font-weight="500">Models</text>
+  <circle cx="42" cy="273" r="4" fill="#A1A1AA"/><text x="58" y="278" fill="#71717A" font-size="14" font-weight="500">Evals</text>
+  <circle cx="42" cy="321" r="4" fill="#A1A1AA"/><text x="58" y="326" fill="#71717A" font-size="14" font-weight="500">Settings</text>
+
+  <!-- top bar -->
+  <line x1="214" y1="74" x2="1200" y2="74" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="246" y="46" fill="#0A0A0B" font-size="20" font-weight="700">Copilot</text>
+  <rect x="966" y="20" width="116" height="36" rx="18" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.4"/>
+  <circle cx="990" cy="38" r="4" fill="#1E5DFF"/>
+  <text x="1004" y="43" fill="#0A0A0B" font-size="13" font-weight="600">GPT-4o</text>
+  <circle cx="1156" cy="38" r="18" fill="#1E5DFF"/>
+  <text x="1156" y="43" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">NP</text>
+
+  <!-- user message -->
+  <rect x="700" y="106" width="442" height="58" rx="16" fill="#F4F5F7"/>
+  <text x="724" y="141" fill="#0A0A0B" font-size="14">How do we cut churn this quarter?</text>
+
+  <!-- assistant message -->
+  <circle cx="263" cy="212" r="17" fill="#1E5DFF"/>
+  <text x="263" y="217" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">N</text>
+  <rect x="292" y="190" width="720" height="226" rx="16" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="316" y="230" fill="#0A0A0B" font-size="14.5" font-weight="600">Three levers stand out from your usage data:</text>
+  <circle cx="322" cy="262" r="3.5" fill="#1E5DFF"/><text x="338" y="267" fill="#3F3F46" font-size="14">Onboarding drop-off at step 3 — 18% never activate</text>
+  <circle cx="322" cy="294" r="3.5" fill="#1E5DFF"/><text x="338" y="299" fill="#3F3F46" font-size="14">Low feature adoption across the SMB segment</text>
+  <circle cx="322" cy="326" r="3.5" fill="#1E5DFF"/><text x="338" y="331" fill="#3F3F46" font-size="14">Support response time correlates with renewals</text>
+  <text x="316" y="372" fill="#A1A1AA" font-size="12" font-weight="600" letter-spacing="1">SOURCES</text>
+  <rect x="316" y="382" width="138" height="26" rx="13" fill="#F6F8FC" stroke="#E4E4E7" stroke-width="1.2"/><text x="385" y="399" text-anchor="middle" fill="#3F3F46" font-size="11.5">retention.csv</text>
+  <rect x="464" y="382" width="158" height="26" rx="13" fill="#F6F8FC" stroke="#E4E4E7" stroke-width="1.2"/><text x="543" y="399" text-anchor="middle" fill="#3F3F46" font-size="11.5">support_tickets</text>
+  <rect x="632" y="382" width="130" height="26" rx="13" fill="#F6F8FC" stroke="#E4E4E7" stroke-width="1.2"/><text x="697" y="399" text-anchor="middle" fill="#3F3F46" font-size="11.5">usage_logs</text>
+
+  <!-- input bar -->
+  <rect x="246" y="628" width="922" height="58" rx="29" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="280" y="663" fill="#A1A1AA" font-size="14">Ask anything about your product…</text>
+  <circle cx="1136" cy="657" r="20" fill="#1E5DFF"/>
+  <path d="M1128,657 H1143 M1137,651 L1144,657 L1137,663" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

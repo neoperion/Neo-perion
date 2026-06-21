@@ -1,103 +1,106 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { mockCaseStudies } from '@/data/mock/caseStudies';
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+import { mockCaseStudies } from "@/data/mock/caseStudies";
+import { Section } from "@/components/marketing/Section";
+import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { MarketingCard } from "@/components/marketing/MarketingCard";
+import { BrowserFrame } from "@/components/marketing/BrowserFrame";
+
+/** Lead metric = the first clause of the outcome sentence. */
+function headlineMetric(outcome: string) {
+  return outcome.split(".")[0].trim();
+}
 
 export const CaseStudiesPreview: React.FC = () => {
   const navigate = useNavigate();
-  const featured = mockCaseStudies.slice(0, 3);
+  const studies = mockCaseStudies.slice(0, 3);
+  if (studies.length === 0) return null;
 
-  if (featured.length === 0) return null;
+  const [featured, ...compact] = studies;
 
   return (
-    <section id="case-studies" className="py-24 relative bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
-      <div className="container mx-auto px-6 lg:px-8 max-w-[1200px] relative z-10">
-        {/* Header */}
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4 block">
-              Case Studies
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#09090B] mb-6 tracking-tight">
-              Featured Work
-            </h2>
-            <p className="text-slate-600 text-[15px] leading-relaxed font-medium">
-              We don't just write code. We solve complex business problems. Here's how we've helped our partners scale.
-            </p>
-          </div>
-          <button
-            onClick={() => navigate('/company/case-studies')}
-            className="hidden md:flex items-center gap-2 text-neo-blue font-bold text-sm hover:text-neo-highlight transition-colors group"
-          >
-            View All Case Studies
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
-        </div>
+    <Section id="case-studies" bg="canvas" rhythm="primary" divider>
+      <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <SectionHeading
+          title="Outcomes, not output"
+          lead="We solve complex business problems and ship measurable results. A few of them:"
+          className="max-w-2xl"
+        />
+        <button
+          onClick={() => navigate("/company/case-studies")}
+          className="group hidden items-center gap-2 text-sm font-semibold text-brand md:flex"
+        >
+          View all case studies
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </button>
+      </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {featured.map((study, index) => (
+      <div className="grid gap-6 lg:grid-cols-12">
+        {/* Featured */}
+        <motion.button
+          onClick={() => navigate(`/company/case-studies/${featured.slug}`)}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4 }}
+          className="group text-left lg:col-span-7"
+        >
+          <MarketingCard role="feature" className="flex h-full flex-col gap-6">
+            <BrowserFrame src={featured.cover_image} alt={featured.title} ratio="16/10" />
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted2">
+                {featured.industry} · {featured.client_name}
+              </span>
+              <p className="mt-3 font-display text-[clamp(24px,3.5vw,36px)] font-bold leading-tight text-brand">
+                {headlineMetric(featured.outcome)}.
+              </p>
+              <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-body">
+                {featured.problem}
+              </p>
+            </div>
+          </MarketingCard>
+        </motion.button>
+
+        {/* Compact, metric-led */}
+        <div className="flex flex-col gap-6 lg:col-span-5">
+          {compact.map((study, index) => (
             <motion.button
               key={study.slug}
               onClick={() => navigate(`/company/case-studies/${study.slug}`)}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="group relative rounded-xl overflow-hidden border border-[#E4E4E7] bg-white text-left cursor-pointer hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: (index + 1) * 0.06 }}
+              className="group h-full text-left"
             >
-              {/* Image */}
-              <div className="h-48 w-full relative overflow-hidden bg-slate-100 border-b border-[#E4E4E7]">
-                <img
-                  src={study.cover_image}
-                  alt={study.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                />
-                <span className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-neo-blue border border-[#E4E4E7]">
-                  {study.industry}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-[#09090B] group-hover:text-neo-blue transition-colors duration-300">
-                    {study.client_name}
-                  </h3>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-neo-blue transition-colors duration-300 shrink-0" />
+              <MarketingCard role="metric" className="flex h-full flex-col justify-between gap-4">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted2">
+                    {study.industry} · {study.client_name}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-brand" />
                 </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <span className="block text-[9px] font-bold tracking-[0.15em] uppercase text-slate-400 mb-1">
-                      The Challenge
-                    </span>
-                    <p className="text-slate-600 text-[13px] leading-relaxed line-clamp-2 font-medium">{study.problem}</p>
-                  </div>
-                  <div className="pt-3 border-t border-slate-100">
-                    <span className="block text-[9px] font-bold tracking-[0.15em] uppercase text-slate-400 mb-1">
-                      The Impact
-                    </span>
-                    <p className="text-[#1D4ED8] text-sm font-bold line-clamp-2 leading-snug">{study.outcome}</p>
-                  </div>
-                </div>
-              </div>
+                <p className="font-display text-xl font-bold leading-snug text-brand">
+                  {headlineMetric(study.outcome)}.
+                </p>
+              </MarketingCard>
             </motion.button>
           ))}
         </div>
-
-        {/* Mobile View All */}
-        <div className="mt-10 text-center md:hidden">
-          <button
-            onClick={() => navigate('/company/case-studies')}
-            className="inline-flex items-center gap-2 text-neo-blue font-bold text-sm hover:text-neo-highlight transition-colors"
-          >
-            View All Case Studies
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </div>
       </div>
-    </section>
+
+      <div className="mt-10 text-center md:hidden">
+        <button
+          onClick={() => navigate("/company/case-studies")}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand"
+        >
+          View all case studies
+          <ArrowUpRight className="h-4 w-4" />
+        </button>
+      </div>
+    </Section>
   );
 };

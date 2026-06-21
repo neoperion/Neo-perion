@@ -1,0 +1,8 @@
+# Local scratch — screenshots & verification scripts (not part of the app)
+.shots/
+
+# Stray icon SVG drops (already copied into frontend/public/images/home/icons/)
+/frontend/brain.svg
+/frontend/cloud.svg
+/frontend/devices.svg
+/frontend/gear-fine.svg

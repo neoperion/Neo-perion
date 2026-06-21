@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="750" fill="#FFFFFF"/>
+
+  <!-- sidebar -->
+  <rect x="0" y="0" width="214" height="750" fill="#FCFCFD"/>
+  <line x1="214" y1="0" x2="214" y2="750" stroke="#E4E4E7" stroke-width="1.5"/>
+  <rect x="28" y="30" width="20" height="20" rx="6" fill="#1E5DFF"/>
+  <text x="58" y="46" fill="#0A0A0B" font-size="16" font-weight="700">Neo Perion</text>
+  <rect x="20" y="104" width="174" height="42" rx="9" fill="#F2F6FF"/>
+  <circle cx="42" cy="125" r="4" fill="#1E5DFF"/><text x="58" y="130" fill="#1E5DFF" font-size="14" font-weight="600">Deployments</text>
+  <circle cx="42" cy="177" r="4" fill="#A1A1AA"/><text x="58" y="182" fill="#71717A" font-size="14" font-weight="500">Services</text>
+  <circle cx="42" cy="225" r="4" fill="#A1A1AA"/><text x="58" y="230" fill="#71717A" font-size="14" font-weight="500">Metrics</text>
+  <circle cx="42" cy="273" r="4" fill="#A1A1AA"/><text x="58" y="278" fill="#71717A" font-size="14" font-weight="500">Logs</text>
+  <circle cx="42" cy="321" r="4" fill="#A1A1AA"/><text x="58" y="326" fill="#71717A" font-size="14" font-weight="500">Settings</text>
+
+  <!-- top bar -->
+  <line x1="214" y1="74" x2="1200" y2="74" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="246" y="46" fill="#0A0A0B" font-size="20" font-weight="700">Deployments</text>
+  <rect x="990" y="20" width="100" height="36" rx="18" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.4"/>
+  <circle cx="1012" cy="38" r="4" fill="#16A34A"/><text x="1026" y="43" fill="#0A0A0B" font-size="13" font-weight="600">Prod</text>
+  <circle cx="1156" cy="38" r="18" fill="#1E5DFF"/><text x="1156" y="43" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">NP</text>
+
+  <!-- metrics strip -->
+  <g>
+    <rect x="246" y="104" width="290" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="270" y="134" fill="#71717A" font-size="12.5" font-weight="600">Uptime</text>
+    <text x="270" y="166" fill="#0A0A0B" font-size="22" font-weight="700">99.99%</text>
+  </g>
+  <g>
+    <rect x="556" y="104" width="290" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="580" y="134" fill="#71717A" font-size="12.5" font-weight="600">p95 latency</text>
+    <text x="580" y="166" fill="#0A0A0B" font-size="22" font-weight="700">42ms</text>
+  </g>
+  <g>
+    <rect x="866" y="104" width="290" height="84" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="890" y="134" fill="#71717A" font-size="12.5" font-weight="600">Requests (24h)</text>
+    <text x="890" y="166" fill="#0A0A0B" font-size="22" font-weight="700">1.24M</text>
+  </g>
+
+  <!-- deployments list -->
+  <rect x="246" y="212" width="910" height="392" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="270" y="250" fill="#0A0A0B" font-size="15" font-weight="700">Recent deployments</text>
+  <line x1="246" y1="272" x2="1156" y2="272" stroke="#F0F2F6" stroke-width="1.4"/>
+
+  <g>
+    <circle cx="284" cy="312" r="5" fill="#16A34A"/>
+    <text x="304" y="308" fill="#0A0A0B" font-size="14.5" font-weight="600">feat: add vector cache</text>
+    <text x="304" y="328" fill="#71717A" font-size="12">main · a1f9c20</text>
+    <rect x="640" y="300" width="92" height="24" rx="6" fill="#F4F5F7"/><text x="686" y="316" text-anchor="middle" fill="#3F3F46" font-size="11.5" font-weight="600">us-east-1</text>
+    <text x="900" y="316" fill="#71717A" font-size="12.5">build 38s</text>
+    <rect x="1024" y="302" width="68" height="24" rx="12" fill="#ECFDF3"/><text x="1058" y="318" text-anchor="middle" fill="#15803D" font-size="11.5" font-weight="600">Ready</text>
+    <line x1="270" y1="354" x2="1132" y2="354" stroke="#F0F2F6" stroke-width="1.4"/>
+  </g>
+  <g>
+    <circle cx="284" cy="394" r="5" fill="#16A34A"/>
+    <text x="304" y="390" fill="#0A0A0B" font-size="14.5" font-weight="600">chore: bump node 20</text>
+    <text x="304" y="410" fill="#71717A" font-size="12">main · 7b2e441</text>
+    <rect x="640" y="382" width="92" height="24" rx="6" fill="#F4F5F7"/><text x="686" y="398" text-anchor="middle" fill="#3F3F46" font-size="11.5" font-weight="600">eu-west-1</text>
+    <text x="900" y="398" fill="#71717A" font-size="12.5">build 51s</text>
+    <rect x="1024" y="384" width="68" height="24" rx="12" fill="#ECFDF3"/><text x="1058" y="400" text-anchor="middle" fill="#15803D" font-size="11.5" font-weight="600">Ready</text>
+    <line x1="270" y1="436" x2="1132" y2="436" stroke="#F0F2F6" stroke-width="1.4"/>
+  </g>
+  <g>
+    <circle cx="284" cy="476" r="5" fill="#1E5DFF"/>
+    <text x="304" y="472" fill="#0A0A0B" font-size="14.5" font-weight="600">fix: retry on 503</text>
+    <text x="304" y="492" fill="#71717A" font-size="12">main · c0d8a17</text>
+    <rect x="640" y="464" width="92" height="24" rx="6" fill="#F4F5F7"/><text x="686" y="480" text-anchor="middle" fill="#3F3F46" font-size="11.5" font-weight="600">us-east-1</text>
+    <text x="900" y="480" fill="#71717A" font-size="12.5">building…</text>
+    <rect x="1018" y="466" width="80" height="24" rx="12" fill="#F2F6FF"/><text x="1058" y="482" text-anchor="middle" fill="#1E5DFF" font-size="11.5" font-weight="600">Building</text>
+    <line x1="270" y1="518" x2="1132" y2="518" stroke="#F0F2F6" stroke-width="1.4"/>
+  </g>
+  <g>
+    <circle cx="284" cy="558" r="5" fill="#16A34A"/>
+    <text x="304" y="554" fill="#0A0A0B" font-size="14.5" font-weight="600">feat: multi-region read</text>
+    <text x="304" y="574" fill="#71717A" font-size="12">main · 4e1b8f3</text>
+    <rect x="640" y="546" width="92" height="24" rx="6" fill="#F4F5F7"/><text x="686" y="562" text-anchor="middle" fill="#3F3F46" font-size="11.5" font-weight="600">ap-south-1</text>
+    <text x="900" y="562" fill="#71717A" font-size="12.5">build 44s</text>
+    <rect x="1024" y="548" width="68" height="24" rx="12" fill="#ECFDF3"/><text x="1058" y="564" text-anchor="middle" fill="#15803D" font-size="11.5" font-weight="600">Ready</text>
+  </g>
+</svg>

@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import ClickSpark from "@/components/ClickSpark";
 import Index from "./pages/Index";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
@@ -23,6 +22,8 @@ import CareerDetail from "./pages/CareerDetail";
 import Contact from "./pages/Contact";
 import Newsletter from "./pages/Newsletter";
 import Security from "./pages/Security";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import SuccessStories from "./pages/SuccessStories";
 import Testimonials from "./pages/Testimonials";
 import Insights from "./pages/Insights";
@@ -49,22 +50,13 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
-    <ClickSpark
-      sparkColor="#00d4ff"
-      sparkSize={12}
-      sparkRadius={20}
-      sparkCount={12}
-      duration={500}
-      easing="ease-out"
-      extraScale={1.0}
-    >
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ErrorBoundary>
-              <Routes>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ErrorBoundary>
+            <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/company/about" element={<AboutPage />} />
               <Route path="/company/founder-letter" element={<FounderLetter />} />
@@ -83,6 +75,8 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/company/newsletter" element={<Newsletter />} />
               <Route path="/security" element={<Security />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/company/success-stories" element={<SuccessStories />} />
               <Route path="/company/testimonials" element={<Testimonials />} />
               <Route path="/company/insights" element={<Insights />} />
@@ -111,9 +105,8 @@ const App = () => (
             </ErrorBoundary>
             <CookieConsent />
           </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ClickSpark>
+      </TooltipProvider>
+    </QueryClientProvider>
   </HelmetProvider>
 );
 

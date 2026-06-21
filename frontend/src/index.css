@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +35,9 @@
     --ring: 221.2 83.2% 53.3%;
 
     --radius: 0.75rem;
+
+    /* ─── REDESIGN (Pass 1): single easing curve ─── */
+    --ease-1: cubic-bezier(.4, 0, .2, 1);
   }
 
   .dark {
@@ -86,6 +91,13 @@
 }
 
 @layer utilities {
+  /* ───────────────────────────────────────────────────────────────── */
+  /*  LEGACY — do NOT use in the redesign (Pass 1+).                    */
+  /*  These gradient/glow/premium-card utilities belong to the old      */
+  /*  visual language. New marketing code uses design tokens instead    */
+  /*  (brand / ink / hairline / canvas / paper / navy). Kept only       */
+  /*  because pre-redesign pages still reference them.                  */
+  /* ───────────────────────────────────────────────────────────────── */
   .btn-primary {
     @apply inline-flex items-center justify-center;
     background: linear-gradient(135deg, #1E5DFF, #2563FF);
@@ -288,11 +300,26 @@
   }
 }
 
+/* ─── Testimonial marquee — intentionally overrides reduced-motion (by request) ─── */
+@keyframes np-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.np-marquee {
+  animation-name: np-marquee !important;
+  animation-duration: 48s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+}
+.np-marquee-group:hover .np-marquee {
+  animation-play-state: paused;
+}
+
 /* ─── Scroll Reveal Animations ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-1), transform 0.5s var(--ease-1);
   will-change: opacity, transform;
 }
 

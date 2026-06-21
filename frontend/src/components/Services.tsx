@@ -1,108 +1,207 @@
-import React from "react";
-import { ArrowRight, Bot, Zap, Cloud, Smartphone, Check } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
-const SERVICES = [
+import { Section } from "@/components/marketing/Section";
+import { SectionHeading } from "@/components/marketing/SectionHeading";
+
+interface Capability {
+  title: string;
+  // PLACEHOLDER icon — drop your own 24×24 SVG at this path (see icons/ folder).
+  icon: string;
+  description: string;
+  features: string[];
+  cta: string;
+  href: string;
+  // PLACEHOLDER visuals — replace with real screenshots/diagrams (16:10, ~1200×750).
+  image: string;
+}
+
+const CAPABILITIES: Capability[] = [
   {
-    id: "ai-systems",
     title: "AI Systems",
-    icon: Bot,
-    description: "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale.",
-    features: ["Vector Databases", "LLM Fine-Tuning", "Autonomous Agents"],
-    href: "/services/ai-systems-automation"
+    icon: "/images/home/icons/ai.svg",
+    description:
+      "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale — evaluated, observable, and production-hardened.",
+    features: ["Vector databases", "LLM fine-tuning", "Autonomous agents"],
+    cta: "See how we build RAG systems",
+    href: "/services/ai-systems-automation",
+    image: "/images/home/cap-ai.svg",
   },
   {
-    id: "automation",
     title: "Enterprise Automation",
-    icon: Zap,
-    description: "Workflow automation, CRM integration, and intelligent document processing.",
-    features: ["RPA Integration", "Data Pipelines", "Webhook Triggers"],
-    href: "/services/intelligent-operations-automation"
+    icon: "/images/home/icons/automation.svg",
+    description:
+      "Workflow automation, CRM integration, and intelligent document processing that removes manual work without breaking your systems.",
+    features: ["RPA integration", "Data pipelines", "Webhook triggers"],
+    cta: "Automate your operations",
+    href: "/services/intelligent-operations-automation",
+    image: "/images/home/cap-automation.svg",
   },
   {
-    id: "cloud",
     title: "Cloud Native Platforms",
-    icon: Cloud,
-    description: "SaaS, multi-tenant architectures, and scalable backends.",
-    features: ["Microservices", "Kubernetes", "Serverless Architecture"],
-    href: "/services/cloud-native-web-platforms"
+    icon: "/images/home/icons/cloud.svg",
+    description:
+      "Multi-tenant SaaS architectures and scalable backends on AWS/GCP — designed to hold up under real production load.",
+    features: ["Microservices", "Kubernetes", "Serverless architecture"],
+    cta: "Scale your platform",
+    href: "/services/cloud-native-web-platforms",
+    image: "/images/home/cap-cloud.svg",
   },
   {
-    id: "mobile-web",
     title: "Mobile & Web Products",
-    icon: Smartphone,
-    description: "Cross-platform apps, PWAs, and high-performance dashboards.",
-    features: ["React / Next.js", "Flutter", "Real-time Subscriptions"],
-    href: "/services/mobile-product-engineering"
-  }
+    icon: "/images/home/icons/mobile.svg",
+    description:
+      "Cross-platform apps, PWAs, and high-performance dashboards — fast, accessible, and built to ship.",
+    features: ["React / Next.js", "Flutter", "Real-time subscriptions"],
+    cta: "Ship your product",
+    href: "/services/mobile-product-engineering",
+    image: "/images/home/cap-mobile.svg",
+  },
 ];
+
+function VisualFrame({ image, title }: { image: string; title: string }) {
+  return (
+    <div className="overflow-hidden border border-hairline bg-paper shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
+      <div className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
+        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
+        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
+      </div>
+      <div className="aspect-[16/10] w-full overflow-hidden bg-canvas">
+        <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
+      </div>
+    </div>
+  );
+}
 
 export const Services = () => {
   const navigate = useNavigate();
+  const [active, setActive] = useState(0);
+  const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.index);
+            if (!Number.isNaN(idx)) setActive(idx);
+          }
+        });
+      },
+      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
+    );
+    blockRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const current = CAPABILITIES[active];
 
   return (
-    <section id="services" className="py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
-      <div className="container mx-auto px-6 lg:px-8 max-w-[1200px]">
-        {/* Header */}
-        <div className="mb-16 text-left max-w-2xl">
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">
-            Core Capabilities
-          </p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight leading-[1.1] mb-6">
-            Engineering Excellence
-          </h2>
-          <p className="text-slate-600 text-[15px] font-medium leading-relaxed">
-            We build scalable, secure, and intelligent solutions. No templates, no shortcuts — just robust architectures built for long-term production.
-          </p>
-        </div>
+    <Section id="services" bg="paper" rhythm="primary" divider>
+      <SectionHeading
+        eyebrow="Capabilities"
+        title="Engineering excellence"
+        lead="We build scalable, secure, and intelligent systems — robust architectures built for long-term production, not demos."
+        className="mb-12 max-w-2xl"
+      />
 
-        {/* 4-Card Grid (shown by default, no scroll interaction required) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
+      <div className="grid gap-x-16 lg:grid-cols-2">
+        {/* Left — scrolling capability blocks */}
+        <div>
+          {CAPABILITIES.map((cap, i) => {
+            const isActive = i === active;
             return (
               <div
-                key={service.id}
-                className="group flex flex-col justify-between bg-white p-6 rounded-xl border border-[#E4E4E7] hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out"
+                key={cap.title}
+                data-index={i}
+                ref={(el) => (blockRefs.current[i] = el)}
+                className="flex min-h-[44vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
               >
-                <div>
-                  {/* Icon */}
-                  <div className="w-10 h-10 rounded-lg bg-slate-50 border border-[#E4E4E7] flex items-center justify-center text-neo-blue mb-6 group-hover:bg-neo-blue/5 transition-colors">
-                    <Icon className="w-5 h-5" />
+                <div
+                  className={`transition-opacity duration-500 ${
+                    isActive ? "opacity-100" : "opacity-40"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <span
+                      className={`font-mono text-sm font-semibold transition-colors duration-300 ${
+                        isActive ? "text-brand" : "text-faint"
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="h-px w-8 bg-hairline" />
+                    <img src={cap.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-lg font-bold text-[#09090B] mb-3 group-hover:text-neo-blue transition-colors">
-                    {service.title}
+                  <h3 className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-bold leading-tight tracking-tight text-ink">
+                    {cap.title}
                   </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed font-medium mb-6">
-                    {service.description}
+                  <p className="mt-4 max-w-md text-[16px] leading-relaxed text-body">
+                    {cap.description}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-2.5 mb-8">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-[12px] font-semibold text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-neo-blue shrink-0" />
-                        <span>{feature}</span>
+                  {/* Mobile visual (sticky panel is desktop-only) */}
+                  <div className="mt-7 lg:hidden">
+                    <VisualFrame image={cap.image} title={cap.title} />
+                  </div>
+
+                  <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+                    {cap.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm font-medium text-body">
+                        <Check className="h-4 w-4 shrink-0 text-brand" strokeWidth={2} />
+                        {f}
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                {/* Explore link */}
-                <button
-                  onClick={() => navigate(service.href)}
-                  className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-bold text-neo-blue hover:text-neo-highlight transition-colors self-start"
-                >
-                  Explore Capability
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                  <button
+                    onClick={() => navigate(cap.href)}
+                    className="group mt-7 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand"
+                  >
+                    {cap.cta}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                </div>
               </div>
             );
           })}
         </div>
+
+        {/* Right — pinned visual that swaps on scroll */}
+        <div className="hidden lg:block">
+          <div className="sticky top-28 flex h-[calc(100vh-7rem)] items-center">
+            <div className="w-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <VisualFrame image={current.image} title={current.title} />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* progress rail */}
+              <div className="mt-6 flex gap-2">
+                {CAPABILITIES.map((cap, i) => (
+                  <span
+                    key={cap.title}
+                    className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                      i === active ? "bg-brand" : "bg-hairline"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 };

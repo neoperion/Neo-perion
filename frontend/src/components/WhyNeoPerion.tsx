@@ -1,122 +1,173 @@
-import { motion } from "framer-motion";
-import { BrainCircuit, Rocket, ShieldCheck, Server, Target, Zap } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { BrainCircuit, ShieldCheck, Gauge, Server, HeartHandshake } from "lucide-react";
 
-const bentoItems = [
-  {
-    title: "Deep AI Expertise",
-    description: "We don't just use APIs; we fine-tune LLMs, build custom vector databases, and implement true agentic workflows that transform how your business operates.",
-    icon: <BrainCircuit className="w-6 h-6 text-blue-600" />,
-    className: "md:col-span-2 md:row-span-2 bg-gradient-to-br from-slate-50 to-blue-50/30",
-    visual: (
-      <div className="absolute -right-10 -bottom-10 w-80 h-80 pointer-events-none opacity-[0.08] group-hover:opacity-15 transition-opacity duration-700">
-         <svg viewBox="0 0 100 100" className="w-full h-full text-blue-600">
-           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" className="animate-[spin_20s_linear_infinite]" />
-           <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" className="animate-[spin_15s_linear_infinite_reverse]" />
-           <path d="M50 20 L80 50 L50 80 L20 50 Z" fill="none" stroke="currentColor" strokeWidth="1" className="animate-pulse" />
-         </svg>
-      </div>
-    )
-  },
-  {
-    title: "Enterprise Grade",
-    description: "Bank-level security, SOC2 compliance readiness, and zero-trust architectures.",
-    icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />,
-    className: "md:col-span-1 md:row-span-1 bg-white",
-    visual: null
-  },
-  {
-    title: "Fast Delivery",
-    description: "Proprietary internal tooling allows us to ship production-ready platforms 10x faster.",
-    icon: <Rocket className="w-6 h-6 text-rose-500" />,
-    className: "md:col-span-1 md:row-span-1 bg-white",
-    visual: null
-  },
-  {
-    title: "Startup Friendly",
-    description: "Agile, transparent, and built to pivot. We act as your elite technical co-founders.",
-    icon: <Target className="w-6 h-6 text-amber-500" />,
-    className: "md:col-span-1 md:row-span-1 bg-white",
-    visual: null
-  },
-  {
-    title: "Production Ready",
-    description: "Infinite scale on AWS/GCP. Kubernetes, CI/CD pipelines, and clustered databases.",
-    icon: <Server className="w-6 h-6 text-violet-600" />,
-    className: "md:col-span-2 md:row-span-1 bg-gradient-to-tr from-slate-50 to-violet-50/30",
-    visual: (
-       <div className="absolute right-8 bottom-0 flex items-end gap-2 opacity-[0.08] group-hover:opacity-15 transition-opacity duration-700 h-28">
-          <div className="w-6 h-12 bg-violet-500 rounded-t animate-pulse"></div>
-          <div className="w-6 h-20 bg-violet-600 rounded-t animate-pulse" style={{ animationDelay: '200ms' }}></div>
-          <div className="w-6 h-10 bg-violet-400 rounded-t animate-pulse" style={{ animationDelay: '400ms' }}></div>
-          <div className="w-6 h-24 bg-violet-700 rounded-t animate-pulse" style={{ animationDelay: '600ms' }}></div>
-       </div>
-    )
-  },
-  {
-    title: "Long-term Support",
-    description: "We don't disappear after launch. We provide ongoing scaling, maintenance, and feature development for years to come.",
-    icon: <Zap className="w-6 h-6 text-neo-highlight" />,
-    className: "md:col-span-3 md:row-span-1 bg-[#09090B] text-white",
-    visual: (
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-50"></div>
-    ),
-    isDark: true
-  }
-];
+import { Section } from "@/components/marketing/Section";
+import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const WhyNeoPerion = () => {
+  const reduce = useReducedMotion();
+  const rise = reduce ? 0 : 14;
+  const reveal = (i: number) => ({
+    initial: { opacity: 0, y: rise },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-60px" },
+    transition: { duration: 0.45, delay: i * 0.06, ease: [0.4, 0, 0.2, 1] as const },
+  });
+
   return (
-    <section id="why-us" className="py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60 overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-8 max-w-[1200px]">
-        
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E4E4E7] bg-white shadow-sm text-[10px] font-bold tracking-widest uppercase text-slate-800 mb-6">
-             <span className="w-1.5 h-1.5 rounded-full bg-slate-900"></span>
-             The Neo Perion Advantage
+    <Section id="why-us" bg="canvas" rhythm="primary" divider>
+      <SectionHeading
+        eyebrow="Why Neo Perion"
+        title="Built for scale, engineered to last"
+        lead="The standards we hold on every engagement — from first commit to long after launch."
+        className="mb-12 max-w-2xl"
+      />
+
+      <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-4 md:auto-rows-[212px]">
+        {/* Spotlight — Deep AI expertise (2x2) */}
+        <motion.div
+          {...reveal(0)}
+          className="flex flex-col justify-between bg-paper p-8 md:col-span-2 md:row-span-2"
+        >
+          <div className="flex items-start justify-between">
+            <BrainCircuit className="h-7 w-7 text-brand" strokeWidth={1.6} />
+            <svg width="150" height="96" viewBox="0 0 150 96" fill="none" aria-hidden>
+              <line x1="24" y1="24" x2="74" y2="48" stroke="#D7DCE5" strokeWidth="1.5" />
+              <line x1="24" y1="72" x2="74" y2="48" stroke="#D7DCE5" strokeWidth="1.5" />
+              <motion.line
+                x1="74"
+                y1="48"
+                x2="126"
+                y2="24"
+                stroke="#1E5DFF"
+                strokeWidth="1.5"
+                initial={{ pathLength: reduce ? 1 : 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.35, ease: "easeInOut" }}
+              />
+              <line x1="74" y1="48" x2="126" y2="72" stroke="#D7DCE5" strokeWidth="1.5" />
+              <circle cx="24" cy="24" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
+              <circle cx="24" cy="72" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
+              <circle cx="126" cy="24" r="6" fill="#FFFFFF" stroke="#1E5DFF" strokeWidth="1.5" />
+              <circle cx="126" cy="72" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
+              <motion.circle
+                cx="74"
+                cy="48"
+                r="8"
+                fill="#1E5DFF"
+                initial={{ scale: reduce ? 1 : 0.5, opacity: reduce ? 1 : 0 }}
+                whileInView={{ scale: reduce ? 1 : [0.5, 1.18, 1], opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                style={{ transformBox: "fill-box", transformOrigin: "center" }}
+              />
+            </svg>
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight leading-[1.1]">
-            Built for Scale. <br className="hidden sm:block" />
-            <span className="font-serif italic font-normal text-slate-500">Engineered for Excellence.</span>
-          </h2>
-        </div>
+          <div>
+            <h3 className="text-xl font-bold tracking-tight text-ink">Deep AI expertise</h3>
+            <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted2">
+              We fine-tune LLMs, build custom vector databases, and ship true agentic workflows —
+              not thin wrappers around someone else&apos;s API.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Generative AI", "RAG", "Agents", "Evals"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-hairline bg-canvas px-2.5 py-1 text-[11px] font-semibold text-muted2"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-[minmax(240px,auto)]">
-          {bentoItems.map((item, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              key={index}
-              className={`relative overflow-hidden rounded-xl border p-6 md:p-8 flex flex-col group transition-all duration-150 ease-out hover:-translate-y-0.5 ${
-                item.isDark 
-                  ? 'border-slate-800 bg-[#09090B] text-white shadow-lg' 
-                  : 'border-[#E4E4E7] bg-white hover:border-[#A1A1AA] hover:shadow-sm'
-              } ${item.className}`}
-            >
-              {item.visual}
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-105 ${
-                  item.isDark ? 'bg-white/10 backdrop-blur-sm' : 'bg-slate-50 border border-[#E4E4E7]'
-                }`}>
-                  {item.icon}
-                </div>
-                
-                <div className="mt-auto">
-                  <h3 className={`text-lg font-bold font-display mb-2 tracking-tight ${item.isDark ? 'text-white' : 'text-[#09090B]'}`}>
-                    {item.title}
-                  </h3>
-                  <p className={`text-[13px] leading-relaxed font-medium ${item.isDark ? 'text-slate-300' : 'text-slate-500'}`}>
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Stat — shipped */}
+        <motion.div {...reveal(1)} className="flex flex-col justify-center bg-paper p-8">
+          <span className="font-display text-[clamp(32px,4vw,44px)] font-bold leading-none text-ink">
+            <AnimatedCounter end={23} duration={1400} />
+          </span>
+          <span className="mt-2 text-sm text-muted2">Products shipped to production</span>
+        </motion.div>
 
+        {/* Stat — abandoned */}
+        <motion.div {...reveal(2)} className="flex flex-col justify-center bg-paper p-8">
+          <span className="font-display text-[clamp(32px,4vw,44px)] font-bold leading-none text-brand">
+            0
+          </span>
+          <span className="mt-2 text-sm text-muted2">Abandoned after launch</span>
+        </motion.div>
+
+        {/* Enterprise grade */}
+        <motion.div {...reveal(3)} className="group flex flex-col justify-between bg-paper p-8">
+          <ShieldCheck
+            className="h-6 w-6 text-ink transition-transform duration-300 group-hover:-translate-y-0.5"
+            strokeWidth={1.6}
+          />
+          <div>
+            <h3 className="text-[17px] font-bold tracking-tight text-ink">Enterprise grade</h3>
+            <p className="mt-2 text-[13.5px] leading-relaxed text-muted2">
+              SOC2-ready, zero-trust architectures, bank-level security.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Fast delivery */}
+        <motion.div {...reveal(4)} className="group flex flex-col justify-between bg-paper p-8">
+          <Gauge
+            className="h-6 w-6 text-ink transition-transform duration-300 group-hover:-translate-y-0.5"
+            strokeWidth={1.6}
+          />
+          <div>
+            <h3 className="text-[17px] font-bold tracking-tight text-ink">Fast delivery</h3>
+            <p className="mt-2 text-[13.5px] leading-relaxed text-muted2">
+              Production-ready platforms in weeks, not quarters.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Long-term support — dark accent (2x1) */}
+        <motion.div
+          {...reveal(5)}
+          className="relative flex flex-col justify-between overflow-hidden bg-navy p-8 text-white md:col-span-2"
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:26px_26px]" />
+          <HeartHandshake className="relative h-6 w-6 text-brand" strokeWidth={1.6} />
+          <div className="relative">
+            <h3 className="text-[19px] font-bold tracking-tight">We don&apos;t disappear after launch</h3>
+            <p className="mt-2 max-w-md text-[14px] leading-relaxed text-slate-300">
+              Ongoing scaling, maintenance, and new features for years — the team that built it is
+              the team that keeps it running.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Production ready (2x1) */}
+        <motion.div
+          {...reveal(6)}
+          className="flex flex-col justify-between bg-paper p-8 md:col-span-2"
+        >
+          <div className="flex items-center justify-between">
+            <Server className="h-6 w-6 text-ink" strokeWidth={1.6} />
+            <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-muted2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              99.99% uptime
+            </span>
+          </div>
+          <div>
+            <h3 className="text-[17px] font-bold tracking-tight text-ink">Production ready</h3>
+            <p className="mt-2 max-w-md text-[13.5px] leading-relaxed text-muted2">
+              Infinite scale on AWS/GCP — Kubernetes, CI/CD pipelines, and clustered databases from
+              day one.
+            </p>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </Section>
   );
 };
