@@ -1,6 +1,7 @@
 import { Section } from "@/components/marketing/Section";
 import { LogoWall } from "@/components/marketing/LogoWall";
 import { StatBand } from "@/components/marketing/StatBand";
+import { FounderRotator } from "./FounderRotator";
 
 // Placeholder client logos — replace with real client SVGs (see public/images/ASSETS.md).
 const LOGOS = [1, 2, 3, 4, 5, 6].map((n) => ({
@@ -30,13 +31,7 @@ export const WhoWeAre = () => {
           <StatBand stats={STATS} />
         </div>
 
-        <div className="relative">
-          <img
-            src="/images/founder.jpg"
-            alt="The Neo Perion team"
-            className="aspect-[4/5] w-full rounded-[16px] border border-hairline object-cover"
-          />
-        </div>
+        <FounderRotator />
       </div>
     </Section>
   );
