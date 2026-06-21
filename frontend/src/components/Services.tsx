@@ -1,108 +1,106 @@
-import React from "react";
-import { ArrowRight, Bot, Zap, Cloud, Smartphone, Check } from "lucide-react";
+import { ArrowRight, Bot, Zap, Cloud, Smartphone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const SERVICES = [
+import { Section } from "@/components/marketing/Section";
+import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { MarketingCard } from "@/components/marketing/MarketingCard";
+import { BrowserFrame } from "@/components/marketing/BrowserFrame";
+
+const LEAD = {
+  title: "AI Systems",
+  icon: Bot,
+  description:
+    "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale — evaluated, observable, and production-hardened.",
+  cta: "See how we build RAG systems",
+  href: "/services/ai-systems-automation",
+};
+
+const ROWS = [
   {
-    id: "ai-systems",
-    title: "AI Systems",
-    icon: Bot,
-    description: "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale.",
-    features: ["Vector Databases", "LLM Fine-Tuning", "Autonomous Agents"],
-    href: "/services/ai-systems-automation"
-  },
-  {
-    id: "automation",
     title: "Enterprise Automation",
     icon: Zap,
     description: "Workflow automation, CRM integration, and intelligent document processing.",
-    features: ["RPA Integration", "Data Pipelines", "Webhook Triggers"],
-    href: "/services/intelligent-operations-automation"
+    cta: "Automate your operations",
+    href: "/services/intelligent-operations-automation",
   },
   {
-    id: "cloud",
     title: "Cloud Native Platforms",
     icon: Cloud,
-    description: "SaaS, multi-tenant architectures, and scalable backends.",
-    features: ["Microservices", "Kubernetes", "Serverless Architecture"],
-    href: "/services/cloud-native-web-platforms"
+    description: "Multi-tenant SaaS architectures and scalable backends on AWS/GCP.",
+    cta: "Scale your platform",
+    href: "/services/cloud-native-web-platforms",
   },
   {
-    id: "mobile-web",
     title: "Mobile & Web Products",
     icon: Smartphone,
     description: "Cross-platform apps, PWAs, and high-performance dashboards.",
-    features: ["React / Next.js", "Flutter", "Real-time Subscriptions"],
-    href: "/services/mobile-product-engineering"
-  }
+    cta: "Ship your product",
+    href: "/services/mobile-product-engineering",
+  },
 ];
 
 export const Services = () => {
   const navigate = useNavigate();
+  const LeadIcon = LEAD.icon;
 
   return (
-    <section id="services" className="py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
-      <div className="container mx-auto px-6 lg:px-8 max-w-[1200px]">
-        {/* Header */}
-        <div className="mb-16 text-left max-w-2xl">
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">
-            Core Capabilities
-          </p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight leading-[1.1] mb-6">
-            Engineering Excellence
-          </h2>
-          <p className="text-slate-600 text-[15px] font-medium leading-relaxed">
-            We build scalable, secure, and intelligent solutions. No templates, no shortcuts — just robust architectures built for long-term production.
-          </p>
-        </div>
+    <Section id="services" bg="paper" rhythm="primary" divider>
+      <SectionHeading
+        eyebrow="Capabilities"
+        title="Engineering excellence"
+        lead="We build scalable, secure, and intelligent systems — robust architectures built for long-term production, not demos."
+        className="mb-14 max-w-2xl"
+      />
 
-        {/* 4-Card Grid (shown by default, no scroll interaction required) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
+      <div className="grid items-start gap-8 lg:grid-cols-12">
+        {/* Lead service */}
+        <MarketingCard role="feature" className="flex flex-col gap-6 lg:col-span-7">
+          <div className="flex items-start gap-4">
+            <LeadIcon className="h-6 w-6 shrink-0 text-brand" strokeWidth={1.75} />
+            <div>
+              <h3 className="text-2xl font-bold text-ink">{LEAD.title}</h3>
+              <p className="mt-2 max-w-[48ch] text-body leading-relaxed">{LEAD.description}</p>
+            </div>
+          </div>
+          <BrowserFrame
+            src="/images/home/placeholder-screenshot.svg"
+            alt="AI system architecture"
+            ratio="16/10"
+          />
+          <button
+            onClick={() => navigate(LEAD.href)}
+            className="group inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand"
+          >
+            {LEAD.cta}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </button>
+        </MarketingCard>
+
+        {/* Secondary services as text rows */}
+        <div className="divide-y divide-hairline lg:col-span-5">
+          {ROWS.map((row) => {
+            const Icon = row.icon;
             return (
-              <div
-                key={service.id}
-                className="group flex flex-col justify-between bg-white p-6 rounded-xl border border-[#E4E4E7] hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out"
+              <button
+                key={row.title}
+                onClick={() => navigate(row.href)}
+                className="group flex w-full items-start gap-4 py-6 text-left first:pt-0"
               >
-                <div>
-                  {/* Icon */}
-                  <div className="w-10 h-10 rounded-lg bg-slate-50 border border-[#E4E4E7] flex items-center justify-center text-neo-blue mb-6 group-hover:bg-neo-blue/5 transition-colors">
-                    <Icon className="w-5 h-5" />
+                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-muted2" strokeWidth={1.75} />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-base font-bold text-ink transition-transform duration-200 group-hover:translate-x-1">
+                      {row.title}
+                    </h3>
+                    <ArrowRight className="h-4 w-4 -translate-x-1 text-brand opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
                   </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-lg font-bold text-[#09090B] mb-3 group-hover:text-neo-blue transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed font-medium mb-6">
-                    {service.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-2.5 mb-8">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-[12px] font-semibold text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-neo-blue shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="mt-1 text-sm leading-relaxed text-muted2">{row.description}</p>
                 </div>
-
-                {/* Explore link */}
-                <button
-                  onClick={() => navigate(service.href)}
-                  className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-bold text-neo-blue hover:text-neo-highlight transition-colors self-start"
-                >
-                  Explore Capability
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </div>
+              </button>
             );
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
