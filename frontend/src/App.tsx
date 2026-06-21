@@ -22,6 +22,8 @@ import CareerDetail from "./pages/CareerDetail";
 import Contact from "./pages/Contact";
 import Newsletter from "./pages/Newsletter";
 import Security from "./pages/Security";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import SuccessStories from "./pages/SuccessStories";
 import Testimonials from "./pages/Testimonials";
 import Insights from "./pages/Insights";
@@ -73,6 +75,8 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/company/newsletter" element={<Newsletter />} />
               <Route path="/security" element={<Security />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/company/success-stories" element={<SuccessStories />} />
               <Route path="/company/testimonials" element={<Testimonials />} />
               <Route path="/company/insights" element={<Insights />} />
