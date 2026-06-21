@@ -10,6 +10,7 @@ import {
   Play, Sparkles, Zap, Star, CheckCircle2, TrendingUp, Clock, DollarSign, BarChart3
 } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
 
 // ─── Interactive ROI Impact Calculator ──────────────────────
 const ROIImpactCalculator = () => {
@@ -38,6 +39,10 @@ const ROIImpactCalculator = () => {
             value={employees}
             onChange={(e) => setEmployees(parseInt(e.target.value))}
             className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:shadow-amber-200 [&::-webkit-slider-thumb]:cursor-pointer"
+            aria-label="Team size slider"
+            aria-valuemin={5}
+            aria-valuemax={500}
+            aria-valuenow={employees}
           />
         </div>
 
@@ -53,6 +58,10 @@ const ROIImpactCalculator = () => {
             value={manualHours}
             onChange={(e) => setManualHours(parseInt(e.target.value))}
             className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:shadow-amber-200 [&::-webkit-slider-thumb]:cursor-pointer"
+            aria-label="Manual hours per week per person slider"
+            aria-valuemin={5}
+            aria-valuemax={40}
+            aria-valuenow={manualHours}
           />
         </div>
       </div>
@@ -64,7 +73,9 @@ const ROIImpactCalculator = () => {
             <Clock size={16} className="text-amber-500" />
             <span className="font-semibold">Hours Saved / Month</span>
           </div>
-          <span className="text-xl font-black text-slate-900">{hoursSaved.toLocaleString()}</span>
+          <span className="text-xl font-black text-slate-900">
+            <AnimatedNumber value={hoursSaved} />
+          </span>
         </div>
         <div className="h-px bg-amber-200/50" />
         <div className="flex items-center justify-between">
@@ -72,7 +83,9 @@ const ROIImpactCalculator = () => {
             <DollarSign size={16} className="text-amber-500" />
             <span className="font-semibold">Monthly Savings</span>
           </div>
-          <span className="text-xl font-black text-slate-900">${costSaved.toLocaleString()}</span>
+          <span className="text-xl font-black text-slate-900">
+            <AnimatedNumber value={costSaved} formatter={(val) => `$${val.toLocaleString()}`} />
+          </span>
         </div>
         <div className="h-px bg-amber-200/50" />
         <div className="flex items-center justify-between">
@@ -80,7 +93,9 @@ const ROIImpactCalculator = () => {
             <TrendingUp size={16} />
             <span>Annual Impact</span>
           </div>
-          <span className="text-2xl font-black text-amber-600">${annualSaving.toLocaleString()}</span>
+          <span className="text-2xl font-black text-amber-600">
+            <AnimatedNumber value={annualSaving} formatter={(val) => `$${val.toLocaleString()}`} />
+          </span>
         </div>
       </div>
     </div>
@@ -101,13 +116,29 @@ export function SMBEnterprisePage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "SMB & Enterprise Solutions - Neo Perion",
+    "serviceType": "SMB & Enterprise Solutions",
     "description": industry.heroSubtext,
-    "provider": { "@type": "Organization", "name": "Neo Perion Solutions" }
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Neo Perion Solutions",
+      "image": "https://www.neoperion.com/images/np-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      }
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "India" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Global" }
+    ]
   };
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto]">
         <SEO
           title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | Neo Perion"
           description={industry.heroSubtext}
@@ -170,16 +201,25 @@ export function SMBEnterprisePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-2 gap-6"
+            >
               {industry.offerings.map((offering, i) => {
                 const Icon = offering.icon;
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className="group relative p-8 rounded-[24px] bg-slate-50 border border-slate-100 hover:border-amber-200 hover:bg-white hover:shadow-xl hover:shadow-amber-50 transition-all duration-500"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
@@ -193,7 +233,7 @@ export function SMBEnterprisePage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -209,9 +249,25 @@ export function SMBEnterprisePage() {
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">A structured methodology that delivers measurable ROI at every step.</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-4 gap-6"
+            >
               {industry.process.map((step, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="relative group">
+                <motion.div 
+                  key={i} 
+                  variants={{
+                    hidden: { opacity: 0, x: 30 },
+                    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                  }}
+                  className="relative group"
+                >
                   {i < 3 && <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-amber-500/30 to-transparent z-0" />}
                   <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-amber-500/30 transition-all duration-500 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-black text-xl group-hover:bg-amber-500/20 transition-all">
@@ -222,7 +278,7 @@ export function SMBEnterprisePage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -234,7 +290,16 @@ export function SMBEnterprisePage() {
               <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 mb-4 tracking-tight">Before & After Automation</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-3 gap-6"
+            >
               {[
                 {
                   before: 'Manual data entry across 5 spreadsheets',
@@ -262,10 +327,10 @@ export function SMBEnterprisePage() {
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-slate-100 p-8 overflow-hidden group hover:shadow-xl hover:shadow-amber-50 transition-all duration-500`}
                   >
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
@@ -294,7 +359,7 @@ export function SMBEnterprisePage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -405,7 +470,7 @@ export function SMBEnterprisePage() {
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#02040A]">
         {/* Hero Mobile */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -519,3 +584,4 @@ export function SMBEnterprisePage() {
     </MobileGate>
   );
 }
+

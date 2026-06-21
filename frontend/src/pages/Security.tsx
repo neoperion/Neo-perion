@@ -1,35 +1,149 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ShieldCheck, Lock, Server } from 'lucide-react';
+import { SEO } from "@/components/SEO";
+import { ShieldCheck, Lock, Server, FileCheck, KeyRound, AlertTriangle, Eye, Users } from 'lucide-react';
 import { MobileGate, MobileShell } from "@/components/mobile";
+import { motion } from 'framer-motion';
 
 export default function Security() {
+  const securitySchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Security & Compliance - Neo Perion",
+    "description": "Enterprise-grade data protection, encryption, infrastructure security, and access control standards at Neo Perion.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Neo Perion Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.neoperion.com/images/np-logo.png"
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        type: "spring" as const, 
+        stiffness: 80, 
+        damping: 15 
+      } 
+    }
+  };
+
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
-        <Helmet><title>Security | Neo Perion</title></Helmet>
+      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+        <SEO 
+          title="Security & Compliance | Enterprise Data Protection | Neo Perion" 
+          description="Security is the foundation of everything we build. Explore Neo Perion's SOC 2 compliance, encryption at rest/transit, row-level isolation, and access controls." 
+          url="https://www.neoperion.com/security"
+          jsonLd={securitySchema}
+        />
         <Header />
-        <main className="pt-32 pb-24">
-          <section className="text-center px-8 mb-20 max-w-4xl mx-auto">
-             <ShieldCheck className="mx-auto text-neo-blue mb-8" size={64} />
-             <h1 className="text-5xl lg:text-7xl font-black mb-6">Enterprise Security</h1>
-             <p className="text-xl text-slate-400">Security is not a feature. It is the foundation of everything we build.</p>
+        
+        <main className="pt-36 pb-24 relative overflow-hidden">
+          {/* Subtle grid background pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none opacity-60" />
+          
+          <section className="text-center px-8 mb-20 max-w-4xl mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ShieldCheck className="mx-auto text-neo-blue mb-8" size={64} />
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl lg:text-7xl font-black mb-6 tracking-tight text-[#09090B]"
+            >
+              Enterprise Security
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed"
+            >
+              Security is not a feature. It is the foundation of everything we build.
+            </motion.p>
           </section>
           
-          <section className="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-8">
-             <div className="p-8 rounded-2xl border border-white/5 bg-[#0a0a0a]">
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-8 relative z-10"
+          >
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
                <Lock className="text-neo-blue mb-4" size={32} />
-               <h3 className="text-2xl font-bold mb-4">Data Protection</h3>
-               <p className="text-slate-400 leading-relaxed">All data is encrypted at rest using AES-256 and in transit using TLS 1.3. We implement strict Row Level Security (RLS) policies to ensure tenant isolation.</p>
-             </div>
-             <div className="p-8 rounded-2xl border border-white/5 bg-[#0a0a0a]">
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Data Protection</h3>
+               <p className="text-slate-500 leading-relaxed">All data is encrypted at rest using AES-256 and in transit using TLS 1.3. We implement strict Row Level Security (RLS) policies to ensure tenant isolation.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
                <Server className="text-neo-blue mb-4" size={32} />
-               <h3 className="text-2xl font-bold mb-4">Infrastructure Security</h3>
-               <p className="text-slate-400 leading-relaxed">We utilize secure VPCs, regular vulnerability scanning, automated dependency updates, and strict IAM roles following the principle of least privilege.</p>
-             </div>
-          </section>
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Infrastructure Security</h3>
+               <p className="text-slate-500 leading-relaxed">We utilize secure VPCs, regular vulnerability scanning, automated dependency updates, and strict IAM roles following the principle of least privilege.</p>
+             </motion.div>
+          </motion.section>
+
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-8 mt-8 relative z-10"
+          >
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <FileCheck className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">SOC 2 Compliance</h3>
+               <p className="text-slate-500 leading-relaxed">Annual SOC 2 audits with continuous monitoring. Strict access controls, change management, and incident response aligned with industry standards.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <KeyRound className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Encryption</h3>
+               <p className="text-slate-500 leading-relaxed">AES-256 at rest, TLS 1.3 in transit. Customer data encrypted with per-tenant keys. Key rotation and secure key management via cloud KMS.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <Users className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Access Control</h3>
+               <p className="text-slate-500 leading-relaxed">Role-based access control (RBAC) with multi-factor authentication. Least-privilege enforcement across all systems. Session policies and audit trails.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <AlertTriangle className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Incident Response</h3>
+               <p className="text-slate-500 leading-relaxed">24/7 monitoring with automated alerting. Defined severity tiers with SLAs. Post-mortem process with root cause analysis and remediation tracking.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <Eye className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Data Privacy</h3>
+               <p className="text-slate-500 leading-relaxed">GDPR-compliant data handling with defined retention. Right to deletion and data portability supported. Privacy-by-design in all systems.</p>
+             </motion.div>
+             <motion.div variants={cardVariants} className="p-8 rounded-2xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+               <ShieldCheck className="text-neo-blue mb-4" size={32} />
+               <h3 className="text-2xl font-bold mb-4 text-[#09090B]">Vendor Security</h3>
+               <p className="text-slate-500 leading-relaxed">Third-party security assessments for all subprocessors. Vendor SOC 2 reports reviewed annually. Contractual security obligations enforced via DPAs.</p>
+             </motion.div>
+          </motion.section>
         </main>
         <Footer />
       </div>

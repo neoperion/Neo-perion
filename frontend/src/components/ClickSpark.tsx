@@ -143,7 +143,7 @@ const ClickSpark = ({
   };
 
   return (
-    <div className="relative w-full h-full min-h-screen" onClick={handleClick}>
+    <div className="relative w-full h-full min-h-[auto]" onClick={handleClick}>
       <canvas 
         ref={canvasRef} 
         className="fixed top-0 left-0 w-screen h-screen select-none pointer-events-none z-40"
@@ -155,3 +155,4 @@ const ClickSpark = ({
 };
 
 export default ClickSpark;
+

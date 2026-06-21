@@ -5,6 +5,7 @@ import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
 import { Smartphone, CheckCircle2, LayoutTemplate, Zap, RadioReceiver, ArrowRight } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -25,10 +26,33 @@ export function MobileProductPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "serviceType": service.title,
+            "description": service.description,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Neo Perion Solutions",
+              "image": "https://www.neoperion.com/images/np-logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chennai",
+                "addressRegion": "Tamil Nadu",
+                "addressCountry": "IN"
+              }
+            },
+            "areaServed": [
+              { "@type": "Country", "name": "India" },
+              { "@type": "Country", "name": "United States" },
+              { "@type": "Country", "name": "Global" }
+            ]
+          }}
         />
         <Header />
         
@@ -222,12 +246,16 @@ export function MobileProductPage({ service }: Props) {
           </div>
         </section>
 
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
         </main>
 
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
         {/* Hero */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -380,8 +408,12 @@ export function MobileProductPage({ service }: Props) {
           </div>
         </section>
 
-        <div className="h-10 bg-[#02040A]" />
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
       </MobileShell>
     </MobileGate>
   );
 }
+

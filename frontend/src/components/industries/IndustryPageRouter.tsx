@@ -19,7 +19,7 @@ export const IndustryPageRouter: React.FC = () => {
 
   if (!industry) {
     return (
-      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-[auto] bg-slate-50 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Industry Not Found</h1>
         <p className="text-slate-600 mb-8">The industry page you are looking for does not exist.</p>
         <button
@@ -44,7 +44,7 @@ export const IndustryPageRouter: React.FC = () => {
         return <HealthcarePage />;
       default:
         return (
-          <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+          <div className="min-h-[auto] bg-slate-50 flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold text-slate-900">Industry page coming soon</h2>
             <button
               onClick={() => navigate('/industries')}
@@ -59,3 +59,4 @@ export const IndustryPageRouter: React.FC = () => {
 
   return renderDesktop();
 };
+

@@ -24,7 +24,7 @@ export const BlogPost: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050816] flex items-center justify-center">
+      <div className="min-h-[auto] bg-[#FAFAFA] flex items-center justify-center">
         <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
       </div>
     );
@@ -32,17 +32,17 @@ export const BlogPost: React.FC = () => {
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-[#050816] flex flex-col items-center justify-center px-4">
-        <h1 className="text-4xl font-bold text-white mb-4">Post Not Found</h1>
-        <p className="text-slate-400 mb-8">The article you are looking for does not exist.</p>
-        <button onClick={() => navigate('/company/blog')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
+      <div className="min-h-[auto] bg-[#FAFAFA] flex flex-col items-center justify-center px-4">
+        <h1 className="text-4xl font-bold text-[#09090B] mb-4">Post Not Found</h1>
+        <p className="text-slate-500 mb-8">The article you are looking for does not exist.</p>
+        <button onClick={() => navigate('/company/blog')} className="px-6 py-3 bg-neo-blue text-white rounded-lg font-bold">
           Back to Blog
         </button>
       </div>
     );
   }
 
-  const postUrl = `https://www.neoperion.com/blog/${blog.slug}`;
+  const postUrl = `https://www.neoperion.com/company/blog/${blog.slug}`;
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -68,7 +68,7 @@ export const BlogPost: React.FC = () => {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
+      <div className="bg-[#FAFAFA] min-h-[auto] font-sans text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title={`${blog.seo_title} | Neo Perion`}
           description={blog.seo_description}
@@ -81,27 +81,30 @@ export const BlogPost: React.FC = () => {
         <ReadingProgress />
         <Header />
 
-        <main className="pt-32 pb-24">
+        <main className="pt-36 pb-24 relative overflow-hidden">
+          {/* Subtle background grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+
           {/* Article Hero */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
             <button 
               onClick={() => navigate('/company/blog')}
-              className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-8 group"
+              className="flex items-center gap-2 text-slate-500 hover:text-neo-blue transition-colors mb-8 group font-medium text-sm"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Articles
             </button>
 
             <div className="mb-12">
-              <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-neo-blue text-sm font-bold rounded-full uppercase tracking-widest mb-6">
+              <span className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-neo-blue text-xs font-bold rounded-full uppercase tracking-widest mb-6">
                 {blog.category}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#09090B] mb-6 leading-tight">
                 {blog.title}
               </h1>
               
-              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-                <span className="font-medium text-white">{blog.author}</span>
+              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium">
+                <span className="font-semibold text-slate-800">{blog.author}</span>
                 <span className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
                   {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
@@ -113,7 +116,7 @@ export const BlogPost: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-full aspect-video rounded-[2rem] overflow-hidden border border-white/10 mb-16">
+            <div className="w-full aspect-video rounded-[2rem] overflow-hidden border border-zinc-200/80 mb-16 shadow-sm">
               <img 
                 src={blog.cover_image} 
                 alt={blog.title}
@@ -123,24 +126,24 @@ export const BlogPost: React.FC = () => {
           </div>
 
           {/* Article Content & TOC */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Sidebar TOC */}
               <div className="w-full lg:w-1/4 order-2 lg:order-1">
-                <TableOfContents content={blog.content} />
+                <TableOfContents content={blog.content} theme="light" />
               </div>
               
               {/* Main Content */}
               <div className="w-full lg:w-3/4 order-1 lg:order-2">
-                <MarkdownRenderer content={blog.content} />
-                <ShareButtons url={postUrl} title={blog.title} />
+                <MarkdownRenderer content={blog.content} theme="light" />
+                <ShareButtons url={postUrl} title={blog.title} theme="light" />
               </div>
             </div>
           </div>
 
           {/* Related Articles */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-            <RelatedPosts category={blog.category} currentSlug={blog.slug} />
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
+            <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="light" />
           </div>
         </main>
 
@@ -183,15 +186,15 @@ export const BlogPost: React.FC = () => {
           </div>
 
           <div className="prose prose-invert prose-mobile max-w-none">
-            <MarkdownRenderer content={blog.content} />
+            <MarkdownRenderer content={blog.content} theme="dark" />
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/10">
-            <ShareButtons url={postUrl} title={blog.title} />
+            <ShareButtons url={postUrl} title={blog.title} theme="dark" />
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/10">
-            <RelatedPosts category={blog.category} currentSlug={blog.slug} />
+            <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="dark" />
           </div>
         </div>
       </MobileShell>
@@ -200,3 +203,4 @@ export const BlogPost: React.FC = () => {
 };
 
 export default BlogPost;
+

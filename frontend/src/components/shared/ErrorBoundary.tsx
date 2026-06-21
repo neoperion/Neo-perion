@@ -34,7 +34,7 @@ export class ErrorBoundary extends Component<Props, State> {
       }
       
       return (
-        <div className="min-h-screen bg-[#050816] flex items-center justify-center p-4">
+        <div className="min-h-[auto] bg-[#050816] flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-red-500/20 rounded-2xl p-8 max-w-lg w-full text-center">
             <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
             <p className="text-slate-400 mb-6">
@@ -57,3 +57,4 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
+

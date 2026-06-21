@@ -9,7 +9,7 @@ interface Props {
 
 export function MobileDynamicIndustry({ industry }: Props) {
   return (
-    <MobileShell nav="bottom" showFooter>
+    <MobileShell nav="bottom" showFooter bgClass="bg-[#02040A]">
       {/* Hero */}
       <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />

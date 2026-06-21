@@ -5,11 +5,13 @@ interface Props {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  theme?: 'light' | 'dark';
 }
 
-export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) => {
+export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange, theme = 'dark' }) => {
   if (totalPages <= 1) return null;
 
+  const isLight = theme === 'light';
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
@@ -17,7 +19,11 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className={`p-2 rounded-lg border transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+          isLight
+            ? 'border-zinc-200 text-slate-500 hover:text-[#09090B] hover:bg-slate-50'
+            : 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+        }`}
         aria-label="Previous page"
       >
         <ChevronLeft className="w-5 h-5" />
@@ -29,8 +35,12 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
           onClick={() => onPageChange(page)}
           className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors ${
             currentPage === page
-              ? 'bg-neo-blue text-slate-900'
-              : 'border border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+              ? isLight
+                ? 'bg-neo-blue text-white'
+                : 'bg-neo-blue text-slate-900'
+              : isLight
+                ? 'border border-zinc-200 text-slate-500 hover:text-[#09090B] hover:bg-slate-50'
+                : 'border border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
           }`}
         >
           {page}
@@ -40,7 +50,11 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className={`p-2 rounded-lg border transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+          isLight
+            ? 'border-zinc-200 text-slate-500 hover:text-[#09090B] hover:bg-slate-50'
+            : 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+        }`}
         aria-label="Next page"
       >
         <ChevronRight className="w-5 h-5" />

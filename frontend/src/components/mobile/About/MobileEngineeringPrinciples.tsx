@@ -1,25 +1,31 @@
 import { motion } from 'framer-motion';
 import * as Accordion from '@radix-ui/react-accordion';
-import { Terminal, Shield, Workflow, Plus, Minus } from 'lucide-react';
+import { Shield, BarChart3, Minimize2, Target, Plus, Minus } from 'lucide-react';
 
 const principles = [
   {
-    id: 'stability',
-    title: 'Stability over hype.',
+    id: 'scale',
+    title: 'Build for Scale',
     icon: Shield,
-    content: 'We don\'t chase the latest trendy framework unless it provides a tangible, measurable benefit. Boring technology scaling to millions of users is always better than exciting technology crashing in production.'
+    content: "If it can't handle 10x traffic, we won't ship it. We build robust systems designed for high availability."
   },
   {
-    id: 'system',
-    title: 'Think in systems.',
-    icon: Workflow,
-    content: 'A feature is just a temporary state. A system is a permanent capability. We engineer platforms that can evolve, with clear boundaries, decoupling, and strict data contracts.'
+    id: 'measure',
+    title: 'Measure Everything',
+    icon: BarChart3,
+    content: "Data over intuition. We instrument from day one, ensuring every decision is backed by analytics."
   },
   {
-    id: 'ai-first',
-    title: 'AI is a foundation, not a feature.',
-    icon: Terminal,
-    content: 'Adding a chat interface to a legacy app isn\'t AI integration. True AI-first engineering means rethinking the data pipeline, the user flow, and the backend architecture to leverage intelligence natively.'
+    id: 'complexity',
+    title: 'Avoid Complexity',
+    icon: Minimize2,
+    content: "Simple systems last longer than clever ones. We aggressively cut unnecessary technical debt."
+  },
+  {
+    id: 'outcomes',
+    title: 'Own Outcomes',
+    icon: Target,
+    content: "We succeed when your product succeeds. We act as your true technical partners, not just vendors."
   }
 ];
 
@@ -31,7 +37,7 @@ export function MobileEngineeringPrinciples() {
         <h2 className="text-display-md text-white tracking-tight text-center">Engineering Principles.</h2>
       </div>
 
-      <Accordion.Root type="single" collapsible defaultValue="stability" className="space-y-3">
+      <Accordion.Root type="single" collapsible defaultValue="scale" className="space-y-3">
         {principles.map((principle) => (
           <Accordion.Item 
             key={principle.id} 

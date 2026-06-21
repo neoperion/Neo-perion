@@ -9,7 +9,7 @@ interface Props {
 
 export function MobileDynamicService({ service }: Props) {
   return (
-    <MobileShell nav="bottom" showFooter>
+    <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
       {/* Hero */}
       <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -69,7 +69,7 @@ export function MobileDynamicService({ service }: Props) {
         </div>
       </section>
       
-      <div className="h-10 bg-[#02040A]" />
+      <div className="h-10 bg-[#030B1D]" />
     </MobileShell>
   );
 }

@@ -20,7 +20,7 @@ export const CaseStudyDetail: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050816] flex items-center justify-center">
+      <div className="min-h-[auto] bg-[#050816] flex items-center justify-center">
         <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
       </div>
     );
@@ -28,7 +28,7 @@ export const CaseStudyDetail: React.FC = () => {
 
   if (!caseStudy) {
     return (
-      <div className="min-h-screen bg-[#050816] flex flex-col items-center justify-center px-4">
+      <div className="min-h-[auto] bg-[#050816] flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
         <p className="text-slate-400 mb-8">The case study you are looking for does not exist.</p>
         <button onClick={() => navigate('/company/case-studies')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
@@ -160,7 +160,7 @@ export const CaseStudyDetail: React.FC = () => {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
+      <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
         <SEO 
           title={`${caseStudy.seo_title} | Neo Perion Work`}
           description={caseStudy.seo_description}
@@ -194,3 +194,4 @@ export const CaseStudyDetail: React.FC = () => {
 };
 
 export default CaseStudyDetail;
+

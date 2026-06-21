@@ -1,9 +1,36 @@
 import { motion } from 'framer-motion';
 
 const timeline = [
-  { year: '2020', title: 'The Genesis', desc: 'Started as a specialized consulting firm helping enterprises modernize legacy systems.' },
-  { year: '2022', title: 'Shift to AI', desc: 'Recognized the paradigm shift and pivoted completely to AI-first architectures.' },
-  { year: '2024', title: 'Neo Perion', desc: 'Rebranded and launched our proprietary agentic orchestration framework.' }
+  {
+    year: "2024",
+    title: "Founded in Tamil Nadu, India",
+    desc: "Established with a vision for enterprise product engineering. Partnered with One Football Academy, Chennai as our inaugural client."
+  },
+  {
+    year: "2024",
+    title: "First AI Deployment",
+    desc: "Successfully architected and shipped an Energy Management System powered by predictive analytics."
+  },
+  {
+    year: "2025",
+    title: "Enterprise SaaS Launch",
+    desc: "Developed and launched the comprehensive Dr. D.P. Sudhagar e-commerce and logistics platform."
+  },
+  {
+    year: "2025",
+    title: "Product Engineering Focus",
+    desc: "Led the end-to-end development of the FUNNOVA EdTech platform, scaling it for concurrent classroom use."
+  },
+  {
+    year: "2026",
+    title: "AI-First Engineering Company",
+    desc: "Architecting the Lexzify travel intelligence ecosystem with deeply integrated LLMs and knowledge graphs."
+  },
+  {
+    year: "Future",
+    title: "Global Expansion",
+    desc: "Targeting 50+ active enterprise clients globally, pushing the boundaries of AI agentic workflows."
+  }
 ];
 
 export function MobileAboutTimeline() {

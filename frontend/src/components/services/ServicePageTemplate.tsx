@@ -22,7 +22,7 @@ export const ServicePageTemplate: React.FC = () => {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-[auto] bg-slate-50 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Service Not Found</h1>
         <p className="text-slate-600 mb-8">The service you are looking for does not exist.</p>
         <button
@@ -53,7 +53,7 @@ export const ServicePageTemplate: React.FC = () => {
         return <StartupScalePage service={service} />;
       default:
         return (
-          <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+          <div className="min-h-[auto] bg-slate-50 flex flex-col items-center justify-center">
             <h2>Template Not Implemented</h2>
           </div>
         );
@@ -62,3 +62,4 @@ export const ServicePageTemplate: React.FC = () => {
 
   return renderDesktop();
 };
+

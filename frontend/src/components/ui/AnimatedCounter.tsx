@@ -11,7 +11,8 @@ interface AnimatedCounterProps {
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = '', prefix = '' }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-50px' });
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
+  const isFloat = end % 1 !== 0;
 
   useEffect(() => {
     if (!inView) return;
@@ -26,7 +27,8 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration 
       // Easing function (easeOutExpo)
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       
-      setCount(Math.floor(easeProgress * end));
+      const currentVal = easeProgress * end;
+      setCount(isFloat ? parseFloat(currentVal.toFixed(1)) : Math.floor(currentVal));
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(step);

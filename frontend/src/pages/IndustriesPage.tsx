@@ -66,12 +66,19 @@ export const IndustriesPage: React.FC = () => {
     "@type": "Organization",
     "name": "Neo Perion Solutions",
     "url": "https://www.neoperion.com/industries",
-    "description": "Domain expertise and purpose-built digital solutions tailored to Education, Startups, SMBs, and Healthcare."
+    "logo": "https://www.neoperion.com/images/np-logo.png",
+    "description": "Domain expertise and purpose-built digital solutions tailored to Education, Startups, SMBs, and Healthcare.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    }
   };
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-background min-h-screen font-sans text-foreground">
+      <div className="bg-background min-h-[auto] font-sans text-foreground">
         <SEO 
           title="Industries We Transform | Neo Perion Solutions"
           description="Purpose-built digital solutions tailored to the unique challenges of Education, Startups, SMBs, and Healthcare."
@@ -103,14 +110,30 @@ export const IndustriesPage: React.FC = () => {
 
                       <div className="space-y-6">
                         <h3 className="text-xl font-bold text-foreground border-b border-border pb-2">Key Solutions</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <motion.div 
+                          variants={{
+                            hidden: { opacity: 0 },
+                            show: { opacity: 1, transition: { staggerChildren: 0.05 } }
+                          }}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, margin: "-50px" }}
+                          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                        >
                           {industry.solutions.map((sol, i) => (
-                            <div key={i} className="flex items-center gap-3 text-muted-foreground/80">
-                              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: industry.color }} />
+                            <motion.div 
+                              key={i} 
+                              variants={{
+                                hidden: { opacity: 0, x: 20 },
+                                show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                              }}
+                              className="flex items-center gap-3 text-muted-foreground/80"
+                            >
+                              <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: industry.color }} />
                               {sol}
-                            </div>
+                            </motion.div>
                           ))}
-                        </div>
+                        </motion.div>
                       </div>
                       
                       <div className="pt-6">
@@ -129,14 +152,23 @@ export const IndustriesPage: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-br opacity-20 blur-3xl rounded-[3rem]" style={{ backgroundImage: `linear-gradient(to bottom right, ${industry.color}, transparent)` }} />
                       <div className="relative bg-card/80 backdrop-blur-xl border border-border rounded-[2rem] p-8 md:p-12 shadow-2xl">
                         <h3 className="text-2xl font-bold text-foreground mb-8 tracking-tight">The Neo Perion Advantage</h3>
-                        <div className="space-y-6">
+                        <motion.div 
+                          variants={{
+                            hidden: { opacity: 0 },
+                            show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                          }}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, margin: "-50px" }}
+                          className="space-y-6"
+                        >
                           {industry.benefits.map((benefit, i) => (
                             <motion.div 
                               key={i}
-                              initial={{ opacity: 0, x: 20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: i * 0.1 }}
+                              variants={{
+                                hidden: { opacity: 0, x: 20 },
+                                show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                              }}
                               className="flex gap-4 items-start"
                             >
                               <CheckCircle2 className="w-6 h-6 shrink-0 mt-1" style={{ color: industry.color }} />
@@ -146,7 +178,7 @@ export const IndustriesPage: React.FC = () => {
                               </div>
                             </motion.div>
                           ))}
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
 
@@ -167,3 +199,4 @@ export const IndustriesPage: React.FC = () => {
 };
 
 export default IndustriesPage;
+

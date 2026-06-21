@@ -22,10 +22,11 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.3 }}
-        className="min-h-screen pt-24" // Space for fixed navbar
+        className="min-h-[auto] pt-24" // Space for fixed navbar
       >
         {children}
       </motion.main>
     </AnimatePresence>
   );
 };
+

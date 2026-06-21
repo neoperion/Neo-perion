@@ -16,7 +16,7 @@ export default function Technologies() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
+    <div className="min-h-[auto] bg-[#02040A] text-white selection:bg-neo-blue/30">
       <Helmet><title>Technologies | Neo Perion</title></Helmet>
       <Header />
       <main className="pt-32 pb-24">

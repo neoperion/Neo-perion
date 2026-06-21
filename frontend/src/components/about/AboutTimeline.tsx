@@ -35,30 +35,30 @@ const milestones = [
 
 export function AboutTimeline() {
   return (
-    <section className="py-24 bg-slate-50 border-b border-slate-900/5">
+    <section className="py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
       <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
         <div className="mb-16">
           <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Our Journey</p>
-          <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight">
             How we got here
           </h2>
         </div>
 
         <div className="relative pl-6 md:pl-0">
           {/* Vertical Line */}
-          <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 -translate-x-1/2"></div>
+          <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#E4E4E7] -translate-x-1/2"></div>
           
           <div className="space-y-12">
             {milestones.map((milestone, index) => (
               <div key={index} className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
                 {/* Center Node */}
-                <div className="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-neo-blue -translate-x-1/2 mt-1.5 md:mt-0 z-10 group-hover:scale-125 transition-transform duration-300 neo-glow-card"></div>
+                <div className="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-neo-blue -translate-x-1/2 mt-1.5 md:mt-0 z-10 group-hover:scale-125 transition-transform duration-300"></div>
                 
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
-                  <div className="premium-card p-8 group-hover:border-neo-blue/20 transition-colors">
+                  <div className="bg-white border-[0.5px] border-[#E4E4E7] rounded-xl p-8 hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out shadow-sm">
                     <span className="text-neo-blue font-bold tracking-widest text-sm mb-2 block">{milestone.year}</span>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{milestone.title}</h3>
+                    <h3 className="text-xl font-bold text-[#09090B] mb-3">{milestone.title}</h3>
                     <p className="text-slate-600 leading-relaxed font-medium">{milestone.description}</p>
                   </div>
                 </div>

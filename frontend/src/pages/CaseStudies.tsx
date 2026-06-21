@@ -18,7 +18,7 @@ export const CaseStudies: React.FC = () => {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-[#050816] min-h-screen font-sans text-slate-200">
+      <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
         <SEO title="Case Studies & Work | Neo Perion Solutions" description="Explore how Neo Perion has transformed businesses through AI, enterprise SaaS, and cutting-edge product engineering." url="https://www.neoperion.com/case-studies" />
         <Header />
         <main>
@@ -92,3 +92,4 @@ export const CaseStudies: React.FC = () => {
 };
 
 export default CaseStudies;
+

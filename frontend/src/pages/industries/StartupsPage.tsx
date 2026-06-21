@@ -75,6 +75,8 @@ const StartupJourneySlider = () => {
                 key={i}
                 onClick={() => setStage(i)}
                 className={`flex flex-col items-center gap-1 transition-all duration-300 ${i <= stage ? 'opacity-100' : 'opacity-40'}`}
+                aria-pressed={i === stage}
+                aria-label={`Select stage ${s.phase}: ${s.title}`}
               >
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 ${i === stage ? 'bg-violet-50 border-violet-200 shadow-md shadow-violet-100' : 'bg-slate-50 border-slate-200'}`}>
                   <Icon size={18} className={i === stage ? 'text-violet-600' : 'text-slate-400'} />
@@ -121,13 +123,29 @@ export function StartupsPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Startup & Founder Solutions - Neo Perion",
+    "serviceType": "Startup & Founder Solutions",
     "description": industry.heroSubtext,
-    "provider": { "@type": "Organization", "name": "Neo Perion Solutions" }
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Neo Perion Solutions",
+      "image": "https://www.neoperion.com/images/np-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      }
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "India" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Global" }
+    ]
   };
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto]">
         <SEO
           title="Startup & Founder Solutions | MVP Development & SaaS | Neo Perion"
           description={industry.heroSubtext}
@@ -190,16 +208,25 @@ export function StartupsPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-2 gap-6"
+            >
               {industry.offerings.map((offering, i) => {
                 const Icon = offering.icon;
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className="group relative p-8 rounded-[24px] bg-slate-50 border border-slate-100 hover:border-violet-200 hover:bg-white hover:shadow-xl hover:shadow-violet-50 transition-all duration-500"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-violet-50 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
@@ -213,7 +240,7 @@ export function StartupsPage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -229,9 +256,25 @@ export function StartupsPage() {
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">Battle-tested methodology refined across 120+ startup partnerships.</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-4 gap-6"
+            >
               {industry.process.map((step, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="relative group">
+                <motion.div 
+                  key={i} 
+                  variants={{
+                    hidden: { opacity: 0, x: 30 },
+                    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                  }}
+                  className="relative group"
+                >
                   {i < 3 && <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-violet-500/30 to-transparent z-0" />}
                   <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-violet-500/30 transition-all duration-500 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-6 text-violet-400 font-black text-xl group-hover:bg-violet-500/20 transition-all">
@@ -242,7 +285,7 @@ export function StartupsPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -256,7 +299,16 @@ export function StartupsPage() {
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-3 gap-6"
+            >
               {[
                 { icon: Clock, title: 'Speed to Market', desc: 'Launch your core product in weeks, not months. We ship fast without sacrificing code quality.', gradient: 'from-violet-50 to-purple-50' },
                 { icon: Shield, title: 'Investor Ready', desc: 'Enterprise-grade architecture that passes technical due diligence from day one.', gradient: 'from-blue-50 to-violet-50' },
@@ -266,10 +318,10 @@ export function StartupsPage() {
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-slate-100 p-10 overflow-hidden group hover:shadow-xl hover:shadow-violet-50 transition-all duration-500`}
                   >
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
@@ -283,7 +335,7 @@ export function StartupsPage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -394,7 +446,7 @@ export function StartupsPage() {
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#02040A]">
         {/* Hero Mobile */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -480,3 +532,4 @@ export function StartupsPage() {
     </MobileGate>
   );
 }
+

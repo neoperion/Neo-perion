@@ -7,6 +7,7 @@ import { CompanyStory } from "@/components/about/CompanyStory";
 import { AboutTimeline } from "@/components/about/AboutTimeline";
 import { EngineeringPrinciples } from "@/components/about/EngineeringPrinciples";
 import { FounderSection } from "@/components/about/FounderSection";
+import { CompanyStats } from "@/components/about/CompanyStats";
 import { MobileGate } from "@/components/mobile";
 import { MobileAbout } from "@/components/mobile/About/MobileAbout";
 import { useLocation } from 'react-router-dom';
@@ -49,12 +50,13 @@ export default function AboutPage() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
         <Helmet><title>About | Neo Perion</title><meta name="description" content="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products." /></Helmet>
-        <Header /><main><AboutHero /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
+        <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
       </div>
     }>
       <MobileAbout />
     </MobileGate>
   );
 }
+

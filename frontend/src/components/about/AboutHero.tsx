@@ -2,7 +2,7 @@ import React from 'react';
 
 export function AboutHero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center pt-32 pb-20 bg-white overflow-hidden">
+    <section className="relative min-h-[70vh] flex items-center pt-32 pb-20 bg-[#FAFAFA] overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full text-center">
@@ -10,7 +10,7 @@ export function AboutHero() {
           <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-6">
             Our Identity
           </p>
-          <h1 className="text-6xl md:text-8xl lg:text-[110px] font-display font-black tracking-tighter leading-[0.95] text-slate-900 mb-8 max-w-5xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-[64px] font-display font-bold tracking-tight leading-[1.05] text-[#09090B] mb-8 max-w-5xl mx-auto">
             We are engineers first.<br/>
             Consultants second.
           </h1>

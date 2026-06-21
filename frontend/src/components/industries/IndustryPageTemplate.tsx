@@ -58,7 +58,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
   }, []);
 
   return (
-    <div className="bg-slate-50 text-slate-900 min-h-screen">
+    <div className="bg-slate-50 text-slate-900 min-h-[auto]">
       <SEO
         title={`${industry.title} Solutions | Neo Perion`}
         description={industry.heroSubtext}
@@ -359,3 +359,4 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
     </div>
   );
 };
+

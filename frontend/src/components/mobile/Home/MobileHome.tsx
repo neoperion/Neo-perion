@@ -1,19 +1,36 @@
-import { Brain, Sparkles, Blocks, Cloud, Smartphone, Cog, Rocket, Target, Zap, Shield, BarChart3, Users, Layers, Lightbulb, type LucideIcon } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  Brain, Sparkles, Blocks, Cloud, Smartphone, Cog, Rocket, Target, Zap, Shield, 
+  BarChart3, Users, Layers, Lightbulb, ChevronDown, ChevronUp, Clock, TrendingUp,
+  type LucideIcon 
+} from 'lucide-react';
 import { AIOrbHero } from './AIOrbHero';
-import { ServiceCarouselMobile, type ServiceItem } from './ServiceCarouselMobile';
 import { BentoMobile, type BentoCard } from './BentoMobile';
 import { ProcessJourney } from './ProcessJourney';
+import { MobileScaleCTA } from './MobileScaleCTA';
 import { TestimonialsPhysics, type Testimonial } from './TestimonialsPhysics';
 import { MobileShell } from '../Navigation/MobileShell';
+import { mockCaseStudies } from '@/data/mock/caseStudies';
+
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
+
+interface ServiceItem {
+  slug: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  href: string;
+}
 
 const services: ServiceItem[] = [
-  { slug: 'ai-systems-automation', title: 'AI Systems', description: 'RAG architectures, LLM orchestration, and production-grade contextual AI integration.', icon: Brain, gradient: 'from-[rgba(0,229,255,0.12)] to-[rgba(0,229,255,0.02)]', href: '/services/ai-systems-automation' },
-  { slug: 'deep-ai-engineering', title: 'Deep AI Engineering', description: 'Custom fine-tuned models, neural networks, and generative AI for specialized domains.', icon: Sparkles, gradient: 'from-[rgba(168,85,247,0.12)] to-[rgba(168,85,247,0.02)]', href: '/services/deep-ai-engineering' },
-  { slug: 'enterprise-product-engineering', title: 'Enterprise Product', description: 'End-to-end scalable product development from concept through launch.', icon: Blocks, gradient: 'from-[rgba(37,99,255,0.12)] to-[rgba(37,99,255,0.02)]', href: '/services/enterprise-product-engineering' },
-  { slug: 'cloud-native-web-platforms', title: 'Cloud-Native Web', description: 'High-performance, secure web applications on modern cloud infrastructure.', icon: Cloud, gradient: 'from-[rgba(0,229,255,0.10)] to-[rgba(0,229,255,0.02)]', href: '/services/cloud-native-web-platforms' },
-  { slug: 'mobile-product-engineering', title: 'Mobile Engineering', description: 'Native and cross-platform mobile experiences that drive engagement.', icon: Smartphone, gradient: 'from-[rgba(139,92,246,0.12)] to-[rgba(139,92,246,0.02)]', href: '/services/mobile-product-engineering' },
-  { slug: 'intelligent-operations-automation', title: 'Business Automation', description: 'Intelligent workflow automation and operational efficiency powered by AI.', icon: Cog, gradient: 'from-[rgba(34,211,238,0.12)] to-[rgba(34,211,238,0.02)]', href: '/services/intelligent-operations-automation' },
-  { slug: 'startup-to-scale-engineering', title: 'Startup Support', description: 'Fractional CTO, MVP development, and technical due diligence for startups.', icon: Rocket, gradient: 'from-[rgba(249,115,22,0.12)] to-[rgba(249,115,22,0.02)]', href: '/services/startup-to-scale-engineering' },
+  { slug: 'ai-systems-automation', title: 'AI Systems', description: 'RAG architectures, LLM orchestration, and production-grade contextual AI integration.', icon: Brain, href: '/services/ai-systems-automation' },
+  { slug: 'deep-ai-engineering', title: 'Deep AI Engineering', description: 'Custom fine-tuned models, neural networks, and generative AI for specialized domains.', icon: Sparkles, href: '/services/deep-ai-engineering' },
+  { slug: 'enterprise-product-engineering', title: 'Enterprise Product', description: 'End-to-end scalable product development from concept through launch.', icon: Blocks, href: '/services/enterprise-product-engineering' },
+  { slug: 'cloud-native-web-platforms', title: 'Cloud-Native Web', description: 'High-performance, secure web applications on modern cloud infrastructure.', icon: Cloud, href: '/services/cloud-native-web-platforms' },
+  { slug: 'mobile-product-engineering', title: 'Mobile Engineering', description: 'Native and cross-platform mobile experiences that drive engagement.', icon: Smartphone, href: '/services/mobile-product-engineering' },
+  { slug: 'intelligent-operations-automation', title: 'Business Automation', description: 'Intelligent workflow automation and operational efficiency powered by AI.', icon: Cog, href: '/services/intelligent-operations-automation' },
+  { slug: 'startup-to-scale-engineering', title: 'Startup Support', description: 'Fractional CTO, MVP development, and technical due diligence for startups.', icon: Rocket, href: '/services/startup-to-scale-engineering' },
 ];
 
 const bentoCards: BentoCard[] = [
@@ -33,16 +50,130 @@ const testimonials: Testimonial[] = [
   { id: '3', name: 'Arun Venkatesh', designation: 'Founder', company: 'SaaS Company', feedback: 'Speed and quality exceeded expectations. They are product thinkers who care about outcomes.', rating: 5 },
 ];
 
+/* ─── Mobile Services Accordion ─── */
+function MobileServicesAccordion() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  return (
+    <section className="py-16 bg-white border-b border-slate-100">
+      <div className="px-6 mb-8">
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-1">Services</p>
+        <h2 className="text-[28px] font-bold text-slate-900 tracking-tight font-display">Core Capabilities</h2>
+      </div>
+
+      <div className="px-6 flex flex-col gap-3">
+        {services.map((s, idx) => {
+          const Icon = s.icon;
+          const isExpanded = expandedIndex === idx;
+
+          return (
+            <div
+              key={s.slug}
+              onClick={() => setExpandedIndex(isExpanded ? null : idx)}
+              className="rounded-xl border border-slate-200 bg-white p-5 cursor-pointer transition-all duration-200 active:bg-slate-50"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-neo-blue shrink-0">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="text-base font-bold text-slate-900">{s.title}</h3>
+                </div>
+                {isExpanded ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
+              </div>
+
+              {isExpanded && (
+                <div className="mt-4 text-[13px] text-slate-600 leading-relaxed font-semibold">
+                  <p>{s.description}</p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex justify-end">
+                    <Link
+                      to={s.href}
+                      className="text-neo-blue font-bold text-[11px] uppercase tracking-wider inline-flex items-center gap-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Explore Capability →
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+/* ─── Mobile Case Studies Stack ─── */
+function MobileCaseStudies() {
+  const [visibleCount, setVisibleCount] = useState(2);
+  const featured = mockCaseStudies.slice(0, visibleCount);
+
+  return (
+    <section id="case-studies" className="py-16 bg-[#FAFAFA] border-b border-slate-100">
+      <div className="px-6 mb-8">
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-1">Case Studies</p>
+        <h2 className="text-[28px] font-bold text-slate-900 tracking-tight font-display">Featured Work</h2>
+      </div>
+
+      <div className="px-6 flex flex-col gap-6">
+        {featured.map((study) => (
+          <div
+            key={study.slug}
+            className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col"
+          >
+            {/* Image 16:9 */}
+            <div className="aspect-video w-full bg-slate-100 border-b border-slate-200 relative">
+              <img src={study.cover_image} alt={study.client_name} className="w-full h-full object-cover" />
+              <span className="absolute bottom-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-white/95 px-2 py-0.5 rounded-full text-neo-blue border border-slate-200">
+                {study.industry}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-1.5">{study.client_name}</h3>
+                <p className="text-slate-500 text-xs leading-relaxed font-semibold mb-4">{study.problem}</p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[#1D4ED8] text-[13px] font-bold">{study.outcome}</span>
+                <Link to={`/company/case-studies/${study.slug}`} className="text-neo-blue font-bold text-[11px] uppercase tracking-wider">
+                  Read →
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {visibleCount < mockCaseStudies.length && (
+        <div className="px-6 mt-6">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 2)}
+            className="w-full h-11 border border-slate-200 bg-white rounded-xl text-slate-700 text-xs font-bold active:bg-slate-50 transition-colors"
+          >
+            Load More Case Studies
+          </button>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export function MobileHome() {
   return (
     <MobileShell nav="bottom" showFooter>
       <AIOrbHero
-        headline={<>From Idea to Product<br /><span className="bg-gradient-to-r from-neo-blue to-purple-500 bg-clip-text text-transparent">Powered by AI</span></>}
-        subheadline="Neo Perion Solutions develops AI-powered software, SaaS products, automation systems, web applications, and digital platforms that help organizations scale faster."
+        headline="The product engineering firm that doesn't disappear after launch"
+        subheadline="AI-native platforms, SaaS infrastructure, and enterprise automation — engineered for production from day one."
       />
-      <ServiceCarouselMobile services={services} />
+      <MobileServicesAccordion />
+      <MobileCaseStudies />
       <BentoMobile cards={bentoCards} />
       <ProcessJourney />
+      <MobileScaleCTA />
       <TestimonialsPhysics testimonials={testimonials} />
     </MobileShell>
   );

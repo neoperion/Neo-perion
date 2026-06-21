@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { 
   Menu, X, ChevronDown, ArrowRight,
   Building2, PenTool, Target, ShieldCheck,
@@ -111,34 +111,34 @@ const NAV_DATA = {
       {
         title: "ABOUT NEO PERION",
         items: [
-          { label: "About Us", href: "/about", icon: Building2 },
+          { label: "About Us", href: "/company/about", icon: Building2 },
           { label: "Founder's Letter", href: "/company/founder-letter", icon: PenTool },
-          { label: "Vision & Mission", href: "/about#vision", icon: Target },
+          { label: "Vision & Mission", href: "/company/about#vision", icon: Target },
           { label: "Security", href: "/security", icon: ShieldCheck }
         ]
       },
       {
         title: "SOCIAL PROOF",
         items: [
-          { label: "Case Studies", href: "/case-studies", icon: FileText },
-          { label: "Success Stories", href: "/success-stories", icon: TrendingUp },
-          { label: "Testimonials", href: "/testimonials", icon: MessageSquare }
+          { label: "Case Studies", href: "/company/case-studies", icon: FileText },
+          { label: "Success Stories", href: "/company/success-stories", icon: TrendingUp },
+          { label: "Testimonials", href: "/company/testimonials", icon: MessageSquare }
         ]
       },
       {
         title: "CAREERS",
         items: [
-          { label: "Join Our Team", href: "/careers", icon: Briefcase },
-          { label: "Internship Program", href: "/careers/internships", icon: GraduationCap },
-          { label: "Open Positions", href: "/careers#open-roles", icon: Briefcase }
+          { label: "Join Our Team", href: "/company/careers", icon: Briefcase },
+          { label: "Internship Program", href: "/company/careers", icon: GraduationCap },
+          { label: "Open Positions", href: "/company/careers#open-roles", icon: Briefcase }
         ]
       },
       {
         title: "RESOURCES",
         items: [
-          { label: "Blog", href: "/blog", icon: BookOpen },
-          { label: "AI Newsletter", href: "/newsletter", icon: Newspaper },
-          { label: "Technology Insights", href: "/insights", icon: Cpu }
+          { label: "Blog", href: "/company/blog", icon: BookOpen },
+          { label: "AI Newsletter", href: "/company/newsletter", icon: Newspaper },
+          { label: "Technology Insights", href: "/company/insights", icon: Cpu }
         ]
       }
     ],
@@ -157,7 +157,15 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<NavKey | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -198,7 +206,11 @@ export const Header = () => {
   return (
     <>
       <header
-        className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "sticky border-b border-slate-200 bg-white/90 backdrop-blur-xl shadow-sm"
+            : "absolute border-b border-transparent bg-transparent"
+        }`}
         onMouseLeave={() => scheduleClose()}
       >
       {/* ── MAIN NAV ROW ── */}
@@ -225,7 +237,11 @@ export const Header = () => {
                 else openDropdown(key);
               }}
               className={`relative flex items-center gap-1.5 px-4 py-2 text-[15px] font-semibold transition-colors duration-200 group ${
-                activeDropdown === key ? "text-neo-blue" : "text-slate-600 hover:text-slate-900"
+                activeDropdown === key
+                  ? "text-neo-blue"
+                  : scrolled
+                    ? "text-slate-600 hover:text-slate-900"
+                    : "text-slate-700 hover:text-slate-900"
               }`}
             >
               {key}

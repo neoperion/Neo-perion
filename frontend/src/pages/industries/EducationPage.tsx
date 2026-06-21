@@ -50,6 +50,8 @@ const LMSArchitectureDiagram = () => {
               onClick={() => setActiveNode(i)}
               className={`relative z-20 flex items-center gap-5 w-full p-4 rounded-2xl border transition-all duration-500 text-left ${isActive ? 'bg-white shadow-lg shadow-cyan-100/50 border-cyan-200 scale-[1.02]' : 'bg-slate-50/50 border-slate-100 hover:bg-white hover:border-slate-200'}`}
               whileTap={{ scale: 0.98 }}
+              aria-pressed={isActive}
+              aria-label={`Select layer: ${node.title}`}
             >
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-500 ${isActive ? node.color : 'bg-slate-50 text-slate-400 border-slate-200'}`}>
                 <Icon size={28} />
@@ -98,13 +100,29 @@ export function EducationPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Education & EdTech Solutions - Neo Perion",
+    "serviceType": "Education & EdTech Solutions",
     "description": industry.heroSubtext,
-    "provider": { "@type": "Organization", "name": "Neo Perion Solutions" }
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Neo Perion Solutions",
+      "image": "https://www.neoperion.com/images/np-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      }
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "India" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Global" }
+    ]
   };
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto]">
         <SEO
           title="Education & EdTech Solutions | AI-Powered Learning Platforms | Neo Perion"
           description={industry.heroSubtext}
@@ -184,16 +202,25 @@ export function EducationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-2 gap-6"
+            >
               {industry.offerings.map((offering, i) => {
                 const Icon = offering.icon;
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className="group relative p-8 rounded-[24px] bg-slate-50 border border-slate-100 hover:border-cyan-200 hover:bg-white hover:shadow-xl hover:shadow-cyan-50 transition-all duration-500"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-50 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
@@ -207,7 +234,7 @@ export function EducationPage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -230,14 +257,23 @@ export function EducationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-4 gap-6"
+            >
               {industry.process.map((step, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 }}
+                  variants={{
+                    hidden: { opacity: 0, x: 30 },
+                    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                  }}
                   className="relative group"
                 >
                   {i < 3 && (
@@ -252,12 +288,12 @@ export function EducationPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* ═══════════════ BENEFITS BENTO GRID ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section id="benefits" className="py-24 px-6 lg:px-12 bg-white scroll-mt-20" role="region" aria-label="Why choose Neo Perion for education">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -271,7 +307,16 @@ export function EducationPage() {
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid md:grid-cols-3 gap-6"
+            >
               {industry.benefits.map((benefit, i) => {
                 const icons = [Sparkles, Zap, Star];
                 const Icon = icons[i % icons.length];
@@ -283,10 +328,10 @@ export function EducationPage() {
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${bgGradients[i]} border border-slate-100 p-10 overflow-hidden group hover:shadow-xl hover:shadow-cyan-50 transition-all duration-500`}
                   >
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
@@ -300,7 +345,7 @@ export function EducationPage() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -457,7 +502,7 @@ export function EducationPage() {
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
         {/* Hero Mobile */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -534,8 +579,9 @@ export function EducationPage() {
           </div>
         </section>
 
-        <div className="h-10 bg-[#02040A]" />
+        <div className="h-10 bg-[#030B1D]" />
       </MobileShell>
     </MobileGate>
   );
 }
+

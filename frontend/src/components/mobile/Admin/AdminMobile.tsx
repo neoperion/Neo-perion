@@ -130,7 +130,7 @@ export function AdminTable({ headers, rows }: { headers: string[]; rows: AdminTa
 export function MobileAdminShell({ title, actionLabel, onAction, children }: { title: string; actionLabel?: string; onAction?: () => void; children: React.ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <div className="md:hidden min-h-screen bg-[#030B1D]">
+    <div className="md:hidden min-h-[auto] bg-[#030B1D]">
       <AdminTopBar title={title} onMenu={() => setDrawerOpen(true)} onAction={onAction} actionLabel={actionLabel} />
       <AdminDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
       <main className="px-mobile-base pt-4 pb-mobile-4xl">{children}</main>
@@ -138,3 +138,4 @@ export function MobileAdminShell({ title, actionLabel, onAction, children }: { t
     </div>
   );
 }
+

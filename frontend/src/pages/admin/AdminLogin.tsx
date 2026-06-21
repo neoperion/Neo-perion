@@ -37,7 +37,7 @@ export const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#02040A] flex flex-col items-center justify-center p-4">
+    <div className="min-h-[auto] bg-[#02040A] flex flex-col items-center justify-center p-4">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5 pointer-events-none" />
       
       <div className="w-full max-w-md relative z-10">
@@ -111,3 +111,4 @@ export const AdminLogin: React.FC = () => {
 };
 
 export default AdminLogin;
+

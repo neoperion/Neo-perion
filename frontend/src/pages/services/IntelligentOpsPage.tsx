@@ -5,7 +5,9 @@ import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
 import { Workflow, ArrowRight, UserX, UserCheck, Calculator, DollarSign, Clock, LayoutDashboard, Send, Inbox, Database } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
+import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
 
 interface Props {
   service: ServiceData;
@@ -34,10 +36,33 @@ export function IntelligentOpsPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "serviceType": service.title,
+            "description": service.description,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Neo Perion Solutions",
+              "image": "https://www.neoperion.com/images/np-logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chennai",
+                "addressRegion": "Tamil Nadu",
+                "addressCountry": "IN"
+              }
+            },
+            "areaServed": [
+              { "@type": "Country", "name": "India" },
+              { "@type": "Country", "name": "United States" },
+              { "@type": "Country", "name": "Global" }
+            ]
+          }}
         />
         <Header />
         
@@ -172,6 +197,10 @@ export function IntelligentOpsPage({ service }: Props) {
                     type="range" min="1" max="100" value={teamSize} 
                     onChange={(e) => setTeamSize(Number(e.target.value))}
                     className="w-full accent-neo-blue h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    aria-label="Team size slider"
+                    aria-valuemin={1}
+                    aria-valuemax={100}
+                    aria-valuenow={teamSize}
                   />
                 </div>
 
@@ -185,6 +214,10 @@ export function IntelligentOpsPage({ service }: Props) {
                     type="range" min="1" max="40" value={hoursPerWeek} 
                     onChange={(e) => setHoursPerWeek(Number(e.target.value))}
                     className="w-full accent-neo-blue h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    aria-label="Manual hours per week slider"
+                    aria-valuemin={1}
+                    aria-valuemax={40}
+                    aria-valuenow={hoursPerWeek}
                   />
                 </div>
 
@@ -198,6 +231,10 @@ export function IntelligentOpsPage({ service }: Props) {
                     type="range" min="15" max="150" value={hourlyRate} step="5"
                     onChange={(e) => setHourlyRate(Number(e.target.value))}
                     className="w-full accent-neo-blue h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    aria-label="Average hourly rate slider"
+                    aria-valuemin={15}
+                    aria-valuemax={150}
+                    aria-valuenow={hourlyRate}
                   />
                 </div>
               </div>
@@ -208,12 +245,16 @@ export function IntelligentOpsPage({ service }: Props) {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 bg-slate-800 rounded-xl border border-slate-700">
                     <Clock className="text-emerald-400 mx-auto mb-2" size={24} />
-                    <div className="text-2xl font-black text-white">{hoursSavedPerYear.toLocaleString()}</div>
+                    <div className="text-2xl font-black text-white">
+                      <AnimatedNumber value={hoursSavedPerYear} />
+                    </div>
                     <div className="text-xs text-slate-400">Hours Saved</div>
                   </div>
                   <div className="text-center p-4 bg-neo-blue/10 rounded-xl border border-neo-blue/30">
                     <DollarSign className="text-neo-blue mx-auto mb-2" size={24} />
-                    <div className="text-2xl font-black text-neo-blue">${costSavedPerYear.toLocaleString()}</div>
+                    <div className="text-2xl font-black text-neo-blue">
+                      <AnimatedNumber value={costSavedPerYear} formatter={(val) => `$${val.toLocaleString()}`} />
+                    </div>
                     <div className="text-xs text-slate-400">Cost Reduced</div>
                   </div>
                 </div>
@@ -244,12 +285,16 @@ export function IntelligentOpsPage({ service }: Props) {
           </div>
         </section>
         
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
         </main>
 
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
         {/* Hero */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -323,6 +368,10 @@ export function IntelligentOpsPage({ service }: Props) {
                   onChange={(e) => setTeamSize(Number(e.target.value))}
                   className="w-full accent-neo-blue h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: service.color }}
+                  aria-label="Team size slider"
+                  aria-valuemin={1}
+                  aria-valuemax={100}
+                  aria-valuenow={teamSize}
                 />
               </div>
 
@@ -337,6 +386,10 @@ export function IntelligentOpsPage({ service }: Props) {
                   onChange={(e) => setHoursPerWeek(Number(e.target.value))}
                   className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: service.color }}
+                  aria-label="Manual hours per week slider"
+                  aria-valuemin={1}
+                  aria-valuemax={40}
+                  aria-valuenow={hoursPerWeek}
                 />
               </div>
 
@@ -351,6 +404,10 @@ export function IntelligentOpsPage({ service }: Props) {
                   onChange={(e) => setHourlyRate(Number(e.target.value))}
                   className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: service.color }}
+                  aria-label="Average hourly rate slider"
+                  aria-valuemin={15}
+                  aria-valuemax={150}
+                  aria-valuenow={hourlyRate}
                 />
               </div>
             </div>
@@ -361,12 +418,16 @@ export function IntelligentOpsPage({ service }: Props) {
               <div className="grid grid-cols-2 gap-3">
                 <div className="text-center p-3 bg-white/[0.02] rounded-xl border border-white/5">
                   <Clock className="text-emerald-400 mx-auto mb-1.5" size={16} />
-                  <div className="text-lg font-black text-white">{hoursSavedPerYear.toLocaleString()}</div>
+                  <div className="text-lg font-black text-white">
+                    <AnimatedNumber value={hoursSavedPerYear} />
+                  </div>
                   <div className="text-[9px] text-white/40 uppercase tracking-wider">Hours</div>
                 </div>
                 <div className="text-center p-3 rounded-xl border" style={{ backgroundColor: 'rgba(59,130,246,0.1)', borderColor: 'rgba(59,130,246,0.2)' }}>
                   <DollarSign className="mx-auto mb-1.5" size={16} style={{ color: service.color }} />
-                  <div className="text-lg font-black" style={{ color: service.color }}>${costSavedPerYear.toLocaleString()}</div>
+                  <div className="text-lg font-black" style={{ color: service.color }}>
+                    <AnimatedNumber value={costSavedPerYear} formatter={(val) => `$${val.toLocaleString()}`} />
+                  </div>
                   <div className="text-[9px] text-white/40 uppercase tracking-wider">Saved</div>
                 </div>
               </div>
@@ -392,7 +453,10 @@ export function IntelligentOpsPage({ service }: Props) {
           </div>
         </section>
 
-        <div className="h-10 bg-[#02040A]" />
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
       </MobileShell>
     </MobileGate>
   );
@@ -406,3 +470,4 @@ function FileText(props: any) {
 function Check(props: any) {
   return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="20 6 9 17 4 12"/></svg>;
 }
+

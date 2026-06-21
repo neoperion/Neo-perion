@@ -18,7 +18,7 @@ export const AdminLayout: React.FC = () => {
   // If still checking auth state, show a spinner
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#02040A] flex items-center justify-center">
+      <div className="min-h-[auto] bg-[#02040A] flex items-center justify-center">
         <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
       </div>
     );
@@ -42,7 +42,7 @@ export const AdminLayout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#02040A] text-slate-200 flex">
+    <div className="min-h-[auto] bg-[#02040A] text-slate-200 flex">
       {/* Mobile Sidebar Toggle */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button 
@@ -106,7 +106,7 @@ export const AdminLayout: React.FC = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 lg:ml-64 flex flex-col min-h-screen relative">
+      <main className="flex-1 lg:ml-64 flex flex-col min-h-[auto] relative">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5 pointer-events-none" />
         <div className="flex-1 p-6 md:p-10 lg:p-12 relative z-10">
           <Outlet />
@@ -123,3 +123,4 @@ export const AdminLayout: React.FC = () => {
     </div>
   );
 };
+

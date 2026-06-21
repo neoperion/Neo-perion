@@ -23,7 +23,7 @@ const BlogDetailPage = () => {
 
     if (!blog) {
         return (
-            <div className="min-h-screen flex flex-col bg-background text-foreground">
+            <div className="min-h-[auto] flex flex-col bg-background text-foreground">
                 <Header />
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
@@ -61,7 +61,7 @@ const BlogDetailPage = () => {
         .slice(0, 3);
 
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-[auto] bg-background text-foreground">
             <SEO
                 title={blog.metaTitle}
                 description={blog.metaDescription}
@@ -423,3 +423,4 @@ const BlogDetailPage = () => {
 };
 
 export default BlogDetailPage;
+

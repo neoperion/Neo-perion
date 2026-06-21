@@ -3,9 +3,23 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { ServiceData } from '@/data/servicesData';
-import { Check, X, ArrowRight, Cpu } from 'lucide-react';
+import { Cpu, CheckCircle2, ArrowRight, Activity, Zap, Shield, Database, LayoutTemplate, X } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const AnimatedCheck = ({ delay, color = "#10B981", className = "w-5 h-5" }: { delay: number; color?: string; className?: string }) => (
+  <svg className={`shrink-0 ${className}`} style={{ color }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+    <motion.polyline 
+      points="20 6 9 17 4 12" 
+      initial={{ pathLength: 0 }}
+      whileInView={{ pathLength: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+    />
+  </svg>
+);
 
 interface Props {
   service: ServiceData;
@@ -33,10 +47,33 @@ export function DeepAiEngineeringPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "serviceType": service.title,
+            "description": service.description,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Neo Perion Solutions",
+              "image": "https://www.neoperion.com/images/np-logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chennai",
+                "addressRegion": "Tamil Nadu",
+                "addressCountry": "IN"
+              }
+            },
+            "areaServed": [
+              { "@type": "Country", "name": "India" },
+              { "@type": "Country", "name": "United States" },
+              { "@type": "Country", "name": "Global" }
+            ]
+          }}
         />
         <Header />
         
@@ -144,7 +181,7 @@ export function DeepAiEngineeringPage({ service }: Props) {
                       <span className="font-medium">{row.basic}</span>
                     </div>
                     <div className="p-6 flex items-center gap-4 text-slate-900 font-bold group-hover:bg-neo-blue/[0.02] transition-colors">
-                      <Check className="text-emerald-500 shrink-0" size={20} />
+                      <AnimatedCheck delay={i * 0.1} />
                       <span>{row.advanced}</span>
                     </div>
                   </div>
@@ -176,12 +213,16 @@ export function DeepAiEngineeringPage({ service }: Props) {
           </div>
         </section>
 
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
         </main>
 
         <Footer />
       </div>
     }>
-      <MobileShell nav="bottom" showFooter>
+      <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
         {/* Hero */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
@@ -264,14 +305,14 @@ export function DeepAiEngineeringPage({ service }: Props) {
             {comparisonData.map((row, i) => (
               <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
                 <div className="flex items-start gap-3 mb-4 pb-4 border-b border-white/[0.05]">
-                  <X className="text-red-400 shrink-0 mt-0.5" size={16} />
+                  <X className="text-red-400 shrink-0" size={16} />
                   <div>
                     <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1">Basic</h3>
                     <p className="text-[13px] text-white/60 leading-tight">{row.basic}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Check className="shrink-0 mt-0.5" style={{ color: service.color }} size={16} />
+                  <AnimatedCheck delay={i * 0.1} color={service.color} className="w-4 h-4 mt-0.5" />
                   <div>
                     <h3 className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: service.color }}>Deep Engineering</h3>
                     <p className="text-[13px] text-white font-medium leading-tight">{row.advanced}</p>
@@ -300,8 +341,12 @@ export function DeepAiEngineeringPage({ service }: Props) {
           </div>
         </section>
 
-        <div className="h-10 bg-[#02040A]" />
+        <TechStack />
+        <BusinessOutcomes />
+        <EnterpriseCTA />
+        <FooterTransition />
       </MobileShell>
     </MobileGate>
   );
 }
+

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -9,6 +8,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArrowLeft, MapPin, Clock, Briefcase, Upload, CheckCircle2, AlertCircle } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { SEO } from '@/components/SEO';
+import { motion } from 'framer-motion';
 
 const applicationSchema = z.object({
   full_name: z.string().min(2, 'Name is required'),
@@ -124,7 +125,7 @@ export default function CareerDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#02040A] text-white flex items-center justify-center">
+      <div className="min-h-[auto] bg-[#02040A] text-white flex items-center justify-center">
         <div className="w-8 h-8 rounded-full border-2 border-neo-blue border-t-transparent animate-spin"></div>
       </div>
     );
@@ -132,192 +133,296 @@ export default function CareerDetail() {
 
   if (!job) return null;
 
-  const renderContent = () => (
-    <>
-      <button 
-        onClick={() => navigate('/company/careers')}
-        className="flex items-center gap-2 text-slate-400 hover:text-neo-blue transition-colors mb-12"
+  const getEmploymentTypeForSchema = (typeStr: string) => {
+    const t = (typeStr || '').toLowerCase();
+    if (t.includes('full')) return 'FULL_TIME';
+    if (t.includes('part')) return 'PART_TIME';
+    if (t.includes('contract')) return 'CONTRACTOR';
+    if (t.includes('intern')) return 'INTERN';
+    return 'FULL_TIME';
+  };
+
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": job.title,
+    "description": job.description,
+    "datePosted": job.created_at || new Date().toISOString(),
+    "employmentType": getEmploymentTypeForSchema(job.employment_type || job.type || 'Full Time'),
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Neo Perion Solutions",
+      "sameAs": "https://www.neoperion.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.neoperion.com/images/np-logo.png"
+      }
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": job.location || "Chennai, Tamil Nadu (Hybrid)",
+        "addressCountry": "IN"
+      }
+    },
+    "experienceRequirements": job.experience_level || undefined,
+    "industry": job.department || undefined
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15 
+      } 
+    }
+  };
+
+  const renderContent = (theme: 'light' | 'dark' = 'dark') => {
+    const isLight = theme === 'light';
+    return (
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="w-full text-left"
       >
-        <ArrowLeft size={16} /> Back to careers
-      </button>
+        <motion.button 
+          variants={itemVariants}
+          onClick={() => navigate('/company/careers')}
+          className={`flex items-center gap-2 transition-colors mb-12 text-sm font-semibold ${isLight ? 'text-zinc-500 hover:text-neo-blue' : 'text-slate-400 hover:text-neo-blue'}`}
+        >
+          <ArrowLeft size={16} /> Back to careers
+        </motion.button>
 
-      <header className="mb-12">
-        <h1 className="text-4xl lg:text-5xl font-black text-white mb-6">{job.title}</h1>
-        <div className="flex flex-wrap items-center gap-6 text-sm text-slate-300">
-          <span className="flex items-center gap-2"><Briefcase size={16} className="text-neo-blue" /> {job.department}</span>
-          <span className="flex items-center gap-2"><MapPin size={16} className="text-neo-blue" /> {job.location}</span>
-          <span className="flex items-center gap-2"><Clock size={16} className="text-neo-blue" /> {job.employment_type || 'Full Time'}</span>
-          {job.experience_level && <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-neo-blue" /> {job.experience_level}</span>}
-        </div>
-      </header>
+        <motion.header variants={itemVariants} className="mb-12">
+          <h1 className={`text-4xl lg:text-5xl font-black mb-6 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>{job.title}</h1>
+          <div className={`flex flex-wrap items-center gap-6 text-sm ${isLight ? 'text-zinc-500 font-medium' : 'text-slate-300'}`}>
+            <span className="flex items-center gap-2"><Briefcase size={16} className="text-neo-blue" /> {job.department}</span>
+            <span className="flex items-center gap-2"><MapPin size={16} className="text-neo-blue" /> {job.location}</span>
+            <span className="flex items-center gap-2"><Clock size={16} className="text-neo-blue" /> {job.employment_type || job.type || 'Full Time'}</span>
+            {job.experience_level && <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-neo-blue" /> {job.experience_level}</span>}
+          </div>
+        </motion.header>
 
-      <div className="grid lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2 space-y-12">
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">About the Role</h2>
-            <div className="prose prose-invert max-w-none text-slate-300">
-              <p className="whitespace-pre-wrap">{job.description}</p>
-            </div>
-          </section>
-
-          {job.responsibilities && job.responsibilities.length > 0 && (
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">What you will do</h2>
-              <ul className="space-y-3">
-                {job.responsibilities.map((req: string, i: number) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-300">
-                    <CheckCircle2 size={20} className="text-neo-blue shrink-0 mt-0.5" />
-                    <span>{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {job.requirements && job.requirements.length > 0 && (
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">What we are looking for</h2>
-              <ul className="space-y-3">
-                {job.requirements.map((req: string, i: number) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-neo-blue mt-2.5 shrink-0" />
-                    <span>{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-        </div>
-
-        <div className="lg:col-span-1">
-          <div className="sticky top-32 p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-            <h3 className="text-xl font-bold text-white mb-6">Apply for this position</h3>
-            
-            {success ? (
-              <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20 text-center">
-                <CheckCircle2 className="mx-auto text-green-400 mb-4" size={32} />
-                <h4 className="text-lg font-bold text-white mb-2">Application Submitted!</h4>
-                <p className="text-sm text-green-200">We've received your application and will be in touch soon.</p>
+        <div className="grid lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-2 space-y-12">
+            <motion.section variants={itemVariants}>
+              <h2 className={`text-2xl font-bold mb-4 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>About the Role</h2>
+              <div className={`prose max-w-none ${isLight ? 'prose-zinc text-zinc-700' : 'prose-invert text-slate-300'}`}>
+                <p className="whitespace-pre-wrap leading-relaxed">{job.description}</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                {errorMsg && (
-                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-2">
-                    <AlertCircle size={16} /> {errorMsg}
-                  </div>
-                )}
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Full Name *</label>
-                  <input 
-                    {...register('full_name')}
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
-                    placeholder="Jane Doe"
-                  />
-                  {errors.full_name && <p className="text-red-400 text-xs mt-1">{errors.full_name.message}</p>}
-                </div>
+            </motion.section>
 
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Email *</label>
-                  <input 
-                    {...register('email')}
-                    type="email"
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
-                    placeholder="jane@example.com"
-                  />
-                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
-                </div>
+            {job.responsibilities && job.responsibilities.length > 0 && (
+              <motion.section variants={itemVariants}>
+                <h2 className={`text-2xl font-bold mb-4 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>What you will do</h2>
+                <ul className="space-y-3">
+                  {job.responsibilities.map((req: string, i: number) => (
+                    <li key={i} className={`flex items-start gap-3 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>
+                      <CheckCircle2 size={20} className="text-neo-blue shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{req}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.section>
+            )}
 
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone</label>
-                  <input 
-                    {...register('phone')}
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Resume * (PDF, max 5MB)</label>
-                  <div className="relative">
-                    <input 
-                      type="file" 
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="hidden"
-                      id="resume-upload"
-                    />
-                    <label 
-                      htmlFor="resume-upload"
-                      className="flex items-center justify-center gap-2 w-full bg-black/50 border border-dashed border-white/20 hover:border-neo-blue/50 rounded-lg px-4 py-4 text-slate-300 cursor-pointer transition-colors"
-                    >
-                      <Upload size={18} />
-                      <span className="text-sm">{resumeFile ? resumeFile.name : 'Upload Resume'}</span>
-                    </label>
-                  </div>
-                  {resumeError && <p className="text-red-400 text-xs mt-1">{resumeError}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">LinkedIn URL</label>
-                  <input 
-                    {...register('linkedin')}
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors"
-                    placeholder="https://linkedin.com/in/..."
-                  />
-                  {errors.linkedin && <p className="text-red-400 text-xs mt-1">{errors.linkedin.message}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Cover Letter / Note</label>
-                  <textarea 
-                    {...register('cover_letter')}
-                    rows={3}
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-neo-blue transition-colors resize-none"
-                    placeholder="Tell us why you'd be a great fit..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full py-3.5 rounded-lg bg-neo-blue text-black font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
-                >
-                  {submitting ? 'Submitting...' : 'Submit Application'}
-                </button>
-              </form>
+            {job.requirements && job.requirements.length > 0 && (
+              <motion.section variants={itemVariants}>
+                <h2 className={`text-2xl font-bold mb-4 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>What we are looking for</h2>
+                <ul className="space-y-3">
+                  {job.requirements.map((req: string, i: number) => (
+                    <li key={i} className={`flex items-start gap-3 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>
+                      <div className="w-1.5 h-1.5 rounded-full bg-neo-blue mt-2.5 shrink-0" />
+                      <span className="leading-relaxed">{req}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.section>
             )}
           </div>
+
+          <motion.div variants={itemVariants} className="lg:col-span-1">
+            <div className={`sticky top-32 p-6 rounded-2xl border transition-all ${isLight ? 'border-zinc-200 bg-white shadow-md' : 'border-white/10 bg-white/[0.02]'}`}>
+              <h3 className={`text-xl font-bold mb-6 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Apply for this position</h3>
+              
+              {success ? (
+                <div className={`p-6 rounded-xl border text-center ${isLight ? 'bg-green-50 border-green-200' : 'bg-green-500/10 border-green-500/20'}`}>
+                  <CheckCircle2 className="mx-auto text-green-400 mb-4 animate-bounce" size={32} />
+                  <h4 className={`text-lg font-bold mb-2 ${isLight ? 'text-green-800' : 'text-white'}`}>Application Submitted!</h4>
+                  <p className={`text-sm ${isLight ? 'text-green-600 font-medium' : 'text-green-200'}`}>We've received your application and will be in touch soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  {errorMsg && (
+                    <div className={`p-3 rounded-lg border text-sm flex items-center gap-2 ${isLight ? 'bg-red-50 border-red-200 text-red-700' : 'bg-red-500/10 border-red-500/20 text-red-400'}`}>
+                      <AlertCircle size={16} /> {errorMsg}
+                    </div>
+                  )}
+                  
+                  <div>
+                    <label htmlFor="full_name" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Full Name *</label>
+                    <input 
+                      id="full_name"
+                      {...register('full_name')}
+                      aria-required="true"
+                      aria-invalid={errors.full_name ? 'true' : 'false'}
+                      aria-describedby={errors.full_name ? 'full_name_error' : undefined}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="Jane Doe"
+                    />
+                    {errors.full_name && <p id="full_name_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.full_name.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Email *</label>
+                    <input 
+                      id="email"
+                      {...register('email')}
+                      type="email"
+                      aria-required="true"
+                      aria-invalid={errors.email ? 'true' : 'false'}
+                      aria-describedby={errors.email ? 'email_error' : undefined}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="jane@example.com"
+                    />
+                    {errors.email && <p id="email_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.email.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Phone</label>
+                    <input 
+                      id="phone"
+                      {...register('phone')}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="resume-upload" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Resume * (PDF, max 5MB)</label>
+                    <div className="relative">
+                      <input 
+                        type="file" 
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        className="hidden"
+                        id="resume-upload"
+                        aria-required="true"
+                        aria-invalid={resumeError ? 'true' : 'false'}
+                        aria-describedby={resumeError ? 'resume_error' : undefined}
+                      />
+                      <label 
+                        htmlFor="resume-upload"
+                        className={`flex items-center justify-center gap-2 w-full border border-dashed rounded-lg px-4 py-4 cursor-pointer transition-colors ${isLight ? 'bg-white border-zinc-200 hover:border-neo-blue/50 text-zinc-700' : 'bg-black/50 border-white/20 hover:border-neo-blue/50 text-slate-300'}`}
+                      >
+                        <Upload size={18} />
+                        <span className="text-sm">{resumeFile ? resumeFile.name : 'Upload Resume'}</span>
+                      </label>
+                    </div>
+                    {resumeError && <p id="resume_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{resumeError}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="linkedin" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>LinkedIn URL</label>
+                    <input 
+                      id="linkedin"
+                      {...register('linkedin')}
+                      aria-invalid={errors.linkedin ? 'true' : 'false'}
+                      aria-describedby={errors.linkedin ? 'linkedin_error' : undefined}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="https://linkedin.com/in/..."
+                    />
+                    {errors.linkedin && <p id="linkedin_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.linkedin.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="portfolio" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Portfolio / Website URL</label>
+                    <input 
+                      id="portfolio"
+                      {...register('portfolio')}
+                      aria-invalid={errors.portfolio ? 'true' : 'false'}
+                      aria-describedby={errors.portfolio ? 'portfolio_error' : undefined}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="https://mywork.com"
+                    />
+                    {errors.portfolio && <p id="portfolio_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.portfolio.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="cover_letter" className={`block text-sm font-semibold mb-1.5 ${isLight ? 'text-zinc-700' : 'text-slate-300'}`}>Cover Letter / Note</label>
+                    <textarea 
+                      id="cover_letter"
+                      {...register('cover_letter')}
+                      rows={3}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors resize-none focus:outline-none focus:border-neo-blue ${isLight ? 'bg-white border-zinc-200 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-slate-500'}`}
+                      placeholder="Tell us why you'd be a great fit..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className={`w-full py-3.5 rounded-lg font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4 ${isLight ? 'bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm' : 'bg-neo-blue text-black hover:bg-neo-blue/90'}`}
+                  >
+                    {submitting ? 'Submitting...' : 'Submit Application'}
+                  </button>
+                </form>
+              )}
+            </div>
+          </motion.div>
         </div>
-      </div>
-    </>
-  );
+      </motion.div>
+    );
+  };
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-screen bg-[#02040A] text-white selection:bg-neo-blue/30">
-        <Helmet>
-          <title>{job.title} | Careers | Neo Perion</title>
-          <meta name="description" content={job.description.substring(0, 160)} />
-        </Helmet>
+      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+        <SEO 
+          title={`${job.title} | Build the Future | Neo Perion`}
+          description={job.description.substring(0, 160)}
+          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
+          jsonLd={jobPostingSchema}
+        />
         <Header />
-        <main className="pt-32 pb-24">
-          <div className="max-w-4xl mx-auto px-8">
-            {renderContent()}
+        <main className="pt-32 pb-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+          <div className="max-w-4xl mx-auto px-8 relative z-10">
+            {renderContent('light')}
           </div>
         </main>
         <Footer />
       </div>
     }>
       <MobileShell nav="bottom" showFooter>
-        <Helmet>
-          <title>{job.title} | Careers | Neo Perion</title>
-          <meta name="description" content={job.description.substring(0, 160)} />
-        </Helmet>
+        <SEO 
+          title={`${job.title} | Careers | Neo Perion`}
+          description={job.description.substring(0, 160)}
+          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
+          jsonLd={jobPostingSchema}
+        />
         <div className="pt-8 pb-8 px-6">
-          {renderContent()}
+          {renderContent('dark')}
         </div>
       </MobileShell>
     </MobileGate>
   );
 }
+
