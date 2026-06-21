@@ -1,44 +1,23 @@
 import { useState, useRef, useEffect } from "react";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  ArrowRight,
-  Brain,
-  Cog,
-  Blocks,
-  Cloud,
-  Smartphone,
-  Rocket,
-  Sparkles,
-  Lightbulb,
-  GraduationCap,
-  Building2,
-  HeartPulse,
-  FileText,
-  TrendingUp,
-  MessageSquare,
-  Briefcase,
-  BookOpen,
-  Newspaper,
-} from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { MobileMenuV2 } from "@/components/mobile/Navigation/MobileMenuV2";
 
-interface NavLink {
+interface Row {
   label: string;
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
 }
 
 interface DropdownMenu {
   kind: "dropdown";
   label: string;
-  links: NavLink[];
-  cta?: { prompt: string; buttonText: string; href: string };
+  panelTitle: string;
+  description: string;
+  viewAll: { label: string; href: string };
+  rows: Row[];
 }
 
 interface DirectLink {
@@ -53,43 +32,51 @@ const NAV: NavItem[] = [
   {
     kind: "dropdown",
     label: "Services",
-    links: [
-      { label: "AI Systems", href: "/services/ai-systems-automation", icon: Brain },
-      { label: "Deep AI Engineering", href: "/services/deep-ai-engineering", icon: Sparkles },
-      { label: "Intelligent Operations", href: "/services/intelligent-operations-automation", icon: Cog },
-      { label: "Enterprise Product", href: "/services/enterprise-product-engineering", icon: Blocks },
-      { label: "Cloud-Native Web", href: "/services/cloud-native-web-platforms", icon: Cloud },
-      { label: "Mobile Engineering", href: "/services/mobile-product-engineering", icon: Smartphone },
-      { label: "Startup-to-Scale", href: "/services/startup-to-scale-engineering", icon: Rocket },
-      { label: "All Services", href: "/services", icon: Lightbulb },
+    panelTitle: "What we do",
+    description:
+      "We design, build, and ship production-grade AI platforms, SaaS products, and automation — from first architecture to long-term scale. Senior engineers only, no offshoring.",
+    viewAll: { label: "View all services", href: "/services" },
+    rows: [
+      { label: "AI Systems", href: "/services/ai-systems-automation" },
+      { label: "Deep AI Engineering", href: "/services/deep-ai-engineering" },
+      { label: "Intelligent Operations", href: "/services/intelligent-operations-automation" },
+      { label: "Enterprise Product", href: "/services/enterprise-product-engineering" },
+      { label: "Cloud-Native Web", href: "/services/cloud-native-web-platforms" },
+      { label: "Mobile Engineering", href: "/services/mobile-product-engineering" },
+      { label: "Startup-to-Scale", href: "/services/startup-to-scale-engineering" },
     ],
-    cta: { prompt: "Not sure where to start?", buttonText: "Book a free consultation", href: "/contact" },
   },
   { kind: "link", label: "Work", href: "/company/case-studies" },
   { kind: "link", label: "Pricing", href: "#engagement" },
   {
     kind: "dropdown",
     label: "Industries",
-    links: [
-      { label: "Education & EdTech", href: "/industries/education", icon: GraduationCap },
-      { label: "Startups & Founders", href: "/industries/startups", icon: Rocket },
-      { label: "SMBs & Enterprise", href: "/industries/smbs", icon: Building2 },
-      { label: "Healthcare", href: "/industries/healthcare", icon: HeartPulse },
+    panelTitle: "Industries we serve",
+    description:
+      "We partner with teams across regulated and high-growth sectors, building scalable, secure products tuned to each domain's constraints.",
+    viewAll: { label: "Explore industries", href: "/industries" },
+    rows: [
+      { label: "Education & EdTech", href: "/industries/education" },
+      { label: "Startups & Founders", href: "/industries/startups" },
+      { label: "SMBs & Enterprise", href: "/industries/smbs" },
+      { label: "Healthcare", href: "/industries/healthcare" },
     ],
   },
   {
     kind: "dropdown",
     label: "About",
-    links: [
-      { label: "About Us", href: "/company/about", icon: Building2 },
-      { label: "Success Stories", href: "/company/success-stories", icon: TrendingUp },
-      { label: "Testimonials", href: "/company/testimonials", icon: MessageSquare },
-      { label: "Case Studies", href: "/company/case-studies", icon: FileText },
-      { label: "Careers", href: "/company/careers", icon: Briefcase },
-      { label: "Blog", href: "/company/blog", icon: BookOpen },
-      { label: "Newsletter", href: "/company/newsletter", icon: Newspaper },
+    panelTitle: "About Neo Perion",
+    description:
+      "Who we are, the work we've shipped, and how we keep partnering with teams long after launch.",
+    viewAll: { label: "About us", href: "/company/about" },
+    rows: [
+      { label: "Our Story", href: "/company/about" },
+      { label: "Success Stories", href: "/company/success-stories" },
+      { label: "Testimonials", href: "/company/testimonials" },
+      { label: "Case Studies", href: "/company/case-studies" },
+      { label: "Careers", href: "/company/careers" },
+      { label: "Blog & Insights", href: "/company/blog" },
     ],
-    cta: { prompt: "Let's build together.", buttonText: "Schedule a call", href: "/contact" },
   },
 ];
 
@@ -129,10 +116,13 @@ export const Header = () => {
     closeTimer.current = setTimeout(() => setActiveDropdown(null), 160);
   };
 
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    if (openTimer.current) clearTimeout(openTimer.current);
-  }, []);
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+      if (openTimer.current) clearTimeout(openTimer.current);
+    },
+    [],
+  );
 
   const active = NAV.find((n) => n.kind === "dropdown" && n.label === activeDropdown) as
     | DropdownMenu
@@ -145,7 +135,7 @@ export const Header = () => {
         onMouseLeave={scheduleClose}
       >
         <nav className="container relative mx-auto flex h-[76px] items-center justify-between px-6">
-          {/* Logo — crisp text wordmark, scaled up */}
+          {/* Logo */}
           <a
             href="/"
             onClick={(e) => {
@@ -160,7 +150,7 @@ export const Header = () => {
             </span>
           </a>
 
-          {/* Desktop nav — centered */}
+          {/* Centered nav */}
           <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 md:flex">
             {NAV.map((item) =>
               item.kind === "dropdown" ? (
@@ -172,15 +162,21 @@ export const Header = () => {
                       ? setActiveDropdown(null)
                       : openDropdown(item.label)
                   }
-                  className={`flex items-center gap-1 rounded-lg px-3 py-2 text-[14px] font-medium transition-colors duration-150 ${
+                  className={`relative flex items-center gap-1 px-4 py-2 text-[15px] font-medium transition-colors duration-150 ${
                     activeDropdown === item.label ? "text-ink" : "text-muted2 hover:text-ink"
                   }`}
                 >
                   {item.label}
                   <ChevronDown
-                    size={13}
+                    size={14}
                     className={`mt-0.5 opacity-60 transition-transform duration-200 ${
                       activeDropdown === item.label ? "rotate-180 opacity-100" : ""
+                    }`}
+                  />
+                  {/* active underline indicator */}
+                  <span
+                    className={`absolute -bottom-[27px] left-3 right-3 h-0.5 rounded-full bg-brand transition-opacity duration-200 ${
+                      activeDropdown === item.label ? "opacity-100" : "opacity-0"
                     }`}
                   />
                 </button>
@@ -189,7 +185,7 @@ export const Header = () => {
                   key={item.label}
                   onMouseEnter={scheduleClose}
                   onClick={() => handleNavigation(item.href)}
-                  className="rounded-lg px-3 py-2 text-[14px] font-medium text-muted2 transition-colors duration-150 hover:text-ink"
+                  className="px-4 py-2 text-[15px] font-medium text-muted2 transition-colors duration-150 hover:text-ink"
                 >
                   {item.label}
                 </button>
@@ -205,9 +201,8 @@ export const Header = () => {
               className="hidden md:inline-flex"
               onClick={() => handleNavigation("/contact")}
             >
-              Book a call
+              Get in touch
             </Button>
-
             <button
               aria-label="Open menu"
               className="flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-canvas md:hidden"
@@ -218,50 +213,56 @@ export const Header = () => {
           </div>
         </nav>
 
-        {/* Full-width dropdown — flush to the bar, square corners */}
+        {/* Full-width editorial dropdown (KnacForge-style) */}
         <AnimatePresence>
           {active && (
             <motion.div
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute left-0 right-0 top-full hidden border-b border-hairline bg-paper shadow-[0_20px_40px_rgba(15,23,42,0.08)] md:block"
+              transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute left-0 right-0 top-full hidden border-b border-hairline bg-paper shadow-[0_24px_48px_rgba(15,23,42,0.08)] md:block"
               onMouseEnter={() => {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
               }}
               onMouseLeave={scheduleClose}
             >
-              <div className="container mx-auto max-w-[1200px] px-6">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-1 py-6 md:grid-cols-3 lg:grid-cols-4">
-                  {active.links.map((link) => {
-                    const Icon = link.icon;
-                    return (
-                      <button
-                        key={link.label}
-                        onClick={() => handleNavigation(link.href)}
-                        className="group flex items-center gap-3 rounded-[10px] px-3 py-3 text-left transition-colors hover:bg-canvas"
-                      >
-                        <Icon className="h-[18px] w-[18px] shrink-0 text-faint transition-colors group-hover:text-brand" />
-                        <span className="text-[14px] font-medium text-body transition-colors group-hover:text-ink">
-                          {link.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                {active.cta && (
+              <div className="container mx-auto grid max-w-[1200px] grid-cols-12 gap-x-16 px-6 py-12">
+                {/* Left — title + description + view all */}
+                <div className="col-span-12 flex flex-col lg:col-span-5">
+                  <h3 className="font-display text-[28px] font-bold leading-tight tracking-tight text-ink">
+                    {active.panelTitle}
+                  </h3>
+                  <p className="mt-5 max-w-md text-[15px] leading-relaxed text-body">
+                    {active.description}
+                  </p>
                   <button
-                    onClick={() => handleNavigation(active.cta!.href)}
-                    className="group flex w-full items-center justify-between border-t border-hairline py-4 text-left"
+                    onClick={() => handleNavigation(active.viewAll.href)}
+                    className="mt-8 inline-flex w-fit items-center rounded-full border border-brand px-6 py-3 text-sm font-semibold text-brand transition-colors duration-200 hover:bg-brand hover:text-white"
                   >
-                    <span className="text-[13px] text-muted2">{active.cta.prompt}</span>
-                    <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-brand">
-                      {active.cta.buttonText}
-                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
+                    {active.viewAll.label}
                   </button>
-                )}
+                </div>
+
+                {/* Right — big rows with circular arrow */}
+                <div className="col-span-12 mt-8 lg:col-span-7 lg:mt-0">
+                  {active.rows.map((row, idx) => (
+                    <button
+                      key={row.href + idx}
+                      onClick={() => handleNavigation(row.href)}
+                      className={`group flex w-full items-center justify-between gap-6 py-5 text-left ${
+                        idx === 0 ? "" : "border-t border-hairline"
+                      }`}
+                    >
+                      <span className="text-[22px] font-medium tracking-tight text-ink transition-colors group-hover:text-brand">
+                        {row.label}
+                      </span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-white transition-all duration-200 group-hover:bg-brand-hover">
+                        <ChevronRight size={18} />
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
