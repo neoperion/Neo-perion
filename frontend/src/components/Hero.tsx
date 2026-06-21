@@ -51,13 +51,6 @@ export const Hero = () => {
             </button>
           </div>
 
-          {/* Availability — single static dot, no ping */}
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas px-3 py-1.5">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted2">
-              Currently booking projects for Q3 2026
-            </span>
-          </div>
         </div>
 
         {/* Right — real product screenshot */}

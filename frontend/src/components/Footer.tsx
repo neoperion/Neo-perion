@@ -50,8 +50,8 @@ export const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="border-t border-hairline bg-canvas text-muted2">
-      <div className="container mx-auto max-w-[1200px] px-6 pb-8 pt-16 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-hairline bg-canvas text-muted2">
+      <div className="container relative z-10 mx-auto max-w-[1200px] px-6 pb-4 pt-16 lg:px-8">
         {/* Slim CTA strip */}
         <div className="mb-16 flex flex-col items-start justify-between gap-4 border-b border-hairline pb-12 sm:flex-row sm:items-center">
           <p className="text-base font-medium text-ink">
@@ -64,6 +64,13 @@ export const Footer = () => {
             Start your project
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </button>
+        </div>
+
+        {/* Giant faded brand wordmark — top of footer */}
+        <div aria-hidden className="pointer-events-none mb-14 select-none overflow-hidden">
+          <div className="whitespace-nowrap text-center font-logo text-[clamp(20px,7vw,80px)] leading-none text-ink/[0.05]">
+            NEO PERION
+          </div>
         </div>
 
         {/* Links */}
