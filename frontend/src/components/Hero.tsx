@@ -1,67 +1,60 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { useMagnetic } from "@/hooks/useMagnetic";
-import { Button } from "@/components/ui/button";
-import { Section } from "@/components/marketing/Section";
-import { BrowserFrame } from "@/components/marketing/BrowserFrame";
+import LiquidEther from "@/components/LiquidEther";
 
 export const Hero = () => {
   const navigate = useNavigate();
-  const primaryBtnRef = useMagnetic(40);
-
-  const scrollToWork = () => {
-    navigate("/company/case-studies");
-  };
 
   return (
-    <Section bg="paper" rhythm="hero" className="overflow-hidden" innerClassName="relative z-10">
-      {/* Subtle background grid — quiet texture, no glow */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-paper">
+      {/* Ambient blue fluid */}
+      <div className="absolute inset-0 z-0 opacity-90">
+        <LiquidEther
+          colors={["#1E5DFF", "#4AA8FF", "#A9C5FF"]}
+          mouseForce={26}
+          cursorSize={110}
+          autoDemo
+          autoSpeed={0.5}
+          autoIntensity={2.4}
+          resolution={0.5}
+          isBounce={false}
+        />
+      </div>
 
-      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-        {/* Left — content */}
-        <div className="flex flex-col items-start text-left lg:col-span-6">
-          <h1 className="font-display text-[clamp(40px,7vw,64px)] font-bold leading-[1.05] tracking-[-0.03em] text-ink">
-            The product engineering firm that{" "}
-            <span className="text-brand">doesn&apos;t disappear</span> after launch.
-          </h1>
+      {/* Fade to white only at the very bottom for a clean section transition */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent to-paper" />
 
-          <p className="mt-6 max-w-[36ch] text-lg leading-relaxed text-body">
-            AI-native platforms, SaaS infrastructure, and enterprise automation — engineered for
-            production from day one. Built by senior engineers, shipped in weeks.
-          </p>
-
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <Button
-              ref={primaryBtnRef}
-              variant="brand"
-              size="lg"
-              onClick={() => navigate("/contact")}
-            >
-              Book a strategy call
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-            <button
-              onClick={scrollToWork}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted2 transition-colors hover:text-brand"
-            >
-              See our work
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+        <div className="grid items-center gap-x-12 gap-y-10 lg:grid-cols-12">
+          {/* Headline */}
+          <div className="lg:col-span-7">
+            <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">
+              <span className="block text-ink">Together we</span>
+              <span className="block text-brand">Build.</span>
+            </h1>
           </div>
 
-        </div>
-
-        {/* Right — real product screenshot */}
-        <div className="lg:col-span-6">
-          <BrowserFrame
-            src="/images/home/hero-product.svg"
-            alt="Neo Perion product dashboard"
-            ratio="16/10"
-          />
+          {/* Right support block (Accenture-style) */}
+          <div className="lg:col-span-5">
+            <div className="mb-6 h-1 w-12 rounded-full bg-brand" />
+            <h2 className="text-xl font-bold text-ink">Built for what comes next</h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-body">
+              In a world of constant change, durable engineering wins. We help teams ship AI-native
+              products in weeks — and keep evolving them long after launch.
+            </p>
+            <button
+              onClick={() => navigate("/services")}
+              className="group mt-7 inline-flex items-center gap-3 text-[15px] font-semibold text-ink"
+            >
+              See what we do
+              <span className="flex h-7 w-7 items-center justify-center bg-brand transition-transform duration-200 group-hover:translate-x-0.5">
+                <ArrowRight className="h-4 w-4 text-white" />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 };

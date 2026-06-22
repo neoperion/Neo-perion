@@ -47,7 +47,6 @@ const NAV: NavItem[] = [
     ],
   },
   { kind: "link", label: "Work", href: "/company/case-studies" },
-  { kind: "link", label: "Pricing", href: "#engagement" },
   {
     kind: "dropdown",
     label: "Industries",
@@ -78,14 +77,22 @@ const NAV: NavItem[] = [
   },
 ];
 
-export const Header = () => {
+export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavigation = (href: string) => {
     setActiveDropdown(null);
@@ -126,13 +133,20 @@ export const Header = () => {
     | DropdownMenu
     | undefined;
 
+  // Light (white) treatment when sitting transparently over a dark hero.
+  const light = heroDark && !scrolled && !active;
+
   return (
     <>
       <header
-        className="fixed left-0 right-0 top-0 z-50 border-b border-hairline bg-paper/90 backdrop-blur-xl"
+        className={`fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
+          scrolled || active
+            ? "border-hairline bg-paper/90 backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        }`}
         onMouseLeave={scheduleClose}
       >
-        <nav className="container relative mx-auto flex h-[76px] items-center justify-between px-6">
+        <nav className="relative mx-auto flex h-[76px] max-w-[1200px] items-center justify-between px-6 lg:px-8">
           {/* Logo */}
           <a
             href="/"
@@ -144,7 +158,8 @@ export const Header = () => {
           >
             <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
             <span className="font-logo text-[14px] leading-none">
-              <span className="text-ink">NEO</span> <span className="text-brand">PERION</span>
+              <span className={light ? "text-white" : "text-ink"}>NEO</span>{" "}
+              <span className="text-brand">PERION</span>
             </span>
           </a>
 
@@ -161,7 +176,11 @@ export const Header = () => {
                       : openDropdown(item.label)
                   }
                   className={`relative flex items-center gap-1 px-4 py-2 text-[15px] font-medium transition-colors duration-150 ${
-                    activeDropdown === item.label ? "text-ink" : "text-muted2 hover:text-ink"
+                    activeDropdown === item.label
+                      ? "text-ink"
+                      : light
+                        ? "text-white/80 hover:text-white"
+                        : "text-muted2 hover:text-ink"
                   }`}
                 >
                   {item.label}
@@ -183,7 +202,9 @@ export const Header = () => {
                   key={item.label}
                   onMouseEnter={scheduleClose}
                   onClick={() => handleNavigation(item.href)}
-                  className="px-4 py-2 text-[15px] font-medium text-muted2 transition-colors duration-150 hover:text-ink"
+                  className={`px-4 py-2 text-[15px] font-medium transition-colors duration-150 ${
+                    light ? "text-white/80 hover:text-white" : "text-muted2 hover:text-ink"
+                  }`}
                 >
                   {item.label}
                 </button>

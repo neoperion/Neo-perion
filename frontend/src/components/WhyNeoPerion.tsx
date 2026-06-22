@@ -1,173 +1,172 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { BrainCircuit, ShieldCheck, Gauge, Server, HeartHandshake } from "lucide-react";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import {
+  Sparkles,
+  Layers,
+  Gauge,
+  Shapes,
+  MessagesSquare,
+  Cpu,
+  HeartHandshake,
+} from "lucide-react";
 
-import { Section } from "@/components/marketing/Section";
-import { SectionHeading } from "@/components/marketing/SectionHeading";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+interface Reason {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  desc: string;
+  chips: [string, string];
+}
 
-export const WhyNeoPerion = () => {
-  const reduce = useReducedMotion();
-  const rise = reduce ? 0 : 14;
-  const reveal = (i: number) => ({
-    initial: { opacity: 0, y: rise },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-60px" },
-    transition: { duration: 0.45, delay: i * 0.06, ease: [0.4, 0, 0.2, 1] as const },
-  });
+const REASONS: Reason[] = [
+  {
+    icon: Sparkles,
+    title: "AI-First Development",
+    desc: "We leverage AI across the entire lifecycle to accelerate delivery, improve quality, and reduce cost — without ever compromising reliability.",
+    chips: ["Faster delivery", "Higher quality"],
+  },
+  {
+    icon: Layers,
+    title: "End-to-End Product Ownership",
+    desc: "From strategy and architecture to development, deployment, and scaling — we own the complete journey so you can focus on growth.",
+    chips: ["Strategy → Scale", "One accountable team"],
+  },
+  {
+    icon: Gauge,
+    title: "Startup Speed, Enterprise Quality",
+    desc: "We pair rapid execution with scalable architecture, so your product is built for today's needs and tomorrow's growth.",
+    chips: ["Weeks, not quarters", "Production-grade"],
+  },
+  {
+    icon: Shapes,
+    title: "Tailored Solutions, Not Templates",
+    desc: "Every business is unique. We design and develop custom solutions aligned with your goals, workflows, and long-term vision.",
+    chips: ["Built around you", "No cookie-cutter"],
+  },
+  {
+    icon: MessagesSquare,
+    title: "Transparent Collaboration",
+    desc: "Clear communication, milestone-based execution, and continuous feedback keep you informed and involved at every step.",
+    chips: ["Milestone-based", "Always in the loop"],
+  },
+  {
+    icon: Cpu,
+    title: "Future-Ready Technology",
+    desc: "We build with modern frameworks, cloud infrastructure, automation, and AI capabilities that keep your business ahead of the curve.",
+    chips: ["Cloud-native", "AI-ready"],
+  },
+  {
+    icon: HeartHandshake,
+    title: "Your Long-Term Technology Partner",
+    desc: "Our relationship doesn't end at launch. We provide ongoing support, optimization, and strategic guidance as your product evolves.",
+    chips: ["We don't disappear", "Years, not months"],
+  },
+];
 
+function Stage({ reason, index }: { reason: Reason; index: number }) {
+  const Icon = reason.icon;
   return (
-    <Section id="why-us" bg="canvas" rhythm="primary" divider>
-      <SectionHeading
-        eyebrow="Why Neo Perion"
-        title="Built for scale, engineered to last"
-        lead="The standards we hold on every engagement — from first commit to long after launch."
-        className="mb-12 max-w-2xl"
-      />
-
-      <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-4 md:auto-rows-[212px]">
-        {/* Spotlight — Deep AI expertise (2x2) */}
-        <motion.div
-          {...reveal(0)}
-          className="flex flex-col justify-between bg-paper p-8 md:col-span-2 md:row-span-2"
-        >
-          <div className="flex items-start justify-between">
-            <BrainCircuit className="h-7 w-7 text-brand" strokeWidth={1.6} />
-            <svg width="150" height="96" viewBox="0 0 150 96" fill="none" aria-hidden>
-              <line x1="24" y1="24" x2="74" y2="48" stroke="#D7DCE5" strokeWidth="1.5" />
-              <line x1="24" y1="72" x2="74" y2="48" stroke="#D7DCE5" strokeWidth="1.5" />
-              <motion.line
-                x1="74"
-                y1="48"
-                x2="126"
-                y2="24"
-                stroke="#1E5DFF"
-                strokeWidth="1.5"
-                initial={{ pathLength: reduce ? 1 : 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.35, ease: "easeInOut" }}
-              />
-              <line x1="74" y1="48" x2="126" y2="72" stroke="#D7DCE5" strokeWidth="1.5" />
-              <circle cx="24" cy="24" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
-              <circle cx="24" cy="72" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
-              <circle cx="126" cy="24" r="6" fill="#FFFFFF" stroke="#1E5DFF" strokeWidth="1.5" />
-              <circle cx="126" cy="72" r="6" fill="#FFFFFF" stroke="#C5CCD8" strokeWidth="1.5" />
-              <motion.circle
-                cx="74"
-                cy="48"
-                r="8"
-                fill="#1E5DFF"
-                initial={{ scale: reduce ? 1 : 0.5, opacity: reduce ? 1 : 0 }}
-                whileInView={{ scale: reduce ? 1 : [0.5, 1.18, 1], opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-                style={{ transformBox: "fill-box", transformOrigin: "center" }}
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold tracking-tight text-ink">Deep AI expertise</h3>
-            <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted2">
-              We fine-tune LLMs, build custom vector databases, and ship true agentic workflows —
-              not thin wrappers around someone else&apos;s API.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {["Generative AI", "RAG", "Agents", "Evals"].map((t) => (
+    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      {/* Text — fades through */}
+      <div className="relative min-h-[280px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <span className="font-mono text-[15px] font-semibold text-brand">
+              {String(index + 1).padStart(2, "0")}
+              <span className="text-faint"> / {String(REASONS.length).padStart(2, "0")}</span>
+            </span>
+            <h3 className="mt-5 font-display text-[clamp(30px,4.5vw,52px)] font-bold leading-[1.05] tracking-[-0.02em] text-ink">
+              {reason.title}
+            </h3>
+            <p className="mt-5 max-w-md text-[17px] leading-relaxed text-body">{reason.desc}</p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {reason.chips.map((c) => (
                 <span
-                  key={t}
-                  className="rounded-full border border-hairline bg-canvas px-2.5 py-1 text-[11px] font-semibold text-muted2"
+                  key={c}
+                  className="flex items-center gap-1.5 border border-hairline bg-paper px-3 py-1.5 text-[12px] font-semibold text-body"
                 >
-                  {t}
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                  {c}
                 </span>
               ))}
             </div>
-          </div>
-        </motion.div>
-
-        {/* Stat — shipped */}
-        <motion.div {...reveal(1)} className="flex flex-col justify-center bg-paper p-8">
-          <span className="font-display text-[clamp(32px,4vw,44px)] font-bold leading-none text-ink">
-            <AnimatedCounter end={23} duration={1400} />
-          </span>
-          <span className="mt-2 text-sm text-muted2">Products shipped to production</span>
-        </motion.div>
-
-        {/* Stat — abandoned */}
-        <motion.div {...reveal(2)} className="flex flex-col justify-center bg-paper p-8">
-          <span className="font-display text-[clamp(32px,4vw,44px)] font-bold leading-none text-brand">
-            0
-          </span>
-          <span className="mt-2 text-sm text-muted2">Abandoned after launch</span>
-        </motion.div>
-
-        {/* Enterprise grade */}
-        <motion.div {...reveal(3)} className="group flex flex-col justify-between bg-paper p-8">
-          <ShieldCheck
-            className="h-6 w-6 text-ink transition-transform duration-300 group-hover:-translate-y-0.5"
-            strokeWidth={1.6}
-          />
-          <div>
-            <h3 className="text-[17px] font-bold tracking-tight text-ink">Enterprise grade</h3>
-            <p className="mt-2 text-[13.5px] leading-relaxed text-muted2">
-              SOC2-ready, zero-trust architectures, bank-level security.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Fast delivery */}
-        <motion.div {...reveal(4)} className="group flex flex-col justify-between bg-paper p-8">
-          <Gauge
-            className="h-6 w-6 text-ink transition-transform duration-300 group-hover:-translate-y-0.5"
-            strokeWidth={1.6}
-          />
-          <div>
-            <h3 className="text-[17px] font-bold tracking-tight text-ink">Fast delivery</h3>
-            <p className="mt-2 text-[13.5px] leading-relaxed text-muted2">
-              Production-ready platforms in weeks, not quarters.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Long-term support — dark accent (2x1) */}
-        <motion.div
-          {...reveal(5)}
-          className="relative flex flex-col justify-between overflow-hidden bg-navy p-8 text-white md:col-span-2"
-        >
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:26px_26px]" />
-          <HeartHandshake className="relative h-6 w-6 text-brand" strokeWidth={1.6} />
-          <div className="relative">
-            <h3 className="text-[19px] font-bold tracking-tight">We don&apos;t disappear after launch</h3>
-            <p className="mt-2 max-w-md text-[14px] leading-relaxed text-slate-300">
-              Ongoing scaling, maintenance, and new features for years — the team that built it is
-              the team that keeps it running.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Production ready (2x1) */}
-        <motion.div
-          {...reveal(6)}
-          className="flex flex-col justify-between bg-paper p-8 md:col-span-2"
-        >
-          <div className="flex items-center justify-between">
-            <Server className="h-6 w-6 text-ink" strokeWidth={1.6} />
-            <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-muted2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              99.99% uptime
-            </span>
-          </div>
-          <div>
-            <h3 className="text-[17px] font-bold tracking-tight text-ink">Production ready</h3>
-            <p className="mt-2 max-w-md text-[13.5px] leading-relaxed text-muted2">
-              Infinite scale on AWS/GCP — Kubernetes, CI/CD pipelines, and clustered databases from
-              day one.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </Section>
+
+      {/* Visual — morphs with scale crossfade */}
+      <div className="relative aspect-[4/3] w-full">
+        <AnimatePresence>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.06 }}
+            transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+            className="absolute inset-0 overflow-hidden border border-hairline bg-gradient-to-br from-canvas to-brand/[0.08]"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle,#D7DCE5_1px,transparent_1px)] bg-[size:26px_26px] opacity-50" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute h-64 w-64 rounded-full border border-brand/15 [animation:spin_22s_linear_infinite]" />
+              <div className="absolute h-44 w-44 rounded-full border border-brand/10 [animation:spin_16s_linear_infinite_reverse]" />
+              <div className="relative flex h-28 w-28 items-center justify-center border border-hairline bg-paper shadow-[0_16px_50px_rgba(15,23,42,0.12)]">
+                <Icon className="h-12 w-12 text-brand" strokeWidth={1.5} />
+              </div>
+            </div>
+            <span className="absolute left-6 top-6 flex items-center gap-1.5 border border-hairline bg-paper px-3 py-1.5 text-[12px] font-semibold text-body shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              {reason.chips[0]}
+            </span>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+export const WhyNeoPerion = () => {
+  const ref = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    const idx = Math.max(0, Math.min(REASONS.length - 1, Math.floor(p * REASONS.length)));
+    setActive(idx);
+  });
+
+  return (
+    <section
+      ref={ref}
+      id="why-us"
+      className="relative bg-canvas"
+      style={{ height: `${REASONS.length * 78}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden border-b border-hairline">
+        <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+          <p className="mb-10 text-[12px] font-semibold uppercase tracking-[0.08em] text-brand">
+            Why Choose Neo Perion
+          </p>
+
+          <Stage reason={REASONS[active]} index={active} />
+
+          {/* progress rail */}
+          <div className="mt-12 flex gap-2">
+            {REASONS.map((r, i) => (
+              <span
+                key={r.title}
+                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                  i <= active ? "bg-brand" : "bg-hairline"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
