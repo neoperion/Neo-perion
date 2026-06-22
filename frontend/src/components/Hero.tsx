@@ -1,17 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { useMagnetic } from "@/hooks/useMagnetic";
-import { Button } from "@/components/ui/button";
 import LiquidEther from "@/components/LiquidEther";
 
 export const Hero = () => {
   const navigate = useNavigate();
-  const primaryBtnRef = useMagnetic(40);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-paper">
-      {/* Ambient fluid background — themed to brand blues, fills full height */}
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-paper">
+      {/* Ambient blue fluid */}
       <div className="absolute inset-0 z-0 opacity-90">
         <LiquidEther
           colors={["#1E5DFF", "#4AA8FF", "#A9C5FF"]}
@@ -25,37 +22,37 @@ export const Hero = () => {
         />
       </div>
 
-      {/* Fade to white only at the very bottom, for a clean transition into the next section */}
+      {/* Fade to white only at the very bottom for a clean section transition */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent to-paper" />
 
-      {/* Content — minimal, centered, typography-forward */}
-      <div className="container relative z-10 mx-auto max-w-[900px] px-6 text-center">
-        <h1 className="font-display text-[clamp(44px,8vw,84px)] font-bold leading-[1.02] tracking-[-0.03em] text-ink">
-          Ship. Scale. <span className="text-brand">Stay.</span>
-        </h1>
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+        <div className="grid items-center gap-x-12 gap-y-10 lg:grid-cols-12">
+          {/* Headline */}
+          <div className="lg:col-span-7">
+            <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">
+              <span className="block text-ink">Together we</span>
+              <span className="block text-brand">Build.</span>
+            </h1>
+          </div>
 
-        <p className="mx-auto mt-6 max-w-[46ch] text-lg leading-relaxed text-body">
-          Senior product &amp; AI engineering for teams that need to ship — and a partner that
-          keeps building long after launch.
-        </p>
-
-        <div className="mt-9 flex items-center justify-center gap-5">
-          <Button
-            ref={primaryBtnRef}
-            variant="brand"
-            size="lg"
-            onClick={() => navigate("/contact")}
-          >
-            Book a strategy call
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-          <button
-            onClick={() => navigate("/company/case-studies")}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted2 transition-colors hover:text-brand"
-          >
-            See our work
-            <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+          {/* Right support block (Accenture-style) */}
+          <div className="lg:col-span-5">
+            <div className="mb-6 h-1 w-12 rounded-full bg-brand" />
+            <h2 className="text-xl font-bold text-ink">Built for what comes next</h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-body">
+              In a world of constant change, durable engineering wins. We help teams ship AI-native
+              products in weeks — and keep evolving them long after launch.
+            </p>
+            <button
+              onClick={() => navigate("/services")}
+              className="group mt-7 inline-flex items-center gap-3 text-[15px] font-semibold text-ink"
+            >
+              See what we do
+              <span className="flex h-7 w-7 items-center justify-center bg-brand transition-transform duration-200 group-hover:translate-x-0.5">
+                <ArrowRight className="h-4 w-4 text-white" />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -6,8 +6,8 @@ import { HomeCTA } from "@/components/HomeCTA";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
+import { TrustedBy } from "@/components/features/home/TrustedBy";
 import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
-import { HomeFaq } from "@/components/features/home/HomeFaq";
 
 /**
  * Homepage. Responsive-first single design language across all breakpoints
@@ -19,10 +19,10 @@ const Index = () => (
     <Header />
     <main>
       <Hero />
+      <TrustedBy />
       <Services />
       <WhyNeoPerion />
       <HomeTestimonials />
-      <HomeFaq />
       <HomeCTA />
     </main>
     <Footer />
