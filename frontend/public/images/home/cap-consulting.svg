@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="750" fill="#FFFFFF"/>
+  <rect width="1200" height="750" fill="url(#dots-c)" opacity="0.5"/>
+  <defs>
+    <pattern id="dots-c" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#EDEFF3"/>
+    </pattern>
+  </defs>
+
+  <text x="64" y="86" fill="#71717A" font-size="17" font-weight="700" letter-spacing="2.5">ENGAGEMENT ROADMAP</text>
+
+  <!-- timeline line -->
+  <line x1="150" y1="250" x2="1050" y2="250" stroke="#E4E4E7" stroke-width="2"/>
+  <line x1="150" y1="250" x2="690" y2="250" stroke="#1E5DFF" stroke-width="2.5"/>
+
+  <!-- nodes -->
+  <g>
+    <circle cx="150" cy="250" r="13" fill="#1E5DFF"/>
+    <path d="M144 250 l4 4 l8 -8" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="150" y="305" text-anchor="middle" fill="#0A0A0B" font-size="17" font-weight="700">Discover</text>
+    <text x="150" y="330" text-anchor="middle" fill="#71717A" font-size="13">Audit &amp; goals</text>
+  </g>
+  <g>
+    <circle cx="420" cy="250" r="13" fill="#1E5DFF"/>
+    <path d="M414 250 l4 4 l8 -8" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="420" y="305" text-anchor="middle" fill="#0A0A0B" font-size="17" font-weight="700">Assess</text>
+    <text x="420" y="330" text-anchor="middle" fill="#71717A" font-size="13">Risks &amp; gaps</text>
+  </g>
+  <g>
+    <circle cx="690" cy="250" r="13" fill="#1E5DFF"/>
+    <text x="690" y="305" text-anchor="middle" fill="#0A0A0B" font-size="17" font-weight="700">Recommend</text>
+    <text x="690" y="330" text-anchor="middle" fill="#71717A" font-size="13">Architecture plan</text>
+  </g>
+  <g>
+    <circle cx="960" cy="250" r="13" fill="#FFFFFF" stroke="#C5CCD8" stroke-width="2"/>
+    <text x="960" y="305" text-anchor="middle" fill="#A1A1AA" font-size="17" font-weight="700">Roadmap</text>
+    <text x="960" y="330" text-anchor="middle" fill="#A1A1AA" font-size="13">Delivery plan</text>
+  </g>
+
+  <!-- findings card -->
+  <g>
+    <rect x="64" y="420" width="520" height="266" rx="14" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="92" y="464" fill="#0A0A0B" font-size="16" font-weight="700">Key findings</text>
+    <circle cx="100" cy="506" r="9" fill="#ECFDF3"/><path d="M96 506 l3 3 l5 -6" fill="none" stroke="#16A34A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="122" y="500" width="380" height="11" rx="5.5" fill="#E4E4E7"/>
+    <circle cx="100" cy="548" r="9" fill="#ECFDF3"/><path d="M96 548 l3 3 l5 -6" fill="none" stroke="#16A34A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="122" y="542" width="340" height="11" rx="5.5" fill="#E4E4E7"/>
+    <circle cx="100" cy="590" r="9" fill="#ECFDF3"/><path d="M96 590 l3 3 l5 -6" fill="none" stroke="#16A34A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="122" y="584" width="400" height="11" rx="5.5" fill="#E4E4E7"/>
+    <circle cx="100" cy="632" r="9" fill="#F2F6FF"/><circle cx="100" cy="632" r="3.5" fill="#1E5DFF"/>
+    <rect x="122" y="626" width="300" height="11" rx="5.5" fill="#E4E4E7"/>
+  </g>
+
+  <!-- score card -->
+  <g>
+    <rect x="616" y="420" width="520" height="266" rx="14" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="1.5"/>
+    <text x="644" y="464" fill="#0A0A0B" font-size="16" font-weight="700">Architecture health</text>
+    <text x="644" y="556" fill="#1E5DFF" font-size="60" font-weight="800">86</text>
+    <text x="742" y="556" fill="#71717A" font-size="22" font-weight="600">/ 100</text>
+    <rect x="644" y="590" width="464" height="10" rx="5" fill="#EEF1F6"/>
+    <rect x="644" y="590" width="400" height="10" rx="5" fill="#1E5DFF"/>
+    <text x="644" y="636" fill="#71717A" font-size="13.5">Security, scalability &amp; delivery readiness</text>
+  </g>
+</svg>

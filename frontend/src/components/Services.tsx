@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Sparkles, Blocks, Code2, Cloud, Compass } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -10,57 +10,87 @@ interface Capability {
   title: string;
   // PLACEHOLDER icon — drop your own 24×24 SVG at this path (see icons/ folder).
   icon: string;
+  // Blue accent icon used by the right-side hover card.
+  accent: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  kicker: string;
+  shortDesc: string;
   description: string;
   features: string[];
   cta: string;
   href: string;
-  // PLACEHOLDER visuals — replace with real screenshots/diagrams (16:10, ~1200×750).
+  // Hover background — product UI screenshot or GIF (drop yours in /public/images/home).
   image: string;
 }
 
 const CAPABILITIES: Capability[] = [
   {
-    title: "AI Systems",
+    title: "AI Solutions",
     icon: "/images/home/icons/ai.svg",
+    accent: Sparkles,
+    kicker: "AI-driven Solutions",
+    shortDesc: "Safe, predictable AI models and agents deployed inside your existing workflows.",
     description:
-      "Knowledge graphs, RAG pipelines, and multi-agent workflows built for enterprise scale — evaluated, observable, and production-hardened.",
-    features: ["Vector databases", "LLM fine-tuning", "Autonomous agents"],
-    cta: "See how we build RAG systems",
+      "RAG pipelines, AI agents, and LLM integration constrained by strict code and human-in-the-loop checks — so your outputs stay secure, auditable, and production-hardened.",
+    features: ["RAG & agents", "LLM integration", "Evals & observability"],
+    cta: "Explore AI solutions",
     href: "/services/ai-systems-automation",
     image: "/images/home/cap-ai.svg",
   },
   {
-    title: "Enterprise Automation",
-    icon: "/images/home/icons/automation.svg",
+    title: "Product Development",
+    icon: "/images/home/icons/mobile.svg",
+    accent: Blocks,
+    kicker: "End-to-end Engineering",
+    shortDesc: "From MVP to scalable SaaS — owned from first commit to launch.",
     description:
-      "Workflow automation, CRM integration, and intelligent document processing that removes manual work without breaking your systems.",
-    features: ["RPA integration", "Data pipelines", "Webhook triggers"],
-    cta: "Automate your operations",
-    href: "/services/intelligent-operations-automation",
-    image: "/images/home/cap-automation.svg",
+      "We design, build, and ship complete products — from first architecture to launch and scale. One accountable team across strategy, engineering, and deployment.",
+    features: ["MVP → scale", "SaaS platforms", "Full ownership"],
+    cta: "Build your product",
+    href: "/services/enterprise-product-engineering",
+    image: "/images/home/cap-mobile.svg",
   },
   {
-    title: "Cloud Native Platforms",
-    icon: "/images/home/icons/cloud.svg",
+    title: "Web Development",
+    icon: "/images/home/icons/web.svg",
+    accent: Code2,
+    kicker: "Modern Web",
+    shortDesc: "Fast, accessible web apps and sites engineered to convert.",
     description:
-      "Multi-tenant SaaS architectures and scalable backends on AWS/GCP — designed to hold up under real production load.",
-    features: ["Microservices", "Kubernetes", "Serverless architecture"],
-    cta: "Scale your platform",
+      "High-performance React/Next.js apps, PWAs, and marketing sites — engineered for speed, accessibility, and conversion, and built to scale with your traffic.",
+    features: ["React / Next.js", "PWAs", "Performance-first"],
+    cta: "Build for the web",
     href: "/services/cloud-native-web-platforms",
+    image: "/images/home/cap-web.svg",
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: "/images/home/icons/cloud.svg",
+    accent: Cloud,
+    kicker: "Cloud Infrastructure",
+    shortDesc: "Scalable infrastructure and automation on AWS and GCP.",
+    description:
+      "Kubernetes, CI/CD, and full observability on AWS/GCP. We build cloud infrastructure that holds up under real production load — automated and monitored end to end.",
+    features: ["AWS / GCP", "Kubernetes & CI/CD", "Monitoring"],
+    cta: "Scale your infrastructure",
+    href: "/services/intelligent-operations-automation",
     image: "/images/home/cap-cloud.svg",
   },
   {
-    title: "Mobile & Web Products",
-    icon: "/images/home/icons/mobile.svg",
+    title: "Technical Consulting",
+    icon: "/images/home/icons/consulting.svg",
+    accent: Compass,
+    kicker: "Senior Guidance",
+    shortDesc: "Architecture reviews, due diligence, and fractional-CTO guidance.",
     description:
-      "Cross-platform apps, PWAs, and high-performance dashboards — fast, accessible, and built to ship.",
-    features: ["React / Next.js", "Flutter", "Real-time subscriptions"],
-    cta: "Ship your product",
-    href: "/services/mobile-product-engineering",
-    image: "/images/home/cap-mobile.svg",
+      "Senior direction when you need it — architecture audits, technical due diligence, and fractional-CTO guidance to de-risk decisions and accelerate your roadmap.",
+    features: ["Architecture audits", "Due diligence", "Fractional CTO"],
+    cta: "Get expert guidance",
+    href: "/services/startup-to-scale-engineering",
+    image: "/images/home/cap-consulting.svg",
   },
 ];
 
+/** Mobile inline visual (template unchanged) — simple framed product image. */
 function VisualFrame({ image, title }: { image: string; title: string }) {
   return (
     <div className="overflow-hidden border border-hairline bg-paper shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
@@ -71,6 +101,75 @@ function VisualFrame({ image, title }: { image: string; title: string }) {
       </div>
       <div className="aspect-[16/10] w-full overflow-hidden bg-canvas">
         <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
+      </div>
+    </div>
+  );
+}
+
+const HOVER_GIF = "/images/feed%20your%20mind.gif";
+
+// Per-service card backgrounds (fall back to the neural gif).
+const CARD_BG: Record<string, string> = {
+  "Product Development": "/images/product.mp4",
+  "Cloud & DevOps": "/images/cloud.mp4",
+  "Web Development": "/images/web.mp4",
+  "Technical Consulting": "/images/technical.mp4",
+};
+
+const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
+
+/**
+ * Right-side panel (same size as the existing service-block visual).
+ * Always shows the neural-particle gif as a dark background with the content
+ * in white — title + kicker + description + a round arrow CTA. Swaps per
+ * active capability as you scroll.
+ */
+function HoverVisualCard({ cap }: { cap: Capability }) {
+  const navigate = useNavigate();
+  const bg = CARD_BG[cap.title] ?? HOVER_GIF;
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-navy/30 bg-navy shadow-[0_24px_60px_rgba(8,9,13,0.35)]">
+      {/* Background — per-service video/image, else the neural-particle gif */}
+      {isVideo(bg) ? (
+        <video
+          key={bg}
+          src={bg}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <img
+          src={bg}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+      {/* Legibility gradient — darker where the text sits (left) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/25" />
+
+      {/* Content */}
+      <div className="relative z-10 flex h-full flex-col justify-center p-9">
+        <h4 className="text-[27px] font-bold tracking-tight text-white">{cap.title}</h4>
+        <p className="mt-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
+          {cap.kicker}
+        </p>
+        <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-white/85">
+          {cap.description}
+        </p>
+        <button
+          type="button"
+          onClick={() => navigate(cap.href)}
+          aria-label={`${cap.title} — learn more`}
+          className="mt-7 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#1A52E6]"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
       </div>
     </div>
   );
@@ -102,9 +201,9 @@ export const Services = () => {
   return (
     <Section id="services" bg="paper" rhythm="primary" divider>
       <SectionHeading
-        eyebrow="Capabilities"
-        title="Engineering excellence"
-        lead="We build scalable, secure, and intelligent systems — robust architectures built for long-term production, not demos."
+        eyebrow="What we do"
+        title="Our Services"
+        lead="We design, build, and ship production-grade software — from AI solutions to full product development. Senior engineers only, no offshoring."
         className="mb-12 max-w-2xl"
       />
 
@@ -171,7 +270,7 @@ export const Services = () => {
           })}
         </div>
 
-        {/* Right — pinned visual that swaps on scroll */}
+        {/* Right — pinned hover card that swaps on scroll */}
         <div className="hidden lg:block">
           <div className="sticky top-28 flex h-[calc(100vh-7rem)] items-center">
             <div className="w-full">
@@ -183,7 +282,7 @@ export const Services = () => {
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 >
-                  <VisualFrame image={current.image} title={current.title} />
+                  <HoverVisualCard cap={current} />
                 </motion.div>
               </AnimatePresence>
 

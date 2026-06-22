@@ -31,36 +31,20 @@ type NavItem = DropdownMenu | DirectLink;
 const NAV: NavItem[] = [
   {
     kind: "dropdown",
-    label: "Services",
+    label: "What we do",
     panelTitle: "What we do",
     description:
-      "We design, build, and ship production-grade AI platforms, SaaS products, and automation — from first architecture to long-term scale. Senior engineers only, no offshoring.",
+      "We design, build, and ship production-grade software — from AI solutions to full product development. Senior engineers only, no offshoring.",
     viewAll: { label: "View all services", href: "/services" },
     rows: [
-      { label: "AI Systems", href: "/services/ai-systems-automation" },
-      { label: "Deep AI Engineering", href: "/services/deep-ai-engineering" },
-      { label: "Intelligent Operations", href: "/services/intelligent-operations-automation" },
-      { label: "Enterprise Product", href: "/services/enterprise-product-engineering" },
-      { label: "Cloud-Native Web", href: "/services/cloud-native-web-platforms" },
-      { label: "Mobile Engineering", href: "/services/mobile-product-engineering" },
-      { label: "Startup-to-Scale", href: "/services/startup-to-scale-engineering" },
+      { label: "AI Solutions", href: "/services/ai-systems-automation" },
+      { label: "Product Development", href: "/services/enterprise-product-engineering" },
+      { label: "Web Development", href: "/services/cloud-native-web-platforms" },
+      { label: "Cloud & DevOps", href: "/services/intelligent-operations-automation" },
+      { label: "Technical Consulting", href: "/services/startup-to-scale-engineering" },
     ],
   },
   { kind: "link", label: "Work", href: "/company/case-studies" },
-  {
-    kind: "dropdown",
-    label: "Industries",
-    panelTitle: "Industries we serve",
-    description:
-      "We partner with teams across regulated and high-growth sectors, building scalable, secure products tuned to each domain's constraints.",
-    viewAll: { label: "Explore industries", href: "/industries" },
-    rows: [
-      { label: "Education & EdTech", href: "/industries/education" },
-      { label: "Startups & Founders", href: "/industries/startups" },
-      { label: "SMBs & Enterprise", href: "/industries/smbs" },
-      { label: "Healthcare", href: "/industries/healthcare" },
-    ],
-  },
   {
     kind: "dropdown",
     label: "About",
