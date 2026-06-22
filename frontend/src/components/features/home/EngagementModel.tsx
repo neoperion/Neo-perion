@@ -5,7 +5,7 @@ import { Section } from "@/components/marketing/Section";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 
 interface Tier {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
   name: string;
   duration: string;
   /** PLACEHOLDER price anchor — confirm real ranges before launch. */
