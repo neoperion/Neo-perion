@@ -19,7 +19,26 @@ export const CaseStudies: React.FC = () => {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
-        <SEO title="Case Studies & Work | Neo Perion Solutions" description="Explore how Neo Perion has transformed businesses through AI, enterprise SaaS, and cutting-edge product engineering." url="https://www.neoperion.com/case-studies" />
+        <SEO 
+          title="Case Studies & Work | Neo Perion Solutions" 
+          description="Explore how Neo Perion has transformed businesses through Custom AI Chatbots, enterprise SaaS, and cutting-edge product engineering." 
+          url="https://www.neoperion.com/company/case-studies"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.neoperion.com/"
+            },{
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Case Studies",
+              "item": "https://www.neoperion.com/company/case-studies"
+            }]
+          }}
+        />
         <Header />
         <main>
           <CaseStudyHero />

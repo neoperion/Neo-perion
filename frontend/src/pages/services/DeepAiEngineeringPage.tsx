@@ -49,31 +49,74 @@ export function DeepAiEngineeringPage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
         <SEO 
-          title={`${service.title} | Neo Perion Solutions`}
+          title={`${service.title} - Custom AI Models & AI Agents | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
+          keywords="Deep AI Engineering, Custom Fine-Tuned Models, Multi-Agent Orchestration, Enterprise AI Development, AI Consulting, Custom LLMs, Autonomous AI Agents"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Deep AI Engineering & Custom Models",
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": "https://www.neoperion.com/images/np-logo.png",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Deep AI Offerings",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom Fine-Tuned LLMs"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Multi-Agent System Orchestration"
+                    }
+                  }
+                ]
               }
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.neoperion.com/"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://www.neoperion.com/services"
+              },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": service.title,
+                "item": `https://www.neoperion.com/services/${service.slug}`
+              }]
+            }
+          ]}
         />
         <Header />
         

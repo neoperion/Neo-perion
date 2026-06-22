@@ -1,170 +1,88 @@
-import { useRef, useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import {
-  Sparkles,
-  Layers,
-  Gauge,
-  Shapes,
-  MessagesSquare,
-  Cpu,
-  HeartHandshake,
-} from "lucide-react";
+import { Sparkles, Layers, Gauge, Cpu } from "lucide-react";
 
-interface Reason {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  title: string;
-  desc: string;
-  chips: [string, string];
-}
-
-const REASONS: Reason[] = [
-  {
-    icon: Sparkles,
-    title: "AI-First Development",
-    desc: "We leverage AI across the entire lifecycle to accelerate delivery, improve quality, and reduce cost — without ever compromising reliability.",
-    chips: ["Faster delivery", "Higher quality"],
-  },
+const REASONS = [
   {
     icon: Layers,
-    title: "End-to-End Product Ownership",
-    desc: "From strategy and architecture to development, deployment, and scaling — we own the complete journey so you can focus on growth.",
-    chips: ["Strategy → Scale", "One accountable team"],
+    title: "Experienced Team",
+    desc: "From strategy and architecture to development, we own the complete journey so you can focus on growth.",
+  },
+  {
+    icon: Sparkles,
+    title: "Always Fresh Ideas",
+    desc: "We leverage AI across the entire lifecycle to accelerate delivery, improve quality, and reduce cost.",
   },
   {
     icon: Gauge,
-    title: "Startup Speed, Enterprise Quality",
-    desc: "We pair rapid execution with scalable architecture, so your product is built for today's needs and tomorrow's growth.",
-    chips: ["Weeks, not quarters", "Production-grade"],
-  },
-  {
-    icon: Shapes,
-    title: "Tailored Solutions, Not Templates",
-    desc: "Every business is unique. We design and develop custom solutions aligned with your goals, workflows, and long-term vision.",
-    chips: ["Built around you", "No cookie-cutter"],
-  },
-  {
-    icon: MessagesSquare,
-    title: "Transparent Collaboration",
-    desc: "Clear communication, milestone-based execution, and continuous feedback keep you informed and involved at every step.",
-    chips: ["Milestone-based", "Always in the loop"],
+    title: "Startup Speed",
+    desc: "We pair rapid execution with scalable architecture, so your product is built for today's needs.",
   },
   {
     icon: Cpu,
-    title: "Future-Ready Technology",
-    desc: "We build with modern frameworks, cloud infrastructure, automation, and AI capabilities that keep your business ahead of the curve.",
-    chips: ["Cloud-native", "AI-ready"],
-  },
-  {
-    icon: HeartHandshake,
-    title: "Your Long-Term Technology Partner",
-    desc: "Our relationship doesn't end at launch. We provide ongoing support, optimization, and strategic guidance as your product evolves.",
-    chips: ["We don't disappear", "Years, not months"],
+    title: "Affordable Tech",
+    desc: "Built with modern frameworks, cloud infrastructure, automation, and AI capabilities.",
   },
 ];
 
-function Stage({ reason, index }: { reason: Reason; index: number }) {
-  const Icon = reason.icon;
-  return (
-    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-      {/* Text — fades through */}
-      <div className="relative min-h-[280px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -24 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <span className="font-mono text-[15px] font-semibold text-brand">
-              {String(index + 1).padStart(2, "0")}
-              <span className="text-faint"> / {String(REASONS.length).padStart(2, "0")}</span>
-            </span>
-            <h3 className="mt-5 font-display text-[clamp(30px,4.5vw,52px)] font-bold leading-[1.05] tracking-[-0.02em] text-ink">
-              {reason.title}
-            </h3>
-            <p className="mt-5 max-w-md text-[17px] leading-relaxed text-body">{reason.desc}</p>
-            <div className="mt-7 flex flex-wrap gap-2">
-              {reason.chips.map((c) => (
-                <span
-                  key={c}
-                  className="flex items-center gap-1.5 border border-hairline bg-paper px-3 py-1.5 text-[12px] font-semibold text-body"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                  {c}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Visual — morphs with scale crossfade */}
-      <div className="relative aspect-[4/3] w-full">
-        <AnimatePresence>
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.06 }}
-            transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-            className="absolute inset-0 overflow-hidden border border-hairline bg-gradient-to-br from-canvas to-brand/[0.08]"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle,#D7DCE5_1px,transparent_1px)] bg-[size:26px_26px] opacity-50" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="absolute h-64 w-64 rounded-full border border-brand/15 [animation:spin_22s_linear_infinite]" />
-              <div className="absolute h-44 w-44 rounded-full border border-brand/10 [animation:spin_16s_linear_infinite_reverse]" />
-              <div className="relative flex h-28 w-28 items-center justify-center border border-hairline bg-paper shadow-[0_16px_50px_rgba(15,23,42,0.12)]">
-                <Icon className="h-12 w-12 text-brand" strokeWidth={1.5} />
-              </div>
-            </div>
-            <span className="absolute left-6 top-6 flex items-center gap-1.5 border border-hairline bg-paper px-3 py-1.5 text-[12px] font-semibold text-body shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              {reason.chips[0]}
-            </span>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-}
-
 export const WhyNeoPerion = () => {
-  const ref = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-
-  useMotionValueEvent(scrollYProgress, "change", (p) => {
-    const idx = Math.max(0, Math.min(REASONS.length - 1, Math.floor(p * REASONS.length)));
-    setActive(idx);
-  });
-
   return (
-    <section
-      ref={ref}
-      id="why-us"
-      className="relative bg-canvas"
-      style={{ height: `${REASONS.length * 78}vh` }}
-    >
-      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden border-b border-hairline">
-        <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
-          <p className="mb-10 text-[12px] font-semibold uppercase tracking-[0.08em] text-brand">
-            Why Choose Neo Perion
-          </p>
-
-          <Stage reason={REASONS[active]} index={active} />
-
-          {/* progress rail */}
-          <div className="mt-12 flex gap-2">
-            {REASONS.map((r, i) => (
-              <span
-                key={r.title}
-                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                  i <= active ? "bg-brand" : "bg-hairline"
-                }`}
-              />
-            ))}
+    <section id="why-us" className="relative bg-canvas py-20 lg:py-32">
+      <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+        
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center lg:items-start">
+          
+          {/* Left Column */}
+          <div className="w-full lg:w-5/12 flex flex-col items-start pt-4">
+            <div className="mb-8">
+              <div className="relative inline-block mb-4">
+                <h4 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-body">
+                  FEATURES
+                </h4>
+                <div className="absolute -bottom-1 left-0 w-10 h-[2px] bg-brand" />
+              </div>
+              <h2 className="font-display text-[clamp(36px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.02em] text-ink">
+                Why People <span className="text-brand">Choose Us?</span>
+              </h2>
+            </div>
+            
+            <p className="text-[16px] leading-relaxed text-body mb-10 max-w-md">
+              We leverage modern technology across the entire lifecycle to accelerate delivery, improve quality, and reduce cost — without ever compromising reliability. We pair rapid execution with scalable architecture to build solutions designed for your long-term growth.
+            </p>
+            
+            <a 
+              href="#contact" 
+              className="inline-flex bg-brand text-paper px-8 py-4 text-[13px] font-bold uppercase tracking-[0.05em] transition-all hover:opacity-90 hover:-translate-y-0.5 rounded-sm shadow-[0_4px_14px_rgba(239,68,68,0.2)]"
+            >
+              BOOK A CONSULTATION
+            </a>
           </div>
+
+          {/* Right Column - Features Grid */}
+          <div className="w-full lg:w-7/12 grid sm:grid-cols-2">
+            {REASONS.map((reason, index) => {
+              const Icon = reason.icon;
+              // Add borders to create the grid effect from the image
+              const borderClasses = 
+                index === 0 ? "sm:border-r border-b border-hairline" :
+                index === 1 ? "border-b border-hairline" :
+                index === 2 ? "sm:border-r border-b sm:border-b-0 border-hairline" :
+                "";
+
+              return (
+                <div key={index} className={`flex flex-col sm:flex-row gap-5 p-6 sm:p-8 ${borderClasses} hover:bg-brand/[0.02] transition-colors`}>
+                  <div className="flex-shrink-0">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-brand/20 bg-brand/[0.03] text-brand shadow-sm">
+                      <Icon className="h-6 w-6" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <div className="pt-1 sm:pt-0">
+                    <h3 className="mb-3 text-[19px] font-bold tracking-tight text-ink">{reason.title}</h3>
+                    <p className="text-[14.5px] leading-relaxed text-body">{reason.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>

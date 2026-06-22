@@ -34,6 +34,7 @@ export const AdminLayout: React.FC = () => {
     { name: 'Leads', path: '/admin/leads', icon: Users },
     { name: 'Blogs', path: '/admin/blogs', icon: FileText },
     { name: 'Case Studies', path: '/admin/case-studies', icon: FileText },
+    { name: 'Portfolio', path: '/admin/portfolio', icon: Briefcase },
     { name: 'Testimonials', path: '/admin/testimonials', icon: FileText },
     { name: 'Careers', path: '/admin/careers', icon: Briefcase },
     { name: 'Services', path: '/admin/services', icon: FileText },

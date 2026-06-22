@@ -20,10 +20,14 @@ app.use(morgan('dev'));
 import cookieRoutes from './routes/cookieRoutes';
 
 import webhookRoutes from './routes/webhookRoutes';
+import uploadRoutes from './routes/uploadRoutes';
+import sitemapRoutes from './routes/sitemapRoutes';
 
 // Routes
 app.use('/api/cookies', cookieRoutes);
 app.use('/api/webhooks', webhookRoutes);
+app.use('/api/upload', uploadRoutes);
+app.use('/sitemap.xml', sitemapRoutes);
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Neo Perion API is running' });

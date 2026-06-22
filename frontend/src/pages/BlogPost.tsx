@@ -12,6 +12,7 @@ import { MarkdownRenderer } from '@/components/blog/MarkdownRenderer';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { motion } from 'framer-motion';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -46,9 +47,13 @@ export const BlogPost: React.FC = () => {
 
   const blogSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": blog.seo_title,
-    "description": blog.seo_description,
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "headline": blog.seo_title || blog.title,
+    "description": blog.seo_description || blog.content.substring(0, 160),
     "image": blog.cover_image,
     "datePublished": blog.created_at,
     "dateModified": blog.updated_at,
@@ -66,17 +71,40 @@ export const BlogPost: React.FC = () => {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.neoperion.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.neoperion.com/company/blog"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": blog.title,
+      "item": postUrl
+    }]
+  };
+
   return (
-    <MobileGate mobileOnly fallback={
-      <div className="bg-[#FAFAFA] min-h-[auto] font-sans text-[#09090B] selection:bg-neo-blue/20">
-        <SEO 
-          title={`${blog.seo_title} | Neo Perion`}
-          description={blog.seo_description}
-          url={postUrl}
-          ogImage={blog.cover_image}
-          type="article"
-          jsonLd={blogSchema}
-        />
+    <>
+      <SEO 
+        title={`${blog.seo_title || blog.title} | Neo Perion`}
+        description={blog.seo_description}
+        url={postUrl}
+        ogImage={blog.cover_image}
+        type="article"
+        jsonLd={[blogSchema, breadcrumbSchema]}
+      />
+      <MobileGate mobileOnly fallback={
+        <div className="bg-[#FAFAFA] min-h-[auto] font-sans text-[#09090B] selection:bg-neo-blue/20">
+
         
         <ReadingProgress />
         <Header />
@@ -96,14 +124,29 @@ export const BlogPost: React.FC = () => {
             </button>
 
             <div className="mb-12">
-              <span className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-neo-blue text-xs font-bold rounded-full uppercase tracking-widest mb-6">
+              <motion.span 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-neo-blue text-xs font-bold rounded-full uppercase tracking-widest mb-6"
+              >
                 {blog.category}
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#09090B] mb-6 leading-tight">
+              </motion.span>
+              <motion.h1 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#09090B] mb-6 leading-tight"
+              >
                 {blog.title}
-              </h1>
+              </motion.h1>
               
-              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium"
+              >
                 <span className="font-semibold text-slate-800">{blog.author}</span>
                 <span className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
@@ -113,31 +156,62 @@ export const BlogPost: React.FC = () => {
                   <Clock className="w-4 h-4" />
                   {blog.read_time} min read
                 </span>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="w-full aspect-video rounded-[2rem] overflow-hidden border border-zinc-200/80 mb-16 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              className="w-full aspect-video rounded-[2rem] overflow-hidden border border-zinc-200/80 mb-16 shadow-sm"
+            >
               <img 
                 src={blog.cover_image} 
                 alt={blog.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
-            </div>
+            </motion.div>
           </div>
 
           {/* Article Content & TOC */}
           <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
             <div className="flex flex-col lg:flex-row gap-12">
-              {/* Sidebar TOC */}
-              <div className="w-full lg:w-1/4 order-2 lg:order-1">
+              {/* Sidebar TOC & CTA */}
+              <div className="w-full lg:w-1/4 order-2 lg:order-1 space-y-8">
                 <TableOfContents content={blog.content} theme="light" />
+                
+                {/* Newsletter / CTA Section */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-6 shadow-sm sticky top-24"
+                >
+                  <div className="w-10 h-10 bg-neo-blue/10 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-5 h-5 text-neo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#09090B] mb-2">Build with Neoperion</h3>
+                  <p className="text-sm text-slate-500 mb-6 leading-relaxed">
+                    Transform your ideas into scalable, AI-powered digital products. We partner with visionaries to build the future.
+                  </p>
+                  <button onClick={() => navigate('/contact')} className="w-full py-2.5 bg-[#09090B] hover:bg-neo-blue text-white text-sm font-bold rounded-xl transition-colors duration-300">
+                    Discuss Your Project
+                  </button>
+                </motion.div>
               </div>
               
               {/* Main Content */}
-              <div className="w-full lg:w-3/4 order-1 lg:order-2">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="w-full lg:w-3/4 order-1 lg:order-2"
+              >
                 <MarkdownRenderer content={blog.content} theme="light" />
                 <ShareButtons url={postUrl} title={blog.title} theme="light" />
-              </div>
+              </motion.div>
             </div>
           </div>
 
@@ -199,6 +273,7 @@ export const BlogPost: React.FC = () => {
         </div>
       </MobileShell>
     </MobileGate>
+    </>
   );
 };
 

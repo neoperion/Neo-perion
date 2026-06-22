@@ -4,8 +4,10 @@ import { supabase } from '@/lib/supabase';
 import { Plus, Edit2, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
 import { ConfirmDialog } from '@/components/admin/ConfirmDialog';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 
 type CS = Record<string, unknown>;
+
 
 export default function AdminCaseStudies() {
   const [items, setItems] = useState<CS[]>([]);
@@ -57,6 +59,11 @@ export default function AdminCaseStudies() {
           </div>
         </div>
         <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 space-y-4">
+          <ImageUpload
+            label="Cover Image / Thumbnail"
+            value={(editing.cover_image as string) ?? ''}
+            onChange={(url) => setEditing({ ...editing, cover_image: url })}
+          />
           {['title', 'slug', 'client_name', 'industry', 'service_type', 'outcome', 'duration'].map((field) => (
             <div key={field}>
               <label className="block text-sm font-medium text-slate-300 mb-1.5 capitalize">{field.replace(/_/g, ' ')}</label>

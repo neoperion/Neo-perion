@@ -38,20 +38,49 @@ export const CaseStudyDetail: React.FC = () => {
     );
   }
 
-  const postUrl = `https://www.neoperion.com/case-studies/${caseStudy.slug}`;
+  const postUrl = `https://www.neoperion.com/company/case-studies/${caseStudy.slug}`;
 
-  const schema = {
+  const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": caseStudy.seo_title,
-    "description": caseStudy.seo_description,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "headline": caseStudy.seo_title || caseStudy.title,
+    "description": caseStudy.seo_description || caseStudy.problem,
     "image": caseStudy.cover_image,
     "datePublished": caseStudy.created_at,
     "dateModified": caseStudy.updated_at,
     "publisher": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions"
+      "name": "Neo Perion Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.neoperion.com/images/np-logo.png"
+      }
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.neoperion.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://www.neoperion.com/company/case-studies"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": caseStudy.title,
+      "item": postUrl
+    }]
   };
 
   const renderContent = () => (
@@ -159,16 +188,17 @@ export const CaseStudyDetail: React.FC = () => {
   );
 
   return (
-    <MobileGate mobileOnly fallback={
-      <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
-        <SEO 
-          title={`${caseStudy.seo_title} | Neo Perion Work`}
-          description={caseStudy.seo_description}
-          url={postUrl}
-          ogImage={caseStudy.cover_image}
-          type="article"
-          jsonLd={schema}
-        />
+    <>
+      <SEO 
+        title={`${caseStudy.seo_title || caseStudy.title} | Neo Perion Work`}
+        description={caseStudy.seo_description}
+        url={postUrl}
+        ogImage={caseStudy.cover_image}
+        type="article"
+        jsonLd={[articleSchema, breadcrumbSchema]}
+      />
+      <MobileGate mobileOnly fallback={
+        <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
         <Header />
         <main className="pt-32 pb-24">
           {renderContent()}
@@ -177,19 +207,13 @@ export const CaseStudyDetail: React.FC = () => {
       </div>
     }>
       <MobileShell nav="bottom" showFooter>
-        <SEO 
-          title={`${caseStudy.seo_title} | Neo Perion Work`}
-          description={caseStudy.seo_description}
-          url={postUrl}
-          ogImage={caseStudy.cover_image}
-          type="article"
-          jsonLd={schema}
-        />
+
         <div className="pt-8 pb-8 px-2">
           {renderContent()}
         </div>
       </MobileShell>
     </MobileGate>
+    </>
   );
 };
 

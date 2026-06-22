@@ -186,8 +186,24 @@ export default function ServicesPage() {
       <div className="bg-[#F8FAFC] text-slate-900 min-h-[auto] flex flex-col font-sans selection:bg-[#3B82F6] selection:text-white">
         <SEO
           title="Engineering Capabilities & Services | Neo Perion"
-          description="Explore Neo Perion's enterprise-grade capabilities: AI Systems, Deep AI Engineering, Cloud Platforms, and Mobile Engineering built for scale."
+          description="Explore Neo Perion's enterprise-grade capabilities: AI Systems, Custom Chatbots, Deep AI Engineering, Cloud Platforms, and Mobile Engineering built for scale."
           url="https://www.neoperion.com/services"
+          keywords="Enterprise AI Services, Custom Chatbot Development, Mobile Engineering, Cloud Infrastructure, Neo Perion Services"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.neoperion.com/"
+            },{
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.neoperion.com/services"
+            }]
+          }}
         />
         <Header />
 

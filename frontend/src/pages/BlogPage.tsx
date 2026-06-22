@@ -70,7 +70,24 @@ export const BlogPage: React.FC = () => {
           title="Blog & Insights | AI, SaaS & Product Engineering | Neo Perion" 
           description="Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS." 
           url="https://www.neoperion.com/company/blog" 
-          jsonLd={blogListSchema}
+          jsonLd={[
+            blogListSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.neoperion.com/"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.neoperion.com/company/blog"
+              }]
+            }
+          ]}
         />
         <Header />
         

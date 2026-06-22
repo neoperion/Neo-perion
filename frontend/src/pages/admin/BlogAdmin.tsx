@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet-async";
 import { supabase } from '@/lib/supabase';
 import { TipTapEditor } from '@/components/admin/TipTapEditor';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 import { Plus, Edit2, Trash2, Check, X } from 'lucide-react';
 import { format } from 'date-fns';
 
@@ -16,6 +17,7 @@ export default function BlogAdmin() {
   const [category, setCategory] = useState('AI');
   const [excerpt, setExcerpt] = useState('');
   const [content, setContent] = useState('');
+  const [coverImage, setCoverImage] = useState('');
   const [published, setPublished] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -46,6 +48,7 @@ export default function BlogAdmin() {
     setCategory(blog.category);
     setExcerpt(blog.excerpt);
     setContent(blog.content);
+    setCoverImage(blog.cover_image || '');
     setPublished(blog.published);
   };
 
@@ -56,6 +59,7 @@ export default function BlogAdmin() {
     setCategory('AI');
     setExcerpt('');
     setContent('');
+    setCoverImage('');
     setPublished(false);
   };
 
@@ -72,6 +76,7 @@ export default function BlogAdmin() {
         category,
         excerpt,
         content,
+        cover_image: coverImage,
         published
       };
 
@@ -130,6 +135,11 @@ export default function BlogAdmin() {
 
         <div className="space-y-6">
           <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 space-y-4">
+            <ImageUpload
+              label="Cover Image / Thumbnail"
+              value={coverImage}
+              onChange={setCoverImage}
+            />
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-1.5">Title</label>
               <input 

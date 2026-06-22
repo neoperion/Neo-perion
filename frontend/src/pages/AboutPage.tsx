@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AboutHero } from "@/components/about/AboutHero";
@@ -48,15 +48,33 @@ export default function AboutPage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.neoperion.com/company/about"
+    },
+    "name": "About Neo Perion Solutions",
+    "description": "We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products."
+  };
+
   return (
-    <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
-        <Helmet><title>About | Neo Perion</title><meta name="description" content="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products." /></Helmet>
-        <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
-      </div>
-    }>
-      <MobileAbout />
-    </MobileGate>
+    <>
+      <SEO 
+        title="About Us"
+        description="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products."
+        url="https://www.neoperion.com/company/about"
+        jsonLd={jsonLd}
+      />
+      <MobileGate mobileOnly fallback={
+        <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+          <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
+        </div>
+      }>
+        <MobileAbout />
+      </MobileGate>
+    </>
   );
 }
 

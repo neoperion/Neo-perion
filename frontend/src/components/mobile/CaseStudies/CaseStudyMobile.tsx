@@ -8,7 +8,7 @@ export interface CaseStudyCardData { slug: string; title: string; clientName: st
 
 export function CaseStudyCard({ study }: { study: CaseStudyCardData }) {
   return (
-    <Link to={`/case-studies/${study.slug}`} className="group relative block rounded-3xl border border-white/[0.10] bg-gradient-to-br from-white/[0.04] to-white/[0.02] backdrop-blur-glass-1 overflow-hidden active:scale-[0.99] transition-transform">
+    <Link to={`/company/case-studies/${study.slug}`} className="group relative block rounded-3xl border border-white/[0.10] bg-gradient-to-br from-white/[0.04] to-white/[0.02] backdrop-blur-glass-1 overflow-hidden active:scale-[0.99] transition-transform">
       {study.coverImage && (
         <div className="relative aspect-[16/10] overflow-hidden">
           <img src={study.coverImage} alt="" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />

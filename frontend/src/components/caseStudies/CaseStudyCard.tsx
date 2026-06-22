@@ -18,7 +18,7 @@ export const CaseStudyCard: React.FC<Props> = ({ caseStudy, index = 0 }) => {
       transition={{ delay: index * 0.1 }}
       className="group relative flex flex-col md:flex-row bg-slate-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-neo-blue/50 transition-all mb-12"
     >
-      <Link to={`/case-studies/${caseStudy.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${caseStudy.title}`} />
+      <Link to={`/company/case-studies/${caseStudy.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${caseStudy.title}`} />
       
       <div className="w-full md:w-2/5 relative aspect-video md:aspect-auto overflow-hidden">
         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />

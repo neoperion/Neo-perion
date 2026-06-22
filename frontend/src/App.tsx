@@ -40,6 +40,7 @@ import AdminTestimonials from "./pages/admin/AdminTestimonials";
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminServices from "./pages/admin/AdminServices";
+import AdminPortfolio from "./pages/admin/AdminPortfolio";
 
 import { CookieConsent } from "@/shared/CookieConsent";
 import { PageTracker } from "@/shared/PageTracker";
@@ -99,6 +100,7 @@ const App = () => (
                 <Route path="analytics" element={<AdminAnalytics />} />
                 <Route path="settings" element={<AdminSettings />} />
                 <Route path="services" element={<AdminServices />} />
+                <Route path="portfolio" element={<AdminPortfolio />} />
               </Route>
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

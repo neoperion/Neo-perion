@@ -48,31 +48,74 @@ export function AiSystemsPage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
         <SEO 
-          title={`${service.title} | Neo Perion Solutions`}
+          title={`${service.title} - Custom AI Chatbots & LLM Integration | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
+          keywords="AI Chatbot Development, Enterprise Conversational AI, Custom LLM Integration, RAG Architectures, AI Automation Services, Intelligent Agents, Deep AI Engineering"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Custom AI Chatbots & Enterprise LLM Integration",
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": "https://www.neoperion.com/images/np-logo.png",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI System Offerings",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom Conversational AI Chatbots"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "RAG Architectures & LLM Integration"
+                    }
+                  }
+                ]
               }
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.neoperion.com/"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://www.neoperion.com/services"
+              },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": service.title,
+                "item": `https://www.neoperion.com/services/${service.slug}`
+              }]
+            }
+          ]}
         />
         <Header />
         
