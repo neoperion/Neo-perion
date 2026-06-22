@@ -42,6 +42,7 @@ import AdminSettings from "./pages/admin/AdminSettings";
 import AdminServices from "./pages/admin/AdminServices";
 
 import { CookieConsent } from "@/shared/CookieConsent";
+import { PageTracker } from "@/shared/PageTracker";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { AdminLogin } from "@/pages/admin/AdminLogin";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
@@ -55,6 +56,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PageTracker />
           <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Index />} />
