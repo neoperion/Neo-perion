@@ -39,7 +39,11 @@ export function GlassSheet({
     };
     document.addEventListener('keydown', handleKey);
     const t = setTimeout(() => {
-      initialFocus?.current?.focus() ?? sheetRef.current?.focus();
+      if (initialFocus?.current) {
+        initialFocus.current.focus();
+      } else if (sheetRef.current) {
+        sheetRef.current.focus();
+      }
     }, 80);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
