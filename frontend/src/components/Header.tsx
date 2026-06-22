@@ -47,7 +47,6 @@ const NAV: NavItem[] = [
     ],
   },
   { kind: "link", label: "Work", href: "/company/case-studies" },
-  { kind: "link", label: "Pricing", href: "#engagement" },
   {
     kind: "dropdown",
     label: "Industries",
@@ -81,11 +80,19 @@ const NAV: NavItem[] = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavigation = (href: string) => {
     setActiveDropdown(null);
@@ -129,7 +136,11 @@ export const Header = () => {
   return (
     <>
       <header
-        className="fixed left-0 right-0 top-0 z-50 border-b border-hairline bg-paper/90 backdrop-blur-xl"
+        className={`fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
+          scrolled || active
+            ? "border-hairline bg-paper/90 backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        }`}
         onMouseLeave={scheduleClose}
       >
         <nav className="container relative mx-auto flex h-[76px] items-center justify-between px-6">
