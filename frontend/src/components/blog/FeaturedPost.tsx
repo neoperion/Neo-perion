@@ -11,64 +11,99 @@ interface Props {
 }
 
 export const FeaturedPost: React.FC<Props> = ({ post, theme = 'dark' }) => {
-  const isLight = theme === 'light';
+  if (theme === 'light') {
+    return (
+      <section className="pt-14">
+        <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-brand">
+          Featured
+        </p>
+        <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink">Lead story</h2>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="group mt-8"
+        >
+          <Link
+            to={`/company/blog/${post.slug}`}
+            className="grid overflow-hidden border border-hairline bg-paper transition-all duration-300 hover:border-brand/40 hover:shadow-[0_28px_70px_rgba(15,23,42,0.10)] lg:grid-cols-2"
+          >
+            <div className="relative aspect-[16/11] overflow-hidden lg:aspect-auto">
+              <img
+                src={post.cover_image}
+                alt={post.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="flex flex-col justify-center p-8 lg:p-12">
+              <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.08em]">
+                <span className="text-brand">{post.category}</span>
+                <span className="h-1 w-1 rounded-full bg-faint" />
+                <span className="flex items-center gap-1.5 text-faint">
+                  <Clock className="h-3.5 w-3.5" />
+                  {post.read_time} min read
+                </span>
+              </div>
+
+              <h3 className="mt-5 font-display text-[clamp(24px,2.6vw,38px)] font-bold leading-[1.1] tracking-tight text-ink transition-colors group-hover:text-brand">
+                {post.title}
+              </h3>
+              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-body line-clamp-3">
+                {post.excerpt}
+              </p>
+
+              <div className="mt-7 flex items-center gap-2 text-sm font-semibold text-brand">
+                Read article
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+      </section>
+    );
+  }
+
+  // Dark (mobile / legacy)
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`relative w-full rounded-[2rem] overflow-hidden border group mb-16 ${
-        isLight ? 'border-zinc-200/80 bg-white shadow-sm' : 'border-white/10'
-      }`}
+      className="group relative mb-16 w-full overflow-hidden rounded-[2rem] border border-white/10"
     >
-      <div className={`flex flex-col lg:flex-row ${isLight ? 'bg-white' : 'bg-slate-900/60'}`}>
-        <div className="w-full lg:w-3/5 aspect-video lg:aspect-auto relative overflow-hidden">
-          <div className={`absolute inset-0 transition-colors z-10 ${isLight ? 'bg-black/[0.02] group-hover:bg-transparent' : 'bg-black/20 group-hover:bg-transparent'}`} />
-          <img 
-            src={post.cover_image} 
-            alt={post.title} 
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+      <div className="flex flex-col bg-slate-900/60 lg:flex-row">
+        <div className="relative aspect-video w-full overflow-hidden lg:aspect-auto lg:w-3/5">
+          <div className="absolute inset-0 z-10 bg-black/20 transition-colors group-hover:bg-transparent" />
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            className="h-full w-full transform object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        
-        <div className="w-full lg:w-2/5 p-8 md:p-12 flex flex-col justify-center relative z-20">
-          <span className={`inline-block px-4 py-1.5 text-sm font-bold rounded-full uppercase tracking-widest w-max mb-6 ${
-            isLight ? 'bg-blue-50 text-neo-blue border border-blue-100' : 'bg-neo-blue/10 text-neo-blue'
-          }`}>
+        <div className="relative z-20 flex w-full flex-col justify-center p-8 md:p-12 lg:w-2/5">
+          <span className="mb-6 inline-block w-max rounded-full bg-neo-blue/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-neo-blue">
             Featured • {post.category}
           </span>
-          
-          <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 leading-tight transition-colors ${
-            isLight ? 'text-[#09090B] group-hover:text-neo-blue' : 'text-white group-hover:text-neo-blue'
-          }`}>
+          <h2 className="mb-4 font-display text-3xl font-bold leading-tight text-white transition-colors group-hover:text-neo-blue md:text-4xl">
             {post.title}
           </h2>
-          
-          <p className={`text-lg mb-8 line-clamp-3 ${
-            isLight ? 'text-slate-500' : 'text-slate-400'
-          }`}>
-            {post.excerpt}
-          </p>
-          
-          <div className={`flex items-center gap-6 text-sm mb-8 ${
-            isLight ? 'text-slate-400' : 'text-slate-500'
-          }`}>
+          <p className="mb-8 text-lg text-slate-400 line-clamp-3">{post.excerpt}</p>
+          <div className="mb-8 flex items-center gap-6 text-sm text-slate-500">
             <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
+              <Calendar className="h-4 w-4" />
               {format(new Date(post.created_at), 'MMMM dd, yyyy')}
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="h-4 w-4" />
               {post.read_time} min read
             </span>
           </div>
- 
-          <Link 
+          <Link
             to={`/company/blog/${post.slug}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neo-blue hover:bg-blue-600 text-white font-bold w-max transition-colors"
+            className="inline-flex w-max items-center gap-2 rounded-xl bg-neo-blue px-6 py-3 font-bold text-white transition-colors hover:bg-blue-600"
           >
             Read Article
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
