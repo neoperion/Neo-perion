@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { useBlog } from '@/hooks/useBlog';
 import { format } from 'date-fns';
-import { Clock, Calendar, ArrowLeft } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { TableOfContents } from '@/components/blog/TableOfContents';
 import { MarkdownRenderer } from '@/components/blog/MarkdownRenderer';
@@ -25,18 +25,21 @@ export const BlogPost: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-[auto] bg-[#FAFAFA] flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
+      <div className="flex min-h-screen items-center justify-center bg-canvas">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-brand/20 border-t-brand" />
       </div>
     );
   }
 
   if (!blog) {
     return (
-      <div className="min-h-[auto] bg-[#FAFAFA] flex flex-col items-center justify-center px-4">
-        <h1 className="text-4xl font-bold text-[#09090B] mb-4">Post Not Found</h1>
-        <p className="text-slate-500 mb-8">The article you are looking for does not exist.</p>
-        <button onClick={() => navigate('/company/blog')} className="px-6 py-3 bg-neo-blue text-white rounded-lg font-bold">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-canvas px-4 text-center">
+        <h1 className="mb-3 font-display text-4xl font-bold text-ink">Post not found</h1>
+        <p className="mb-8 text-body">The article you are looking for doesn't exist.</p>
+        <button
+          onClick={() => navigate('/company/blog')}
+          className="bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90"
+        >
           Back to Blog
         </button>
       </div>
@@ -44,57 +47,38 @@ export const BlogPost: React.FC = () => {
   }
 
   const postUrl = `https://www.neoperion.com/company/blog/${blog.slug}`;
+  const authorInitial = (blog.author || 'N').trim().charAt(0).toUpperCase();
 
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": postUrl
-    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
     "headline": blog.seo_title || blog.title,
     "description": blog.seo_description || blog.content.substring(0, 160),
     "image": blog.cover_image,
     "datePublished": blog.created_at,
     "dateModified": blog.updated_at,
-    "author": {
-      "@type": "Person",
-      "name": blog.author
-    },
+    "author": { "@type": "Person", "name": blog.author },
     "publisher": {
       "@type": "Organization",
       "name": "Neo Perion Solutions",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
-      }
+      "logo": { "@type": "ImageObject", "url": "https://www.neoperion.com/images/np-logo.png" }
     }
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.neoperion.com/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://www.neoperion.com/company/blog"
-    },{
-      "@type": "ListItem",
-      "position": 3,
-      "name": blog.title,
-      "item": postUrl
-    }]
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.neoperion.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.neoperion.com/company/blog" },
+      { "@type": "ListItem", "position": 3, "name": blog.title, "item": postUrl }
+    ]
   };
 
   return (
     <>
-      <SEO 
+      <SEO
         title={`${blog.seo_title || blog.title} | Neo Perion`}
         description={blog.seo_description}
         url={postUrl}
@@ -103,179 +87,159 @@ export const BlogPost: React.FC = () => {
         jsonLd={[blogSchema, breadcrumbSchema]}
       />
       <MobileGate mobileOnly fallback={
-        <div className="bg-[#FAFAFA] min-h-[auto] font-sans text-[#09090B] selection:bg-neo-blue/20">
+        <div className="min-h-screen bg-canvas font-sans text-ink selection:bg-brand/20">
+          <ReadingProgress />
+          <Header />
 
-        
-        <ReadingProgress />
-        <Header />
+          <main className="pb-24 pt-32">
+            {/* Article header */}
+            <header className="mx-auto max-w-[760px] px-6">
+              <button
+                onClick={() => navigate('/company/blog')}
+                className="group mb-10 inline-flex items-center gap-2 text-sm font-medium text-muted2 transition-colors hover:text-brand"
+              >
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+                Back to Articles
+              </button>
 
-        <main className="pt-36 pb-24 relative overflow-hidden">
-          {/* Subtle background grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-
-          {/* Article Hero */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
-            <button 
-              onClick={() => navigate('/company/blog')}
-              className="flex items-center gap-2 text-slate-500 hover:text-neo-blue transition-colors mb-8 group font-medium text-sm"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Articles
-            </button>
-
-            <div className="mb-12">
-              <motion.span 
+              <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-neo-blue text-xs font-bold rounded-full uppercase tracking-widest mb-6"
+                className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-brand"
               >
                 {blog.category}
-              </motion.span>
-              <motion.h1 
-                initial={{ opacity: 0, y: 10 }}
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#09090B] mb-6 leading-tight"
+                transition={{ duration: 0.5, delay: 0.05 }}
+                className="mt-4 font-display text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.06] tracking-[-0.02em] text-ink"
               >
                 {blog.title}
               </motion.h1>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium"
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-hairline pt-6 text-sm text-muted2"
               >
-                <span className="font-semibold text-slate-800">{blog.author}</span>
-                <span className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
+                <span className="flex items-center gap-2.5">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 text-[12px] font-bold text-brand">
+                    {authorInitial}
+                  </span>
+                  <span className="font-semibold text-ink">{blog.author}</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4 text-faint" />
                   {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
                 </span>
-                <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4 text-faint" />
                   {blog.read_time} min read
                 </span>
               </motion.div>
-            </div>
+            </header>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
+            {/* Cover */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-              className="w-full aspect-video rounded-[2rem] overflow-hidden border border-zinc-200/80 mb-16 shadow-sm"
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              className="mx-auto mt-10 max-w-[1000px] px-6"
             >
-              <img 
-                src={blog.cover_image} 
-                alt={blog.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </motion.div>
-          </div>
-
-          {/* Article Content & TOC */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
-            <div className="flex flex-col lg:flex-row gap-12">
-              {/* Sidebar TOC & CTA */}
-              <div className="w-full lg:w-1/4 order-2 lg:order-1 space-y-8">
-                <TableOfContents content={blog.content} theme="light" />
-                
-                {/* Newsletter / CTA Section */}
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-6 shadow-sm sticky top-24"
-                >
-                  <div className="w-10 h-10 bg-neo-blue/10 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-5 h-5 text-neo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#09090B] mb-2">Build with Neoperion</h3>
-                  <p className="text-sm text-slate-500 mb-6 leading-relaxed">
-                    Transform your ideas into scalable, AI-powered digital products. We partner with visionaries to build the future.
-                  </p>
-                  <button onClick={() => navigate('/contact')} className="w-full py-2.5 bg-[#09090B] hover:bg-neo-blue text-white text-sm font-bold rounded-xl transition-colors duration-300">
-                    Discuss Your Project
-                  </button>
-                </motion.div>
+              <div className="aspect-video w-full overflow-hidden border border-hairline bg-canvas">
+                <img src={blog.cover_image} alt={blog.title} className="h-full w-full object-cover" />
               </div>
-              
-              {/* Main Content */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-full lg:w-3/4 order-1 lg:order-2"
-              >
-                <MarkdownRenderer content={blog.content} theme="light" />
-                <ShareButtons url={postUrl} title={blog.title} theme="light" />
-              </motion.div>
+            </motion.div>
+
+            {/* Body + floating TOC (margin on wide screens) */}
+            <div className="relative mx-auto mt-16 max-w-[760px] px-6">
+              <aside className="absolute right-full top-0 hidden h-full pr-10 xl:block">
+                <div className="sticky top-28 w-60">
+                  <TableOfContents content={blog.content} theme="light" />
+                </div>
+              </aside>
+
+              <MarkdownRenderer content={blog.content} theme="light" />
+              <ShareButtons url={postUrl} title={blog.title} theme="light" />
+
+              {/* End-of-article CTA */}
+              <div className="relative mt-12 overflow-hidden border border-hairline bg-navy p-8 lg:p-10">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(30,93,255,0.25),transparent_55%)]" />
+                <div className="relative">
+                  <h3 className="font-display text-[24px] font-bold leading-tight text-white">
+                    Build it with Neo Perion
+                  </h3>
+                  <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
+                    Turn your idea into a scalable, AI-powered product. We partner with teams to design,
+                    build, and ship — start to finish.
+                  </p>
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="group mt-6 inline-flex items-center gap-2 bg-brand px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90"
+                  >
+                    Discuss your project
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Related */}
+            <div className="mx-auto mt-8 max-w-[1080px] px-6">
+              <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="light" />
+            </div>
+          </main>
+
+          <Footer />
+        </div>
+      }>
+        <MobileShell nav="bottom" showFooter>
+          <ReadingProgress />
+          <div className="w-full px-6 pb-8 pt-8">
+            <button
+              onClick={() => navigate('/company/blog')}
+              className="mb-6 flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider text-white/50 transition-colors hover:text-white"
+            >
+              <ArrowLeft size={16} />
+              Back
+            </button>
+
+            <span className="mb-4 inline-block rounded-lg border border-neo-blue/20 bg-neo-blue/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-neo-blue">
+              {blog.category}
+            </span>
+
+            <h1 className="mb-4 text-display-sm tracking-tight text-white">{blog.title}</h1>
+
+            <div className="mb-8 flex flex-wrap items-center gap-4 border-b border-white/10 pb-6 text-xs text-white/50">
+              <span className="font-bold text-white">{blog.author}</span>
+              <span className="flex items-center gap-1.5">
+                <Calendar size={14} />
+                {format(new Date(blog.created_at), 'MMM dd, yyyy')}
+              </span>
+            </div>
+
+            <div className="mb-8 aspect-video w-full overflow-hidden rounded-2xl border border-white/10">
+              <img src={blog.cover_image} alt={blog.title} className="h-full w-full object-cover" />
+            </div>
+
+            <div className="prose prose-invert prose-mobile max-w-none">
+              <MarkdownRenderer content={blog.content} theme="dark" />
+            </div>
+
+            <div className="mt-12 border-t border-white/10 pt-8">
+              <ShareButtons url={postUrl} title={blog.title} theme="dark" />
+            </div>
+
+            <div className="mt-12 border-t border-white/10 pt-8">
+              <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="dark" />
             </div>
           </div>
-
-          {/* Related Articles */}
-          <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
-            <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="light" />
-          </div>
-        </main>
-
-        <Footer />
-      </div>
-    }>
-      <MobileShell nav="bottom" showFooter>
-        <ReadingProgress />
-        <div className="w-full pb-8 pt-8 px-6">
-          <button 
-            onClick={() => navigate('/company/blog')}
-            className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors mb-6 text-sm font-bold uppercase tracking-wider"
-          >
-            <ArrowLeft size={16} />
-            Back
-          </button>
-          
-          <span className="inline-block px-3 py-1 bg-neo-blue/10 border border-neo-blue/20 text-neo-blue text-[11px] font-bold rounded-lg uppercase tracking-widest mb-4">
-            {blog.category}
-          </span>
-          
-          <h1 className="text-display-sm text-white tracking-tight mb-4">
-            {blog.title}
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-4 text-xs text-white/50 mb-8 border-b border-white/10 pb-6">
-            <span className="font-bold text-white">{blog.author}</span>
-            <span className="flex items-center gap-1.5">
-              <Calendar size={14} />
-              {format(new Date(blog.created_at), 'MMM dd, yyyy')}
-            </span>
-          </div>
-
-          <div className="w-full aspect-video rounded-2xl overflow-hidden border border-white/10 mb-8">
-            <img 
-              src={blog.cover_image} 
-              alt={blog.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="prose prose-invert prose-mobile max-w-none">
-            <MarkdownRenderer content={blog.content} theme="dark" />
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <ShareButtons url={postUrl} title={blog.title} theme="dark" />
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <RelatedPosts category={blog.category} currentSlug={blog.slug} theme="dark" />
-          </div>
-        </div>
-      </MobileShell>
-    </MobileGate>
+        </MobileShell>
+      </MobileGate>
     </>
   );
 };
 
 export default BlogPost;
-
