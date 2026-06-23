@@ -22,7 +22,7 @@ const CATEGORIES = [
   'Product Development'
 ];
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 9;
 
 export const BlogPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,7 +38,7 @@ export const BlogPage: React.FC = () => {
   }, [searchQuery, activeCategory]);
 
   const featuredPost = featuredBlogs[0];
-  
+
   // Calculate Pagination
   const totalPages = Math.ceil(blogs.length / POSTS_PER_PAGE);
   const paginatedBlogs = useMemo(() => {
@@ -65,11 +65,11 @@ export const BlogPage: React.FC = () => {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-[#FAFAFA] min-h-[auto] font-sans text-[#09090B] selection:bg-neo-blue/20">
-        <SEO 
-          title="Blog & Insights | AI, SaaS & Product Engineering | Neo Perion" 
-          description="Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS." 
-          url="https://www.neoperion.com/company/blog" 
+      <div className="min-h-screen bg-canvas font-sans text-ink selection:bg-brand/20">
+        <SEO
+          title="Blog & Insights | AI, SaaS & Product Engineering | Neo Perion"
+          description="Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS."
+          url="https://www.neoperion.com/company/blog"
           jsonLd={[
             blogListSchema,
             {
@@ -90,43 +90,88 @@ export const BlogPage: React.FC = () => {
           ]}
         />
         <Header />
-        
-        <main className="pb-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-          
+
+        <main>
           <BlogHero theme="light" />
-          
-          <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
-            {!isFiltering && featuredPost && (
-              <FeaturedPost post={featuredPost} theme="light" />
-            )}
 
-            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12 border-t border-zinc-200 pt-12">
-              <BlogFilters 
-                categories={CATEGORIES} 
-                activeCategory={activeCategory} 
-                onCategoryChange={setActiveCategory} 
-                theme="light"
-              />
-              <BlogSearch onSearch={setSearchQuery} theme="light" />
-            </div>
+          <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+            {!isFiltering && featuredPost && <FeaturedPost post={featuredPost} theme="light" />}
 
-            {blogsLoading ? (
-              <div className="py-32 flex justify-center items-center">
-                <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
-              </div>
-            ) : (
-              <>
-                <BlogGrid blogs={paginatedBlogs} theme="light" />
-                <BlogPagination 
-                  currentPage={currentPage} 
-                  totalPages={totalPages} 
-                  onPageChange={setCurrentPage} 
+            {/* Sticky filter + search bar */}
+            <div className="sticky top-[76px] z-30 -mx-6 mt-16 border-y border-hairline bg-canvas/90 px-6 py-4 backdrop-blur-xl lg:-mx-8 lg:px-8">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <BlogFilters
+                  categories={CATEGORIES}
+                  activeCategory={activeCategory}
+                  onCategoryChange={setActiveCategory}
                   theme="light"
                 />
-              </>
-            )}
+                <BlogSearch onSearch={setSearchQuery} theme="light" />
+              </div>
+            </div>
+
+            <section className="py-14">
+              <div className="mb-8 flex items-baseline justify-between">
+                <h2 className="font-display text-xl font-bold tracking-tight text-ink">
+                  {isFiltering ? 'Results' : 'Latest articles'}
+                </h2>
+                <span className="text-[13px] text-faint">
+                  {blogs.length} article{blogs.length === 1 ? '' : 's'}
+                </span>
+              </div>
+
+              {blogsLoading ? (
+                <div className="flex items-center justify-center py-32">
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-brand/20 border-t-brand" />
+                </div>
+              ) : (
+                <>
+                  <BlogGrid blogs={paginatedBlogs} theme="light" />
+                  <BlogPagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                    theme="light"
+                  />
+                </>
+              )}
+            </section>
           </div>
+
+          {/* Newsletter CTA */}
+          <section className="border-t border-hairline bg-paper">
+            <div className="mx-auto w-full max-w-[1200px] px-6 py-16 lg:px-8">
+              <div className="relative overflow-hidden border border-navy/40 bg-navy px-8 py-12 lg:px-14 lg:py-16">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_15%,rgba(30,93,255,0.25),transparent_55%)]" />
+                <div className="relative max-w-xl">
+                  <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#8FB8FF]">
+                    Newsletter
+                  </p>
+                  <h2 className="mt-2 font-display text-[clamp(26px,3vw,40px)] font-bold leading-tight text-white">
+                    Engineering notes, straight to your inbox
+                  </h2>
+                  <p className="mt-3 text-[15px] leading-relaxed text-white/70">
+                    No noise — just our best writing on AI, product, and scale, about twice a month.
+                  </p>
+                  <form onSubmit={(e) => e.preventDefault()} className="mt-7 flex max-w-md flex-col gap-2 sm:flex-row">
+                    <input
+                      type="email"
+                      required
+                      placeholder="you@company.com"
+                      className="flex-1 border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-brand"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                  <p className="mt-3 text-[12px] text-white/40">We respect your inbox. Unsubscribe anytime.</p>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
         <Footer />
       </div>
@@ -154,4 +199,3 @@ export const BlogPage: React.FC = () => {
 };
 
 export default BlogPage;
-
