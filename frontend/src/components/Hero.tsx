@@ -31,7 +31,7 @@ export const Hero = () => {
           <div className="lg:col-span-7">
             <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">
               <span className="block text-ink">Together we</span>
-              <span className="block text-brand">naren</span>
+              <span className="block text-brand">Balajiiii.</span>
             </h1>
           </div>
 
