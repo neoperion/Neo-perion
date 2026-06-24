@@ -44,7 +44,20 @@ const NAV: NavItem[] = [
       { label: "Technical Consulting", href: "/services/startup-to-scale-engineering" },
     ],
   },
-  { kind: "link", label: "Work", href: "/company/case-studies" },
+  {
+    kind: "dropdown",
+    label: "Portfolio",
+    panelTitle: "Our Portfolio",
+    description:
+      "Explore our award-winning portfolio of AI products, SaaS platforms, and enterprise systems.",
+    viewAll: { label: "View all projects", href: "/portfolio" },
+    rows: [
+      { label: "AI Products", href: "/portfolio?category=ai-products" },
+      { label: "SaaS Platforms", href: "/portfolio?category=saas-platforms" },
+      { label: "E-Commerce", href: "/portfolio?category=e-commerce" },
+      { label: "Corporate Websites", href: "/portfolio?category=corporate-websites" },
+    ],
+  },
   {
     kind: "dropdown",
     label: "About",
@@ -54,6 +67,7 @@ const NAV: NavItem[] = [
     viewAll: { label: "About us", href: "/company/about" },
     rows: [
       { label: "Our Story", href: "/company/about" },
+      { label: "Case Studies", href: "/company/case-studies" },
       { label: "Testimonials", href: "/company/testimonials" },
       { label: "Careers", href: "/company/careers" },
       { label: "Blog & Insights", href: "/company/blog" },

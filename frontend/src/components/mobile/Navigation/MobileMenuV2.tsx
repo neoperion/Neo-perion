@@ -53,6 +53,18 @@ const SECTIONS: Section[] = [
     bottomCta: { title: 'INDUSTRIES WE TRANSFORM', description: 'Helping startups, SMBs, healthcare providers and educational institutions build AI-powered digital products.', buttonText: 'Explore Industries', href: '/industries' },
   },
   {
+    key: 'portfolio', label: 'Portfolio',
+    columns: [
+      { title: 'CATEGORIES', items: [
+        { label: 'All Projects', href: '/portfolio', icon: Blocks, description: 'View our entire collection of work.' },
+        { label: 'AI Products', href: '/portfolio?category=ai-products', icon: Brain, description: 'Products built with LLMs and ML.' },
+        { label: 'SaaS Platforms', href: '/portfolio?category=saas-platforms', icon: Cloud, description: 'Scalable cloud software.' },
+        { label: 'E-Commerce', href: '/portfolio?category=e-commerce', icon: Smartphone, description: 'Digital storefronts and marketplaces.' },
+      ]},
+    ],
+    cta: { label: 'VIEW OUR WORK', title: 'Explore our award-winning portfolio.', buttonText: 'Explore Portfolio', href: '/portfolio' },
+  },
+  {
     key: 'company', label: 'Company',
     columns: [
       { title: 'ABOUT NEO PERION', items: [

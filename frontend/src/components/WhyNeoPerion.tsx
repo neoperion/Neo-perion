@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 interface Reason {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
   title: string;
   desc: string;
   chips: [string, string];

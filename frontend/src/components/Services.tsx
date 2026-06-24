@@ -11,7 +11,7 @@ interface Capability {
   // PLACEHOLDER icon — drop your own 24×24 SVG at this path (see icons/ folder).
   icon: string;
   // Blue accent icon used by the right-side hover card.
-  accent: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  accent: React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
   kicker: string;
   shortDesc: string;
   description: string;

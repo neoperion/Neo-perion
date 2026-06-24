@@ -61,7 +61,31 @@ export const Navbar: React.FC = () => {
             </div>
             
             <Link to="/industries" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/industries' ? 'text-neo-blue' : 'text-slate-300')}>Industries</Link>
-            <Link to="/company/case-studies" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/case-studies' ? 'text-neo-blue' : 'text-slate-300')}>Case Studies</Link>
+            
+            <div className="group relative">
+              <Link to="/portfolio" className={cn("flex items-center gap-1 text-sm font-medium transition-colors hover:text-neo-blue", location.pathname.startsWith('/portfolio') ? 'text-neo-blue' : 'text-slate-300')}>
+                Portfolio <ChevronDown className="h-4 w-4" />
+              </Link>
+              {/* Portfolio Mega Menu Dropdown */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-slate-900 border border-white/10 rounded-xl p-6 shadow-2xl w-[600px] grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <Link to="/portfolio?category=all" className="block text-sm text-slate-300 hover:text-neo-blue">All Projects</Link>
+                    <Link to="/portfolio?category=ai-products" className="block text-sm text-slate-300 hover:text-neo-blue">AI Products</Link>
+                    <Link to="/portfolio?category=saas-platforms" className="block text-sm text-slate-300 hover:text-neo-blue">SaaS Platforms</Link>
+                    <Link to="/portfolio?category=e-commerce" className="block text-sm text-slate-300 hover:text-neo-blue">E-Commerce</Link>
+                  </div>
+                  <div className="space-y-4">
+                    <Link to="/portfolio?category=agritech" className="block text-sm text-slate-300 hover:text-neo-blue">Agritech</Link>
+                    <Link to="/portfolio?category=edtech" className="block text-sm text-slate-300 hover:text-neo-blue">EdTech</Link>
+                    <Link to="/portfolio?category=social-impact" className="block text-sm text-slate-300 hover:text-neo-blue">Social Impact</Link>
+                    <Link to="/portfolio?category=corporate-websites" className="block text-sm text-slate-300 hover:text-neo-blue">Corporate Websites</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Case Studies is now managed elsewhere or maybe we can keep it as a dropdown item if we convert About to a dropdown, but Navbar seems secondary, let's just remove Case Studies top level link if they meant that, or I should check the MobileMenu too. */}
             <Link to="/company/about" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/about' ? 'text-neo-blue' : 'text-slate-300')}>About</Link>
             <Link to="/company/blog" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/blog' ? 'text-neo-blue' : 'text-slate-300')}>Blog</Link>
             <Link to="/company/careers" className={cn("text-sm font-medium transition-colors hover:text-neo-blue", location.pathname === '/company/careers' ? 'text-neo-blue' : 'text-slate-300')}>Careers</Link>

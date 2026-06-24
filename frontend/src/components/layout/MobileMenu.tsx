@@ -44,6 +44,21 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             </div>
 
             <Link to="/industries" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Industries</Link>
+            
+            <div className="space-y-4">
+              <Link to="/portfolio" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Portfolio</Link>
+              <div className="flex flex-col space-y-3 pl-4 border-l border-white/10">
+                <Link to="/portfolio?category=all" onClick={onClose} className="text-slate-300 hover:text-neo-blue">All Projects</Link>
+                <Link to="/portfolio?category=ai-products" onClick={onClose} className="text-slate-300 hover:text-neo-blue">AI Products</Link>
+                <Link to="/portfolio?category=saas-platforms" onClick={onClose} className="text-slate-300 hover:text-neo-blue">SaaS Platforms</Link>
+                <Link to="/portfolio?category=e-commerce" onClick={onClose} className="text-slate-300 hover:text-neo-blue">E-Commerce</Link>
+                <Link to="/portfolio?category=agritech" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Agritech</Link>
+                <Link to="/portfolio?category=edtech" onClick={onClose} className="text-slate-300 hover:text-neo-blue">EdTech</Link>
+                <Link to="/portfolio?category=social-impact" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Social Impact</Link>
+                <Link to="/portfolio?category=corporate-websites" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Corporate Websites</Link>
+              </div>
+            </div>
+
             <Link to="/company/case-studies" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Case Studies</Link>
             <Link to="/company/about" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">About</Link>
             <Link to="/company/blog" onClick={onClose} className="text-lg font-medium text-slate-200 hover:text-neo-blue">Blog</Link>

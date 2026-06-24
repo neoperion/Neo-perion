@@ -15,6 +15,8 @@ import NotFound from "./pages/NotFound";
 import { ServicePageTemplate } from "./components/services/ServicePageTemplate";
 import IndustriesPage from "@/pages/IndustriesPage";
 import { IndustryPageRouter } from "@/components/industries/IndustryPageRouter";
+import Portfolio from "./pages/Portfolio";
+import PortfolioDetail from "./pages/PortfolioDetail";
 
 import FounderLetter from "./pages/FounderLetter";
 import Careers from "./pages/Careers";
@@ -83,6 +85,8 @@ const App = () => (
               <Route path="/company/success-stories" element={<SuccessStories />} />
               <Route path="/company/testimonials" element={<Testimonials />} />
               <Route path="/company/insights" element={<Insights />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
 
               {/* Admin Login - Outside of AdminLayout Guard */}
               <Route path="/admin/login" element={<AdminLogin />} />
