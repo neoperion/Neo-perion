@@ -54,7 +54,7 @@ export const ProjectFilters: React.FC<ProjectFiltersProps> = ({
                 onClick={() => onCategoryChange(category)}
                 className={`px-5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 uppercase font-sans tracking-[0.1em] ${
                   selectedCategory === category
-                    ? 'bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.15)]'
+                    ? 'bg-neutral-900 text-white shadow-[0_0_30px_rgba(255,255,255,0.15)]'
                     : 'bg-white/[0.04] text-white/40 border border-white/[0.06] hover:bg-white/[0.08] hover:text-white/70'
                 }`}
               >

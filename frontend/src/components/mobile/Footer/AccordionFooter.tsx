@@ -35,7 +35,7 @@ export function AccordionFooter({ sections = DEFAULT_SECTIONS, newsletterCta = t
   return (
     <footer role="contentinfo" className="md:hidden relative w-full bg-gradient-to-b from-[#020617] to-[#030B1D] border-t border-white/[0.08] pt-mobile-xl pb-safe">
       <div className="px-mobile-base pb-6 mb-4 border-b border-white/[0.06]">
-        <div className="flex items-center gap-2 mb-3"><img src="/images/np-logo.png" alt="Neo Perion" className="h-8 w-8 object-contain" /><span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-neo-light">Neo Perion</span></div>
+        <div className="flex items-center gap-2 mb-3"><img src="/images/np-logo.png" alt="Neo Perion" className="h-8 w-8 object-contain" /><span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 to-neo-light">Neo Perion</span></div>
         <p className="text-[13px] text-white/65 leading-relaxed max-w-xs">Transforming ideas into enterprise-grade AI and scalable digital products.</p>
         <div className="flex items-center gap-3 mt-4">
           <SocialLink href="https://linkedin.com" icon={Linkedin} label="LinkedIn" />

@@ -25,7 +25,7 @@ export function MobileServiceFAQ({ eyebrow = 'FAQ', title = 'Questions, answered
               <button type="button" onClick={() => setOpenIndex(open ? null : i)} aria-expanded={open} aria-controls={`faq-p-${i}`}
                 className="w-full flex items-center justify-between gap-3 p-4 text-left active:bg-white/[0.04] transition-colors">
                 <span className="text-[15px] font-semibold text-white">{item.q}</span>
-                <span className={cn('shrink-0 h-7 w-7 rounded-full flex items-center justify-center transition-all', open ? 'bg-neo-highlight text-[#030B1D]' : 'bg-white/[0.06] text-white/70')}>
+                <span className={cn('shrink-0 h-7 w-7 rounded-full flex items-center justify-center transition-all', open ? 'bg-neo-highlight text-white' : 'bg-white/[0.06] text-white/70')}>
                   {open ? <Minus size={14} /> : <Plus size={14} />}
                 </span>
               </button>

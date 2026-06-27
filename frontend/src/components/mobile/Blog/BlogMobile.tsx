@@ -32,7 +32,7 @@ export function BlogCategoryFilter({ categories, active, onChange }: { categorie
         {categories.map((c) => (
           <button key={c} type="button" onClick={() => onChange(c)}
             className={cn('shrink-0 h-9 px-4 rounded-full text-[12px] font-semibold snap-center transition-all',
-              active === c ? 'bg-gradient-to-br from-neo-blue to-neo-highlight text-white shadow-[0_4px_16px_rgba(0,229,255,0.3)]' : 'bg-white/[0.06] border border-white/[0.10] backdrop-blur-glass-1 text-white/75')}>{c}</button>
+              active === c ? 'bg-gradient-to-br from-neo-blue to-neo-highlight text-white shadow-[0_4px_16px_rgba(247,126,13,0.3)]' : 'bg-white/[0.06] border border-white/[0.10] backdrop-blur-glass-1 text-white/75')}>{c}</button>
         ))}
       </div>
     </div>
@@ -51,7 +51,7 @@ export function BlogReader({ title, author, publishedAt, readTime, coverImage, c
   return (
     <article className="relative w-full pb-mobile-4xl">
       <div className="fixed top-0 left-0 right-0 h-[2px] z-mobile-toast pointer-events-none">
-        <div className="h-full bg-gradient-to-r from-neo-blue to-neo-highlight shadow-[0_0_8px_rgba(0,229,255,0.6)] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
+        <div className="h-full bg-gradient-to-r from-neo-blue to-neo-highlight shadow-[0_0_8px_rgba(247,126,13,0.6)] transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
       </div>
       <header className="px-mobile-base pt-safe-or-4 pb-6">
         <div className="flex items-center justify-between mb-4">

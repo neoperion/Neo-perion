@@ -9,7 +9,7 @@ interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
-  ({ className, children, glowColor = 'rgba(0,229,255,0.4)', hoverGlow = true, ...props }, ref) => {
+  ({ className, children, glowColor = 'rgba(247,126,13,0.4)', hoverGlow = true, ...props }, ref) => {
     return (
       <motion.div
         ref={ref}

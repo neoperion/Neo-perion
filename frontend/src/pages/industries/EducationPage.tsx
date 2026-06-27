@@ -16,8 +16,8 @@ import { MobileGate, MobileShell } from '@/components/mobile';
 const LMSArchitectureDiagram = () => {
   const [activeNode, setActiveNode] = useState(0);
   const nodes = [
-    { icon: Users, title: 'Students & Educators', desc: 'Multi-role access with personalized dashboards', color: 'bg-cyan-50 text-cyan-600 border-cyan-200' },
-    { icon: Monitor, title: 'Learning Interface', desc: 'Adaptive content delivery & gamification', color: 'bg-blue-50 text-blue-600 border-blue-200' },
+    { icon: Users, title: 'Students & Educators', desc: 'Multi-role access with personalized dashboards', color: 'bg-amber-500/10 text-amber-400 border-amber-500/30' },
+    { icon: Monitor, title: 'Learning Interface', desc: 'Adaptive content delivery & gamification', color: 'bg-orange-500/10 text-orange-400 border-orange-500/30' },
     { icon: Bot, title: 'AI Engine', desc: 'Recommendation & assessment models', color: 'bg-violet-50 text-violet-600 border-violet-200' },
     { icon: BarChart3, title: 'Analytics Layer', desc: 'Real-time insights & predictive reports', color: 'bg-emerald-50 text-emerald-600 border-emerald-200' },
   ];
@@ -28,15 +28,15 @@ const LMSArchitectureDiagram = () => {
   }, []);
 
   return (
-    <div className="relative premium-card p-8 lg:p-10 bg-white overflow-hidden">
-      <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none" />
+    <div className="relative premium-card p-8 lg:p-10 bg-neutral-900 overflow-hidden">
+      <div className="absolute top-0 right-0 w-40 h-40 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 text-center">Learning Platform Architecture</h3>
 
       <div className="space-y-4 relative">
         {/* Connecting pulse line */}
-        <div className="absolute left-[31px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-cyan-200 via-blue-200 to-emerald-200 z-0" />
+        <div className="absolute left-[31px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-amber-200 via-orange-200 to-emerald-200 z-0" />
         <motion.div
-          className="absolute left-[29px] w-[6px] h-16 bg-gradient-to-b from-cyan-400 to-cyan-400/0 rounded-full z-10"
+          className="absolute left-[29px] w-[6px] h-16 bg-gradient-to-b from-amber-400 to-amber-400/0 rounded-full z-10"
           animate={{ top: [32, 80, 128, 176, 32] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -48,23 +48,23 @@ const LMSArchitectureDiagram = () => {
             <motion.button
               key={i}
               onClick={() => setActiveNode(i)}
-              className={`relative z-20 flex items-center gap-5 w-full p-4 rounded-2xl border transition-all duration-500 text-left ${isActive ? 'bg-white shadow-lg shadow-cyan-100/50 border-cyan-200 scale-[1.02]' : 'bg-slate-50/50 border-slate-100 hover:bg-white hover:border-slate-200'}`}
+              className={`relative z-20 flex items-center gap-5 w-full p-4 rounded-2xl border transition-all duration-500 text-left ${isActive ? 'bg-neutral-900 shadow-lg shadow-amber-100/50 border-amber-500/30 scale-[1.02]' : 'bg-neutral-900/60 border-neutral-800 hover:bg-neutral-900 hover:border-neutral-800'}`}
               whileTap={{ scale: 0.98 }}
               aria-pressed={isActive}
               aria-label={`Select layer: ${node.title}`}
             >
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-500 ${isActive ? node.color : 'bg-slate-50 text-slate-400 border-slate-200'}`}>
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-500 ${isActive ? node.color : 'bg-neutral-900 text-slate-400 border-neutral-800'}`}>
                 <Icon size={28} />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className={`font-bold text-[15px] transition-colors duration-300 ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>{node.title}</h4>
+                <h4 className={`font-bold text-[15px] transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-400'}`}>{node.title}</h4>
                 <AnimatePresence>
                   {isActive && (
                     <motion.p
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="text-sm text-slate-500 mt-1"
+                      className="text-sm text-neutral-400 mt-1"
                     >
                       {node.desc}
                     </motion.p>
@@ -75,7 +75,7 @@ const LMSArchitectureDiagram = () => {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="w-3 h-3 rounded-full bg-cyan-400 shrink-0"
+                  className="w-3 h-3 rounded-full bg-amber-400 shrink-0"
                 />
               )}
             </motion.button>
@@ -122,7 +122,7 @@ export function EducationPage() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-[auto]">
+      <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
           title="Education & EdTech Solutions | AI-Powered Learning Platforms | Neo Perion"
           description={industry.heroSubtext}
@@ -132,10 +132,10 @@ export function EducationPage() {
         <Header />
 
         {/* ═══════════════ HERO SECTION ═══════════════ */}
-        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200 relative overflow-hidden">
+        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800 relative overflow-hidden">
           {/* Decorative background elements */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-50 rounded-full blur-[120px] opacity-60 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50 rounded-full blur-[100px] opacity-40 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] opacity-60 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[100px] opacity-40 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <motion.div
@@ -144,28 +144,28 @@ export function EducationPage() {
               transition={{ duration: 0.7 }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center">
-                  <GraduationCap className="text-cyan-600" size={20} />
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+                  <GraduationCap className="text-amber-400" size={20} />
                 </div>
-                <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-600">{industry.tagline}</span>
+                <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400">{industry.tagline}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black mb-6 tracking-tight text-slate-900 leading-[1.1]">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black mb-6 tracking-tight text-white leading-[1.1]">
                 {industry.heroHeadline}
               </h1>
-              <p className="text-xl text-slate-500 mb-10 leading-relaxed font-medium max-w-xl">
+              <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">
                 {industry.heroSubtext}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-cyan-600 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {industry.ctaText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" size={18} />
                 </button>
                 <button
                   onClick={() => navigate('/company/case-studies')}
-                  className="px-8 py-4 bg-white text-slate-700 rounded-xl font-bold border border-slate-200 hover:border-cyan-300 hover:text-cyan-700 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="px-8 py-4 bg-neutral-900 text-neutral-200 rounded-xl font-bold border border-neutral-800 hover:border-amber-500/30 hover:text-amber-400 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play size={16} /> View Case Studies
                 </button>
@@ -185,7 +185,7 @@ export function EducationPage() {
 
 
         {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -193,11 +193,11 @@ export function EducationPage() {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-600 mb-3 block">What We Build</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 mb-4 tracking-tight">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-3 block">What We Build</span>
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white mb-4 tracking-tight">
                 Enterprise EdTech Capabilities
               </h2>
-              <p className="text-lg text-slate-500 max-w-2xl">
+              <p className="text-lg text-neutral-400 max-w-2xl">
                 From AI tutoring engines to real-time analytics platforms — we engineer the complete learning technology stack.
               </p>
             </motion.div>
@@ -221,15 +221,15 @@ export function EducationPage() {
                       hidden: { opacity: 0, x: 30 },
                       show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
-                    className="group relative p-8 rounded-[24px] bg-slate-50 border border-slate-100 hover:border-cyan-200 hover:bg-white hover:shadow-xl hover:shadow-cyan-50 transition-all duration-500"
+                    className="group relative p-8 rounded-[24px] bg-neutral-900 border border-neutral-800 hover:border-amber-500/30 hover:bg-neutral-900 hover:shadow-xl hover:shadow-amber-50 transition-all duration-500"
                   >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-50 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
                     <div className="relative z-10">
-                      <div className="w-14 h-14 bg-white rounded-2xl border border-slate-200 flex items-center justify-center mb-6 shadow-sm group-hover:border-cyan-200 group-hover:shadow-cyan-100 transition-all duration-500">
-                        <Icon className="text-slate-400 group-hover:text-cyan-600 transition-colors duration-500" size={26} />
+                      <div className="w-14 h-14 bg-neutral-900 rounded-2xl border border-neutral-800 flex items-center justify-center mb-6 shadow-sm group-hover:border-amber-500/30 group-hover:shadow-amber-100 transition-all duration-500">
+                        <Icon className="text-slate-400 group-hover:text-amber-400 transition-colors duration-500" size={26} />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-700 transition-colors">{offering.title}</h3>
-                      <p className="text-slate-500 leading-relaxed">{offering.description}</p>
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">{offering.title}</h3>
+                      <p className="text-neutral-400 leading-relaxed">{offering.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -240,8 +240,8 @@ export function EducationPage() {
 
         {/* ═══════════════ HOW WE WORK — PROCESS ═══════════════ */}
         <section className="py-24 px-6 lg:px-12 bg-slate-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/30 via-transparent to-transparent" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-800/20 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-900/30 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-800/20 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="max-w-6xl mx-auto relative z-10">
             <motion.div
@@ -250,7 +250,7 @@ export function EducationPage() {
               viewport={{ once: true }}
               className="text-center mb-20"
             >
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-3 block">Our Process</span>
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-3 block">Our Process</span>
               <h2 className="text-3xl md:text-[2.75rem] font-black mb-4 tracking-tight">From Curriculum to Code</h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
                 A battle-tested methodology refined across 50+ education technology projects.
@@ -277,10 +277,10 @@ export function EducationPage() {
                   className="relative group"
                 >
                   {i < 3 && (
-                    <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-cyan-500/30 to-transparent z-0" />
+                    <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-amber-500/30 to-transparent z-0" />
                   )}
-                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-500 h-full">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-black text-xl group-hover:bg-cyan-500/20 transition-all">
+                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-amber-500/30 transition-all duration-500 h-full">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-black text-xl group-hover:bg-amber-500/20 transition-all">
                       {step.step}
                     </div>
                     <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
@@ -293,7 +293,7 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ BENEFITS BENTO GRID ═══════════════ */}
-        <section id="benefits" className="py-24 px-6 lg:px-12 bg-white scroll-mt-20" role="region" aria-label="Why choose Neo Perion for education">
+        <section id="benefits" className="py-24 px-6 lg:px-12 bg-neutral-900 scroll-mt-20" role="region" aria-label="Why choose Neo Perion for education">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -301,8 +301,8 @@ export function EducationPage() {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-600 mb-3 block">Why Choose Us</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 mb-4 tracking-tight">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-3 block">Why Choose Us</span>
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white mb-4 tracking-tight">
                 The Neo Perion Advantage
               </h2>
             </motion.div>
@@ -321,9 +321,9 @@ export function EducationPage() {
                 const icons = [Sparkles, Zap, Star];
                 const Icon = icons[i % icons.length];
                 const bgGradients = [
-                  'from-cyan-50 to-blue-50',
-                  'from-blue-50 to-violet-50',
-                  'from-emerald-50 to-cyan-50'
+                  'from-amber-50 to-orange-50',
+                  'from-orange-50 to-violet-50',
+                  'from-emerald-50 to-amber-50'
                 ];
                 return (
                   <motion.div
@@ -332,15 +332,15 @@ export function EducationPage() {
                       hidden: { opacity: 0, x: 30 },
                       show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
-                    className={`relative rounded-[24px] bg-gradient-to-br ${bgGradients[i]} border border-slate-100 p-10 overflow-hidden group hover:shadow-xl hover:shadow-cyan-50 transition-all duration-500`}
+                    className={`relative rounded-[24px] bg-gradient-to-br ${bgGradients[i]} border border-neutral-800 p-10 overflow-hidden group hover:shadow-xl hover:shadow-amber-50 transition-all duration-500`}
                   >
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
                     <div className="relative z-10">
-                      <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/60 shadow-sm flex items-center justify-center mb-6">
-                        <Icon className="text-cyan-600" size={22} />
+                      <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-slate-200/60 shadow-sm flex items-center justify-center mb-6">
+                        <Icon className="text-amber-400" size={22} />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
-                      <p className="text-slate-500 leading-relaxed">{benefit.description}</p>
+                      <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
+                      <p className="text-neutral-400 leading-relaxed">{benefit.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -350,7 +350,7 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ TECH STACK ═══════════════ */}
-        <section className="py-16 px-6 lg:px-12 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 px-6 lg:px-12 bg-neutral-900 border-y border-neutral-800">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="shrink-0">
@@ -364,7 +364,7 @@ export function EducationPage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-600 hover:border-cyan-300 hover:text-cyan-700 hover:shadow-sm transition-all duration-300 cursor-default"
+                    className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-full text-sm font-semibold text-neutral-400 hover:border-amber-500/30 hover:text-amber-400 hover:shadow-sm transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </motion.span>
@@ -375,7 +375,7 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ CASE STUDY PREVIEW ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -383,24 +383,24 @@ export function EducationPage() {
               viewport={{ once: true }}
               className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-10 md:p-16"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-cyan-900/30 via-transparent to-transparent" />
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-amber-900/30 via-transparent to-transparent" />
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
 
               <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-12 items-center">
                 <div>
-                  <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-400 mb-4 block">Featured Project</span>
+                  <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-4 block">Featured Project</span>
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{industry.caseStudyPreview.title}</h3>
                   <p className="text-sm text-slate-400 mb-6 font-semibold">{industry.caseStudyPreview.client}</p>
                   <p className="text-slate-300 leading-relaxed mb-8">{industry.caseStudyPreview.result}</p>
                   <button
                     onClick={() => navigate('/company/case-studies')}
-                    className="group inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors"
+                    className="group inline-flex items-center gap-2 text-amber-400 font-bold hover:text-amber-300 transition-colors"
                   >
                     Read Full Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
                 <div className="text-center md:text-right">
-                  <div className="text-6xl md:text-7xl font-black text-cyan-400 mb-2">{industry.caseStudyPreview.metric}</div>
+                  <div className="text-6xl md:text-7xl font-black text-amber-400 mb-2">{industry.caseStudyPreview.metric}</div>
                   <div className="text-sm text-slate-400 font-semibold uppercase tracking-wider">{industry.caseStudyPreview.metricLabel}</div>
                 </div>
               </div>
@@ -409,7 +409,7 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ FAQ ACCORDION ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-50">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -417,8 +417,8 @@ export function EducationPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-cyan-600 mb-3 block">FAQ</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 tracking-tight">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-3 block">FAQ</span>
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white tracking-tight">
                 Common Questions
               </h2>
             </motion.div>
@@ -431,15 +431,15 @@ export function EducationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-slate-100 transition-all duration-300"
+                  className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-slate-100 transition-all duration-300"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between p-6 text-left group"
                   >
-                    <h3 className="text-[17px] font-bold text-slate-900 pr-4 group-hover:text-cyan-700 transition-colors">{item.question}</h3>
+                    <h3 className="text-[17px] font-bold text-white pr-4 group-hover:text-amber-400 transition-colors">{item.question}</h3>
                     <ChevronDown
-                      className={`shrink-0 text-slate-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180 text-cyan-500' : ''}`}
+                      className={`shrink-0 text-slate-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180 text-amber-500' : ''}`}
                       size={20}
                     />
                   </button>
@@ -451,7 +451,7 @@ export function EducationPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                        <div className="px-6 pb-6 text-neutral-400 leading-relaxed border-t border-neutral-800 pt-4">
                           {item.answer}
                         </div>
                       </motion.div>
@@ -464,9 +464,9 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ CTA SECTION ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-cyan-600 via-cyan-700 to-blue-800 text-white relative overflow-hidden">
+        <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-amber-600 via-amber-700 to-orange-800 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
-          <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-cyan-400/20 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-amber-400/20 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="max-w-4xl mx-auto relative z-10 text-center">
             <motion.div
@@ -478,13 +478,13 @@ export function EducationPage() {
                 <GraduationCap className="text-white" size={30} />
               </div>
               <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">Ready to Build the Future of Learning?</h2>
-              <p className="text-lg text-cyan-100 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg text-amber-100 mb-10 max-w-2xl mx-auto">
                 Let's discuss how we can help you build an AI-powered education platform that transforms how students learn.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group px-8 py-4 bg-white text-cyan-700 rounded-xl font-bold hover:bg-cyan-50 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-cyan-900/20"
+                  className="group px-8 py-4 bg-neutral-900 text-amber-400 rounded-xl font-bold hover:bg-amber-500/10 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-amber-900/20"
                 >
                   Start Your EdTech Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -506,9 +506,9 @@ export function EducationPage() {
         {/* Hero Mobile */}
         <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
-          <div className="absolute -top-[20%] -right-[10%] w-[120%] h-[60%] blur-[100px] rounded-full pointer-events-none opacity-20 bg-cyan-500" />
+          <div className="absolute -top-[20%] -right-[10%] w-[120%] h-[60%] blur-[100px] rounded-full pointer-events-none opacity-20 bg-amber-500" />
           
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4 text-cyan-400">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4 text-amber-400">
             {industry.tagline}
           </p>
           <h1 className="text-display-lg text-white tracking-tight mb-4">{industry.heroHeadline}</h1>
@@ -518,7 +518,7 @@ export function EducationPage() {
             onClick={() => navigate('/contact')}
             className="w-full h-12 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 relative overflow-hidden border border-white/10 active:scale-[0.98] transition-transform"
           >
-            <div className="absolute inset-0 opacity-20 bg-cyan-500" />
+            <div className="absolute inset-0 opacity-20 bg-amber-500" />
             <span className="relative z-10 flex items-center gap-2">{industry.ctaText} <ArrowRight size={16} /></span>
           </button>
         </section>
@@ -528,8 +528,8 @@ export function EducationPage() {
           <p className="text-[10px] font-bold tracking-[0.2em] text-white/50 mb-6 uppercase">Learning Platform Architecture</p>
           <div className="space-y-3">
              {[
-                { icon: Users, title: 'Students & Educators', desc: 'Multi-role access dashboards', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
-                { icon: Monitor, title: 'Learning Interface', desc: 'Adaptive content & gamification', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+                { icon: Users, title: 'Students & Educators', desc: 'Multi-role access dashboards', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
+                { icon: Monitor, title: 'Learning Interface', desc: 'Adaptive content & gamification', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
                 { icon: Bot, title: 'AI Engine', desc: 'Recommendation & models', color: 'text-violet-400', bg: 'bg-violet-500/10', border: 'border-violet-500/20' },
                 { icon: BarChart3, title: 'Analytics Layer', desc: 'Real-time insights & reports', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
               ].map((node, i) => (
@@ -555,7 +555,7 @@ export function EducationPage() {
                return (
                  <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
                    <div className="flex items-start gap-3">
-                     <Icon className="text-cyan-400 shrink-0 mt-0.5" size={20} />
+                     <Icon className="text-amber-400 shrink-0 mt-0.5" size={20} />
                      <div>
                        <h3 className="text-sm font-bold text-white mb-1">{offering.title}</h3>
                        <p className="text-[13px] text-white/60 leading-relaxed">{offering.description}</p>

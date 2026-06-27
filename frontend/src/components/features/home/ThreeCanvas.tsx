@@ -56,7 +56,7 @@ const GlassMonolith: React.FC<GlassMonolithProps> = ({ isMobile }) => {
         {/* The Inner Glowing Core */}
         <mesh ref={core}>
           <icosahedronGeometry args={[1.2, 1]} />
-          <meshBasicMaterial color="#2563FF" wireframe />
+          <meshBasicMaterial color="#FB8C2A" wireframe />
         </mesh>
       </mesh>
       
@@ -66,7 +66,7 @@ const GlassMonolith: React.FC<GlassMonolithProps> = ({ isMobile }) => {
         scale={5} 
         size={isMobile ? 1.2 : 2} 
         speed={0.3} 
-        color="#4AA8FF" 
+        color="#FF9A3D" 
         opacity={0.4} 
       />
     </Float>
@@ -93,8 +93,8 @@ export const ThreeCanvas: React.FC = () => {
         >
           <ambientLight intensity={0.6} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563FF" />
-          <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#74C8FF" />
+          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#FB8C2A" />
+          <spotLight position={[0, 10, 0]} intensity={1} angle={0.5} penumbra={1} color="#FFC480" />
           
           <Environment preset="city" />
           

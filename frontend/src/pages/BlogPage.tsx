@@ -177,7 +177,7 @@ export const BlogPage: React.FC = () => {
           <section className="border-t border-hairline bg-paper">
             <div className="mx-auto w-full max-w-[1200px] px-6 py-16 lg:px-8">
               <div className="relative overflow-hidden border border-navy/40 bg-navy px-8 py-12 lg:px-14 lg:py-16">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_15%,rgba(30,93,255,0.25),transparent_55%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_15%,rgba(247,126,13,0.25),transparent_55%)]" />
                 <div className="relative max-w-xl">
                   <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#8FB8FF]">
                     Newsletter

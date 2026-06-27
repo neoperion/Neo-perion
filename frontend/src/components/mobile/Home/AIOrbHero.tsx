@@ -24,7 +24,7 @@ function AuroraMesh() {
           scale: [1, 1.1, 0.95, 1],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-20 -left-16 w-[260px] h-[260px] rounded-full bg-gradient-to-br from-sky-200/40 to-blue-300/30 blur-[80px]"
+        className="absolute -top-20 -left-16 w-[260px] h-[260px] rounded-full bg-gradient-to-br from-orange-200/40 to-orange-300/30 blur-[80px]"
       />
       {/* Blob 2 — center-right, lavender */}
       <motion.div
@@ -73,7 +73,7 @@ export function AIOrbHero({
       initial="hidden"
       animate="visible"
       variants={stagger}
-      className="relative w-full min-h-[80vh] flex flex-col justify-center bg-white overflow-hidden px-6 pt-24 pb-12 border-b border-slate-100"
+      className="relative w-full min-h-[80vh] flex flex-col justify-center bg-neutral-900 overflow-hidden px-6 pt-24 pb-12 border-b border-neutral-800"
     >
       {/* Subtle dot grid */}
       <div
@@ -104,7 +104,7 @@ export function AIOrbHero({
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
-          className="text-[clamp(32px,8vw,36px)] font-black text-slate-900 tracking-tight leading-[1.12] mb-4 font-display max-w-sm"
+          className="text-[clamp(32px,8vw,36px)] font-black text-white tracking-tight leading-[1.12] mb-4 font-display max-w-sm"
         >
           {headline}
         </motion.h1>
@@ -112,7 +112,7 @@ export function AIOrbHero({
         {/* Subheadline */}
         <motion.p
           variants={fadeUp}
-          className="text-slate-600 text-[14px] leading-relaxed max-w-xs mb-8 font-semibold"
+          className="text-neutral-400 text-[14px] leading-relaxed max-w-xs mb-8 font-semibold"
         >
           {subheadline}
         </motion.p>
@@ -136,7 +136,7 @@ export function AIOrbHero({
                 document.querySelector(secondaryCta.href)?.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="text-[13px] font-bold text-slate-500 hover:text-neo-blue transition-colors py-2"
+            className="text-[13px] font-bold text-neutral-400 hover:text-neo-blue transition-colors py-2"
           >
             {secondaryCta.label}
           </a>

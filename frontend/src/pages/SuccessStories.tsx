@@ -31,7 +31,7 @@ export default function SuccessStories() {
                  <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
                  <p className="text-slate-400 mb-6">{s.desc}</p>
                  <div className="p-4 rounded-xl bg-black/50 border border-white/5">
-                   <p className="text-sm text-slate-500 mb-1">Key Result</p>
+                   <p className="text-sm text-neutral-400 mb-1">Key Result</p>
                    <p className="text-xl font-bold text-white">{s.metric}</p>
                  </div>
               </div>
@@ -60,7 +60,7 @@ export default function SuccessStories() {
                    <p className="text-[13px] text-white/60 mb-6 line-clamp-2">{s.desc}</p>
                    <div className="p-4 rounded-2xl bg-[#020617]/50 border border-white/[0.04]">
                      <p className="text-[11px] font-semibold text-white/40 mb-1 uppercase tracking-wide">Key Result</p>
-                     <p className="text-[18px] font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-[#00e5ff]">{s.metric}</p>
+                     <p className="text-[18px] font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-[#FFB05C]">{s.metric}</p>
                    </div>
                 </div>
               ))}

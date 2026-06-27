@@ -29,13 +29,13 @@ export const TechEcosystem = () => {
 
           {/* Ecosystem Column 2 */}
           <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-            <Cloud className="w-8 h-8 text-blue-400 mb-4" />
+            <Cloud className="w-8 h-8 text-orange-400 mb-4" />
             <h3 className="text-lg font-display font-bold mb-4 text-white">Cloud & DevOps</h3>
             <ul className="space-y-3">
-              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400/50"></div> AWS</li>
-              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400/50"></div> Microsoft Azure</li>
-              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400/50"></div> Google Cloud Platform</li>
-              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400/50"></div> Docker & Kubernetes</li>
+              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-400/50"></div> AWS</li>
+              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-400/50"></div> Microsoft Azure</li>
+              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-400/50"></div> Google Cloud Platform</li>
+              <li className="text-sm text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-400/50"></div> Docker & Kubernetes</li>
             </ul>
           </div>
 

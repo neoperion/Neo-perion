@@ -54,7 +54,7 @@ export function FounderRotator() {
     >
       <div className="grid sm:grid-cols-2">
         {/* Photo — cropped to fill, grounded on a soft tinted panel */}
-        <div className="relative min-h-[300px] overflow-hidden bg-gradient-to-b from-[#EDF1F7] to-[#DCE3EE] sm:min-h-[380px]">
+        <div className="relative min-h-[300px] overflow-hidden bg-gradient-to-b from-[#121113] to-[#121113] sm:min-h-[380px]">
           <AnimatePresence>
             <motion.img
               key={founder.photo}

@@ -63,9 +63,9 @@ export const industriesData: IndustryData[] = [
     ctaText: 'Build Your EdTech Platform',
     description: 'Empowering the future of learning with scalable educational technology and AI-driven platforms.',
     icon: GraduationCap,
-    color: '#06b6d4',
+    color: '#F59E0B',
     colorLight: '#ecfeff',
-    gradientFrom: '#06b6d4',
+    gradientFrom: '#F59E0B',
     gradientTo: '#0891b2',
     solutions: [
       'LMS Platforms',

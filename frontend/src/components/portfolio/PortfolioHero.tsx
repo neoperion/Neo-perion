@@ -61,7 +61,7 @@ export const PortfolioHero: React.FC = () => {
 
       {/* === LAYER 4: Subtle radial glow === */}
       <div className="absolute inset-0 z-[3] pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[900px] md:h-[900px] bg-blue-500/[0.04] rounded-full blur-[150px] md:blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[900px] md:h-[900px] bg-orange-500/[0.04] rounded-full blur-[150px] md:blur-[200px]" />
       </div>
 
       {/* === CORNER LABEL: Bottom Right only (removed Product Studio) === */}

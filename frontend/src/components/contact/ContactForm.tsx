@@ -198,7 +198,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-4 rounded-lg bg-neo-blue text-black font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+          className="w-full py-4 rounded-lg bg-neo-blue text-white font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
         >
           {submitting ? 'Sending Message...' : 'Send Message'}
         </button>

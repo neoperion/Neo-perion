@@ -5,7 +5,7 @@ export const webDevelopment: ServicePageConfig = {
   slug: 'web-development',
   title: 'Web Development',
   subtitle: 'High-performance web applications using modern tech stacks.',
-  heroGradient: 'from-blue-500/20 to-indigo-500/20',
+  heroGradient: 'from-orange-500/20 to-orange-500/20',
   icon: Globe,
   challenges: [
     'Slow Websites',

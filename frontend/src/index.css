@@ -6,33 +6,36 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* ─── BLACK + ORANGE THEME ───
+       Near-black surfaces, white text, Orange (Wheel) #F77E0D = hsl(28 94% 51%). */
+    --background: 240 6% 4%;            /* near-black #0A0A0B */
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 5% 7%;                  /* raised panel ~#121113 */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 5% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 221.2 83.2% 53.3%; /* Royal Blue #2563EB */
-    --primary-foreground: 210 40% 98%;
+    --primary: 28 94% 51%;             /* Orange (Wheel) #F77E0D */
+    --primary-foreground: 240 6% 6%;   /* dark text on bright orange */
+    --primary-glow: 33 95% 60%;        /* lighter orange for glows */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 4% 12%;           /* dark gray surface */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 191 97% 43%; /* Cyan #06B6D4 */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 28 94% 51%;              /* orange accent (was cyan) */
+    --accent-foreground: 240 6% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 28 94% 51%;
 
     --radius: 0.75rem;
 
@@ -41,33 +44,35 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Same black + orange theme; toggling .dark must not revert to blue. */
+    --background: 240 6% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 5% 7%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 5% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 28 94% 51%;
+    --primary-foreground: 240 6% 6%;
+    --primary-glow: 33 95% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 4% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 28 94% 51%;
+    --accent-foreground: 240 6% 6%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 28 94% 51%;
   }
 }
 
@@ -100,112 +105,112 @@
   /* ───────────────────────────────────────────────────────────────── */
   .btn-primary {
     @apply inline-flex items-center justify-center;
-    background: linear-gradient(135deg, #1E5DFF, #2563FF);
-    color: white;
+    background: linear-gradient(135deg, #F77E0D, #FB8C2A);
+    color: #0A0A0B;
     padding: 14px 28px;
     border-radius: 12px;
     font-weight: 600;
     letter-spacing: -0.2px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #2563FF, #4AA8FF);
-    box-shadow: 0 10px 30px rgba(37, 99, 255, 0.20);
+    background: linear-gradient(135deg, #FB8C2A, #FF9A3D);
+    box-shadow: 0 10px 30px rgba(247, 126, 13, 0.20);
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center;
     background: transparent;
-    border: 1.5px solid rgba(15,23,42,0.2);
-    color: #0F172A;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: #FAFAFA;
     padding: 13px 27px;
     border-radius: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
   }
-  
+
   .btn-secondary:hover {
-    background: rgba(15,23,42,0.05);
-    border-color: rgba(15,23,42,0.4);
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(247,126,13,0.5);
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center;
     background: transparent;
-    color: #2563EB;
+    color: #F77E0D;
     padding: 12px 20px;
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.3s ease;
   }
-  
+
   .btn-ghost:hover {
-    color: #7C3AED;
+    color: #FF9A3D;
   }
-  
+
   .premium-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(15,23,42,0.08);
-    box-shadow: 0 20px 60px rgba(15,23,42,0.08), 
-                0 4px 16px rgba(15,23,42,0.04);
+    background: #121113;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45),
+                0 4px 16px rgba(0,0,0,0.30);
     border-radius: 32px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .premium-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 40px 80px rgba(15,23,42,0.14);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
   }
-  
+
   .text-neo-gradient {
-    background: linear-gradient(135deg, #1E5DFF 0%, #2563FF 35%, #4AA8FF 70%, #74C8FF 100%);
+    background: linear-gradient(135deg, #F77E0D 0%, #FB8C2A 35%, #FF9A3D 70%, #FFC480 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
-  
+
   .text-neo-numbers {
-    background: linear-gradient(135deg, #1E5DFF, #2563FF, #4AA8FF);
+    background: linear-gradient(135deg, #F77E0D, #FB8C2A, #FF9A3D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
     font-weight: 800;
-    text-shadow: 0 0 20px rgba(37,99,255,0.25);
+    text-shadow: 0 0 20px rgba(247,126,13,0.25);
   }
 
   .bg-neo-process {
-    background: linear-gradient(135deg, #1E5DFF, #4AA8FF);
-    color: white;
-    box-shadow: 0 10px 25px rgba(37,99,255,0.20);
+    background: linear-gradient(135deg, #F77E0D, #FF9A3D);
+    color: #0A0A0B;
+    box-shadow: 0 10px 25px rgba(247,126,13,0.20);
   }
 
   .bg-neo-gradient {
-    background: linear-gradient(135deg, #1E5DFF, #2563FF);
+    background: linear-gradient(135deg, #F77E0D, #FB8C2A);
   }
 
   .bg-neo-gradient-hover {
-    background: linear-gradient(135deg, #2563FF, #4AA8FF);
+    background: linear-gradient(135deg, #FB8C2A, #FF9A3D);
   }
 
   .neo-glow-text {
-    text-shadow: 0 0 20px rgba(37,99,255,0.25);
+    text-shadow: 0 0 20px rgba(247,126,13,0.25);
   }
 
   .neo-glow-box {
-    box-shadow: 0 10px 30px rgba(37,99,255,0.25);
+    box-shadow: 0 10px 30px rgba(247,126,13,0.25);
   }
-  
+
   .neo-glow-card {
-    box-shadow: 0 10px 30px rgba(37,99,255,0.08);
+    box-shadow: 0 10px 30px rgba(247,126,13,0.08);
   }
 
   .neo-glow-btn {
-    box-shadow: 0 10px 30px rgba(37,99,255,0.20);
+    box-shadow: 0 10px 30px rgba(247,126,13,0.20);
   }
 
   /* ──────────────────────────────────────────────────────────── */
@@ -239,7 +244,7 @@
     -webkit-backdrop-filter: blur(40px) saturate(220%);
     backdrop-filter: blur(40px) saturate(220%);
     border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65), 0 0 60px rgba(0, 229, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65), 0 0 60px rgba(247, 126, 13, 0.10);
   }
 
   .glass-noise::after {
@@ -271,13 +276,13 @@
 
   .ai-orb-base {
     background:
-      radial-gradient(circle at 30% 30%, rgba(0, 229, 255, 0.9) 0%, transparent 35%),
-      radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.7) 0%, transparent 40%),
-      radial-gradient(circle at 50% 80%, rgba(37, 99, 255, 0.8) 0%, transparent 45%),
-      radial-gradient(circle at center, #1E5DFF 0%, #030B1D 70%);
+      radial-gradient(circle at 30% 30%, rgba(255, 154, 61, 0.9) 0%, transparent 35%),
+      radial-gradient(circle at 70% 60%, rgba(217, 106, 5, 0.7) 0%, transparent 40%),
+      radial-gradient(circle at 50% 80%, rgba(247, 126, 13, 0.8) 0%, transparent 45%),
+      radial-gradient(circle at center, #F77E0D 0%, #0A0A0B 70%);
   }
   .ai-orb-glow {
-    background: radial-gradient(circle at center, rgba(0, 229, 255, 0.4) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(247, 126, 13, 0.4) 0%, transparent 70%);
     filter: blur(24px);
   }
 

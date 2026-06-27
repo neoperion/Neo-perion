@@ -20,10 +20,10 @@ const PARTNERS_PLACEHOLDER = [
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="relative py-12 bg-[#F4F4F5] border-b border-[#E4E4E7]/60">
+    <section className="relative py-12 bg-[#0A0A0B] border-b border-[#27272A]/60">
       <div className="container mx-auto px-6 lg:px-8 max-w-[1200px]">
         {/* Eyebrow */}
-        <p className="text-center text-[10px] font-bold tracking-[0.25em] uppercase text-slate-500 mb-6">
+        <p className="text-center text-[10px] font-bold tracking-[0.25em] uppercase text-neutral-400 mb-6">
           Trusted by engineering teams shipping AI products
         </p>
 
@@ -34,9 +34,9 @@ export const TrustStrip: React.FC = () => {
             return (
               <div
                 key={m.label}
-                className="bg-white p-5 rounded-xl border border-[#E4E4E7] flex flex-col items-start gap-2 hover:border-slate-400 transition-colors"
+                className="bg-neutral-900 p-5 rounded-xl border border-[#27272A] flex flex-col items-start gap-2 hover:border-slate-400 transition-colors"
               >
-                <div className="flex items-center gap-2 text-slate-500">
+                <div className="flex items-center gap-2 text-neutral-400">
                   <Icon className="w-4 h-4 text-neo-blue" />
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-slate-400">
                     {m.label}
@@ -49,7 +49,7 @@ export const TrustStrip: React.FC = () => {
                     <span>{m.value}</span>
                   )}
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium">{m.detail}</div>
+                <div className="text-[11px] text-neutral-400 font-medium">{m.detail}</div>
               </div>
             );
           })}
@@ -63,7 +63,7 @@ export const TrustStrip: React.FC = () => {
           {PARTNERS_PLACEHOLDER.map((s) => (
             <span
               key={s}
-              className="text-[11px] font-semibold text-slate-500 bg-white px-3 py-1 rounded-md border border-[#E4E4E7] hover:border-slate-400 transition-colors"
+              className="text-[11px] font-semibold text-neutral-400 bg-neutral-900 px-3 py-1 rounded-md border border-[#27272A] hover:border-slate-400 transition-colors"
             >
               {s}
             </span>

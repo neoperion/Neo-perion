@@ -58,7 +58,7 @@ export function ScrollReactiveHeader({ onOrbClick, orbOpen = false, showLogo = t
             )}
             <div className="flex items-center gap-1.5">
               {location.pathname !== '/contact' && (
-                <Link to="/contact" className="hidden sm:inline-flex h-9 px-3.5 rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white text-[12px] font-bold items-center shadow-[0_4px_12px_rgba(0,229,255,0.3)]">
+                <Link to="/contact" className="hidden sm:inline-flex h-9 px-3.5 rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white text-[12px] font-bold items-center shadow-[0_4px_12px_rgba(247,126,13,0.3)]">
                   Contact
                 </Link>
               )}

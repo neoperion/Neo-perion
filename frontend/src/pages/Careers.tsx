@@ -25,7 +25,7 @@ export default function Careers() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title="Careers | Build the Future of AI & SaaS | Neo Perion" 
           description="Join our team of elite engineers, designers, and AI architects building next-generation SaaS and AI applications."

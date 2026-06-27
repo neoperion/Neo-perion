@@ -31,7 +31,7 @@ const BENTO_CONFIGS: BentoSlotConfig[] = [
     animVariant: 'slideLeft',
     textPosition: 'bottomLeft',
     overlay: 'bottomUp',
-    accent: 'bg-blue-500/20 text-blue-300 border-blue-500/20',
+    accent: 'bg-orange-500/20 text-orange-300 border-orange-500/20',
     decorNum: '01',
   },
   // 1 — PORTRAIT right-top. Slides from right.
@@ -81,7 +81,7 @@ const BENTO_CONFIGS: BentoSlotConfig[] = [
     animVariant: 'rotateFade',
     textPosition: 'bottomLeft',
     overlay: 'bottomUp',
-    accent: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/20',
+    accent: 'bg-amber-500/20 text-amber-300 border-amber-500/20',
     decorNum: '06',
   },
   // 6 — SMALL top right. Slide up.
@@ -101,7 +101,7 @@ const BENTO_CONFIGS: BentoSlotConfig[] = [
     animVariant: 'scaleIn',
     textPosition: 'bottomCenter',
     overlay: 'radial',
-    accent: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/20',
+    accent: 'bg-orange-500/20 text-orange-300 border-orange-500/20',
     decorNum: '08',
   },
   // 8 — FULL-WIDTH panoramic. Slide left.
@@ -131,7 +131,7 @@ const BENTO_CONFIGS: BentoSlotConfig[] = [
     animVariant: 'slideUp',
     textPosition: 'bottomLeft',
     overlay: 'bottomUp',
-    accent: 'bg-blue-500/20 text-blue-300 border-blue-500/20',
+    accent: 'bg-orange-500/20 text-orange-300 border-orange-500/20',
     decorNum: '??',
   },
 ];
@@ -248,7 +248,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
               <span className={`inline-block px-2.5 py-1 text-[9px] font-medium rounded-md border uppercase font-mono tracking-widest mb-3 ${config.accent}`}>
                 {project.industry}
               </span>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-blue-100 transition-colors">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-orange-100 transition-colors">
                 {project.title}
               </h3>
               <p className="text-white/50 text-xs md:text-sm mt-1.5 line-clamp-2 font-sans hidden sm:block">
@@ -263,7 +263,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
               <span className={`inline-block px-2.5 py-1 text-[9px] font-medium rounded-md border uppercase font-mono tracking-widest mb-3 ${config.accent}`}>
                 {project.industry}
               </span>
-              <h3 className="text-lg md:text-xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-blue-100 transition-colors">
+              <h3 className="text-lg md:text-xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-orange-100 transition-colors">
                 {project.title}
               </h3>
             </div>
@@ -275,7 +275,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
               <span className={`inline-block px-2.5 py-1 text-[9px] font-medium rounded-md border uppercase font-mono tracking-widest mb-2 ${config.accent}`}>
                 {project.category}
               </span>
-              <h3 className="text-lg md:text-xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-blue-100 transition-colors">
+              <h3 className="text-lg md:text-xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-orange-100 transition-colors">
                 {project.title}
               </h3>
             </div>
@@ -287,7 +287,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
               <span className={`inline-block px-2.5 py-1 text-[9px] font-medium rounded-md border uppercase font-mono tracking-widest mb-3 ${config.accent}`}>
                 {project.industry}
               </span>
-              <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-blue-100 transition-colors">
+              <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight font-display leading-tight group-hover:text-orange-100 transition-colors">
                 {project.title}
               </h3>
               {/* Arrow icon appears on hover */}
@@ -303,7 +303,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
               <span className={`inline-block px-2.5 py-1 text-[9px] font-medium rounded-md border uppercase font-mono tracking-widest mb-4 w-fit ${config.accent}`}>
                 {project.industry}
               </span>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight font-display leading-none group-hover:text-blue-100 transition-colors mb-3">
+              <h3 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight font-display leading-none group-hover:text-orange-100 transition-colors mb-3">
                 {project.title}
               </h3>
               <p className="text-white/50 text-sm font-sans line-clamp-2 hidden md:block">{project.overview}</p>
@@ -316,7 +316,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ project, slotIndex, config }) => 
 
           {/* Arrow button — always top right, appears on hover */}
           {config.textPosition !== 'centerOverlay' && (
-            <div className="absolute top-4 right-4 z-40 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-hover:bg-white group-hover:text-black">
+            <div className="absolute top-4 right-4 z-40 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-hover:bg-neutral-900 group-hover:text-white">
               <ArrowUpRight className="w-4 h-4" />
             </div>
           )}

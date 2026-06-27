@@ -39,7 +39,7 @@ export function MobileShell({ nav = 'bottom', showFooter = true, children, bgCla
 function MobileOrbButton({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }) {
   return (
     <button type="button" onClick={onClick} aria-label={isOpen ? 'Close' : 'Open menu'} aria-expanded={isOpen} aria-haspopup="dialog"
-      className="relative h-10 w-10 rounded-full ai-orb-base border border-white/20 shadow-[0_4px_16px_rgba(0,229,255,0.3)]">
+      className="relative h-10 w-10 rounded-full ai-orb-base border border-white/20 shadow-[0_4px_16px_rgba(247,126,13,0.3)]">
       <span aria-hidden="true" className="absolute inset-0 rounded-full ai-orb-glow animate-orb-pulse" />
     </button>
   );

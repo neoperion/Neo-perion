@@ -49,7 +49,7 @@ export const Comment: React.FC<CommentProps> = ({ comment, onLike, onReply, onDe
           </div>
           <button 
             onClick={() => onDelete(comment.id)}
-            className="text-slate-500 hover:text-rose-500 hover:bg-rose-500/10 p-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200"
+            className="text-neutral-400 hover:text-rose-500 hover:bg-rose-500/10 p-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200"
             aria-label="Delete comment"
           >
             <Trash2 size={16} />
@@ -89,7 +89,7 @@ export const Comment: React.FC<CommentProps> = ({ comment, onLike, onReply, onDe
           onSubmit={handleReplySubmit} 
           className="mt-3 flex gap-2 items-center pl-2"
         >
-          <CornerDownRight className="text-slate-500 shrink-0" size={16} />
+          <CornerDownRight className="text-neutral-400 shrink-0" size={16} />
           <input
             type="text"
             placeholder="Write a reply..."
@@ -98,7 +98,7 @@ export const Comment: React.FC<CommentProps> = ({ comment, onLike, onReply, onDe
             className="w-full text-sm bg-slate-900 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 outline-none focus:border-neo-blue focus:ring-1 focus:ring-neo-blue transition-all"
             autoFocus
           />
-          <button type="submit" className="bg-neo-blue text-white text-xs px-4 py-2.5 rounded-xl font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-neo-blue/20 shrink-0">
+          <button type="submit" className="bg-neo-blue text-white text-xs px-4 py-2.5 rounded-xl font-medium hover:bg-orange-600 transition-colors shadow-lg shadow-neo-blue/20 shrink-0">
             Post Reply
           </button>
         </motion.form>

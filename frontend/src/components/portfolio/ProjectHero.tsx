@@ -45,11 +45,11 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({ project }) => {
 
             <div className="flex flex-wrap gap-6 md:gap-8">
               <div>
-                <p className="text-slate-500 text-xs uppercase tracking-wider mb-1">Duration</p>
+                <p className="text-neutral-400 text-xs uppercase tracking-wider mb-1">Duration</p>
                 <p className="text-white font-medium text-sm md:text-base">3-6 Months</p>
               </div>
               <div>
-                <p className="text-slate-500 text-xs uppercase tracking-wider mb-1">Role</p>
+                <p className="text-neutral-400 text-xs uppercase tracking-wider mb-1">Role</p>
                 <p className="text-white font-medium text-sm md:text-base">End-to-end Product Engineering</p>
               </div>
             </div>

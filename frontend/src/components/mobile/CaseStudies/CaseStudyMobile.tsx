@@ -52,7 +52,7 @@ export function CaseStudyStory({ eyebrow, client, title, outcome, problem, chall
               <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, type: 'spring', stiffness: 320, damping: 32 }}
                 className="relative rounded-2xl border border-white/[0.10] bg-white/[0.04] backdrop-blur-glass-1 p-3 text-center overflow-hidden">
                 <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.18] to-transparent" />
-                <p className="text-[20px] font-bold bg-gradient-to-br from-white to-neo-light bg-clip-text text-transparent">{m.value}</p>
+                <p className="text-[20px] font-bold bg-gradient-to-br from-neutral-900 to-neo-light bg-clip-text text-transparent">{m.value}</p>
                 <p className="text-[10px] uppercase tracking-[0.12em] text-white/55 mt-1">{m.label}</p>
                 {m.delta && <p className="text-[10px] text-neo-highlight mt-0.5 inline-flex items-center gap-1"><TrendingUp size={9} />{m.delta}</p>}
               </motion.div>

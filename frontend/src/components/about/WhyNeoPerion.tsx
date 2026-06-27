@@ -22,7 +22,7 @@ export function WhyNeoPerion() {
           const Icon = feat.icon;
           return (
             <div key={i} className={`p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent ${feat.span} group overflow-hidden relative`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <Icon className="text-neo-blue mb-4" size={32} />
                 <div>

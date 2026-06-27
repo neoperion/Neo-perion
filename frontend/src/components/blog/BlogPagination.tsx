@@ -69,7 +69,7 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
           onClick={() => onPageChange(page)}
           className={`h-10 w-10 rounded-lg text-sm font-medium transition-colors ${
             currentPage === page
-              ? 'bg-neo-blue text-slate-900'
+              ? 'bg-neo-blue text-white'
               : 'border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white'
           }`}
         >

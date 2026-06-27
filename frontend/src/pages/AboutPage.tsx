@@ -68,7 +68,7 @@ export default function AboutPage() {
         jsonLd={jsonLd}
       />
       <MobileGate mobileOnly fallback={
-        <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+        <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
           <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
         </div>
       }>

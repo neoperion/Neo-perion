@@ -28,11 +28,11 @@ export function AINavOrb({ onClick, isOpen = false, size = 'md', className }: AI
     >
       <span aria-hidden="true" className={cn('absolute inset-0 rounded-full ai-orb-base animate-orb-rotate-slow', isOpen ? 'opacity-100' : 'opacity-90')} />
       <span aria-hidden="true" className={cn('absolute inset-0 rounded-full ai-orb-glow animate-orb-pulse', s.outer)} />
-      <span className={cn('absolute inset-0 rounded-full border border-white/20', 'shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_4px_16px_rgba(0,229,255,0.3)]')} />
-      <span aria-hidden="true" className={cn('absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.6)] transition-all duration-300', s.inner, isOpen && 'scale-50 opacity-0')} />
+      <span className={cn('absolute inset-0 rounded-full border border-white/20', 'shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_4px_16px_rgba(247,126,13,0.3)]')} />
+      <span aria-hidden="true" className={cn('absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-900 shadow-[0_0_12px_rgba(255,255,255,0.6)] transition-all duration-300', s.inner, isOpen && 'scale-50 opacity-0')} />
       <span aria-hidden="true" className={cn('absolute inset-0 flex items-center justify-center text-white transition-opacity duration-200', isOpen ? 'opacity-100' : 'opacity-0')}>
-        <span className="block h-0.5 w-4 bg-white rotate-45 absolute" />
-        <span className="block h-0.5 w-4 bg-white -rotate-45 absolute" />
+        <span className="block h-0.5 w-4 bg-neutral-900 rotate-45 absolute" />
+        <span className="block h-0.5 w-4 bg-neutral-900 -rotate-45 absolute" />
       </span>
     </motion.button>
   );

@@ -18,7 +18,7 @@ export function BenefitsGrid({ theme = 'dark' }: BenefitsGridProps) {
   ];
 
   return (
-    <section className={`px-8 lg:px-16 py-24 max-w-6xl mx-auto border-t ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
+    <section className={`px-8 lg:px-16 py-24 max-w-6xl mx-auto border-t ${isLight ? 'border-neutral-800' : 'border-white/5'}`}>
       <div className="mb-16 text-center">
         <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Life at NP</p>
         <h2 className={`text-4xl font-black ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Why join us?</h2>
@@ -31,7 +31,7 @@ export function BenefitsGrid({ theme = 'dark' }: BenefitsGridProps) {
               key={i} 
               className={`p-8 rounded-2xl border transition-all group ${
                 isLight 
-                  ? 'border-zinc-200/80 bg-white hover:border-zinc-300 hover:shadow-sm'
+                  ? 'border-zinc-200/80 bg-neutral-900 hover:border-neutral-800 hover:shadow-sm'
                   : 'border-white/5 bg-white/[0.02] hover:bg-white/[0.04]'
               }`}
             >
@@ -39,7 +39,7 @@ export function BenefitsGrid({ theme = 'dark' }: BenefitsGridProps) {
                 <Icon className="text-neo-blue" size={24} />
               </div>
               <h3 className={`text-xl font-bold mb-3 ${isLight ? 'text-[#09090B]' : 'text-white'}`}>{benefit.title}</h3>
-              <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{benefit.desc}</p>
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>{benefit.desc}</p>
             </div>
           );
         })}

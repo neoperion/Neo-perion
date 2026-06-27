@@ -26,7 +26,7 @@ export const PortfolioCTA: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neo-blue text-white font-medium hover:bg-blue-600 transition-all shadow-lg shadow-neo-blue/20 group"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neo-blue text-white font-medium hover:bg-orange-600 transition-all shadow-lg shadow-neo-blue/20 group"
             >
               Book Consultation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

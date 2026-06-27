@@ -166,7 +166,7 @@ export const BlogPost: React.FC = () => {
 
               {/* End-of-article CTA */}
               <div className="relative mt-12 overflow-hidden border border-hairline bg-navy p-8 lg:p-10">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(30,93,255,0.25),transparent_55%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(247,126,13,0.25),transparent_55%)]" />
                 <div className="relative">
                   <h3 className="font-display text-[24px] font-bold leading-tight text-white">
                     Build it with Neo Perion

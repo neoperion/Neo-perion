@@ -90,7 +90,7 @@ export const CookieModal: React.FC = () => {
               <Button variant="ghost" onClick={handleRejectAll} className="text-red-400 hover:text-red-300 hover:bg-red-400/10">
                 Reject All
               </Button>
-              <Button onClick={handleSave} className="bg-neo-blue hover:bg-neo-blue text-slate-900">
+              <Button onClick={handleSave} className="bg-neo-blue hover:bg-neo-blue text-white">
                 Save Preferences
               </Button>
             </div>

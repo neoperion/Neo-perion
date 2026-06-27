@@ -40,11 +40,11 @@ export function TestimonialsPhysics({ eyebrow = 'Voices', title = 'What clients 
   };
 
   return (
-    <section className="relative w-full py-24 px-mobile-base bg-white overflow-hidden" aria-labelledby="t-heading">
+    <section className="relative w-full py-24 px-mobile-base bg-neutral-900 overflow-hidden" aria-labelledby="t-heading">
       <div className="mb-12 text-center relative z-20">
         <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-2">{eyebrow}</p>
-        <h2 id="t-heading" className="text-[clamp(32px,8vw,40px)] font-bold text-slate-900 tracking-tight font-display leading-tight">{title}</h2>
-        <p className="text-sm text-slate-500 mt-3 font-medium flex items-center justify-center gap-2">
+        <h2 id="t-heading" className="text-[clamp(32px,8vw,40px)] font-bold text-white tracking-tight font-display leading-tight">{title}</h2>
+        <p className="text-sm text-neutral-400 mt-3 font-medium flex items-center justify-center gap-2">
           <ArrowLeft size={14} className="text-slate-300" /> {subtitle} <ArrowRight size={14} className="text-slate-300" />
         </p>
       </div>
@@ -75,7 +75,7 @@ export function TestimonialsPhysics({ eyebrow = 'Voices', title = 'What clients 
                 onDragEnd={(e, info) => isTop && handleDragEnd(e, info, current.id)}
                 whileDrag={{ cursor: 'grabbing', scale: 1.05, rotate: 2 }}
                 className={cn(
-                  "absolute top-0 w-full max-w-[340px] rounded-[32px] bg-white border border-slate-100 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] touch-none cursor-grab flex flex-col",
+                  "absolute top-0 w-full max-w-[340px] rounded-[32px] bg-neutral-900 border border-neutral-800 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] touch-none cursor-grab flex flex-col",
                   !isTop && "pointer-events-none"
                 )}
                 style={{ transformOrigin: 'top center' }}
@@ -84,18 +84,18 @@ export function TestimonialsPhysics({ eyebrow = 'Voices', title = 'What clients 
                   <Quote size={80} className="fill-slate-100 stroke-none" />
                 </div>
                 
-                <blockquote className="relative text-[18px] text-slate-800 leading-relaxed font-serif italic mb-auto pt-4 min-h-[120px]">
+                <blockquote className="relative text-[18px] text-neutral-200 leading-relaxed font-serif italic mb-auto pt-4 min-h-[120px]">
                   "{current.feedback}"
                 </blockquote>
                 
-                <div className="flex flex-col items-start gap-4 mt-8 pt-6 border-t border-slate-100">
+                <div className="flex flex-col items-start gap-4 mt-8 pt-6 border-t border-neutral-800">
                   <div className="flex items-center gap-4 w-full">
-                    <div className="h-12 w-12 shrink-0 rounded-full bg-slate-50 text-neo-blue flex items-center justify-center text-sm font-bold border border-slate-200">
+                    <div className="h-12 w-12 shrink-0 rounded-full bg-neutral-900 text-neo-blue flex items-center justify-center text-sm font-bold border border-neutral-800">
                       {current.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
                     </div>
                     <div className="flex flex-col flex-1 min-w-0">
-                      <figcaption className="text-base font-bold text-slate-900 tracking-tight truncate">{current.name}</figcaption>
-                      <p className="text-[12px] text-slate-500 font-medium truncate">{current.designation}{current.designation && current.company ? ', ' : ''}{current.company}</p>
+                      <figcaption className="text-base font-bold text-white tracking-tight truncate">{current.name}</figcaption>
+                      <p className="text-[12px] text-neutral-400 font-medium truncate">{current.designation}{current.designation && current.company ? ', ' : ''}{current.company}</p>
                     </div>
                   </div>
                   

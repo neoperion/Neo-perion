@@ -11,7 +11,7 @@ export function MobileAboutHero() {
 
   return (
     <section id="vision" ref={ref} className="relative w-full min-h-[70svh] overflow-hidden bg-gradient-to-b from-[#030B1D] via-[#020617] to-[#030B1D] pt-24 pb-12">
-      <div aria-hidden="true" className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(0,229,255,0.4) 0%, transparent 60%), linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '100% 100%, 24px 24px, 24px 24px' }} />
+      <div aria-hidden="true" className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(247,126,13,0.4) 0%, transparent 60%), linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '100% 100%, 24px 24px, 24px 24px' }} />
       
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto px-mobile-base pt-10">
         <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }} className="flex flex-col">

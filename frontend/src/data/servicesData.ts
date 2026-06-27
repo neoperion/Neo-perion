@@ -16,7 +16,64 @@ export interface ServiceData {
   process: { step: string; title: string; description: string }[];
   technologies: string[];
   faqs: { question: string; answer: string }[];
+  // ─── Optional redesign content (video-hero service-page system) ───
+  // Absent field → that section renders nothing. Never invent metrics/names: use [ADD …].
+  heroVideo?: string;
+  heroPoster?: string;
+  /** Full-cover background image/gif for the hero (takes priority over video/neural). */
+  heroImage?: string;
+  /** 'neural' renders an animated neural-network canvas instead of a video. */
+  heroVisual?: 'neural';
+  /** When true, the hero fills the full viewport height. */
+  heroFullHeight?: boolean;
+  problem?: { headline: string; body: string };
+  outcomes?: { value: string; label: string }[];
+  caseStudy?: { client?: string; problem: string; solution: string; result: string };
+  testimonials?: { quote: string; name: string; title: string; company?: string; avatar?: string }[];
+  trustLogos?: { src: string; alt: string }[];
+  // ─── KnackForge-style sections (image slots filled by client) ───
+  statement?: { text: string; sub?: string };
+  featuredStory?: {
+    image?: string;
+    eyebrow?: string;
+    headline: string;
+    body: string;
+    metrics: { value: string; label: string }[];
+    ctaText?: string;
+    ctaHref?: string;
+  };
+  aboutBand?: {
+    image?: string;
+    eyebrow?: string;
+    headline: string;
+    body: string;
+    stats: { value: string; label: string }[];
+  };
+  // ─── Outcome-led redesign sections (all optional → section skips when absent) ───
+  impact?: { value: string; label: string }[];
+  problems?: { icon: string; title: string; description: string }[];
+  solutions?: {
+    icon: string;
+    title: string;
+    valueLine: string;
+    benefits?: string[];
+    useCase?: string;
+  }[];
+  journey?: { icon: string; title: string; description: string }[];
+  techArchitecture?: { icon: string; title: string; desc: string }[];
+  differentiators?: { icon: string; title: string; description: string }[];
+  industries?: { icon: string; name: string; useCases: string[] }[];
+  /** Pull real case studies whose service_type matches one of these (else show all). */
+  caseStudyServiceTypes?: string[];
 }
+
+// Real client logos (shared across service pages).
+const CLIENT_LOGOS = [
+  { src: '/images/lexizfy.png', alt: 'Lexizfy' },
+  { src: '/images/izhaiyam.png', alt: 'Izhaiyam' },
+  { src: '/images/krishna%20packers.png', alt: 'Krishna Packers' },
+  { src: '/images/holo%20mehnd.png', alt: 'Holo Mehndi' },
+];
 
 export const servicesData: ServiceData[] = [
   {
@@ -43,8 +100,91 @@ export const servicesData: ServiceData[] = [
     ],
     technologies: ['OpenAI', 'LangChain', 'Pinecone'],
     faqs: [
-      { question: 'Is my data secure?', answer: 'Yes, we use enterprise APIs that do not train on your data.' }
-    ]
+      { question: 'Is my data secure?', answer: 'Yes, we use enterprise APIs that do not train on your data. We can also deploy open models fully on-premise so nothing leaves your network.' },
+      { question: 'How accurate are the answers?', answer: 'We ground every response in your own documents (RAG) and benchmark against a test set before launch, so the system cites its sources instead of guessing.' },
+      { question: 'How long until we see something working?', answer: 'A focused proof-of-concept on your data typically runs 3-4 weeks, with a production rollout following once accuracy and cost targets are met.' }
+    ],
+    // AI page hero: on-theme orange neural-network background image, full viewport height.
+    heroImage: '/images/2rQVx.jpg',
+    heroFullHeight: true,
+    problem: {
+      headline: 'Your team is drowning in documents the tools can’t read.',
+      body: 'Off-the-shelf chatbots hallucinate, generic copilots can’t see your private data, and rule-based automation breaks the moment reality changes. The result is knowledge trapped in PDFs, wikis, and databases that no one can query in plain language — and engineers stuck wiring brittle integrations instead of shipping. We design AI systems that read your proprietary data, cite their sources, and take real actions, with the guardrails an enterprise actually requires.',
+    },
+    outcomes: [
+      { value: '100%', label: 'Answers cited to your own sources' },
+      { value: 'Weeks', label: 'From proof-of-concept to production' },
+      { value: '24/7', label: 'Always-on, grounded AI assistance' },
+      { value: '0', label: 'Customer data used to train third-party models' },
+    ],
+    trustLogos: [
+      { src: '/images/lexizfy.png', alt: 'Lexizfy' },
+      { src: '/images/izhaiyam.png', alt: 'Izhaiyam' },
+      { src: '/images/krishna%20packers.png', alt: 'Krishna Packers' },
+      { src: '/images/holo%20mehnd.png', alt: 'Holo Mehndi' },
+    ],
+    // ─── Outcome-led redesign sections (truthful, editable; no fabricated clients/metrics) ───
+    problems: [
+      { icon: 'FileLock', title: 'Knowledge trapped in documents', description: 'Critical answers are buried in PDFs, wikis, and drives no one can search in plain language.' },
+      { icon: 'Search', title: 'Teams waste hours searching', description: 'Staff spend a large share of every week hunting for information instead of doing the work.' },
+      { icon: 'Repeat', title: 'Manual, repetitive busywork', description: 'People do copy-paste, triage, and data-entry tasks software should handle automatically.' },
+      { icon: 'Unplug', title: 'Disconnected tools & silos', description: 'Data lives in systems that don’t talk to each other, so no one sees the full picture.' },
+      { icon: 'AlertTriangle', title: 'AI you can’t trust', description: 'Generic chatbots hallucinate and can’t see your private data — too risky for real decisions.' },
+      { icon: 'ShieldAlert', title: 'Security & compliance risk', description: 'Pasting sensitive data into public AI tools exposes you to leaks and audit failures.' },
+    ],
+    solutions: [
+      { icon: 'Sparkles', title: 'AI Assistants', valueLine: 'Intelligent assistants powered by your business knowledge.' },
+      { icon: 'Bot', title: 'AI Agents', valueLine: 'Autonomous agents that perform real business tasks.' },
+      { icon: 'Workflow', title: 'AI Automation', valueLine: 'Automate workflows, documents, and operations with AI.' },
+    ],
+    journey: [
+      { icon: 'Database', title: 'Connect your data', description: 'We securely connect your documents, tools, and databases.' },
+      { icon: 'BrainCircuit', title: 'AI understands it', description: 'Your knowledge is indexed so AI can reason over it accurately.' },
+      { icon: 'MessageSquare', title: 'Your team asks', description: 'People ask questions in plain language, right where they work.' },
+      { icon: 'Search', title: 'AI finds answers', description: 'Responses are grounded in your data and cite their sources.' },
+      { icon: 'Zap', title: 'AI takes action', description: 'With approval, agents complete tasks across your systems.' },
+      { icon: 'TrendingUp', title: 'Your business speeds up', description: 'Less searching and busywork; faster, better decisions.' },
+    ],
+    techArchitecture: [
+      { icon: 'FileText', title: 'Data Sources', desc: 'PDFs, Confluence, databases, APIs' },
+      { icon: 'Database', title: 'Vector Database', desc: 'Embeddings in Pinecone / Weaviate' },
+      { icon: 'BrainCircuit', title: 'Guarded LLM Layer', desc: 'GPT-4 / Claude with evals & citations' },
+      { icon: 'MessageSquare', title: 'Where you work', desc: 'Chat, copilot, agents, dashboards' },
+    ],
+    differentiators: [
+      { icon: 'ShieldCheck', title: 'Enterprise security first', description: 'Your data is never used to train third-party models. Privacy and audit built in.' },
+      { icon: 'ServerCog', title: 'Private & on-prem deployment', description: 'Run open models inside your own network when data can’t leave the building.' },
+      { icon: 'Wrench', title: 'Custom, not wrappers', description: 'Systems built around your data and workflows — not a thin layer over ChatGPT.' },
+      { icon: 'Rocket', title: 'Production-ready, not POCs', description: 'We ship systems that survive real load, with evals, monitoring, and guardrails.' },
+      { icon: 'Users', title: 'Senior team, no offshoring', description: 'Experienced engineers own your build end to end — one accountable team.' },
+      { icon: 'Handshake', title: 'Long-term partnership', description: 'We measure success by outcomes and stay to iterate after launch.' },
+    ],
+    // Editorial brand moment (last 2 words render in orange).
+    statement: {
+      text: 'From idea to intelligent product.',
+      sub: 'We turn AI ambition into production systems your business can rely on.',
+    },
+    // Pull real, suitable case studies (AI-related) into the carousel.
+    caseStudyServiceTypes: ['AI & Automation', 'Machine Learning'],
+    // Real testimonials — add photo, name, title, company.
+    testimonials: [
+      { quote: 'Neo Perion took our AI from a flaky demo to a system our team actually trusts every day.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-1.jpg' },
+      { quote: 'They cared about accuracy and security as much as we did — no shortcuts, no black boxes.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-2.jpg' },
+      { quote: 'We went from concept to a production AI tool faster than we thought possible.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-3.jpg' },
+    ],
+    // About / credibility band with imagery + stat cards.
+    aboutBand: {
+      image: '/images/services/ai/team.jpg',
+      eyebrow: 'Why Neo Perion',
+      headline: 'AI specialists who ship production systems',
+      body: 'An AI-first software team that builds intelligent products end to end — secure, auditable, and built to last.',
+      stats: [
+        { value: '[ADD]+', label: 'AI systems shipped' },
+        { value: '[ADD]+', label: 'Years of engineering' },
+        { value: '[ADD]+', label: 'Clients worldwide' },
+        { value: '0', label: 'Data used to train external models' },
+      ],
+    },
   },
   {
     id: 'deep-ai-engineering',
@@ -78,7 +218,7 @@ export const servicesData: ServiceData[] = [
     title: 'Enterprise Product Engineering',
     slug: 'enterprise-product-engineering',
     tagline: 'END-TO-END ENGINEERING',
-    color: '#06b6d4',
+    color: '#F59E0B',
     icon: Code,
     description: 'End-to-end SaaS and enterprise product engineering.',
     heroHeadline: 'Build Scalable Products',
@@ -98,14 +238,24 @@ export const servicesData: ServiceData[] = [
     technologies: ['React', 'Node.js', 'PostgreSQL'],
     faqs: [
       { question: 'How long does a product take to build?', answer: 'Typically 10-14 weeks for an initial robust release.' }
-    ]
+    ],
+    heroImage: '/images/produc_hero.jpg',
+    heroFullHeight: true,
+    trustLogos: CLIENT_LOGOS,
+    statement: { text: 'From concept to shipped product.', sub: 'We design, build, and launch complete products — owned end to end.' },
+    solutions: [
+      { icon: 'Rocket', title: 'MVP Development', valueLine: 'Launch your core product fast, without over-engineering.' },
+      { icon: 'Boxes', title: 'SaaS Platforms', valueLine: 'Scalable, multi-tenant SaaS built to grow with you.' },
+      { icon: 'Wrench', title: 'Product Engineering', valueLine: 'End-to-end design, build, QA, and launch by one team.' },
+    ],
+    caseStudyServiceTypes: ['SaaS Development'],
   },
   {
     id: 'cloud-native-web-platforms',
     title: 'Cloud-Native Web Platforms',
     slug: 'cloud-native-web-platforms',
     tagline: 'HIGH-PERFORMANCE WEB',
-    color: '#3b82f6',
+    color: '#FB8C2A',
     icon: Globe,
     description: 'High-performance web applications using modern tech stacks.',
     heroHeadline: 'Modern Web Applications',
@@ -125,7 +275,17 @@ export const servicesData: ServiceData[] = [
     technologies: ['Next.js', 'Tailwind', 'Supabase'],
     faqs: [
       { question: 'Do you provide hosting?', answer: 'Yes, we handle end-to-end deployment on scalable cloud infrastructure.' }
-    ]
+    ],
+    heroImage: '/images/webprod.jpg',
+    heroFullHeight: true,
+    trustLogos: CLIENT_LOGOS,
+    statement: { text: 'Web experiences that drive growth.', sub: 'Fast, accessible, high-performance web platforms engineered to convert.' },
+    solutions: [
+      { icon: 'Globe', title: 'Web Applications', valueLine: 'Fast, scalable apps built with React and Next.js.' },
+      { icon: 'Building2', title: 'Enterprise Portals', valueLine: 'Secure portals for clients, partners, and teams.' },
+      { icon: 'Gauge', title: 'Performance & SEO', valueLine: 'Lightning-fast, accessible, search-optimized sites.' },
+    ],
+    caseStudyServiceTypes: ['SaaS Development'],
   },
   {
     id: 'mobile-product-engineering',
@@ -179,7 +339,17 @@ export const servicesData: ServiceData[] = [
     technologies: ['Retool', 'Zapier', 'Node.js'],
     faqs: [
       { question: 'What systems can you integrate?', answer: 'If it has an API, we can integrate it seamlessly.' }
-    ]
+    ],
+    heroImage: '/images/cloud_hro.jpg',
+    heroFullHeight: true,
+    trustLogos: CLIENT_LOGOS,
+    statement: { text: 'Infrastructure that never sleeps.', sub: 'Scalable cloud and automation that holds up under real production load.' },
+    solutions: [
+      { icon: 'Cloud', title: 'Cloud Infrastructure', valueLine: 'Scalable, secure infrastructure on AWS and GCP.' },
+      { icon: 'Workflow', title: 'CI/CD & Automation', valueLine: 'Automated pipelines and zero-downtime deploys.' },
+      { icon: 'ServerCog', title: 'Monitoring & Reliability', valueLine: 'Full observability and production-grade reliability.' },
+    ],
+    caseStudyServiceTypes: ['AI & Automation'],
   },
   {
     id: 'startup-to-scale-engineering',
@@ -206,7 +376,16 @@ export const servicesData: ServiceData[] = [
     technologies: ['AWS', 'System Architecture', 'Agile'],
     faqs: [
       { question: 'Is this an ongoing service?', answer: 'Yes, we provide fractional CTO support on a monthly retainer.' }
-    ]
+    ],
+    heroImage: '/images/technical_hero.jpg',
+    heroFullHeight: true,
+    trustLogos: CLIENT_LOGOS,
+    statement: { text: 'From startup to scale.', sub: 'Senior technical leadership that de-risks decisions and accelerates your roadmap.' },
+    solutions: [
+      { icon: 'Users', title: 'Fractional CTO', valueLine: 'Senior technical leadership without the full-time cost.' },
+      { icon: 'ShieldCheck', title: 'Architecture Audits', valueLine: 'De-risk decisions with expert architecture reviews.' },
+      { icon: 'Search', title: 'Technical Due Diligence', valueLine: 'Get your codebase and roadmap investor-ready.' },
+    ],
   }
 ];
 

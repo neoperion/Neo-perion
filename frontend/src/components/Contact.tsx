@@ -101,9 +101,9 @@ export const Contact = () => {
             {/* Calendly Placeholder */}
             <div className="flex-grow bg-[#050816] border border-white/5 rounded-xl flex items-center justify-center min-h-[400px]">
               <div className="text-center p-6">
-                <Calendar className="h-12 w-12 text-slate-600 mx-auto mb-4 opacity-50" />
-                <p className="text-slate-500 font-medium">Calendly Embed Placeholder</p>
-                <p className="text-slate-600 text-sm mt-2">Will be replaced with actual Calendly widget.</p>
+                <Calendar className="h-12 w-12 text-neutral-400 mx-auto mb-4 opacity-50" />
+                <p className="text-neutral-400 font-medium">Calendly Embed Placeholder</p>
+                <p className="text-neutral-400 text-sm mt-2">Will be replaced with actual Calendly widget.</p>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export const Contact = () => {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-cyan-500/50"
+                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-amber-500/50"
                   required
                 />
               </div>
@@ -134,7 +134,7 @@ export const Contact = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-cyan-500/50"
+                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-amber-500/50"
                   required
                 />
               </div>
@@ -145,7 +145,7 @@ export const Contact = () => {
                   id="company"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-cyan-500/50"
+                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-amber-500/50"
                 />
               </div>
 
@@ -158,7 +158,7 @@ export const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={5}
-                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-cyan-500/50"
+                  className="bg-[#050816] border-white/10 text-white focus-visible:ring-amber-500/50"
                   required
                 />
               </div>
@@ -189,7 +189,7 @@ export const Contact = () => {
             <span className="text-slate-300 font-medium">WhatsApp</span>
           </a>
           <a href="mailto:hello@neoperion.com" className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors group">
-            <Mail className="h-5 w-5 text-blue-400 group-hover:scale-110 transition-transform" />
+            <Mail className="h-5 w-5 text-orange-400 group-hover:scale-110 transition-transform" />
             <span className="text-slate-300 font-medium">hello@neoperion.com</span>
           </a>
           <a href="tel:+919363578670" className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors group">

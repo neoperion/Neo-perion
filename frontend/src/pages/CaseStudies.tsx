@@ -54,7 +54,7 @@ export const CaseStudies: React.FC = () => {
                     onClick={() => setActiveIndustry(industry)}
                     className={`px-4 py-2 rounded-lg text-sm transition-all ${
                       activeIndustry === industry
-                        ? 'bg-neo-blue text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                        ? 'bg-neo-blue text-white font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
                         : 'bg-white/5 text-slate-300 border border-white/10 hover:border-neo-blue/50'
                     }`}
                   >
@@ -73,7 +73,7 @@ export const CaseStudies: React.FC = () => {
                     onClick={() => setActiveService(service)}
                     className={`px-4 py-2 rounded-lg text-sm transition-all ${
                       activeService === service
-                        ? 'bg-neo-blue text-slate-900 font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                        ? 'bg-neo-blue text-white font-bold shadow-[0_0_10px_rgba(6,182,212,0.3)]'
                         : 'bg-white/5 text-slate-300 border border-white/10 hover:border-neo-blue/50'
                     }`}
                   >

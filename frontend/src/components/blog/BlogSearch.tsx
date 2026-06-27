@@ -50,7 +50,7 @@ export const BlogSearch: React.FC<Props> = ({ onSearch, theme = 'dark' }) => {
       </div>
       <input
         type="text"
-        className="block w-full rounded-xl border border-white/10 bg-slate-900/60 py-4 pl-11 pr-10 text-white placeholder-slate-400 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="block w-full rounded-xl border border-white/10 bg-slate-900/60 py-4 pl-11 pr-10 text-white placeholder-slate-400 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-500"
         placeholder="Search articles, topics, and insights..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

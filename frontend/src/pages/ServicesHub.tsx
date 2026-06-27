@@ -38,7 +38,7 @@ export const ServicesHub: React.FC = () => {
     <main className="flex flex-col min-h-[auto] bg-[#050816]">
       {/* Services Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-[#050816] to-[#050816] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-[#050816] to-[#050816] z-0" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

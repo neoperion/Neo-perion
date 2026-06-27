@@ -88,7 +88,7 @@ export const FeaturedPost: React.FC<Props> = ({ post, theme = 'dark' }) => {
             {post.title}
           </h2>
           <p className="mb-8 text-lg text-slate-400 line-clamp-3">{post.excerpt}</p>
-          <div className="mb-8 flex items-center gap-6 text-sm text-slate-500">
+          <div className="mb-8 flex items-center gap-6 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               {format(new Date(post.created_at), 'MMMM dd, yyyy')}
@@ -100,7 +100,7 @@ export const FeaturedPost: React.FC<Props> = ({ post, theme = 'dark' }) => {
           </div>
           <Link
             to={`/company/blog/${post.slug}`}
-            className="inline-flex w-max items-center gap-2 rounded-xl bg-neo-blue px-6 py-3 font-bold text-white transition-colors hover:bg-blue-600"
+            className="inline-flex w-max items-center gap-2 rounded-xl bg-neo-blue px-6 py-3 font-bold text-white transition-colors hover:bg-orange-600"
           >
             Read Article
             <ArrowRight className="h-4 w-4" />

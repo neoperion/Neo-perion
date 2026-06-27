@@ -84,7 +84,7 @@ export const EngagementModel: React.FC = () => {
           return (
             <div
               key={tier.name}
-              className={`relative flex flex-col p-8 ${highlight ? "bg-[#F4F8FF]" : "bg-paper"}`}
+              className={`relative flex flex-col p-8 ${highlight ? "bg-[#121113]" : "bg-paper"}`}
             >
               {highlight && <span className="absolute inset-x-0 top-0 h-1 bg-brand" />}
 

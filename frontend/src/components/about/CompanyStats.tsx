@@ -11,7 +11,7 @@ const STATS = [
 
 export const CompanyStats: React.FC = () => {
   return (
-    <section aria-labelledby="company-stats-heading" className="py-16 md:py-20 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
+    <section aria-labelledby="company-stats-heading" className="py-16 md:py-20 bg-[#0A0A0B] border-b border-[#27272A]/60">
       <div className="container mx-auto px-6 lg:px-8 max-w-[1200px]">
         <div className="text-center mb-12">
           <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-3">By the numbers</p>
@@ -23,13 +23,13 @@ export const CompanyStats: React.FC = () => {
           {STATS.map((s) => {
             const Icon = s.icon;
             return (
-              <div key={s.label} className="rounded-xl bg-white border border-[#E4E4E7] p-6 hover:border-[#A1A1AA] transition-colors shadow-sm flex flex-col items-start">
+              <div key={s.label} className="rounded-xl bg-neutral-900 border border-[#27272A] p-6 hover:border-[#A1A1AA] transition-colors shadow-sm flex flex-col items-start">
                 <Icon className="w-5 h-5 text-neo-blue mb-4" aria-hidden="true" />
                 <div className="text-3xl md:text-4xl font-display font-bold text-[#09090B] leading-none">
                   <AnimatedCounter end={s.value} suffix={s.suffix} />
                 </div>
-                <div className="text-sm font-semibold text-slate-700 mt-2">{s.label}</div>
-                <div className="text-xs text-slate-500 mt-1">{s.sub}</div>
+                <div className="text-sm font-semibold text-neutral-200 mt-2">{s.label}</div>
+                <div className="text-xs text-neutral-400 mt-1">{s.sub}</div>
               </div>
             );
           })}

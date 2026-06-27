@@ -138,7 +138,7 @@ export const CommentSection: React.FC = () => {
             <div className="flex justify-end pt-3 border-t border-white/5 mt-2">
               <button 
                 type="submit" 
-                className="bg-neo-blue text-white text-sm px-6 py-2.5 rounded-xl font-medium hover:bg-blue-600 shadow-lg shadow-neo-blue/20 transition-colors"
+                className="bg-neo-blue text-white text-sm px-6 py-2.5 rounded-xl font-medium hover:bg-orange-600 shadow-lg shadow-neo-blue/20 transition-colors"
               >
                 Post Comment
               </button>

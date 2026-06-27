@@ -2,13 +2,13 @@ export const Philosophy = () => {
   return (
     <section className="py-32 bg-slate-900 border-b border-slate-900/5 relative overflow-hidden">
       {/* Dark premium background with subtle radial gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_800px_at_50%_50%,rgba(37,99,235,0.08),transparent)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_800px_at_50%_50%,rgba(247,126,13,0.08),transparent)]"></div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           
           <div className="mb-12">
-            <span className="text-blue-500 text-6xl font-editorial opacity-50 block leading-none">"</span>
+            <span className="text-orange-500 text-6xl font-editorial opacity-50 block leading-none">"</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-normal text-white leading-tight mb-12">

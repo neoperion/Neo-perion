@@ -41,7 +41,7 @@ export default function Newsletter() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title="NP Insights Newsletter | AI & SaaS Engineering | Neo Perion"
           description="Join founders and CTOs who read our weekly deep-dives into AI agent architecture, Postgres scaling, and SaaS product engineering."

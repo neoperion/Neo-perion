@@ -93,7 +93,7 @@ export function GlassSheet({
               'rounded-t-[28px] outline-none',
               'bg-[rgba(2,4,10,0.86)] backdrop-blur-glass-3 backdrop-saturate-glass-max',
               'border border-white/[0.14] border-b-0',
-              'shadow-[0_-24px_80px_rgba(0,0,0,0.65),0_0_60px_rgba(0,229,255,0.08)]',
+              'shadow-[0_-24px_80px_rgba(0,0,0,0.65),0_0_60px_rgba(247,126,13,0.08)]',
               'pb-[max(env(safe-area-inset-bottom),16px)]',
               className,
             )}

@@ -83,7 +83,7 @@ export const MarkdownRenderer: React.FC<Props> = ({ content, theme = 'dark' }) =
           ul: ({ node, ...props }) => <ul className="mb-6 list-disc space-y-2 pl-6 text-slate-300" {...props} />,
           ol: ({ node, ...props }) => <ol className="mb-6 list-decimal space-y-2 pl-6 text-slate-300" {...props} />,
           li: ({ node, ...props }) => <li className="pl-2" {...props} />,
-          a: ({ node, ...props }) => <a className="text-neo-blue underline underline-offset-4 hover:text-blue-600" {...props} />,
+          a: ({ node, ...props }) => <a className="text-neo-blue underline underline-offset-4 hover:text-orange-400" {...props} />,
           blockquote: ({ node, ...props }) => (
             <blockquote className="my-8 rounded-r-xl border-l-4 border-neo-blue bg-slate-900/30 py-2 pl-6 text-xl italic text-slate-400" {...props} />
           ),

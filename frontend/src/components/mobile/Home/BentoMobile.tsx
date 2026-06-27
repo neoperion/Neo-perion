@@ -21,7 +21,7 @@ export function BentoMobile({ eyebrow = 'Why Neo Perion', title = 'Built differe
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={containerRef} className="relative w-full py-24 bg-white overflow-hidden" aria-labelledby="bento-heading">
+    <section ref={containerRef} className="relative w-full py-24 bg-neutral-900 overflow-hidden" aria-labelledby="bento-heading">
       
       {/* Huge sticky watermark in background */}
       <div className="absolute inset-0 flex justify-center pt-32 pointer-events-none select-none z-0">
@@ -34,8 +34,8 @@ export function BentoMobile({ eyebrow = 'Why Neo Perion', title = 'Built differe
 
       <div className="relative z-10 px-mobile-base mb-16 text-center">
         <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-2">{eyebrow}</p>
-        <h2 id="bento-heading" className="text-[clamp(32px,8vw,40px)] font-bold text-slate-900 tracking-tight font-display">{title}</h2>
-        <p className="text-sm text-slate-500 mt-3 font-medium max-w-[280px] mx-auto">{subtitle}</p>
+        <h2 id="bento-heading" className="text-[clamp(32px,8vw,40px)] font-bold text-white tracking-tight font-display">{title}</h2>
+        <p className="text-sm text-neutral-400 mt-3 font-medium max-w-[280px] mx-auto">{subtitle}</p>
       </div>
       
       <div className="relative z-10 px-mobile-base flex flex-col gap-16">
@@ -53,12 +53,12 @@ export function BentoMobile({ eyebrow = 'Why Neo Perion', title = 'Built differe
               className={cn("flex flex-col relative w-full", isEven ? "items-start text-left" : "items-end text-right")}
             >
               {Icon && (
-                <div className={cn("h-12 w-12 rounded-xl bg-white shadow-lg border border-slate-100 flex items-center justify-center mb-4 text-neo-blue", isEven ? "" : "ml-auto")}>
+                <div className={cn("h-12 w-12 rounded-xl bg-neutral-900 shadow-lg border border-neutral-800 flex items-center justify-center mb-4 text-neo-blue", isEven ? "" : "ml-auto")}>
                   <Icon size={24} />
                 </div>
               )}
-              <h3 className="text-[24px] font-bold tracking-tight text-slate-900 font-display leading-tight max-w-[80%] bg-white/80 backdrop-blur-sm rounded-lg">{c.title}</h3>
-              <p className="text-[15px] text-slate-600 mt-2 leading-relaxed font-medium max-w-[90%] bg-white/80 backdrop-blur-sm rounded-lg">{c.description}</p>
+              <h3 className="text-[24px] font-bold tracking-tight text-white font-display leading-tight max-w-[80%] bg-white/80 backdrop-blur-sm rounded-lg">{c.title}</h3>
+              <p className="text-[15px] text-neutral-400 mt-2 leading-relaxed font-medium max-w-[90%] bg-white/80 backdrop-blur-sm rounded-lg">{c.description}</p>
             </motion.div>
           );
         })}

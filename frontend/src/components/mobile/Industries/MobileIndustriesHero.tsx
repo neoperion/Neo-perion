@@ -20,7 +20,7 @@ export function MobileIndustriesHero() {
             </span>
           </motion.div>
           <motion.h1 variants={fadeUp} className="text-display-lg text-white tracking-tight mb-4">
-            Domain <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-[#00e5ff]">Expertise</span>.
+            Domain <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-[#FFB05C]">Expertise</span>.
           </motion.h1>
           <motion.p variants={fadeUp} className="text-base text-white/70 leading-relaxed">
             Purpose-built digital solutions tailored to the unique challenges of your industry.

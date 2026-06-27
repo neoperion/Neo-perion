@@ -1,0 +1,20 @@
+// Video-hero service-page system (reusable across the 5 "What We Do" pages)
+export { ServiceVideoHero } from "./ServiceVideoHero";
+export { ServiceTrustStrip } from "./ServiceTrustStrip";
+export { ServiceProblemOutcome } from "./ServiceProblemOutcome";
+export { ServiceStatsBand } from "./ServiceStatsBand";
+export { ServiceCapabilities } from "./ServiceCapabilities";
+export { ServiceProof } from "./ServiceProof";
+export { ServiceTestimonials } from "./ServiceTestimonials";
+export { ServiceFaqSection } from "./ServiceFaqSection";
+export { ServiceStickyCta } from "./ServiceStickyCta";
+export { ServiceProblemGrid } from "./ServiceProblemGrid";
+export { ServiceSolutionCards } from "./ServiceSolutionCards";
+export { ServiceJourney } from "./ServiceJourney";
+export { ServiceDifferentiators } from "./ServiceDifferentiators";
+export { ServiceStatement } from "./ServiceStatement";
+export { ServiceFeaturedStory } from "./ServiceFeaturedStory";
+export { ServiceCaseStudyCarousel } from "./ServiceCaseStudyCarousel";
+export { ServiceAboutStats } from "./ServiceAboutStats";
+export { ServiceImageSlot } from "./ServiceImageSlot";
+export { ServicePage } from "./ServicePage";

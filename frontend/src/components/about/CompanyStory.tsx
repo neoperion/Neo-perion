@@ -2,9 +2,9 @@ import React from 'react';
 
 export function CompanyStory() {
   return (
-    <section className="py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
+    <section className="py-24 bg-[#0A0A0B] border-b border-[#27272A]/60">
       <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-        <div className="font-editorial text-2xl md:text-3xl text-slate-800 leading-[1.6] md:leading-[1.7] space-y-10">
+        <div className="font-editorial text-2xl md:text-3xl text-neutral-200 leading-[1.6] md:leading-[1.7] space-y-10">
           <p className="animate-fade-in-up">
             <span className="text-8xl md:text-[120px] font-bold text-neo-blue float-left mr-6 mt-2 md:mt-4 leading-[0.75]">
               N

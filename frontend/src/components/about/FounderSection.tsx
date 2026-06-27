@@ -6,7 +6,7 @@ import TiltedCard from '@/components/TiltedCard';
 export function FounderSection() {
   const navigate = useNavigate();
   return (
-    <section className="px-6 lg:px-12 py-24 bg-[#FAFAFA] border-b border-[#E4E4E7]/60">
+    <section className="px-6 lg:px-12 py-24 bg-[#0A0A0B] border-b border-[#27272A]/60">
       <div className="max-w-6xl mx-auto">
         <div className="mb-20">
           <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Leadership</p>
@@ -45,7 +45,7 @@ export function FounderSection() {
         </div>
         
         {/* Editorial Pull Quote */}
-        <div className="bg-white border-[0.5px] border-[#E4E4E7] rounded-xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-10 shadow-sm">
+        <div className="bg-neutral-900 border-[0.5px] border-[#27272A] rounded-xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-10 shadow-sm">
           <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 hidden md:block">
             <img src="/images/founder.jpg" alt="Vasantharaj S" className="w-full h-full object-cover grayscale" />
           </div>
@@ -56,7 +56,7 @@ export function FounderSection() {
             </h3>
             <button
               onClick={() => navigate('/company/founder-letter')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#E4E4E7] text-[#09090B] hover:border-neo-blue hover:text-neo-blue transition-all font-semibold"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#27272A] text-[#09090B] hover:border-neo-blue hover:text-neo-blue transition-all font-semibold"
             >
               Read the Founder's Letter <ArrowRight size={18} />
             </button>

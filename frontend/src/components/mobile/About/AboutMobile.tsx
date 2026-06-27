@@ -9,7 +9,7 @@ export function FoundersCards({ founders }: { founders: Founder[] }) {
   const [index, setIndex] = useState(0);
   if (!founders.length) return null;
   const c = founders[index];
-  const a = { cyan: 'from-neo-blue/20 to-neo-highlight/5 border-neo-highlight/30', purple: 'from-purple-500/20 to-neo-blue/5 border-purple-400/30', gradient: 'from-neo-blue/20 via-purple-500/10 to-cyan-500/20 border-neo-highlight/30' }[c.accent ?? 'cyan'];
+  const a = { cyan: 'from-neo-blue/20 to-neo-highlight/5 border-neo-highlight/30', purple: 'from-purple-500/20 to-neo-blue/5 border-purple-400/30', gradient: 'from-neo-blue/20 via-purple-500/10 to-amber-500/20 border-neo-highlight/30' }[c.accent ?? 'cyan'];
   return (
     <section className="relative w-full py-mobile-3xl px-mobile-base" aria-labelledby="fc-heading">
       <div className="mb-6"><p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">The People</p><h2 id="fc-heading" className="text-display-md text-white tracking-tight">Founders & Engineers.</h2></div>
@@ -22,7 +22,7 @@ export function FoundersCards({ founders }: { founders: Founder[] }) {
           >
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.18] to-transparent" />
             <div className="flex items-start gap-4">
-              <div className="h-16 w-16 shrink-0 rounded-2xl bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center text-xl font-bold shadow-[0_4px_16px_rgba(0,229,255,0.4)]">{c.initials}</div>
+              <div className="h-16 w-16 shrink-0 rounded-2xl bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center text-xl font-bold shadow-[0_4px_16px_rgba(247,126,13,0.4)]">{c.initials}</div>
               <div className="flex-1 min-w-0"><h3 className="text-[18px] font-bold text-white">{c.name}</h3><p className="text-[12px] text-neo-highlight font-semibold uppercase tracking-[0.1em] mt-0.5">{c.role}</p></div>
             </div>
             <p className="mt-4 text-[14px] text-white/75 leading-relaxed">{c.bio}</p>
@@ -53,7 +53,7 @@ export function MissionVisionMobile({ mission, vision, manifesto }: { mission: s
   );
 }
 function CardBlock({ label, text, accent }: { label: string; text: string; accent: 'cyan' | 'purple' | 'gradient' }) {
-  const a = { cyan: 'from-neo-blue/15 to-neo-highlight/5 border-neo-highlight/30', purple: 'from-purple-500/15 to-neo-blue/5 border-purple-400/30', gradient: 'from-neo-blue/15 via-purple-500/10 to-cyan-500/15 border-neo-highlight/30' }[accent];
+  const a = { cyan: 'from-neo-blue/15 to-neo-highlight/5 border-neo-highlight/30', purple: 'from-purple-500/15 to-neo-blue/5 border-purple-400/30', gradient: 'from-neo-blue/15 via-purple-500/10 to-amber-500/15 border-neo-highlight/30' }[accent];
   return (<motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ type: 'spring', stiffness: 320, damping: 32, mass: 0.9 }}
     className={cn('relative rounded-3xl border bg-gradient-to-br backdrop-blur-glass-1 p-5 overflow-hidden', a)}><Quote size={24} className="text-neo-highlight/50 mb-2" /><p className="text-[10px] font-bold tracking-[0.2em] uppercase text-neo-highlight mb-2">{label}</p><p className="text-[15px] text-white leading-relaxed">{text}</p></motion.div>);
 }
@@ -69,7 +69,7 @@ export function CompanyTimeline({ entries }: { entries: TimelineEntry[] }) {
         {entries.map((e, i) => (
           <motion.li key={e.year} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-60px' }}
             transition={{ delay: i * 0.08, type: 'spring', stiffness: 320, damping: 32, mass: 0.9 }} className="relative">
-            <span className="absolute -left-7 top-0 h-5 w-5 rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight shadow-[0_0_12px_rgba(0,229,255,0.4)] border-2 border-[#030B1D]" />
+            <span className="absolute -left-7 top-0 h-5 w-5 rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight shadow-[0_0_12px_rgba(247,126,13,0.4)] border-2 border-[#030B1D]" />
             <div className="ml-3"><p className="text-[10px] font-bold tracking-[0.2em] uppercase text-neo-highlight mb-1">{e.year}</p><h3 className="text-[16px] font-bold text-white">{e.title}</h3><p className="text-[13px] text-white/65 mt-1 leading-relaxed">{e.description}</p></div>
           </motion.li>
         ))}

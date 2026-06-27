@@ -92,7 +92,7 @@ export default function Testimonials() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title="Client Testimonials & Feedback | Neo Perion"
           description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with Neo Perion for AI and SaaS product engineering."
@@ -104,7 +104,7 @@ export default function Testimonials() {
         <main className="pt-36 pb-24 relative overflow-hidden">
           {/* Subtle grid background pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none opacity-60" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-50/50 rounded-full blur-[100px] pointer-events-none opacity-60" />
 
           <section className="text-center px-8 mb-20 max-w-4xl mx-auto relative z-10">
             <motion.p
@@ -126,7 +126,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed"
+              className="text-xl text-neutral-400 font-medium max-w-2xl mx-auto leading-relaxed"
             >
               Don't just take our word for it. Hear directly from the product leaders and engineering executives we build for.
             </motion.p>
@@ -148,7 +148,7 @@ export default function Testimonials() {
                 <motion.div 
                   key={i} 
                   variants={cardVariants}
-                  className="p-8 rounded-3xl border border-zinc-200/80 bg-white shadow-sm hover:border-zinc-300 hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-between relative overflow-hidden"
+                  className="p-8 rounded-3xl border border-zinc-200/80 bg-neutral-900 shadow-sm hover:border-neutral-800 hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-between relative overflow-hidden"
                 >
                   <Quote className="text-zinc-100 absolute top-6 right-6 pointer-events-none" size={60} />
                   
@@ -160,13 +160,13 @@ export default function Testimonials() {
                       ))}
                     </div>
 
-                    <p className="text-lg text-slate-600 italic relative z-10 mb-8 leading-relaxed">
+                    <p className="text-lg text-neutral-400 italic relative z-10 mb-8 leading-relaxed">
                       "{t.feedback}"
                     </p>
                   </div>
                   
-                  <div className="pt-6 border-t border-zinc-100 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-800 text-sm uppercase">
+                  <div className="pt-6 border-t border-neutral-800 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center font-bold text-neutral-200 text-sm uppercase">
                       {t.name.charAt(0)}
                     </div>
                     <div>

@@ -22,8 +22,8 @@ const sizeStyles: Record<GlassChipSize, string> = {
 
 const variantStyles: Record<GlassChipVariant, string> = {
   default: 'bg-white/[0.06] backdrop-blur-glass-1 text-white/80 border-white/[0.10]',
-  active: 'bg-gradient-to-br from-neo-blue to-neo-highlight text-white border-white/30 shadow-[0_4px_16px_rgba(0,229,255,0.3)]',
-  glow: 'bg-white/[0.08] backdrop-blur-glass-2 text-white border-white/[0.18] shadow-[0_0_24px_rgba(0,229,255,0.18)]',
+  active: 'bg-gradient-to-br from-neo-blue to-neo-highlight text-white border-white/30 shadow-[0_4px_16px_rgba(247,126,13,0.3)]',
+  glow: 'bg-white/[0.08] backdrop-blur-glass-2 text-white border-white/[0.18] shadow-[0_0_24px_rgba(247,126,13,0.18)]',
   outline: 'bg-transparent text-white/90 border-white/[0.20]',
 };
 

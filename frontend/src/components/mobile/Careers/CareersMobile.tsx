@@ -19,7 +19,7 @@ export function JobExpandCard({ job, onApply }: { job: JobListingData; onApply: 
               <span className="inline-flex items-center gap-1"><MapPin size={11} />{job.location}</span>
             </div>
           </div>
-          <span className={cn('shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-all', open ? 'bg-neo-highlight text-[#030B1D]' : 'bg-white/[0.06] text-white/70')}>
+          <span className={cn('shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-all', open ? 'bg-neo-highlight text-white' : 'bg-white/[0.06] text-white/70')}>
             <ChevronDown size={14} className={cn('transition-transform', open && 'rotate-180')} />
           </span>
         </div>
@@ -43,7 +43,7 @@ export function JobExpandCard({ job, onApply }: { job: JobListingData; onApply: 
                 </div>
               )}
               <button type="button" onClick={() => onApply(job)}
-                className="group w-full h-12 rounded-2xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(37,99,255,0.4)] border border-white/20 active:scale-[0.98]">
+                className="group w-full h-12 rounded-2xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(247,126,13,0.4)] border border-white/20 active:scale-[0.98]">
                 Apply Now <ArrowRight size={14} className="group-hover:translate-x-1" />
               </button>
             </div>
@@ -82,7 +82,7 @@ export function ApplicationSheet({ open, job, onClose, onSubmit }: { open: boole
             <div className="overflow-y-auto max-h-[60vh] px-5 py-5">
               {done ? (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
-                  <div className="h-16 w-16 mx-auto rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(0,229,255,0.5)]"><Check size={28} /></div>
+                  <div className="h-16 w-16 mx-auto rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(247,126,13,0.5)]"><Check size={28} /></div>
                   <h3 className="text-xl font-bold text-white mb-2">Application sent</h3><p className="text-sm text-white/70">We typically respond within 48 hours.</p>
                 </motion.div>
               ) : (

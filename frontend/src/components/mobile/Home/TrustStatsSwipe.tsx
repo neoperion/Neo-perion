@@ -25,11 +25,11 @@ export function TrustStatsSwipe({ stats = DEFAULT_STATS, className }: TrustStats
   const marqueeStats = [...stats, ...stats, ...stats];
 
   return (
-    <section className={cn('relative w-full py-16 bg-white border-y border-slate-900/5 overflow-hidden', className)} aria-label="Trust metrics">
+    <section className={cn('relative w-full py-16 bg-neutral-900 border-y border-slate-900/5 overflow-hidden', className)} aria-label="Trust metrics">
       
       {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
 
       <motion.div 
         className="flex items-center gap-16 whitespace-nowrap"
@@ -41,7 +41,7 @@ export function TrustStatsSwipe({ stats = DEFAULT_STATS, className }: TrustStats
             <div className="text-[64px] leading-none font-black tracking-tighter bg-gradient-to-br from-slate-900 via-neo-navy to-neo-blue bg-clip-text text-transparent font-display">
               {s.prefix}{s.value}{s.suffix}
             </div>
-            <div className="text-[14px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+            <div className="text-[14px] uppercase tracking-[0.2em] text-neutral-400 font-bold">
               {s.label}
             </div>
           </div>

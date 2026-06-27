@@ -166,7 +166,7 @@ function HoverVisualCard({ cap }: { cap: Capability }) {
           type="button"
           onClick={() => navigate(cap.href)}
           aria-label={`${cap.title} — learn more`}
-          className="mt-7 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#1A52E6]"
+          className="mt-7 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#D96A05]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

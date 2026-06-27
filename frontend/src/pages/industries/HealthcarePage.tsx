@@ -34,14 +34,14 @@ const ComplianceChecklist = () => {
   const completionPct = Math.round((checkedItems.size / items.length) * 100);
 
   return (
-    <div className="relative premium-card p-8 lg:p-10 bg-white overflow-hidden">
+    <div className="relative premium-card p-8 lg:p-10 bg-neutral-900 overflow-hidden">
       <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-2 text-center">Healthcare Compliance</h3>
       <p className="text-xs text-slate-400 text-center mb-6">Tap to check items your platform needs</p>
 
       {/* Progress */}
       <div className="relative mb-6">
-        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+        <div className="h-2 bg-neutral-900 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"
             animate={{ width: `${completionPct}%` }}
@@ -65,14 +65,14 @@ const ComplianceChecklist = () => {
               className={`w-full flex items-center gap-4 p-3.5 rounded-xl border text-left transition-all duration-300 ${
                 checked
                   ? 'bg-emerald-50 border-emerald-200 shadow-sm'
-                  : 'bg-slate-50/80 border-slate-100 hover:bg-white hover:border-slate-200'
+                  : 'bg-neutral-900/80 border-neutral-800 hover:bg-neutral-900 hover:border-neutral-800'
               }`}
               whileTap={{ scale: 0.98 }}
               aria-pressed={checked}
               aria-label={`Toggle requirement: ${item.title} (${item.category})`}
             >
               <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
-                checked ? 'bg-emerald-500 text-white' : 'bg-white border-2 border-slate-200'
+                checked ? 'bg-emerald-500 text-white' : 'bg-neutral-900 border-2 border-neutral-800'
               }`}>
                 {checked && <CheckCircle2 size={14} />}
               </div>
@@ -81,7 +81,7 @@ const ComplianceChecklist = () => {
                   <span className={`text-[10px] font-bold uppercase tracking-wider ${checked ? 'text-emerald-600' : 'text-slate-400'}`}>{item.category}</span>
                   {item.critical && <span className="text-[9px] font-bold bg-red-50 text-red-500 px-1.5 py-0.5 rounded">CRITICAL</span>}
                 </div>
-                <span className={`text-sm font-semibold block transition-colors ${checked ? 'text-slate-900' : 'text-slate-600'}`}>{item.title}</span>
+                <span className={`text-sm font-semibold block transition-colors ${checked ? 'text-white' : 'text-neutral-400'}`}>{item.title}</span>
               </div>
               <Icon size={16} className={`shrink-0 transition-colors ${checked ? 'text-emerald-500' : 'text-slate-300'}`} />
             </motion.button>
@@ -139,7 +139,7 @@ export function HealthcarePage() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-[auto]">
+      <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
           title="Healthcare Solutions | HIPAA-Compliant Software & AI Diagnostics | Neo Perion"
           description={industry.heroSubtext}
@@ -149,7 +149,7 @@ export function HealthcarePage() {
         <Header />
 
         {/* ═══════════════ HERO SECTION ═══════════════ */}
-        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200 relative overflow-hidden">
+        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-50 rounded-full blur-[120px] opacity-60 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-50 rounded-full blur-[100px] opacity-40 pointer-events-none" />
 
@@ -161,10 +161,10 @@ export function HealthcarePage() {
                 </div>
                 <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-emerald-600">{industry.tagline}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black mb-6 tracking-tight text-slate-900 leading-[1.1]">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black mb-6 tracking-tight text-white leading-[1.1]">
                 {industry.heroHeadline}
               </h1>
-              <p className="text-xl text-slate-500 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
+              <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
@@ -174,7 +174,7 @@ export function HealthcarePage() {
                 </button>
                 <button
                   onClick={() => navigate('/company/case-studies')}
-                  className="px-8 py-4 bg-white text-slate-700 rounded-xl font-bold border border-slate-200 hover:border-emerald-300 hover:text-emerald-700 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="px-8 py-4 bg-neutral-900 text-neutral-200 rounded-xl font-bold border border-neutral-800 hover:border-emerald-300 hover:text-emerald-700 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play size={16} /> View Case Studies
                 </button>
@@ -190,14 +190,14 @@ export function HealthcarePage() {
 
 
         {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-emerald-600 mb-3 block">What We Build</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white mb-4 tracking-tight">
                 Healthcare Technology Capabilities
               </h2>
-              <p className="text-lg text-slate-500 max-w-2xl">
+              <p className="text-lg text-neutral-400 max-w-2xl">
                 HIPAA-compliant platforms built for clinical workflows, patient engagement, and AI-assisted care.
               </p>
             </motion.div>
@@ -221,15 +221,15 @@ export function HealthcarePage() {
                       hidden: { opacity: 0, x: 30 },
                       show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
-                    className="group relative p-8 rounded-[24px] bg-slate-50 border border-slate-100 hover:border-emerald-200 hover:bg-white hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500"
+                    className="group relative p-8 rounded-[24px] bg-neutral-900 border border-neutral-800 hover:border-emerald-200 hover:bg-neutral-900 hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
                     <div className="relative z-10">
-                      <div className="w-14 h-14 bg-white rounded-2xl border border-slate-200 flex items-center justify-center mb-6 shadow-sm group-hover:border-emerald-200 group-hover:shadow-emerald-100 transition-all duration-500">
+                      <div className="w-14 h-14 bg-neutral-900 rounded-2xl border border-neutral-800 flex items-center justify-center mb-6 shadow-sm group-hover:border-emerald-200 group-hover:shadow-emerald-100 transition-all duration-500">
                         <Icon className="text-slate-400 group-hover:text-emerald-600 transition-colors duration-500" size={26} />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">{offering.title}</h3>
-                      <p className="text-slate-500 leading-relaxed">{offering.description}</p>
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-700 transition-colors">{offering.title}</h3>
+                      <p className="text-neutral-400 leading-relaxed">{offering.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -284,11 +284,11 @@ export function HealthcarePage() {
         </section>
 
         {/* ═══════════════ SECURITY & COMPLIANCE TRUST ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-emerald-600 mb-3 block">Security & Compliance</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 mb-4 tracking-tight">Built for Patient Trust</h2>
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white mb-4 tracking-tight">Built for Patient Trust</h2>
             </motion.div>
 
             <motion.div 
@@ -303,8 +303,8 @@ export function HealthcarePage() {
             >
               {[
                 { icon: Shield, title: 'HIPAA Compliant', desc: 'Full HIPAA Security Rule compliance with BAA agreements, encryption standards, and access controls.', badge: 'CERTIFIED', gradient: 'from-emerald-50 to-teal-50' },
-                { icon: Lock, title: 'SOC 2 Type II', desc: 'Enterprise-grade security controls verified by independent auditors for trust, availability, and confidentiality.', badge: 'AUDITED', gradient: 'from-teal-50 to-cyan-50' },
-                { icon: FileCheck, title: 'HL7/FHIR Ready', desc: 'Full interoperability support for seamless integration with Epic, Cerner, and any standards-based EHR system.', badge: 'INTEROPERABLE', gradient: 'from-cyan-50 to-emerald-50' }
+                { icon: Lock, title: 'SOC 2 Type II', desc: 'Enterprise-grade security controls verified by independent auditors for trust, availability, and confidentiality.', badge: 'AUDITED', gradient: 'from-teal-50 to-amber-50' },
+                { icon: FileCheck, title: 'HL7/FHIR Ready', desc: 'Full interoperability support for seamless integration with Epic, Cerner, and any standards-based EHR system.', badge: 'INTEROPERABLE', gradient: 'from-amber-50 to-emerald-50' }
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -314,18 +314,18 @@ export function HealthcarePage() {
                       hidden: { opacity: 0, x: 30 },
                       show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
-                    className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-slate-100 p-10 overflow-hidden group hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500`}
+                    className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-neutral-800 p-10 overflow-hidden group hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500`}
                   >
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
                     <div className="relative z-10">
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/60 shadow-sm flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-slate-200/60 shadow-sm flex items-center justify-center">
                           <Icon className="text-emerald-600" size={22} />
                         </div>
                         <span className="text-[10px] font-black bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full tracking-wider">{item.badge}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                      <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+                      <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                      <p className="text-neutral-400 leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -335,7 +335,7 @@ export function HealthcarePage() {
         </section>
 
         {/* ═══════════════ TECH STACK ═══════════════ */}
-        <section className="py-16 px-6 lg:px-12 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 px-6 lg:px-12 bg-neutral-900 border-y border-neutral-800">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="shrink-0">
@@ -344,7 +344,7 @@ export function HealthcarePage() {
               <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start">
                 {industry.techStack.map((tech, i) => (
                   <motion.span key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                    className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-600 hover:border-emerald-300 hover:text-emerald-700 hover:shadow-sm transition-all duration-300 cursor-default"
+                    className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-full text-sm font-semibold text-neutral-400 hover:border-emerald-300 hover:text-emerald-700 hover:shadow-sm transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </motion.span>
@@ -355,7 +355,7 @@ export function HealthcarePage() {
         </section>
 
         {/* ═══════════════ CASE STUDY PREVIEW ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-10 md:p-16"
@@ -383,26 +383,26 @@ export function HealthcarePage() {
         </section>
 
         {/* ═══════════════ FAQ ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-50">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-3xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-emerald-600 mb-3 block">FAQ</span>
-              <h2 className="text-3xl md:text-[2.75rem] font-black text-slate-900 tracking-tight">Common Questions</h2>
+              <h2 className="text-3xl md:text-[2.75rem] font-black text-white tracking-tight">Common Questions</h2>
             </motion.div>
 
             <div className="space-y-4">
               {industry.faq.map((item, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-slate-100 transition-all duration-300"
+                  className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-slate-100 transition-all duration-300"
                 >
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between p-6 text-left group">
-                    <h3 className="text-[17px] font-bold text-slate-900 pr-4 group-hover:text-emerald-700 transition-colors">{item.question}</h3>
+                    <h3 className="text-[17px] font-bold text-white pr-4 group-hover:text-emerald-700 transition-colors">{item.question}</h3>
                     <ChevronDown className={`shrink-0 text-slate-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180 text-emerald-500' : ''}`} size={20} />
                   </button>
                   <AnimatePresence>
                     {openFaq === i && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
-                        <div className="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">{item.answer}</div>
+                        <div className="px-6 pb-6 text-neutral-400 leading-relaxed border-t border-neutral-800 pt-4">{item.answer}</div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -427,7 +427,7 @@ export function HealthcarePage() {
                 Let's build HIPAA-compliant healthcare solutions that improve outcomes and protect patient data.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onClick={() => navigate('/contact')} className="group px-8 py-4 bg-white text-emerald-700 rounded-xl font-bold hover:bg-emerald-50 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-emerald-900/20">
+                <button onClick={() => navigate('/contact')} className="group px-8 py-4 bg-neutral-900 text-emerald-700 rounded-xl font-bold hover:bg-emerald-50 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-emerald-900/20">
                   Discuss Your Health-Tech Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button onClick={() => navigate('/services')} className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-all duration-300">

@@ -6,7 +6,7 @@ export const EnterpriseCTA: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 md:py-20 lg:py-[120px] px-6 lg:px-12 bg-slate-50">
+    <section className="py-16 md:py-20 lg:py-[120px] px-6 lg:px-12 bg-neutral-900">
       <div className="max-w-5xl mx-auto">
         <div className="relative rounded-[2.5rem] p-8 md:p-16 overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
           {/* Radial Gradient Background */}
@@ -16,7 +16,7 @@ export const EnterpriseCTA: React.FC = () => {
             <div className="lg:max-w-2xl text-center lg:text-left">
               <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
                 Ready to Build <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
                   Enterprise AI Systems?
                 </span>
               </h2>
@@ -27,7 +27,7 @@ export const EnterpriseCTA: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                 <button 
                   onClick={() => navigate('/contact')}
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-neo-blue text-white font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-colors shadow-lg shadow-neo-blue/25"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-neo-blue text-white font-bold flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors shadow-lg shadow-neo-blue/25"
                 >
                   Book Strategy Call
                   <ArrowRight size={18} />

@@ -18,7 +18,7 @@ export function ContactHero() {
         </p>
         <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-tight mb-6 text-white animate-fade-in-up" style={{animationDelay: '100ms'}}>
           Let's build something<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-orange-600">
             extraordinary.
           </span>
         </h1>

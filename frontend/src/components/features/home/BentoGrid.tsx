@@ -37,8 +37,8 @@ const bentoItems = [
   {
     title: 'AI-Driven Engineering',
     description: 'Native LLM integrations and automated workflows built directly into the core.',
-    icon: <Zap className="w-8 h-8 text-blue-400" />,
-    className: 'md:col-span-2 bg-gradient-to-br from-blue-900/20 to-slate-900/40'
+    icon: <Zap className="w-8 h-8 text-orange-400" />,
+    className: 'md:col-span-2 bg-gradient-to-br from-orange-900/20 to-slate-900/40'
   }
 ];
 

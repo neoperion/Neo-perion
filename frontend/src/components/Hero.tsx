@@ -11,7 +11,7 @@ export const Hero = () => {
       {/* Ambient blue fluid */}
       <div className="absolute inset-0 z-0 opacity-90">
         <LiquidEther
-          colors={["#1E5DFF", "#4AA8FF", "#A9C5FF"]}
+          colors={["#F77E0D", "#FF9A3D", "#9c9a9a"]}
           mouseForce={26}
           cursorSize={110}
           autoDemo
@@ -31,7 +31,7 @@ export const Hero = () => {
           <div className="lg:col-span-7">
             <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">
               <span className="block text-ink">Together we</span>
-              <span className="block text-brand">Balaj.</span>
+              <span className="block text-brand">Build.</span>
             </h1>
           </div>
 

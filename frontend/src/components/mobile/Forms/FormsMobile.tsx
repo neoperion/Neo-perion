@@ -25,7 +25,7 @@ export function ConversationForm({ intro = "Hi! Let's get to know you.", fields,
         <AnimatePresence mode="wait" initial={false}>
           {done ? (
             <motion.div key="done" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', stiffness: 320, damping: 32 }} className="text-center py-6">
-              <div className="h-16 w-16 mx-auto rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(0,229,255,0.5)]"><Check size={28} /></div>
+              <div className="h-16 w-16 mx-auto rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(247,126,13,0.5)]"><Check size={28} /></div>
               <h3 className="text-xl font-bold text-white mb-2">Message received.</h3><p className="text-sm text-white/70">We'll respond within 24 hours.</p>
             </motion.div>
           ) : (

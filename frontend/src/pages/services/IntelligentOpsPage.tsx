@@ -36,7 +36,7 @@ export function IntelligentOpsPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
+      <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
@@ -68,16 +68,16 @@ export function IntelligentOpsPage({ service }: Props) {
         
         <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200">
+        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">
                 {service.tagline}
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-slate-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-white leading-tight">
                 {service.heroHeadline}
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed font-medium">
+              <p className="text-xl text-neutral-400 mb-8 leading-relaxed font-medium">
                 {service.heroSubtext}
               </p>
               <button
@@ -89,10 +89,10 @@ export function IntelligentOpsPage({ service }: Props) {
             </div>
 
             {/* Before/After Workflow Visual */}
-            <div className="relative premium-card p-8 bg-white border border-slate-200 shadow-xl overflow-hidden min-h-[420px] flex flex-col justify-center">
+            <div className="relative premium-card p-8 bg-neutral-900 border border-neutral-800 shadow-xl overflow-hidden min-h-[420px] flex flex-col justify-center">
               
               {/* Split layout: Before vs After */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-red-50 border-r border-slate-200 flex flex-col justify-between p-6 opacity-70">
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-red-50 border-r border-neutral-800 flex flex-col justify-between p-6 opacity-70">
                  <h3 className="text-sm font-bold text-red-400 uppercase tracking-widest text-center">Before</h3>
               </div>
               <div className="absolute inset-y-0 right-0 w-1/2 bg-emerald-50 flex flex-col justify-between p-6 opacity-70">
@@ -103,53 +103,53 @@ export function IntelligentOpsPage({ service }: Props) {
                 
                 {/* Row 1 */}
                 <div className="flex items-center justify-between">
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-red-200 shadow-sm">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-red-200 shadow-sm">
                     <UserX className="text-red-400 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-600 truncate">Manual data entry</span>
+                    <span className="text-sm font-medium text-neutral-400 truncate">Manual data entry</span>
                   </div>
                   <ArrowRight className="text-slate-300" />
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
                     <Database className="text-emerald-500 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-800 truncate">Auto-ingestion</span>
+                    <span className="text-sm font-medium text-neutral-200 truncate">Auto-ingestion</span>
                   </div>
                 </div>
 
                 {/* Row 2 */}
                 <div className="flex items-center justify-between">
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-red-200 shadow-sm">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-red-200 shadow-sm">
                     <Inbox className="text-red-400 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-600 truncate">Email coordination</span>
+                    <span className="text-sm font-medium text-neutral-400 truncate">Email coordination</span>
                   </div>
                   <ArrowRight className="text-slate-300" />
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
                     <Send className="text-emerald-500 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-800 truncate">Webhook triggers</span>
+                    <span className="text-sm font-medium text-neutral-200 truncate">Webhook triggers</span>
                   </div>
                 </div>
 
                 {/* Row 3 */}
                 <div className="flex items-center justify-between">
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-red-200 shadow-sm">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-red-200 shadow-sm">
                     <FileText className="text-red-400 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-600 truncate">Weekly reports</span>
+                    <span className="text-sm font-medium text-neutral-400 truncate">Weekly reports</span>
                   </div>
                   <ArrowRight className="text-slate-300" />
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
                     <LayoutDashboard className="text-emerald-500 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-800 truncate">Live dashboards</span>
+                    <span className="text-sm font-medium text-neutral-200 truncate">Live dashboards</span>
                   </div>
                 </div>
 
                 {/* Row 4 */}
                 <div className="flex items-center justify-between">
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-red-200 shadow-sm">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-red-200 shadow-sm">
                     <UserX className="text-red-400 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-600 truncate">Human routing</span>
+                    <span className="text-sm font-medium text-neutral-400 truncate">Human routing</span>
                   </div>
                   <ArrowRight className="text-slate-300" />
-                  <div className="w-[45%] flex items-center gap-3 bg-white p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
+                  <div className="w-[45%] flex items-center gap-3 bg-neutral-900 p-3 rounded border border-emerald-200 shadow-sm border-l-4 border-l-emerald-400">
                     <UserCheck className="text-emerald-500 shrink-0" size={18} />
-                    <span className="text-sm font-medium text-slate-800 truncate">AI classification</span>
+                    <span className="text-sm font-medium text-neutral-200 truncate">AI classification</span>
                   </div>
                 </div>
 
@@ -241,7 +241,7 @@ export function IntelligentOpsPage({ service }: Props) {
 
               {/* Results */}
               <div className="bg-slate-900 rounded-2xl p-6 border border-slate-700">
-                <p className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4 text-center">Estimated Annual Savings</p>
+                <p className="text-xs font-bold tracking-widest text-neutral-400 uppercase mb-4 text-center">Estimated Annual Savings</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 bg-slate-800 rounded-xl border border-slate-700">
                     <Clock className="text-emerald-400 mx-auto mb-2" size={24} />
@@ -264,21 +264,21 @@ export function IntelligentOpsPage({ service }: Props) {
         </section>
 
         {/* Offerings Grid */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900 border-t border-neutral-800">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Automation Capabilities</h2>
-              <p className="text-lg text-slate-600 max-w-2xl">{service.overview}</p>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Automation Capabilities</h2>
+              <p className="text-lg text-neutral-400 max-w-2xl">{service.overview}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
               {service.features.map((feature, i) => (
-                <div key={i} className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
-                  <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-6">
+                <div key={i} className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
+                  <div className="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center mb-6">
                     <Workflow className="text-neo-blue" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-neutral-400">{feature.description}</p>
                 </div>
               ))}
             </div>

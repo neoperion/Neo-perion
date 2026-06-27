@@ -47,7 +47,7 @@ export function MobileFounderSection() {
         </h3>
         <Link
           to="/company/founder-letter"
-          className="inline-flex items-center justify-center w-full gap-2 px-6 py-4 rounded-xl bg-white text-[#030B1D] text-[13px] font-bold transition-transform active:scale-95"
+          className="inline-flex items-center justify-center w-full gap-2 px-6 py-4 rounded-xl bg-neutral-900 text-white text-[13px] font-bold transition-transform active:scale-95"
         >
           Read the Founder's Letter <ArrowRight size={16} />
         </Link>

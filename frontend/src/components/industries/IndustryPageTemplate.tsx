@@ -19,12 +19,12 @@ const FAQItem: React.FC<{ question: string; answer: string; color: string; isOpe
   question, answer, color, isOpen, onToggle
 }) => {
   return (
-    <div className="border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-300">
+    <div className="border border-neutral-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-neutral-800">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 p-6 text-left group"
       >
-        <h3 className="text-lg font-bold text-slate-900 group-hover:text-slate-700 transition-colors pr-4">
+        <h3 className="text-lg font-bold text-white group-hover:text-neutral-200 transition-colors pr-4">
           {question}
         </h3>
         <div
@@ -40,7 +40,7 @@ const FAQItem: React.FC<{ question: string; answer: string; color: string; isOpe
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="overflow-hidden"
       >
-        <div className="px-6 pb-6 text-slate-600 leading-relaxed">
+        <div className="px-6 pb-6 text-neutral-400 leading-relaxed">
           {answer}
         </div>
       </motion.div>
@@ -58,7 +58,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
   }, []);
 
   return (
-    <div className="bg-slate-50 text-slate-900 min-h-[auto]">
+    <div className="bg-neutral-900 text-white min-h-[auto]">
       <SEO
         title={`${industry.title} Solutions | Neo Perion`}
         description={industry.heroSubtext}
@@ -66,7 +66,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       <Header />
 
       {/* ═══════════════ HERO SECTION ═══════════════ */}
-      <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200">
+      <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <motion.p
@@ -82,7 +82,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-slate-900 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-white leading-tight"
             >
               {industry.heroHeadline}
             </motion.h1>
@@ -90,7 +90,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-slate-600 mb-8 leading-relaxed font-medium"
+              className="text-xl text-neutral-400 mb-8 leading-relaxed font-medium"
             >
               {industry.heroSubtext}
             </motion.p>
@@ -121,11 +121,11 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
 
 
       {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-24 px-6 lg:px-12 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">What We Build</h2>
-            <p className="text-lg text-slate-600 max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">What We Build</h2>
+            <p className="text-lg text-neutral-400 max-w-2xl">
               Purpose-built solutions for the {industry.title.toLowerCase()} space, engineered for scale and performance.
             </p>
           </div>
@@ -140,7 +140,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:border-slate-300 transition-all duration-300 group"
+                  className="p-8 rounded-2xl border border-neutral-800 bg-neutral-900 hover:border-neutral-800 transition-all duration-300 group"
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300"
@@ -148,8 +148,8 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                   >
                     <Icon size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{offering.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{offering.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{offering.title}</h3>
+                  <p className="text-neutral-400 leading-relaxed">{offering.description}</p>
                 </motion.div>
               );
             })}
@@ -158,16 +158,16 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       </section>
 
       {/* ═══════════════ HOW WE WORK TIMELINE ═══════════════ */}
-      <section className="py-24 px-6 lg:px-12 bg-slate-50">
+      <section className="py-24 px-6 lg:px-12 bg-neutral-900">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">How We Work</h2>
-            <p className="text-lg text-slate-600">Our proven engagement model for {industry.title.toLowerCase()} projects.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">How We Work</h2>
+            <p className="text-lg text-neutral-400">Our proven engagement model for {industry.title.toLowerCase()} projects.</p>
           </div>
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200 hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-neutral-800 hidden md:block" />
 
             <div className="flex flex-col gap-12">
               {industry.process.map((step, i) => (
@@ -186,8 +186,8 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                     {step.step}
                   </div>
                   <div className="pt-2">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                    <p className="text-neutral-400 leading-relaxed">{step.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -205,8 +205,8 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">The Neo Perion Advantage</h2>
-            <p className="text-lg text-slate-600">What sets us apart in the {industry.title.toLowerCase()} space.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">The Neo Perion Advantage</h2>
+            <p className="text-lg text-neutral-400">What sets us apart in the {industry.title.toLowerCase()} space.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -225,8 +225,8 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                 >
                   <CheckCircle2 size={22} style={{ color: industry.color }} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
+                <p className="text-neutral-400 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -234,7 +234,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       </section>
 
       {/* ═══════════════ TECH STACK ═══════════════ */}
-      <section className="py-16 px-6 lg:px-12 bg-white border-y border-slate-200">
+      <section className="py-16 px-6 lg:px-12 bg-neutral-900 border-y border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 shrink-0">
@@ -248,7 +248,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-600 bg-slate-50 hover:border-slate-300 transition-colors"
+                  className="px-4 py-2 rounded-full text-sm font-semibold border border-neutral-800 text-neutral-400 bg-neutral-900 hover:border-neutral-800 transition-colors"
                 >
                   {tech}
                 </motion.span>
@@ -297,11 +297,11 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       </section>
 
       {/* ═══════════════ FAQ SECTION ═══════════════ */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-24 px-6 lg:px-12 bg-neutral-900">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-slate-600">Common questions about our {industry.title.toLowerCase()} solutions.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-neutral-400">Common questions about our {industry.title.toLowerCase()} solutions.</p>
           </div>
 
           <div className="flex flex-col gap-4">
@@ -336,7 +336,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-white/90 transition-all duration-300 flex items-center gap-3 group shadow-xl"
+              className="px-8 py-4 bg-neutral-900 text-white rounded-xl font-bold hover:bg-white/90 transition-all duration-300 flex items-center gap-3 group shadow-xl"
             >
               Book Consultation
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

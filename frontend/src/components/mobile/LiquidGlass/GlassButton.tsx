@@ -17,7 +17,7 @@ export interface GlassButtonProps extends Omit<HTMLMotionProps<'button'>, 'child
 
 const variantStyles: Record<GlassButtonVariant, string> = {
   primary:
-    'bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white border-white/20 shadow-[0_8px_24px_-4px_rgba(37,99,255,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]',
+    'bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white border-white/20 shadow-[0_8px_24px_-4px_rgba(247,126,13,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]',
   secondary:
     'bg-white/[0.06] backdrop-blur-glass-1 backdrop-saturate-glass text-white border-white/[0.12] hover:bg-white/[0.10]',
   ghost:

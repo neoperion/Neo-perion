@@ -179,7 +179,7 @@ export const HomeContact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-4 rounded-xl bg-neo-blue text-black font-bold hover:bg-neo-blue/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full py-4 rounded-xl bg-neo-blue text-white font-bold hover:bg-neo-blue/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {submitting ? 'Sending...' : 'Submit Request'}
                   </button>

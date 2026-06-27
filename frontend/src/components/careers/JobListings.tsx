@@ -31,7 +31,7 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
   }, []);
 
   return (
-    <section id="open-roles" className={`px-8 lg:px-16 py-24 max-w-4xl mx-auto border-t ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
+    <section id="open-roles" className={`px-8 lg:px-16 py-24 max-w-4xl mx-auto border-t ${isLight ? 'border-neutral-800' : 'border-white/5'}`}>
       <div className="mb-12">
         <h2 className={`text-4xl font-black ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Open Roles</h2>
       </div>
@@ -50,7 +50,7 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
               onClick={() => navigate(`/company/careers/${job.slug || job.id}`)}
               className={`group p-6 rounded-2xl border transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 ${
                 isLight 
-                  ? 'border-zinc-200/80 bg-white hover:border-zinc-300 hover:shadow-sm'
+                  ? 'border-zinc-200/80 bg-neutral-900 hover:border-neutral-800 hover:shadow-sm'
                   : 'border-white/5 bg-[#0a0a0a] hover:border-neo-blue/30'
               }`}
             >
@@ -63,7 +63,7 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
                   <span className="flex items-center gap-1.5"><Clock size={14} /> {job.employment_type || 'Full Time'}</span>
                   <span className={`px-2 py-0.5 rounded-full text-xs border ${
                     isLight 
-                      ? 'bg-zinc-100 text-slate-600 border-zinc-200' 
+                      ? 'bg-neutral-900 text-neutral-400 border-neutral-800' 
                       : 'bg-white/5 text-slate-300 border-white/10'
                   }`}>{job.department}</span>
                 </div>
@@ -71,7 +71,7 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
               <div className="flex items-center justify-end">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                   isLight
-                    ? 'bg-zinc-100 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-slate-600'
+                    ? 'bg-neutral-900 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-neutral-400'
                     : 'bg-white/5 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-white'
                 }`}>
                   <ArrowRight size={18} />

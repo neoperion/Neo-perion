@@ -54,11 +54,11 @@ export function SubscriptionForm({ theme = 'dark' }: SubscriptionFormProps) {
 
   if (success) {
     return (
-      <div className={`border rounded-2xl p-8 max-w-xl mx-auto text-center relative overflow-hidden ${isLight ? 'bg-white border-zinc-200/80 shadow-md' : 'bg-white/[0.02] border-white/5'}`}>
+      <div className={`border rounded-2xl p-8 max-w-xl mx-auto text-center relative overflow-hidden ${isLight ? 'bg-neutral-900 border-zinc-200/80 shadow-md' : 'bg-white/[0.02] border-white/5'}`}>
         <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] blur-[50px] rounded-full pointer-events-none ${isLight ? 'bg-green-100' : 'bg-green-500/20'}`}></div>
         <CheckCircle2 className="mx-auto text-green-500 mb-4" size={40} />
         <h3 className={`text-2xl font-bold mb-2 ${isLight ? 'text-[#09090B]' : 'text-white'}`}>You're on the list!</h3>
-        <p className={isLight ? 'text-slate-500' : 'text-slate-400'}>
+        <p className={isLight ? 'text-neutral-400' : 'text-slate-400'}>
           Thanks for subscribing. Expect your first issue soon.
         </p>
       </div>
@@ -66,8 +66,8 @@ export function SubscriptionForm({ theme = 'dark' }: SubscriptionFormProps) {
   }
 
   return (
-    <div className={`border rounded-2xl p-8 max-w-xl mx-auto relative overflow-hidden ${isLight ? 'bg-white border-zinc-200/80 shadow-lg' : 'bg-white/[0.02] border-white/5'}`}>
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] blur-[50px] rounded-full pointer-events-none ${isLight ? 'bg-blue-50/50' : 'bg-neo-blue/20'}`}></div>
+    <div className={`border rounded-2xl p-8 max-w-xl mx-auto relative overflow-hidden ${isLight ? 'bg-neutral-900 border-zinc-200/80 shadow-lg' : 'bg-white/[0.02] border-white/5'}`}>
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] blur-[50px] rounded-full pointer-events-none ${isLight ? 'bg-orange-50/50' : 'bg-neo-blue/20'}`}></div>
       
       <form onSubmit={handleSubmit(onSubmit)} className="relative z-10 space-y-4">
         {errorMsg && (
@@ -81,7 +81,7 @@ export function SubscriptionForm({ theme = 'dark' }: SubscriptionFormProps) {
           <input 
             {...register('name')}
             id="newsletter-name"
-            className={`w-full border rounded-lg px-4 py-3.5 focus:outline-none focus:border-neo-blue transition-colors ${isLight ? 'bg-slate-50 border-zinc-200 text-[#09090B] placeholder-zinc-400' : 'bg-black/50 border-white/10 text-white'}`}
+            className={`w-full border rounded-lg px-4 py-3.5 focus:outline-none focus:border-neo-blue transition-colors ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder-zinc-400' : 'bg-black/50 border-white/10 text-white'}`}
             placeholder="First Name (Optional)"
           />
         </div>
@@ -94,7 +94,7 @@ export function SubscriptionForm({ theme = 'dark' }: SubscriptionFormProps) {
             type="email"
             required
             aria-required="true"
-            className={`w-full border rounded-lg px-4 py-3.5 focus:outline-none focus:border-neo-blue transition-colors ${isLight ? 'bg-slate-50 border-zinc-200 text-[#09090B] placeholder-zinc-400' : 'bg-black/50 border-white/10 text-white'}`}
+            className={`w-full border rounded-lg px-4 py-3.5 focus:outline-none focus:border-neo-blue transition-colors ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder-zinc-400' : 'bg-black/50 border-white/10 text-white'}`}
             placeholder="Email Address *"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
@@ -103,12 +103,12 @@ export function SubscriptionForm({ theme = 'dark' }: SubscriptionFormProps) {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-4 rounded-lg bg-neo-blue text-white font-bold hover:bg-blue-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
+          className="w-full py-4 rounded-lg bg-neo-blue text-white font-bold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
         >
           {submitting ? 'Subscribing...' : <>Subscribe to Insights <ArrowRight size={18} /></>}
         </button>
         
-        <p className={`text-center text-xs mt-4 ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>
+        <p className={`text-center text-xs mt-4 ${isLight ? 'text-slate-400' : 'text-neutral-400'}`}>
           No spam. Unsubscribe anytime.
         </p>
       </form>

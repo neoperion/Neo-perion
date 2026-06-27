@@ -26,7 +26,7 @@ export function EnterpriseProductPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
+      <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
@@ -58,16 +58,16 @@ export function EnterpriseProductPage({ service }: Props) {
         
         <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200">
+        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">
                 {service.tagline}
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-slate-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-white leading-tight">
                 {service.heroHeadline}
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed font-medium">
+              <p className="text-xl text-neutral-400 mb-8 leading-relaxed font-medium">
                 {service.heroSubtext}
               </p>
               <button
@@ -79,7 +79,7 @@ export function EnterpriseProductPage({ service }: Props) {
             </div>
 
             {/* Interactive Gantt Chart Visual */}
-            <div className="relative premium-card p-8 bg-white border border-slate-200">
+            <div className="relative premium-card p-8 bg-neutral-900 border border-neutral-800">
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Engineering Lifecycle</h3>
               
               <div className="space-y-6 relative">
@@ -117,20 +117,20 @@ export function EnterpriseProductPage({ service }: Props) {
         </section>
 
         {/* Discovery to Launch Timeline */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Discovery to Launch Timeline</h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">Our proven methodology ensures your product is built right the first time, without missing deadlines.</p>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Discovery to Launch Timeline</h2>
+              <p className="text-lg text-neutral-400 max-w-2xl mx-auto">Our proven methodology ensures your product is built right the first time, without missing deadlines.</p>
             </div>
 
-            <div className="relative border-l-2 border-slate-100 ml-4 md:ml-10 space-y-12">
+            <div className="relative border-l-2 border-neutral-800 ml-4 md:ml-10 space-y-12">
               {timelineData.map((item, i) => (
                 <div key={i} className="relative pl-10 md:pl-16 group">
                   <div className={`absolute -left-[11px] top-1 w-5 h-5 rounded-full ${item.color} border-4 border-white shadow-sm transition-transform group-hover:scale-125`}></div>
-                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-neo-blue/20 transition-colors">
+                  <div className="bg-neutral-900 p-6 rounded-2xl border border-neutral-800 group-hover:border-neo-blue/20 transition-colors">
                     <span className="text-neo-blue font-bold text-sm tracking-widest uppercase mb-2 block">{item.weeks}</span>
-                    <h3 className="text-xl font-bold text-slate-900">{item.phase}</h3>
+                    <h3 className="text-xl font-bold text-white">{item.phase}</h3>
                   </div>
                 </div>
               ))}
@@ -139,11 +139,11 @@ export function EnterpriseProductPage({ service }: Props) {
         </section>
 
         {/* Offerings Grid */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900 border-t border-neutral-800">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Engineering Capabilities</h2>
-              <p className="text-lg text-slate-600 max-w-2xl">{service.overview}</p>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Engineering Capabilities</h2>
+              <p className="text-lg text-neutral-400 max-w-2xl">{service.overview}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -151,12 +151,12 @@ export function EnterpriseProductPage({ service }: Props) {
                 const icons = [Box, GitBranch, Terminal, Code];
                 const Icon = icons[i % icons.length];
                 return (
-                  <div key={i} className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
-                    <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-6">
+                  <div key={i} className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
+                    <div className="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center mb-6">
                       <Icon className="text-neo-blue" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                    <p className="text-slate-600">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                    <p className="text-neutral-400">{feature.description}</p>
                   </div>
                 );
               })}
@@ -202,7 +202,7 @@ export function EnterpriseProductPage({ service }: Props) {
             {/* Grid Lines */}
             <div className="absolute inset-0 flex justify-between pointer-events-none opacity-[0.03] px-4">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-full w-px bg-white"></div>
+                <div key={i} className="h-full w-px bg-neutral-900"></div>
               ))}
             </div>
 

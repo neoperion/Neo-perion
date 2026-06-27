@@ -31,7 +31,7 @@ export const GlassNav = forwardRef<HTMLElement, GlassNavProps>(function GlassNav
         'relative',
         variant === 'pill' && 'rounded-full',
         variantStyles[variant],
-        glow && 'shadow-[0_0_60px_rgba(0,229,255,0.20),0_12px_48px_rgba(0,0,0,0.45)]',
+        glow && 'shadow-[0_0_60px_rgba(247,126,13,0.20),0_12px_48px_rgba(0,0,0,0.45)]',
         className,
       )}
       {...rest}

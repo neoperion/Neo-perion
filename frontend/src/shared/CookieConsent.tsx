@@ -41,7 +41,7 @@ export const CookieConsent: React.FC = () => {
                 </button>
                 <button
                   onClick={accept}
-                  className="px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-neo-blue hover:bg-neo-blue-bright transition-colors shadow-[0_0_15px_rgba(37,99,255,0.3)] whitespace-nowrap"
+                  className="px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-neo-blue hover:bg-neo-blue-bright transition-colors shadow-[0_0_15px_rgba(247,126,13,0.3)] whitespace-nowrap"
                 >
                   Accept all
                 </button>

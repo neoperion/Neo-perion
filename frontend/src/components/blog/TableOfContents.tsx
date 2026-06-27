@@ -61,7 +61,7 @@ export const TableOfContents: React.FC<Props> = ({ content, theme = 'dark' }) =>
             key={index}
             href={`#${heading.id}`}
             className={`block text-sm transition-colors hover:text-neo-blue ${
-              heading.level === 2 ? 'font-medium text-slate-300' : 'pl-4 text-slate-500'
+              heading.level === 2 ? 'font-medium text-slate-300' : 'pl-4 text-neutral-400'
             }`}
           >
             {heading.text}

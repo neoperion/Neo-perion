@@ -5,7 +5,7 @@ export const productDevelopment: ServicePageConfig = {
   slug: 'product-development',
   title: 'Product Development',
   subtitle: 'End-to-end SaaS and enterprise product engineering.',
-  heroGradient: 'from-cyan-500/20 to-blue-500/20',
+  heroGradient: 'from-amber-500/20 to-orange-500/20',
   icon: Code,
   challenges: [
     'Startup MVP Development',

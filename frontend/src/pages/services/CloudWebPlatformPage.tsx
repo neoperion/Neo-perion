@@ -68,10 +68,10 @@ const CircularProgress = ({ value, label }: { value: number, label: string }) =>
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-2xl font-black text-slate-900"><AnimatedNumber end={value} /></span>
+          <span className="text-2xl font-black text-white"><AnimatedNumber end={value} /></span>
         </div>
       </div>
-      <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">{label}</span>
+      <span className="text-sm font-bold text-neutral-400 uppercase tracking-wider">{label}</span>
     </div>
   );
 };
@@ -81,7 +81,7 @@ export function CloudWebPlatformPage({ service }: Props) {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="bg-slate-50 text-slate-900 min-h-[auto] flex flex-col">
+      <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO 
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
@@ -113,16 +113,16 @@ export function CloudWebPlatformPage({ service }: Props) {
         
         <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-slate-200">
+        <section className="pt-32 pb-24 px-6 lg:px-12 border-b border-neutral-800">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">
                 {service.tagline}
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-slate-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-white leading-tight">
                 {service.heroHeadline}
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed font-medium">
+              <p className="text-xl text-neutral-400 mb-8 leading-relaxed font-medium">
                 {service.heroSubtext}
               </p>
               <button
@@ -134,14 +134,14 @@ export function CloudWebPlatformPage({ service }: Props) {
             </div>
 
             {/* Performance Metrics Dashboard Visual */}
-            <div className="relative premium-card p-8 bg-white border border-slate-200">
-              <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-100">
+            <div className="relative premium-card p-8 bg-neutral-900 border border-neutral-800">
+              <div className="flex items-center gap-3 mb-8 pb-4 border-b border-neutral-800">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
                   <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                   <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
                 </div>
-                <div className="bg-slate-100 rounded text-[10px] px-3 py-1 font-mono text-slate-500 flex-1 ml-2 text-center">
+                <div className="bg-neutral-900 rounded text-[10px] px-3 py-1 font-mono text-neutral-400 flex-1 ml-2 text-center">
                   Lighthouse Performance Report
                 </div>
               </div>
@@ -153,13 +153,13 @@ export function CloudWebPlatformPage({ service }: Props) {
                 <CircularProgress value={100} label="SEO" />
               </div>
 
-              <div className="space-y-4 pt-6 border-t border-slate-100 font-mono text-sm">
+              <div className="space-y-4 pt-6 border-t border-neutral-800 font-mono text-sm">
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-500 flex items-center gap-2"><Zap size={14} className="text-emerald-500" /> First Contentful Paint</span>
+                  <span className="text-neutral-400 flex items-center gap-2"><Zap size={14} className="text-emerald-500" /> First Contentful Paint</span>
                   <span className="font-bold text-emerald-600">0.8s</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-500 flex items-center gap-2"><Globe size={14} className="text-emerald-500" /> Time to Interactive</span>
+                  <span className="text-neutral-400 flex items-center gap-2"><Globe size={14} className="text-emerald-500" /> Time to Interactive</span>
                   <span className="font-bold text-emerald-600">1.2s</span>
                 </div>
               </div>
@@ -168,53 +168,53 @@ export function CloudWebPlatformPage({ service }: Props) {
         </section>
 
         {/* Our Performance Standard */}
-        <section className="py-24 px-6 lg:px-12 bg-white">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Our Performance Standard</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">We do not ship slow websites. Every web platform we engineer must pass rigorous Core Web Vitals checks.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Our Performance Standard</h2>
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto">We do not ship slow websites. Every web platform we engineer must pass rigorous Core Web Vitals checks.</p>
           </div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <div className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800">
               <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mb-6 text-emerald-600">
                 <Zap size={20} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Sub-Second Loads</h3>
-              <p className="text-slate-600">Optimized asset delivery and edge computing ensure your site loads instantly worldwide.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Sub-Second Loads</h3>
+              <p className="text-neutral-400">Optimized asset delivery and edge computing ensure your site loads instantly worldwide.</p>
             </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-blue-600">
+            <div className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <div className="w-10 h-10 bg-orange-500/15 rounded-full flex items-center justify-center mb-6 text-orange-400">
                 <Shield size={20} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Unbreakable Security</h3>
-              <p className="text-slate-600">Enterprise-grade security headers, CSRF protection, and strictly typed APIs.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Unbreakable Security</h3>
+              <p className="text-neutral-400">Enterprise-grade security headers, CSRF protection, and strictly typed APIs.</p>
             </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-600">
+            <div className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <div className="w-10 h-10 bg-amber-500/15 rounded-full flex items-center justify-center mb-6 text-amber-400">
                 <Search size={20} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Technical SEO</h3>
-              <p className="text-slate-600">Server-side rendering and structured data built directly into the architecture.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Technical SEO</h3>
+              <p className="text-neutral-400">Server-side rendering and structured data built directly into the architecture.</p>
             </div>
           </div>
         </section>
 
         {/* Offerings Grid */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900 border-t border-neutral-800">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Web Engineering Services</h2>
-              <p className="text-lg text-slate-600 max-w-2xl">{service.overview}</p>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Web Engineering Services</h2>
+              <p className="text-lg text-neutral-400 max-w-2xl">{service.overview}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
               {service.features.map((feature, i) => (
-                <div key={i} className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
-                  <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-6">
+                <div key={i} className="p-8 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neo-blue/30 hover:shadow-xl transition-all group">
+                  <div className="w-12 h-12 bg-neutral-900 border border-neutral-800 rounded-xl flex items-center justify-center mb-6">
                     <Globe className="text-neo-blue" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-neutral-400">{feature.description}</p>
                 </div>
               ))}
             </div>

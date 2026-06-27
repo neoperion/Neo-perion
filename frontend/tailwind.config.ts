@@ -49,29 +49,30 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         neo: {
-          navy: "#030B1D",
-          deep: "#1E5DFF",
-          blue: "#2563FF",
-          bright: "#3B82F6",
-          highlight: "#4AA8FF",
-          light: "#74C8FF",
-          silver: "#E8EDF5",
-          soft: "#64748B",
+          navy: "#0A0A0B",      /* near-black base */
+          deep: "#F77E0D",      /* Orange (Wheel) */
+          blue: "#FB8C2A",      /* (legacy key names kept; now orange shades) */
+          bright: "#FF9A3D",
+          highlight: "#FFB05C",
+          light: "#FFC480",
+          silver: "#E8E6E3",
+          soft: "#71717A",
         },
         // ─── REDESIGN TOKENS (Pass 1 — Linear/Vercel restraint) ───
-        // One blue (#1E5DFF), ink + disciplined neutrals. New code uses these.
-        ink: "#0A0A0B",
-        body: "#3F3F46",
-        muted2: "#71717A",
-        faint: "#A1A1AA",
-        hairline: "#E4E4E7",
-        canvas: "#FAFAFA",
-        paper: "#FFFFFF",
+        // Black + Orange (#F77E0D). Neutrals inverted for the dark theme:
+        // ink = light text, canvas/paper = dark surfaces, hairline = dark border.
+        ink: "#FAFAFA",
+        body: "#D4D4D8",
+        muted2: "#A1A1AA",
+        faint: "#71717A",
+        hairline: "#27272A",
+        canvas: "#0A0A0B",
+        paper: "#121113",
         navy: "#08090D",
         brand: {
-          DEFAULT: "#1E5DFF",
-          hover: "#1A52E6",
-          tint: "rgba(30,93,255,0.06)",
+          DEFAULT: "#F77E0D",
+          hover: "#D96A05",
+          tint: "rgba(247,126,13,0.08)",
         },
       },
       fontFamily: {
@@ -87,9 +88,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        'soft': '0 4px 20px -4px hsl(223 100% 57% / 0.2)',
-        'medium': '0 8px 30px -6px hsl(223 100% 57% / 0.25)',
-        'glow': '0 0 40px hsl(223 100% 57% / 0.3)',
+        'soft': '0 4px 20px -4px hsl(28 94% 51% / 0.2)',
+        'medium': '0 8px 30px -6px hsl(28 94% 51% / 0.25)',
+        'glow': '0 0 40px hsl(28 94% 51% / 0.3)',
       },
       // ─── MOBILE DESIGN TOKENS (Phase A) ───
       spacing: {

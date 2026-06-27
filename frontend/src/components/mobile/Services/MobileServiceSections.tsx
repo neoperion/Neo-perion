@@ -111,7 +111,7 @@ export function MobileServiceCTA({ headline, sub, primary, secondary }: MobileSe
         <h2 className="relative text-display-md text-white tracking-tight mb-2">{headline}</h2>
         {sub && <p className="relative text-sm text-white/85 mb-6 max-w-sm mx-auto">{sub}</p>}
         <div className="relative flex flex-col gap-3">
-          {primary && <a href={primary.href} className="h-12 px-5 rounded-2xl bg-white text-[#030B1D] font-bold text-sm flex items-center justify-center active:scale-[0.98] transition-transform">{primary.label}</a>}
+          {primary && <a href={primary.href} className="h-12 px-5 rounded-2xl bg-neutral-900 text-white font-bold text-sm flex items-center justify-center active:scale-[0.98] transition-transform">{primary.label}</a>}
           {secondary && <a href={secondary.href} className="h-12 px-5 rounded-2xl bg-white/[0.18] border border-white/30 backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center">{secondary.label}</a>}
         </div>
       </div>

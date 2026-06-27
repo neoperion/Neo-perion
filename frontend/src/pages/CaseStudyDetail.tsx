@@ -31,7 +31,7 @@ export const CaseStudyDetail: React.FC = () => {
       <div className="min-h-[auto] bg-[#050816] flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
         <p className="text-slate-400 mb-8">The case study you are looking for does not exist.</p>
-        <button onClick={() => navigate('/company/case-studies')} className="px-6 py-3 bg-neo-blue text-slate-900 rounded-lg font-bold">
+        <button onClick={() => navigate('/company/case-studies')} className="px-6 py-3 bg-neo-blue text-white rounded-lg font-bold">
           Back to Work
         </button>
       </div>

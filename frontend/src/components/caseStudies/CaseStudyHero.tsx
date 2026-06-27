@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const CaseStudyHero: React.FC = () => {
   return (
     <div className="pt-32 pb-16 relative overflow-hidden bg-[#050816] text-center">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-slate-900 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-slate-900 to-transparent pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -20,7 +20,7 @@ export const CaseStudyHero: React.FC = () => {
           className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 tracking-tight"
         >
           Real World <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-orange-500">
             Impact & Solutions
           </span>
         </motion.h1>

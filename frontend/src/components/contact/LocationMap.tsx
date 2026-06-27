@@ -48,7 +48,7 @@ export function LocationMap() {
       </div>
       
       <div className="mt-8 pt-8 border-t border-white/10">
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-neutral-400">
           We work with clients globally across all time zones.
         </p>
       </div>

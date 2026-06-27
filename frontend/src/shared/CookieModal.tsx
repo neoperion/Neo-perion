@@ -98,7 +98,7 @@ export const CookieModal: React.FC<CookieModalProps> = ({
                   aria-checked={localPrefs.analytics}
                 >
                   <span
-                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${localPrefs.analytics ? 'translate-x-5' : 'translate-x-0'}`}
+                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-neutral-900 shadow ring-0 transition duration-200 ease-in-out ${localPrefs.analytics ? 'translate-x-5' : 'translate-x-0'}`}
                   />
                 </button>
               </div>
@@ -118,7 +118,7 @@ export const CookieModal: React.FC<CookieModalProps> = ({
                   aria-checked={localPrefs.marketing}
                 >
                   <span
-                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${localPrefs.marketing ? 'translate-x-5' : 'translate-x-0'}`}
+                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-neutral-900 shadow ring-0 transition duration-200 ease-in-out ${localPrefs.marketing ? 'translate-x-5' : 'translate-x-0'}`}
                   />
                 </button>
               </div>
@@ -138,7 +138,7 @@ export const CookieModal: React.FC<CookieModalProps> = ({
                   aria-checked={localPrefs.preferences}
                 >
                   <span
-                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${localPrefs.preferences ? 'translate-x-5' : 'translate-x-0'}`}
+                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-neutral-900 shadow ring-0 transition duration-200 ease-in-out ${localPrefs.preferences ? 'translate-x-5' : 'translate-x-0'}`}
                   />
                 </button>
               </div>
@@ -153,7 +153,7 @@ export const CookieModal: React.FC<CookieModalProps> = ({
               </button>
               <button
                 onClick={handleSave}
-                className="px-5 py-2.5 rounded-lg font-medium text-white bg-neo-blue hover:bg-neo-blue-bright transition-colors shadow-[0_0_20px_rgba(37,99,255,0.3)]"
+                className="px-5 py-2.5 rounded-lg font-medium text-white bg-neo-blue hover:bg-neo-blue-bright transition-colors shadow-[0_0_20px_rgba(247,126,13,0.3)]"
               >
                 Save My Preferences
               </button>

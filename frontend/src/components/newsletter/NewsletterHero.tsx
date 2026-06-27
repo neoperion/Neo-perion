@@ -9,10 +9,10 @@ export function NewsletterHero({ theme = 'dark' }: NewsletterHeroProps) {
   const isLight = theme === 'light';
   
   return (
-    <section className={`relative pt-36 pb-16 overflow-hidden ${isLight ? 'bg-[#FAFAFA]' : 'bg-[#02040A]'}`}>
+    <section className={`relative pt-36 pb-16 overflow-hidden ${isLight ? 'bg-[#0A0A0B]' : 'bg-[#02040A]'}`}>
       <div className={`absolute inset-0 w-full h-full pointer-events-none ${isLight ? 'opacity-[0.03]' : 'opacity-15'}`}>
         <FloatingLines
-          linesGradient={isLight ? ['#2563FF', '#4AA8FF', '#74C8FF'] : ['#15b0c1', '#0d8fa0', '#0a6e7c']}
+          linesGradient={isLight ? ['#FB8C2A', '#FF9A3D', '#FFC480'] : ['#15b0c1', '#0d8fa0', '#0a6e7c']}
           enabledWaves={['middle']}
           lineCount={[6]}
           animationSpeed={0.5}
@@ -24,11 +24,11 @@ export function NewsletterHero({ theme = 'dark' }: NewsletterHeroProps) {
         </p>
         <h1 className={`text-5xl lg:text-7xl font-black tracking-tight leading-tight mb-6 ${isLight ? 'text-[#09090B]' : 'text-white'} animate-fade-in-up`} style={{animationDelay: '100ms'}}>
           Signal over<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-blue-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-orange-600">
             Noise.
           </span>
         </h1>
-        <p className={`text-lg ${isLight ? 'text-slate-500' : 'text-slate-400'} leading-relaxed max-w-2xl mx-auto animate-fade-in-up`} style={{animationDelay: '200ms'}}>
+        <p className={`text-lg ${isLight ? 'text-neutral-400' : 'text-slate-400'} leading-relaxed max-w-2xl mx-auto animate-fade-in-up`} style={{animationDelay: '200ms'}}>
           Join founders and CTOs who read our weekly deep dives into AI architecture, product engineering, and scaling enterprise SaaS.
         </p>
       </div>

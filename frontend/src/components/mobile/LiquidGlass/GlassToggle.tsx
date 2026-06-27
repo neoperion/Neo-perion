@@ -40,7 +40,7 @@ export function GlassToggle({
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neo-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-[#030B1D]',
         'border border-white/[0.10]',
         checked
-          ? 'bg-gradient-to-br from-neo-blue to-neo-highlight shadow-[0_0_18px_rgba(0,229,255,0.4)]'
+          ? 'bg-gradient-to-br from-neo-blue to-neo-highlight shadow-[0_0_18px_rgba(247,126,13,0.4)]'
           : 'bg-white/[0.08] backdrop-blur-glass-1',
         sizes.track,
         disabled && 'opacity-50 pointer-events-none',
@@ -51,7 +51,7 @@ export function GlassToggle({
         layout
         animate={{ x: checked ? sizes.translate : 2 }}
         transition={{ type: 'spring', stiffness: 800, damping: 35, mass: 0.5 }}
-        className={cn('absolute top-1/2 -translate-y-1/2 rounded-full bg-white shadow-md', sizes.thumb)}
+        className={cn('absolute top-1/2 -translate-y-1/2 rounded-full bg-neutral-900 shadow-md', sizes.thumb)}
       />
     </button>
   );

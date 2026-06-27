@@ -50,11 +50,11 @@ export const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="relative overflow-hidden border-t border-hairline bg-gradient-to-b from-canvas to-[#E9F0FE] text-muted2">
-      {/* Soft brand-blue glow rising from the bottom (KnackForge-style two-tone) */}
+    <footer className="relative overflow-hidden border-t border-hairline bg-gradient-to-b from-canvas to-[#0A0A0B] text-muted2">
+      {/* Soft brand-orange glow rising from the bottom (two-tone) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(70%_60%_at_88%_100%,rgba(30,93,255,0.12),transparent_70%),radial-gradient(60%_55%_at_8%_100%,rgba(30,93,255,0.08),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(70%_60%_at_88%_100%,rgba(247,126,13,0.12),transparent_70%),radial-gradient(60%_55%_at_8%_100%,rgba(247,126,13,0.08),transparent_70%)]"
       />
       <div className="container relative z-10 mx-auto max-w-[1200px] px-6 pb-4 pt-16 lg:px-8">
         {/* Slim CTA strip */}

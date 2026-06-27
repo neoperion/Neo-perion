@@ -234,7 +234,7 @@ function Stage({ reason, index }: { reason: Reason; index: number }) {
                   />
                 )}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/80 to-navy/55" />
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(30,93,255,0.18),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(247,126,13,0.18),transparent_60%)]" />
                 <span className="relative text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
                   {reason.title}
                 </span>

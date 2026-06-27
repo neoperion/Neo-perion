@@ -14,7 +14,7 @@ export const BlogGrid: React.FC<Props> = ({ blogs, theme = 'dark' }) => {
     return (
       <div className="py-20 text-center">
         <h3 className={`text-2xl font-bold mb-2 ${isLight ? 'text-[#09090B]' : 'text-white'}`}>No articles found</h3>
-        <p className={isLight ? 'text-slate-500' : 'text-slate-400'}>Try adjusting your search or filters.</p>
+        <p className={isLight ? 'text-neutral-400' : 'text-slate-400'}>Try adjusting your search or filters.</p>
       </div>
     );
   }

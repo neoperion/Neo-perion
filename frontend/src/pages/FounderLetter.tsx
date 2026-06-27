@@ -54,7 +54,7 @@ export default function FounderLetter() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#FAFAFA] text-[#09090B] selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title="Founder's Letter: Why We Built Neo Perion"
           description="Read a letter from our CEO, Vasantharaj S, on why we built Neo Perion and our shift from generic agencies to true product engineering."
@@ -67,7 +67,7 @@ export default function FounderLetter() {
         <main className="relative pt-36 pb-24 overflow-hidden">
           {/* Subtle background grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-50/50 blur-[120px] rounded-full pointer-events-none opacity-40"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-orange-50/50 blur-[120px] rounded-full pointer-events-none opacity-40"></div>
 
           <motion.article 
             variants={containerVariants}
@@ -81,10 +81,10 @@ export default function FounderLetter() {
                 Why we built Neo Perion.
               </h1>
               <div className="flex items-center justify-center gap-4">
-                <img src="/images/founder.jpg" alt="Vasantharaj S" className="w-12 h-12 rounded-full border border-zinc-200" />
+                <img src="/images/founder.jpg" alt="Vasantharaj S" className="w-12 h-12 rounded-full border border-neutral-800" />
                 <div className="text-left">
                   <p className="text-[#09090B] font-semibold">Vasantharaj S</p>
-                  <p className="text-sm text-slate-500">CEO & Founder</p>
+                  <p className="text-sm text-neutral-400">CEO & Founder</p>
                 </div>
               </div>
             </motion.header>
@@ -94,7 +94,7 @@ export default function FounderLetter() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
-              className="prose prose-zinc prose-lg md:prose-xl max-w-none text-slate-600 font-serif leading-relaxed"
+              className="prose prose-zinc prose-lg md:prose-xl max-w-none text-neutral-400 font-serif leading-relaxed"
             >
               <motion.p variants={blockVariants} className="first-letter:text-7xl first-letter:font-black first-letter:text-neo-blue first-letter:mr-3 first-letter:float-left">
                 The technology industry is broken in a very specific way. Over the last decade, we watched countless companies pour millions of dollars into digital transformation initiatives, only to end up with fragmented tools, unscalable architectures, and massive technical debt.
@@ -116,7 +116,7 @@ export default function FounderLetter() {
                 That realization was the genesis of Neo Perion. We built this company on a simple premise: <strong>Stability over hype, and engineering over outsourcing.</strong> We don't just build apps; we build intelligent, scalable ecosystems powered by AI.
               </motion.p>
 
-              <motion.blockquote variants={blockVariants} className="border-l-4 border-neo-blue pl-6 my-10 italic text-[#09090B] bg-slate-50 py-6 pr-6 rounded-r-2xl">
+              <motion.blockquote variants={blockVariants} className="border-l-4 border-neo-blue pl-6 my-10 italic text-[#09090B] bg-neutral-900 py-6 pr-6 rounded-r-2xl">
                 "We treat your product as our own. If an architecture won't scale to a million users, we won't recommend it. If a feature adds complexity without value, we'll push back."
               </motion.blockquote>
 
@@ -144,14 +144,14 @@ export default function FounderLetter() {
                 <LetterCTA theme="light" />
               </motion.div>
               
-              <motion.div variants={blockVariants} className="mt-16 pt-8 border-t border-zinc-200 flex items-center justify-between font-sans">
+              <motion.div variants={blockVariants} className="mt-16 pt-8 border-t border-neutral-800 flex items-center justify-between font-sans">
                 <div>
                   <img src="/images/np-logo.png" alt="Signature" className="h-10 mb-4 opacity-70" />
                   <p className="text-[#09090B] font-bold text-xl">Vasantharaj S</p>
                   <p className="text-neo-blue text-sm">CEO & Founder, Neo Perion</p>
                 </div>
                 <div className="text-right text-slate-400 text-sm">
-                  <p className="font-semibold text-slate-600">Co-Founders:</p>
+                  <p className="font-semibold text-neutral-400">Co-Founders:</p>
                   <p>Adhi Ganesh K (COO)</p>
                   <p>Tamilselvan (CTO)</p>
                 </div>

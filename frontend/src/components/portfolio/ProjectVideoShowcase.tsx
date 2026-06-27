@@ -58,7 +58,7 @@ export const ProjectVideoShowcase: React.FC<ProjectVideoShowcaseProps> = ({ proj
 
       {/* Decorative Elements */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-neo-blue/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-indigo-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-orange-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
     </section>
   );
 };

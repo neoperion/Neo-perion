@@ -31,7 +31,7 @@ function ProcessStepItem({ s, index, totalSteps, scrollYProgress }: { s: Process
   );
   
   const scaleTransform = useTransform(isActive, [0, 1], [0.5, 1.5]);
-  const bgTransform = useTransform(isActive, [0, 1], ["#e2e8f0", "#2563FF"]);
+  const bgTransform = useTransform(isActive, [0, 1], ["#e2e8f0", "#FB8C2A"]);
 
   return (
     <motion.div 
@@ -55,24 +55,24 @@ function ProcessStepItem({ s, index, totalSteps, scrollYProgress }: { s: Process
 
       <div className="relative z-10 flex flex-col pt-0">
         <div className="flex items-center gap-3 mb-2">
-          <div className="h-8 w-8 rounded-lg bg-white shadow-sm border border-slate-100 flex items-center justify-center text-neo-blue">
+          <div className="h-8 w-8 rounded-lg bg-neutral-900 shadow-sm border border-neutral-800 flex items-center justify-center text-neo-blue">
             <Icon size={16} />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-[12px] font-bold tracking-[0.1em] text-neo-blue">{s.step}</span>
-            <h3 className="text-[20px] font-bold text-slate-900 tracking-tight font-display leading-none">{s.title}</h3>
+            <h3 className="text-[20px] font-bold text-white tracking-tight font-display leading-none">{s.title}</h3>
           </div>
         </div>
         
-        <p className="text-[15px] text-slate-600 mt-1 leading-relaxed font-medium bg-slate-50/80 backdrop-blur-sm rounded-lg pr-4">{s.description}</p>
+        <p className="text-[15px] text-neutral-400 mt-1 leading-relaxed font-medium bg-neutral-900/80 backdrop-blur-sm rounded-lg pr-4">{s.description}</p>
         
         {s.outcome && (
-          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm self-start">
+          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 shadow-sm self-start">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-[10px] font-bold text-slate-700 tracking-[0.05em] uppercase">{s.outcome}</span>
+            <span className="text-[10px] font-bold text-neutral-200 tracking-[0.05em] uppercase">{s.outcome}</span>
           </div>
         )}
       </div>
@@ -89,20 +89,20 @@ export function ProcessJourney({ eyebrow = 'Our Process', title = 'How we build.
   });
 
   return (
-    <section ref={containerRef} className="relative w-full py-20 px-mobile-base bg-slate-50 overflow-hidden border-t border-slate-900/5" aria-labelledby="process-heading">
+    <section ref={containerRef} className="relative w-full py-20 px-mobile-base bg-neutral-900 overflow-hidden border-t border-slate-900/5" aria-labelledby="process-heading">
       <div className="mb-14 relative z-20">
         <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-2">{eyebrow}</p>
-        <h2 id="process-heading" className="text-[clamp(28px,7vw,36px)] font-bold text-slate-900 tracking-tight font-display">{title}</h2>
-        <p className="text-sm text-slate-500 mt-2 font-medium">{subtitle}</p>
+        <h2 id="process-heading" className="text-[clamp(28px,7vw,36px)] font-bold text-white tracking-tight font-display">{title}</h2>
+        <p className="text-sm text-neutral-400 mt-2 font-medium">{subtitle}</p>
       </div>
 
       <div className="relative pl-[30px]">
         {/* Faint background line */}
-        <div className="absolute left-[30px] top-4 bottom-10 w-[2px] bg-slate-200 rounded-full" />
+        <div className="absolute left-[30px] top-4 bottom-10 w-[2px] bg-neutral-800 rounded-full" />
         
         {/* Animated Drawing Line */}
         <motion.div 
-          className="absolute left-[30px] top-4 bottom-10 w-[2px] bg-gradient-to-b from-neo-blue to-cyan-400 rounded-full origin-top"
+          className="absolute left-[30px] top-4 bottom-10 w-[2px] bg-gradient-to-b from-neo-blue to-amber-400 rounded-full origin-top"
           style={{ scaleY: scrollYProgress }}
         />
         

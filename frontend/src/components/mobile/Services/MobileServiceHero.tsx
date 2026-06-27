@@ -24,10 +24,10 @@ const VISUAL_LABELS: Record<ServiceVisualKey, string> = {
 };
 
 const VISUAL_GRADIENTS: Record<ServiceVisualKey, string> = {
-  'enterprise-product': 'radial-gradient(circle at 50% 30%, rgba(37,99,255,0.25) 0%, transparent 60%)',
-  'cloud-web': 'radial-gradient(circle at 50% 30%, rgba(0,229,255,0.22) 0%, transparent 60%)',
+  'enterprise-product': 'radial-gradient(circle at 50% 30%, rgba(247,126,13,0.25) 0%, transparent 60%)',
+  'cloud-web': 'radial-gradient(circle at 50% 30%, rgba(247,126,13,0.22) 0%, transparent 60%)',
   'mobile-engineering': 'radial-gradient(circle at 50% 30%, rgba(139,92,246,0.25) 0%, transparent 60%)',
-  'ai-systems': 'radial-gradient(circle at 50% 30%, rgba(0,229,255,0.30) 0%, transparent 60%)',
+  'ai-systems': 'radial-gradient(circle at 50% 30%, rgba(247,126,13,0.30) 0%, transparent 60%)',
   'deep-ai': 'radial-gradient(circle at 50% 30%, rgba(168,85,247,0.28) 0%, transparent 60%)',
   'business-automation': 'radial-gradient(circle at 50% 30%, rgba(34,211,238,0.22) 0%, transparent 60%)',
   'startup-scale': 'radial-gradient(circle at 50% 30%, rgba(249,115,22,0.22) 0%, transparent 60%)',
@@ -46,7 +46,7 @@ export function MobileServiceHero({ eyebrow, title, subtitle, icon: Icon, visual
         <motion.div variants={fadeUp} className="flex justify-center mb-6">
           <div className="relative">
             <div className="absolute inset-0 rounded-full ai-orb-glow animate-orb-pulse" />
-            <div className="relative h-20 w-20 rounded-full border-2 border-white/20 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_8px_32px_rgba(0,229,255,0.3)] ai-orb-base">
+            <div className="relative h-20 w-20 rounded-full border-2 border-white/20 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_8px_32px_rgba(247,126,13,0.3)] ai-orb-base">
               <Icon size={32} />
             </div>
             <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[rgba(15,23,42,0.78)] backdrop-blur-glass-2 border border-white/[0.18] text-[10px] font-bold tracking-[0.15em] text-white">{VISUAL_LABELS[visual]}</span>
@@ -63,7 +63,7 @@ export function MobileServiceHero({ eyebrow, title, subtitle, icon: Icon, visual
         <motion.div variants={fadeUp} className="flex flex-col gap-3">
           {primaryCta && (
             <Link to={primaryCta.href} onClick={() => haptic('medium')}
-              className="group h-14 px-6 rounded-3xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(37,99,255,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/20 active:scale-[0.98] transition-transform">
+              className="group h-14 px-6 rounded-3xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(247,126,13,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/20 active:scale-[0.98] transition-transform">
               {primaryCta.label}<ArrowRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           )}

@@ -13,7 +13,7 @@ export const ProjectTechStack: React.FC<ProjectTechStackProps> = ({ project }) =
     if (!items || items.length === 0) return null;
     return (
       <div className="mb-8">
-        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">{title}</h3>
+        <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">{title}</h3>
         <div className="flex flex-wrap gap-3">
           {items.map((item, idx) => (
             <div key={idx} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-slate-900 border border-white/10 text-slate-300 text-sm font-medium">

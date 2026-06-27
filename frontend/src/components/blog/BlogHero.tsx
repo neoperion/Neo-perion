@@ -43,12 +43,12 @@ export const BlogHero: React.FC<BlogHeroProps> = ({ theme = 'dark' }) => {
   // Dark (mobile / legacy)
   return (
     <div className="relative overflow-hidden bg-[#050816] pb-16 pt-36 text-center">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-slate-900 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-slate-900 to-transparent" />
       <div className="container relative z-10 mx-auto px-4">
         <p className="mb-4 text-sm font-bold uppercase tracking-widest text-neo-blue">NEO PERION BLOG</p>
         <h1 className="mb-6 font-display text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
           Insights, AI & <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-neo-blue to-blue-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-neo-blue to-orange-500 bg-clip-text text-transparent">
             Product Engineering
           </span>
         </h1>

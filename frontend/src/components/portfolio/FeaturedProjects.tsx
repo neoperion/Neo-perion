@@ -43,7 +43,7 @@ const FlyerCard: React.FC<FlyerCardProps> = ({ project, layout, index }) => {
       onMouseLeave={handleMouseLeave}
     >
       <Link to={`/portfolio/${project.slug}`} className="block w-full h-full">
-        <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/60 group-hover:shadow-blue-500/10 group-hover:border-blue-500/30 transition-all duration-500">
+        <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/60 group-hover:shadow-orange-500/10 group-hover:border-orange-500/30 transition-all duration-500">
           <img
             src={project.thumbnail}
             alt={project.title}
@@ -62,12 +62,12 @@ const FlyerCard: React.FC<FlyerCardProps> = ({ project, layout, index }) => {
             </span>
           </div>
 
-          <div className="absolute top-4 right-4 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-hover:bg-blue-500">
+          <div className="absolute top-4 right-4 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-hover:bg-orange-500">
             <ArrowUpRight className="w-4 h-4" />
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-30">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 tracking-tight group-hover:text-blue-300 transition-colors duration-300 font-display">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 tracking-tight group-hover:text-orange-300 transition-colors duration-300 font-display">
               {project.title}
             </h3>
             <p className="text-white/50 text-xs sm:text-sm line-clamp-2 font-sans hidden sm:block">

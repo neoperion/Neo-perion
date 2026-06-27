@@ -10,7 +10,7 @@ interface Props {
 export const ServiceCTA: React.FC<Props> = ({ service }) => {
   return (
     <section id="cta" className="py-24 relative overflow-hidden bg-[#050816]">
-      <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-6 max-w-4xl relative z-10 text-center">
         <motion.div
@@ -27,7 +27,7 @@ export const ServiceCTA: React.FC<Props> = ({ service }) => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-neo-blue hover:bg-neo-blue text-slate-900 font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] flex items-center justify-center gap-2 group">
+            <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-neo-blue hover:bg-neo-blue text-white font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] flex items-center justify-center gap-2 group">
               {service.cta.primaryButtonText}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>

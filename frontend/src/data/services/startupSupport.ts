@@ -5,7 +5,7 @@ export const startupSupport: ServicePageConfig = {
   slug: 'startup-support',
   title: 'Startup Support',
   subtitle: 'Technical consulting and MVP engineering for founders.',
-  heroGradient: 'from-blue-500/20 to-cyan-500/20',
+  heroGradient: 'from-orange-500/20 to-amber-500/20',
   icon: Rocket,
   challenges: [
     'Lack of Technical Co-Founder',

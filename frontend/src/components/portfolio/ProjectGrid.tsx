@@ -78,7 +78,7 @@ export const ProjectGrid: React.FC = () => {
                 setSelectedCategory("All");
                 setSearchQuery("");
               }}
-              className="mt-6 px-6 py-2 rounded-full bg-neo-blue text-white font-medium hover:bg-blue-600 transition-colors"
+              className="mt-6 px-6 py-2 rounded-full bg-neo-blue text-white font-medium hover:bg-orange-600 transition-colors"
             >
               Clear Filters
             </button>

@@ -24,9 +24,9 @@ const layerStyles: Record<GlassLayer, string> = {
 
 const glowStyles: Record<GlassGlow, string> = {
   none: '',
-  cyan: 'shadow-[0_0_60px_rgba(0,229,255,0.18),0_8px_32px_rgba(0,0,0,0.35)]',
+  cyan: 'shadow-[0_0_60px_rgba(247,126,13,0.18),0_8px_32px_rgba(0,0,0,0.35)]',
   purple: 'shadow-[0_0_60px_rgba(139,92,246,0.18),0_8px_32px_rgba(0,0,0,0.35)]',
-  gradient: 'shadow-[0_0_80px_rgba(0,229,255,0.12),0_0_120px_rgba(139,92,246,0.10),0_8px_32px_rgba(0,0,0,0.35)]',
+  gradient: 'shadow-[0_0_80px_rgba(247,126,13,0.12),0_0_120px_rgba(139,92,246,0.10),0_8px_32px_rgba(0,0,0,0.35)]',
 };
 
 export const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(function GlassCard(

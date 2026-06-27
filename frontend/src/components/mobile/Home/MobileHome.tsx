@@ -55,10 +55,10 @@ function MobileServicesAccordion() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-white border-b border-slate-100">
+    <section className="py-16 bg-neutral-900 border-b border-neutral-800">
       <div className="px-6 mb-8">
         <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-1">Services</p>
-        <h2 className="text-[28px] font-bold text-slate-900 tracking-tight font-display">Core Capabilities</h2>
+        <h2 className="text-[28px] font-bold text-white tracking-tight font-display">Core Capabilities</h2>
       </div>
 
       <div className="px-6 flex flex-col gap-3">
@@ -70,22 +70,22 @@ function MobileServicesAccordion() {
             <div
               key={s.slug}
               onClick={() => setExpandedIndex(isExpanded ? null : idx)}
-              className="rounded-xl border border-slate-200 bg-white p-5 cursor-pointer transition-all duration-200 active:bg-slate-50"
+              className="rounded-xl border border-neutral-800 bg-neutral-900 p-5 cursor-pointer transition-all duration-200 active:bg-neutral-900"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="text-neo-blue shrink-0">
                     <Icon size={20} />
                   </span>
-                  <h3 className="text-base font-bold text-slate-900">{s.title}</h3>
+                  <h3 className="text-base font-bold text-white">{s.title}</h3>
                 </div>
                 {isExpanded ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
               </div>
 
               {isExpanded && (
-                <div className="mt-4 text-[13px] text-slate-600 leading-relaxed font-semibold">
+                <div className="mt-4 text-[13px] text-neutral-400 leading-relaxed font-semibold">
                   <p>{s.description}</p>
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex justify-end">
+                  <div className="mt-4 pt-3 border-t border-neutral-800 flex justify-end">
                     <Link
                       to={s.href}
                       className="text-neo-blue font-bold text-[11px] uppercase tracking-wider inline-flex items-center gap-1"
@@ -110,22 +110,22 @@ function MobileCaseStudies() {
   const featured = mockCaseStudies.slice(0, visibleCount);
 
   return (
-    <section id="case-studies" className="py-16 bg-[#FAFAFA] border-b border-slate-100">
+    <section id="case-studies" className="py-16 bg-[#0A0A0B] border-b border-neutral-800">
       <div className="px-6 mb-8">
         <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-1">Case Studies</p>
-        <h2 className="text-[28px] font-bold text-slate-900 tracking-tight font-display">Featured Work</h2>
+        <h2 className="text-[28px] font-bold text-white tracking-tight font-display">Featured Work</h2>
       </div>
 
       <div className="px-6 flex flex-col gap-6">
         {featured.map((study) => (
           <div
             key={study.slug}
-            className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col"
+            className="rounded-xl border border-neutral-800 bg-neutral-900 overflow-hidden shadow-sm flex flex-col"
           >
             {/* Image 16:9 */}
-            <div className="aspect-video w-full bg-slate-100 border-b border-slate-200 relative">
+            <div className="aspect-video w-full bg-neutral-900 border-b border-neutral-800 relative">
               <img src={study.cover_image} alt={study.client_name} className="w-full h-full object-cover" />
-              <span className="absolute bottom-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-white/95 px-2 py-0.5 rounded-full text-neo-blue border border-slate-200">
+              <span className="absolute bottom-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-white/95 px-2 py-0.5 rounded-full text-neo-blue border border-neutral-800">
                 {study.industry}
               </span>
             </div>
@@ -133,11 +133,11 @@ function MobileCaseStudies() {
             {/* Content */}
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1.5">{study.client_name}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed font-semibold mb-4">{study.problem}</p>
+                <h3 className="text-lg font-bold text-white mb-1.5">{study.client_name}</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed font-semibold mb-4">{study.problem}</p>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-3 border-t border-neutral-800 flex items-center justify-between">
                 <span className="text-[#1D4ED8] text-[13px] font-bold">{study.outcome}</span>
                 <Link to={`/company/case-studies/${study.slug}`} className="text-neo-blue font-bold text-[11px] uppercase tracking-wider">
                   Read →
@@ -152,7 +152,7 @@ function MobileCaseStudies() {
         <div className="px-6 mt-6">
           <button
             onClick={() => setVisibleCount((prev) => prev + 2)}
-            className="w-full h-11 border border-slate-200 bg-white rounded-xl text-slate-700 text-xs font-bold active:bg-slate-50 transition-colors"
+            className="w-full h-11 border border-neutral-800 bg-neutral-900 rounded-xl text-neutral-200 text-xs font-bold active:bg-neutral-900 transition-colors"
           >
             Load More Case Studies
           </button>

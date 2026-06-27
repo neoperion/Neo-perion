@@ -135,7 +135,7 @@ export function MobileMenuV2({ open, onClose, focusSection, onFocusConsumed }: M
             transition={{ type: 'spring', stiffness: 380, damping: 32, mass: 0.8 }}
             className="absolute inset-x-0 top-0 bottom-0 flex flex-col bg-[#030B1D]"
           >
-            <div aria-hidden="true" className="absolute inset-0 opacity-50" style={{ backgroundImage: 'linear-gradient(180deg, rgba(0,229,255,0.08) 0%, rgba(139,92,246,0.06) 40%, rgba(2,4,10,1) 100%)' }} />
+            <div aria-hidden="true" className="absolute inset-0 opacity-50" style={{ backgroundImage: 'linear-gradient(180deg, rgba(247,126,13,0.08) 0%, rgba(139,92,246,0.06) 40%, rgba(2,4,10,1) 100%)' }} />
             <div className="relative flex items-center justify-between px-mobile-lg pt-safe-or-4 pb-3 border-b border-white/[0.08]">
               <Link to="/" onClick={() => h('/')} className="flex items-center gap-2.5">
                 <img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" />
@@ -208,7 +208,7 @@ export function MobileMenuV2({ open, onClose, focusSection, onFocusConsumed }: M
                       <button
                         type="button"
                         onClick={() => h(section.cta!.href)}
-                        className="inline-flex items-center gap-1.5 h-10 px-4 rounded-xl bg-white text-[#030B1D] text-[12px] font-bold active:scale-[0.97] transition-transform"
+                        className="inline-flex items-center gap-1.5 h-10 px-4 rounded-xl bg-neutral-900 text-white text-[12px] font-bold active:scale-[0.97] transition-transform"
                       >
                         {section.cta.buttonText} <ArrowRight size={14} />
                       </button>
@@ -232,7 +232,7 @@ export function MobileMenuV2({ open, onClose, focusSection, onFocusConsumed }: M
               ))}
 
               <div className="mt-8 space-y-3">
-                <button type="button" onClick={() => h('/contact')} className="w-full h-14 rounded-3xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(37,99,255,0.5)] border border-white/20 active:scale-[0.98] transition-transform">
+                <button type="button" onClick={() => h('/contact')} className="w-full h-14 rounded-3xl bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(247,126,13,0.5)] border border-white/20 active:scale-[0.98] transition-transform">
                   Book Free Consultation <ArrowRight size={18} strokeWidth={2.5} />
                 </button>
                 <a href="https://wa.me/917339125472?text=Hello" target="_blank" rel="noopener noreferrer" className="w-full h-12 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2">

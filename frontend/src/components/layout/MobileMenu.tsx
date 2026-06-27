@@ -31,7 +31,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
           <div className="flex flex-col p-6 space-y-6 overflow-y-auto">
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Services</h3>
+              <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider">Services</h3>
               <div className="flex flex-col space-y-3 pl-4 border-l border-white/10">
                 <Link to="/services/enterprise-product-engineering" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Product Engineering</Link>
                 <Link to="/services/cloud-native-web-platforms" onClick={onClose} className="text-slate-300 hover:text-neo-blue">Web Platforms</Link>
@@ -66,7 +66,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             
             <div className="pt-6">
               <Link to="/contact" onClick={onClose}>
-                <Button className="w-full bg-neo-blue hover:bg-neo-blue text-slate-900 font-medium rounded-full py-6">
+                <Button className="w-full bg-neo-blue hover:bg-neo-blue text-white font-medium rounded-full py-6">
                   Book Free Consultation
                 </Button>
               </Link>

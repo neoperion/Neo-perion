@@ -60,7 +60,7 @@ export const CookieConsent: React.FC = () => {
               </Button>
               <Button 
                 onClick={handleAcceptAll}
-                className="bg-neo-blue hover:bg-neo-blue text-slate-900"
+                className="bg-neo-blue hover:bg-neo-blue text-white"
               >
                 Accept all
               </Button>

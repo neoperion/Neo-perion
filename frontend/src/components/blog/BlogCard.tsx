@@ -80,7 +80,7 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0, theme = 'dark' }) =
           {post.title}
         </h3>
         <p className="mb-6 flex-grow text-sm text-slate-400 line-clamp-3">{post.excerpt}</p>
-        <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-xs text-slate-500">
+        <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-xs text-neutral-400">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4" />

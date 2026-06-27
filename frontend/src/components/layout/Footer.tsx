@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
               placeholder="Enter your email" 
               className="bg-slate-900 border-white/10 text-white min-w-[250px] focus:border-neo-blue/50"
             />
-            <Button type="submit" className="bg-neo-blue hover:bg-neo-blue text-slate-900">
+            <Button type="submit" className="bg-neo-blue hover:bg-neo-blue text-white">
               Subscribe
             </Button>
           </form>
@@ -97,10 +97,10 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm">
+          <p className="text-neutral-400 text-sm">
             © {new Date().getFullYear()} Neo Perion Solutions. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-slate-500">
+          <div className="flex items-center gap-6 text-sm text-neutral-400">
             <button onClick={() => setVisible(true)} className="hover:text-neo-blue transition-colors">
               Cookie Settings
             </button>
