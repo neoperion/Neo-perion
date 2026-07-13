@@ -10,6 +10,7 @@ import {
   ServiceStatement,
   ServiceSolutionCards,
   ServiceCaseStudyCarousel,
+  ServiceJourney,
   ServiceTestimonials,
   ServiceStickyCta,
 } from '@/components/services/index';
@@ -67,6 +68,7 @@ export function ServicePage({ service }: Props) {
       <ServiceStatement service={service} />
       <ServiceSolutionCards service={service} />
       <ServiceCaseStudyCarousel service={service} />
+      <ServiceJourney service={service} />
       <ServiceTestimonials service={service} />
     </>
   );

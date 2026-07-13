@@ -45,18 +45,9 @@ const NAV: NavItem[] = [
     ],
   },
   {
-    kind: "dropdown",
+    kind: "link",
     label: "Portfolio",
-    panelTitle: "Our Portfolio",
-    description:
-      "Explore our award-winning portfolio of AI products, SaaS platforms, and enterprise systems.",
-    viewAll: { label: "View all projects", href: "/portfolio" },
-    rows: [
-      { label: "AI Products", href: "/portfolio?category=ai-products" },
-      { label: "SaaS Platforms", href: "/portfolio?category=saas-platforms" },
-      { label: "E-Commerce", href: "/portfolio?category=e-commerce" },
-      { label: "Corporate Websites", href: "/portfolio?category=corporate-websites" },
-    ],
+    href: "/portfolio",
   },
   {
     kind: "dropdown",

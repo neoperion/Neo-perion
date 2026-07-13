@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
+import { Menu, X } from 'lucide-react';
 import { MobileMenuV2 } from './MobileMenuV2';
-import { FloatingNav } from './FloatingNav';
-import { AccordionFooter } from '../Footer/AccordionFooter';
+import { Footer } from '@/components/Footer';
 
 export interface MobileShellProps {
   nav?: 'bottom' | 'top' | 'none';
@@ -12,35 +12,41 @@ export interface MobileShellProps {
 
 export function MobileShell({ nav = 'bottom', showFooter = true, children, bgClass = 'bg-[#02040A]' }: MobileShellProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [focusSection, setFocusSection] = useState<'services' | 'industries' | 'company' | null>(null);
   const open = useCallback(() => setMenuOpen(true), []);
   const close = useCallback(() => setMenuOpen(false), []);
-  const openWithSection = useCallback((section: 'services' | 'industries' | 'company') => {
-    setFocusSection(section);
-    setMenuOpen(true);
-  }, []);
+
+  const showHeader = nav !== 'none';
 
   return (
     <div className={`min-h-[auto] ${bgClass}`}>
-      <div className={nav === 'bottom' ? (showFooter ? '' : 'pb-32') : 'pt-safe'}>{children}</div>
-      {nav === 'top' && (
-        <header className="fixed top-0 left-0 right-0 z-mobile-nav md:hidden bg-[rgba(15,23,42,0.78)] backdrop-blur-glass-3 border-b border-white/[0.10] pt-safe-or-4 pb-2 px-mobile-base flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2"><img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" /><span className="text-[15px] font-bold text-white">Neo Perion</span></a>
-          <MobileOrbButton onClick={open} isOpen={menuOpen} />
+      {/* Sticky top header — visible on all nav modes except 'none' */}
+      {showHeader && (
+        <header className="fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5 pt-safe-or-4 pb-3 bg-[rgba(10,10,11,0.82)] backdrop-blur-md border-b border-white/[0.06]">
+          <a href="/" className="flex items-center gap-2.5">
+            <img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" />
+            <span className="font-logo text-[11px] leading-none">
+              <span className="text-white">NEO</span>{' '}
+              <span className="text-[#F77E0D]">PERION</span>
+            </span>
+          </a>
+          <button
+            type="button"
+            onClick={menuOpen ? close : open}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-haspopup="dialog"
+            className="h-9 w-9 rounded-full border border-white/[0.12] flex items-center justify-center text-white/70 hover:text-white hover:border-white/25 transition-colors"
+          >
+            {menuOpen ? <X size={17} /> : <Menu size={17} />}
+          </button>
         </header>
       )}
-      {nav === 'bottom' && <FloatingNav onOrbClick={open} onSectionClick={openWithSection} orbOpen={menuOpen} />}
-      <MobileMenuV2 open={menuOpen} onClose={close} focusSection={focusSection} onFocusConsumed={() => setFocusSection(null)} />
-      {showFooter && <AccordionFooter />}
-    </div>
-  );
-}
 
-function MobileOrbButton({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }) {
-  return (
-    <button type="button" onClick={onClick} aria-label={isOpen ? 'Close' : 'Open menu'} aria-expanded={isOpen} aria-haspopup="dialog"
-      className="relative h-10 w-10 rounded-full ai-orb-base border border-white/20 shadow-[0_4px_16px_rgba(247,126,13,0.3)]">
-      <span aria-hidden="true" className="absolute inset-0 rounded-full ai-orb-glow animate-orb-pulse" />
-    </button>
+      {/* Page content — add top padding to clear the fixed header */}
+      <div className={showHeader ? 'pt-[60px]' : ''}>{children}</div>
+
+      <MobileMenuV2 open={menuOpen} onClose={close} focusSection={null} onFocusConsumed={() => {}} />
+      {showFooter && <Footer />}
+    </div>
   );
 }

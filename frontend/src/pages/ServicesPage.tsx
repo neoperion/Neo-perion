@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-import { 
-  ArrowRight, Brain, Sparkles, Database, Cloud, Smartphone, Workflow, Rocket, 
-  Compass, MonitorPlay, Code, ShieldCheck, Cpu 
-} from 'lucide-react';
+import { useEffect } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -10,495 +7,464 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MobileGate, MobileShell } from "@/components/mobile";
 
-const servicesList = [
+const services = [
   {
-    title: "AI Systems",
-    slug: "ai-systems-automation",
-    icon: Brain,
-    desc: "Enterprise-grade RAG architectures, AI agents, and contextual intelligence platforms.",
-    tech: "RAG • LLM • Agents • Vector DB"
+    num: "01", title: "AI Systems & Automation", slug: "ai-systems-automation",
+    tagline: "LLM · RAG · AI Agents",
+    desc: "We design and deploy enterprise-grade RAG pipelines, autonomous AI agents, and LLM-powered assistants that operate directly on your proprietary data. Every response is cited, auditable, and governed by strict guardrails — eliminating hallucinations and compliance risks. From intelligent document Q&A to multi-step agentic workflows that act on your behalf, our AI systems are built for real production load, integrate with your existing tools, and scale securely as your business grows.",
+    tech: ["RAG", "LLM", "Agents", "Vector DB"],
+    png: "/images/ai.png",
+    bg: "/images/2rQVx.jpg",
   },
   {
-    title: "Deep AI Engineering",
-    slug: "deep-ai-engineering",
-    icon: Sparkles,
-    desc: "Custom fine-tuned models, neural networks, and portable, auditable AI systems.",
-    tech: "PyTorch • PyTorch Lightning • TensorFlow • MLFlow"
+    num: "02", title: "Enterprise Product Engineering", slug: "enterprise-product-engineering",
+    tagline: "SaaS · APIs · Architecture",
+    desc: "From zero to production-ready SaaS in weeks, not months. We architect multi-tenant platforms, build clean REST and GraphQL APIs, and engineer the data models that hold up at scale. Our teams own the full product lifecycle — discovery, architecture, development, and launch — so you get a product that your users love, your investors trust, and your engineers can actually maintain and evolve over time.",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    png: "/images/product-development.png",
+    bg: "/images/produc_hero.jpg",
   },
   {
-    title: "Enterprise Product Engineering",
-    slug: "enterprise-product-engineering",
-    icon: Database,
-    desc: "End-to-end scalable product development, multi-tenant architectures, and robust engineering.",
-    tech: "React • Node.js • PostgreSQL • Redis"
+    num: "03", title: "Web Applications", slug: "cloud-native-web-platforms",
+    tagline: "React · Next.js · Performance",
+    desc: "We craft fast, accessible, and conversion-optimised web applications that score at the top of Core Web Vitals. Whether you need a customer-facing portal, an enterprise dashboard, or a content-heavy marketing platform, we engineer pixel-perfect React frontends backed by robust APIs. Every site we ship is optimised for SEO, built for global edge delivery, and designed to grow traffic and convert visitors into loyal customers.",
+    tech: ["React", "Next.js", "TypeScript"],
+    png: "/images/global-network.png",
+    bg: "/images/webprod.jpg",
   },
   {
-    title: "Cloud Native Platforms",
-    slug: "cloud-native-web-platforms",
-    icon: Cloud,
-    desc: "High-performance, secure, and autoscaling cloud infrastructure with edge routing.",
-    tech: "AWS • Docker • Kubernetes • Terraform"
+    num: "04", title: "Cloud-Native Platforms", slug: "intelligent-operations-automation",
+    tagline: "AWS · Kubernetes · CI/CD",
+    desc: "We architect and operate cloud-native infrastructure that scales elastically with your traffic, costs nothing when idle, and recovers automatically from failures. From containerised microservices on Kubernetes to fully managed serverless pipelines, we build CI/CD workflows that ship code multiple times a day with zero downtime. Your team gets observability dashboards, automated alerting, and runbooks — so on-call is calm, not chaotic.",
+    tech: ["AWS", "Docker", "Kubernetes"],
+    png: "/images/cloud-computing.png",
+    bg: "/images/cloud_hro.jpg",
   },
   {
-    title: "Mobile Engineering",
-    slug: "mobile-product-engineering",
-    icon: Smartphone,
-    desc: "Native and React Native mobile experiences built for fluid 60fps performance and offline state sync.",
-    tech: "React Native • iOS (Swift) • Android (Kotlin) • Supabase"
+    num: "05", title: "Startup-to-Scale CTO", slug: "startup-to-scale-engineering",
+    tagline: "Advisory · Audits · Due Diligence",
+    desc: "Not every company needs a full-time CTO — but every company needs the right technical leadership at the right time. We embed as your Fractional CTO to set architecture standards, unblock your engineering team, and translate complex technical decisions into clear business outcomes. We run architecture audits, perform technical due diligence for investors and acquirers, and build 12-month roadmaps that balance speed, quality, and cost.",
+    tech: ["Architecture", "System Design", "AWS"],
+    png: "/images/board.png",
+    bg: "/images/technical_hero.jpg",
   },
-  {
-    title: "Business Automation",
-    slug: "intelligent-operations-automation",
-    icon: Workflow,
-    desc: "Intelligent operations, automatic data ingestion, and custom internal tools to eliminate manual labor.",
-    tech: "Retool • Zapier • n8n • Python"
-  },
-  {
-    title: "Startup-to-Scale CTO",
-    slug: "startup-to-scale-engineering",
-    icon: Rocket,
-    desc: "Strategic technical leadership, fractional CTO advisory, and technical due diligence scaling for founders.",
-    tech: "System Design • Scalability • Technical Diligence • AWS"
-  }
 ];
 
-const howWeWorkSteps = [
-  {
-    num: "01",
-    title: "Discover",
-    icon: Compass,
-    desc: "We analyze your system requirements, data availability, and business logic to establish clear boundaries.",
-    deliverable: "Technical Architecture Document"
-  },
-  {
-    num: "02",
-    title: "Design",
-    icon: MonitorPlay,
-    desc: "We design data pipelines, API models, schema topologies, and interactive client prototypes.",
-    deliverable: "High-Fidelity Interactive Prototypes"
-  },
-  {
-    num: "03",
-    title: "Build",
-    icon: Code,
-    desc: "We execute bi-weekly development sprints with continuous integrations and feature flags.",
-    deliverable: "Bi-weekly Working Sprints & Demos"
-  },
-  {
-    num: "04",
-    title: "Deploy",
-    icon: ShieldCheck,
-    desc: "We configure Kubernetes pods, automated pipelines, secure VPC networking, and secret storage.",
-    deliverable: "Secure Automated CI/CD Pipelines"
-  },
-  {
-    num: "05",
-    title: "Scale",
-    icon: Cpu,
-    desc: "We perform automated profiling, resource budgeting, load simulations, and query index scaling.",
-    deliverable: "Ongoing Monitoring & Cloud Optimization"
-  }
+const stats = [
+  { value: "150+", label: "Projects Shipped" },
+  { value: "95%",  label: "Client Retention" },
+  { value: "5",    label: "Core Capabilities" },
+  { value: "24/7", label: "Production Support" },
 ];
 
 export default function ServicesPage() {
   const navigate = useNavigate();
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, []);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  /* ─── Desktop ──────────────────────────────────────────── */
+  const desktop = (
+    <div className="bg-[#0A0A0B] text-white min-h-[auto] flex flex-col">
+      <SEO
+        title="Engineering Capabilities & Services | Neo Perion"
+        description="Explore Neo Perion's enterprise-grade capabilities: AI Systems, Cloud Platforms, Product Engineering and more."
+        url="https://www.neoperion.com/services"
+        keywords="Enterprise AI Services, Cloud Infrastructure, Product Engineering, Neo Perion Services"
+        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.neoperion.com/" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.neoperion.com/services" },
+        ]}}
+      />
+      <Header />
+      <main className="flex-grow">
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
+        {/* ── Hero ─────────────────────────────────────────── */}
+        <section className="relative min-h-screen overflow-hidden">
+          {/* Full-bleed video */}
+          <video
+            autoPlay muted loop playsInline
+            className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+            src="/images/12557570_1920_1080_30fps.mp4"
+          />
 
-  const cardVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        type: "spring", 
-        stiffness: 100, 
-        damping: 15 
-      } 
-    }
-  };
+          {/* Cinematic overlay — transparent at top, dark from midpoint down */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #0A0A0B 0%, rgba(10,10,11,0.80) 38%, rgba(10,10,11,0.25) 65%, transparent 100%)' }} />
+          {/* Left vignette */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(10,10,11,0.65) 0%, rgba(10,10,11,0.20) 50%, transparent 100%)' }} />
 
-  const renderServiceCard = (service: typeof servicesList[0]) => {
-    const Icon = service.icon;
-    return (
-      <motion.div 
-        key={service.slug}
-        variants={cardVariants}
-        className="bg-neutral-900 border border-slate-900/[0.08] rounded-[28px] p-6 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 flex flex-col justify-between h-full group"
-      >
-        <div>
-          <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 transition-colors group-hover:bg-[#FB8C2A]/10">
-            <Icon size={24} className="text-[#FB8C2A]" />
+          {/* Orange top frame line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="absolute top-0 left-0 right-0 h-[2px] origin-left z-20 bg-[#F77E0D]"
+          />
+
+          {/* Content — absolutely anchored bottom-left */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 px-8 pb-10 md:px-16 md:pb-16 lg:px-24 lg:pb-20">
+
+            {/* Eyebrow */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.5 }}
+              className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-[#F77E0D]"
+            >
+              Our Services
+            </motion.p>
+
+            {/* Headline */}
+            <div className="overflow-hidden mb-0.5">
+              <motion.h1
+                initial={{ y: '105%' }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.82, delay: 0.52, ease: [0.22, 1, 0.36, 1] }}
+                className="font-display font-black leading-[0.88] tracking-tight text-white"
+                style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)' }}
+              >
+                What We
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden mb-7">
+              <motion.h1
+                initial={{ y: '105%' }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.82, delay: 0.64, ease: [0.22, 1, 0.36, 1] }}
+                className="font-display font-black leading-[0.88] tracking-tight text-[#F77E0D]"
+                style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)' }}
+              >
+                Build.
+              </motion.h1>
+            </div>
+
+            {/* Sub-copy + CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.85 }}
+              className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-10"
+            >
+              <p className="text-[14px] leading-[1.65] text-neutral-400" style={{ maxWidth: '26ch' }}>
+                Five core capabilities — AI to cloud — built to survive production and scale with your ambition.
+              </p>
+
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#F77E0D] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0B] transition-all duration-200 hover:bg-[#ff8f20]"
+                >
+                  Book a Consultation
+                  <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+                <button
+                  onClick={() => document.getElementById('svc-list')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-[13px] font-medium text-white/45 transition-colors duration-200 hover:text-white/80"
+                >
+                  View All Services →
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Thin divider */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mt-7 mb-6 h-px bg-white/[0.08]"
+            />
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.05 }}
+              className="flex gap-8 md:gap-14"
+            >
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="mb-0.5 font-display text-[1.6rem] font-black leading-none text-white">
+                    {s.value}
+                  </div>
+                  <div className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-neutral-600">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
           </div>
-          <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-          <p className="text-sm text-neutral-400 leading-relaxed mb-6">{service.desc}</p>
-        </div>
-        <div>
-          <p className="text-xs font-bold text-[#FB8C2A] tracking-wide mb-6">{service.tech}</p>
-          <button 
-            onClick={() => navigate(`/services/${service.slug}`)}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-[#FB8C2A] transition-colors group/btn"
-          >
-            Explore Capability <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-      </motion.div>
-    );
-  };
+        </section>
 
-  const renderProcessCard = (step: typeof howWeWorkSteps[0]) => {
-    const Icon = step.icon;
-    return (
-      <div 
-        key={step.num}
-        className="bg-neutral-900 border border-slate-900/[0.08] rounded-[28px] p-6 flex flex-col justify-between shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
-      >
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-extrabold text-[#FB8C2A] tracking-widest">{step.num}</span>
-            <Icon size={20} className="text-[#FB8C2A]" />
+        {/* ── Service List ──────────────────────────────────── */}
+        <section id="svc-list" className="bg-[#0A0A0B] px-8 py-24">
+          <div className="mx-auto max-w-[1200px]">
+
+            <div className="mb-14">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Capabilities</p>
+              <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-white">
+                Every capability. One partner.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {services.map((svc, i) => (
+                <motion.div
+                  key={svc.slug}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{
+                    opacity: 1, y: 0,
+                    transition: { duration: 0.45, delay: (i % 3) * 0.09, ease: [0.4, 0, 0.2, 1] },
+                  }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  onClick={() => navigate(`/services/${svc.slug}`)}
+                  className="group relative min-h-[520px] cursor-pointer overflow-hidden rounded-2xl border border-white/[0.09] bg-[#0A0A0B]"
+                >
+                  {/* ── DEFAULT face — large icon centred ── */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center transition-all duration-300 ease-in-out group-hover:-translate-y-6 group-hover:opacity-0">
+                    <div className="mb-8 flex h-[116px] w-[116px] items-center justify-center rounded-3xl bg-[#F77E0D]">
+                      <img
+                        src={svc.png}
+                        alt={svc.title}
+                        className="h-[68px] w-[68px] object-contain"
+                        style={{ filter: 'invert(1)' }}
+                      />
+                    </div>
+                    <h3 className="text-[1.25rem] font-bold leading-tight text-white">{svc.title}</h3>
+                    <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/50">{svc.tagline}</p>
+                  </div>
+
+                  {/* ── HOVER face — cinematic bg image + title + desc + arrow ── */}
+                  <div className="absolute inset-0 translate-y-6 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
+                    {/* Background image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${svc.bg})` }}
+                    />
+                    {/* Dark overlay — 58% so bg image bleeds through */}
+                    <div className="absolute inset-0 bg-[#0A0A0B]/58" />
+                    {/* Content over image */}
+                    <div className="relative z-10 flex h-full flex-col p-8">
+                      <h3 className="text-[1.4rem] font-bold leading-tight text-white">{svc.title}</h3>
+                      <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/60">{svc.tagline}</p>
+                      <p className="mt-5 flex-grow text-[13.5px] leading-[1.85] text-neutral-300">{svc.desc}</p>
+                      <div className="mt-auto pt-6">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F77E0D] text-[#0A0A0B]">
+                          <ArrowUpRight size={20} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-          <p className="text-xs text-neutral-400 leading-relaxed mb-6">{step.desc}</p>
-        </div>
-        <div className="pt-3 border-t border-neutral-800">
-          <p className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Deliverable</p>
-          <p className="text-xs font-bold text-white">{step.deliverable}</p>
-        </div>
-      </div>
-    );
-  };
+        </section>
 
-  return (
-    <MobileGate mobileOnly fallback={
-      <div className="bg-[#0A0A0B] text-white min-h-[auto] flex flex-col font-sans selection:bg-[#FB8C2A] selection:text-white">
-        <SEO
-          title="Engineering Capabilities & Services | Neo Perion"
-          description="Explore Neo Perion's enterprise-grade capabilities: AI Systems, Custom Chatbots, Deep AI Engineering, Cloud Platforms, and Mobile Engineering built for scale."
-          url="https://www.neoperion.com/services"
-          keywords="Enterprise AI Services, Custom Chatbot Development, Mobile Engineering, Cloud Infrastructure, Neo Perion Services"
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.neoperion.com/"
-            },{
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Services",
-              "item": "https://www.neoperion.com/services"
-            }]
-          }}
-        />
-        <Header />
+        {/* ── Operational Excellence ───────────────────────── */}
+        <section className="bg-[#0A0A0B] px-8 py-24">
+          <div className="mx-auto max-w-[1200px]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Results</p>
+              <h2 className="mb-16 font-display text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-white">
+                Operational Excellence, Quantified
+              </h2>
 
-        <main className="flex-grow">
-          {/* Hero Section */}
-          <section className="relative pt-40 pb-20 px-8 overflow-hidden bg-neutral-900 border-b border-slate-900/[0.05]">
-            {/* Ambient Gradients */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-100/40 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-50/30 rounded-full blur-[120px] pointer-events-none" />
-            
-            <div className="max-w-7xl mx-auto relative z-10">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="max-w-4xl text-left"
-              >
-                <p className="text-xs font-extrabold tracking-[0.25em] uppercase text-[#FB8C2A] mb-4">SERVICES</p>
-                <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight leading-[1.05] mb-4 text-white">
-                  Engineering Capabilities
-                </h1>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#FB8C2A] mb-8 tracking-tight">
-                  Built for Scale.
-                </h2>
-                
-                <p className="text-lg md:text-xl text-neutral-400 leading-relaxed mb-12 max-w-2xl font-medium">
-                  From AI systems and enterprise software to mobile applications and startup acceleration.
-                </p>
-
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="px-8 py-4 bg-[#F77E0D] hover:bg-[#FB8C2A] text-[#0A0A0B] rounded-xl text-sm font-bold transition-all shadow-[0_8px_20px_rgba(15,23,42,0.1)] flex items-center gap-2 group"
+              <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
+                {[
+                  {
+                    value: "200%",
+                    title: "Growth in AI Projects",
+                    desc: "From pilots to platforms. From demos to fully deployed AI systems running real business operations at scale.",
+                  },
+                  {
+                    value: "8+",
+                    title: "Year Client Relationships",
+                    desc: "Longevity still drives growth. Trust compounds over time — and so does the measurable impact we deliver together.",
+                  },
+                  {
+                    value: "40%",
+                    title: "Delivery Capacity Gain",
+                    desc: "By equipping every Dev & Ops team with best-in-class AI tooling and fully automated CI/CD workflows.",
+                  },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.45, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
+                    className={`${i !== 0 ? 'md:border-l md:border-white/[0.07] md:pl-14' : ''} ${i !== 2 ? 'md:pr-14' : ''}`}
                   >
-                    Book Consultation
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
-                  <button
-                    onClick={() => {
-                      document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="px-8 py-4 bg-neutral-900 hover:bg-neutral-900 text-white border border-neutral-800 rounded-xl text-sm font-bold transition-all"
-                  >
-                    Explore Services
-                  </button>
-                </div>
+                    <p className="mb-2 font-display text-[3.5rem] font-black leading-none tracking-tight text-[#F77E0D]">
+                      {stat.value}
+                    </p>
+                    <h3 className="mb-4 text-[1.2rem] font-bold text-white">{stat.title}</h3>
+                    <div className="mb-4 h-[2px] w-10 bg-[#F77E0D]/30" />
+                    <p className="text-[14px] leading-[1.75] text-neutral-500">{stat.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-                {/* Statistics Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-16 pt-12 border-t border-slate-200/60 max-w-4xl">
-                  <div>
-                    <p className="text-3xl md:text-4xl font-black text-white tracking-tight">150+</p>
-                    <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mt-1">Projects</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl md:text-4xl font-black text-white tracking-tight">95%</p>
-                    <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mt-1">Client Retention</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl md:text-4xl font-black text-[#FB8C2A] tracking-tight">AI-First</p>
-                    <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mt-1">Engineering Focus</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl md:text-4xl font-black text-white tracking-tight">Ready</p>
-                    <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mt-1">Enterprise Ready</p>
-                  </div>
-                </div>
+        {/* ── CTA ──────────────────────────────────────────── */}
+        <section className="relative overflow-hidden bg-[#ffa959] px-8 py-28">
+          <div className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.5) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent,rgba(0,0,0,0.06))]" />
 
-              </motion.div>
-            </div>
-          </section>
-
-          {/* Services Grid */}
-          <section id="services-grid" className="py-20 px-8 bg-[#0A0A0B]">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-left mb-12">
-                <p className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#FB8C2A] mb-3">CAPABILITIES</p>
-                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">Built for High-Growth Teams</h2>
+          <div className="relative z-10 mx-auto max-w-[900px] text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0A0A0B]/20 bg-[#0A0A0B]/10 px-4 py-1.5">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#0A0A0B]" />
+                <span className="text-[11px] font-bold uppercase tracking-widest text-[#0A0A0B]">Now Taking Projects</span>
               </div>
 
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {servicesList.map(renderServiceCard)}
-              </motion.div>
-            </div>
-          </section>
+              <h2 className="mb-6 font-display text-[clamp(2.6rem,5vw,4.2rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0B]">
+                Ready to ship something<br />that actually lasts?
+              </h2>
 
-          {/* How We Work Section */}
-          <section className="py-20 px-8 bg-neutral-900 border-t border-slate-900/[0.05]">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-left mb-12">
-                <p className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#FB8C2A] mb-3">PROCESS</p>
-                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">How We Work</h2>
+              <p className="mx-auto mb-10 max-w-xl text-[17px] leading-[1.8] text-[#0A0A0B]/70">
+                Most agencies prototype. We production-deploy. Work with Neo Perion's AI-first team and go from idea to live product faster than you thought possible.
+              </p>
+
+              <div className="mb-10 flex flex-wrap justify-center gap-4">
+                <button onClick={() => navigate('/contact')}
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#0A0A0B] px-9 py-4 text-sm font-bold text-white transition-all hover:bg-[#1c1c1e]">
+                  Book Strategy Call
+                  <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </button>
+                <button onClick={() => navigate('/company/case-studies')}
+                  className="rounded-full border-2 border-[#0A0A0B]/25 px-9 py-4 text-sm font-bold text-[#0A0A0B] transition-colors hover:border-[#0A0A0B]/50">
+                  View Case Studies
+                </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                {howWeWorkSteps.map(renderProcessCard)}
-              </div>
-            </div>
-          </section>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Call to Action Section */}
-          <section className="py-20 px-8 bg-[#0A0A0B] border-t border-slate-900/[0.05]">
-            <div className="max-w-5xl mx-auto bg-slate-950 rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden text-center shadow-2xl border border-white/5 backdrop-blur-md">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-500/10 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
-                  Ready to Build Something Exceptional?
-                </h2>
-                <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-                  Work with Neo Perion's AI-first engineering team.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="px-8 py-4 bg-[#FB8C2A] hover:bg-orange-600 text-white rounded-xl text-sm font-bold transition-all shadow-[0_8px_20px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2"
-                  >
-                    Book Strategy Call <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => navigate('/company/case-studies')}
-                    className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl text-sm font-bold transition-all"
-                  >
-                    View Case Studies
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-
-        <Footer />
-      </div>
-    }>
-      <MobileShell nav="bottom" showFooter bgClass="bg-[#0A0A0B]">
-        <div className="w-full pb-8 bg-[#0A0A0B] text-white">
-          
-          {/* Hero Section */}
-          <section className="px-5 pt-8 pb-10 bg-neutral-900 border-b border-slate-900/[0.05]">
-            <p className="text-[10px] font-extrabold tracking-[0.25em] uppercase text-[#FB8C2A] mb-3">SERVICES</p>
-            <h1 className="text-3xl font-black tracking-tight text-white leading-tight mb-2">
-              Engineering Capabilities
-            </h1>
-            <h2 className="text-2xl font-extrabold text-[#FB8C2A] mb-5 tracking-tight">
-              Built for Scale.
-            </h2>
-            <p className="text-sm text-neutral-400 leading-relaxed mb-6 font-medium">
-              From AI systems and enterprise software to mobile applications and startup acceleration.
-            </p>
-            
-            <div className="flex flex-col gap-3">
-              <button
-                onClick={() => navigate('/contact')}
-                className="w-full py-4 bg-[#F77E0D] hover:bg-[#FB8C2A] text-[#0A0A0B] rounded-xl text-[14px] font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-sm"
-              >
-                Book Consultation
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById('mobile-services-grid')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="w-full py-4 bg-neutral-900 border border-neutral-800 text-white rounded-xl text-[14px] font-bold flex items-center justify-center active:scale-[0.98] transition-all"
-              >
-                Explore Services
-              </button>
-            </div>
-
-            {/* Statistics Stacks */}
-            <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-200/60">
-              <div>
-                <p className="text-2xl font-black text-white tracking-tight">150+</p>
-                <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Projects</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-white tracking-tight">95%</p>
-                <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Retention</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-[#FB8C2A] tracking-tight">AI-First</p>
-                <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Engineering</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-white tracking-tight">Ready</p>
-                <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Enterprise</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Mobile Services Grid */}
-          <section id="mobile-services-grid" className="px-5 py-10 bg-[#0A0A0B]">
-            <p className="text-[10px] font-extrabold tracking-[0.2em] uppercase text-[#FB8C2A] mb-2">CAPABILITIES</p>
-            <h2 className="text-xl font-black text-white mb-6 tracking-tight">Our Engineering Capabilities</h2>
-            
-            <div className="space-y-[24px]">
-              {servicesList.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <div 
-                    key={service.slug}
-                    className="bg-neutral-900 border border-slate-900/[0.08] rounded-[28px] p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
-                        <Icon size={20} className="text-[#FB8C2A]" />
-                      </div>
-                      <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                      <p className="text-xs text-neutral-400 leading-relaxed mb-4">{service.desc}</p>
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold text-[#FB8C2A] tracking-wide mb-4">{service.tech}</p>
-                      <button 
-                        onClick={() => navigate(`/services/${service.slug}`)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#FB8C2A] transition-colors"
-                      >
-                        Explore Capability <ArrowRight size={12} />
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* How We Work Section (Mobile) */}
-          <section className="px-5 py-10 bg-neutral-900 border-t border-slate-900/[0.05]">
-            <p className="text-[10px] font-extrabold tracking-[0.2em] uppercase text-[#FB8C2A] mb-2">PROCESS</p>
-            <h2 className="text-xl font-black text-white mb-6 tracking-tight">How We Work</h2>
-
-            <div className="space-y-6">
-              {howWeWorkSteps.map((step) => {
-                const Icon = step.icon;
-                return (
-                  <div 
-                    key={step.num}
-                    className="bg-[#0A0A0B] border border-slate-900/[0.08] rounded-[28px] p-6 flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[10px] font-extrabold text-[#FB8C2A] tracking-widest">{step.num}</span>
-                        <Icon size={18} className="text-[#FB8C2A]" />
-                      </div>
-                      <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
-                      <p className="text-xs text-neutral-400 leading-relaxed mb-4">{step.desc}</p>
-                    </div>
-                    <div className="pt-3 border-t border-slate-200/60">
-                      <p className="text-[8px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Deliverable</p>
-                      <p className="text-xs font-bold text-white">{step.deliverable}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* Final CTA Section (Mobile) */}
-          <section className="px-5 py-10 bg-[#0A0A0B] border-t border-slate-900/[0.05]">
-            <div className="bg-slate-950 border border-white/10 rounded-[2rem] p-8 text-center relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-500/10 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="relative z-10">
-                <h2 className="text-2xl font-black text-white mb-4 tracking-tight leading-tight">
-                  Ready to Build Something Exceptional?
-                </h2>
-                <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                  Work with Neo Perion's AI-first engineering team.
-                </p>
-                
-                <div className="flex flex-col gap-3">
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full py-4 bg-[#FB8C2A] hover:bg-orange-600 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
-                  >
-                    Book Strategy Call <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => navigate('/company/case-studies')}
-                    className="w-full py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl text-sm font-bold active:scale-[0.98] transition-all"
-                  >
-                    View Case Studies
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </MobileShell>
-    </MobileGate>
+      </main>
+      <Footer />
+    </div>
   );
-}
 
+  /* ─── Mobile ───────────────────────────────────────────── */
+  const mobile = (
+    <MobileShell nav="bottom" showFooter bgClass="bg-[#0A0A0B]">
+      <div className="w-full bg-[#0A0A0B] text-white pb-10">
+
+        {/* Hero */}
+        <section className="relative overflow-hidden px-5 pt-10 pb-12 min-h-[60vh] flex items-start">
+          {/* Video bg */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            src="/images/12557570_1920_1080_30fps.mp4"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[#0A0A0B]/80" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0A0B] to-transparent" />
+          <div className="relative z-10 w-full">
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D]">Services</p>
+            <h1 className="font-display text-[2.4rem] font-black leading-[1.0] tracking-tight text-white">
+              What We<br />
+              <span className="text-[#F77E0D]">Build</span> for You.
+            </h1>
+            <p className="mt-5 text-sm leading-relaxed text-neutral-400">
+              Seven engineering capabilities — all built for production, scale, and outcomes.
+            </p>
+            <div className="mt-8 flex flex-col gap-3">
+              <button onClick={() => navigate('/contact')}
+                className="w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all">
+                Book a Consultation
+              </button>
+              <button onClick={() => document.getElementById('m-svc-list')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all">
+                View All Services
+              </button>
+            </div>
+            {/* Stats */}
+            <div className="mt-10 grid grid-cols-2 gap-5 border-t border-white/[0.07] pt-8">
+              {stats.map(s => (
+                <div key={s.label}>
+                  <p className="text-[1.8rem] font-black tracking-tight text-white">{s.value}</p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-neutral-500">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Service list */}
+        <section id="m-svc-list" className="px-5 py-8">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Capabilities</p>
+          <h2 className="mb-8 font-display text-xl font-bold text-white">Every capability. One partner.</h2>
+
+          <div className="grid grid-cols-1 gap-4">
+            {services.map((svc) => (
+              <button
+                key={svc.slug}
+                onClick={() => navigate(`/services/${svc.slug}`)}
+                className="group rounded-2xl border border-white/[0.07] bg-[#111012] p-5 text-left transition-all active:scale-[0.98]"
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F77E0D] shadow-lg">
+                    <img src={svc.png} alt={svc.title} className="h-7 w-7 object-contain" style={{ filter: 'invert(1)' }} />
+                  </div>
+                  <span className="font-mono text-[10px] font-bold text-[#F77E0D]/50">{svc.num}</span>
+                </div>
+                <p className="text-sm font-bold text-white">{svc.title}</p>
+                <p className="mt-0.5 mb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/50">{svc.tagline}</p>
+                <p className="text-[12px] leading-relaxed text-neutral-500">{svc.desc}</p>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1.5">
+                    {svc.tech.slice(0, 2).map(t => (
+                      <span key={t} className="rounded-full border border-[#F77E0D]/20 bg-[#F77E0D]/10 px-2 py-0.5 text-[10px] font-semibold text-[#F77E0D]">{t}</span>
+                    ))}
+                  </div>
+                  <ArrowUpRight size={16} className="shrink-0 text-[#F77E0D]" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Mobile CTA */}
+        <section className="px-5 pb-6">
+          <div className="relative overflow-hidden rounded-2xl border border-[#F77E0D]/20 bg-[#0D0C0E] p-8 text-center">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(247,126,13,0.09),transparent_60%)]" />
+            <div className="relative z-10">
+              <h2 className="mb-3 font-display text-xl font-bold text-white">Ready to build?</h2>
+              <p className="mb-6 text-xs leading-relaxed text-neutral-400">Work with Neo Perion's AI-first engineering team.</p>
+              <div className="flex flex-col gap-3">
+                <button onClick={() => navigate('/contact')}
+                  className="w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all">
+                  Book Strategy Call
+                </button>
+                <button onClick={() => navigate('/company/case-studies')}
+                  className="w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all">
+                  View Case Studies
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </MobileShell>
+  );
+
+  return <MobileGate mobileOnly fallback={desktop}>{mobile}</MobileGate>;
+}

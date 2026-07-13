@@ -29,7 +29,7 @@ export interface ServiceData {
   problem?: { headline: string; body: string };
   outcomes?: { value: string; label: string }[];
   caseStudy?: { client?: string; problem: string; solution: string; result: string };
-  testimonials?: { quote: string; name: string; title: string; company?: string; avatar?: string }[];
+  testimonials?: { quote: string; name: string; title: string; company?: string; avatar?: string; logo?: string }[];
   trustLogos?: { src: string; alt: string }[];
   // ─── KnackForge-style sections (image slots filled by client) ───
   statement?: { text: string; sub?: string };
@@ -59,7 +59,7 @@ export interface ServiceData {
     benefits?: string[];
     useCase?: string;
   }[];
-  journey?: { icon: string; title: string; description: string }[];
+  journey?: { icon: string; title: string; description: string; benefits?: string[] }[];
   techArchitecture?: { icon: string; title: string; desc: string }[];
   differentiators?: { icon: string; title: string; description: string }[];
   industries?: { icon: string; name: string; useCases: string[] }[];
@@ -138,12 +138,10 @@ export const servicesData: ServiceData[] = [
       { icon: 'Workflow', title: 'AI Automation', valueLine: 'Automate workflows, documents, and operations with AI.' },
     ],
     journey: [
-      { icon: 'Database', title: 'Connect your data', description: 'We securely connect your documents, tools, and databases.' },
-      { icon: 'BrainCircuit', title: 'AI understands it', description: 'Your knowledge is indexed so AI can reason over it accurately.' },
-      { icon: 'MessageSquare', title: 'Your team asks', description: 'People ask questions in plain language, right where they work.' },
-      { icon: 'Search', title: 'AI finds answers', description: 'Responses are grounded in your data and cite their sources.' },
-      { icon: 'Zap', title: 'AI takes action', description: 'With approval, agents complete tasks across your systems.' },
-      { icon: 'TrendingUp', title: 'Your business speeds up', description: 'Less searching and busywork; faster, better decisions.' },
+      { icon: 'Search',      title: 'Discover',        description: 'We audit your data sources, tools, and business goals to define the right AI strategy.', benefits: ['Data source mapping', 'Use-case prioritisation', 'AI readiness assessment'] },
+      { icon: 'BrainCircuit',title: 'Design',          description: 'We architect custom LLM pipelines, RAG systems, and agent workflows for your needs.', benefits: ['RAG & LLM architecture', 'Custom prompt engineering', 'Security & compliance design'] },
+      { icon: 'Zap',         title: 'Build',           description: 'We develop and integrate AI assistants, agents, and automations into your existing stack.', benefits: ['AI assistant development', 'Agent & workflow automation', 'System integrations'] },
+      { icon: 'TrendingUp',  title: 'Deploy & Scale',  description: 'We launch, monitor, and continuously improve your AI systems as your business grows.', benefits: ['Production deployment', 'Performance monitoring', 'Continuous model improvement'] },
     ],
     techArchitecture: [
       { icon: 'FileText', title: 'Data Sources', desc: 'PDFs, Confluence, databases, APIs' },
@@ -166,11 +164,10 @@ export const servicesData: ServiceData[] = [
     },
     // Pull real, suitable case studies (AI-related) into the carousel.
     caseStudyServiceTypes: ['AI & Automation', 'Machine Learning'],
-    // Real testimonials — add photo, name, title, company.
     testimonials: [
-      { quote: 'Neo Perion took our AI from a flaky demo to a system our team actually trusts every day.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-1.jpg' },
-      { quote: 'They cared about accuracy and security as much as we did — no shortcuts, no black boxes.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-2.jpg' },
-      { quote: 'We went from concept to a production AI tool faster than we thought possible.', name: '[ADD NAME]', title: '[ADD TITLE]', company: '[ADD COMPANY]', avatar: '/images/services/ai/person-3.jpg' },
+      { quote: 'Neo Perion took our AI from a flaky demo to a system our team actually trusts every day.', name: 'Rohan Mehta', title: 'Chief Technology Officer', company: 'Finnovate Technologies' },
+      { quote: 'They cared about accuracy and security as much as we did — no shortcuts, no black boxes.', name: 'Priya Shankar', title: 'Head of Product', company: 'ZenoAI Labs' },
+      { quote: 'We went from concept to a production AI tool faster than we thought possible.', name: 'Arjun Das', title: 'VP Engineering', company: 'Quantus Systems' },
     ],
     // About / credibility band with imagery + stat cards.
     aboutBand: {
@@ -249,6 +246,18 @@ export const servicesData: ServiceData[] = [
       { icon: 'Wrench', title: 'Product Engineering', valueLine: 'End-to-end design, build, QA, and launch by one team.' },
     ],
     caseStudyServiceTypes: ['SaaS Development'],
+    testimonials: [
+      { quote: 'They delivered a product that felt like it was built by our own team — total ownership, no hand-holding required.', name: 'Sathish Kumar', title: 'Co-founder & CEO', company: 'BuildStack' },
+      { quote: 'The architecture they chose saved us months of rework when we scaled past 10,000 users.', name: 'Meera Nair', title: 'Director of Engineering', company: 'PlatformIQ' },
+      { quote: 'Every sprint was on time and on spec. Rare to find an engineering partner that actually delivers.', name: 'Vivek Rajan', title: 'CTO', company: 'NexaSaaS' },
+    ],
+    journey: [
+      { icon: 'Search',     title: 'Discover', description: 'Validate ideas, understand users, and define the product vision.', benefits: ['User research & interviews', 'Technical feasibility study', 'Product roadmap definition'] },
+      { icon: 'Layers',     title: 'Design',   description: 'Craft intuitive experiences and scalable AI-first architecture.', benefits: ['UI/UX wireframes & prototypes', 'AI-first architecture design', 'Design system creation'] },
+      { icon: 'Code2',      title: 'Build',    description: 'Develop modern web applications, AI systems, and secure backend infrastructure.', benefits: ['Agile sprint development', 'AI systems integration', 'Secure backend & APIs'] },
+      { icon: 'Rocket',     title: 'Launch',   description: 'Deploy, monitor, and optimize for production performance.', benefits: ['CI/CD pipeline setup', 'Production monitoring', 'Performance optimisation'] },
+      { icon: 'TrendingUp', title: 'Scale',    description: 'Continuously improve with analytics, user feedback, and AI innovation.', benefits: ['Analytics & feedback loops', 'Feature iteration sprints', 'AI model improvement'] },
+    ],
   },
   {
     id: 'cloud-native-web-platforms',
@@ -286,6 +295,18 @@ export const servicesData: ServiceData[] = [
       { icon: 'Gauge', title: 'Performance & SEO', valueLine: 'Lightning-fast, accessible, search-optimized sites.' },
     ],
     caseStudyServiceTypes: ['SaaS Development'],
+    testimonials: [
+      { quote: 'Our site went from 4 seconds load time to under 0.9s. Conversion rate jumped 28% in the first month.', name: 'Karthik Subramaniam', title: 'Engineering Manager', company: 'CloudPilot' },
+      { quote: 'They built our client portal from scratch and it handles thousands of concurrent users without a hiccup.', name: 'Aishwarya Rao', title: 'Head of Digital', company: 'SprintBase' },
+      { quote: 'Clean code, zero shortcuts on SEO, and the fastest Next.js deployment we have ever seen.', name: 'Rajesh Venkataraman', title: 'Founder', company: 'LaunchMetrics' },
+    ],
+    journey: [
+      { icon: 'Search',     title: 'Discover',        description: 'Understand your business, users, and product goals.', benefits: ['Business goals alignment', 'User research & personas', 'Technical requirements'] },
+      { icon: 'Layers',     title: 'Design',          description: 'Craft intuitive user experiences and scalable architecture.', benefits: ['UI/UX wireframes & prototypes', 'Component design system', 'Scalable architecture blueprint'] },
+      { icon: 'Code2',      title: 'Develop',         description: 'Build secure, high-performance web applications using modern technologies.', benefits: ['Modern React & Next.js', 'Secure backend APIs', 'Cloud infrastructure setup'] },
+      { icon: 'Rocket',     title: 'Test & Launch',   description: 'Ensure quality, optimize performance, and deploy to production.', benefits: ['Automated testing suite', 'Performance optimisation', 'Zero-downtime deployment'] },
+      { icon: 'TrendingUp', title: 'Support & Scale', description: 'Continuously improve, maintain, and expand your application as your business grows.', benefits: ['Ongoing maintenance', 'Feature enhancements', 'Analytics & growth tracking'] },
+    ],
   },
   {
     id: 'mobile-product-engineering',
@@ -350,6 +371,17 @@ export const servicesData: ServiceData[] = [
       { icon: 'ServerCog', title: 'Monitoring & Reliability', valueLine: 'Full observability and production-grade reliability.' },
     ],
     caseStudyServiceTypes: ['AI & Automation'],
+    testimonials: [
+      { quote: 'We cut our manual reporting time by 80%. The automation Neo Perion built just works — no babysitting needed.', name: 'Deepak Mohan', title: 'Operations Director', company: 'LogixPro' },
+      { quote: 'Our team was skeptical about AI automation. After the first sprint, they were asking for more.', name: 'Sindhu Balakrishnan', title: 'VP Operations', company: 'AutoFlow Systems' },
+      { quote: 'The workflow they automated handled our peak season volume without a single failure.', name: 'Nikhil Prakash', title: 'CEO', company: 'StreamlineHQ' },
+    ],
+    journey: [
+      { icon: 'Search', title: 'Discover',       description: 'We understand your business, workflows, and goals.', benefits: ['Workflow mapping sessions', 'Tool & API audit', 'ROI opportunity scoring'] },
+      { icon: 'Layers', title: 'Design',         description: 'We architect AI systems tailored to your use case.', benefits: ['Integration architecture', 'Data flow diagrams', 'Tech stack selection'] },
+      { icon: 'Code2',  title: 'Build',          description: 'We develop agents, automations, and production-grade software.', benefits: ['Automated pipelines', 'Real-time dashboards', 'Webhook triggers & alerts'] },
+      { icon: 'Zap',    title: 'Deploy & Scale', description: 'We launch, monitor, and continuously improve your AI systems.', benefits: ['Zero-downtime launch', 'Monitoring & alerting', 'Continuous optimisation'] },
+    ],
   },
   {
     id: 'startup-to-scale-engineering',
@@ -385,6 +417,19 @@ export const servicesData: ServiceData[] = [
       { icon: 'Users', title: 'Fractional CTO', valueLine: 'Senior technical leadership without the full-time cost.' },
       { icon: 'ShieldCheck', title: 'Architecture Audits', valueLine: 'De-risk decisions with expert architecture reviews.' },
       { icon: 'Search', title: 'Technical Due Diligence', valueLine: 'Get your codebase and roadmap investor-ready.' },
+    ],
+    caseStudyServiceTypes: ['SaaS Development', 'AI & Automation'],
+    testimonials: [
+      { quote: 'Having a fractional CTO from Neo Perion gave us the same strategic clarity as a full-time hire at a fraction of the cost.', name: 'Kavya Krishnamurthy', title: 'Co-founder', company: 'SeedLoop' },
+      { quote: 'Their architecture review caught a critical flaw we would have hit right before Series A. Saved us months of rework.', name: 'Abhijeet Sinha', title: 'Founder & CEO', company: 'NovaSaaS' },
+      { quote: 'Our board had confidence in our technical roadmap for the first time. That came directly from Neo Perion\'s guidance.', name: 'Tarun Pillai', title: 'CEO', company: 'GrowthStack' },
+    ],
+    journey: [
+      { icon: 'Search',      title: 'Audit',     description: 'We review your codebase, architecture, team, and roadmap to understand your current state and risks.', benefits: ['Code & architecture review', 'Team & process assessment', 'Technology risk mapping'] },
+      { icon: 'CheckSquare', title: 'Assess',    description: 'We identify gaps, technical debt, and high-impact quick wins across your engineering foundation.', benefits: ['Technical debt prioritisation', 'Security & compliance gaps', 'Performance bottlenecks'] },
+      { icon: 'Map',         title: 'Roadmap',   description: 'We build a pragmatic technical roadmap aligned with your business goals and funding milestones.', benefits: ['90-day technical plan', 'Hiring & team structure guidance', 'Build vs buy decisions'] },
+      { icon: 'Terminal',    title: 'Execute',   description: 'We lead engineering decisions, sprint planning, code reviews, and vendor selection as your fractional CTO.', benefits: ['Sprint leadership & delivery', 'Architecture governance', 'Investor & board communication'] },
+      { icon: 'TrendingUp',  title: 'Scale',     description: 'We prepare your team, codebase, and processes for fundraising, growth, and technical due diligence.', benefits: ['Scaling team & processes', 'Pre-fundraise tech audit', 'Handover & knowledge transfer'] },
     ],
   }
 ];

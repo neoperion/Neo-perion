@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Project } from '@/data/projectsData';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -13,6 +13,7 @@ const rotationPattern = [0, -1.5, 1, -0.5, 1.5, -1, 0.5, -2, 1.2];
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const navigate = useNavigate();
   const rotation = rotationPattern[index % rotationPattern.length];
 
   const handleMouseEnter = () => {
@@ -30,17 +31,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       transition={{ duration: 0.55, delay: index * 0.07 }}
       whileHover={{ y: -8, rotate: 0, scale: 1.02, transition: { duration: 0.3, ease: 'easeOut' } }}
       className="group cursor-pointer"
+      onClick={() => navigate(`/portfolio/${project.slug}`)}
     >
-      <Link to={`/portfolio/${project.slug}`} className="block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative rounded-xl overflow-hidden bg-[#0D1221] border border-white/[0.05] aspect-[4/3] mb-4 shadow-2xl shadow-black/50 group-hover:shadow-orange-500/10 group-hover:border-orange-500/25 transition-all duration-500">
           <img
             src={project.thumbnail}
             alt={project.title}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${project.video ? 'group-hover:opacity-0 z-10' : 'z-0'}`}
+            draggable="false"
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 pointer-events-none ${project.video ? 'group-hover:opacity-0 z-10' : 'z-0'}`}
           />
           {project.video && (
             <video ref={videoRef} src={project.video} muted loop playsInline
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 opacity-0 group-hover:opacity-100 z-0"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 opacity-0 group-hover:opacity-100 z-0 pointer-events-none"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20 pointer-events-none" />
@@ -72,7 +75,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {project.overview}
           </p>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 };
