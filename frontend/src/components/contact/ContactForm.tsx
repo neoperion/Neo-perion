@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { supabase } from '@/lib/supabase';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ChevronDown, ArrowRight } from 'lucide-react';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -18,48 +18,64 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
+/* ── Shared field components ─────────────────────────────────────────────── */
+
+function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+  return (
+    <div className="group/field">
+      <label className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/35 mb-2 group-focus-within/field:text-[#F77E0D] transition-colors">
+        {label}
+      </label>
+      {children}
+      {error && (
+        <p className="flex items-center gap-1 text-red-400 text-[11px] mt-1.5">
+          <AlertCircle size={11} /> {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+const inputCls =
+  'w-full bg-transparent border-0 border-b border-white/[0.12] py-3 text-[14px] text-white placeholder:text-white/20 focus:outline-none focus:border-[#F77E0D] transition-colors duration-200';
+
+function SelectInput({ children, error, ...props }: React.SelectHTMLAttributes<HTMLSelectElement> & { error?: string }) {
+  return (
+    <div className="relative">
+      <select
+        {...props}
+        style={{ colorScheme: 'dark' }}
+        className={`${inputCls} appearance-none pr-8 cursor-pointer bg-transparent`}
+      >
+        {children}
+      </select>
+      <ChevronDown size={13} className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-white/25" />
+    </div>
+  );
+}
+
+/* ── Main component ──────────────────────────────────────────────────────── */
+
 export function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema)
+    resolver: zodResolver(contactSchema),
   });
 
   const onSubmit = async (data: ContactFormValues) => {
     setSubmitting(true);
     setErrorMsg('');
-    
     try {
       const { error } = await supabase.functions.invoke('submit-lead', {
-        body: {
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          company: data.company || null,
-          project_type: data.service_required,
-          budget: data.budget || null,
-          message: data.message,
-          source: 'contact'
-        }
+        body: { name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, budget: data.budget || null, message: data.message, source: 'contact' },
       });
-
       if (error) {
-        const { error: dbError } = await supabase.from('leads').insert({
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          company: data.company || null,
-          project_type: data.service_required,
-          budget: data.budget || null,
-          message: data.message,
-          source: 'contact',
-          status: 'new',
-        });
+        const { error: dbError } = await supabase.from('leads').insert({ name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, budget: data.budget || null, message: data.message, source: 'contact', status: 'new' });
         if (dbError) throw dbError;
       }
-
       setSuccess(true);
       reset();
     } catch (err: any) {
@@ -71,16 +87,15 @@ export function ContactForm() {
 
   if (success) {
     return (
-      <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-12 text-center h-full flex flex-col justify-center">
-        <CheckCircle2 className="mx-auto text-neo-blue mb-6" size={48} />
-        <h3 className="text-2xl font-bold text-white mb-4">Message Received</h3>
-        <p className="text-slate-400 mb-8 max-w-sm mx-auto">
-          Thank you for reaching out. One of our product architects will get back to you within 24 hours.
+      <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="w-16 h-16 rounded-full bg-[#F77E0D]/10 border border-[#F77E0D]/25 flex items-center justify-center mb-6">
+          <CheckCircle2 className="text-[#F77E0D]" size={28} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">Message sent</h3>
+        <p className="text-white/40 text-[14px] leading-relaxed max-w-xs mb-8">
+          We'll get back to you within 24 hours. Our product team is looking forward to learning about your project.
         </p>
-        <button 
-          onClick={() => setSuccess(false)}
-          className="text-neo-blue hover:text-neo-blue font-medium"
-        >
+        <button onClick={() => setSuccess(false)} className="text-[13px] text-[#F77E0D] font-medium hover:opacity-70 transition-opacity">
           Send another message
         </button>
       </div>
@@ -88,121 +103,86 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8">
-      <h3 className="text-2xl font-bold text-white mb-6">Send a message</h3>
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-        {errorMsg && (
-          <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-2">
-            <AlertCircle size={16} /> {errorMsg}
-          </div>
-        )}
-        
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Full Name *</label>
-            <input 
-              {...register('name')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
-              placeholder="John Doe"
-            />
-            {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email Address *</label>
-            <input 
-              {...register('email')}
-              type="email"
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
-              placeholder="john@example.com"
-            />
-            {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
-          </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
+      {errorMsg && (
+        <div className="p-4 rounded-xl bg-red-500/8 border border-red-500/15 text-red-400 text-[13px] flex items-center gap-2">
+          <AlertCircle size={15} /> {errorMsg}
         </div>
+      )}
 
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Company Name</label>
-            <input 
-              {...register('company')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
-              placeholder="Acme Corp"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone Number</label>
-            <input 
-              {...register('phone')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors"
-              placeholder="+1 (555) 000-0000"
-            />
-          </div>
-        </div>
+      {/* Row 1 */}
+      <div className="grid md:grid-cols-2 gap-7">
+        <Field label="Full Name *" error={errors.name?.message}>
+          <input {...register('name')} className={inputCls} placeholder="Jane Smith" />
+        </Field>
+        <Field label="Work Email *" error={errors.email?.message}>
+          <input {...register('email')} type="email" className={inputCls} placeholder="jane@company.com" />
+        </Field>
+      </div>
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300 mb-1.5">What do you need help with? *</label>
-          <select 
-            {...register('service_required')}
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
-          >
-            <option value="">Select a service...</option>
-            <option value="AI Integration">AI Integration & Automation</option>
-            <option value="Custom Web App">Custom Web Application</option>
-            <option value="Mobile App">Mobile App Development</option>
-            <option value="SaaS Architecture">SaaS Architecture</option>
-            <option value="Other">Other</option>
-          </select>
-          {errors.service_required && <p className="text-red-400 text-xs mt-1">{errors.service_required.message}</p>}
-        </div>
+      {/* Row 2 */}
+      <div className="grid md:grid-cols-2 gap-7">
+        <Field label="Company">
+          <input {...register('company')} className={inputCls} placeholder="Acme Inc." />
+        </Field>
+        <Field label="Phone">
+          <input {...register('phone')} className={inputCls} placeholder="+91 98765 43210" />
+        </Field>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Budget</label>
-            <select 
-              {...register('budget')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
-            >
-              <option value="">Select budget range...</option>
-              <option value="<$10k">Less than $10,000</option>
-              <option value="$10k-$25k">$10,000 - $25,000</option>
-              <option value="$25k-$50k">$25,000 - $50,000</option>
-              <option value="$50k+">$50,000+</option>
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Expected Timeline</label>
-            <select 
-              {...register('timeline')}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors appearance-none"
-            >
-              <option value="">Select timeline...</option>
-              <option value="ASAP">As soon as possible</option>
-              <option value="1-3 months">1 to 3 months</option>
-              <option value="3-6 months">3 to 6 months</option>
-              <option value="Just exploring">Just exploring options</option>
-            </select>
-          </div>
-        </div>
+      {/* Service */}
+      <Field label="What can we help with? *" error={errors.service_required?.message}>
+        <SelectInput {...register('service_required')}>
+          <option value="" style={{ background: '#0D0D0F' }}>Choose a service…</option>
+          <option value="AI Integration" style={{ background: '#0D0D0F' }}>AI Integration & Automation</option>
+          <option value="Custom Web App" style={{ background: '#0D0D0F' }}>Custom Web Application</option>
+          <option value="Mobile App" style={{ background: '#0D0D0F' }}>Mobile App Development</option>
+          <option value="SaaS Architecture" style={{ background: '#0D0D0F' }}>SaaS Architecture</option>
+          <option value="Other" style={{ background: '#0D0D0F' }}>Other</option>
+        </SelectInput>
+      </Field>
 
-        <div>
-          <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Details *</label>
-          <textarea 
-            {...register('message')}
-            rows={4}
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neo-blue transition-colors resize-none"
-            placeholder="Tell us about your goals, current challenges, and what you're looking to build..."
-          />
-          {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}
-        </div>
+      {/* Budget + Timeline */}
+      <div className="grid md:grid-cols-2 gap-7">
+        <Field label="Project Budget">
+          <SelectInput {...register('budget')}>
+            <option value="" style={{ background: '#0D0D0F' }}>Budget range…</option>
+            <option value="<$10k" style={{ background: '#0D0D0F' }}>Under $10,000</option>
+            <option value="$10k-$25k" style={{ background: '#0D0D0F' }}>$10,000 – $25,000</option>
+            <option value="$25k-$50k" style={{ background: '#0D0D0F' }}>$25,000 – $50,000</option>
+            <option value="$50k+" style={{ background: '#0D0D0F' }}>$50,000+</option>
+          </SelectInput>
+        </Field>
+        <Field label="Timeline">
+          <SelectInput {...register('timeline')}>
+            <option value="" style={{ background: '#0D0D0F' }}>When to start…</option>
+            <option value="ASAP" style={{ background: '#0D0D0F' }}>As soon as possible</option>
+            <option value="1-3 months" style={{ background: '#0D0D0F' }}>1 – 3 months</option>
+            <option value="3-6 months" style={{ background: '#0D0D0F' }}>3 – 6 months</option>
+            <option value="Just exploring" style={{ background: '#0D0D0F' }}>Just exploring</option>
+          </SelectInput>
+        </Field>
+      </div>
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full py-4 rounded-lg bg-neo-blue text-white font-bold hover:bg-neo-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
-        >
-          {submitting ? 'Sending Message...' : 'Send Message'}
-        </button>
-      </form>
-    </div>
+      {/* Message */}
+      <Field label="Project Details *" error={errors.message?.message}>
+        <textarea
+          {...register('message')}
+          rows={4}
+          className={`${inputCls} resize-none`}
+          placeholder="Tell us your goals, challenges, and what you'd like to build…"
+        />
+      </Field>
+
+      {/* Submit */}
+      <button
+        type="submit"
+        disabled={submitting}
+        className="group w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-[#F77E0D] text-[#0A0A0B] font-bold text-[14px] hover:bg-[#ff8f20] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+      >
+        {submitting ? 'Sending…' : 'Send Message'}
+        {!submitting && <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />}
+      </button>
+    </form>
   );
 }

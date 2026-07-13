@@ -1,11 +1,11 @@
-import { Linkedin, Instagram, Facebook, MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SOCIALS = [
-  { icon: Instagram, href: "https://www.instagram.com/neoperion", label: "Instagram" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/neo-perion-643228393", label: "LinkedIn" },
-  { icon: Facebook, href: "https://www.facebook.com/neoperion", label: "Facebook" },
-  { icon: MessageCircle, href: "https://wa.me/917339125472", label: "WhatsApp" },
+  { img: "/images/instagram.png", href: "https://www.instagram.com/neoperion",              label: "Instagram" },
+  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/in/neo-perion-643228393", label: "LinkedIn"  },
+  { img: "/images/facebook.png",  href: "https://www.facebook.com/neoperion",               label: "Facebook"  },
+  { img: null,                    href: "https://wa.me/917339125472",                        label: "WhatsApp"  },
 ];
 
 const COLUMNS = [
@@ -82,15 +82,17 @@ export const Footer = () => {
         {/* Links */}
         <div className="mb-14 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="space-y-6 lg:col-span-2">
+            {/* Logo — icon + text image */}
             <div className="flex items-center gap-3">
-              <img src="/images/np-logo.png" alt="Neo Perion" className="h-8 w-auto" />
-              <span className="font-logo text-[13px] leading-none">
-                <span className="text-ink">NEO</span> <span className="text-brand">PERION</span>
-              </span>
+              <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
+              <img src="/images/neo-perion-text.png" alt="Neo Perion" className="h-5 w-auto object-contain" />
             </div>
+
             <p className="max-w-xs text-sm leading-relaxed text-muted2">
               Stable, scalable SaaS platforms and AI systems for teams that need to ship.
             </p>
+
+            {/* Social icons using brand PNGs */}
             <div className="flex gap-3">
               {SOCIALS.map((social) => (
                 <a
@@ -99,9 +101,18 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline bg-paper text-muted2 transition-colors duration-200 hover:border-brand/30 hover:text-brand"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline bg-paper transition-all duration-200 hover:border-brand/30 hover:scale-105"
                 >
-                  <social.icon size={18} />
+                  {social.img ? (
+                    <img
+                      src={social.img}
+                      alt={social.label}
+                      className="h-5 w-5 object-contain"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  ) : (
+                    <MessageCircle size={18} className="text-muted2" />
+                  )}
                 </a>
               ))}
             </div>

@@ -1,56 +1,35 @@
-import React from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe } from 'lucide-react';
+
+const CONTACTS = [
+  { Icon: MapPin, label: 'Headquarters', value: 'Neo Perion Solutions\nChennai, Tamil Nadu, India', href: null },
+  { Icon: Mail,   label: 'Email',         value: 'contact@neoperion.com', href: 'mailto:contact@neoperion.com' },
+  { Icon: Phone,  label: 'Phone',         value: '+91 98765 43210',        href: 'tel:+919876543210' },
+];
 
 export function LocationMap() {
   return (
-    <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 h-full flex flex-col justify-between">
-      <div>
-        <h3 className="text-2xl font-bold text-white mb-6">Our Office</h3>
-        <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
-              <MapPin size={18} className="text-neo-blue" />
-            </div>
-            <div>
-              <p className="text-white font-medium mb-1">Headquarters</p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Neo Perion Solutions<br/>
-                Chennai, Tamil Nadu<br/>
-                India
-              </p>
-            </div>
+    <div className="space-y-5">
+      {CONTACTS.map(({ Icon, label, value, href }) => (
+        <div key={label} className="flex items-start gap-4">
+          <div className="w-10 h-10 rounded-xl bg-[#F77E0D]/08 border border-[#F77E0D]/15 flex items-center justify-center shrink-0">
+            <Icon size={16} className="text-[#F77E0D]" />
           </div>
-          
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
-              <Mail size={18} className="text-neo-blue" />
-            </div>
-            <div>
-              <p className="text-white font-medium mb-1">Email</p>
-              <a href="mailto:contact@neoperion.com" className="text-slate-400 text-sm hover:text-neo-blue transition-colors">
-                contact@neoperion.com
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/30 mb-1">{label}</p>
+            {href ? (
+              <a href={href} className="text-[14px] text-white/70 hover:text-white transition-colors whitespace-pre-line">
+                {value}
               </a>
-            </div>
-          </div>
-          
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-neo-blue/10 flex items-center justify-center shrink-0">
-              <Phone size={18} className="text-neo-blue" />
-            </div>
-            <div>
-              <p className="text-white font-medium mb-1">Phone</p>
-              <a href="tel:+919876543210" className="text-slate-400 text-sm hover:text-neo-blue transition-colors">
-                +91 98765 43210
-              </a>
-            </div>
+            ) : (
+              <p className="text-[14px] text-white/70 whitespace-pre-line">{value}</p>
+            )}
           </div>
         </div>
-      </div>
-      
-      <div className="mt-8 pt-8 border-t border-white/10">
-        <p className="text-sm text-neutral-400">
-          We work with clients globally across all time zones.
-        </p>
+      ))}
+
+      <div className="flex items-center gap-3 pt-2">
+        <Globe size={14} className="text-white/20 shrink-0" />
+        <p className="text-[12px] text-white/25">We work with clients globally across all time zones.</p>
       </div>
     </div>
   );
