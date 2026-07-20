@@ -51,8 +51,8 @@ export default function Terms() {
                 <p>
                   The site is provided &quot;as is&quot; without warranties. To the extent permitted
                   by law, Neo Perion is not liable for any indirect damages, lost profits, data loss, or outages caused by third-party APIs (e.g., AI models). Questions?{" "}
-                  <a href="mailto:hello@www.neoperion.com" className="font-semibold text-brand">
-                    hello@www.neoperion.com
+                  <a href="mailto:hello@neoperion.com" className="font-semibold text-brand">
+                    hello@neoperion.com
                   </a>
                   .
                 </p>

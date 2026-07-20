@@ -54,8 +54,8 @@ export default function Privacy() {
                   You can request access to, correction of, or deletion of your data, and manage
                   cookie preferences at any time via the Cookie Settings link in the footer. Contact
                   us at{" "}
-                  <a href="mailto:hello@www.neoperion.com" className="font-semibold text-brand">
-                    hello@www.neoperion.com
+                  <a href="mailto:hello@neoperion.com" className="font-semibold text-brand">
+                    hello@neoperion.com
                   </a>{" "}
                   for any privacy request.
                 </p>

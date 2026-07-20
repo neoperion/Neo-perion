@@ -36,6 +36,16 @@ const COLUMNS = [
     ],
   },
   {
+    heading: "Profiles",
+    links: [
+      { label: "LinkedIn", to: "https://www.linkedin.com/company/neo-perion-solutions", external: true },
+      { label: "Clutch", to: "https://www.clutch.co/profile/neo-perion-solutions", external: true },
+      { label: "GoodFirms", to: "https://www.goodfirms.co/company/neo-perion-solutions", external: true },
+      { label: "GitHub", to: "https://github.com/neo-perion", external: true },
+      { label: "Crunchbase", to: "https://www.crunchbase.com/organization/neo-perion-solutions", external: true },
+    ],
+  },
+  {
     heading: "Legal",
     links: [
       { label: "Security", to: "/security" },
@@ -127,13 +137,24 @@ export const Footer = () => {
               <ul className="space-y-3 text-sm font-medium text-body">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link 
-                      to={link.to} 
-                      className="transition-colors hover:text-brand"
-                      onClick={() => window.scrollTo(0, 0)}
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.to}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors hover:text-brand"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.to}
+                        className="transition-colors hover:text-brand"
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

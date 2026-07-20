@@ -53,3 +53,26 @@ export function buildServiceSchema(opts: { name: string; description: string; sl
     url: `${SITE_URL}/services/${opts.slug}`,
   };
 }
+
+export function buildWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: 'Neo Perion Solutions',
+    alternateName: ['Neo Perion', 'Neoperion', 'Neo Perion Solutions', 'Neoperion AI', 'Perion Solutions'],
+    description:
+      'Neo Perion Solutions builds production-grade AI automation, web platforms and mobile apps for startups and SMEs in India and the United States.',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    inLanguage: 'en-US',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/company/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}

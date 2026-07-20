@@ -48,7 +48,8 @@ export const BlogPost: React.FC = () => {
   }
 
   const postUrl = `${SITE_URL}/company/blog/${blog.slug}`;
-  const authorInitial = (blog.author || 'N').trim().charAt(0).toUpperCase();
+  const BRAND_AUTHOR = "Neo Perion Solutions — Engineering Team";
+  const authorInitial = 'N';
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -59,9 +60,9 @@ export const BlogPost: React.FC = () => {
     "image": blog.cover_image,
     "datePublished": blog.created_at,
     "dateModified": blog.updated_at,
-    "author": { "@type": "Person", "name": blog.author },
     "publisher": {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       "name": "Neo Perion Solutions",
       "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/np-logo.png` }
     }
@@ -129,7 +130,7 @@ export const BlogPost: React.FC = () => {
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 text-[12px] font-bold text-brand">
                     {authorInitial}
                   </span>
-                  <span className="font-semibold text-ink">{blog.author}</span>
+                  <span className="font-semibold text-ink">{BRAND_AUTHOR}</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Calendar className="h-4 w-4 text-faint" />
@@ -214,7 +215,7 @@ export const BlogPost: React.FC = () => {
             <h1 className="mb-4 text-display-sm tracking-tight text-white">{blog.title}</h1>
 
             <div className="mb-8 flex flex-wrap items-center gap-4 border-b border-white/10 pb-6 text-xs text-white/50">
-              <span className="font-bold text-white">{blog.author}</span>
+              <span className="font-bold text-white">{BRAND_AUTHOR}</span>
               <span className="flex items-center gap-1.5">
                 <Calendar size={14} />
                 {format(new Date(blog.created_at), 'MMM dd, yyyy')}

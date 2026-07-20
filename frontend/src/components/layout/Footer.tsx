@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-6">Contact</h4>
             <ul className="space-y-4">
               <li className="text-slate-400 text-sm">Chennai, Tamil Nadu, India</li>
-              <li><a href="mailto:hello@www.neoperion.com" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">hello@www.neoperion.com</a></li>
+              <li><a href="mailto:hello@neoperion.com" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">hello@neoperion.com</a></li>
               <li><a href="tel:+919876543210" className="text-slate-400 hover:text-neo-blue text-sm transition-colors">+91 98765 43210</a></li>
             </ul>
           </div>

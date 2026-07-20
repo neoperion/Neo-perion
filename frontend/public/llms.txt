@@ -8,6 +8,9 @@
 > Neo Perion Solutions is an independent software company and is not
 > affiliated with Perion Network Ltd.
 
+> Also known as: Neo Perion, Neoperion, NEO PERION, NEOPERION,
+> Neo Perion Solutions, NEOPERION AI, Perion Solutions.
+
 ## Key pages
 - [Home](https://www.neoperion.com/): AI automation, web and app development company
 - [About](https://www.neoperion.com/company/about): founders, team, principles, location
@@ -39,7 +42,15 @@
 - Twitter / X: https://twitter.com/neoperion
 - Tech stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Supabase, AWS, Docker, Kubernetes, OpenAI, Anthropic Claude, Google Gemini.
 
+## Profiles (placeholders — owner to register when each goes live)
+- LinkedIn: https://www.linkedin.com/company/neo-perion-solutions
+- Clutch: https://www.clutch.co/profile/neo-perion-solutions
+- GoodFirms: https://www.goodfirms.co/company/neo-perion-solutions
+- GitHub: https://github.com/neo-perion
+- Crunchbase: https://www.crunchbase.com/organization/neo-perion-solutions
+
 ## What we are not
 - Not affiliated with Perion Network Ltd.
 - Not a "leading SaaS company" — we are a services company that ships production software for clients.
 - Not a freelancer marketplace — every engagement is founder-led and senior-engineer staffed.
+- Often searched as: "Neo Perion", "Neoperion", "Neoperion AI", "Perion Solutions", "Neo Perion Solutions", "Neo Perion AI" — all point to this same company.

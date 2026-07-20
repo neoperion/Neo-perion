@@ -23,6 +23,16 @@ const COLUMNS = [
       { label: 'Contact',       href: '/contact' },
     ],
   },
+  {
+    title: 'Profiles',
+    links: [
+      { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/neo-perion-solutions', external: true },
+      { label: 'Clutch',     href: 'https://www.clutch.co/profile/neo-perion-solutions', external: true },
+      { label: 'GoodFirms',  href: 'https://www.goodfirms.co/company/neo-perion-solutions', external: true },
+      { label: 'GitHub',     href: 'https://github.com/neo-perion', external: true },
+      { label: 'Crunchbase', href: 'https://www.crunchbase.com/organization/neo-perion-solutions', external: true },
+    ],
+  },
 ];
 
 const SOCIALS = [
@@ -67,7 +77,7 @@ export function AccordionFooter() {
       </div>
 
       {/* Link columns — 2 up */}
-      <div className="grid grid-cols-2 gap-8 mb-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10">
         {COLUMNS.map((col) => (
           <div key={col.title}>
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-4">
@@ -76,12 +86,23 @@ export function AccordionFooter() {
             <ul className="space-y-3">
               {col.links.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-[13px] font-medium text-white/55 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[13px] font-medium text-white/55 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-[13px] font-medium text-white/55 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -55,6 +55,7 @@ export const CaseStudyDetail: React.FC = () => {
     "dateModified": caseStudy.updated_at,
     "publisher": {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",

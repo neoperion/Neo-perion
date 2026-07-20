@@ -40,8 +40,8 @@ export default function Refund() {
                 <h2 className="text-xl font-bold text-ink">Contact Us</h2>
                 <p>
                   If you have questions about your billing, invoices, or our cancellation terms, please contact our billing department at{" "}
-                  <a href="mailto:hello@www.neoperion.com" className="font-semibold text-brand">
-                    hello@www.neoperion.com
+                  <a href="mailto:hello@neoperion.com" className="font-semibold text-brand">
+                    hello@neoperion.com
                   </a>
                   .
                 </p>

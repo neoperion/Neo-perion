@@ -74,7 +74,7 @@ export const HomeContact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-slate-400 font-medium mb-1">Email Us</p>
-                  <a href="mailto:hello@www.neoperion.com" className="text-lg font-bold text-white hover:text-neo-blue transition-colors">hello@www.neoperion.com</a>
+                  <a href="mailto:hello@neoperion.com" className="text-lg font-bold text-white hover:text-neo-blue transition-colors">hello@neoperion.com</a>
                 </div>
               </div>
 
