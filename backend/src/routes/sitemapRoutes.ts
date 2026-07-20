@@ -25,7 +25,7 @@ const STATIC_ROUTES = [
 
 router.get('/', async (req, res) => {
   try {
-    const siteUrl = 'https://www.neoperion.com';
+    const siteUrl = 'https://neoperion.com';
     
     // Fetch dynamic content
     const [blogsResult, caseStudiesResult] = await Promise.all([

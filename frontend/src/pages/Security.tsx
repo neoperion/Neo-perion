@@ -17,7 +17,7 @@ export default function Security() {
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://neoperion.com/images/np-logo.png"
       }
     }
   };
@@ -51,7 +51,7 @@ export default function Security() {
         <SEO 
           title="Security & Compliance | Enterprise Data Protection | Neo Perion" 
           description="Security is the foundation of everything we build. Explore Neo Perion's SOC 2 compliance, encryption at rest/transit, row-level isolation, and access controls." 
-          url="https://www.neoperion.com/security"
+          url="https://neoperion.com/security"
           jsonLd={securitySchema}
         />
         <Header />

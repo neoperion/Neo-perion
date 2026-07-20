@@ -66,8 +66,8 @@ export const IndustriesPage: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Neo Perion Solutions",
-    "url": "https://www.neoperion.com/industries",
-    "logo": "https://www.neoperion.com/images/np-logo.png",
+    "url": "https://neoperion.com/industries",
+    "logo": "https://neoperion.com/images/np-logo.png",
     "description": "Domain expertise and purpose-built digital solutions tailored to Education, Startups, SMBs, and Healthcare.",
     "address": {
       "@type": "PostalAddress",

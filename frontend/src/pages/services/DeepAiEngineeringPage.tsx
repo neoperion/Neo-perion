@@ -82,7 +82,7 @@ export function DeepAiEngineeringPage({ service }: Props) {
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "Neo Perion Solutions",
-                "image": "https://www.neoperion.com/images/np-logo.png",
+                "image": "https://neoperion.com/images/np-logo.png",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Chennai",
@@ -123,12 +123,12 @@ export function DeepAiEngineeringPage({ service }: Props) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.neoperion.com/"
+                "item": "https://neoperion.com/"
               },{
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://www.neoperion.com/services"
+                "item": "https://neoperion.com/services"
               },{
                 "@type": "ListItem",
                 "position": 3,

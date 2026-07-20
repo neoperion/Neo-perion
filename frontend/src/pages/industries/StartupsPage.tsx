@@ -129,7 +129,7 @@ export function StartupsPage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Neo Perion Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "image": "https://neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -150,7 +150,7 @@ export function StartupsPage() {
         <SEO
           title="Startup & Founder Solutions | MVP Development & SaaS | Neo Perion"
           description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/startups"
+          url="https://neoperion.com/industries/startups"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />

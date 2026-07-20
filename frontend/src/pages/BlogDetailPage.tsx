@@ -66,7 +66,7 @@ const BlogDetailPage = () => {
                 title={blog.metaTitle}
                 description={blog.metaDescription}
                 keywords={[blog.primaryKeyword, ...blog.secondaryKeywords].join(", ")}
-                url={`https://www.neoperion.com/blog/${blog.slug}`}
+                url={`https://neoperion.com/blog/${blog.slug}`}
                 type="article"
                 jsonLd={[
                     {
@@ -74,23 +74,23 @@ const BlogDetailPage = () => {
                         "@type": "Article",
                         "headline": blog.title,
                         "description": blog.metaDescription,
-                        "image": `https://www.neoperion.com${blog.image}`,
+                        "image": `https://neoperion.com${blog.image}`,
                         "author": { "@type": "Organization", "name": "Neo Perion" },
                         "publisher": {
                             "@type": "Organization",
                             "name": "Neo Perion",
-                            "logo": { "@type": "ImageObject", "url": "https://www.neoperion.com/images/np-logo.png" },
+                            "logo": { "@type": "ImageObject", "url": "https://neoperion.com/images/np-logo.png" },
                         },
                         "datePublished": blog.date,
-                        "url": `https://www.neoperion.com/blog/${blog.slug}`,
+                        "url": `https://neoperion.com/blog/${blog.slug}`,
                     },
                     {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.neoperion.com" },
-                            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.neoperion.com/blog" },
-                            { "@type": "ListItem", "position": 3, "name": blog.title, "item": `https://www.neoperion.com/blog/${blog.slug}` },
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://neoperion.com" },
+                            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://neoperion.com/blog" },
+                            { "@type": "ListItem", "position": 3, "name": blog.title, "item": `https://neoperion.com/blog/${blog.slug}` },
                         ],
                     },
                 ]}

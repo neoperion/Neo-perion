@@ -33,7 +33,7 @@ vercel --prod
 
 **In Vercel:**
 1. Go to Project → Settings → Domains
-2. Add: `www.neoperion.com`
+2. Add: `neoperion.com`
 3. Copy the CNAME record shown
 
 **In Hostinger:**
@@ -55,15 +55,15 @@ vercel --prod
 
 ### 5️⃣ Verify SSL Certificate
 - Vercel auto-issues SSL certificate
-- Your site will be available at `https://www.neoperion.com`
+- Your site will be available at `https://neoperion.com`
 
 ### 6️⃣ Submit to Search Engines
 ```
 Google Search Console: https://search.google.com/search-console
-Sitemap URL: https://www.neoperion.com/sitemap.xml
+Sitemap URL: https://neoperion.com/sitemap.xml
 
 Bing Webmaster: https://www.bing.com/webmasters
-Sitemap URL: https://www.neoperion.com/sitemap.xml
+Sitemap URL: https://neoperion.com/sitemap.xml
 ```
 
 ## ✅ Deployment Checklist
@@ -79,7 +79,7 @@ Sitemap URL: https://www.neoperion.com/sitemap.xml
 
 ## 🎉 You're Live!
 
-Visit: https://www.neoperion.com
+Visit: https://neoperion.com
 
 ---
 

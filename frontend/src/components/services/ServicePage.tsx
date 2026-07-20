@@ -40,7 +40,7 @@ export function ServicePage({ service }: Props) {
           provider: {
             '@type': 'LocalBusiness',
             name: 'Neo Perion Solutions',
-            image: 'https://www.neoperion.com/images/np-logo.png',
+            image: 'https://neoperion.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },
           areaServed: [
@@ -53,9 +53,9 @@ export function ServicePage({ service }: Props) {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.neoperion.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.neoperion.com/services' },
-            { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.neoperion.com/services/${service.slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://neoperion.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://neoperion.com/services' },
+            { '@type': 'ListItem', position: 3, name: service.title, item: `https://neoperion.com/services/${service.slug}` },
           ],
         },
       ]}

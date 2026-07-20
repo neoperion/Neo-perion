@@ -152,10 +152,10 @@ export default function CareerDetail() {
     "hiringOrganization": {
       "@type": "Organization",
       "name": "Neo Perion Solutions",
-      "sameAs": "https://www.neoperion.com",
+      "sameAs": "https://neoperion.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://neoperion.com/images/np-logo.png"
       }
     },
     "jobLocation": {
@@ -398,7 +398,7 @@ export default function CareerDetail() {
         <SEO 
           title={`${job.title} | Build the Future | Neo Perion`}
           description={job.description.substring(0, 160)}
-          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
+          url={`https://neoperion.com/company/careers/${job.slug || job.id}`}
           jsonLd={jobPostingSchema}
         />
         <Header />
@@ -415,7 +415,7 @@ export default function CareerDetail() {
         <SEO 
           title={`${job.title} | Careers | Neo Perion`}
           description={job.description.substring(0, 160)}
-          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
+          url={`https://neoperion.com/company/careers/${job.slug || job.id}`}
           jsonLd={jobPostingSchema}
         />
         <div className="pt-8 pb-8 px-6">

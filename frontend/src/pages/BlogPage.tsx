@@ -75,11 +75,11 @@ export const BlogPage: React.FC = () => {
     "description": "Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS.",
     "publisher": {
       "@type": "Organization",
-      "@id": "https://www.neoperion.com/#organization",
+      "@id": "https://neoperion.com/#organization",
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://neoperion.com/images/np-logo.png"
       }
     }
   };

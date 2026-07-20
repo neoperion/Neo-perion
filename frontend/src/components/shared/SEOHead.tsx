@@ -18,7 +18,7 @@ export const SEOHead: React.FC<SEOProps> = ({
   ogType = 'website',
   schema
 }) => {
-  const siteUrl = 'https://www.neoperion.com';
+  const siteUrl = 'https://neoperion.com';
   const fullTitle = `${title} | Neo Perion Solutions`;
 
   return (

@@ -12,15 +12,15 @@
 > Neo Perion Solutions, NEOPERION AI, Perion Solutions.
 
 ## Key pages
-- [Home](https://www.neoperion.com/): AI automation, web and app development company
-- [About](https://www.neoperion.com/company/about): founders, team, principles, location
-- [Founder's Letter](https://www.neoperion.com/company/founder-letter): why we built Neo Perion
-- [Services](https://www.neoperion.com/services): five core capabilities from one team
-- [Case Studies](https://www.neoperion.com/company/case-studies): delivered projects with outcomes
-- [Portfolio](https://www.neoperion.com/portfolio): platforms and AI systems we have built
-- [Blog](https://www.neoperion.com/company/blog): writing on AI, software, and building in public
-- [Careers](https://www.neoperion.com/company/careers): open roles, Chennai
-- [Contact](https://www.neoperion.com/contact): email, phone, WhatsApp — replies within one business day
+- [Home](https://neoperion.com/): AI automation, web and app development company
+- [About](https://neoperion.com/company/about): founders, team, principles, location
+- [Founder's Letter](https://neoperion.com/company/founder-letter): why we built Neo Perion
+- [Services](https://neoperion.com/services): five core capabilities from one team
+- [Case Studies](https://neoperion.com/company/case-studies): delivered projects with outcomes
+- [Portfolio](https://neoperion.com/portfolio): platforms and AI systems we have built
+- [Blog](https://neoperion.com/company/blog): writing on AI, software, and building in public
+- [Careers](https://neoperion.com/company/careers): open roles, Chennai
+- [Contact](https://neoperion.com/contact): email, phone, WhatsApp — replies within one business day
 
 ## Service offerings
 - AI Systems & Intelligent Automation — RAG, LLM integration, AI agents

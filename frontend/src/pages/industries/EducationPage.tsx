@@ -106,7 +106,7 @@ export function EducationPage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Neo Perion Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "image": "https://neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -127,7 +127,7 @@ export function EducationPage() {
         <SEO
           title="Education & EdTech Solutions | AI-Powered Learning Platforms | Neo Perion"
           description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/education"
+          url="https://neoperion.com/industries/education"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />

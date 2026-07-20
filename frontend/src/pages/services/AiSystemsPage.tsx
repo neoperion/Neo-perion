@@ -59,7 +59,7 @@ export function AiSystemsPage({ service }: Props) {
           provider: {
             '@type': 'LocalBusiness',
             name: 'Neo Perion Solutions',
-            image: 'https://www.neoperion.com/images/np-logo.png',
+            image: 'https://neoperion.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },
           areaServed: [

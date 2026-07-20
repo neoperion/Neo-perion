@@ -62,7 +62,7 @@ export default function Testimonials() {
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://neoperion.com/images/np-logo.png"
       }
     }
   };
@@ -96,7 +96,7 @@ export default function Testimonials() {
         <SEO 
           title="Client Testimonials & Feedback | Neo Perion"
           description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with Neo Perion for AI and SaaS product engineering."
-          url="https://www.neoperion.com/company/testimonials"
+          url="https://neoperion.com/company/testimonials"
           jsonLd={seoSchema}
         />
         <Header />

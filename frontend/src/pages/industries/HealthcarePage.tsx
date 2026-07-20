@@ -123,7 +123,7 @@ export function HealthcarePage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Neo Perion Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "image": "https://neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -144,7 +144,7 @@ export function HealthcarePage() {
         <SEO
           title="Healthcare Solutions | HIPAA-Compliant Software & AI Diagnostics | Neo Perion"
           description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/healthcare"
+          url="https://neoperion.com/industries/healthcare"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />

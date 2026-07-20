@@ -221,7 +221,7 @@ Would this be of interest? I can send over an outline for your review.
 Best regards,
 [Your Name]
 NEO PERION
-https://www.neoperion.com
+https://neoperion.com
 ```
 
 ### 8. Influencer & Partnership Outreach

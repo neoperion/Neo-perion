@@ -19,7 +19,7 @@ export default function Careers() {
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://neoperion.com/images/np-logo.png"
       }
     }
   };

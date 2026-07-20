@@ -2,13 +2,13 @@
 
 ## 🚀 Complete Deployment Guide
 
-This guide will help you deploy your NEO PERION website to Vercel and connect your custom domain `www.neoperion.com` from Hostinger.
+This guide will help you deploy your NEO PERION website to Vercel and connect your custom domain `neoperion.com` from Hostinger.
 
 ---
 
 ## 📋 Prerequisites
 
-- ✅ Domain purchased from Hostinger: `www.neoperion.com`
+- ✅ Domain purchased from Hostinger: `neoperion.com`
 - ✅ GitHub account with repository access
 - ✅ Vercel account (free tier works perfectly)
 - ✅ Node.js installed locally (for testing)
@@ -92,7 +92,7 @@ npm run preview
    - Go to your project
    - Click "Settings" → "Domains"
    - Click "Add Domain"
-   - Enter: `www.neoperion.com`
+   - Enter: `neoperion.com`
    - Click "Add"
 
 2. **Vercel will provide DNS records:**
@@ -115,7 +115,7 @@ npm run preview
 
 3. **Add/Update Records:**
 
-   **For www.neoperion.com:**
+   **For neoperion.com:**
    ```
    Type: CNAME
    Name: www
@@ -149,7 +149,7 @@ npm run preview
    - Vercel will automatically verify and issue SSL certificate
 
 2. **Set Primary Domain:**
-   - Once verified, set `www.neoperion.com` as primary
+   - Once verified, set `neoperion.com` as primary
    - Enable "Redirect to www" option
 
 ---
@@ -170,7 +170,7 @@ Vercel automatically provides and renews SSL certificates via Let's Encrypt. Onc
 1. **Add Property:**
    - Go to https://search.google.com/search-console
    - Click "Add Property"
-   - Enter: `https://www.neoperion.com`
+   - Enter: `https://neoperion.com`
 
 2. **Verify Ownership:**
    - Your site already has the meta tag: `QHgZRTfzVyS34nYa1hr7b7R_-LQ_4dGD0435VFb0duM`
@@ -178,7 +178,7 @@ Vercel automatically provides and renews SSL certificates via Let's Encrypt. Onc
 
 3. **Submit Sitemap:**
    - Go to "Sitemaps" section
-   - Submit: `https://www.neoperion.com/sitemap.xml`
+   - Submit: `https://neoperion.com/sitemap.xml`
 
 ### Google Analytics (Already Configured)
 - ✅ GA4 ID: `G-S97VK4LMXR`
@@ -188,11 +188,11 @@ Vercel automatically provides and renews SSL certificates via Let's Encrypt. Onc
 
 1. **Add Site:**
    - Go to https://www.bing.com/webmasters
-   - Add your site: `https://www.neoperion.com`
+   - Add your site: `https://neoperion.com`
    - Import from Google Search Console (easier)
 
 2. **Submit Sitemap:**
-   - Submit: `https://www.neoperion.com/sitemap.xml`
+   - Submit: `https://neoperion.com/sitemap.xml`
 
 ---
 
@@ -234,13 +234,13 @@ Vercel automatically provides and renews SSL certificates via Let's Encrypt. Onc
 ### Test These URLs:
 ```bash
 # Homepage
-https://www.neoperion.com/
+https://neoperion.com/
 
 # Sitemap
-https://www.neoperion.com/sitemap.xml
+https://neoperion.com/sitemap.xml
 
 # Robots.txt
-https://www.neoperion.com/robots.txt
+https://neoperion.com/robots.txt
 
 # Redirects (should redirect to www)
 https://neoperion.com/
@@ -356,7 +356,7 @@ Vercel will:
 ## 🎉 Success Indicators
 
 After deployment, you should see:
-- ✅ Site accessible via `https://www.neoperion.com`
+- ✅ Site accessible via `https://neoperion.com`
 - ✅ Green padlock (SSL) in browser
 - ✅ Google Analytics tracking visitors
 - ✅ Sitemap indexed in Search Console

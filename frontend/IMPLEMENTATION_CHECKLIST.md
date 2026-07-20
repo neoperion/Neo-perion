@@ -46,7 +46,7 @@
 - ✅ Google Site Verification - Configured
 
 ### 🌐 Domain Configuration Ready
-- ✅ Vercel configuration for www.neoperion.com
+- ✅ Vercel configuration for neoperion.com
 - ✅ DNS instructions for Hostinger
 - ✅ SSL/HTTPS automatic setup
 - ✅ Redirect configuration (HTTP to HTTPS)
@@ -101,7 +101,7 @@
 - [ ] `npm run preview` - Preview works locally
 
 ### After Deployment
-- [ ] Site loads at https://www.neoperion.com
+- [ ] Site loads at https://neoperion.com
 - [ ] All sections render correctly
 - [ ] Contact form works (if applicable)
 - [ ] Mobile responsive on all devices
@@ -115,8 +115,8 @@
 - [ ] Validate structured data with Google Rich Results Test
 - [ ] Test social sharing with Facebook Debugger
 - [ ] Test Twitter Card with Twitter Card Validator
-- [ ] Verify robots.txt: https://www.neoperion.com/robots.txt
-- [ ] Verify sitemap.xml: https://www.neoperion.com/sitemap.xml
+- [ ] Verify robots.txt: https://neoperion.com/robots.txt
+- [ ] Verify sitemap.xml: https://neoperion.com/sitemap.xml
 
 ---
 
@@ -216,7 +216,7 @@ npm audit fix
 ### Domain
 - DNS changes can take 24-48 hours
 - Always use HTTPS
-- Set www.neoperion.com as primary domain
+- Set neoperion.com as primary domain
 - Monitor domain expiration date
 
 ---
@@ -224,7 +224,7 @@ npm audit fix
 ## 🎉 Success Metrics
 
 You'll know everything is working when:
-- ✅ Site loads at https://www.neoperion.com
+- ✅ Site loads at https://neoperion.com
 - ✅ Green padlock (SSL) shows in browser
 - ✅ Google Analytics shows real-time visitors
 - ✅ Sitemap indexed in Search Console
@@ -262,7 +262,7 @@ Follow these guides in order:
 ## 📝 Notes
 
 **Created:** December 9, 2025
-**Domain:** www.neoperion.com
+**Domain:** neoperion.com
 **Hosting:** Vercel
 **Registrar:** Hostinger
 **Framework:** React + Vite + TypeScript
