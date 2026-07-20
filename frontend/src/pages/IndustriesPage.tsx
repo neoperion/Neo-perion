@@ -10,6 +10,7 @@ import { CtaSection } from '@/components/features/home/CtaSection';
 import { SEO } from '@/components/SEO';
 import { MobileGate } from '@/components/mobile';
 import { MobileIndustries } from '@/components/mobile/Industries/MobileIndustries';
+import { SITE_URL } from '@/lib/seo';
 
 const IndustriesHero = () => {
   return (
@@ -79,10 +80,10 @@ export const IndustriesPage: React.FC = () => {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-background min-h-[auto] font-sans text-foreground">
-        <SEO 
-          title="Industries We Transform | Neo Perion Solutions"
-          description="Purpose-built digital solutions tailored to the unique challenges of Education, Startups, SMBs, and Healthcare."
-          url="https://www.neoperion.com/industries"
+        <SEO
+          title="Industries We Serve | Neo Perion Solutions"
+          description="EdTech, startups, SMBs and healthcare — production-grade software and AI tailored to your industry's constraints."
+          url={`${SITE_URL}/industries`}
           jsonLd={industrySchema}
         />
         <Header />

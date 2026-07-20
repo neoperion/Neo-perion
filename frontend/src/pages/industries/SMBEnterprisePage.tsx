@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
+import { buildFAQSchema } from '@/lib/seo';
 
 // ─── Interactive ROI Impact Calculator ──────────────────────
 const ROIImpactCalculator = () => {
@@ -143,7 +144,7 @@ export function SMBEnterprisePage() {
           title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | Neo Perion"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/smbs"
-          jsonLd={seoSchema}
+          jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />
 
@@ -164,6 +165,10 @@ export function SMBEnterprisePage() {
                 {industry.heroHeadline}
               </h1>
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
+              {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
+              <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
+                Neo Perion Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
@@ -481,6 +486,10 @@ export function SMBEnterprisePage() {
           </p>
           <h1 className="text-display-lg text-white tracking-tight mb-4">{industry.heroHeadline}</h1>
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
+          {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
+          <p className="text-sm text-white/70 mb-8 leading-relaxed">
+            Neo Perion Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+          </p>
           
           <button 
             onClick={() => navigate('/contact')}

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { SITE_URL } from '@/lib/seo';
 
 interface SEOProps {
   title?: string;
@@ -10,18 +11,22 @@ interface SEOProps {
   jsonLd?: object | object[];
 }
 
+const DEFAULT_TITLE = 'Neo Perion Solutions | AI Automation, Web & App Development';
+const DEFAULT_DESCRIPTION =
+  'Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster.';
+
 export const SEO = ({
-  title = "NEO PERION - Smart SaaS Services | Web, Mobile, Data & AI Automation",
-  description = "NEO PERION — Leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions for growing teams.",
-  keywords = "SaaS services, web development, mobile app development, AI automation, data analytics, business automation, NEO PERION, cloud solutions, digital transformation, Custom AI Chatbots, Conversational AI, LLM Integration",
-  ogImage = "https://www.neoperion.com/images/np-logo.png",
-  url = "https://www.neoperion.com/",
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  keywords,
+  ogImage = `${SITE_URL}/images/np-logo.png`,
+  url = `${SITE_URL}/`,
   type = "website",
   jsonLd
 }: SEOProps) => {
 
   const siteName = "Neo Perion Solutions";
-  const fullTitle = title.includes("NEO PERION") || title.includes("Neo Perion") ? title : `${title} | ${siteName}`;
+  const fullTitle = title.includes("Neo Perion") ? title : `${title} | ${siteName}`;
 
   // Handle both array of schemas and single schema
   const jsonLdString = jsonLd
@@ -42,7 +47,7 @@ export const SEO = ({
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `https://www.neoperion.com${ogImage}`} />
+      <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="en_US" />
 
@@ -51,7 +56,7 @@ export const SEO = ({
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `https://www.neoperion.com${ogImage}`} />
+      <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`} />
 
       {/* JSON-LD Structured Data */}
       {jsonLdString && (

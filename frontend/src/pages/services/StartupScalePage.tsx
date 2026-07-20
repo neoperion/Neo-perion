@@ -2,15 +2,35 @@ import React, { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Rocket, ShieldCheck, Database, Code2, Network, ArrowRight, ShieldAlert, Cpu } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
 
 interface Props {
   service: ServiceData;
 }
+
+const startupScaleFaqs: FAQItem[] = [
+  {
+    question: 'What is a fractional CTO?',
+    answer:
+      'A senior technical leader embedded with your team on a part-time or contract basis — typically a few days a week. They set the architecture, unblock engineers, hire or interview, and translate technical decisions into terms your investors and board understand. It is the right fit when you need real CTO experience but are not ready for a full-time executive.',
+  },
+  {
+    question: 'Do you do technical due diligence for investors or acquirers?',
+    answer:
+      'Yes. We produce written technical due diligence reports covering architecture, code quality, security posture, scalability, team, and technical debt — with a one-page executive summary suitable for investment memos. Reports are typically delivered within 2 weeks of codebase access.',
+  },
+  {
+    question: 'At what stage should a startup bring you in?',
+    answer:
+      'Anywhere from pre-seed (where the work is mostly product strategy and MVP scoping) through Series B (where the work is scaling the platform). The earlier we come in, the more leverage we have on architecture decisions, but we have shipped value at every stage.',
+  },
+];
 
 export function StartupScalePage({ service }: Props) {
   const navigate = useNavigate();
@@ -46,32 +66,46 @@ export function StartupScalePage({ service }: Props) {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
+        <SEO
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-              }
+          url={`${SITE_URL}/services/${service.slug}`}
+          keywords="fractional CTO, startup CTO, technical due diligence, architecture audit, startup engineering"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": `${SITE_URL}/images/np-logo.png`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ]
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+              ]
+            },
+            buildFAQSchema(startupScaleFaqs)
+          ]}
         />
         <Header />
         
@@ -205,6 +239,7 @@ export function StartupScalePage({ service }: Props) {
 
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={startupScaleFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

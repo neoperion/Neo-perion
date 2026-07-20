@@ -6,6 +6,7 @@ import { CaseStudyHero } from '@/components/caseStudies/CaseStudyHero';
 import { CaseStudyGrid } from '@/components/caseStudies/CaseStudyGrid';
 import { useCaseStudies } from '@/hooks/useCaseStudies';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { SITE_URL } from '@/lib/seo';
 
 const INDUSTRIES = ['All', 'Healthcare', 'Education', 'Retail & E-commerce', 'Finance', 'Logistics'];
 const SERVICES = ['All', 'AI & Automation', 'SaaS Development', 'Machine Learning', 'Cloud Architecture'];
@@ -19,10 +20,10 @@ export const CaseStudies: React.FC = () => {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
-        <SEO 
-          title="Case Studies & Work | Neo Perion Solutions" 
-          description="Explore how Neo Perion has transformed businesses through Custom AI Chatbots, enterprise SaaS, and cutting-edge product engineering." 
-          url="https://www.neoperion.com/company/case-studies"
+        <SEO
+          title="Case Studies — Real Results from Real Projects | Neo Perion Solutions"
+          description="How Neo Perion Solutions delivers: case studies with the problem, the build, the stack and measured business outcomes."
+          url={`${SITE_URL}/company/case-studies`}
           jsonLd={{
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -30,12 +31,12 @@ export const CaseStudies: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.neoperion.com/"
+              "item": `${SITE_URL}/`
             },{
               "@type": "ListItem",
               "position": 2,
               "name": "Case Studies",
-              "item": "https://www.neoperion.com/company/case-studies"
+              "item": `${SITE_URL}/company/case-studies`
             }]
           }}
         />
@@ -100,7 +101,7 @@ export const CaseStudies: React.FC = () => {
         <div className="w-full pb-8">
           <div className="px-mobile-base pt-8">
             <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Case Studies</p>
-            <h1 className="text-display-lg text-white tracking-tight">Real outcomes.</h1>
+            <h1 className="text-display-lg text-white tracking-tight">Real World Impact &amp; Solutions</h1>
             <p className="text-base text-white/70 mt-3 mb-6">Explore how we've transformed businesses through AI and product engineering.</p>
           </div>
           <CaseStudyGrid caseStudies={caseStudies} />

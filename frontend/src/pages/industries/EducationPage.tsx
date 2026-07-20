@@ -10,6 +10,7 @@ import {
   GraduationCap, Users, Sparkles, Play, CheckCircle2, Star, Monitor, Zap
 } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { buildFAQSchema } from '@/lib/seo';
 
 
 // ─── Interactive LMS Architecture Diagram ──────────────────────
@@ -127,7 +128,7 @@ export function EducationPage() {
           title="Education & EdTech Solutions | AI-Powered Learning Platforms | Neo Perion"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/education"
-          jsonLd={seoSchema}
+          jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />
 
@@ -154,6 +155,10 @@ export function EducationPage() {
               </h1>
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">
                 {industry.heroSubtext}
+              </p>
+              {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
+              <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
+                Neo Perion Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -513,6 +518,10 @@ export function EducationPage() {
           </p>
           <h1 className="text-display-lg text-white tracking-tight mb-4">{industry.heroHeadline}</h1>
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
+          {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
+          <p className="text-sm text-white/70 mb-8 leading-relaxed">
+            Neo Perion Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
+          </p>
           
           <button 
             onClick={() => navigate('/contact')}

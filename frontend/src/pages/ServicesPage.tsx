@@ -3,9 +3,39 @@ import { ArrowUpRight } from 'lucide-react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { FAQBlock, type FAQItem } from "@/components/shared/FAQBlock";
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MobileGate, MobileShell } from "@/components/mobile";
+import { SITE_URL, buildFAQSchema } from "@/lib/seo";
+
+const servicesFaqs: FAQItem[] = [
+  {
+    question: 'What services does Neo Perion Solutions offer?',
+    answer:
+      'We design, build, and ship production-grade software across seven capabilities: AI Systems & Automation, Deep AI Engineering, Enterprise Product Engineering, Cloud-Native Web Platforms, Mobile Product Engineering, Intelligent Operations Automation, and Startup-to-Scale Engineering. Each is delivered by senior engineers — no offshoring, no juniors hidden behind account managers.',
+  },
+  {
+    question: 'How long does a typical engagement take?',
+    answer:
+      'Engagements are scope-dependent. Most MVPs and AI pilots land in 6–10 weeks; full enterprise platforms run 3–6 months. We share a written timeline — broken into milestone-level delivery gates — before any work begins, so you know exactly what ships when.',
+  },
+  {
+    question: 'Do you work with US clients? What about time zones?',
+    answer:
+      'Yes. We serve clients in India and the United States. Our daily overlap with US Eastern and Pacific time zones is more than four hours, we invoice in USD when preferred, and we start every engagement with a written agreement that names deliverables, timeline, and IP terms before work begins.',
+  },
+  {
+    question: 'Who owns the code and IP at the end of the project?',
+    answer:
+      'You do. IP transfers to the client on final payment — repositories, design assets, documentation, and production credentials all hand over at the end. The written agreement names this on day one so there is no ambiguity later.',
+  },
+  {
+    question: 'How do engagements start? What does the process look like?',
+    answer:
+      'Every engagement starts with a written agreement that defines scope, timeline, and delivery gates. We then run weekly demos through development, formal UAT before launch, and sign-off before invoice. You only pay for work that is signed off — never for hours logged.',
+  },
+];
 
 const services = [
   {
@@ -51,10 +81,9 @@ const services = [
 ];
 
 const stats = [
-  { value: "150+", label: "Projects Shipped" },
-  { value: "95%",  label: "Client Retention" },
-  { value: "5",    label: "Core Capabilities" },
-  { value: "24/7", label: "Production Support" },
+  { value: "10+",  label: "Projects" },
+  { value: "6+",   label: "Industries" },
+  { value: "98%",  label: "Satisfaction" },
 ];
 
 export default function ServicesPage() {
@@ -65,14 +94,17 @@ export default function ServicesPage() {
   const desktop = (
     <div className="bg-[#0A0A0B] text-white min-h-[auto] flex flex-col">
       <SEO
-        title="Engineering Capabilities & Services | Neo Perion"
-        description="Explore Neo Perion's enterprise-grade capabilities: AI Systems, Cloud Platforms, Product Engineering and more."
-        url="https://www.neoperion.com/services"
-        keywords="Enterprise AI Services, Cloud Infrastructure, Product Engineering, Neo Perion Services"
-        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.neoperion.com/" },
-          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.neoperion.com/services" },
-        ]}}
+        title="AI Automation & Software Development Services | Neo Perion Solutions"
+        description="AI automation, custom web platforms, mobile apps and data analytics — scoped, priced and delivered production-grade. Five core capabilities from one founder-led team."
+        url={`${SITE_URL}/services`}
+        keywords="AI automation services, custom web application development, mobile app development, data analytics, AI engineering India"
+        jsonLd={[
+          { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+          ]},
+          buildFAQSchema(servicesFaqs),
+        ]}
       />
       <Header />
       <main className="flex-grow">
@@ -143,8 +175,12 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: 0.85 }}
               className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-10"
             >
-              <p className="text-[14px] leading-[1.65] text-neutral-400" style={{ maxWidth: '26ch' }}>
-                Five core capabilities — AI to cloud — built to survive production and scale with your ambition.
+              <p className="text-[14px] leading-[1.65] text-neutral-400" style={{ maxWidth: '46ch' }}>
+                Seven engineering capabilities — AI systems, deep AI engineering, enterprise product,
+                cloud-native web, mobile, intelligent operations, and startup-to-scale — delivered
+                to clients in India and the United States. Most MVPs and AI pilots ship in 6–10 weeks;
+                full enterprise platforms run 3–6 months. Every engagement starts with a written
+                agreement that names scope, timeline, and IP terms before any work begins.
               </p>
 
               <div className="flex items-center gap-4">
@@ -258,7 +294,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ── Operational Excellence ───────────────────────── */}
+        {/* ── Delivery Principles ───────────────────────── */}
         <section className="bg-[#0A0A0B] px-8 py-24">
           <div className="mx-auto max-w-[1200px]">
             <motion.div
@@ -267,49 +303,49 @@ export default function ServicesPage() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
             >
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Results</p>
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Principles</p>
               <h2 className="mb-16 font-display text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-white">
-                Operational Excellence, Quantified
+                How We Deliver
               </h2>
 
               <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
                 {[
                   {
-                    value: "200%",
-                    title: "Growth in AI Projects",
-                    desc: "From pilots to platforms. From demos to fully deployed AI systems running real business operations at scale.",
+                    title: "Zero Black Boxes",
+                    desc: "Absolute transparency from day one. You get access to weekly demos, shared repositories, and continuous delivery pipelines. No hidden processes, just shipped code.",
                   },
                   {
-                    value: "8+",
-                    title: "Year Client Relationships",
-                    desc: "Longevity still drives growth. Trust compounds over time — and so does the measurable impact we deliver together.",
+                    title: "Senior Talent Only",
+                    desc: "Every project is led and built by senior engineers and founders. We do not use offshore junior teams hidden behind account managers. You work directly with the experts.",
                   },
                   {
-                    value: "40%",
-                    title: "Delivery Capacity Gain",
-                    desc: "By equipping every Dev & Ops team with best-in-class AI tooling and fully automated CI/CD workflows.",
+                    title: "Production First",
+                    desc: "We don't build throwaway prototypes. Everything is engineered to scale securely, with proper architecture, test coverage, and infrastructure as code out of the gate.",
                   },
-                ].map((stat, i) => (
+                ].map((principle, i) => (
                   <motion.div
-                    key={stat.title}
+                    key={principle.title}
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-40px' }}
                     transition={{ duration: 0.45, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                     className={`${i !== 0 ? 'md:border-l md:border-white/[0.07] md:pl-14' : ''} ${i !== 2 ? 'md:pr-14' : ''}`}
                   >
-                    <p className="mb-2 font-display text-[3.5rem] font-black leading-none tracking-tight text-[#F77E0D]">
-                      {stat.value}
-                    </p>
-                    <h3 className="mb-4 text-[1.2rem] font-bold text-white">{stat.title}</h3>
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F77E0D]/10 text-[#F77E0D]">
+                      <span className="font-mono text-sm font-bold">0{i + 1}</span>
+                    </div>
+                    <h3 className="mb-4 text-[1.2rem] font-bold text-white">{principle.title}</h3>
                     <div className="mb-4 h-[2px] w-10 bg-[#F77E0D]/30" />
-                    <p className="text-[14px] leading-[1.75] text-neutral-500">{stat.desc}</p>
+                    <p className="text-[14px] leading-[1.75] text-neutral-500">{principle.desc}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           </div>
         </section>
+
+        {/* ── FAQ ─────────────────────────────────────────── */}
+        <FAQBlock items={servicesFaqs} heading="Services FAQ" />
 
         {/* ── CTA ──────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-[#ffa959] px-8 py-28">
@@ -380,10 +416,12 @@ export default function ServicesPage() {
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D]">Services</p>
             <h1 className="font-display text-[2.4rem] font-black leading-[1.0] tracking-tight text-white">
               What We<br />
-              <span className="text-[#F77E0D]">Build</span> for You.
+              <span className="text-[#F77E0D]">Build.</span>
             </h1>
             <p className="mt-5 text-sm leading-relaxed text-neutral-400">
-              Seven engineering capabilities — all built for production, scale, and outcomes.
+              Seven engineering capabilities — AI, web, mobile, data — delivered to clients in
+              India and the US. Most MVPs and AI pilots ship in 6–10 weeks; full platforms run
+              3–6 months. Every engagement starts with a written agreement.
             </p>
             <div className="mt-8 flex flex-col gap-3">
               <button onClick={() => navigate('/contact')}
@@ -461,6 +499,9 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Mobile FAQ */}
+        <FAQBlock items={servicesFaqs} heading="Services FAQ" eyebrow="FAQ" className="px-5" />
 
       </div>
     </MobileShell>

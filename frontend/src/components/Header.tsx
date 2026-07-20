@@ -61,6 +61,7 @@ const NAV: NavItem[] = [
       { label: "Case Studies", href: "/company/case-studies" },
       { label: "Testimonials", href: "/company/testimonials" },
       { label: "Careers", href: "/company/careers" },
+      { label: "International Engagements", href: "/for-us-clients" },
       { label: "Blog & Insights", href: "/company/blog" },
     ],
   },

@@ -11,6 +11,7 @@ import { CompanyStats } from "@/components/about/CompanyStats";
 import { MobileGate } from "@/components/mobile";
 import { MobileAbout } from "@/components/mobile/About/MobileAbout";
 import { useLocation } from 'react-router-dom';
+import { SITE_URL } from "@/lib/seo";
 
 export default function AboutPage() {
   const location = useLocation();
@@ -53,22 +54,22 @@ export default function AboutPage() {
     "@type": "AboutPage",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://www.neoperion.com/company/about"
+      "@id": `${SITE_URL}/company/about`
     },
     "name": "About Neo Perion Solutions",
-    "description": "We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products."
+    "description": "Meet the founders and team behind Neo Perion Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
   };
 
   return (
     <>
-      <SEO 
-        title="About Us"
-        description="We are engineers first. Consultants second. Discover Neo Perion's mission and the team building stable, scalable enterprise products."
-        url="https://www.neoperion.com/company/about"
+      <SEO
+        title="About Neo Perion Solutions — AI & Software Company, Chennai"
+        description="Meet the founders and team behind Neo Perion Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
+        url={`${SITE_URL}/company/about`}
         jsonLd={jsonLd}
       />
       <MobileGate mobileOnly fallback={
-        <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
+        <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
           <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
         </div>
       }>

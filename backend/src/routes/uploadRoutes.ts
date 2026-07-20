@@ -25,14 +25,32 @@ router.post('/', upload.single('file'), async (req, res) => {
     }
 
     // Determine resource type based on mimetype
-    const resourceType = req.file.mimetype.startsWith('video') ? 'video' : 'image';
+    let resourceType: 'image' | 'video' | 'raw' | 'auto' = 'auto';
+    if (req.file.mimetype === 'application/pdf') {
+      resourceType = 'raw';
+    } else if (req.file.mimetype.startsWith('video')) {
+      resourceType = 'video';
+    } else if (req.file.mimetype.startsWith('image')) {
+      resourceType = 'image';
+    }
 
     const result = await new Promise((resolve, reject) => {
+      const uploadOptions: any = {
+        resource_type: resourceType,
+        folder: 'neo-perion-uploads' // Organize uploads in a folder
+      };
+
+      if (resourceType === 'raw' && req.file?.originalname) {
+        // For raw files (like PDFs), Cloudinary drops the extension unless explicitly provided
+        // We append a timestamp to ensure the file name is unique
+        const originalNameParts = req.file.originalname.split('.');
+        const extension = originalNameParts.length > 1 ? originalNameParts.pop() : 'pdf';
+        const baseName = originalNameParts.join('.').replace(/[^a-zA-Z0-9-]/g, '_');
+        uploadOptions.public_id = `${baseName}_${Date.now()}.${extension}`;
+      }
+
       const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          resource_type: resourceType,
-          folder: 'neo-perion-uploads' // Organize uploads in a folder
-        },
+        uploadOptions,
         (error, result) => {
           if (error) return reject(error);
           resolve(result);

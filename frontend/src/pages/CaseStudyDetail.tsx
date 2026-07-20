@@ -8,6 +8,7 @@ import { ArrowLeft, Quote, Activity } from 'lucide-react';
 import { CaseStudyGallery } from '@/components/caseStudies/CaseStudyGallery';
 import { RelatedCaseStudies } from '@/components/caseStudies/RelatedCaseStudies';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { SITE_URL } from '@/lib/seo';
 
 export const CaseStudyDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,7 +39,7 @@ export const CaseStudyDetail: React.FC = () => {
     );
   }
 
-  const postUrl = `https://www.neoperion.com/company/case-studies/${caseStudy.slug}`;
+  const postUrl = `${SITE_URL}/company/case-studies/${caseStudy.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -57,7 +58,7 @@ export const CaseStudyDetail: React.FC = () => {
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": `${SITE_URL}/images/np-logo.png`
       }
     }
   };
@@ -69,12 +70,12 @@ export const CaseStudyDetail: React.FC = () => {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.neoperion.com/"
+      "item": `${SITE_URL}/`
     },{
       "@type": "ListItem",
       "position": 2,
       "name": "Case Studies",
-      "item": "https://www.neoperion.com/company/case-studies"
+      "item": `${SITE_URL}/company/case-studies`
     },{
       "@type": "ListItem",
       "position": 3,

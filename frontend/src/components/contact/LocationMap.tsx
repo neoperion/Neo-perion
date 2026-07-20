@@ -2,8 +2,8 @@ import { MapPin, Mail, Phone, Globe } from 'lucide-react';
 
 const CONTACTS = [
   { Icon: MapPin, label: 'Headquarters', value: 'Neo Perion Solutions\nChennai, Tamil Nadu, India', href: null },
-  { Icon: Mail,   label: 'Email',         value: 'contact@neoperion.com', href: 'mailto:contact@neoperion.com' },
-  { Icon: Phone,  label: 'Phone',         value: '+91 98765 43210',        href: 'tel:+919876543210' },
+  { Icon: Mail,   label: 'Email',        value: 'hello@www.neoperion.com',    href: 'mailto:hello@www.neoperion.com' },
+  { Icon: Phone,  label: 'Phone',        value: '+91 7339125472',         href: 'tel:+917339125472' },
 ];
 
 export function LocationMap() {
@@ -31,6 +31,13 @@ export function LocationMap() {
         <Globe size={14} className="text-white/20 shrink-0" />
         <p className="text-[12px] text-white/25">We work with clients globally across all time zones.</p>
       </div>
+      <a
+        href="/for-us-clients"
+        className="mt-3 inline-flex items-center gap-2 text-[12px] font-semibold text-[#F77E0D] hover:text-[#ff8f20] transition-colors"
+      >
+        For US Clients - NDA, USD invoicing, daily ET overlap
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   );
 }

@@ -2,12 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Cpu, CheckCircle2, ArrowRight, Activity, Zap, Shield, Database, LayoutTemplate, X } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
+
+const deepAiFaqs: FAQItem[] = [
+  {
+    question: 'What is "deep AI engineering" in practice?',
+    answer:
+      'It means custom model work — fine-tuning open-weight models on your domain data, building multi-agent orchestrations, and shipping ML systems with the same rigor as production software. We do not ship demos or notebooks; every system we build runs in production with monitoring and feedback loops.',
+  },
+  {
+    question: 'When do you fine-tune versus use RAG or prompt engineering?',
+    answer:
+      'We choose the lightest technique that meets the accuracy, latency, and cost targets. For most production knowledge-base Q&A, RAG on top of a frontier model wins. Fine-tuning earns its place when you need domain-specific style, format, or reasoning that prompting cannot reliably achieve.',
+  },
+  {
+    question: 'Do you deploy on the customer cloud or yours?',
+    answer:
+      'Either — depending on data residency and operational constraints. We have shipped on AWS, Azure, and GCP, and we run self-hosted model deployments on Kubernetes when the workload demands it. The architecture is yours to keep: full source, IaC, and runbooks handed over on final payment.',
+  },
+];
 
 const AnimatedCheck = ({ delay, color = "#10B981", className = "w-5 h-5" }: { delay: number; color?: string; className?: string }) => (
   <svg className={`shrink-0 ${className}`} style={{ color }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -113,9 +133,10 @@ export function DeepAiEngineeringPage({ service }: Props) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": service.title,
-                "item": `https://www.neoperion.com/services/${service.slug}`
+                "item": `${SITE_URL}/services/${service.slug}`
               }]
-            }
+            },
+            buildFAQSchema(deepAiFaqs)
           ]}
         />
         <Header />
@@ -258,6 +279,7 @@ export function DeepAiEngineeringPage({ service }: Props) {
 
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={deepAiFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

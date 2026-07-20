@@ -10,6 +10,7 @@ import {
   Play, Sparkles, Zap, Star, Target, DollarSign, Clock, Shield, Code2, GitMerge
 } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { buildFAQSchema } from '@/lib/seo';
 
 // ─── Startup Journey Interactive Slider ──────────────────────
 const StartupJourneySlider = () => {
@@ -150,7 +151,7 @@ export function StartupsPage() {
           title="Startup & Founder Solutions | MVP Development & SaaS | Neo Perion"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/startups"
-          jsonLd={seoSchema}
+          jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />
 
@@ -171,6 +172,10 @@ export function StartupsPage() {
                 {industry.heroHeadline}
               </h1>
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
+              {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
+              <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
+                Neo Perion Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
@@ -457,6 +462,10 @@ export function StartupsPage() {
           </p>
           <h1 className="text-display-lg text-white tracking-tight mb-4">{industry.heroHeadline}</h1>
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
+          {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
+          <p className="text-sm text-white/70 mb-8 leading-relaxed">
+            Neo Perion Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+          </p>
           
           <button 
             onClick={() => navigate('/contact')}

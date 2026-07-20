@@ -11,6 +11,7 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { useBlogs, useFeaturedBlogs } from '@/hooks/useBlogs';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { SITE_URL } from '@/lib/seo';
 
 const CATEGORIES = [
   'All',
@@ -86,9 +87,9 @@ export const BlogPage: React.FC = () => {
     <MobileGate mobileOnly fallback={
       <div className="min-h-screen bg-canvas font-sans text-ink selection:bg-brand/20">
         <SEO
-          title="Blog & Insights | AI, SaaS & Product Engineering | Neo Perion"
-          description="Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS."
-          url="https://www.neoperion.com/company/blog"
+          title="Blog — AI, Software & Building in Public | Neo Perion Solutions"
+          description="Practical writing from the Neo Perion team: how we build AI systems, what works in production, and honest lessons for startups and SMEs."
+          url={`${SITE_URL}/company/blog`}
           jsonLd={[
             blogListSchema,
             {
@@ -98,12 +99,12 @@ export const BlogPage: React.FC = () => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.neoperion.com/"
+                "item": `${SITE_URL}/`
               },{
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": "https://www.neoperion.com/company/blog"
+                "item": `${SITE_URL}/company/blog`
               }]
             }
           ]}
@@ -214,8 +215,14 @@ export const BlogPage: React.FC = () => {
       <MobileShell nav="bottom" showFooter>
         <div className="w-full pb-8">
           <div className="px-mobile-base pt-8">
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Blog</p>
-            <h1 className="text-display-lg text-white tracking-tight">Insights & Engineering.</h1>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Blog &amp; Insights</p>
+            <h1 className="text-display-lg text-white tracking-tight">
+              {isFiltering
+                ? searchQuery
+                  ? `Results for "${searchQuery}"`
+                  : activeCategory
+                : 'Engineering notes on AI, products & scale'}
+            </h1>
             <p className="text-base text-white/70 mt-3">Deep-dives from our engineering team.</p>
           </div>
           {!isFiltering && featuredPost && <FeaturedPost post={featuredPost} theme="dark" />}

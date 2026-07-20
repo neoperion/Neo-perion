@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Send, Briefcase } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Send, Briefcase, UploadCloud, Loader2, AlertCircle } from "lucide-react";
+import { supabase } from '@/lib/supabase';
 
 const AREAS = ["Full-Stack Engineering", "AI/ML Engineering", "DevOps & Cloud", "Product Design", "Product Management", "Other"];
 
@@ -9,8 +10,73 @@ interface TalentPipelineProps {
 
 export const TalentPipeline: React.FC<TalentPipelineProps> = ({ theme = 'dark' }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [area, setArea] = useState(AREAS[0]);
+  const [msg, setMsg] = useState('');
+  const [file, setFile] = useState<File | null>(null);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const isLight = theme === 'light';
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!file) {
+      setErrorMsg("Please upload your resume (PDF or Image).");
+      return;
+    }
+
+    setSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      // 1. Upload Resume to Cloudinary via Backend Route
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const uploadRes = await fetch('http://localhost:5000/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!uploadRes.ok) {
+        throw new Error('Failed to upload resume. Please try again.');
+      }
+
+      const uploadData = await uploadRes.json();
+      const resumeUrl = uploadData.url;
+
+      // 2. Submit data to Supabase
+      const { error: dbError } = await supabase
+        .from('talent_network')
+        .insert({
+          name,
+          email,
+          area,
+          message: msg,
+          resume_url: resumeUrl,
+          status: 'pending'
+        });
+
+      if (dbError) throw dbError;
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error(err);
+      setErrorMsg(err.message || 'An unexpected error occurred.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section aria-labelledby="talent-pipeline-heading" className="py-16 md:py-20 relative overflow-hidden">
@@ -19,45 +85,81 @@ export const TalentPipeline: React.FC<TalentPipelineProps> = ({ theme = 'dark' }
           <Briefcase className="w-10 h-10 text-neo-blue mx-auto mb-6" aria-hidden="true" />
           <h2 id="talent-pipeline-heading" className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Don&apos;t see the right role?</h2>
           <p className={`text-lg mb-10 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>We&apos;re always looking for exceptional engineers. Send us your details and we&apos;ll reach out when something opens up.</p>
+          
           {submitted ? (
             <div className={`rounded-2xl border p-8 ${isLight ? 'border-green-200 bg-green-50 text-green-700' : 'border-emerald-500/30 bg-emerald-500/10 p-8 text-emerald-400'}`}>
               <p className="font-semibold text-lg mb-2">Application received.</p>
               <p className={`text-sm ${isLight ? 'text-green-600' : 'text-emerald-300/80'}`}>Thanks for your interest. We&apos;ll be in touch if a role matching your profile opens up.</p>
             </div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className={`rounded-2xl border p-6 md:p-8 text-left space-y-4 ${
+            <form onSubmit={handleSubmit} className={`rounded-2xl border p-6 md:p-8 text-left space-y-4 ${
               isLight ? 'border-zinc-200/80 bg-neutral-900 shadow-md' : 'border-white/10 bg-slate-800/40 backdrop-blur'
             }`}>
+              
+              {errorMsg && (
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-2">
+                  <AlertCircle size={16} /> {errorMsg}
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="tp-name" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Full name</label>
-                  <input id="tp-name" required type="text" className={`w-full h-12 px-3 rounded-lg border text-sm focus:border-neo-blue focus:outline-none ${
-                    isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B]' : 'bg-slate-900/60 border-white/10 text-white'
+                  <label htmlFor="tp-name" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Full name *</label>
+                  <input id="tp-name" required type="text" value={name} onChange={e => setName(e.target.value)} className={`w-full h-12 px-3 rounded-lg border text-sm focus:border-neo-blue focus:outline-none ${
+                    isLight ? 'bg-neutral-900 border-neutral-800 text-white' : 'bg-slate-900/60 border-white/10 text-white'
                   }`} />
                 </div>
                 <div>
-                  <label htmlFor="tp-email" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Email</label>
-                  <input id="tp-email" required type="email" className={`w-full h-12 px-3 rounded-lg border text-sm focus:border-neo-blue focus:outline-none ${
-                    isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B]' : 'bg-slate-900/60 border-white/10 text-white'
+                  <label htmlFor="tp-email" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Email *</label>
+                  <input id="tp-email" required type="email" value={email} onChange={e => setEmail(e.target.value)} className={`w-full h-12 px-3 rounded-lg border text-sm focus:border-neo-blue focus:outline-none ${
+                    isLight ? 'bg-neutral-900 border-neutral-800 text-white' : 'bg-slate-900/60 border-white/10 text-white'
                   }`} />
                 </div>
               </div>
               <div>
-                <label htmlFor="tp-area" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Area of interest</label>
+                <label htmlFor="tp-area" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Area of interest *</label>
                 <select id="tp-area" value={area} onChange={(e) => setArea(e.target.value)} className={`w-full h-12 px-3 rounded-lg border text-sm focus:border-neo-blue focus:outline-none ${
                   isLight ? 'bg-neutral-900 border-neutral-800 text-neutral-200' : 'bg-slate-900/60 border-white/10 text-white'
                 }`}>
                   {AREAS.map((a) => <option key={a} value={a} className={isLight ? 'text-neutral-200 bg-neutral-900' : ''}>{a}</option>)}
                 </select>
               </div>
+
+              {/* Resume Upload Field */}
+              <div>
+                <label className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Resume / CV (PDF or Image) *</label>
+                <div 
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`w-full h-20 rounded-lg border border-dashed flex flex-col items-center justify-center cursor-pointer transition-colors ${
+                    isLight ? 'border-neutral-700 bg-neutral-900/50 hover:bg-neutral-800' : 'border-white/20 bg-slate-900/40 hover:bg-slate-900/80 text-white'
+                  }`}
+                >
+                  <UploadCloud className={`w-6 h-6 mb-1 ${isLight ? 'text-neutral-500' : 'text-slate-400'}`} />
+                  <span className={`text-xs ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>
+                    {file ? file.name : "Click to upload your resume"}
+                  </span>
+                </div>
+                <input 
+                  type="file" 
+                  ref={fileInputRef} 
+                  onChange={handleFileChange} 
+                  className="hidden" 
+                  accept="application/pdf,image/*" 
+                />
+              </div>
+
               <div>
                 <label htmlFor="tp-msg" className={`block text-xs font-semibold mb-1.5 ${isLight ? 'text-neutral-400' : 'text-slate-400'}`}>Tell us about yourself</label>
-                <textarea id="tp-msg" rows={4} placeholder="Your background, what excites you, links to your work..." className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:border-neo-blue focus:outline-none resize-none ${
-                  isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder-zinc-400' : 'bg-slate-900/60 border-white/10 text-white'
+                <textarea id="tp-msg" rows={4} value={msg} onChange={e => setMsg(e.target.value)} placeholder="Your background, what excites you, links to your work..." className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:border-neo-blue focus:outline-none resize-none ${
+                  isLight ? 'bg-neutral-900 border-neutral-800 text-white placeholder-zinc-500' : 'bg-slate-900/60 border-white/10 text-white'
                 }`} />
               </div>
-              <button type="submit" className="w-full h-12 rounded-lg bg-neo-blue text-white font-semibold text-sm hover:bg-orange-600 transition-colors inline-flex items-center justify-center gap-2">
-                Submit application <Send className="w-4 h-4" aria-hidden="true" />
+              <button disabled={submitting} type="submit" className="w-full h-12 rounded-lg bg-neo-blue text-white font-semibold text-sm hover:bg-orange-600 transition-colors inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                {submitting ? (
+                  <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>
+                ) : (
+                  <>Submit application <Send className="w-4 h-4" aria-hidden="true" /></>
+                )}
               </button>
             </form>
           )}

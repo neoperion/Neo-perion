@@ -13,6 +13,7 @@ import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { motion } from 'framer-motion';
+import { SITE_URL } from '@/lib/seo';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -46,7 +47,7 @@ export const BlogPost: React.FC = () => {
     );
   }
 
-  const postUrl = `https://www.neoperion.com/company/blog/${blog.slug}`;
+  const postUrl = `${SITE_URL}/company/blog/${blog.slug}`;
   const authorInitial = (blog.author || 'N').trim().charAt(0).toUpperCase();
 
   const blogSchema = {
@@ -62,7 +63,7 @@ export const BlogPost: React.FC = () => {
     "publisher": {
       "@type": "Organization",
       "name": "Neo Perion Solutions",
-      "logo": { "@type": "ImageObject", "url": "https://www.neoperion.com/images/np-logo.png" }
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/np-logo.png` }
     }
   };
 
@@ -70,8 +71,8 @@ export const BlogPost: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.neoperion.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.neoperion.com/company/blog" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_URL}/company/blog` },
       { "@type": "ListItem", "position": 3, "name": blog.title, "item": postUrl }
     ]
   };

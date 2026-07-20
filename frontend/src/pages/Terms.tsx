@@ -35,21 +35,24 @@ export default function Terms() {
                 </p>
               </section>
               <section className="space-y-3">
+                <h2 className="text-xl font-bold text-ink">Scope of Work &amp; Change Orders</h2>
+                <p>
+                  Any development, design, or engineering work requested outside the bounds of the original written Statement of Work (SOW) will require a separate Change Order and may incur additional billing.
+                </p>
+              </section>
+              <section className="space-y-3">
                 <h2 className="text-xl font-bold text-ink">Project work &amp; IP</h2>
                 <p>
-                  For client engagements, ownership of delivered source code and deliverables
-                  transfers to the client as set out in the relevant statement of work. Nothing on
-                  this site constitutes a binding offer of services.
+                  Neo Perion retains all Intellectual Property (IP) rights to the code and infrastructure developed until the final invoice for the project or milestone is paid in full. Upon full payment, IP rights transfer to the client as set out in the relevant agreement.
                 </p>
               </section>
               <section className="space-y-3">
                 <h2 className="text-xl font-bold text-ink">Liability</h2>
                 <p>
                   The site is provided &quot;as is&quot; without warranties. To the extent permitted
-                  by law, Neo Perion is not liable for any indirect or consequential loss arising
-                  from use of the site. Questions?{" "}
-                  <a href="mailto:hello@neoperion.com" className="font-semibold text-brand">
-                    hello@neoperion.com
+                  by law, Neo Perion is not liable for any indirect damages, lost profits, data loss, or outages caused by third-party APIs (e.g., AI models). Questions?{" "}
+                  <a href="mailto:hello@www.neoperion.com" className="font-semibold text-brand">
+                    hello@www.neoperion.com
                   </a>
                   .
                 </p>

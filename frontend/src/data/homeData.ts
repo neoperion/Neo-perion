@@ -6,9 +6,8 @@ export const homeData = {
     secondaryCta: "Explore Services"
   },
   stats: [
-    { label: "Projects Delivered", value: 100, suffix: "+" },
-    { label: "Industries Served", value: 12, suffix: "+" },
-    { label: "Technologies Mastered", value: 25, suffix: "+" },
-    { label: "Customer Satisfaction", value: 99, suffix: "%" }
+    { label: "Projects Delivered", value: 10, suffix: "+" },
+    { label: "Industries Served", value: 6, suffix: "+" },
+    { label: "Customer Satisfaction", value: 98, suffix: "%" }
   ]
 };

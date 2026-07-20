@@ -2,16 +2,36 @@ import React, { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Workflow, ArrowRight, UserX, UserCheck, Calculator, DollarSign, Clock, LayoutDashboard, Send, Inbox, Database } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
 import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
 
 interface Props {
   service: ServiceData;
 }
+
+const intelligentOpsFaqs: FAQItem[] = [
+  {
+    question: 'What kinds of operations do you automate?',
+    answer:
+      'Anything that is repetitive, rules-driven, and high-volume: lead routing, invoice processing, customer onboarding, compliance reporting, internal Q&A over company docs, deployment pipelines, and incident triage. We assess the candidate process together before committing to an automation so we are honest about whether it will pay back.',
+  },
+  {
+    question: 'How do you measure whether automation actually paid off?',
+    answer:
+      'Baseline first. We measure the time, error rate, and cost of the manual process before any code is written, then compare against the same metrics six weeks after go-live. The ROI case (or its absence) is in writing — no hidden assumptions.',
+  },
+  {
+    question: 'How does CI/CD get set up?',
+    answer:
+      'GitHub Actions or GitLab CI for builds, automated tests on every pull request, container images published to ECR / GCR / ACR, and progressive rollouts to production with automated rollback if error budgets trip. We wire observability from day one — logs, metrics, traces — so on-call is calm, not chaotic.',
+  },
+];
 
 export function IntelligentOpsPage({ service }: Props) {
   const navigate = useNavigate();
@@ -37,32 +57,46 @@ export function IntelligentOpsPage({ service }: Props) {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
+        <SEO
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-              }
+          url={`${SITE_URL}/services/${service.slug}`}
+          keywords="intelligent operations automation, business process automation, CI/CD, Kubernetes, DevOps, workflow automation"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": `${SITE_URL}/images/np-logo.png`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ]
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+              ]
+            },
+            buildFAQSchema(intelligentOpsFaqs)
+          ]}
         />
         <Header />
         
@@ -287,6 +321,7 @@ export function IntelligentOpsPage({ service }: Props) {
         
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={intelligentOpsFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

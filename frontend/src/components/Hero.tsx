@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 import LiquidEther from "@/components/LiquidEther";
 
 export const Hero = () => {
   const navigate = useNavigate();
+  const [showBio, setShowBio] = useState(false);
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-paper">
@@ -27,17 +30,44 @@ export const Hero = () => {
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 lg:px-8">
         <div className="grid items-center gap-x-12 gap-y-10 lg:grid-cols-12">
-          {/* Headline */}
+          {/* Headline — keyword-aligned for SEO (production-grade AI software for SMEs) */}
           <div className="lg:col-span-7">
-            <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">
-              <span className="block text-ink">Together we</span>
-              <span className="block text-brand">Build.</span>
+            <h1 className="font-display text-[clamp(36px,6vw,72px)] font-bold leading-[1.02] tracking-[-0.02em]">
+              <span className="block text-ink">Production-Grade AI &amp; Software Systems</span>
+              <span className="block text-brand">for Growing Businesses</span>
             </h1>
           </div>
 
-          {/* Right support block (Accenture-style) */}
+          {/* Right support block (Accenture-style) — answer-first paragraph above the eyebrow heading.
+              Editable as a single block; mobile renders H1 + this paragraph stacked (text below the H1). */}
           <div className="lg:col-span-5">
-            <div className="mb-6 h-1 w-12 rounded-full bg-brand" />
+            {/* Answer-first paragraph for AI/SEO: leads with what we do, for whom, and the process guarantee.
+                No pricing (locked); uses the established "scope-dependent / written agreement" framing. */}
+            {/* The little orange bar is now a clickable toggle */}
+            <button 
+              onClick={() => setShowBio(!showBio)}
+              className="mb-6 h-1 w-12 rounded-full bg-brand transition-all hover:w-16 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-paper block cursor-pointer"
+              aria-label="Toggle company bio"
+              aria-expanded={showBio}
+            />
+            
+            <AnimatePresence>
+              {showBio && (
+                <motion.p 
+                  initial={{ height: 0, opacity: 0, marginBottom: 0 }}
+                  animate={{ height: "auto", opacity: 1, marginBottom: 28 }}
+                  exit={{ height: 0, opacity: 0, marginBottom: 0 }}
+                  className="overflow-hidden text-[15px] leading-relaxed text-body"
+                >
+                  Neo Perion Solutions is a founder-led software and AI company in Chennai, Tamil
+                  Nadu, India, building production-grade AI automation, custom web platforms, and
+                  mobile applications for startups and SMEs in India and the United States. Every
+                  engagement starts with a written agreement that names scope, timeline, and IP
+                  terms, and ends with full code, infrastructure, and credentials transferring to
+                  the client on final payment.
+                </motion.p>
+              )}
+            </AnimatePresence>
             <h2 className="text-xl font-bold text-ink">Built for what comes next</h2>
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-body">
               In a world of constant change, durable engineering wins. We help teams ship AI-native

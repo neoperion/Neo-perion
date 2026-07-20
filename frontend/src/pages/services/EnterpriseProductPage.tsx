@@ -2,15 +2,35 @@ import React from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Code, Box, GitBranch, Terminal, ArrowRight } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
 
 interface Props {
   service: ServiceData;
 }
+
+const enterpriseProductFaqs: FAQItem[] = [
+  {
+    question: 'What does "enterprise product engineering" actually mean?',
+    answer:
+      'It means taking a product from discovery through architecture, build, launch, and post-launch iteration — with the team accountable for the whole arc, not a slice. We design multi-tenant data models, build clean APIs, and ship the operational tooling (observability, deployment, runbooks) that production systems actually need.',
+  },
+  {
+    question: 'How do you handle multi-tenancy and data isolation?',
+    answer:
+      'We choose between shared database with row-level security, schema-per-tenant, or database-per-tenant based on your isolation, compliance, and cost requirements. The architecture is documented in the written agreement and reviewed with your security team before any code is written.',
+  },
+  {
+    question: 'What does the handover look like at the end?',
+    answer:
+      'You receive the full codebase, infrastructure-as-code, runbooks, and operational documentation. Production credentials are transferred on final payment. We offer a post-launch maintenance window (scope-dependent) and are happy to hand off to an internal team or stay on for ongoing iteration.',
+  },
+];
 
 export function EnterpriseProductPage({ service }: Props) {
   const navigate = useNavigate();
@@ -27,32 +47,46 @@ export function EnterpriseProductPage({ service }: Props) {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
+        <SEO
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-              }
+          url={`${SITE_URL}/services/${service.slug}`}
+          keywords="enterprise product engineering, SaaS development, multi-tenant architecture, API development, full-stack engineering"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": `${SITE_URL}/images/np-logo.png`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ]
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+              ]
+            },
+            buildFAQSchema(enterpriseProductFaqs)
+          ]}
         />
         <Header />
         
@@ -166,6 +200,7 @@ export function EnterpriseProductPage({ service }: Props) {
 
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={enterpriseProductFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

@@ -89,7 +89,7 @@ export function ContactHero() {
         >
           {[
             { num: '< 24h',  label: 'Response time'  },
-            { num: '50+',    label: 'Projects shipped' },
+            { num: '10+',    label: 'Projects shipped' },
             { num: '98%',    label: 'Client satisfaction' },
           ].map((s) => (
             <div key={s.label} className="text-center">

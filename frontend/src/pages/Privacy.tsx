@@ -43,13 +43,19 @@ export default function Privacy() {
                 </p>
               </section>
               <section className="space-y-3">
+                <h2 className="text-xl font-bold text-ink">Client Data Confidentiality</h2>
+                <p>
+                  Any proprietary data, codebase access, or business information shared by clients during discovery or development is kept strictly confidential. We never use client data to train public AI models or share it with unauthorized third parties.
+                </p>
+              </section>
+              <section className="space-y-3">
                 <h2 className="text-xl font-bold text-ink">Your choices</h2>
                 <p>
                   You can request access to, correction of, or deletion of your data, and manage
                   cookie preferences at any time via the Cookie Settings link in the footer. Contact
                   us at{" "}
-                  <a href="mailto:hello@neoperion.com" className="font-semibold text-brand">
-                    hello@neoperion.com
+                  <a href="mailto:hello@www.neoperion.com" className="font-semibold text-brand">
+                    hello@www.neoperion.com
                   </a>{" "}
                   for any privacy request.
                 </p>

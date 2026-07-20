@@ -2,11 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Globe, Zap, Shield, Search, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
+
+const cloudWebFaqs: FAQItem[] = [
+  {
+    question: 'What frontend stack do you ship?',
+    answer:
+      'React with Next.js for server-rendered marketing sites and SEO-critical web apps; React + Vite for dashboard-style SPAs. TypeScript is the default. We choose the lightest stack that meets the SEO, performance, and team-experience requirements of the project.',
+  },
+  {
+    question: 'How do you hit good Core Web Vitals scores?',
+    answer:
+      'We optimize LCP by lazy-loading below-the-fold media and serving responsive images in WebP/AVIF. CLS is controlled with explicit dimensions on every image and aspect-ratio reservations. INP is kept low by minimizing client-side JS and shipping to the edge. Lighthouse performance is verified before every launch.',
+  },
+  {
+    question: 'Do you build SEO-friendly marketing sites?',
+    answer:
+      'Yes — every marketing site we ship has per-page canonical tags, a real sitemap, structured data (Organization, Breadcrumb, FAQPage, Article as appropriate), and answer-first copy that AI assistants cite. Server-side rendering or pre-rendering is wired in for pages that need it for indexing.',
+  },
+];
 
 
 interface Props {
@@ -82,32 +102,46 @@ export function CloudWebPlatformPage({ service }: Props) {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
+        <SEO
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-              }
+          url={`${SITE_URL}/services/${service.slug}`}
+          keywords="cloud-native web platforms, React development, Next.js, TypeScript, web application development, SEO-friendly web apps"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": `${SITE_URL}/images/np-logo.png`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ]
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+              ]
+            },
+            buildFAQSchema(cloudWebFaqs)
+          ]}
         />
         <Header />
         
@@ -223,6 +257,7 @@ export function CloudWebPlatformPage({ service }: Props) {
         
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={cloudWebFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

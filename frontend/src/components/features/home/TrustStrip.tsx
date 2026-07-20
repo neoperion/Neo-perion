@@ -3,9 +3,9 @@ import { Clock, TrendingUp, Layers, Shield } from 'lucide-react';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const METRICS = [
-  { icon: Clock, value: 5, suffix: ' weeks', label: 'Avg. MVP delivery', detail: 'Validated scope to production' },
-  { icon: TrendingUp, value: 99.9, suffix: '%', label: 'Uptime SLA', detail: 'Across client deployments' },
-  { icon: Layers, value: 100, suffix: '+', label: 'Projects shipped', detail: 'AI-native & cloud platforms' },
+  { icon: Layers, value: 10, suffix: '+', label: 'Projects', detail: 'Shipped successfully' },
+  { icon: Layers, value: 6, suffix: '+', label: 'Industries', detail: 'Sectors served globally' },
+  { icon: TrendingUp, value: 98, suffix: '%', label: 'Satisfaction', detail: 'Client success rate' },
   { icon: Shield, value: 'Enterprise', suffix: '', label: 'Security posture', detail: 'SOC 2 ready, NDA-friendly' },
 ];
 

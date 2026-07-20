@@ -14,10 +14,9 @@ export interface TrustStatsSwipeProps {
 }
 
 const DEFAULT_STATS: TrustStat[] = [
-  { value: 25, suffix: '+', label: 'Projects Shipped' },
-  { value: 4, label: 'Industries Served' },
-  { value: 15, suffix: '+', label: 'Technologies' },
-  { value: 98, suffix: '%', label: 'Client Satisfaction' },
+  { value: 10, suffix: '+', label: 'Projects' },
+  { value: 6, suffix: '+', label: 'Industries' },
+  { value: 98, suffix: '%', label: 'Satisfaction' },
 ];
 
 export function TrustStatsSwipe({ stats = DEFAULT_STATS, className }: TrustStatsSwipeProps) {

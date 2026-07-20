@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { EnterpriseCTA, FooterTransition } from '@/components/services/shared';
@@ -18,10 +19,29 @@ import {
   ServiceAboutStats,
   ServiceStickyCta,
 } from '@/components/services/index';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
 
 interface Props {
   service: ServiceData;
 }
+
+const aiSystemsFaqs: FAQItem[] = [
+  {
+    question: 'What kinds of AI systems do you build?',
+    answer:
+      'We build production-grade retrieval-augmented generation (RAG) pipelines, custom LLM integrations, and autonomous AI agents that act on your proprietary data. Recent work spans customer-facing chatbots, internal document Q&A, and multi-step agentic workflows with strict guardrails.',
+  },
+  {
+    question: 'How do you prevent hallucinations in production AI systems?',
+    answer:
+      'Every response is cited against your source documents, scoped to your knowledge base, and governed by guardrails you control. We instrument the system so hallucination rates, refusal rates, and response latency are visible in production — not after launch.',
+  },
+  {
+    question: 'Which LLM providers do you work with?',
+    answer:
+      'We work with OpenAI (GPT-4o and earlier), Anthropic (Claude), Google Gemini, and self-hosted open-weight models (Llama, Mistral) when deployment requirements demand it. The choice is driven by your data residency, latency, and cost constraints — never by our preference.',
+  },
+];
 
 export function AiSystemsPage({ service }: Props) {
   const seo = (
@@ -52,11 +72,12 @@ export function AiSystemsPage({ service }: Props) {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.neoperion.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.neoperion.com/services' },
-            { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.neoperion.com/services/${service.slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
+            { '@type': 'ListItem', position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
           ],
         },
+        buildFAQSchema(aiSystemsFaqs),
       ]}
     />
   );
@@ -82,6 +103,7 @@ export function AiSystemsPage({ service }: Props) {
           <main className="flex-grow">
             <ServiceVideoHero service={service} />
             {sections}
+            <FAQBlock items={aiSystemsFaqs} heading={`${service.title}: FAQ`} />
             <ServiceStickyCta service={service} />
             <FooterTransition />
           </main>

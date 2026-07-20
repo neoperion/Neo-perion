@@ -2,10 +2,10 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SOCIALS = [
-  { img: "/images/instagram.png", href: "https://www.instagram.com/neoperion",              label: "Instagram" },
-  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/in/neo-perion-643228393", label: "LinkedIn"  },
-  { img: "/images/facebook.png",  href: "https://www.facebook.com/neoperion",               label: "Facebook"  },
-  { img: null,                    href: "https://wa.me/917339125472",                        label: "WhatsApp"  },
+  { img: "/images/instagram.png", href: "https://www.instagram.com/neoperion",                          label: "Instagram" },
+  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/neo-perion-solutions",       label: "LinkedIn"  },
+  { img: "/images/facebook.png",  href: "https://www.facebook.com/neoperion",                           label: "Facebook"  },
+  { img: null,                    href: "https://wa.me/917339125472",                                    label: "WhatsApp"  },
 ];
 
 const COLUMNS = [
@@ -41,6 +41,7 @@ const COLUMNS = [
       { label: "Security", to: "/security" },
       { label: "Privacy Policy", to: "/privacy" },
       { label: "Terms of Service", to: "/terms" },
+      { label: "Refund & Cancellation", to: "/refund" },
     ],
   },
 ];
@@ -126,7 +127,11 @@ export const Footer = () => {
               <ul className="space-y-3 text-sm font-medium text-body">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="transition-colors hover:text-brand">
+                    <Link 
+                      to={link.to} 
+                      className="transition-colors hover:text-brand"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
                       {link.label}
                     </Link>
                   </li>

@@ -6,6 +6,7 @@ import { CareersHero } from "@/components/careers/CareersHero";
 import { BenefitsGrid } from "@/components/careers/BenefitsGrid";
 import { JobListings } from "@/components/careers/JobListings";
 import { MobileGate, MobileShell } from "@/components/mobile";
+import { SITE_URL } from "@/lib/seo";
 
 export default function Careers() {
   const careersSchema = {
@@ -25,11 +26,11 @@ export default function Careers() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
-        <SEO 
-          title="Careers | Build the Future of AI & SaaS | Neo Perion" 
-          description="Join our team of elite engineers, designers, and AI architects building next-generation SaaS and AI applications."
-          url="https://www.neoperion.com/company/careers"
+      <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
+        <SEO
+          title="Careers — Join Neo Perion Solutions | Chennai"
+          description="Join our team of senior engineers, designers and AI architects building production-grade software and AI systems for startups and SMEs."
+          url={`${SITE_URL}/company/careers`}
           jsonLd={careersSchema}
         />
         <Header />
@@ -37,9 +38,9 @@ export default function Careers() {
         <main className="pb-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
           
-          <CareersHero theme="light" />
-          <BenefitsGrid theme="light" />
-          <JobListings theme="light" />
+          <CareersHero theme="dark" />
+          <BenefitsGrid theme="dark" />
+          <JobListings theme="dark" />
         </main>
         
         <Footer />

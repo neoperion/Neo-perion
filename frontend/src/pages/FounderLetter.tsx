@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { LetterCTA } from "@/components/about/LetterCTA";
 import { MobileGate, MobileShell } from "@/components/mobile";
 import { motion } from 'framer-motion';
+import { SITE_URL } from "@/lib/seo";
 
 export default function FounderLetter() {
   const founderLetterSchema = {
@@ -55,10 +56,10 @@ export default function FounderLetter() {
   return (
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
-        <SEO 
-          title="Founder's Letter: Why We Built Neo Perion"
-          description="Read a letter from our CEO, Vasantharaj S, on why we built Neo Perion and our shift from generic agencies to true product engineering."
-          url="https://www.neoperion.com/company/founder-letter"
+        <SEO
+          title="A Letter from the Founder | Neo Perion Solutions"
+          description="Read a letter from CEO Vasantharaj S on why we built Neo Perion and our shift from generic agencies to true product engineering."
+          url={`${SITE_URL}/company/founder-letter`}
           jsonLd={founderLetterSchema}
         />
 

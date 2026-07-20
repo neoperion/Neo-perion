@@ -39,7 +39,7 @@ export function AboutTimeline() {
       <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
         <div className="mb-16">
           <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Our Journey</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
             How we got here
           </h2>
         </div>
@@ -58,7 +58,7 @@ export function AboutTimeline() {
                 <div className={`ml-12 md:ml-0 w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
                   <div className="bg-neutral-900 border-[0.5px] border-[#27272A] rounded-xl p-8 hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out shadow-sm">
                     <span className="text-neo-blue font-bold tracking-widest text-sm mb-2 block">{milestone.year}</span>
-                    <h3 className="text-xl font-bold text-[#09090B] mb-3">{milestone.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-3">{milestone.title}</h3>
                     <p className="text-neutral-400 leading-relaxed font-medium">{milestone.description}</p>
                   </div>
                 </div>

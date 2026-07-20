@@ -30,7 +30,7 @@ export function EngineeringPrinciples() {
       <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div className="mb-16">
           <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Core Philosophy</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#09090B] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
             Engineering Principles
           </h2>
         </div>
@@ -41,7 +41,7 @@ export function EngineeringPrinciples() {
               <div className="w-14 h-14 rounded-xl bg-[#0A0A0B] border border-[#27272A] flex items-center justify-center mb-8 group-hover:bg-neo-blue/5 group-hover:border-neo-blue/20 transition-colors">
                 <principle.icon className="w-6 h-6 text-neo-blue" />
               </div>
-              <h3 className="text-2xl font-bold text-[#09090B] mb-4">{principle.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{principle.title}</h3>
               <p className="text-neutral-400 leading-relaxed font-medium text-lg">
                 {principle.description}
               </p>

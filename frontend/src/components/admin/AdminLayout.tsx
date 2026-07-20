@@ -1,12 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { NavLink, Outlet, Navigate } from 'react-router-dom';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
-import { 
-  LayoutDashboard, 
-  Users, 
-  FileText, 
-  Briefcase, 
-  Settings, 
+import {
+  LayoutDashboard,
+  Users,
+  FileText,
+  Briefcase,
+  Settings,
   LogOut,
   Menu
 } from 'lucide-react';
@@ -37,6 +38,7 @@ export const AdminLayout: React.FC = () => {
     { name: 'Portfolio', path: '/admin/portfolio', icon: Briefcase },
     { name: 'Testimonials', path: '/admin/testimonials', icon: FileText },
     { name: 'Careers', path: '/admin/careers', icon: Briefcase },
+    { name: 'Talent Network', path: '/admin/talent-network', icon: Users },
     { name: 'Services', path: '/admin/services', icon: FileText },
     { name: 'Analytics', path: '/admin/analytics', icon: LayoutDashboard },
     { name: 'Settings', path: '/admin/settings', icon: Settings },
@@ -44,6 +46,12 @@ export const AdminLayout: React.FC = () => {
 
   return (
     <div className="min-h-[auto] bg-[#02040A] text-slate-200 flex">
+      {/* Admin routes are gated by robots.txt Disallow: /admin/ — this
+          noindex tag is belt-and-suspenders for crawlers that ignore it. */}
+      <Helmet>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>Admin | Neo Perion Solutions</title>
+      </Helmet>
       {/* Mobile Sidebar Toggle */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button 

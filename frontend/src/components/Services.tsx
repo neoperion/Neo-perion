@@ -154,19 +154,19 @@ function HoverVisualCard({ cap }: { cap: Capability }) {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/25" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-center p-9">
-        <h4 className="text-[27px] font-bold tracking-tight text-white">{cap.title}</h4>
-        <p className="mt-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
+      <div className="relative z-10 flex h-full flex-col justify-center p-6 lg:p-9">
+        <h4 className="text-[22px] lg:text-[27px] font-bold tracking-tight text-white">{cap.title}</h4>
+        <p className="mt-1 lg:mt-2 text-[11px] lg:text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
           {cap.kicker}
         </p>
-        <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-white/85">
+        <p className="mt-2 lg:mt-4 max-w-md text-[13px] lg:text-[14.5px] leading-relaxed text-white/85 line-clamp-2 lg:line-clamp-none">
           {cap.description}
         </p>
         <button
           type="button"
           onClick={() => navigate(cap.href)}
           aria-label={`${cap.title} — learn more`}
-          className="mt-7 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#D96A05]"
+          className="mt-4 lg:mt-7 flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#D96A05]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
@@ -207,7 +207,33 @@ export const Services = () => {
         className="mb-12 max-w-2xl"
       />
 
-      <div className="grid gap-x-16 lg:grid-cols-2">
+      <div className="grid gap-x-16 lg:grid-cols-2 relative">
+        {/* Mobile sticky visual (Top) */}
+        <div className="sticky top-16 z-20 block w-full lg:hidden mb-8 pt-4 bg-paper">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <HoverVisualCard cap={current} />
+            </motion.div>
+          </AnimatePresence>
+          {/* Progress rail for mobile */}
+          <div className="mt-4 flex gap-2">
+            {CAPABILITIES.map((cap, i) => (
+              <span
+                key={cap.title}
+                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                  i === active ? "bg-brand" : "bg-hairline"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Left — scrolling capability blocks */}
         <div>
           {CAPABILITIES.map((cap, i) => {
@@ -217,7 +243,7 @@ export const Services = () => {
                 key={cap.title}
                 data-index={i}
                 ref={(el) => (blockRefs.current[i] = el)}
-                className="flex min-h-[44vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
+                className="flex min-h-[60vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
               >
                 <div
                   className={`transition-opacity duration-500 ${
@@ -242,11 +268,6 @@ export const Services = () => {
                   <p className="mt-4 max-w-md text-[16px] leading-relaxed text-body">
                     {cap.description}
                   </p>
-
-                  {/* Mobile visual (sticky panel is desktop-only) */}
-                  <div className="mt-7 lg:hidden">
-                    <VisualFrame image={cap.image} title={cap.title} />
-                  </div>
 
                   <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
                     {cap.features.map((f) => (

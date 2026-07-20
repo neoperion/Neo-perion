@@ -92,7 +92,7 @@ export default function Testimonials() {
 
   return (
     <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
+      <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
         <SEO 
           title="Client Testimonials & Feedback | Neo Perion"
           description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with Neo Perion for AI and SaaS product engineering."
@@ -118,7 +118,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl lg:text-7xl font-black mb-6 tracking-tight text-[#09090B]"
+              className="text-5xl lg:text-7xl font-black mb-6 tracking-tight text-white"
             >
               What our clients say
             </motion.h1>
@@ -170,7 +170,7 @@ export default function Testimonials() {
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-[#09090B] text-sm">{t.name}</p>
+                      <p className="font-bold text-white text-sm">{t.name}</p>
                       <p className="text-xs text-neo-blue font-semibold">{t.designation}, {t.company}</p>
                     </div>
                   </div>

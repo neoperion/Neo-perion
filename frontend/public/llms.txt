@@ -1,0 +1,45 @@
+# Neo Perion Solutions
+
+> Neo Perion Solutions is a founder-led software and AI company based in
+> Chennai, Tamil Nadu, India. We design, build, and ship production-grade
+> AI automation, web platforms, and mobile applications for startups and
+> SMEs in India and the United States.
+
+> Neo Perion Solutions is an independent software company and is not
+> affiliated with Perion Network Ltd.
+
+## Key pages
+- [Home](https://www.neoperion.com/): AI automation, web and app development company
+- [About](https://www.neoperion.com/company/about): founders, team, principles, location
+- [Founder's Letter](https://www.neoperion.com/company/founder-letter): why we built Neo Perion
+- [Services](https://www.neoperion.com/services): five core capabilities from one team
+- [Case Studies](https://www.neoperion.com/company/case-studies): delivered projects with outcomes
+- [Portfolio](https://www.neoperion.com/portfolio): platforms and AI systems we have built
+- [Blog](https://www.neoperion.com/company/blog): writing on AI, software, and building in public
+- [Careers](https://www.neoperion.com/company/careers): open roles, Chennai
+- [Contact](https://www.neoperion.com/contact): email, phone, WhatsApp — replies within one business day
+
+## Service offerings
+- AI Systems & Intelligent Automation — RAG, LLM integration, AI agents
+- Deep AI Engineering — predictive models and ML systems
+- Enterprise Product Engineering — multi-tenant SaaS, APIs, data models
+- Cloud-Native Web Platforms — React, Next.js, TypeScript
+- Mobile Product Engineering — native and cross-platform apps
+- Intelligent Operations Automation — workflow and CI/CD pipelines
+- Startup-to-Scale Engineering — fractional CTO, audits, due diligence
+
+## Facts
+- Founded: 2024. Headquarters: Chennai, Tamil Nadu, India.
+- Founders: Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO).
+- Engagement model: written agreement before work; weekly demos; UAT sign-off; IP transfers to client on final payment.
+- Serves: startups and SMEs in India and the United States.
+- Public email: hello@neoperion.com. Phone: +91 9363578670.
+- LinkedIn: https://www.linkedin.com/company/neo-perion-solutions
+- Instagram: https://www.instagram.com/neoperion
+- Twitter / X: https://twitter.com/neoperion
+- Tech stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Supabase, AWS, Docker, Kubernetes, OpenAI, Anthropic Claude, Google Gemini.
+
+## What we are not
+- Not affiliated with Perion Network Ltd.
+- Not a "leading SaaS company" — we are a services company that ships production software for clients.
+- Not a freelancer marketplace — every engagement is founder-led and senior-engineer staffed.

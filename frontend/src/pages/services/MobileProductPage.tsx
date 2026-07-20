@@ -2,15 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SEO } from '@/components/SEO';
+import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { ServiceData } from '@/data/servicesData';
 import { Smartphone, CheckCircle2, LayoutTemplate, Zap, RadioReceiver, ArrowRight } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { TechStack, BusinessOutcomes, EnterpriseCTA, FooterTransition } from '@/components/services/shared';
 import { useNavigate } from 'react-router-dom';
+import { SITE_URL, buildFAQSchema } from '@/lib/seo';
 
 interface Props {
   service: ServiceData;
 }
+
+const mobileProductFaqs: FAQItem[] = [
+  {
+    question: 'Native or cross-platform — how do you choose?',
+    answer:
+      'We choose native (Swift / Kotlin) when platform-specific features, performance, or UX fidelity dominate the value. We choose cross-platform (React Native or Flutter) when the product is content-heavy, the team needs to ship both platforms fast, and the design system can live in a single codebase. The choice is documented in the written agreement before any code is written.',
+  },
+  {
+    question: 'Do you handle App Store and Play Store submission?',
+    answer:
+      'Yes — submission, review response, and post-release hotfixes are part of the engagement. We have shipped apps in healthcare, education, and consumer categories on both stores. We do not guarantee approval (no one can), but we have a strong track record of clearing review on the first or second pass.',
+  },
+  {
+    question: 'How do you handle offline-first behavior?',
+    answer:
+      'When the product needs to work without connectivity, we design the data layer for offline-first with conflict resolution on reconnect. The architecture is tested with real network drops, not unit tests alone. If your product does not need offline, we say so and save you the engineering cost.',
+  },
+];
 
 export function MobileProductPage({ service }: Props) {
   const navigate = useNavigate();
@@ -27,32 +47,46 @@ export function MobileProductPage({ service }: Props) {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
+        <SEO
           title={`${service.title} | Neo Perion Solutions`}
           description={service.description}
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": service.title,
-            "serviceType": service.title,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Neo Perion Solutions",
-              "image": "https://www.neoperion.com/images/np-logo.png",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-              }
+          url={`${SITE_URL}/services/${service.slug}`}
+          keywords="mobile app development, iOS development, Android development, React Native, Flutter, native mobile apps"
+          jsonLd={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": service.title,
+              "description": service.description,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "Neo Perion Solutions",
+                "image": `${SITE_URL}/images/np-logo.png`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chennai",
+                  "addressRegion": "Tamil Nadu",
+                  "addressCountry": "IN"
+                }
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "India" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Global" }
+              ]
             },
-            "areaServed": [
-              { "@type": "Country", "name": "India" },
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Global" }
-            ]
-          }}
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+              ]
+            },
+            buildFAQSchema(mobileProductFaqs)
+          ]}
         />
         <Header />
         
@@ -248,6 +282,7 @@ export function MobileProductPage({ service }: Props) {
 
         <TechStack />
         <BusinessOutcomes />
+        <FAQBlock items={mobileProductFaqs} heading={`${service.title}: FAQ`} />
         <EnterpriseCTA />
         <FooterTransition />
         </main>

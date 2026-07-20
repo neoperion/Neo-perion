@@ -2,4 +2,29 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
+# AI crawlers — Generative Engine Optimization (GEO).
+# Explicitly welcome the crawlers used by ChatGPT, Claude, Perplexity,
+# Google AI Overviews, and the common-crawl foundation models.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.neoperion.com/sitemap.xml

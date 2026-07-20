@@ -14,27 +14,6 @@ export function buildCanonical(path: string): string {
   return `${SITE_URL}${trimmed}`;
 }
 
-export function buildOrganizationSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Neo Perion Solutions',
-    url: SITE_URL,
-    logo: `${SITE_URL}/images/np-logo.png`,
-    sameAs: ['https://www.linkedin.com/company/neoperion', 'https://twitter.com/neoperion'],
-  };
-}
-
-export function buildLocalBusinessSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Neo Perion Solutions',
-    address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
-    url: SITE_URL,
-  };
-}
-
 export function buildArticleSchema(opts: { title: string; description: string; slug: string; image?: string; publishedAt: string }) {
   return {
     '@context': 'https://schema.org',

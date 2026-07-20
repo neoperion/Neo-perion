@@ -26,10 +26,10 @@ const COLUMNS = [
 ];
 
 const SOCIALS = [
-  { href: 'https://www.instagram.com/neoperion',              Icon: Instagram,     label: 'Instagram' },
-  { href: 'https://www.linkedin.com/in/neo-perion-643228393', Icon: Linkedin,      label: 'LinkedIn'  },
-  { href: 'https://www.facebook.com/neoperion',               Icon: Facebook,      label: 'Facebook'  },
-  { href: 'https://wa.me/917339125472',                       Icon: MessageCircle, label: 'WhatsApp'  },
+  { href: 'https://www.instagram.com/neoperion',                     Icon: Instagram,     label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/neo-perion-solutions',  Icon: Linkedin,      label: 'LinkedIn'  },
+  { href: 'https://www.facebook.com/neoperion',                      Icon: Facebook,      label: 'Facebook'  },
+  { href: 'https://wa.me/917339125472',                              Icon: MessageCircle, label: 'WhatsApp'  },
 ];
 
 export function AccordionFooter() {

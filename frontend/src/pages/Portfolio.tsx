@@ -6,11 +6,19 @@ import { PortfolioHero } from '@/components/portfolio/PortfolioHero';
 import { FeaturedProjects } from '@/components/portfolio/FeaturedProjects';
 import { ProjectGrid } from '@/components/portfolio/ProjectGrid';
 import { MobileGate, MobileShell } from '@/components/mobile';
+import { SITE_URL } from '@/lib/seo';
 
 const seo = (
   <Helmet>
-    <title>Portfolio | Neo Perion Solutions</title>
-    <meta name="description" content="Explore our award-winning portfolio of AI products, SaaS platforms, and enterprise systems." />
+    <title>Portfolio — Platforms & AI Systems We&apos;ve Built | Neo Perion Solutions</title>
+    <meta name="description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
+    <link rel="canonical" href={`${SITE_URL}/portfolio`} />
+    <meta property="og:url" content={`${SITE_URL}/portfolio`} />
+    <meta property="og:title" content="Portfolio — Platforms & AI Systems We've Built | Neo Perion Solutions" />
+    <meta property="og:description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
+    <meta name="twitter:url" content={`${SITE_URL}/portfolio`} />
+    <meta name="twitter:title" content="Portfolio — Platforms & AI Systems We've Built | Neo Perion Solutions" />
+    <meta name="twitter:description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
   </Helmet>
 );
 

@@ -14,39 +14,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/images/np-logo.png" />
-  <link rel="canonical" href="https://www.neoperion.com/" />
+
+  <!-- Canonical, title, description, keywords, and per-route OG/Twitter are set
+       per-page by <SEO /> in src/components/SEO.tsx via react-helmet-async.
+       Keeping a static fallback description here for crawlers that fetch before
+       React hydrates; the SEO component replaces it on render. -->
 
   <!-- Primary Meta Tags -->
-  <title>NEO PERION -Web, Mobile, Data & AI Automation</title>
-  <meta name="title" content="NEO PERION - Smart SaaS Services | Web, Mobile, Data & AI Automation" />
   <meta name="description"
-    content="NEO PERION — Leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions for growing teams." />
-  <meta name="keywords"
-    content="SaaS services, web development, mobile app development, AI automation, data analytics, business automation, NEO PERION, cloud solutions, digital transformation" />
-  <meta name="author" content="NEO PERION" />
+    content="Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
+  <meta name="author" content="Neo Perion Solutions" />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <meta name="revisit-after" content="7 days" />
   <meta name="google-site-verification" content="nIQl-Botzx-FdIdKpwCOm4TKCUTwBplxjJwFPvc5OCI" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook — fallback before per-page <SEO /> mounts.
+       The <SEO /> component replaces these on every route. -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.neoperion.com/" />
-  <meta property="og:title" content="NEO PERION - Smart SaaS Services | Web, Mobile, Data & AI Automation" />
+  <meta property="og:title" content="Neo Perion Solutions | AI Automation, Web & App Development" />
   <meta property="og:description"
-    content="NEO PERION — Leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions." />
+    content="Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
   <meta property="og:image" content="https://www.neoperion.com/images/np-logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="NEOPERION" />
+  <meta property="og:site_name" content="Neo Perion Solutions" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.neoperion.com/" />
-  <meta name="twitter:title" content="NEO PERION - Smart SaaS Services | Web, Mobile, Data & AI Automation" />
+  <meta name="twitter:title" content="Neo Perion Solutions | AI Automation, Web & App Development" />
   <meta name="twitter:description"
-    content="NEO PERION — Leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions." />
+    content="Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
   <meta name="twitter:image" content="https://www.neoperion.com/images/np-logo.png" />
   <meta name="twitter:creator" content="@neoperion" />
 
@@ -54,12 +55,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "NEO PERION",
-      "alternateName": "NEOPERION",
+      "@id": "https://www.neoperion.com/#organization",
+      "name": "Neo Perion Solutions",
+      "alternateName": ["NEO PERION", "NEOPERION"],
       "url": "https://www.neoperion.com",
       "logo": "https://www.neoperion.com/images/np-logo.png",
       "image": "https://www.neoperion.com/images/np-logo.png",
-      "description": "NEO PERION is a leading SaaS company transforming businesses with cutting-edge Web Development, Mobile Apps, Data Analytics & AI Automation solutions.",
+      "description": "Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster.",
       "foundingDate": "2024",
       "founders": [
         {
@@ -67,21 +69,21 @@
           "name": "Vasantharaj S",
           "jobTitle": "Chief Executive Officer (CEO)",
           "image": "https://www.neoperion.com/images/founder.jpg",
-          "url": "https://www.neoperion.com/about"
+          "url": "https://www.neoperion.com/company/about"
         },
         {
           "@type": "Person",
           "name": "Adhi Ganesh K",
           "jobTitle": "Chief Operating Officer (COO)",
           "image": "https://www.neoperion.com/images/adhi.png",
-          "url": "https://www.neoperion.com/about"
+          "url": "https://www.neoperion.com/company/about"
         },
         {
           "@type": "Person",
           "name": "Tamilselvan",
           "jobTitle": "Chief Technology Officer (CTO)",
           "image": "https://www.neoperion.com/images/tamilselvan.jpg",
-          "url": "https://www.neoperion.com/about"
+          "url": "https://www.neoperion.com/company/about"
         }
       ],
       "address": {
@@ -90,15 +92,48 @@
         "addressRegion": "Tamil Nadu",
         "addressCountry": "IN"
       },
-      "sameAs": [
-        "https://www.linkedin.com/company/neoperion",
-        "https://twitter.com/neoperion"
+      "areaServed": [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United States" }
       ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "email": "contact@neoperion.com"
-      }
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Large Language Models",
+        "Retrieval-Augmented Generation",
+        "AI Agents",
+        "React",
+        "Next.js",
+        "Node.js",
+        "Python",
+        "TypeScript",
+        "PostgreSQL",
+        "Supabase",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Mobile App Development",
+        "Cloud-Native Architecture"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/neo-perion-solutions",
+        "https://twitter.com/neoperion",
+        "https://www.instagram.com/neoperion",
+        "https://www.facebook.com/neoperion"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "hello@neoperion.com",
+          "availableLanguage": ["English", "Tamil"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "Sales",
+          "telephone": "+91-7339125472",
+          "availableLanguage": ["English", "Tamil"]
+        }
+      ]
     }
     </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -22,10 +22,12 @@ import FounderLetter from "./pages/FounderLetter";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import Contact from "./pages/Contact";
+import UsClients from "./pages/UsClients";
 import Newsletter from "./pages/Newsletter";
 import Security from "./pages/Security";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Refund from "./pages/Refund";
 import SuccessStories from "./pages/SuccessStories";
 import Testimonials from "./pages/Testimonials";
 import Insights from "./pages/Insights";
@@ -43,6 +45,7 @@ import AdminAnalytics from "./pages/admin/AdminAnalytics";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminPortfolio from "./pages/admin/AdminPortfolio";
+import AdminTalentNetwork from "./pages/admin/AdminTalentNetwork";
 
 import { CookieConsent } from "@/shared/CookieConsent";
 import { PageTracker } from "@/shared/PageTracker";
@@ -82,9 +85,11 @@ const App = () => (
               <Route path="/security" element={<Security />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/refund" element={<Refund />} />
               <Route path="/company/success-stories" element={<SuccessStories />} />
               <Route path="/company/testimonials" element={<Testimonials />} />
               <Route path="/company/insights" element={<Insights />} />
+              <Route path="/for-us-clients" element={<UsClients />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
 
@@ -101,6 +106,7 @@ const App = () => (
                 <Route path="newsletter" element={<NewsletterAdmin />} />
                 <Route path="case-studies" element={<AdminCaseStudies />} />
                 <Route path="testimonials" element={<AdminTestimonials />} />
+                <Route path="talent-network" element={<AdminTalentNetwork />} />
                 <Route path="analytics" element={<AdminAnalytics />} />
                 <Route path="settings" element={<AdminSettings />} />
                 <Route path="services" element={<AdminServices />} />
