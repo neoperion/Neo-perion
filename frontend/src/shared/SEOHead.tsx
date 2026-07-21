@@ -19,7 +19,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   schema,
 }) => {
   const fullTitle = `${title} | Neo Perion Solutions`;
-  const domain = 'https://neoperion.com';
+  const domain = 'https://www.neoperion.com';
   const canonicalUrl = canonical ? `${domain}${canonical}` : undefined;
 
   return (

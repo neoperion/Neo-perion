@@ -1,205 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://neoperion.com/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/about</loc>
+    <loc>https://www.neoperion.com/company/about</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/founder-letter</loc>
+    <loc>https://www.neoperion.com/company/founder-letter</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/services</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/ai-systems-automation</loc>
+    <loc>https://www.neoperion.com/services/ai-systems-automation</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/deep-ai-engineering</loc>
+    <loc>https://www.neoperion.com/services/deep-ai-engineering</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/enterprise-product-engineering</loc>
+    <loc>https://www.neoperion.com/services/enterprise-product-engineering</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/cloud-native-web-platforms</loc>
+    <loc>https://www.neoperion.com/services/cloud-native-web-platforms</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/mobile-product-engineering</loc>
+    <loc>https://www.neoperion.com/services/mobile-product-engineering</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/intelligent-operations-automation</loc>
+    <loc>https://www.neoperion.com/services/intelligent-operations-automation</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/services/startup-to-scale-engineering</loc>
+    <loc>https://www.neoperion.com/services/startup-to-scale-engineering</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/industries</loc>
+    <loc>https://www.neoperion.com/industries</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/industries/education</loc>
+    <loc>https://www.neoperion.com/industries/education</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/industries/startups</loc>
+    <loc>https://www.neoperion.com/industries/startups</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/industries/smbs</loc>
+    <loc>https://www.neoperion.com/industries/smbs</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/industries/healthcare</loc>
+    <loc>https://www.neoperion.com/industries/healthcare</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/technologies</loc>
+    <loc>https://www.neoperion.com/technologies</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/portfolio</loc>
+    <loc>https://www.neoperion.com/portfolio</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/case-studies</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/company/case-studies</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/blog</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/company/blog</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/careers</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/company/careers</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/contact</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://www.neoperion.com/contact</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/success-stories</loc>
+    <loc>https://www.neoperion.com/company/success-stories</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/testimonials</loc>
+    <loc>https://www.neoperion.com/company/testimonials</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/insights</loc>
+    <loc>https://www.neoperion.com/company/insights</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/privacy</loc>
+    <loc>https://www.neoperion.com/privacy</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/terms</loc>
+    <loc>https://www.neoperion.com/terms</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/security</loc>
+    <loc>https://www.neoperion.com/security</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/case-studies/ai-healthcare-rpa</loc>
+    <loc>https://www.neoperion.com/company/case-studies/ai-healthcare-rpa</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/case-studies/edtech-saas-platform</loc>
+    <loc>https://www.neoperion.com/company/case-studies/edtech-saas-platform</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/case-studies/intelligent-inventory-system</loc>
+    <loc>https://www.neoperion.com/company/case-studies/intelligent-inventory-system</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/blog/how-much-does-custom-web-platform-cost-india</loc>
+    <loc>https://www.neoperion.com/company/blog/how-much-does-custom-web-platform-cost-india</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/blog/ai-chatbot-for-business-rag-explained</loc>
+    <loc>https://www.neoperion.com/company/blog/ai-chatbot-for-business-rag-explained</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neoperion.com/company/blog/freelancer-vs-agency-vs-inhouse-mvp</loc>
+    <loc>https://www.neoperion.com/company/blog/freelancer-vs-agency-vs-inhouse-mvp</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

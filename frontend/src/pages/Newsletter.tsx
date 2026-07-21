@@ -34,7 +34,7 @@ export default function Newsletter() {
       "name": "Neo Perion Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://neoperion.com/images/np-logo.png"
+        "url": "https://www.neoperion.com/images/np-logo.png"
       }
     }
   };
@@ -45,7 +45,7 @@ export default function Newsletter() {
         <SEO 
           title="NP Insights Newsletter | AI & SaaS Engineering | Neo Perion"
           description="Join founders and CTOs who read our weekly deep-dives into AI agent architecture, Postgres scaling, and SaaS product engineering."
-          url="https://neoperion.com/company/newsletter"
+          url="https://www.neoperion.com/company/newsletter"
           jsonLd={newsletterSchema}
         />
 

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -59,6 +60,19 @@ const COLUMNS = [
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let script = document.querySelector('script[src="https://widget.clutch.co/static/js/widget.js"]') as HTMLScriptElement;
+    if (!script) {
+      script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://widget.clutch.co/static/js/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    } else if ((window as any).CLUTCHCO) {
+      (window as any).CLUTCHCO.Init();
+    }
+  }, []);
 
   return (
     <footer className="relative overflow-hidden border-t border-hairline bg-gradient-to-b from-canvas to-[#0A0A0B] text-muted2">
@@ -126,6 +140,20 @@ export const Footer = () => {
                   )}
                 </a>
               ))}
+            </div>
+
+            {/* Clutch Widget */}
+            <div className="pt-4">
+              <div 
+                className="clutch-widget" 
+                data-url="https://widget.clutch.co" 
+                data-widget-type="7" 
+                data-height="65" 
+                data-nofollow="false" 
+                data-expandifr="true" 
+                data-scale="100" 
+                data-clutchcompany-id="2691323"
+              ></div>
             </div>
           </div>
 

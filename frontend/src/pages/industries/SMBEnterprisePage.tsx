@@ -122,7 +122,7 @@ export function SMBEnterprisePage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Neo Perion Solutions",
-      "image": "https://neoperion.com/images/np-logo.png",
+      "image": "https://www.neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -143,7 +143,7 @@ export function SMBEnterprisePage() {
         <SEO
           title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | Neo Perion"
           description={industry.heroSubtext}
-          url="https://neoperion.com/industries/smbs"
+          url="https://www.neoperion.com/industries/smbs"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />

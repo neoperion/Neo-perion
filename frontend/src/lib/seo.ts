@@ -7,7 +7,7 @@ export interface SEOData {
   schema?: Record<string, unknown>;
 }
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://neoperion.com';
+export const SITE_URL = (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://www.neoperion.com';
 
 export function buildCanonical(path: string): string {
   const trimmed = path.startsWith('/') ? path : `/${path}`;

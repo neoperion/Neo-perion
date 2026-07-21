@@ -6,10 +6,6 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/sitemap.xml",
-      "destination": "https://api.neoperion.com/sitemap.xml"
-    },
-    {
       "source": "/((?!zohoverify).*)",
       "destination": "/index.html"
     }

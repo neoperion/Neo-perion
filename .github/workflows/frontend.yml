@@ -39,3 +39,14 @@ jobs:
       
     - name: Build
       run: npm run build
+
+    - name: Static SEO guard (Phase 7)
+      run: npm run seo:check
+
+    - name: Lighthouse baseline (informational)
+      uses: treosh/lighthouse-ci-action@v12
+      continue-on-error: true
+      with:
+        configPath: ./frontend/lighthouserc.cjs
+        uploadArtifacts: true
+        temporaryPublicStorage: true

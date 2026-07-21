@@ -8,12 +8,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    proxy: {
-      '/sitemap.xml': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      }
-    }
   },
   plugins: [
     react(),
