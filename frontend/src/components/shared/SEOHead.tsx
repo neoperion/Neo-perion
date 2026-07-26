@@ -19,7 +19,7 @@ export const SEOHead: React.FC<SEOProps> = ({
   schema
 }) => {
   const siteUrl = 'https://www.neoperion.com';
-  const fullTitle = `${title} | Neo Perion Solutions`;
+  const fullTitle = `${title} | AINCURU Solutions`;
 
   return (
     <Helmet>

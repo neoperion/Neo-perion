@@ -67,7 +67,7 @@ export function StartupScalePage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO
-          title={`${service.title} | Neo Perion Solutions`}
+          title={`${service.title} | AINCURU Solutions`}
           description={service.description}
           url={`${SITE_URL}/services/${service.slug}`}
           keywords="fractional CTO, startup CTO, technical due diligence, architecture audit, startup engineering"
@@ -80,7 +80,7 @@ export function StartupScalePage({ service }: Props) {
               "description": service.description,
               "provider": {
                 "@type": "LocalBusiness",
-                "name": "Neo Perion Solutions",
+                "name": "AINCURU Solutions",
                 "image": `${SITE_URL}/images/np-logo.png`,
                 "address": {
                   "@type": "PostalAddress",

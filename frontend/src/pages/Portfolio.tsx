@@ -10,15 +10,15 @@ import { SITE_URL } from '@/lib/seo';
 
 const seo = (
   <Helmet>
-    <title>Portfolio — Platforms & AI Systems We&apos;ve Built | Neo Perion Solutions</title>
-    <meta name="description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
+    <title>Portfolio — Platforms & AI Systems We&apos;ve Built | AINCURU Solutions</title>
+    <meta name="description" content="Selected work by AINCURU Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
     <link rel="canonical" href={`${SITE_URL}/portfolio`} />
     <meta property="og:url" content={`${SITE_URL}/portfolio`} />
-    <meta property="og:title" content="Portfolio — Platforms & AI Systems We've Built | Neo Perion Solutions" />
-    <meta property="og:description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
+    <meta property="og:title" content="Portfolio — Platforms & AI Systems We've Built | AINCURU Solutions" />
+    <meta property="og:description" content="Selected work by AINCURU Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
     <meta name="twitter:url" content={`${SITE_URL}/portfolio`} />
-    <meta name="twitter:title" content="Portfolio — Platforms & AI Systems We've Built | Neo Perion Solutions" />
-    <meta name="twitter:description" content="Selected work by Neo Perion Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
+    <meta name="twitter:title" content="Portfolio — Platforms & AI Systems We've Built | AINCURU Solutions" />
+    <meta name="twitter:description" content="Selected work by AINCURU Solutions: web platforms, AI automations and applications built for real businesses. Screenshots, stacks and outcomes." />
   </Helmet>
 );
 

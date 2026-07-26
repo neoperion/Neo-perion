@@ -17,7 +17,7 @@ interface TestimonialData {
 }
 
 const fallbackTestimonials: TestimonialData[] = [
-  { feedback: "Neo Perion didn't just write code; they transformed our entire product strategy. Their AI expertise is unmatched.", name: "Sarah J.", designation: "CTO", company: "TechCorp", rating: 5 },
+  { feedback: "AINCURU didn't just write code; they transformed our entire product strategy. Their AI expertise is unmatched.", name: "Sarah J.", designation: "CTO", company: "TechCorp", rating: 5 },
   { feedback: "The most reliable engineering partner we've worked with. Period.", name: "Michael T.", designation: "Founder", company: "SaaS Start", rating: 5 },
   { feedback: "Their architecture decisions saved us months of rework when we started scaling rapidly.", name: "Elena R.", designation: "VP Engineering", company: "DataCo", rating: 5 },
 ];
@@ -55,11 +55,11 @@ export default function Testimonials() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Client Testimonials - Neo Perion",
-    "description": "Read reviews and testimonials from CTOs, founders, and product leaders who partner with Neo Perion for AI and SaaS product engineering.",
+    "name": "Client Testimonials - AINCURU",
+    "description": "Read reviews and testimonials from CTOs, founders, and product leaders who partner with AINCURU for AI and SaaS product engineering.",
     "publisher": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.neoperion.com/images/np-logo.png"
@@ -94,8 +94,8 @@ export default function Testimonials() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
         <SEO 
-          title="Client Testimonials & Feedback | Neo Perion"
-          description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with Neo Perion for AI and SaaS product engineering."
+          title="Client Testimonials & Feedback | AINCURU"
+          description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with AINCURU for AI and SaaS product engineering."
           url="https://www.neoperion.com/company/testimonials"
           jsonLd={seoSchema}
         />
@@ -188,7 +188,7 @@ export default function Testimonials() {
             <section className="text-center px-6 mb-12">
                <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Testimonials</p>
                <h1 className="text-display-lg text-white tracking-tight mb-4">Client Voice.</h1>
-               <p className="text-base text-white/70">What our clients say about working with Neo Perion.</p>
+               <p className="text-base text-white/70">What our clients say about working with AINCURU.</p>
             </section>
             
             {loading ? (

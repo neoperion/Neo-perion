@@ -22,7 +22,7 @@ Historically, software engineering relied entirely on deterministic logic. With 
 
 When building AI-first SaaS, you must design for high latency and massive compute costs. Using vector databases, semantic caching, and asynchronous edge functions is critical.
 
-> "The software architecture of the 2020s is defined by how efficiently you can manage and retrieve vector embeddings." — Neo Perion Engineering
+> "The software architecture of the 2020s is defined by how efficiently you can manage and retrieve vector embeddings." — AINCURU Engineering
 
 ### Conclusion
 
@@ -35,7 +35,7 @@ The enterprises that win the next decade will be those that seamlessly integrate
     read_time: 5,
     featured: true,
     published: true,
-    seo_title: 'Future of AI in Enterprise SaaS | Neo Perion',
+    seo_title: 'Future of AI in Enterprise SaaS | AINCURU',
     seo_description: 'Discover how AI is reshaping scalable enterprise SaaS architecture.',
     created_at: new Date('2026-06-01T10:00:00Z').toISOString(),
     updated_at: new Date('2026-06-01T10:00:00Z').toISOString()
@@ -139,7 +139,7 @@ Beyond simple automation, AI can pre-process patient intake forms and flag high-
     read_time: 6,
     featured: false,
     published: true,
-    seo_title: 'Automating Healthcare Workflows | Neo Perion',
+    seo_title: 'Automating Healthcare Workflows | AINCURU',
     seo_description: 'Reduce administrative overhead in healthcare using RPA and AI.',
     created_at: new Date('2026-06-12T11:45:00Z').toISOString(),
     updated_at: new Date('2026-06-12T11:45:00Z').toISOString()
@@ -152,13 +152,13 @@ Beyond simple automation, AI can pre-process patient intake forms and flag high-
     excerpt: 'Production-grade custom web platforms from Indian engineering companies run scope-dependent over a 3-6 month engagement. Here is what actually drives cost, why two quotes for the same spec can differ by 5x, and how to get a real number for your project.',
     content: `## Answer first
 
-A production-grade custom web platform built by a software and AI company like Neo Perion Solutions in Chennai, India typically runs as a scope-dependent engagement over 3 to 6 months. The work is delivered under a written agreement (NDA, then MSA, then a fixed SOW), and IP transfers to the client on final payment. Cost varies with the product surface, integrations, and regulatory environment (HIPAA-aware healthcare is materially more expensive than an internal SMB dashboard), not with hourly rate alone.
+A production-grade custom web platform built by a software and AI company like AINCURU Solutions in Chennai, India typically runs as a scope-dependent engagement over 3 to 6 months. The work is delivered under a written agreement (NDA, then MSA, then a fixed SOW), and IP transfers to the client on final payment. Cost varies with the product surface, integrations, and regulatory environment (HIPAA-aware healthcare is materially more expensive than an internal SMB dashboard), not with hourly rate alone.
 
 If you are an Indian founder building an investor-ready product, a US-headquartered team hiring an offshore partner, or an SMB replacing spreadsheets, the rest of this article walks you through what actually drives the number and how to scope it cleanly.
 
 ## What custom web platform actually means
 
-Custom web platform is a wide term. At Neo Perion Solutions it covers five distinct shapes:
+Custom web platform is a wide term. At AINCURU Solutions it covers five distinct shapes:
 
 - Internal SMB tooling — dashboards, workflow tools, custom CRM/ERP. Lower stakes, shorter build.
 - Investor-ready MVP for a startup — investor-grade code, observability, deployment pipeline, security review.
@@ -181,7 +181,7 @@ What does NOT move cost much: hourly rate (within a 2x band), UI polish (Tailwin
 
 ## Timeline
 
-Three standard cadences at Neo Perion Solutions:
+Three standard cadences at AINCURU Solutions:
 
 - 6 to 10 week pilot. One bounded slice. Validates architecture and engagement model. Fixed-price pilot SOW.
 - 3 to 6 month full build. Weekly demos, written change orders, UAT at the end.
@@ -201,24 +201,24 @@ IP transfers on final payment. Source code lives in the client git from day one.
 
 ## How to get a real number
 
-Step one is a 30 to 60 minute discovery call. No slides. You walk Neo Perion Solutions through the problem, the users, the systems, and what done looks like in 6 months. We come back with a written pilot SOW in a few days.
+Step one is a 30 to 60 minute discovery call. No slides. You walk AINCURU Solutions through the problem, the users, the systems, and what done looks like in 6 months. We come back with a written pilot SOW in a few days.
 
 If you are an India-based team: start with /contact.
 
-If you are a US-based team: /for-us-clients — same Neo Perion Solutions engineering team, NDA-first US-friendly contracting, USD invoicing, daily overlap with US Eastern Time.
+If you are a US-based team: /for-us-clients — same AINCURU Solutions engineering team, NDA-first US-friendly contracting, USD invoicing, daily overlap with US Eastern Time.
 
-## About Neo Perion Solutions
+## About AINCURU Solutions
 
-Neo Perion Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build production-grade custom web platforms, AI automation, and mobile apps for startups and SMEs in India and the United States. We are not affiliated with Perion Network Ltd.`,
+AINCURU Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build production-grade custom web platforms, AI automation, and mobile apps for startups and SMEs in India and the United States. We are not affiliated with Perion Network Ltd.`,
     cover_image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000&auto=format&fit=crop',
-    author: 'Neo Perion Solutions',
+    author: 'AINCURU Solutions',
     category: 'Engineering',
-    tags: ['custom web platform cost', 'web development India', 'software pricing', 'AI web app cost', 'neo perion', 'neoperion', 'engineering company India'],
+    tags: ['custom web platform cost', 'web development India', 'software pricing', 'AI web app cost', 'AINCURU', 'AINCURU', 'engineering company India'],
     read_time: 7,
     featured: false,
     published: true,
-    seo_title: 'How Much Does a Custom Web Platform Cost in India? | Neo Perion',
-    seo_description: 'Production-grade custom web platforms from Neo Perion Solutions run scope-dependent over a 3-6 month engagement. Learn what drives cost, the timeline options, and how to scope cleanly.',
+    seo_title: 'How Much Does a Custom Web Platform Cost in India? | AINCURU',
+    seo_description: 'Production-grade custom web platforms from AINCURU Solutions run scope-dependent over a 3-6 month engagement. Learn what drives cost, the timeline options, and how to scope cleanly.',
     created_at: new Date('2026-07-20T10:00:00Z').toISOString(),
     updated_at: new Date('2026-07-20T10:00:00Z').toISOString()
   },
@@ -229,9 +229,9 @@ Neo Perion Solutions is an independent software and AI company in Chennai, Tamil
     excerpt: 'A production-grade AI chatbot for a business is a retrieval-augmented system (RAG) that grounds a large language model in your own documents and APIs. Here is what it is, what it is not, and what a serious build actually looks like.',
     content: `## Answer first
 
-A production-grade AI chatbot for a business — the kind that answers real questions from real documents without hallucinating — is a retrieval-augmented system (RAG) that grounds a large language model in your own data and APIs. Built by a software and AI company like Neo Perion Solutions in Chennai, India, a single-knowledge-base pilot typically ships in 4 to 10 weeks; a multi-source deployment with channel integrations runs 3 to 6 months under a written agreement. IP transfers to the client on final payment.
+A production-grade AI chatbot for a business — the kind that answers real questions from real documents without hallucinating — is a retrieval-augmented system (RAG) that grounds a large language model in your own data and APIs. Built by a software and AI company like AINCURU Solutions in Chennai, India, a single-knowledge-base pilot typically ships in 4 to 10 weeks; a multi-source deployment with channel integrations runs 3 to 6 months under a written agreement. IP transfers to the client on final payment.
 
-If you are evaluating whether an AI chatbot is the right move for your support, internal knowledge, or sales engineering workflows, this article is the answer-first version of how Neo Perion Solutions scopes and builds them.
+If you are evaluating whether an AI chatbot is the right move for your support, internal knowledge, or sales engineering workflows, this article is the answer-first version of how AINCURU Solutions scopes and builds them.
 
 ## What a RAG chatbot is and what it is not
 
@@ -243,7 +243,7 @@ The whole system is grounded in your data. When the LLM does not know, the retri
 
 A serious build needs three things from the client side: a knowledge base (PDFs, internal wikis, product docs, runbooks), API access to your internal systems, and a subject-matter expert for review cycles. The domain knowledge has to come from you.
 
-## What Neo Perion Solutions builds
+## What AINCURU Solutions builds
 
 Retrieval index. Prompt orchestration. Evaluation harness. Channel integration to web widget, Slack, Microsoft Teams, WhatsApp Business API, or your mobile app. Monitoring dashboard and operational handover.
 
@@ -257,18 +257,18 @@ If you are evaluating a RAG chatbot for your business: book a 30-minute discover
 
 Start at /contact. If you are US-based, /for-us-clients is the right entry point.
 
-## About Neo Perion Solutions
+## About AINCURU Solutions
 
-Neo Perion Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build production-grade AI chatbots, RAG systems, AI automation, web platforms and mobile apps for startups and SMEs in India and the United States. Not affiliated with Perion Network Ltd.`,
+AINCURU Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build production-grade AI chatbots, RAG systems, AI automation, web platforms and mobile apps for startups and SMEs in India and the United States. Not affiliated with Perion Network Ltd.`,
     cover_image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop',
-    author: 'Neo Perion Solutions',
+    author: 'AINCURU Solutions',
     category: 'AI',
-    tags: ['AI chatbot', 'RAG', 'retrieval augmented generation', 'custom AI', 'business chatbot', 'neo perion', 'neoperion AI'],
+    tags: ['AI chatbot', 'RAG', 'retrieval augmented generation', 'custom AI', 'business chatbot', 'AINCURU', 'AINCURU AI'],
     read_time: 8,
     featured: false,
     published: true,
-    seo_title: 'AI Chatbot for Your Business: RAG Explained | Neo Perion',
-    seo_description: 'How Neo Perion Solutions builds production-grade RAG chatbots for businesses: retrieval index, prompt orchestration, evaluation harness, and channel integrations. 4-10 week pilot, 3-6 month full build.',
+    seo_title: 'AI Chatbot for Your Business: RAG Explained | AINCURU',
+    seo_description: 'How AINCURU Solutions builds production-grade RAG chatbots for businesses: retrieval index, prompt orchestration, evaluation harness, and channel integrations. 4-10 week pilot, 3-6 month full build.',
     created_at: new Date('2026-07-20T10:30:00Z').toISOString(),
     updated_at: new Date('2026-07-20T10:30:00Z').toISOString()
   },
@@ -279,7 +279,7 @@ Neo Perion Solutions is an independent software and AI company in Chennai, Tamil
     excerpt: 'For a startup investor-ready MVP, the choice between freelancer, agency, and in-house is not about hourly rate. It is about what you need at the demo, the time-to-first-deploy, and the quality of the code that survives due diligence.',
     content: `## Answer first
 
-For a startup investor-ready MVP, three paths exist: hire a freelancer (cheapest up front, single point of failure), build in-house (slowest to ramp, highest fixed cost), or partner with a software and AI company like Neo Perion Solutions in Chennai, India (mid-cost, fastest to a Series-A-ready demo, 6 to 10 week core MVP scope). The right answer depends on what you need at the demo, not what you can afford per hour. Neo Perion Solutions operates as the agency path with a fractional CTO option — NDA first, written MSA + SOW, weekly demos, IP transfers on final payment.
+For a startup investor-ready MVP, three paths exist: hire a freelancer (cheapest up front, single point of failure), build in-house (slowest to ramp, highest fixed cost), or partner with a software and AI company like AINCURU Solutions in Chennai, India (mid-cost, fastest to a Series-A-ready demo, 6 to 10 week core MVP scope). The right answer depends on what you need at the demo, not what you can afford per hour. AINCURU Solutions operates as the agency path with a fractional CTO option — NDA first, written MSA + SOW, weekly demos, IP transfers on final payment.
 
 ## The freelancer math
 
@@ -293,7 +293,7 @@ Partnering with a software and AI company is the mid-cost path with the most pro
 
 What you risk: higher up-front cost. You are paying for the team, process, and institutional knowledge.
 
-The Neo Perion Solutions version: a 6 to 10 week core MVP scope for an investor-ready demo, weekly demos, NDA-first engagement, MSA + SOW, IP transfers on final payment, source code in your git from day one, deployments in your cloud account. Optional fractional CTO engagement after the MVP ships.
+The AINCURU Solutions version: a 6 to 10 week core MVP scope for an investor-ready demo, weekly demos, NDA-first engagement, MSA + SOW, IP transfers on final payment, source code in your git from day one, deployments in your cloud account. Optional fractional CTO engagement after the MVP ships.
 
 ## The in-house math
 
@@ -311,7 +311,7 @@ A freelancer usually ships the first. An agency ships all six. In-house ships al
 
 ## The hybrid path
 
-A common pattern Neo Perion Solutions sees with startups in India and the US: 6 to 10 week MVP with Neo Perion Solutions as the agency partner, fractional CTO engagement for the next 6 months, then help hire and onboard the first three in-house engineers. This path gives you the speed of an agency, the institutional knowledge of a fractional CTO, and the long-term leverage of an in-house team.
+A common pattern AINCURU Solutions sees with startups in India and the US: 6 to 10 week MVP with AINCURU Solutions as the agency partner, fractional CTO engagement for the next 6 months, then help hire and onboard the first three in-house engineers. This path gives you the speed of an agency, the institutional knowledge of a fractional CTO, and the long-term leverage of an in-house team.
 
 ## How to start
 
@@ -319,18 +319,18 @@ If you are a founder evaluating the three paths: book a 30-minute discovery call
 
 If you are pre-seed and need an MVP in 6 to 10 weeks: /contact. If you are a US-based founder hiring offshore: /for-us-clients — NDA-friendly US contracting, USD invoicing, daily overlap with US Eastern Time.
 
-## About Neo Perion Solutions
+## About AINCURU Solutions
 
-Neo Perion Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build investor-ready MVPs, fractional CTO engagements, AI automation, and web platforms for startups and SMEs in India and the United States. Not affiliated with Perion Network Ltd.`,
+AINCURU Solutions is an independent software and AI company in Chennai, Tamil Nadu, India. We build investor-ready MVPs, fractional CTO engagements, AI automation, and web platforms for startups and SMEs in India and the United States. Not affiliated with Perion Network Ltd.`,
     cover_image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2000&auto=format&fit=crop',
-    author: 'Neo Perion Solutions',
+    author: 'AINCURU Solutions',
     category: 'Startups',
-    tags: ['startup MVP', 'freelancer vs agency', 'in-house vs agency', 'MVP development', 'neo perion', 'fractional CTO', 'neoperion'],
+    tags: ['startup MVP', 'freelancer vs agency', 'in-house vs agency', 'MVP development', 'AINCURU', 'fractional CTO', 'AINCURU'],
     read_time: 8,
     featured: false,
     published: true,
-    seo_title: 'Freelancer vs Agency vs In-House for Startup MVPs | Neo Perion',
-    seo_description: 'How Neo Perion Solutions compares to freelancer and in-house paths for a startup investor-ready MVP: 6-10 week core MVP scope, written MSA, IP transfer, fractional CTO option.',
+    seo_title: 'Freelancer vs Agency vs In-House for Startup MVPs | AINCURU',
+    seo_description: 'How AINCURU Solutions compares to freelancer and in-house paths for a startup investor-ready MVP: 6-10 week core MVP scope, written MSA, IP transfer, fractional CTO option.',
     created_at: new Date('2026-07-20T11:00:00Z').toISOString(),
     updated_at: new Date('2026-07-20T11:00:00Z').toISOString()
   },

@@ -12,11 +12,11 @@ export default function Careers() {
   const careersSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "Careers at Neo Perion",
+    "name": "Careers at AINCURU",
     "description": "Join our team of elite engineers, designers, and AI architects building next-generation SaaS and AI applications.",
     "publisher": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.neoperion.com/images/np-logo.png"
@@ -28,7 +28,7 @@ export default function Careers() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
         <SEO
-          title="Careers — Join Neo Perion Solutions | Chennai"
+          title="Careers — Join AINCURU Solutions | Chennai"
           description="Join our team of senior engineers, designers and AI architects building production-grade software and AI systems for startups and SMEs."
           url={`${SITE_URL}/company/careers`}
           jsonLd={careersSchema}
@@ -51,7 +51,7 @@ export default function Careers() {
           <div className="px-mobile-base pt-8">
             <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Careers</p>
             <h1 className="text-display-lg text-white tracking-tight">Build the future.</h1>
-            <p className="text-base text-white/70 mt-3 mb-6">Join Neo Perion and build the future of intelligent software.</p>
+            <p className="text-base text-white/70 mt-3 mb-6">Join AINCURU and build the future of intelligent software.</p>
           </div>
           <BenefitsGrid theme="dark" />
           <JobListings theme="dark" />

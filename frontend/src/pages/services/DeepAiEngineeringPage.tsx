@@ -69,7 +69,7 @@ export function DeepAiEngineeringPage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO 
-          title={`${service.title} - Custom AI Models & AI Agents | Neo Perion Solutions`}
+          title={`${service.title} - Custom AI Models & AI Agents | AINCURU Solutions`}
           description={service.description}
           keywords="Deep AI Engineering, Custom Fine-Tuned Models, Multi-Agent Orchestration, Enterprise AI Development, AI Consulting, Custom LLMs, Autonomous AI Agents"
           jsonLd={[
@@ -81,7 +81,7 @@ export function DeepAiEngineeringPage({ service }: Props) {
               "description": service.description,
               "provider": {
                 "@type": "LocalBusiness",
-                "name": "Neo Perion Solutions",
+                "name": "AINCURU Solutions",
                 "image": "https://www.neoperion.com/images/np-logo.png",
                 "address": {
                   "@type": "PostalAddress",

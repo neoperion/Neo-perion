@@ -56,7 +56,7 @@ export const CaseStudyDetail: React.FC = () => {
     "publisher": {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": `${SITE_URL}/images/np-logo.png`
@@ -192,7 +192,7 @@ export const CaseStudyDetail: React.FC = () => {
   return (
     <>
       <SEO 
-        title={`${caseStudy.seo_title || caseStudy.title} | Neo Perion Work`}
+        title={`${caseStudy.seo_title || caseStudy.title} | AINCURU Work`}
         description={caseStudy.seo_description}
         url={postUrl}
         ogImage={caseStudy.cover_image}

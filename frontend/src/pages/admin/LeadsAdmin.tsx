@@ -83,7 +83,7 @@ const LeadsAdmin = () => {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Leads Management | Admin | Neo Perion</title>
+        <title>Leads Management | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">

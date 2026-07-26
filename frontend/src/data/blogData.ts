@@ -40,8 +40,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "ai-traffic-violation-detection",
         title: "AI-Based Traffic Violation Detection System Using Computer Vision",
-        metaTitle: "AI Traffic Violation Detection System for Smart Cities | Neo Perion",
-        metaDescription: "Discover how Neo Perion built an AI-powered traffic violation detection system using computer vision and YOLO to automate urban monitoring and improve road safety.",
+        metaTitle: "AI Traffic Violation Detection System for Smart Cities | AINCURU",
+        metaDescription: "Discover how AINCURU built an AI-powered traffic violation detection system using computer vision and YOLO to automate urban monitoring and improve road safety.",
         primaryKeyword: "AI Traffic Violation Detection",
         secondaryKeywords: ["Computer Vision Traffic Monitoring", "YOLO Traffic Detection", "Smart City AI"],
         category: "AI Smart Systems",
@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 heading: "Conclusion",
-                content: "AI transforms traffic enforcement from reactive to proactive. By replacing manual observation with intelligent computer vision, cities can enforce traffic laws consistently, fairly, and at scale. The technology exists today — what's needed is the engineering discipline to deploy it reliably. That's what Neo Perion delivers."
+                content: "AI transforms traffic enforcement from reactive to proactive. By replacing manual observation with intelligent computer vision, cities can enforce traffic laws consistently, fairly, and at scale. The technology exists today — what's needed is the engineering discipline to deploy it reliably. That's what AINCURU delivers."
             }
         ],
         faqs: [
@@ -96,8 +96,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "reinforcement-learning-traffic-control",
         title: "Adaptive Traffic Signal Optimization Using Reinforcement Learning",
-        metaTitle: "Reinforcement Learning for Adaptive Traffic Signal Optimization | Neo Perion",
-        metaDescription: "Explore how Neo Perion built a reinforcement learning-based adaptive traffic control system using DQN and graph neural networks for dynamic congestion management.",
+        metaTitle: "Reinforcement Learning for Adaptive Traffic Signal Optimization | AINCURU",
+        metaDescription: "Explore how AINCURU built a reinforcement learning-based adaptive traffic control system using DQN and graph neural networks for dynamic congestion management.",
         primaryKeyword: "Reinforcement Learning Traffic Control",
         secondaryKeywords: ["AI Signal Optimization", "Smart Traffic AI System", "Dynamic Signal Optimization"],
         category: "AI Smart Systems",
@@ -151,8 +151,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "ai-solar-panel-monitoring",
         title: "AI-Based Solar Panel Efficiency Monitoring and Degradation Prediction",
-        metaTitle: "AI-Based Solar Panel Degradation Monitoring System | Neo Perion",
-        metaDescription: "Learn how Neo Perion developed an AI-driven solar panel efficiency monitoring system using IoT sensors and machine learning to predict degradation patterns.",
+        metaTitle: "AI-Based Solar Panel Degradation Monitoring System | AINCURU",
+        metaDescription: "Learn how AINCURU developed an AI-driven solar panel efficiency monitoring system using IoT sensors and machine learning to predict degradation patterns.",
         primaryKeyword: "AI Solar Panel Monitoring",
         secondaryKeywords: ["Predictive Maintenance Solar", "IoT Solar Monitoring", "Gradient Boosting Solar Analysis"],
         category: "Smart Infrastructure",
@@ -203,8 +203,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "user-behavior-analytics-system",
         title: "Polystore User Behavior Analytics and Bundle Recommendation System",
-        metaTitle: "Polystore Behavior Analytics & AI Bundle Recommendation | Neo Perion",
-        metaDescription: "Discover how Neo Perion built a multi-source user behavior analytics framework for intelligent bundle recommendations using hierarchical modeling techniques.",
+        metaTitle: "Polystore Behavior Analytics & AI Bundle Recommendation | AINCURU",
+        metaDescription: "Discover how AINCURU built a multi-source user behavior analytics framework for intelligent bundle recommendations using hierarchical modeling techniques.",
         primaryKeyword: "User Behavior Analytics System",
         secondaryKeywords: ["Bundle Recommendation Engine", "Multi-Source Data Modeling", "AI Personalization"],
         category: "Data & Analytics",
@@ -259,8 +259,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "web-performance-analytics",
         title: "WebAnalyzer: Turning Websites into Measurable Growth Systems",
-        metaTitle: "WebAnalyzer – AI Website Performance & Conversion Tracking | Neo Perion",
-        metaDescription: "Learn how Neo Perion's WebAnalyzer system integrates GA4 and custom event tracking to transform static websites into data-driven growth engines.",
+        metaTitle: "WebAnalyzer – AI Website Performance & Conversion Tracking | AINCURU",
+        metaDescription: "Learn how AINCURU's WebAnalyzer system integrates GA4 and custom event tracking to transform static websites into data-driven growth engines.",
         primaryKeyword: "Website Performance Analytics",
         secondaryKeywords: ["GA4 Event Tracking", "Conversion Funnel Optimization", "Web Intelligence System"],
         category: "Data & Analytics",
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
             }
         ],
         faqs: [
-            { question: "What is WebAnalyzer?", answer: "WebAnalyzer is Neo Perion's website performance measurement system. It integrates GA4, custom event tracking, and behavioral analytics to provide comprehensive visibility into how users interact with your website." },
+            { question: "What is WebAnalyzer?", answer: "WebAnalyzer is AINCURU's website performance measurement system. It integrates GA4, custom event tracking, and behavioral analytics to provide comprehensive visibility into how users interact with your website." },
             { question: "How is this different from standard Google Analytics?", answer: "Standard GA4 tracks pageviews and basic events. WebAnalyzer adds custom micro-interaction tracking, scroll depth analysis, element visibility tracking, and conversion funnel instrumentation tailored to your specific business goals." },
             { question: "How long does implementation take?", answer: "Basic WebAnalyzer setup takes 1-2 weeks. Comprehensive implementations with custom dashboards, funnel mapping, and A/B testing infrastructure typically take 3-4 weeks." },
             { question: "Do we need to redesign our website?", answer: "No. WebAnalyzer works with any existing website. The analytics layer is added on top of your current site without requiring design or structural changes." },
@@ -303,7 +303,7 @@ export const blogPosts: BlogPost[] = [
         ],
         internalLinks: [
             { label: "Polystore Analytics", href: "/company/blog/user-behavior-analytics-system" },
-            { label: "Neo Perion Journey", href: "/company/blog/digital-engineering-company" },
+            { label: "AINCURU Journey", href: "/company/blog/digital-engineering-company" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
@@ -311,8 +311,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "ai-career-guidance-system",
         title: "AI Career Guidance System Using Personalized Path Modeling",
-        metaTitle: "AI Career Guidance System with Personalized Path Modeling | Neo Perion",
-        metaDescription: "Discover how Neo Perion built an AI career guidance system that uses personalized path modeling, skill gap analysis, and chatbot integration to help students make data-driven career decisions.",
+        metaTitle: "AI Career Guidance System with Personalized Path Modeling | AINCURU",
+        metaDescription: "Discover how AINCURU built an AI career guidance system that uses personalized path modeling, skill gap analysis, and chatbot integration to help students make data-driven career decisions.",
         primaryKeyword: "AI Career Guidance System",
         secondaryKeywords: ["Personalized Career Recommendation", "AI Career Mapping", "Skill Gap Analysis", "AI Chatbot Career Advisor"],
         category: "AI Smart Systems",
@@ -367,8 +367,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "ai-medical-image-analysis",
         title: "AI-Powered Medical Image Analysis Backend for Scalable Diagnostics",
-        metaTitle: "AI-Powered Medical Image Analysis Backend | Neo Perion",
-        metaDescription: "Learn how Neo Perion developed a scalable AI medical image analysis backend using deep learning models to assist diagnostic workflows and improve healthcare efficiency.",
+        metaTitle: "AI-Powered Medical Image Analysis Backend | AINCURU",
+        metaDescription: "Learn how AINCURU developed a scalable AI medical image analysis backend using deep learning models to assist diagnostic workflows and improve healthcare efficiency.",
         primaryKeyword: "AI Medical Image Analysis",
         secondaryKeywords: ["Deep Learning Healthcare", "CNN Medical Imaging", "AI Diagnostic System", "Medical AI Backend"],
         category: "AI Smart Systems",
@@ -423,8 +423,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "environmental-monitoring-ai",
         title: "Environmental & Infrastructure Monitoring Using AI and IoT Sensor Fusion",
-        metaTitle: "AI Environmental & Infrastructure Monitoring System | Neo Perion",
-        metaDescription: "Explore how Neo Perion built an AI-powered environmental monitoring system combining U-Net segmentation and IoT sensor fusion to assess urban infrastructure health.",
+        metaTitle: "AI Environmental & Infrastructure Monitoring System | AINCURU",
+        metaDescription: "Explore how AINCURU built an AI-powered environmental monitoring system combining U-Net segmentation and IoT sensor fusion to assess urban infrastructure health.",
         primaryKeyword: "AI Environmental Monitoring System",
         secondaryKeywords: ["Infrastructure Monitoring AI", "U-Net Segmentation", "IoT Sensor Fusion", "Urban Analytics System"],
         category: "Smart Infrastructure",
@@ -475,8 +475,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "donation-management-platform",
         title: "Transparent Donation Management Platform Using Digital Tracking Systems",
-        metaTitle: "Transparent Donation Management Platform with Real-Time Tracking | Neo Perion",
-        metaDescription: "Discover how Neo Perion developed a transparent donation management platform that connects donors and NGOs with real-time tracking and verification systems.",
+        metaTitle: "Transparent Donation Management Platform with Real-Time Tracking | AINCURU",
+        metaDescription: "Discover how AINCURU developed a transparent donation management platform that connects donors and NGOs with real-time tracking and verification systems.",
         primaryKeyword: "Donation Management Platform",
         secondaryKeywords: ["Transparent NGO Platform", "Donation Tracking System", "Real-Time Donation Monitoring"],
         category: "Digital Engineering",
@@ -519,24 +519,24 @@ export const blogPosts: BlogPost[] = [
         ],
         internalLinks: [
             { label: "WebAnalyzer – Website Intelligence", href: "/company/blog/web-performance-analytics" },
-            { label: "Neo Perion Journey", href: "/company/blog/digital-engineering-company" },
+            { label: "AINCURU Journey", href: "/company/blog/digital-engineering-company" },
             { label: "Our Services", href: "/services" },
             { label: "Contact Us", href: "/#contact" }
         ]
     },
     {
         slug: "digital-engineering-company",
-        title: "The Neo Perion Digital Engineering Journey – From First Website to AI Infrastructure Systems",
-        metaTitle: "Neo Perion – AI & Digital Engineering Company Building Scalable Systems",
-        metaDescription: "Learn how Neo Perion evolved from building websites to engineering AI-powered digital infrastructure systems across smart cities, healthcare, and analytics.",
+        title: "The AINCURU Digital Engineering Journey – From First Website to AI Infrastructure Systems",
+        metaTitle: "AINCURU – AI & Digital Engineering Company Building Scalable Systems",
+        metaDescription: "Learn how AINCURU evolved from building websites to engineering AI-powered digital infrastructure systems across smart cities, healthcare, and analytics.",
         primaryKeyword: "Digital Engineering Company",
         secondaryKeywords: ["AI Development Company", "Smart Systems Engineering", "Scalable Digital Infrastructure"],
         category: "Digital Engineering",
         pillar: "Digital Engineering",
         date: "2026-01-05",
         readTime: "6 min read",
-        image: "/images/blog/. Neo Perion Digital Engineering Journey.png",
-        imageAlt: "Interactive timeline illustrating Neo Perion's growth from web development to AI infrastructure engineering",
+        image: "/images/blog/. AINCURU Digital Engineering Journey.png",
+        imageAlt: "Interactive timeline illustrating AINCURU's growth from web development to AI infrastructure engineering",
         introduction: "Every engineering company starts somewhere... (truncated for brevity)",
         sections: [
             {
@@ -548,8 +548,8 @@ export const blogPosts: BlogPost[] = [
                 content: "We do not build decorative websites. We engineer Scalable Digital Infrastructure. This means every project — whether a business website or an AI traffic system — follows the same principles: clean architecture, measurable outcomes, and production-ready code. As an AI Development Company, we bring engineering discipline to every layer of the stack."
             },
             {
-                heading: "What Makes Neo Perion Different",
-                content: "Many companies specialize in either web development OR AI. Neo Perion bridges both worlds. Our web development experience gives us deep understanding of user experience and business requirements. Our AI expertise brings intelligent automation and data-driven decision-making. The combination produces systems that are both user-friendly and technically sophisticated — Smart Systems Engineering at its best."
+                heading: "What Makes AINCURU Different",
+                content: "Many companies specialize in either web development OR AI. AINCURU bridges both worlds. Our web development experience gives us deep understanding of user experience and business requirements. Our AI expertise brings intelligent automation and data-driven decision-making. The combination produces systems that are both user-friendly and technically sophisticated — Smart Systems Engineering at its best."
             },
             {
                 heading: "Future Direction",
@@ -561,11 +561,11 @@ export const blogPosts: BlogPost[] = [
             }
         ],
         faqs: [
-            { question: "What services does Neo Perion offer?", answer: "We offer UI/UX design, custom SaaS development, web & app modernization, data analytics, mobile app development, AI & automation, and digital marketing. Each service leverages our engineering-first approach." },
-            { question: "Is Neo Perion an AI company or a web development company?", answer: "Both. We started in web development and expanded into AI and data engineering. This dual expertise means we build AI systems that are production-ready and user-friendly — not just research prototypes." },
-            { question: "What industries does Neo Perion serve?", answer: "We work across smart city infrastructure, healthcare, e-commerce, education, renewable energy, and social impact. Our technology solutions adapt to domain-specific requirements." },
-            { question: "How does Neo Perion approach new projects?", answer: "Every project starts with thorough requirements analysis and architecture design. We build incrementally, delivering working software in 2-week sprints with continuous client feedback." },
-            { question: "Where is Neo Perion based?", answer: "Neo Perion is based in India with remote collaboration capabilities for global clients. We combine local market understanding with global engineering standards." }
+            { question: "What services does AINCURU offer?", answer: "We offer UI/UX design, custom SaaS development, web & app modernization, data analytics, mobile app development, AI & automation, and digital marketing. Each service leverages our engineering-first approach." },
+            { question: "Is AINCURU an AI company or a web development company?", answer: "Both. We started in web development and expanded into AI and data engineering. This dual expertise means we build AI systems that are production-ready and user-friendly — not just research prototypes." },
+            { question: "What industries does AINCURU serve?", answer: "We work across smart city infrastructure, healthcare, e-commerce, education, renewable energy, and social impact. Our technology solutions adapt to domain-specific requirements." },
+            { question: "How does AINCURU approach new projects?", answer: "Every project starts with thorough requirements analysis and architecture design. We build incrementally, delivering working software in 2-week sprints with continuous client feedback." },
+            { question: "Where is AINCURU based?", answer: "AINCURU is based in India with remote collaboration capabilities for global clients. We combine local market understanding with global engineering standards." }
         ],
         internalLinks: [
             { label: "AI Traffic Violation Detection", href: "/company/blog/ai-traffic-violation-detection" },

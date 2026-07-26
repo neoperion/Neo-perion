@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
       "Inquiry management was handled entirely through phone calls.",
       "Competitors with functional websites were capturing search traffic.",
     ],
-    solution: "Neoperion designed and built a performance-optimized corporate website with a clean, professional visual identity. A structured inquiry form was implemented to capture lead details. Built with on-page SEO fundamentals from the ground up targeting local search queries.",
+    solution: "AINCURU designed and built a performance-optimized corporate website with a clean, professional visual identity. A structured inquiry form was implemented to capture lead details. Built with on-page SEO fundamentals from the ground up targeting local search queries.",
     features: [
       { title: "Professional homepage with trust signals" },
       { title: "Dedicated service pages" },

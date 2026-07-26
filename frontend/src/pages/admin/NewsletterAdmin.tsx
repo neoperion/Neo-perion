@@ -47,7 +47,7 @@ export default function NewsletterAdmin() {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Newsletter Subscribers | Admin | Neo Perion</title>
+        <title>Newsletter Subscribers | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex justify-between items-center mb-8">

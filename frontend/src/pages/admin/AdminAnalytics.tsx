@@ -34,7 +34,7 @@ export default function AdminAnalytics() {
 
   return (
     <div className="animate-in fade-in duration-500">
-      <Helmet><title>Analytics | Admin | Neo Perion</title></Helmet>
+      <Helmet><title>Analytics | Admin | AINCURU</title></Helmet>
       <h1 className="text-3xl font-bold text-white mb-2">Analytics</h1>
       <p className="text-slate-400 mb-8">Site metrics and content performance.</p>
 

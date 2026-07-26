@@ -45,7 +45,7 @@ const bentoCards: BentoCard[] = [
 ];
 
 const testimonials: Testimonial[] = [
-  { id: '1', name: 'Rajesh Kannan', designation: 'CEO', company: 'EdTech Startup', feedback: 'Neo Perion transformed our product vision into reality. Their AI-first architecture understanding is exceptional.', rating: 5 },
+  { id: '1', name: 'Rajesh Kannan', designation: 'CEO', company: 'EdTech Startup', feedback: 'AINCURU transformed our product vision into reality. Their AI-first architecture understanding is exceptional.', rating: 5 },
   { id: '2', name: 'Priya Sharma', designation: 'CTO', company: 'Healthcare Platform', feedback: 'Deep expertise in AI and scalable systems. Platform handles 10x initial scale with compliance built in.', rating: 5 },
   { id: '3', name: 'Arun Venkatesh', designation: 'Founder', company: 'SaaS Company', feedback: 'Speed and quality exceeded expectations. They are product thinkers who care about outcomes.', rating: 5 },
 ];

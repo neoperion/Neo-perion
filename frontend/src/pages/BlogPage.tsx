@@ -71,12 +71,12 @@ export const BlogPage: React.FC = () => {
   const blogListSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Neo Perion Blog & Insights",
-    "description": "Thoughts, guides and industry insights from the Neo Perion engineering team on AI, Product Development, and SaaS.",
+    "name": "AINCURU Blog & Insights",
+    "description": "Thoughts, guides and industry insights from the AINCURU engineering team on AI, Product Development, and SaaS.",
     "publisher": {
       "@type": "Organization",
       "@id": "https://www.neoperion.com/#organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.neoperion.com/images/np-logo.png"
@@ -88,8 +88,8 @@ export const BlogPage: React.FC = () => {
     <MobileGate mobileOnly fallback={
       <div className="min-h-screen bg-canvas font-sans text-ink selection:bg-brand/20">
         <SEO
-          title="Blog — AI, Software & Building in Public | Neo Perion Solutions"
-          description="Practical writing from the Neo Perion team: how we build AI systems, what works in production, and honest lessons for startups and SMEs."
+          title="Blog — AI, Software & Building in Public | AINCURU Solutions"
+          description="Practical writing from the AINCURU team: how we build AI systems, what works in production, and honest lessons for startups and SMEs."
           url={`${SITE_URL}/company/blog`}
           jsonLd={[
             blogListSchema,

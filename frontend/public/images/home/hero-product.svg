@@ -5,7 +5,7 @@
   <rect x="0" y="0" width="206" height="750" fill="#FCFCFD"/>
   <line x1="206" y1="0" x2="206" y2="750" stroke="#E4E4E7" stroke-width="1.5"/>
   <rect x="26" y="28" width="20" height="20" rx="6" fill="#1E5DFF"/>
-  <text x="56" y="44" fill="#0A0A0B" font-size="15" font-weight="700">Neo Perion</text>
+  <text x="56" y="44" fill="#0A0A0B" font-size="15" font-weight="700">AINCURU</text>
   <rect x="18" y="98" width="170" height="40" rx="9" fill="#F2F6FF"/>
   <circle cx="40" cy="118" r="4" fill="#1E5DFF"/><text x="56" y="123" fill="#1E5DFF" font-size="13.5" font-weight="600">Overview</text>
   <circle cx="40" cy="168" r="4" fill="#A1A1AA"/><text x="56" y="173" fill="#71717A" font-size="13.5" font-weight="500">Analytics</text>

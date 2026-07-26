@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SOCIALS = [
   { img: "/images/instagram.png", href: "https://www.instagram.com/neoperion",                          label: "Instagram" },
-  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/neo-perion-solutions",       label: "LinkedIn"  },
+  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/neoperion-solutions",       label: "LinkedIn"  },
   { img: "/images/facebook.png",  href: "https://www.facebook.com/neoperion",                           label: "Facebook"  },
   { img: null,                    href: "https://wa.me/917339125472",                                    label: "WhatsApp"  },
 ];
@@ -39,11 +39,11 @@ const COLUMNS = [
   {
     heading: "Profiles",
     links: [
-      { label: "LinkedIn", to: "https://www.linkedin.com/company/neo-perion-solutions", external: true },
-      { label: "Clutch", to: "https://www.clutch.co/profile/neo-perion-solutions", external: true },
-      { label: "GoodFirms", to: "https://www.goodfirms.co/company/neo-perion-solutions", external: true },
-      { label: "GitHub", to: "https://github.com/neo-perion", external: true },
-      { label: "Crunchbase", to: "https://www.crunchbase.com/organization/neo-perion-solutions", external: true },
+      { label: "LinkedIn", to: "https://www.linkedin.com/company/neoperion-solutions", external: true },
+      { label: "Clutch", to: "https://www.clutch.co/profile/neoperion-solutions", external: true },
+      { label: "GoodFirms", to: "https://www.goodfirms.co/company/neoperion-solutions", external: true },
+      { label: "GitHub", to: "https://github.com/neoperion", external: true },
+      { label: "Crunchbase", to: "https://www.crunchbase.com/organization/neoperion-solutions", external: true },
     ],
   },
   {
@@ -99,18 +99,16 @@ export const Footer = () => {
         {/* Giant faded brand wordmark — top of footer */}
         <div aria-hidden className="pointer-events-none mb-14 select-none overflow-hidden">
           <div className="whitespace-nowrap text-center font-logo text-[clamp(20px,7vw,80px)] leading-none">
-            <span className="text-brand/[0.12]">NEO</span>{" "}
-            <span className="text-ink/[0.05]">PERION</span>
+            <span className="text-brand/[0.12]">AI</span><span className="text-ink/[0.05]">NCURU</span>
           </div>
         </div>
 
         {/* Links */}
         <div className="mb-14 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="space-y-6 lg:col-span-2">
-            {/* Logo — icon + text image */}
+            {/* Logo */}
             <div className="flex items-center gap-3">
-              <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
-              <img src="/images/neo-perion-text.png" alt="Neo Perion" className="h-5 w-auto object-contain" />
+              <img src="/images/np-logo.png" alt="AINCURU" className="h-10 w-auto object-contain" />
             </div>
 
             <p className="max-w-xs text-sm leading-relaxed text-muted2">
@@ -191,7 +189,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 text-sm text-muted2 md:flex-row">
-          <p>© {currentYear} Neo Perion · Chennai, Tamil Nadu, India</p>
+          <p>© {currentYear} AINCURU · Chennai, Tamil Nadu, India</p>
           <div className="flex items-center gap-6">
             <button
               onClick={(e) => {

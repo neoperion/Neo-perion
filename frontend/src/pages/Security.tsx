@@ -10,11 +10,11 @@ export default function Security() {
   const securitySchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Security & Compliance - Neo Perion",
-    "description": "Enterprise-grade data protection, encryption, infrastructure security, and access control standards at Neo Perion.",
+    "name": "Security & Compliance - AINCURU",
+    "description": "Enterprise-grade data protection, encryption, infrastructure security, and access control standards at AINCURU.",
     "publisher": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.neoperion.com/images/np-logo.png"
@@ -49,8 +49,8 @@ export default function Security() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-canvas text-ink selection:bg-brand/20">
         <SEO 
-          title="Security & Compliance | Enterprise Data Protection | Neo Perion" 
-          description="Security is the foundation of everything we build. Explore Neo Perion's SOC 2 compliance, encryption at rest/transit, row-level isolation, and access controls." 
+          title="Security & Compliance | Enterprise Data Protection | AINCURU" 
+          description="Security is the foundation of everything we build. Explore AINCURU's SOC 2 compliance, encryption at rest/transit, row-level isolation, and access controls." 
           url="https://www.neoperion.com/security"
           jsonLd={securitySchema}
         />

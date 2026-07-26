@@ -56,15 +56,15 @@ export default function AboutPage() {
       "@type": "WebPage",
       "@id": `${SITE_URL}/company/about`
     },
-    "name": "About Neo Perion Solutions",
-    "description": "Meet the founders and team behind Neo Perion Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
+    "name": "About AINCURU Solutions",
+    "description": "Meet the founders and team behind AINCURU Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
   };
 
   return (
     <>
       <SEO
-        title="About Neo Perion Solutions — AI & Software Company, Chennai"
-        description="Meet the founders and team behind Neo Perion Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
+        title="About AINCURU Solutions — AI & Software Company, Chennai"
+        description="Meet the founders and team behind AINCURU Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
         url={`${SITE_URL}/company/about`}
         jsonLd={jsonLd}
       />

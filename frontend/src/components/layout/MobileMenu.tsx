@@ -22,7 +22,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         >
           <div className="flex items-center justify-between p-6 border-b border-white/10">
             <span className="text-xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-neo-blue to-neo-highlight">
-              Neo Perion
+              AINCURU
             </span>
             <button onClick={onClose} className="text-slate-300 p-2">
               <X className="h-6 w-6" />

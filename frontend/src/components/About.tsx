@@ -31,11 +31,11 @@ export const About = () => {
           <div className="space-y-6">
             <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70">About</p>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
-              About <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span>
+              About <span className="text-primary">AI</span><span style={{ color: '#E5E7EB' }}>NCURU</span>
             </h2>
             <div className="space-y-4 text-[15px] text-muted-foreground/70 leading-relaxed">
               <p>
-                <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> was founded to help teams leverage SaaS and automation without
+                <span className="text-primary">AI</span><span style={{ color: '#E5E7EB' }}>NCURU</span> was founded to help teams leverage SaaS and automation without
                 the confusion that often comes with rapid tech adoption.
               </p>
               <p>

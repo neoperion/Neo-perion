@@ -21,7 +21,7 @@ export default function Privacy() {
               <section className="space-y-3">
                 <h2 className="text-xl font-bold text-ink">Who we are</h2>
                 <p>
-                  Neo Perion (&quot;we&quot;, &quot;us&quot;) is a product-engineering firm based in
+                  AINCURU (&quot;we&quot;, &quot;us&quot;) is a product-engineering firm based in
                   Chennai, India. This policy explains what information we collect when you use our
                   website and how we handle it.
                 </p>

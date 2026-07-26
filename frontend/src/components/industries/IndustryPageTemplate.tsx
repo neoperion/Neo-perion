@@ -60,7 +60,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
   return (
     <div className="bg-neutral-900 text-white min-h-[auto]">
       <SEO
-        title={`${industry.title} Solutions | Neo Perion`}
+        title={`${industry.title} Solutions | AINCURU`}
         description={industry.heroSubtext}
       />
       <Header />
@@ -205,7 +205,7 @@ export const IndustryPageTemplate: React.FC<IndustryPageTemplateProps> = ({ indu
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">The Neo Perion Advantage</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">The AINCURU Advantage</h2>
             <p className="text-lg text-neutral-400">What sets us apart in the {industry.title.toLowerCase()} space.</p>
           </div>
 

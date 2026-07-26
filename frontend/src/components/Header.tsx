@@ -52,7 +52,7 @@ const NAV: NavItem[] = [
   {
     kind: "dropdown",
     label: "About",
-    panelTitle: "About Neo Perion",
+    panelTitle: "About AINCURU",
     description:
       "Who we are, the work we've shipped, and how we keep partnering with teams long after launch.",
     viewAll: { label: "About us", href: "/company/about" },
@@ -146,11 +146,7 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
             }}
             className="flex shrink-0 cursor-pointer items-center gap-3"
           >
-            <img src="/images/np-logo.png" alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="font-logo text-[14px] leading-none">
-              <span className={light ? "text-white" : "text-ink"}>NEO</span>{" "}
-              <span className="text-brand">PERION</span>
-            </span>
+            <img src="/images/np-logo.png" alt="AINCURU" className="h-14 w-auto object-contain" />
           </a>
 
           {/* Centered nav */}

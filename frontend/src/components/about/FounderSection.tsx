@@ -6,9 +6,9 @@ import TiltedCard from '@/components/TiltedCard';
 export function FounderSection() {
   const navigate = useNavigate();
   // LinkedIn: company URL is verified (audit Phase 1 aligned it to
-  // /company/neo-perion-solutions). Per-founder personal LinkedIn URLs are not
+  // /company/AINCURU-solutions). Per-founder personal LinkedIn URLs are not
   // in the repo — we link to the company page rather than invent URLs.
-  const companyLinkedIn = 'https://www.linkedin.com/company/neo-perion-solutions';
+  const companyLinkedIn = 'https://www.linkedin.com/company/neoperion-solutions';
 
   return (
     <section className="px-6 lg:px-12 py-24 bg-[#0A0A0B] border-b border-[#27272A]/60">
@@ -61,9 +61,9 @@ export function FounderSection() {
 
         {/* Disambiguation — required for entity separation from Perion Network Ltd.
             Required by SEOandGEO Phase 2.5: helps Google and AI models distinguish
-            "Neo Perion Solutions" from "Perion Network" in Knowledge Graph results. */}
+            "AINCURU Solutions" from "Perion Network" in Knowledge Graph results. */}
         <p className="mx-auto mb-24 max-w-3xl rounded-lg border border-[#27272A]/60 bg-[#0F0F11] p-5 text-[14px] leading-relaxed text-white/70">
-          <strong className="text-white">Note:</strong> Neo Perion Solutions is an
+          <strong className="text-white">Note:</strong> AINCURU Solutions is an
           independent software company based in Tamil Nadu, India, and is not
           affiliated with Perion Network Ltd.
         </p>
@@ -76,7 +76,7 @@ export function FounderSection() {
           <div className="flex-1 text-center md:text-left">
             <h3 className="font-editorial text-3xl md:text-4xl text-white leading-snug mb-8 relative">
               <span className="text-neo-blue text-6xl absolute -top-4 -left-6 opacity-30 select-none">"</span>
-              We built Neo Perion because every great product deserves a partner who thinks in systems, not just features.
+              We built AINCURU because every great product deserves a partner who thinks in systems, not just features.
             </h3>
             <button
               onClick={() => navigate('/company/founder-letter')}

@@ -8,7 +8,7 @@ export default function AdminServices() {
 
   return (
     <div className="animate-in fade-in duration-500">
-      <Helmet><title>Services | Admin | Neo Perion</title></Helmet>
+      <Helmet><title>Services | Admin | AINCURU</title></Helmet>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Services</h1>
         <p className="text-slate-400">Overview of all service pages.</p>

@@ -18,7 +18,7 @@ export function ServiceAboutStats({ service }: { service: ServiceData }) {
             />
             <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
               <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.25em] text-brand">
-                {band.eyebrow ?? "Why Neo Perion"}
+                {band.eyebrow ?? "Why AINCURU"}
               </p>
               <h2 className="max-w-xl font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-tight tracking-tight text-white">
                 {band.headline}

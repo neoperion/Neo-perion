@@ -17,7 +17,7 @@ export default function Technologies() {
 
   return (
     <div className="min-h-[auto] bg-[#02040A] text-white selection:bg-neo-blue/30">
-      <Helmet><title>Technologies | Neo Perion</title></Helmet>
+      <Helmet><title>Technologies | AINCURU</title></Helmet>
       <Header />
       <main className="pt-32 pb-24">
         <section className="text-center px-8 mb-20 max-w-4xl mx-auto">

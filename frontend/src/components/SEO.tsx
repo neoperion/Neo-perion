@@ -11,9 +11,9 @@ interface SEOProps {
   jsonLd?: object | object[];
 }
 
-const DEFAULT_TITLE = 'Neo Perion Solutions | AI Automation, Web & App Development';
+const DEFAULT_TITLE = 'AINCURU Solutions | AI Automation, Web & App Development';
 const DEFAULT_DESCRIPTION =
-  'Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster.';
+  'AINCURU Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster.';
 
 export const SEO = ({
   title = DEFAULT_TITLE,
@@ -25,8 +25,8 @@ export const SEO = ({
   jsonLd
 }: SEOProps) => {
 
-  const siteName = "Neo Perion Solutions";
-  const fullTitle = title.includes("Neo Perion") ? title : `${title} | ${siteName}`;
+  const siteName = "AINCURU Solutions";
+  const fullTitle = title.includes("AINCURU") ? title : `${title} | ${siteName}`;
 
   // Handle both array of schemas and single schema
   const jsonLdString = jsonLd

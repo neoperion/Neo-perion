@@ -32,7 +32,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({ theme = 'dark' }) => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-5 max-w-xl text-[17px] leading-relaxed text-body"
           >
-            Deep-dives, field notes, and guides from the Neo Perion engineering team — what we're
+            Deep-dives, field notes, and guides from the AINCURU engineering team — what we're
             building, and what we've learned shipping it to production.
           </motion.p>
         </div>
@@ -45,7 +45,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({ theme = 'dark' }) => {
     <div className="relative overflow-hidden bg-[#050816] pb-16 pt-36 text-center">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-slate-900 to-transparent" />
       <div className="container relative z-10 mx-auto px-4">
-        <p className="mb-4 text-sm font-bold uppercase tracking-widest text-neo-blue">NEO PERION BLOG</p>
+        <p className="mb-4 text-sm font-bold uppercase tracking-widest text-neo-blue">AINCURU BLOG</p>
         <h1 className="mb-6 font-display text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
           Insights, AI & <br className="hidden md:block" />
           <span className="bg-gradient-to-r from-neo-blue to-orange-500 bg-clip-text text-transparent">
@@ -53,7 +53,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({ theme = 'dark' }) => {
           </span>
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-slate-400 md:text-xl">
-          Thoughts, guides, and industry insights from the Neo Perion engineering team.
+          Thoughts, guides, and industry insights from the AINCURU engineering team.
         </p>
       </div>
     </div>

@@ -8,7 +8,7 @@ export default function Insights() {
   return (
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#02040A] text-white selection:bg-neo-blue/30">
-        <Helmet><title>Insights | Neo Perion</title></Helmet>
+        <Helmet><title>Insights | AINCURU</title></Helmet>
         <Header />
         <main className="pt-32 pb-24 flex items-center justify-center min-h-[70vh]">
           <div className="text-center px-8">

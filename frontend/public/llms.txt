@@ -1,20 +1,19 @@
-# Neo Perion Solutions
+# AINCURU Solutions
 
-> Neo Perion Solutions is a founder-led software and AI company based in
+> AINCURU Solutions is a founder-led software and AI company based in
 > Chennai, Tamil Nadu, India. We design, build, and ship production-grade
 > AI automation, web platforms, and mobile applications for startups and
 > SMEs in India and the United States.
 
-> Neo Perion Solutions is an independent software company and is not
+> AINCURU Solutions is an independent software company and is not
 > affiliated with Perion Network Ltd.
 
-> Also known as: Neo Perion, Neoperion, NEO PERION, NEOPERION,
-> Neo Perion Solutions, NEOPERION AI, Perion Solutions.
+> Also known as: AINCURU, AINCURU Solutions, AINCURU AI, Perion Solutions.
 
 ## Key pages
 - [Home](https://neoperion.com/): AI automation, web and app development company
 - [About](https://neoperion.com/company/about): founders, team, principles, location
-- [Founder's Letter](https://neoperion.com/company/founder-letter): why we built Neo Perion
+- [Founder's Letter](https://neoperion.com/company/founder-letter): why we built AINCURU
 - [Services](https://neoperion.com/services): five core capabilities from one team
 - [Case Studies](https://neoperion.com/company/case-studies): delivered projects with outcomes
 - [Portfolio](https://neoperion.com/portfolio): platforms and AI systems we have built
@@ -53,4 +52,4 @@
 - Not affiliated with Perion Network Ltd.
 - Not a "leading SaaS company" — we are a services company that ships production software for clients.
 - Not a freelancer marketplace — every engagement is founder-led and senior-engineer staffed.
-- Often searched as: "Neo Perion", "Neoperion", "Neoperion AI", "Perion Solutions", "Neo Perion Solutions", "Neo Perion AI" — all point to this same company.
+- Often searched as: "AINCURU", "AINCURU AI", "Perion Solutions", "AINCURU Solutions" — all point to this same company.

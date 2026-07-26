@@ -19,7 +19,7 @@ const FOUNDERS = [
       "Clients hire us for senior judgment, not headcount. Every call is made by someone who has shipped before.",
   },
   {
-    name: "Neo Perion",
+    name: "AINCURU",
     title: "Founding Engineer",
     photo: "/images/founder.jpg",
     quote:

@@ -24,7 +24,7 @@ export async function sendEmail(input: SendEmailInput): Promise<ResendResponse> 
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: input.from ?? 'Neo Perion Solutions <noreply@neoperion.com>',
+      from: input.from ?? 'AINCURU Solutions <noreply@neoperion.com>',
       to: Array.isArray(input.to) ? input.to : [input.to],
       subject: input.subject,
       html: input.html,

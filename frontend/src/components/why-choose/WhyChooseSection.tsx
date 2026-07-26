@@ -347,7 +347,7 @@ export function WhyChooseSection() {
 
         {/* ============ LEFT ============ */}
         <div className="np-left">
-          <p className="np-eyebrow">Why Clients Choose Neo Perion</p>
+          <p className="np-eyebrow">Why Clients Choose AINCURU</p>
           <h2 className="np-h2" id="np-dna-title">Engineering DNA<br />That Builds <em>Excellence</em></h2>
           <p className="np-sub">We combine AI, engineering, and automation to deliver scalable products that drive real business growth.</p>
 
@@ -376,7 +376,7 @@ export function WhyChooseSection() {
           <div className="np-core" aria-hidden="true">
             <span className="np-core__disc">
               <span className="np-core__hex">
-                <img src="/images/np-logo.png" alt="Neo Perion Logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+                <img src="/images/np-logo.png" alt="AINCURU Logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
               </span>
             </span>
           </div>

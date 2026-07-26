@@ -17,7 +17,7 @@ export interface BentoMobileProps {
   cards: BentoCard[];
 }
 
-export function BentoMobile({ eyebrow = 'Why Neo Perion', title = 'Built different.', subtitle = 'A scroll through our principles.', cards }: BentoMobileProps) {
+export function BentoMobile({ eyebrow = 'Why AINCURU', title = 'Built different.', subtitle = 'A scroll through our principles.', cards }: BentoMobileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (

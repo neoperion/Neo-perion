@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/marketing/SectionHeading";
 // PLACEHOLDER testimonials — replace with real client quotes, names & companies.
 const FEATURED = {
   quote:
-    "Neo Perion didn't just build the platform — they owned the outcome. Six months post-launch they're still the team we call first.",
+    "AINCURU didn't just build the platform — they owned the outcome. Six months post-launch they're still the team we call first.",
   name: "Anand Krishnan",
   title: "VP Engineering",
   company: "MediCare Health Network",
@@ -17,7 +17,7 @@ const QUOTES = [
   { quote: "Senior engineers from day one. No hand-holding, no offshoring surprises — just clean, production-grade delivery.", name: "Daniel Okafor", title: "Founder", company: "RetailIQ" },
   { quote: "They cut our infra costs while doubling throughput. The kind of engineering that pays for itself.", name: "Sarah Chen", title: "Head of Product", company: "FinFlow" },
   { quote: "Onboarding that used to take weeks now takes a day — they rebuilt it properly, end to end.", name: "Marcus Lee", title: "COO", company: "Shiply" },
-  { quote: "We've worked with three agencies. Neo Perion is the only one we renewed — twice.", name: "Aisha Khan", title: "VP Product", company: "Lumen" },
+  { quote: "We've worked with three agencies. AINCURU is the only one we renewed — twice.", name: "Aisha Khan", title: "VP Product", company: "Lumen" },
   { quote: "Clear scope, fixed price, shipped on time. Refreshingly boring in exactly the right way.", name: "Tom Becker", title: "CEO", company: "Northwind" },
 ];
 

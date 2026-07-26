@@ -23,11 +23,7 @@ export function MobileShell({ nav = 'bottom', showFooter = true, children, bgCla
       {showHeader && (
         <header className="fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5 pt-safe-or-4 pb-3 bg-[rgba(10,10,11,0.82)] backdrop-blur-md border-b border-white/[0.06]">
           <a href="/" className="flex items-center gap-2.5">
-            <img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" />
-            <span className="font-logo text-[11px] leading-none">
-              <span className="text-white">NEO</span>{' '}
-              <span className="text-[#F77E0D]">PERION</span>
-            </span>
+            <img src="/images/np-logo.png" alt="AINCURU" className="h-7 w-auto object-contain" />
           </a>
           <button
             type="button"

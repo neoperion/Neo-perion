@@ -103,7 +103,7 @@ export function CloudWebPlatformPage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO
-          title={`${service.title} | Neo Perion Solutions`}
+          title={`${service.title} | AINCURU Solutions`}
           description={service.description}
           url={`${SITE_URL}/services/${service.slug}`}
           keywords="cloud-native web platforms, React development, Next.js, TypeScript, web application development, SEO-friendly web apps"
@@ -116,7 +116,7 @@ export function CloudWebPlatformPage({ service }: Props) {
               "description": service.description,
               "provider": {
                 "@type": "LocalBusiness",
-                "name": "Neo Perion Solutions",
+                "name": "AINCURU Solutions",
                 "image": `${SITE_URL}/images/np-logo.png`,
                 "address": {
                   "@type": "PostalAddress",

@@ -17,8 +17,8 @@ import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
 const Index = () => (
   <div className="min-h-screen bg-canvas text-ink selection:bg-brand/20">
     <SEO
-      title="Neo Perion Solutions | AI Automation, Web & App Development"
-      description="Neo Perion Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster."
+      title="AINCURU Solutions | AI Automation, Web & App Development"
+      description="AINCURU Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster."
       keywords="AI automation company, custom web application development, mobile app development, data analytics, AI engineering, India software company"
       url={`${SITE_URL}/`}
     />

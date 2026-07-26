@@ -11,7 +11,7 @@ import { SITE_URL, buildFAQSchema } from "@/lib/seo";
 
 const servicesFaqs: FAQItem[] = [
   {
-    question: 'What services does Neo Perion Solutions offer?',
+    question: 'What services does AINCURU Solutions offer?',
     answer:
       'We design, build, and ship production-grade software across seven capabilities: AI Systems & Automation, Deep AI Engineering, Enterprise Product Engineering, Cloud-Native Web Platforms, Mobile Product Engineering, Intelligent Operations Automation, and Startup-to-Scale Engineering. Each is delivered by senior engineers — no offshoring, no juniors hidden behind account managers.',
   },
@@ -94,7 +94,7 @@ export default function ServicesPage() {
   const desktop = (
     <div className="bg-[#0A0A0B] text-white min-h-[auto] flex flex-col">
       <SEO
-        title="AI Automation & Software Development Services | Neo Perion Solutions"
+        title="AI Automation & Software Development Services | AINCURU Solutions"
         description="AI automation, custom web platforms, mobile apps and data analytics — scoped, priced and delivered production-grade. Five core capabilities from one founder-led team."
         url={`${SITE_URL}/services`}
         keywords="AI automation services, custom web application development, mobile app development, data analytics, AI engineering India"
@@ -370,7 +370,7 @@ export default function ServicesPage() {
               </h2>
 
               <p className="mx-auto mb-10 max-w-xl text-[17px] leading-[1.8] text-[#0A0A0B]/70">
-                Most agencies prototype. We production-deploy. Work with Neo Perion's AI-first team and go from idea to live product faster than you thought possible.
+                Most agencies prototype. We production-deploy. Work with AINCURU's AI-first team and go from idea to live product faster than you thought possible.
               </p>
 
               <div className="mb-10 flex flex-wrap justify-center gap-4">
@@ -485,7 +485,7 @@ export default function ServicesPage() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(247,126,13,0.09),transparent_60%)]" />
             <div className="relative z-10">
               <h2 className="mb-3 font-display text-xl font-bold text-white">Ready to build?</h2>
-              <p className="mb-6 text-xs leading-relaxed text-neutral-400">Work with Neo Perion's AI-first engineering team.</p>
+              <p className="mb-6 text-xs leading-relaxed text-neutral-400">Work with AINCURU's AI-first engineering team.</p>
               <div className="flex flex-col gap-3">
                 <button onClick={() => navigate('/contact')}
                   className="w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all">

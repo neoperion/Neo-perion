@@ -14,15 +14,15 @@ export default function Contact() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-screen bg-[#0A0A0B] text-white">
         <Helmet>
-          <title>Contact Neo Perion Solutions | Get a Free AI Consultation</title>
-          <meta name="description" content="Email, phone, WhatsApp and a short form. We reply within one business day. Neo Perion Solutions — Chennai, Tamil Nadu, India." />
+          <title>Contact AINCURU Solutions | Get a Free AI Consultation</title>
+          <meta name="description" content="Email, phone, WhatsApp and a short form. We reply within one business day. AINCURU Solutions — Chennai, Tamil Nadu, India." />
           <link rel="canonical" href={`${SITE_URL}/contact`} />
           <meta property="og:url" content={`${SITE_URL}/contact`} />
-          <meta property="og:title" content="Contact Neo Perion Solutions | Get a Free AI Consultation" />
-          <meta property="og:description" content="Email, phone, WhatsApp and a short form. We reply within one business day. Neo Perion Solutions — Chennai, Tamil Nadu, India." />
+          <meta property="og:title" content="Contact AINCURU Solutions | Get a Free AI Consultation" />
+          <meta property="og:description" content="Email, phone, WhatsApp and a short form. We reply within one business day. AINCURU Solutions — Chennai, Tamil Nadu, India." />
           <meta name="twitter:url" content={`${SITE_URL}/contact`} />
-          <meta name="twitter:title" content="Contact Neo Perion Solutions | Get a Free AI Consultation" />
-          <meta name="twitter:description" content="Email, phone, WhatsApp and a short form. We reply within one business day. Neo Perion Solutions — Chennai, Tamil Nadu, India." />
+          <meta name="twitter:title" content="Contact AINCURU Solutions | Get a Free AI Consultation" />
+          <meta name="twitter:description" content="Email, phone, WhatsApp and a short form. We reply within one business day. AINCURU Solutions — Chennai, Tamil Nadu, India." />
         </Helmet>
         <Header heroDark />
 

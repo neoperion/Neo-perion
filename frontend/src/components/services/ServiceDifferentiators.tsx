@@ -1,14 +1,14 @@
 import type { ServiceData } from "@/data/servicesData";
 import { getIcon } from "./serviceIcons";
 
-/** "Why Neo Perion" trust pillars. Renders nothing without `differentiators`. */
+/** "Why AINCURU" trust pillars. Renders nothing without `differentiators`. */
 export function ServiceDifferentiators({ service }: { service: ServiceData }) {
   if (!service.differentiators || service.differentiators.length === 0) return null;
   return (
     <section className="border-y border-white/[0.08] bg-[#121113] py-20">
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-8">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.25em] text-brand">Why Neo Perion</p>
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.25em] text-brand">Why AINCURU</p>
           <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white">
             Built for production — and for trust
           </h2>

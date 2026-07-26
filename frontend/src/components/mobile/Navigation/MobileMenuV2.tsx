@@ -99,11 +99,7 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             {/* Header */}
             <div className="flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b border-white/[0.06]">
               <button type="button" onClick={() => go('/')} className="flex items-center gap-2.5">
-                <img src="/images/np-logo.png" alt="" className="h-7 w-7 object-contain" />
-                <span className="font-logo text-[11px] leading-none">
-                  <span className="text-white">NEO</span>{' '}
-                  <span className="text-[#F77E0D]">PERION</span>
-                </span>
+                <img src="/images/np-logo.png" alt="AINCURU" className="h-7 w-auto object-contain" />
               </button>
               <button
                 type="button"

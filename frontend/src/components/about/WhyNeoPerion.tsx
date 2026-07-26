@@ -15,7 +15,7 @@ export function WhyNeoPerion() {
     <section className="px-8 lg:px-16 py-24 max-w-6xl mx-auto border-t border-white/5">
       <div className="mb-16 text-center">
         <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Why Us</p>
-        <h2 className="text-4xl lg:text-5xl font-black text-white">The Neo Perion Advantage</h2>
+        <h2 className="text-4xl lg:text-5xl font-black text-white">The AINCURU Advantage</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[200px]">
         {features.map((feat, i) => {

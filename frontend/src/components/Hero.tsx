@@ -59,7 +59,7 @@ export const Hero = () => {
                   exit={{ height: 0, opacity: 0, marginBottom: 0 }}
                   className="overflow-hidden text-[15px] leading-relaxed text-body"
                 >
-                  Neo Perion Solutions is a founder-led software and AI company in Chennai, Tamil
+                  AINCURU Solutions is a founder-led software and AI company in Chennai, Tamil
                   Nadu, India, building production-grade AI automation, custom web platforms, and
                   mobile applications for startups and SMEs in India and the United States. Every
                   engagement starts with a written agreement that names scope, timeline, and IP

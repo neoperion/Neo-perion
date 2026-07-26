@@ -43,7 +43,7 @@ export function MobileFounderSection() {
       >
         <h3 className="font-editorial text-2xl text-white leading-snug mb-6">
           <span className="text-neo-highlight text-4xl mr-1">"</span>
-          We built Neo Perion because every great product deserves a partner who thinks in systems, not just features.
+          We built AINCURU because every great product deserves a partner who thinks in systems, not just features.
         </h3>
         <Link
           to="/company/founder-letter"

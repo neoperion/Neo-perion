@@ -46,7 +46,7 @@ const aiSystemsFaqs: FAQItem[] = [
 export function AiSystemsPage({ service }: Props) {
   const seo = (
     <SEO
-      title={`${service.title} - Custom AI Chatbots & LLM Integration | Neo Perion Solutions`}
+      title={`${service.title} - Custom AI Chatbots & LLM Integration | AINCURU Solutions`}
       description={service.description}
       keywords="AI Chatbot Development, Enterprise Conversational AI, Custom LLM Integration, RAG Architectures, AI Automation Services, Intelligent Agents, Deep AI Engineering"
       jsonLd={[
@@ -58,7 +58,7 @@ export function AiSystemsPage({ service }: Props) {
           description: service.description,
           provider: {
             '@type': 'LocalBusiness',
-            name: 'Neo Perion Solutions',
+            name: 'AINCURU Solutions',
             image: 'https://www.neoperion.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },

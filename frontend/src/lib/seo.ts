@@ -23,7 +23,7 @@ export function buildArticleSchema(opts: { title: string; description: string; s
     image: opts.image ? [opts.image] : undefined,
     datePublished: opts.publishedAt,
     url: `${SITE_URL}/blog/${opts.slug}`,
-    publisher: { '@type': 'Organization', name: 'Neo Perion Solutions' },
+    publisher: { '@type': 'Organization', name: 'AINCURU Solutions' },
   };
 }
 
@@ -49,7 +49,7 @@ export function buildServiceSchema(opts: { name: string; description: string; sl
     '@type': 'Service',
     serviceType: opts.name,
     description: opts.description,
-    provider: { '@type': 'Organization', name: 'Neo Perion Solutions' },
+    provider: { '@type': 'Organization', name: 'AINCURU Solutions' },
     url: `${SITE_URL}/services/${opts.slug}`,
   };
 }
@@ -60,10 +60,10 @@ export function buildWebSiteSchema() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: 'Neo Perion Solutions',
-    alternateName: ['Neo Perion', 'Neoperion', 'Neo Perion Solutions', 'Neoperion AI', 'Perion Solutions'],
+    name: 'AINCURU Solutions',
+    alternateName: ['AINCURU', 'AINCURU Solutions', 'AINCURU AI', 'Perion Solutions'],
     description:
-      'Neo Perion Solutions builds production-grade AI automation, web platforms and mobile apps for startups and SMEs in India and the United States.',
+      'AINCURU Solutions builds production-grade AI automation, web platforms and mobile apps for startups and SMEs in India and the United States.',
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-US',
     potentialAction: {

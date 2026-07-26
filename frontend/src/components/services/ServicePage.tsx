@@ -27,9 +27,9 @@ interface Props {
 export function ServicePage({ service }: Props) {
   const seo = (
     <SEO
-      title={`${service.title} | Neo Perion Solutions`}
+      title={`${service.title} | AINCURU Solutions`}
       description={service.description}
-      keywords={`${service.title}, ${service.technologies?.join(', ') ?? ''}, Neo Perion`}
+      keywords={`${service.title}, ${service.technologies?.join(', ') ?? ''}, AINCURU`}
       jsonLd={[
         {
           '@context': 'https://schema.org',
@@ -39,7 +39,7 @@ export function ServicePage({ service }: Props) {
           description: service.description,
           provider: {
             '@type': 'LocalBusiness',
-            name: 'Neo Perion Solutions',
+            name: 'AINCURU Solutions',
             image: 'https://www.neoperion.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },

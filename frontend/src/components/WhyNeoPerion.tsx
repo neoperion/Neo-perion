@@ -278,7 +278,7 @@ export const WhyNeoPerion = () => {
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden border-b border-hairline">
         <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
           <p className="mb-10 text-[12px] font-semibold uppercase tracking-[0.08em] text-brand">
-            Why Choose Neo Perion
+            Why Choose AINCURU
           </p>
 
           <Stage reason={REASONS[active]} index={active} />

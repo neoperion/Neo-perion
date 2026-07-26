@@ -35,7 +35,7 @@ export default function TechnologyDetail() {
   return (
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#02040A] text-white selection:bg-neo-blue/30">
-        <Helmet><title>{slug} Technology | Neo Perion</title></Helmet>
+        <Helmet><title>{slug} Technology | AINCURU</title></Helmet>
         <Header />
         <main className="pt-32 pb-24">
           {renderContent()}
@@ -44,7 +44,7 @@ export default function TechnologyDetail() {
       </div>
     }>
       <MobileShell nav="bottom" showFooter>
-        <Helmet><title>{slug} Technology | Neo Perion</title></Helmet>
+        <Helmet><title>{slug} Technology | AINCURU</title></Helmet>
         <div className="pt-12 pb-12 px-2">
           {renderContent()}
         </div>

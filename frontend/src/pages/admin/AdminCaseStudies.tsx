@@ -90,7 +90,7 @@ export default function AdminCaseStudies() {
 
   return (
     <div className="animate-in fade-in duration-500">
-      <Helmet><title>Case Studies | Admin | Neo Perion</title></Helmet>
+      <Helmet><title>Case Studies | Admin | AINCURU</title></Helmet>
       <div className="flex justify-between items-center mb-8">
         <div><h1 className="text-3xl font-bold text-white mb-2">Case Studies</h1><p className="text-slate-400">Manage case studies.</p></div>
         <button onClick={handleNew} className="flex items-center gap-2 bg-neo-blue text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-neo-blue/90 transition-colors"><Plus size={18} /> New</button>

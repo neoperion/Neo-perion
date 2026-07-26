@@ -21,7 +21,7 @@ export const EnterpriseCTA: React.FC = () => {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-                From AI agents to enterprise automation, Neo Perion delivers production-grade systems designed for scale.
+                From AI agents to enterprise automation, AINCURU delivers production-grade systems designed for scale.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">

@@ -151,7 +151,7 @@ export default function CareerDetail() {
     "employmentType": getEmploymentTypeForSchema(job.employment_type || job.type || 'Full Time'),
     "hiringOrganization": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "sameAs": "https://www.neoperion.com",
       "logo": {
         "@type": "ImageObject",
@@ -396,7 +396,7 @@ export default function CareerDetail() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
-          title={`${job.title} | Build the Future | Neo Perion`}
+          title={`${job.title} | Build the Future | AINCURU`}
           description={job.description.substring(0, 160)}
           url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
           jsonLd={jobPostingSchema}
@@ -413,7 +413,7 @@ export default function CareerDetail() {
     }>
       <MobileShell nav="bottom" showFooter>
         <SEO 
-          title={`${job.title} | Careers | Neo Perion`}
+          title={`${job.title} | Careers | AINCURU`}
           description={job.description.substring(0, 160)}
           url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
           jsonLd={jobPostingSchema}

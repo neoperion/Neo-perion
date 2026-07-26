@@ -52,8 +52,7 @@ export function ScrollReactiveHeader({ onOrbClick, orbOpen = false, showLogo = t
           <div className="flex-1 flex items-center justify-between px-mobile-base pt-safe-or-4">
             {showLogo && (
               <Link to="/" className="flex items-center gap-2 min-w-0">
-                <img src="/images/np-logo.png" alt="" className={cn('object-contain transition-all', isCompact ? 'h-6 w-6' : 'h-7 w-7')} />
-                <span className={cn('font-bold tracking-tight text-white whitespace-nowrap overflow-hidden transition-all', isCompact ? 'text-[13px] max-w-0 opacity-0' : 'text-[15px] max-w-[140px] opacity-100')}>Neo Perion</span>
+                <img src="/images/np-logo.png" alt="AINCURU" className={cn('object-contain transition-all', isCompact ? 'h-6 w-auto' : 'h-8 w-auto')} />
               </Link>
             )}
             <div className="flex items-center gap-1.5">

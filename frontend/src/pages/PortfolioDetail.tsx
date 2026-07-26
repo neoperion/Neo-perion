@@ -41,7 +41,7 @@ const PortfolioDetail: React.FC = () => {
 
   const seo = (
     <Helmet>
-      <title>{project.title} | Portfolio | Neo Perion Solutions</title>
+      <title>{project.title} | Portfolio | AINCURU Solutions</title>
       <meta name="description" content={project.overview} />
     </Helmet>
   );

@@ -165,14 +165,14 @@ export const servicesData: ServiceData[] = [
     // Pull real, suitable case studies (AI-related) into the carousel.
     caseStudyServiceTypes: ['AI & Automation', 'Machine Learning'],
     testimonials: [
-      { quote: 'Neo Perion took our AI from a flaky demo to a system our team actually trusts every day.', name: 'Rohan Mehta', title: 'Chief Technology Officer', company: 'Finnovate Technologies' },
+      { quote: 'AINCURU took our AI from a flaky demo to a system our team actually trusts every day.', name: 'Rohan Mehta', title: 'Chief Technology Officer', company: 'Finnovate Technologies' },
       { quote: 'They cared about accuracy and security as much as we did — no shortcuts, no black boxes.', name: 'Priya Shankar', title: 'Head of Product', company: 'ZenoAI Labs' },
       { quote: 'We went from concept to a production AI tool faster than we thought possible.', name: 'Arjun Das', title: 'VP Engineering', company: 'Quantus Systems' },
     ],
     // About / credibility band with imagery + stat cards.
     aboutBand: {
       image: '/images/services/ai/team.jpg',
-      eyebrow: 'Why Neo Perion',
+      eyebrow: 'Why AINCURU',
       headline: 'AI specialists who ship production systems',
       body: 'An AI-first software team that builds intelligent products end to end — secure, auditable, and built to last.',
       stats: [
@@ -372,7 +372,7 @@ export const servicesData: ServiceData[] = [
     ],
     caseStudyServiceTypes: ['AI & Automation'],
     testimonials: [
-      { quote: 'We cut our manual reporting time by 80%. The automation Neo Perion built just works — no babysitting needed.', name: 'Deepak Mohan', title: 'Operations Director', company: 'LogixPro' },
+      { quote: 'We cut our manual reporting time by 80%. The automation AINCURU built just works — no babysitting needed.', name: 'Deepak Mohan', title: 'Operations Director', company: 'LogixPro' },
       { quote: 'Our team was skeptical about AI automation. After the first sprint, they were asking for more.', name: 'Sindhu Balakrishnan', title: 'VP Operations', company: 'AutoFlow Systems' },
       { quote: 'The workflow they automated handled our peak season volume without a single failure.', name: 'Nikhil Prakash', title: 'CEO', company: 'StreamlineHQ' },
     ],
@@ -420,9 +420,9 @@ export const servicesData: ServiceData[] = [
     ],
     caseStudyServiceTypes: ['SaaS Development', 'AI & Automation'],
     testimonials: [
-      { quote: 'Having a fractional CTO from Neo Perion gave us the same strategic clarity as a full-time hire at a fraction of the cost.', name: 'Kavya Krishnamurthy', title: 'Co-founder', company: 'SeedLoop' },
+      { quote: 'Having a fractional CTO from AINCURU gave us the same strategic clarity as a full-time hire at a fraction of the cost.', name: 'Kavya Krishnamurthy', title: 'Co-founder', company: 'SeedLoop' },
       { quote: 'Their architecture review caught a critical flaw we would have hit right before Series A. Saved us months of rework.', name: 'Abhijeet Sinha', title: 'Founder & CEO', company: 'NovaSaaS' },
-      { quote: 'Our board had confidence in our technical roadmap for the first time. That came directly from Neo Perion\'s guidance.', name: 'Tarun Pillai', title: 'CEO', company: 'GrowthStack' },
+      { quote: 'Our board had confidence in our technical roadmap for the first time. That came directly from AINCURU\'s guidance.', name: 'Tarun Pillai', title: 'CEO', company: 'GrowthStack' },
     ],
     journey: [
       { icon: 'Search',      title: 'Audit',     description: 'We review your codebase, architecture, team, and roadmap to understand your current state and risks.', benefits: ['Code & architecture review', 'Team & process assessment', 'Technology risk mapping'] },

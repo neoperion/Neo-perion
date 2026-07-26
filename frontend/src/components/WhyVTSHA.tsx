@@ -5,13 +5,13 @@ export const WhyNeoPerion = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="why-neo-perion" className="py-20 md:py-32 bg-[#050816] relative overflow-hidden">
+    <section id="why-AINCURU" className="py-20 md:py-32 bg-[#050816] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-orange-900/10 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Why Neo Perion</p>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Why AINCURU</p>
             <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
               An engineering partner <br /> built for the <span className="text-neo-blue">AI era</span>.
             </h2>

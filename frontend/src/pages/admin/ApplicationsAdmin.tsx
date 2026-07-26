@@ -63,7 +63,7 @@ export default function ApplicationsAdmin() {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Job Applications | Admin | Neo Perion</title>
+        <title>Job Applications | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex justify-between items-center mb-8">

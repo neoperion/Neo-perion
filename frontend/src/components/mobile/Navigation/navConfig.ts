@@ -60,7 +60,7 @@ export const desktopNavSections: DesktopSection[] = [
       },
     ],
     cta: {
-      label: 'BUILD WITH NEO PERION',
+      label: 'BUILD WITH AINCURU',
       title: 'Transform your vision into a scalable digital product powered by AI.',
       buttonText: 'Book Free Consultation',
       href: '/contact',
@@ -124,7 +124,7 @@ export const desktopNavSections: DesktopSection[] = [
     label: 'Company',
     columns: [
       {
-        title: 'ABOUT NEO PERION',
+        title: 'ABOUT AINCURU',
         items: [
           { label: 'About Us', href: '/company/about', icon: Building2 },
           { label: "Founder's Letter", href: '/company/founder-letter', icon: PenTool },
@@ -167,5 +167,5 @@ export const desktopNavSections: DesktopSection[] = [
 
 export const mobileHomeLink: NavLink = {
   label: 'Home', href: '/',
-  description: 'Build with Neo Perion.',
+  description: 'Build with AINCURU.',
 };

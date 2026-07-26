@@ -19,7 +19,7 @@ export function BlogPostCard({ post }: { post: BlogPostCardData }) {
       <div className="p-4">
         <h3 className="text-[16px] font-bold text-white leading-tight line-clamp-2 group-hover:text-neo-highlight transition-colors">{post.title}</h3>
         <p className="text-[12px] text-white/60 mt-1.5 line-clamp-2 leading-relaxed">{post.excerpt}</p>
-        <div className="mt-3 flex items-center justify-between text-[11px] text-white/50"><span>Neo Perion Solutions</span><span>{post.readTime} min read</span></div>
+        <div className="mt-3 flex items-center justify-between text-[11px] text-white/50"><span>AINCURU Solutions</span><span>{post.readTime} min read</span></div>
       </div>
     </Link>
   );

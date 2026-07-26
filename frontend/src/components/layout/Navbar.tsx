@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center gap-2">
             {/* Replace with actual logo */}
             <span className="text-2xl font-display font-bold text-neo-navy hover:text-neo-blue transition-colors duration-300">
-              Neo Perion
+              AINCURU
             </span>
           </Link>
 

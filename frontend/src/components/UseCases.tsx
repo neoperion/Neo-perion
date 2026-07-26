@@ -35,7 +35,7 @@ export const UseCases = () => {
           </h2>
           <p className="text-muted-foreground/70 text-[15px] leading-relaxed">
             Whether you're launching your first product or scaling an established business,{" "}
-            <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> adapts to your needs
+            <span className="text-primary">AI</span><span style={{ color: '#E5E7EB' }}>NCURU</span> adapts to your needs
           </p>
         </div>
 

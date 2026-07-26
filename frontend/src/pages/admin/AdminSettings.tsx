@@ -7,7 +7,7 @@ export default function AdminSettings() {
 
   return (
     <div className="animate-in fade-in duration-500 max-w-3xl">
-      <Helmet><title>Settings | Admin | Neo Perion</title></Helmet>
+      <Helmet><title>Settings | Admin | AINCURU</title></Helmet>
       <h1 className="text-3xl font-bold text-white mb-2">Settings</h1>
       <p className="text-slate-400 mb-8">Site-wide configuration (read from environment variables).</p>
 

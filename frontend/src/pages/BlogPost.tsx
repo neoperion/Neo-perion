@@ -48,7 +48,7 @@ export const BlogPost: React.FC = () => {
   }
 
   const postUrl = `${SITE_URL}/company/blog/${blog.slug}`;
-  const BRAND_AUTHOR = "Neo Perion Solutions — Engineering Team";
+  const BRAND_AUTHOR = "AINCURU Solutions — Engineering Team";
   const authorInitial = 'N';
 
   const blogSchema = {
@@ -63,7 +63,7 @@ export const BlogPost: React.FC = () => {
     "publisher": {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/np-logo.png` }
     }
   };
@@ -81,7 +81,7 @@ export const BlogPost: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${blog.seo_title || blog.title} | Neo Perion`}
+        title={`${blog.seo_title || blog.title} | AINCURU`}
         description={blog.seo_description}
         url={postUrl}
         ogImage={blog.cover_image}
@@ -171,7 +171,7 @@ export const BlogPost: React.FC = () => {
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(247,126,13,0.25),transparent_55%)]" />
                 <div className="relative">
                   <h3 className="font-display text-[24px] font-bold leading-tight text-white">
-                    Build it with Neo Perion
+                    Build it with AINCURU
                   </h3>
                   <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
                     Turn your idea into a scalable, AI-powered product. We partner with teams to design,

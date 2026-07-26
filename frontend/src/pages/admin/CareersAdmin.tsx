@@ -203,7 +203,7 @@ export default function CareersAdmin() {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Careers Management | Admin | Neo Perion</title>
+        <title>Careers Management | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex justify-between items-center mb-8">

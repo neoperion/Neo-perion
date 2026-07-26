@@ -58,7 +58,7 @@ export function IntelligentOpsPage({ service }: Props) {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
         <SEO
-          title={`${service.title} | Neo Perion Solutions`}
+          title={`${service.title} | AINCURU Solutions`}
           description={service.description}
           url={`${SITE_URL}/services/${service.slug}`}
           keywords="intelligent operations automation, business process automation, CI/CD, Kubernetes, DevOps, workflow automation"
@@ -71,7 +71,7 @@ export function IntelligentOpsPage({ service }: Props) {
               "description": service.description,
               "provider": {
                 "@type": "LocalBusiness",
-                "name": "Neo Perion Solutions",
+                "name": "AINCURU Solutions",
                 "image": `${SITE_URL}/images/np-logo.png`,
                 "address": {
                   "@type": "PostalAddress",

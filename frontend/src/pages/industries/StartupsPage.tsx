@@ -123,12 +123,12 @@ export function StartupsPage() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Startup & Founder Solutions - Neo Perion",
+    "name": "Startup & Founder Solutions - AINCURU",
     "serviceType": "Startup & Founder Solutions",
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "image": "https://www.neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
@@ -148,7 +148,7 @@ export function StartupsPage() {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
-          title="Startup & Founder Solutions | MVP Development & SaaS | Neo Perion"
+          title="Startup & Founder Solutions | MVP Development & SaaS | AINCURU"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/startups"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
@@ -174,7 +174,7 @@ export function StartupsPage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                Neo Perion Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+                AINCURU Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -464,7 +464,7 @@ export function StartupsPage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            Neo Perion Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+            AINCURU Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
           </p>
           
           <button 

@@ -100,12 +100,12 @@ export function EducationPage() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Education & EdTech Solutions - Neo Perion",
+    "name": "Education & EdTech Solutions - AINCURU",
     "serviceType": "Education & EdTech Solutions",
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "image": "https://www.neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
@@ -125,7 +125,7 @@ export function EducationPage() {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
-          title="Education & EdTech Solutions | AI-Powered Learning Platforms | Neo Perion"
+          title="Education & EdTech Solutions | AI-Powered Learning Platforms | AINCURU"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/education"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
@@ -158,7 +158,7 @@ export function EducationPage() {
               </p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                Neo Perion Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
+                AINCURU Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -298,7 +298,7 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ BENEFITS BENTO GRID ═══════════════ */}
-        <section id="benefits" className="py-24 px-6 lg:px-12 bg-neutral-900 scroll-mt-20" role="region" aria-label="Why choose Neo Perion for education">
+        <section id="benefits" className="py-24 px-6 lg:px-12 bg-neutral-900 scroll-mt-20" role="region" aria-label="Why choose AINCURU for education">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -308,7 +308,7 @@ export function EducationPage() {
             >
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-amber-400 mb-3 block">Why Choose Us</span>
               <h2 className="text-3xl md:text-[2.75rem] font-black text-white mb-4 tracking-tight">
-                The Neo Perion Advantage
+                The AINCURU Advantage
               </h2>
             </motion.div>
 
@@ -520,7 +520,7 @@ export function EducationPage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            Neo Perion Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
+            AINCURU Solutions builds AI-powered learning management systems, adaptive assessment engines, and student analytics platforms for universities, K‑12 schools, and EdTech startups in India and the US. Pilots typically ship in 6–10 weeks; full platforms in 3–6 months, with a written agreement that names scope, timeline, and IP terms before any work begins.
           </p>
           
           <button 

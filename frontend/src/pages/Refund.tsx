@@ -21,7 +21,7 @@ export default function Refund() {
               <section className="space-y-3">
                 <h2 className="text-xl font-bold text-ink">Milestone-Based Cancellations</h2>
                 <p>
-                  As a service-based engineering firm, Neo Perion bills for time, labor, and expertise rather than physical goods. Our projects are structured around defined milestones (e.g., Discovery, Design, Development). If a client chooses to cancel a project mid-development, they will only be billed for the work completed up to the date of cancellation. No refunds are issued for previously approved and completed milestones.
+                  As a service-based engineering firm, AINCURU bills for time, labor, and expertise rather than physical goods. Our projects are structured around defined milestones (e.g., Discovery, Design, Development). If a client chooses to cancel a project mid-development, they will only be billed for the work completed up to the date of cancellation. No refunds are issued for previously approved and completed milestones.
                 </p>
               </section>
               <section className="space-y-3">

@@ -117,12 +117,12 @@ export function HealthcarePage() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Healthcare Technology Solutions - Neo Perion",
+    "name": "Healthcare Technology Solutions - AINCURU",
     "serviceType": "Healthcare Technology Solutions",
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "image": "https://www.neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
@@ -142,7 +142,7 @@ export function HealthcarePage() {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
-          title="Healthcare Solutions | HIPAA-Compliant Software & AI Diagnostics | Neo Perion"
+          title="Healthcare Solutions | HIPAA-Compliant Software & AI Diagnostics | AINCURU"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/healthcare"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
@@ -168,7 +168,7 @@ export function HealthcarePage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                Neo Perion Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
+                AINCURU Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -459,7 +459,7 @@ export function HealthcarePage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            Neo Perion Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
+            AINCURU Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
           </p>
           
           <button 

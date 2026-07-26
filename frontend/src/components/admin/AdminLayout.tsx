@@ -50,7 +50,7 @@ export const AdminLayout: React.FC = () => {
           noindex tag is belt-and-suspenders for crawlers that ignore it. */}
       <Helmet>
         <meta name="robots" content="noindex,nofollow" />
-        <title>Admin | Neo Perion Solutions</title>
+        <title>Admin | AINCURU Solutions</title>
       </Helmet>
       {/* Mobile Sidebar Toggle */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -68,7 +68,7 @@ export const AdminLayout: React.FC = () => {
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         <div className="h-20 flex items-center px-6 border-b border-white/5">
-          <img src="/images/np-logo.png" alt="Neo Perion" className="h-8 w-auto mr-3" />
+          <img src="/images/np-logo.png" alt="AINCURU" className="h-8 w-auto mr-3" />
           <span className="font-display font-bold text-lg text-white tracking-wider">ADMIN</span>
         </div>
 

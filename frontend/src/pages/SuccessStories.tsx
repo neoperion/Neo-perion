@@ -16,7 +16,7 @@ export default function SuccessStories() {
   return (
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#02040A] text-white selection:bg-neo-blue/30">
-        <Helmet><title>Success Stories | Neo Perion</title></Helmet>
+        <Helmet><title>Success Stories | AINCURU</title></Helmet>
         <Header />
         <main className="pt-32 pb-24">
           <section className="relative text-center px-8 mb-20">

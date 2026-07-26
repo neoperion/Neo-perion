@@ -26,18 +26,18 @@ const COLUMNS = [
   {
     title: 'Profiles',
     links: [
-      { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/neo-perion-solutions', external: true },
-      { label: 'Clutch',     href: 'https://www.clutch.co/profile/neo-perion-solutions', external: true },
-      { label: 'GoodFirms',  href: 'https://www.goodfirms.co/company/neo-perion-solutions', external: true },
-      { label: 'GitHub',     href: 'https://github.com/neo-perion', external: true },
-      { label: 'Crunchbase', href: 'https://www.crunchbase.com/organization/neo-perion-solutions', external: true },
+      { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/neoperion-solutions', external: true },
+      { label: 'Clutch',     href: 'https://www.clutch.co/profile/neoperion-solutions', external: true },
+      { label: 'GoodFirms',  href: 'https://www.goodfirms.co/company/neoperion-solutions', external: true },
+      { label: 'GitHub',     href: 'https://github.com/neoperion', external: true },
+      { label: 'Crunchbase', href: 'https://www.crunchbase.com/organization/neoperion-solutions', external: true },
     ],
   },
 ];
 
 const SOCIALS = [
   { href: 'https://www.instagram.com/neoperion',                     Icon: Instagram,     label: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/neo-perion-solutions',  Icon: Linkedin,      label: 'LinkedIn'  },
+  { href: 'https://www.linkedin.com/company/neoperion-solutions',  Icon: Linkedin,      label: 'LinkedIn'  },
   { href: 'https://www.facebook.com/neoperion',                      Icon: Facebook,      label: 'Facebook'  },
   { href: 'https://wa.me/917339125472',                              Icon: MessageCircle, label: 'WhatsApp'  },
 ];
@@ -49,11 +49,7 @@ export function AccordionFooter() {
       {/* Brand */}
       <div className="mb-8">
         <div className="flex items-center gap-2.5 mb-3">
-          <img src="/images/np-logo.png" alt="Neo Perion" className="h-7 w-7 object-contain" />
-          <span className="font-display text-[14px] font-bold">
-            <span className="text-white">Neo</span>{' '}
-            <span className="text-[#F77E0D]">Perion</span>
-          </span>
+          <img src="/images/np-logo.png" alt="AINCURU" className="h-7 w-auto object-contain" />
         </div>
         <p className="text-[13px] text-white/45 leading-relaxed max-w-[260px]">
           Stable, scalable SaaS platforms and AI systems for teams that need to ship.
@@ -128,7 +124,7 @@ export function AccordionFooter() {
 
       {/* Copyright */}
       <p className="text-[11px] text-white/25">
-        © {new Date().getFullYear()} Neo Perion · Chennai, Tamil Nadu, India
+        © {new Date().getFullYear()} AINCURU · Chennai, Tamil Nadu, India
       </p>
     </footer>
   );

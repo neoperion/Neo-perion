@@ -30,7 +30,7 @@ export const HowItWorks = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary/70 mb-4">Our Process</p>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-foreground">
-            How working with <span className="text-primary">NEO</span> <span style={{ color: '#E5E7EB' }}>PERION</span> works
+            How working with <span className="text-primary">AI</span><span style={{ color: '#E5E7EB' }}>NCURU</span> works
           </h2>
           <p className="text-muted-foreground/70 text-[15px] leading-relaxed">
             A simple, transparent process from first contact to ongoing partnership

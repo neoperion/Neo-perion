@@ -34,12 +34,12 @@ export default function UsClients() {
   const desktop = (
     <div className='bg-[#0A0A0B] text-white min-h-screen flex flex-col'>
       <SEO
-        title='AI & Software Development for US Clients | Neo Perion Solutions'
-        description='Neo Perion Solutions is a founder-led AI and software team in Chennai, India, serving US startups and SMBs. Daily US ET overlap, USD invoicing, NDA-first contracting, and full IP transfer on final payment.'
+        title='AI & Software Development for US Clients | AINCURU Solutions'
+        description='AINCURU Solutions is a founder-led AI and software team in Chennai, India, serving US startups and SMBs. Daily US ET overlap, USD invoicing, NDA-first contracting, and full IP transfer on final payment.'
         keywords='offshore AI development team for US startups, India AI development partner, US-friendly software outsourcing, AI development company India for US clients'
         url={`${SITE_URL}/for-us-clients`}
         jsonLd={[
-          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: 'AI & Software Development for US Clients | Neo Perion Solutions', description: 'Founder-led AI and software team in Chennai, India, serving US startups and SMBs with NDA-first contracting, USD invoicing, and full IP transfer.', inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'Neo Perion Solutions', url: `${SITE_URL}/` } },
+          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: 'AI & Software Development for US Clients | AINCURU Solutions', description: 'Founder-led AI and software team in Chennai, India, serving US startups and SMBs with NDA-first contracting, USD invoicing, and full IP transfer.', inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'AINCURU Solutions', url: `${SITE_URL}/` } },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'For US Clients', item: `${SITE_URL}/for-us-clients` } ] },
           buildFAQSchema(usClientsFaqs),
         ]}
@@ -56,7 +56,7 @@ export default function UsClients() {
               <span className='text-[#F77E0D]'>built for US time zones.</span>
             </motion.h1>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.4 }} className='mt-8 max-w-2xl'>
-              <p className='text-[16px] leading-[1.75] text-neutral-300'>Neo Perion Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern Time exceeds four hours; we invoice in USD; we contract under NDA-first, US-friendly terms; and IP - code, infrastructure, design assets, documentation, and credentials - transfers to your company on final payment. We are not affiliated with Perion Network Ltd.</p>
+              <p className='text-[16px] leading-[1.75] text-neutral-300'>AINCURU Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern Time exceeds four hours; we invoice in USD; we contract under NDA-first, US-friendly terms; and IP - code, infrastructure, design assets, documentation, and credentials - transfers to your company on final payment. We are not affiliated with Perion Network Ltd.</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.55 }} className='mt-10 flex flex-wrap items-center gap-4'>
               <button onClick={() => navigate('/contact')} className='group inline-flex items-center gap-2 rounded-full bg-[#F77E0D] px-7 py-3.5 text-[14px] font-bold text-[#0A0A0B] transition-all duration-200 hover:bg-[#ff8f20]'>Book a 30-min discovery call<ArrowRight size={15} className='transition-transform group-hover:translate-x-0.5' /></button>
@@ -173,7 +173,7 @@ export default function UsClients() {
           <div className='relative z-10 w-full'>
             <p className='mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D]'>For US Clients</p>
             <h1 className='font-display text-[2.2rem] font-black leading-[1.0] tracking-tight text-white'>AI &amp; Software Engineering,<br /><span className='text-[#F77E0D]'>built for US time zones.</span></h1>
-            <p className='mt-5 text-sm leading-relaxed text-neutral-400'>Neo Perion Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern exceeds four hours. We invoice in USD, contract under NDA-first US-friendly terms, and transfer full IP to your company on final payment. Not affiliated with Perion Network Ltd.</p>
+            <p className='mt-5 text-sm leading-relaxed text-neutral-400'>AINCURU Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern exceeds four hours. We invoice in USD, contract under NDA-first US-friendly terms, and transfer full IP to your company on final payment. Not affiliated with Perion Network Ltd.</p>
             <div className='mt-7 flex flex-col gap-3'>
               <button onClick={() => navigate('/contact')} className='w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all'>Book a 30-min discovery call</button>
               <button onClick={() => navigate('/company/case-studies')} className='w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all'>See case studies</button>

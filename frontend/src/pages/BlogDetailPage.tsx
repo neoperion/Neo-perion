@@ -75,10 +75,10 @@ const BlogDetailPage = () => {
                         "headline": blog.title,
                         "description": blog.metaDescription,
                         "image": `https://www.neoperion.com${blog.image}`,
-                        "author": { "@type": "Organization", "name": "Neo Perion" },
+                        "author": { "@type": "Organization", "name": "AINCURU" },
                         "publisher": {
                             "@type": "Organization",
-                            "name": "Neo Perion",
+                            "name": "AINCURU",
                             "logo": { "@type": "ImageObject", "url": "https://www.neoperion.com/images/np-logo.png" },
                         },
                         "datePublished": blog.date,

@@ -65,7 +65,7 @@ export const IndustriesPage: React.FC = () => {
   const industrySchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Neo Perion Solutions",
+    "name": "AINCURU Solutions",
     "url": "https://www.neoperion.com/industries",
     "logo": "https://www.neoperion.com/images/np-logo.png",
     "description": "Domain expertise and purpose-built digital solutions tailored to Education, Startups, SMBs, and Healthcare.",
@@ -81,7 +81,7 @@ export const IndustriesPage: React.FC = () => {
     <MobileGate mobileOnly fallback={
       <div className="bg-background min-h-[auto] font-sans text-foreground">
         <SEO
-          title="Industries We Serve | Neo Perion Solutions"
+          title="Industries We Serve | AINCURU Solutions"
           description="EdTech, startups, SMBs and healthcare — production-grade software and AI tailored to your industry's constraints."
           url={`${SITE_URL}/industries`}
           jsonLd={industrySchema}
@@ -152,7 +152,7 @@ export const IndustriesPage: React.FC = () => {
                     <div className="flex-1 w-full relative">
                       <div className="absolute inset-0 bg-gradient-to-br opacity-20 blur-3xl rounded-[3rem]" style={{ backgroundImage: `linear-gradient(to bottom right, ${industry.color}, transparent)` }} />
                       <div className="relative bg-card/80 backdrop-blur-xl border border-border rounded-[2rem] p-8 md:p-12 shadow-2xl">
-                        <h3 className="text-2xl font-bold text-foreground mb-8 tracking-tight">The Neo Perion Advantage</h3>
+                        <h3 className="text-2xl font-bold text-foreground mb-8 tracking-tight">The AINCURU Advantage</h3>
                         <motion.div 
                           variants={{
                             hidden: { opacity: 0 },

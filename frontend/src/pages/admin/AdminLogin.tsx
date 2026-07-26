@@ -42,7 +42,7 @@ export const AdminLogin: React.FC = () => {
       
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
-          <img src="/images/np-logo.png" alt="Neo Perion" className="h-12 w-auto mx-auto mb-4" />
+          <img src="/images/np-logo.png" alt="AINCURU" className="h-12 w-auto mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-white font-display tracking-wider">SECURE ACCESS</h1>
           <p className="text-slate-400 mt-2">Authorized personnel only</p>
         </div>

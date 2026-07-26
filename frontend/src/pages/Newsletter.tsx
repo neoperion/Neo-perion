@@ -27,11 +27,11 @@ export default function Newsletter() {
   const newsletterSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "NP Insights Newsletter - Neo Perion",
+    "name": "NP Insights Newsletter - AINCURU",
     "description": "Join founders and CTOs who read our weekly deep dives into AI architecture, product engineering, and scaling enterprise SaaS.",
     "publisher": {
       "@type": "Organization",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.neoperion.com/images/np-logo.png"
@@ -43,7 +43,7 @@ export default function Newsletter() {
     <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
-          title="NP Insights Newsletter | AI & SaaS Engineering | Neo Perion"
+          title="NP Insights Newsletter | AI & SaaS Engineering | AINCURU"
           description="Join founders and CTOs who read our weekly deep-dives into AI agent architecture, Postgres scaling, and SaaS product engineering."
           url="https://www.neoperion.com/company/newsletter"
           jsonLd={newsletterSchema}

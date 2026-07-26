@@ -70,12 +70,12 @@ const Dashboard = () => {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Dashboard | Admin | Neo Perion</title>
+        <title>Dashboard | Admin | AINCURU</title>
       </Helmet>
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Overview</h1>
-        <p className="text-slate-400">Welcome back! Here's what's happening with Neo Perion today.</p>
+        <p className="text-slate-400">Welcome back! Here's what's happening with AINCURU today.</p>
       </div>
 
       {/* Stats Grid */}

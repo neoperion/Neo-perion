@@ -17,11 +17,11 @@ export const mockCaseStudies: CaseStudy[] = [
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop'
     ],
     client_name: 'MediCare Health Network',
-    client_quote: "Neo Perion didn't just build a software tool; they completely revolutionized our clinic operations. Our nurses are back to doing what they do best: caring for patients.",
+    client_quote: "AINCURU didn't just build a software tool; they completely revolutionized our clinic operations. Our nurses are back to doing what they do best: caring for patients.",
     duration: '4 Months',
     featured: true,
     published: true,
-    seo_title: 'AI Healthcare Automation Case Study | Neo Perion',
+    seo_title: 'AI Healthcare Automation Case Study | AINCURU',
     seo_description: 'Discover how we reduced administrative overhead by 12,000 hours using AI and RPA in healthcare.',
     created_at: new Date('2026-05-15T10:00:00Z').toISOString(),
     updated_at: new Date('2026-05-15T10:00:00Z').toISOString()
@@ -41,11 +41,11 @@ export const mockCaseStudies: CaseStudy[] = [
       'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000&auto=format&fit=crop'
     ],
     client_name: 'Global EduTech',
-    client_quote: "The technical expertise of the Neo Perion team is unmatched. They delivered a platform that not only scales effortlessly but also looks incredibly modern.",
+    client_quote: "The technical expertise of the AINCURU team is unmatched. They delivered a platform that not only scales effortlessly but also looks incredibly modern.",
     duration: '6 Months',
     featured: true,
     published: true,
-    seo_title: 'EdTech SaaS Platform Case Study | Neo Perion',
+    seo_title: 'EdTech SaaS Platform Case Study | AINCURU',
     seo_description: 'How we built a scalable serverless EdTech platform handling 50k concurrent users.',
     created_at: new Date('2026-04-20T10:00:00Z').toISOString(),
     updated_at: new Date('2026-04-20T10:00:00Z').toISOString()
@@ -63,11 +63,11 @@ export const mockCaseStudies: CaseStudy[] = [
     cover_image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop',
     gallery: [],
     client_name: 'RetailCorp Inc.',
-    client_quote: "The predictive accuracy of the model Neo Perion built has completely changed how we manage our supply chain.",
+    client_quote: "The predictive accuracy of the model AINCURU built has completely changed how we manage our supply chain.",
     duration: '3 Months',
     featured: false,
     published: true,
-    seo_title: 'Retail AI Inventory Case Study | Neo Perion',
+    seo_title: 'Retail AI Inventory Case Study | AINCURU',
     seo_description: 'Predictive machine learning model for retail inventory optimization.',
     created_at: new Date('2026-03-10T10:00:00Z').toISOString(),
     updated_at: new Date('2026-03-10T10:00:00Z').toISOString()

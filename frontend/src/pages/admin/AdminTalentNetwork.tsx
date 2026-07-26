@@ -55,7 +55,7 @@ export default function AdminTalentNetwork() {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Talent Network | Admin | Neo Perion</title>
+        <title>Talent Network | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex justify-between items-center mb-8">

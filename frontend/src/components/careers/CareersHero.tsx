@@ -20,7 +20,7 @@ export function CareersHero({ theme = 'dark' }: CareersHeroProps) {
       </div>
       <div className="max-w-4xl mx-auto px-8 relative z-10 text-center">
         <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-neo-blue mb-6 animate-fade-in-up">
-          Careers at Neo Perion
+          Careers at AINCURU
         </p>
         <h1 className={`text-5xl lg:text-7xl font-black tracking-tight leading-tight mb-8 ${isLight ? 'text-[#09090B]' : 'text-white'} animate-fade-in-up`} style={{animationDelay: '100ms'}}>
           Build the future of<br/>

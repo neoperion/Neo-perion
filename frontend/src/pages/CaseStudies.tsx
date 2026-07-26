@@ -21,8 +21,8 @@ export const CaseStudies: React.FC = () => {
     <MobileGate mobileOnly fallback={
       <div className="bg-[#050816] min-h-[auto] font-sans text-slate-200">
         <SEO
-          title="Case Studies — Real Results from Real Projects | Neo Perion Solutions"
-          description="How Neo Perion Solutions delivers: case studies with the problem, the build, the stack and measured business outcomes."
+          title="Case Studies — Real Results from Real Projects | AINCURU Solutions"
+          description="How AINCURU Solutions delivers: case studies with the problem, the build, the stack and measured business outcomes."
           url={`${SITE_URL}/company/case-studies`}
           jsonLd={{
             "@context": "https://schema.org",

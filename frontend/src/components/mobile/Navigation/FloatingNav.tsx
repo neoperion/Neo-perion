@@ -64,7 +64,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
           style={{ backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")" }} />
 
         {/* Home logo */}
-        <Link to="/" className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center" aria-label="Neo Perion home">
+        <Link to="/" className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center" aria-label="AINCURU home">
           <img src="/images/np-logo.png" alt="" className="h-6 w-6 object-contain" />
         </Link>
 

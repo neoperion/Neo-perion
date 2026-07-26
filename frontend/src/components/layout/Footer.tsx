@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
               <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-neo-blue to-neo-highlight">
-                Neo Perion
+                AINCURU
               </span>
             </Link>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-neutral-400 text-sm">
-            © {new Date().getFullYear()} Neo Perion Solutions. All rights reserved.
+            © {new Date().getFullYear()} AINCURU Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-neutral-400">
             <button onClick={() => setVisible(true)} className="hover:text-neo-blue transition-colors">

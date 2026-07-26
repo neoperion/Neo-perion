@@ -43,7 +43,7 @@ export function MobileIndustryCard() {
               </div>
 
               <div className="bg-[#020617]/50 rounded-2xl p-5 border border-white/[0.04] mb-6">
-                <h3 className="text-[13px] font-bold text-white mb-4 tracking-tight">The Neo Perion Advantage</h3>
+                <h3 className="text-[13px] font-bold text-white mb-4 tracking-tight">The AINCURU Advantage</h3>
                 <div className="space-y-4">
                   {industry.benefits.map((benefit, i) => (
                     <div key={i} className="flex gap-3 items-start">

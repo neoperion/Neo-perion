@@ -12,7 +12,7 @@ export const HeroBadge: React.FC = () => {
     >
       <Sparkles className="h-4 w-4 text-neo-blue" />
       <span className="text-sm font-medium text-neo-blue">
-        Neo Perion V2.0 Now Live
+        AINCURU V2.0 Now Live
       </span>
     </motion.div>
   );

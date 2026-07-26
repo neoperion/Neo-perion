@@ -1,7 +1,7 @@
 import { MapPin, Mail, Phone, Globe } from 'lucide-react';
 
 const CONTACTS = [
-  { Icon: MapPin, label: 'Headquarters', value: 'Neo Perion Solutions\nChennai, Tamil Nadu, India', href: null },
+  { Icon: MapPin, label: 'Headquarters', value: 'AINCURU Solutions\nChennai, Tamil Nadu, India', href: null },
   { Icon: Mail,   label: 'Email',        value: 'hello@neoperion.com',    href: 'mailto:hello@neoperion.com' },
   { Icon: Phone,  label: 'Phone',        value: '+91 7339125472',         href: 'tel:+917339125472' },
 ];

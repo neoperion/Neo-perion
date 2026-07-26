@@ -215,7 +215,7 @@ export default function BlogAdmin() {
   return (
     <div className="animate-in fade-in duration-500">
       <Helmet>
-        <title>Blogs Management | Admin | Neo Perion</title>
+        <title>Blogs Management | Admin | AINCURU</title>
       </Helmet>
 
       <div className="flex justify-between items-center mb-8">

@@ -116,12 +116,12 @@ export function SMBEnterprisePage() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "SMB & Enterprise Solutions - Neo Perion",
+    "name": "SMB & Enterprise Solutions - AINCURU",
     "serviceType": "SMB & Enterprise Solutions",
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Neo Perion Solutions",
+      "name": "AINCURU Solutions",
       "image": "https://www.neoperion.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
@@ -141,7 +141,7 @@ export function SMBEnterprisePage() {
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto]">
         <SEO
-          title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | Neo Perion"
+          title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | AINCURU"
           description={industry.heroSubtext}
           url="https://www.neoperion.com/industries/smbs"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
@@ -167,7 +167,7 @@ export function SMBEnterprisePage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                Neo Perion Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+                AINCURU Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -488,7 +488,7 @@ export function SMBEnterprisePage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            Neo Perion Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+            AINCURU Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
           </p>
           
           <button 
