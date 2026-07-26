@@ -1,14 +1,14 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
-import { WhyNeoPerion } from "@/components/WhyNeoPerion";
+import { WhyChooseSection } from "@/components/why-choose/WhyChooseSection";
 import { HomeCTA } from "@/components/HomeCTA";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { SITE_URL } from "@/lib/seo";
 
 import { TrustedBy } from "@/components/features/home/TrustedBy";
-import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
+import { Contact } from "@/components/Contact";
 
 /**
  * Homepage. Responsive-first single design language across all breakpoints
@@ -27,9 +27,8 @@ const Index = () => (
       <Hero />
       <TrustedBy />
       <Services />
-      <WhyNeoPerion />
-      <HomeTestimonials />
-      <HomeCTA />
+      <WhyChooseSection />
+      <Contact />
     </main>
     <Footer />
   </div>
