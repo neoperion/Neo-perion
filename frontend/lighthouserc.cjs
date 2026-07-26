@@ -15,7 +15,6 @@ module.exports = {
       numberOfRuns: 1,
       settings: { preset: 'desktop' },
       staticDistDir: './frontend/dist',
-      isSinglePageApplication: true,
     },
     upload: { target: 'temporary-public-storage' },
     assert: { assertions: {} },

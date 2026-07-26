@@ -1,0 +1,127 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash(cd frontend && npm run dev)",
+      "Bash(cd frontend && npm run build*)",
+      "Bash(cd frontend && npm run lint*)",
+      "Bash(cd frontend && npm run preview)",
+      "Bash(cd frontend && npm run test*)",
+      "Bash(cd frontend && npm install*)",
+      "Bash(cd frontend && npx *)",
+      "Bash(cd backend && npm run dev)",
+      "Bash(cd backend && npm run build*)",
+      "Bash(cd backend && npm run start*)",
+      "Bash(cd backend && npm install*)",
+      "Bash(cd backend && npx *)",
+      "Bash(npm run dev)",
+      "Bash(npm run build*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run test*)",
+      "Bash(npm run preview)",
+      "Bash(npm install*)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pytest*)",
+      "Bash(curl *)",
+      "Bash(playwright *)",
+      "Bash(npx playwright *)",
+      "Bash(git status)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git log)",
+      "Bash(git branch*)",
+      "Bash(git branch)",
+      "Bash(git add *)",
+      "Bash(git add .)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git stash*)",
+      "Bash(git fetch*)",
+      "Bash(git remote -v)",
+      "Bash(git show*)",
+      "Bash(git rev-parse*)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(touch *)",
+      "Bash(pwd)",
+      "Bash(which *)",
+      "Bash(echo *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(jq *)",
+      "Bash(sed *)",
+      "Bash(awk *)",
+      "Bash(rm *.ts)",
+      "Bash(rm *.tsx)",
+      "Bash(rm *.js)",
+      "Bash(rm *.jsx)",
+      "Bash(rm *.json)",
+      "Bash(rm *.md)",
+      "Bash(rm *.sql)",
+      "Bash(rm *.css)"
+    ],
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(rm -fr*)",
+      "Bash(rm -f /*)",
+      "Bash(rm -fr /*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push origin main*)",
+      "Bash(git push origin master*)",
+      "Bash(git push --no-verify*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -fd*)",
+      "Bash(git clean -fdx*)",
+      "Bash(git checkout -- .)",
+      "Bash(git checkout .)",
+      "Bash(rm frontend/.env*)",
+      "Bash(rm backend/.env*)",
+      "Bash(rm .env*)",
+      "Bash(rm */.env*)",
+      "Bash(echo *SERVICE*KEY*)",
+      "Bash(echo *SECRET*KEY*)",
+      "Bash(echo *PRIVATE*KEY*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If the file path matches `frontend/.env*` or `frontend/src/**` AND the change introduces a `VITE_SUPABASE_SERVICE_KEY`, `VITE_SUPABASE_SECRET_*`, `VITE_SUPABASE_PRIVATE_*`, `*SERVICE*KEY`, `*SECRET*KEY`, or `*PRIVATE*KEY` env var, refuse with this message: 'Refused: server-side Supabase keys must not be exposed to the browser bundle. The frontend can only use `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. For service-role work, route through the Express backend at backend/src/ instead.'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' 2>/dev/null | { read -r f; case \"$f\" in *.ts|*.tsx) [ -d frontend ] && cd frontend && [ -f node_modules/.bin/prettier ] && npx prettier --write \"$f\" 2>/dev/null || true ;; esac; } 2>/dev/null || true",
+            "statusMessage": "Auto-formatting (if prettier available)"
+          }
+        ]
+      }
+    ]
+  }
+}
