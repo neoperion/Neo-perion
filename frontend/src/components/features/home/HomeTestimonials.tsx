@@ -28,7 +28,7 @@ function initials(name: string) {
 function Avatar({ name, size = 40 }: { name: string; size?: number }) {
   return (
     <span
-      className="inline-flex shrink-0 items-center justify-center rounded-full bg-brand/10 font-semibold text-brand"
+      className="inline-flex shrink-0 items-center justify-center rounded-full bg-manuscript-gold/15 font-manuscriptBody font-semibold text-manuscript-walnutDeep"
       style={{ width: size, height: size, fontSize: size * 0.34 }}
     >
       {initials(name)}
@@ -38,13 +38,13 @@ function Avatar({ name, size = 40 }: { name: string; size?: number }) {
 
 function QuoteCard({ q }: { q: (typeof QUOTES)[number] }) {
   return (
-    <figure className="flex w-[340px] shrink-0 flex-col justify-between gap-6 border border-hairline bg-paper p-7 md:w-[380px]">
-      <blockquote className="text-[15px] leading-relaxed text-body">{q.quote}</blockquote>
+    <figure className="manuscript-card flex w-[340px] shrink-0 flex-col justify-between gap-6 border-manuscriptAlpha-ink-20 p-7 md:w-[380px]">
+      <blockquote className="font-manuscriptBody text-[15px] leading-relaxed text-manuscript-inkSoft">{q.quote}</blockquote>
       <figcaption className="flex items-center gap-3">
         <Avatar name={q.name} />
         <div>
-          <div className="text-sm font-semibold text-ink">{q.name}</div>
-          <div className="text-[13px] text-muted2">{q.title}, {q.company}</div>
+          <div className="font-manuscriptBody text-sm font-semibold text-manuscript-ink">{q.name}</div>
+          <div className="font-manuscriptBody text-[13px] text-manuscript-inkMuted">{q.title}, {q.company}</div>
         </div>
       </figcaption>
     </figure>
@@ -62,7 +62,7 @@ export const HomeTestimonials = () => {
   };
 
   return (
-    <Section bg="paper" rhythm="primary" divider>
+    <Section bg="paper" rhythm="primary" divider className="parchment-surface">
       <SectionHeading
         eyebrow="Testimonials"
         title="The team they keep on speed-dial"
@@ -73,10 +73,10 @@ export const HomeTestimonials = () => {
       {/* Featured — quote + centered attribution (no invented metrics) */}
       <motion.div
         {...reveal}
-        className="grid overflow-hidden border border-hairline bg-paper shadow-[0_24px_60px_rgba(15,23,42,0.08)] md:grid-cols-3"
+        className="manuscript-card grid overflow-hidden border-manuscriptAlpha-ink-20 shadow-[0_24px_60px_rgba(31,26,20,0.10)] md:grid-cols-3"
       >
         <div className="md:col-span-2 p-8 md:p-12">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden className="text-brand/25">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden className="text-manuscript-gold/40">
             <path
               d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3H6m12-11h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3h-2"
               stroke="currentColor"
@@ -85,20 +85,20 @@ export const HomeTestimonials = () => {
               strokeLinejoin="round"
             />
           </svg>
-          <blockquote className="mt-5 max-w-[26ch] font-display text-[clamp(21px,2.5vw,30px)] font-medium leading-snug text-ink md:max-w-[30ch]">
+          <blockquote className="pull-quote mt-5 max-w-[26ch] md:max-w-[30ch]">
             {FEATURED.quote}
           </blockquote>
         </div>
 
-        <div className="flex flex-col justify-center gap-5 border-t border-hairline bg-canvas p-8 md:border-l md:border-t-0 md:p-12">
-          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-muted2">
+        <div className="flex flex-col justify-center gap-5 border-t border-manuscriptAlpha-ink-20 bg-manuscript-parchment p-8 md:border-l md:border-t-0 md:p-12">
+          <span className="font-manuscriptBody text-[13px] font-semibold uppercase tracking-[0.08em] text-manuscript-goldDeep">
             {FEATURED.company}
           </span>
           <div className="flex items-center gap-3.5">
             <Avatar name={FEATURED.name} size={52} />
             <div>
-              <div className="text-[15px] font-semibold text-ink">{FEATURED.name}</div>
-              <div className="text-sm text-muted2">{FEATURED.title}</div>
+              <div className="font-manuscriptBody text-[15px] font-semibold text-manuscript-ink">{FEATURED.name}</div>
+              <div className="font-manuscriptBody text-sm text-manuscript-inkMuted">{FEATURED.title}</div>
             </div>
           </div>
         </div>

@@ -29,7 +29,10 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
 export const TrustedBy = () => {
   return (
     <Section bg="paper" rhythm="supporting" divider>
-      <p className="text-center text-[12px] font-semibold uppercase tracking-[0.08em] text-muted2">
+      <div className="ornament-dots mx-auto max-w-md">
+        <span>✦</span>
+      </div>
+      <p className="mt-4 text-center chapter-eyebrow">
         Trusted by the teams we build with
       </p>
 

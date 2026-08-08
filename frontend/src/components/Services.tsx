@@ -93,13 +93,13 @@ const CAPABILITIES: Capability[] = [
 /** Mobile inline visual (template unchanged) — simple framed product image. */
 function VisualFrame({ image, title }: { image: string; title: string }) {
   return (
-    <div className="overflow-hidden border border-hairline bg-paper shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
-      <div className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
+    <div className="manuscript-card overflow-hidden border border-manuscriptAlpha-ink-20 shadow-[0_24px_60px_rgba(31,26,20,0.16)]">
+      <div className="flex items-center gap-1.5 border-b border-manuscriptAlpha-ink-15 px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-manuscriptAlpha-ink-15" />
+        <span className="h-2.5 w-2.5 rounded-full bg-manuscriptAlpha-ink-15" />
+        <span className="h-2.5 w-2.5 rounded-full bg-manuscriptAlpha-ink-15" />
       </div>
-      <div className="aspect-[16/10] w-full overflow-hidden bg-canvas">
+      <div className="aspect-[16/10] w-full overflow-hidden bg-manuscript-parchment">
         <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
       </div>
     </div>
@@ -128,7 +128,7 @@ function HoverVisualCard({ cap }: { cap: Capability }) {
   const navigate = useNavigate();
   const bg = CARD_BG[cap.title] ?? HOVER_GIF;
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-navy/30 bg-navy shadow-[0_24px_60px_rgba(8,9,13,0.35)]">
+    <div className="manuscript-card relative aspect-[16/10] w-full overflow-hidden rounded-md border border-manuscriptAlpha-ink-20 shadow-[0_24px_60px_rgba(31,26,20,0.28)]">
       {/* Background — per-service video/image, else the neural-particle gif */}
       {isVideo(bg) ? (
         <video
@@ -140,33 +140,33 @@ function HoverVisualCard({ cap }: { cap: Capability }) {
           playsInline
           preload="auto"
           aria-hidden
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover sepia-[0.35]"
         />
       ) : (
         <img
           src={bg}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover sepia-[0.35]"
         />
       )}
       {/* Legibility gradient — darker where the text sits (left) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/25" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-manuscript-ink/95 via-manuscript-ink/70 to-manuscript-walnutDeep/25" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col justify-center p-6 lg:p-9">
-        <h4 className="text-[22px] lg:text-[27px] font-bold tracking-tight text-white">{cap.title}</h4>
-        <p className="mt-1 lg:mt-2 text-[11px] lg:text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
+        <h4 className="font-manuscript text-[22px] lg:text-[27px] font-semibold tracking-tight text-manuscript-parchmentLight">{cap.title}</h4>
+        <p className="mt-1 lg:mt-2 font-manuscriptBody text-[11px] lg:text-[12px] font-semibold uppercase tracking-[0.14em] text-manuscript-gold">
           {cap.kicker}
         </p>
-        <p className="mt-2 lg:mt-4 max-w-md text-[13px] lg:text-[14.5px] leading-relaxed text-white/85 line-clamp-2 lg:line-clamp-none">
+        <p className="mt-2 lg:mt-4 max-w-md font-manuscriptBody text-[13px] lg:text-[14.5px] leading-relaxed text-manuscript-parchmentLight/85 line-clamp-2 lg:line-clamp-none">
           {cap.description}
         </p>
         <button
           type="button"
           onClick={() => navigate(cap.href)}
           aria-label={`${cap.title} — learn more`}
-          className="mt-4 lg:mt-7 flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#D96A05]"
+          className="mt-4 lg:mt-7 flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-manuscript-gold text-manuscript-ink shadow-lg shadow-manuscript-ink/30 transition-colors duration-200 hover:bg-manuscript-goldDeep hover:text-manuscript-parchmentLight"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
@@ -199,7 +199,7 @@ export const Services = () => {
   const current = CAPABILITIES[active];
 
   return (
-    <Section id="services" bg="paper" rhythm="primary" divider>
+    <Section id="services" bg="paper" rhythm="primary" divider className="parchment-surface">
       <SectionHeading
         eyebrow="What we do"
         title="Our Services"
@@ -209,7 +209,7 @@ export const Services = () => {
 
       <div className="grid gap-x-16 lg:grid-cols-2 relative">
         {/* Mobile sticky visual (Top) */}
-        <div className="sticky top-16 z-20 block w-full lg:hidden mb-8 pt-4 bg-paper">
+        <div className="sticky top-16 z-20 block w-full lg:hidden mb-8 pt-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -227,7 +227,7 @@ export const Services = () => {
               <span
                 key={cap.title}
                 className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                  i === active ? "bg-brand" : "bg-hairline"
+                  i === active ? "bg-manuscript-gold" : "bg-manuscriptAlpha-ink-15"
                 }`}
               />
             ))}
@@ -243,7 +243,7 @@ export const Services = () => {
                 key={cap.title}
                 data-index={i}
                 ref={(el) => (blockRefs.current[i] = el)}
-                className="flex min-h-[60vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
+                className="flex min-h-[60vh] flex-col justify-center border-t border-manuscriptAlpha-ink-15 py-10 first:border-t-0 lg:min-h-[48vh]"
               >
                 <div
                   className={`transition-opacity duration-500 ${
@@ -253,26 +253,26 @@ export const Services = () => {
                   <div className="flex items-center gap-4">
                     <span
                       className={`font-mono text-sm font-semibold transition-colors duration-300 ${
-                        isActive ? "text-brand" : "text-faint"
+                        isActive ? "text-manuscript-goldDeep" : "text-manuscript-inkMuted"
                       }`}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="h-px w-8 bg-hairline" />
+                    <span className="h-px w-8 bg-manuscriptAlpha-ink-20" />
                     <img src={cap.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
                   </div>
 
-                  <h3 className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-bold leading-tight tracking-tight text-ink">
+                  <h3 className="mt-5 font-manuscript text-[clamp(24px,3vw,34px)] font-semibold leading-tight tracking-tight text-manuscript-ink">
                     {cap.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-[16px] leading-relaxed text-body">
+                  <p className="mt-4 max-w-md font-manuscriptBody text-[16px] leading-relaxed text-manuscript-inkSoft">
                     {cap.description}
                   </p>
 
                   <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
                     {cap.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm font-medium text-body">
-                        <Check className="h-4 w-4 shrink-0 text-brand" strokeWidth={2} />
+                      <li key={f} className="flex items-center gap-2 font-manuscriptBody text-sm font-medium text-manuscript-inkSoft">
+                        <Check className="h-4 w-4 shrink-0 text-manuscript-rustDeep" strokeWidth={2} />
                         {f}
                       </li>
                     ))}
@@ -280,7 +280,7 @@ export const Services = () => {
 
                   <button
                     onClick={() => navigate(cap.href)}
-                    className="group mt-7 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand"
+                    className="group mt-7 inline-flex w-fit items-center gap-1.5 font-manuscriptBody text-sm font-semibold text-manuscript-rustDeep transition-colors hover:text-manuscript-ink"
                   >
                     {cap.cta}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -313,7 +313,7 @@ export const Services = () => {
                   <span
                     key={cap.title}
                     className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                      i === active ? "bg-brand" : "bg-hairline"
+                      i === active ? "bg-manuscript-gold" : "bg-manuscriptAlpha-ink-15"
                     }`}
                   />
                 ))}
