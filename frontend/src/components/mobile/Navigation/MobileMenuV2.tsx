@@ -94,18 +94,22 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 340, damping: 32, mass: 0.85 }}
-            className="absolute inset-y-0 right-0 w-[85%] max-w-sm flex flex-col bg-[#0A0A0B] border-l border-white/[0.06]"
+            className="absolute inset-y-0 right-0 w-[85%] max-w-sm flex flex-col bg-manuscript-parchmentLight border-l border-manuscriptAlpha-ink-20"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b border-white/[0.06]">
+            <div className="flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b border-manuscriptAlpha-ink-20">
               <button type="button" onClick={() => go('/')} className="flex items-center gap-2.5">
-                <img src="/images/np-logo.png" alt="AINCURU" className="h-7 w-auto object-contain" />
+                <span className="wax-seal" aria-hidden="true">A</span>
+                <span className="flex flex-col leading-none">
+                  <span className="font-manuscript text-[16px] font-semibold tracking-tight text-manuscript-ink">AINCURU</span>
+                  <span className="chapter-eyebrow mt-0.5">Solutions</span>
+                </span>
               </button>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close menu"
-                className="h-9 w-9 rounded-full border border-white/[0.10] flex items-center justify-center text-white/50 hover:text-white transition-colors"
+                className="h-9 w-9 rounded-full border border-manuscriptAlpha-ink-20 flex items-center justify-center text-manuscript-inkMuted hover:text-manuscript-ink transition-colors"
               >
                 <X size={17} />
               </button>
@@ -117,7 +121,7 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
               <button
                 type="button"
                 onClick={() => go('/')}
-                className={`w-full text-left py-3.5 text-[16px] font-semibold transition-colors border-b border-white/[0.05] ${location.pathname === '/' ? 'text-[#F77E0D]' : 'text-white/80 hover:text-white'}`}
+                className={`w-full text-left py-3.5 font-manuscriptBody text-[16px] font-semibold transition-colors border-b border-manuscriptAlpha-ink-10 ${location.pathname === '/' ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
               >
                 Home
               </button>
@@ -131,7 +135,7 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                       key={item.label}
                       type="button"
                       onClick={() => go(item.href)}
-                      className={`w-full text-left py-3.5 text-[16px] font-semibold transition-colors border-b border-white/[0.05] ${active ? 'text-[#F77E0D]' : 'text-white/80 hover:text-white'}`}
+                      className={`w-full text-left py-3.5 font-manuscriptBody text-[16px] font-semibold transition-colors border-b border-manuscriptAlpha-ink-10 ${active ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
                     >
                       {item.label}
                     </button>
@@ -143,12 +147,12 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                 const isOpen = expanded === item.label;
                 const sectionActive = location.pathname.startsWith(item.href);
                 return (
-                  <div key={item.label} className="border-b border-white/[0.05]">
+                  <div key={item.label} className="border-b border-manuscriptAlpha-ink-10">
                     <div className="flex items-center justify-between py-3.5">
                       <button
                         type="button"
                         onClick={() => go(item.href)}
-                        className={`flex-1 text-left text-[16px] font-semibold transition-colors ${sectionActive ? 'text-[#F77E0D]' : 'text-white/80 hover:text-white'}`}
+                        className={`flex-1 text-left font-manuscriptBody text-[16px] font-semibold transition-colors ${sectionActive ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
                       >
                         {item.label}
                       </button>
@@ -156,13 +160,13 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                         type="button"
                         onClick={() => toggle(item.label)}
                         aria-label={isOpen ? 'Collapse' : 'Expand'}
-                        className="ml-3 h-8 w-8 flex items-center justify-center rounded-full hover:bg-white/[0.06] transition-colors"
+                        className="ml-3 h-8 w-8 flex items-center justify-center rounded-full hover:bg-manuscriptAlpha-ink-10 transition-colors"
                       >
                         <motion.span
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <ChevronDown size={16} className="text-white/35" />
+                          <ChevronDown size={16} className="text-manuscript-inkMuted" />
                         </motion.span>
                       </button>
                     </div>
@@ -182,10 +186,10 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                                 key={child.href}
                                 type="button"
                                 onClick={() => go(child.href)}
-                                className={`w-full text-left px-3 py-2.5 rounded-lg text-[14px] font-medium transition-colors ${
+                                className={`w-full text-left px-3 py-2.5 rounded text-[14px] font-medium transition-colors ${
                                   location.pathname === child.href
-                                    ? 'text-[#F77E0D] bg-[#F77E0D]/08'
-                                    : 'text-white/50 hover:text-white hover:bg-white/[0.04]'
+                                    ? 'text-manuscript-rustDeep bg-manuscript-parchment'
+                                    : 'text-manuscript-inkMuted hover:text-manuscript-ink hover:bg-manuscript-parchment'
                                 }`}
                               >
                                 {child.label}
@@ -201,11 +205,11 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             </nav>
 
             {/* Footer CTA */}
-            <div className="px-6 pb-safe-or-8 pt-5 border-t border-white/[0.06]">
+            <div className="px-6 pb-safe-or-8 pt-5 border-t border-manuscriptAlpha-ink-20">
               <button
                 type="button"
                 onClick={() => go('/contact')}
-                className="w-full h-12 rounded-xl bg-[#F77E0D] flex items-center justify-center gap-2 font-bold text-[#0A0A0B] text-[14px] active:scale-[0.97] transition-transform"
+                className="btn-manuscript-primary w-full"
               >
                 Get in Touch <ArrowUpRight size={16} strokeWidth={2.5} />
               </button>

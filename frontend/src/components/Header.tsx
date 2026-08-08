@@ -3,7 +3,6 @@ import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Button } from "@/components/ui/button";
 import { MobileMenuV2 } from "@/components/mobile/Navigation/MobileMenuV2";
 
 interface Row {
@@ -131,13 +130,13 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
       <header
         className={`fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
           scrolled || active
-            ? "border-hairline bg-paper/90 backdrop-blur-xl"
+            ? "border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight/95 backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
         onMouseLeave={scheduleClose}
       >
         <nav className="relative mx-auto flex h-[76px] max-w-[1200px] items-center justify-between px-6 lg:px-8">
-          {/* Logo */}
+          {/* Logo — wax-seal monogram + wordmark */}
           <a
             href="/"
             onClick={(e) => {
@@ -146,7 +145,13 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
             }}
             className="flex shrink-0 cursor-pointer items-center gap-3"
           >
-            <img src="/images/np-logo.png" alt="AINCURU" className="h-14 w-auto object-contain" />
+            <span className="wax-seal" aria-hidden="true">A</span>
+            <span className="flex flex-col leading-none">
+              <span className="font-manuscript text-[19px] font-semibold tracking-tight text-manuscript-ink">
+                AINCURU
+              </span>
+              <span className="chapter-eyebrow mt-0.5">Solutions</span>
+            </span>
           </a>
 
           {/* Centered nav */}
@@ -161,12 +166,12 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
                       ? setActiveDropdown(null)
                       : openDropdown(item.label)
                   }
-                  className={`relative flex items-center gap-1 px-4 py-2 text-[15px] font-medium transition-colors duration-150 ${
+                  className={`relative flex items-center gap-1 px-4 py-2 font-manuscriptBody text-[15px] font-medium transition-colors duration-150 ${
                     activeDropdown === item.label
-                      ? "text-ink"
+                      ? "text-manuscript-ink"
                       : light
-                        ? "text-white/80 hover:text-white"
-                        : "text-muted2 hover:text-ink"
+                        ? "text-manuscript-parchmentLight/80 hover:text-manuscript-parchmentLight"
+                        : "text-manuscript-inkMuted hover:text-manuscript-ink"
                   }`}
                 >
                   {item.label}
@@ -176,9 +181,9 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
                       activeDropdown === item.label ? "rotate-180 opacity-100" : ""
                     }`}
                   />
-                  {/* active underline indicator */}
+                  {/* active underline indicator — gold hairline */}
                   <span
-                    className={`absolute -bottom-[27px] left-3 right-3 h-0.5 rounded-full bg-brand transition-opacity duration-200 ${
+                    className={`absolute -bottom-[27px] left-3 right-3 h-px rounded-full bg-manuscript-gold transition-opacity duration-200 ${
                       activeDropdown === item.label ? "opacity-100" : "opacity-0"
                     }`}
                   />
@@ -188,8 +193,10 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
                   key={item.label}
                   onMouseEnter={scheduleClose}
                   onClick={() => handleNavigation(item.href)}
-                  className={`px-4 py-2 text-[15px] font-medium transition-colors duration-150 ${
-                    light ? "text-white/80 hover:text-white" : "text-muted2 hover:text-ink"
+                  className={`px-4 py-2 font-manuscriptBody text-[15px] font-medium transition-colors duration-150 ${
+                    light
+                      ? "text-manuscript-parchmentLight/80 hover:text-manuscript-parchmentLight"
+                      : "text-manuscript-inkMuted hover:text-manuscript-ink"
                   }`}
                 >
                   {item.label}
@@ -200,17 +207,16 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
 
           {/* CTA + mobile toggle */}
           <div className="ml-auto flex shrink-0 items-center gap-3">
-            <Button
-              variant="brand"
-              size="sm"
-              className="hidden md:inline-flex"
+            <button
+              type="button"
               onClick={() => handleNavigation("/contact")}
+              className="btn-manuscript-primary hidden md:inline-flex"
             >
               Get in touch
-            </Button>
+            </button>
             <button
               aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-canvas md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-manuscript-ink transition-colors hover:bg-manuscriptAlpha-ink-10 md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -218,7 +224,7 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
           </div>
         </nav>
 
-        {/* Full-width editorial dropdown (KnacForge-style) */}
+        {/* Full-width editorial dropdown — parchment panel */}
         <AnimatePresence>
           {active && (
             <motion.div
@@ -226,7 +232,7 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute left-0 right-0 top-full hidden border-b border-hairline bg-paper shadow-[0_24px_48px_rgba(15,23,42,0.08)] md:block"
+              className="absolute left-0 right-0 top-full hidden border-b border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight shadow-[0_24px_48px_rgba(31,26,20,0.12)] md:block"
               onMouseEnter={() => {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
               }}
@@ -235,15 +241,16 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
               <div className="container mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-14 px-6 py-8">
                 {/* Left — title + description + view all */}
                 <div className="col-span-12 flex flex-col lg:col-span-4">
-                  <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-ink">
+                  <p className="chapter-eyebrow">Section</p>
+                  <h3 className="mt-2 font-manuscript text-[26px] font-semibold leading-tight tracking-tight text-manuscript-ink">
                     {active.panelTitle}
                   </h3>
-                  <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-body">
+                  <p className="mt-3 max-w-sm font-manuscriptBody text-[14px] leading-relaxed text-manuscript-inkMuted">
                     {active.description}
                   </p>
                   <button
                     onClick={() => handleNavigation(active.viewAll.href)}
-                    className="mt-6 inline-flex w-fit items-center rounded-full border border-brand px-5 py-2.5 text-[13px] font-semibold text-brand transition-colors duration-200 hover:bg-brand hover:text-white"
+                    className="mt-6 inline-flex w-fit items-center rounded-full border border-manuscript-gold px-5 py-2.5 font-manuscriptBody text-[13px] font-semibold text-manuscript-goldDeep transition-colors duration-200 hover:bg-manuscript-gold hover:text-manuscript-parchmentLight"
                   >
                     {active.viewAll.label}
                   </button>
@@ -255,12 +262,12 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
                     <button
                       key={row.href + idx}
                       onClick={() => handleNavigation(row.href)}
-                      className="group flex w-full items-center justify-between gap-4 rounded-[12px] px-4 py-3 text-left transition-colors hover:bg-canvas"
+                      className="group flex w-full items-center justify-between gap-4 rounded-[4px] border border-transparent px-4 py-3 text-left transition-colors hover:border-manuscriptAlpha-ink-20 hover:bg-manuscript-parchment"
                     >
-                      <span className="text-[15px] font-semibold text-ink transition-colors group-hover:text-brand">
+                      <span className="font-manuscriptBody text-[15px] font-semibold text-manuscript-ink transition-colors group-hover:text-manuscript-rustDeep">
                         {row.label}
                       </span>
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-hairline bg-paper text-faint transition-all duration-200 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight text-manuscript-inkMuted transition-all duration-200 group-hover:border-manuscript-gold group-hover:bg-manuscript-gold group-hover:text-manuscript-parchmentLight">
                         <ChevronRight size={15} />
                       </span>
                     </button>
