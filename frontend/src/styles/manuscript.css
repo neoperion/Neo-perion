@@ -1,0 +1,396 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   MANUSCRIPT FOUNDATION (Phase 1 — Living Manuscript rebrand)
+   ─────────────────────────────────────────────────────────────────────────
+   This stylesheet is intentionally separate from src/index.css so the
+   legacy dark theme that pre-rebrand components depend on stays intact.
+   The file is imported once from src/main.tsx and processed by Tailwind
+   (`@tailwind base/components/utilities`) so manuscript-* utilities and
+   the prose-manuscript typography variant resolve correctly.
+
+   Tokens used here are declared in tailwind.config.ts under
+   `theme.extend.colors.manuscript` and `theme.extend.fontFamily.manuscript*`.
+
+   NO existing global classes are redefined here. All rules are NEW and
+   opt-in via class names. Phases 2-7 will reference these classes.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── BASE LAYER: manuscript typography defaults ─── */
+@layer base {
+  .manuscript-root {
+    font-family: theme('fontFamily.manuscriptBody');
+    color: theme('colors.manuscript.ink');
+    background-color: theme('colors.manuscript.parchment');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .manuscript-root h1,
+  .manuscript-root h2,
+  .manuscript-root h3 {
+    font-family: theme('fontFamily.manuscript');
+    font-weight: 600;
+    color: theme('colors.manuscript.ink');
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ─── COMPONENTS: reusable manuscript building blocks ─── */
+@layer components {
+
+  /* ─── Parchment surface ───
+     Layered CSS gradient that mimics vellum fiber without an image asset.
+     Keep it light so it can sit under any content. */
+  .parchment-surface {
+    background-color: theme('colors.manuscript.parchment');
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(184, 138, 53, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 72%, rgba(91, 58, 31, 0.04) 0%, transparent 40%),
+      repeating-linear-gradient(
+        45deg,
+        rgba(91, 58, 31, 0.012) 0px,
+        rgba(91, 58, 31, 0.012) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+    color: theme('colors.manuscript.ink');
+  }
+
+  .parchment-surface--warm {
+    background-color: theme('colors.manuscript.parchmentWarm');
+  }
+
+  .parchment-surface--light {
+    background-color: theme('colors.manuscript.parchmentLight');
+  }
+
+  .parchment-surface--deep {
+    background-color: theme('colors.manuscript.parchmentDeep');
+  }
+
+  /* ─── Ink-rule divider ───
+     A single hairline with a slight hand-drawn wobble. Used between
+     sections as a chapter break instead of bold borders. */
+  .ink-rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      theme('colors.manuscript.ink') 12%,
+      theme('colors.manuscript.ink') 88%,
+      transparent 100%
+    );
+    border: 0;
+    opacity: 0.85;
+  }
+
+  .ink-rule--rust {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      theme('colors.manuscript.rust') 12%,
+      theme('colors.manuscript.rust') 88%,
+      transparent 100%
+    );
+  }
+
+  .ink-rule--gold {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      theme('colors.manuscript.gold') 10%,
+      theme('colors.manuscript.gold') 90%,
+      transparent 100%
+    );
+  }
+
+  /* Three-dot ornament centered between two ink-rules */
+  .ornament-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: theme('colors.manuscript.gold');
+  }
+  .ornament-dots::before,
+  .ornament-dots::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: theme('colors.manuscript.ink');
+    opacity: 0.6;
+    max-width: 140px;
+  }
+  .ornament-dots span {
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* Centered fleuron / diamond ornament */
+  .ornament-fleuron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: theme('colors.manuscript.gold');
+    font-family: theme('fontFamily.manuscript');
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  /* ─── Chapter eyebrow ───
+     Small uppercase tracked label rendered in gold, sitting above an h2.
+     Use as: <p class="chapter-eyebrow">Chapter III — Process</p> */
+  .chapter-eyebrow {
+    font-family: theme('fontFamily.manuscriptBody');
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: theme('colors.manuscript.goldDeep');
+  }
+
+  /* ─── Manuscript display heading ─── */
+  .heading-manuscript {
+    font-family: theme('fontFamily.manuscript');
+    font-weight: 600;
+    color: theme('colors.manuscript.ink');
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+  }
+  .heading-manuscript--italic {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* ─── Pull-quote ───
+     Used inline in blog posts and case studies. Caveat for warmth. */
+  .pull-quote {
+    font-family: theme('fontFamily.manuscriptHand');
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.25;
+    color: theme('colors.manuscript.walnut');
+    border-left: 2px solid theme('colors.manuscript.gold');
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  /* ─── Drop cap ───
+     Apply to the first letter of an article body via wrapper class. */
+  .manuscript-body .dropcap::first-letter {
+    font-family: theme('fontFamily.manuscript');
+    font-weight: 700;
+    font-size: 4.5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.05em 0.1em 0 0;
+    color: theme('colors.manuscript.rust');
+  }
+
+  /* ─── Manuscript card ───
+     A paper card with subtle shadow, used as the default for content
+     blocks on parchment surfaces. */
+  .manuscript-card {
+    background-color: theme('colors.manuscript.parchmentLight');
+    border: 1px solid theme('colors.manuscriptAlpha.ink-10');
+    border-radius: 6px;
+    box-shadow:
+      0 1px 0 theme('colors.manuscriptAlpha.ink-10'),
+      0 8px 24px -12px theme('colors.manuscriptAlpha.ink-20');
+    transition: transform 240ms var(--ease-1, cubic-bezier(.4,0,.2,1)),
+                box-shadow 240ms var(--ease-1, cubic-bezier(.4,0,.2,1));
+  }
+  .manuscript-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 theme('colors.manuscriptAlpha.ink-10'),
+      0 16px 36px -16px theme('colors.manuscriptAlpha.ink-20');
+  }
+
+  /* ─── Manuscript button (primary — ink/black with parchment text) ─── */
+  .btn-manuscript-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: theme('colors.manuscript.ink');
+    color: theme('colors.manuscript.parchmentLight');
+    padding: 0.75rem 1.75rem;
+    font-family: theme('fontFamily.manuscriptBody');
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid theme('colors.manuscript.ink');
+    border-radius: 4px;
+    transition: all 220ms var(--ease-1, cubic-bezier(.4,0,.2,1));
+  }
+  .btn-manuscript-primary:hover {
+    background-color: theme('colors.manuscript.walnutDeep');
+    border-color: theme('colors.manuscript.walnutDeep');
+  }
+
+  /* Manuscript button (secondary — gold outline) */
+  .btn-manuscript-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: theme('colors.manuscript.goldDeep');
+    padding: 0.75rem 1.75rem;
+    font-family: theme('fontFamily.manuscriptBody');
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid theme('colors.manuscript.gold');
+    border-radius: 4px;
+    transition: all 220ms var(--ease-1, cubic-bezier(.4,0,.2,1));
+  }
+  .btn-manuscript-secondary:hover {
+    background-color: theme('colors.manuscriptAlpha.gold-20');
+    color: theme('colors.manuscript.ink');
+  }
+
+  /* ─── Sage tag / badge ─── */
+  .tag-sage {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    background-color: theme('colors.manuscript.sage');
+    color: theme('colors.manuscript.parchmentLight');
+    font-family: theme('fontFamily.manuscriptBody');
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* ─── Wax-seal logo frame ───
+     Used by the Header (Phase 2) to mount a circular monogram. */
+  .wax-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle at 30% 30%,
+      theme('colors.manuscript.rust') 0%,
+      theme('colors.manuscript.rustDeep') 70%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(245, 236, 220, 0.25),
+      0 2px 6px rgba(31, 26, 20, 0.25);
+    color: theme('colors.manuscript.parchmentLight');
+    font-family: theme('fontFamily.manuscript');
+    font-weight: 700;
+    font-size: 1.25rem;
+    border: 1px solid theme('colors.manuscript.walnutDeep');
+  }
+
+  /* ─── Marginalia (handwritten aside) ───
+     Used in About / Founder pages for handwritten side notes. */
+  .marginalia {
+    font-family: theme('fontFamily.manuscriptHand');
+    color: theme('colors.manuscript.rustDeep');
+    transform: rotate(-3deg);
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+}
+
+/* ─── PROSE TYPOGRAPHY: blog/case-study body content ───
+   TipTap-rendered HTML in BlogPost/CaseStudyDetail is wrapped in a
+   `prose-manuscript` class by Phase 6. This variant overrides Tailwind
+   Typography defaults to use the manuscript palette + fonts. */
+.prose-manuscript {
+  --tw-prose-body: theme('colors.manuscript.inkSoft');
+  --tw-prose-headings: theme('colors.manuscript.ink');
+  --tw-prose-lead: theme('colors.manuscript.inkMuted');
+  --tw-prose-links: theme('colors.manuscript.rustDeep');
+  --tw-prose-bold: theme('colors.manuscript.ink');
+  --tw-prose-counters: theme('colors.manuscript.goldDeep');
+  --tw-prose-bullets: theme('colors.manuscript.walnut');
+  --tw-prose-hr: theme('colors.manuscriptAlpha.ink-20');
+  --tw-prose-quotes: theme('colors.manuscript.walnut');
+  --tw-prose-quote-borders: theme('colors.manuscript.gold');
+  --tw-prose-captions: theme('colors.manuscript.inkMuted');
+  --tw-prose-code: theme('colors.manuscript.rustDeep');
+  --tw-prose-pre-code: theme('colors.manuscript.parchmentLight');
+  --tw-prose-pre-bg: theme('colors.manuscript.ink');
+  --tw-prose-th-borders: theme('colors.manuscript.walnut');
+  --tw-prose-td-borders: theme('colors.manuscriptAlpha.ink-20');
+}
+
+.prose-manuscript h1,
+.prose-manuscript h2,
+.prose-manuscript h3,
+.prose-manuscript h4 {
+  font-family: theme('fontFamily.manuscript');
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.prose-manuscript p,
+.prose-manuscript li {
+  font-family: theme('fontFamily.manuscriptBody');
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.prose-manuscript blockquote {
+  font-family: theme('fontFamily.manuscriptHand');
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: theme('colors.manuscript.walnut');
+  border-left-color: theme('colors.manuscript.gold');
+}
+
+.prose-manuscript a {
+  text-decoration-color: theme('colors.manuscript.gold');
+  text-underline-offset: 3px;
+}
+.prose-manuscript a:hover {
+  color: theme('colors.manuscript.rustDeep');
+  text-decoration-color: theme('colors.manuscript.rustDeep');
+}
+
+/* ─── Motion: ink-rule draw-on for chapter reveals ─── */
+@keyframes ink-rule-draw {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+.ink-rule-draw {
+  transform-origin: center;
+  animation: ink-rule-draw 700ms var(--ease-1, cubic-bezier(.4,0,.2,1)) both;
+}
+
+/* ─── Motion: gentle manuscript float (subtle) ─── */
+@keyframes manuscript-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-3px) rotate(0.4deg); }
+}
+.manuscript-float {
+  animation: manuscript-float 6s ease-in-out infinite;
+}
+
+/* ─── Reduced motion: respect user preference ─── */
+@media (prefers-reduced-motion: reduce) {
+  .ink-rule-draw,
+  .manuscript-float {
+    animation: none !important;
+  }
+  .manuscript-card,
+  .btn-manuscript-primary,
+  .btn-manuscript-secondary {
+    transition: none !important;
+  }
+}
