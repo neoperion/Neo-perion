@@ -136,22 +136,20 @@ export const Header = ({ heroDark = false }: { heroDark?: boolean }) => {
         onMouseLeave={scheduleClose}
       >
         <nav className="relative mx-auto flex h-[76px] max-w-[1200px] items-center justify-between px-6 lg:px-8">
-          {/* Logo — wax-seal monogram + wordmark */}
+          {/* Logo — AINCURU wordmark lockup (icon + "AINCURU" + tagline) */}
           <a
             href="/"
             onClick={(e) => {
               e.preventDefault();
               handleNavigation("/");
             }}
-            className="flex shrink-0 cursor-pointer items-center gap-3"
+            className="flex shrink-0 cursor-pointer items-center"
           >
-            <span className="wax-seal" aria-hidden="true">A</span>
-            <span className="flex flex-col leading-none">
-              <span className="font-manuscript text-[19px] font-semibold tracking-tight text-manuscript-ink">
-                AINCURU
-              </span>
-              <span className="chapter-eyebrow mt-0.5">Solutions</span>
-            </span>
+            <img
+              src="/images/aincuru-logo.png"
+              alt="AINCURU — Context Creates Intelligence"
+              className="h-11 w-auto md:h-12"
+            />
           </a>
 
           {/* Centered nav */}

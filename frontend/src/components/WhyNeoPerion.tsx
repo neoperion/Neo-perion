@@ -1,5 +1,4 @@
-import { useRef, useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Sparkles,
   Layers,
@@ -137,163 +136,161 @@ const REASONS: Reason[] = [
   },
 ];
 
-function Stage({ reason, index }: { reason: Reason; index: number }) {
+/**
+ * Codex card — one reason. Front: icon + title + body + chips.
+ * Back: concrete proof points revealed on hover/focus.
+ * 3D flip preserves the original affordance while keeping the layout
+ * static (no scroll-driven sticky, no progress rail).
+ */
+function CodexCard({
+  reason,
+  index,
+  reduceMotion,
+}: {
+  reason: Reason;
+  index: number;
+  reduceMotion: boolean | null;
+}) {
   const Icon = reason.icon;
+
   return (
-    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-      {/* Text */}
-      <div className="relative min-h-[280px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -24 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <span className="font-mono text-[15px] font-semibold text-manuscript-goldDeep">
-              {String(index + 1).padStart(2, "0")}
-              <span className="text-manuscript-inkMuted"> / {String(REASONS.length).padStart(2, "0")}</span>
+    <motion.article
+      initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      className="group relative aspect-[4/5] w-full [perspective:1600px]"
+    >
+      <div
+        className={`relative h-full w-full [transform-style:preserve-3d] ${
+          reduceMotion
+            ? ""
+            : "transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[transform:rotateY(180deg)] motion-reduce:duration-150"
+        }`}
+      >
+        {/* FRONT */}
+        <div className="absolute inset-0 flex flex-col overflow-hidden border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight [backface-visibility:hidden]">
+          {/* Top half — sepia spot illustration */}
+          <div className="relative flex h-1/2 items-center justify-center overflow-hidden border-b border-manuscriptAlpha-ink-15 bg-gradient-to-br from-manuscript-parchment via-manuscript-parchmentLight to-manuscript-gold/10">
+            {reason.image ? (
+              <>
+                <img
+                  src={reason.image}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full object-cover sepia-[0.5]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-manuscript-walnut/45 via-transparent to-manuscript-ink/30" />
+              </>
+            ) : (
+              <>
+                <div className="absolute inset-0 bg-[radial-gradient(circle,#E8D9BD_1px,transparent_1px)] bg-[size:22px_22px] opacity-50" />
+                <div className="absolute h-40 w-40 rounded-full border border-manuscript-gold/20" />
+                <div className="absolute h-28 w-28 rounded-full border border-manuscript-gold/15" />
+              </>
+            )}
+            <div className="relative flex h-20 w-20 items-center justify-center border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight shadow-[0_8px_24px_rgba(31,26,20,0.18)]">
+              <Icon className="h-9 w-9 text-manuscript-rustDeep" strokeWidth={1.5} />
+            </div>
+            {/* Wax-seal numeral */}
+            <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-manuscript-rustDeep font-manuscript text-[15px] font-semibold text-manuscript-parchmentLight shadow-sm ring-1 ring-manuscript-walnutDeep">
+              {index + 1}
             </span>
-            <h3 className="mt-5 font-manuscript text-[clamp(30px,4.5vw,52px)] font-semibold leading-[1.05] tracking-[-0.02em] text-manuscript-ink">
+          </div>
+
+          {/* Bottom half — title, body, chips */}
+          <div className="flex flex-1 flex-col p-5">
+            <h3 className="font-manuscript text-[20px] font-semibold leading-tight tracking-tight text-manuscript-ink">
               {reason.title}
             </h3>
-            <p className="mt-5 max-w-md font-manuscriptBody text-[17px] leading-relaxed text-manuscript-inkSoft">{reason.desc}</p>
-            <div className="mt-7 flex flex-wrap gap-2">
+            <p className="mt-2.5 font-manuscriptBody text-[13.5px] leading-relaxed text-manuscript-inkSoft">
+              {reason.desc}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-1.5">
               {reason.chips.map((c) => (
                 <span
                   key={c}
-                  className="flex items-center gap-1.5 border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight px-3 py-1.5 font-manuscriptBody text-[12px] font-semibold text-manuscript-ink"
+                  className="inline-flex items-center gap-1.5 border border-manuscriptAlpha-ink-20 bg-manuscript-parchment px-2.5 py-1 font-manuscriptBody text-[11px] font-semibold text-manuscript-ink"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-manuscript-rust" />
                   {c}
                 </span>
               ))}
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Visual — 3D flip card (front: image/rings · back: concrete proof points) */}
-      <div className="relative aspect-[4/3] w-full">
-        <AnimatePresence>
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.06 }}
-            transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-            className="group absolute inset-0 [perspective:1600px]"
-          >
-            <div className="relative h-full w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] motion-reduce:duration-150">
-              {/* FRONT */}
-              <div className="absolute inset-0 overflow-hidden border border-manuscriptAlpha-ink-20 bg-gradient-to-br from-manuscript-parchmentLight to-manuscript-gold/[0.08] [backface-visibility:hidden]">
-                {reason.image ? (
-                  <>
-                    <img
-                      src={reason.image}
-                      alt=""
-                      aria-hidden
-                      className="absolute inset-0 h-full w-full object-cover sepia-[0.4]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-manuscript-walnut/55 via-transparent to-manuscript-ink/30" />
-                  </>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle,#E8D9BD_1px,transparent_1px)] bg-[size:26px_26px] opacity-50" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="absolute h-64 w-64 rounded-full border border-manuscript-gold/20 [animation:spin_22s_linear_infinite]" />
-                      <div className="absolute h-44 w-44 rounded-full border border-manuscript-gold/15 [animation:spin_16s_linear_infinite_reverse]" />
-                      <div className="relative flex h-28 w-28 items-center justify-center border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight shadow-[0_16px_50px_rgba(31,26,20,0.18)]">
-                        <Icon className="h-12 w-12 text-manuscript-rustDeep" strokeWidth={1.5} />
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                <span className="absolute left-6 top-6 flex items-center gap-1.5 border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight px-3 py-1.5 font-manuscriptBody text-[12px] font-semibold text-manuscript-ink shadow-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-manuscript-rust" />
-                  {reason.chips[0]}
-                </span>
-
-                {/* flip affordance */}
-                <span className="absolute bottom-5 right-5 flex items-center gap-2 border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentLight/90 px-3 py-1.5 font-manuscriptBody text-[11px] font-semibold text-manuscript-ink shadow-sm backdrop-blur-sm">
-                  <RotateCw className="h-3.5 w-3.5 text-manuscript-rustDeep" strokeWidth={2.25} />
-                  What we do
-                </span>
-              </div>
-
-              {/* BACK — the same image, dimmed (opacity), with proof points over it */}
-              <div className="absolute inset-0 flex flex-col justify-center overflow-hidden border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentDeep p-8 text-manuscript-parchmentLight [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                {reason.image && (
-                  <img
-                    src={reason.image}
-                    alt=""
-                    aria-hidden
-                    className="absolute inset-0 h-full w-full object-cover sepia-[0.4]"
-                  />
-                )}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-manuscript-ink/95 via-manuscript-ink/80 to-manuscript-walnutDeep/55" />
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(182,138,53,0.22),transparent_60%)]" />
-                <span className="relative chapter-eyebrow !text-manuscript-gold">
-                  {reason.title}
-                </span>
-                <h4 className="relative mt-2 font-manuscript text-[clamp(20px,2.2vw,26px)] font-semibold leading-tight text-manuscript-parchmentLight">
-                  {reason.back.headline}
-                </h4>
-                <ul className="relative mt-5 space-y-2.5">
-                  {reason.back.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2.5 font-manuscriptBody text-[13.5px] leading-snug text-manuscript-parchmentLight/85">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-manuscript-gold" strokeWidth={2.25} />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mt-auto flex items-center justify-between pt-4">
+              <span className="chapter-eyebrow !text-manuscript-inkMuted">
+                Reason {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="inline-flex items-center gap-1 font-manuscriptBody text-[10px] font-semibold uppercase tracking-[0.14em] text-manuscript-goldDeep">
+                <RotateCw className="h-3 w-3" strokeWidth={2.25} />
+                Flip
+              </span>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        </div>
+
+        {/* BACK — concrete proof points */}
+        <div className="absolute inset-0 flex flex-col overflow-hidden border border-manuscriptAlpha-ink-20 bg-manuscript-parchmentDeep p-6 text-manuscript-parchmentLight [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <span className="chapter-eyebrow !text-manuscript-gold">
+            {reason.title}
+          </span>
+          <h4 className="mt-2 font-manuscript text-[19px] font-semibold leading-tight text-manuscript-parchmentLight">
+            {reason.back.headline}
+          </h4>
+          <hr className="ink-rule--gold mt-4" />
+          <ul className="mt-5 space-y-3">
+            {reason.back.points.map((p) => (
+              <li
+                key={p}
+                className="flex items-start gap-2.5 font-manuscriptBody text-[13px] leading-snug text-manuscript-parchmentLight/90"
+              >
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-manuscript-gold/50">
+                  <Check className="h-2.5 w-2.5 text-manuscript-gold" strokeWidth={2.5} />
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </motion.article>
   );
 }
 
 export const WhyNeoPerion = () => {
-  const ref = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-
-  useMotionValueEvent(scrollYProgress, "change", (p) => {
-    const idx = Math.max(0, Math.min(REASONS.length - 1, Math.floor(p * REASONS.length)));
-    setActive(idx);
-  });
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section
-      ref={ref}
-      id="why-us"
-      className="relative parchment-surface"
-      style={{ height: `${REASONS.length * 78}vh` }}
-    >
-      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden border-b border-manuscriptAlpha-ink-20">
-        <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
-          <p className="mb-10 chapter-eyebrow">
-            Why Choose AINCURU
+    <section id="why-us" className="parchment-surface relative">
+      <div className="mx-auto w-full max-w-[1200px] px-6 py-20 lg:px-8 lg:py-28">
+        {/* Chapter opener */}
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="chapter-eyebrow">Chapter II — On working with us</p>
+          <hr className="ink-rule--gold mx-auto mt-4 w-32" />
+          <h2 className="mt-6 font-manuscript text-[clamp(34px,4.5vw,48px)] font-semibold leading-[1.1] tracking-tight text-manuscript-ink">
+            Why choose AINCURU
+          </h2>
+          <p className="mt-5 font-manuscriptBody text-[16px] leading-relaxed text-manuscript-inkSoft">
+            Seven reasons the companies we work with keep us on retainer — and why
+            the team they keep on speed-dial is the same one they onboarded.
           </p>
+        </div>
 
-          <Stage reason={REASONS[active]} index={active} />
+        {/* Codex grid — 3 columns desktop, 2 columns tablet, 1 column mobile */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {REASONS.map((reason, i) => (
+            <CodexCard
+              key={reason.title}
+              reason={reason}
+              index={i}
+              reduceMotion={reduceMotion}
+            />
+          ))}
+        </div>
 
-          {/* progress rail */}
-          <div className="mt-12 flex gap-2">
-            {REASONS.map((r, i) => (
-              <span
-                key={r.title}
-                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                  i <= active ? "bg-manuscript-gold" : "bg-manuscriptAlpha-ink-15"
-                }`}
-              />
-            ))}
-          </div>
+        {/* Closing ink-rule */}
+        <div className="ornament-dots mx-auto mt-16 max-w-md">
+          <span>✦ ✦ ✦</span>
         </div>
       </div>
     </section>

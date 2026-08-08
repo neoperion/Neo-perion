@@ -98,12 +98,12 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b border-manuscriptAlpha-ink-20">
-              <button type="button" onClick={() => go('/')} className="flex items-center gap-2.5">
-                <span className="wax-seal" aria-hidden="true">A</span>
-                <span className="flex flex-col leading-none">
-                  <span className="font-manuscript text-[16px] font-semibold tracking-tight text-manuscript-ink">AINCURU</span>
-                  <span className="chapter-eyebrow mt-0.5">Solutions</span>
-                </span>
+              <button type="button" onClick={() => go('/')} className="flex items-center">
+                <img
+                  src="/images/aincuru-logo.png"
+                  alt="AINCURU — Context Creates Intelligence"
+                  className="h-9 w-auto"
+                />
               </button>
               <button
                 type="button"
