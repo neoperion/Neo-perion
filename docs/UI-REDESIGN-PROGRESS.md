@@ -23,7 +23,8 @@
 | 2 | Header + Hero + MobileMenu | ✅ shipped (commit `3080a93`) | `components/Header.tsx`, `components/Hero.tsx`, `components/mobile/Navigation/MobileMenuV2.tsx` |
 | 3 | Home sections (Phase A — palette pass) | ✅ shipped (commit `7329044`) | `components/WhyNeoPerion.tsx`, `components/Services.tsx`, `components/features/home/TrustedBy.tsx`, `HomeTestimonials.tsx`, `HomeCTA.tsx` |
 | 3.1 | Logo swap + first editorial pass | ✅ shipped (commit `bc43046`) | logo file + same 4 files |
-| **3.2** | **Workshop + Codex (current)** | ✅ **shipped** (pending commit) | `components/Services.tsx` → "AINCURU Workshop"; `components/WhyNeoPerion.tsx` → "AINCURU Codex" |
+| 3.2 | Workshop (Services) | ✅ shipped (pending commit) | `components/Services.tsx` → "AINCURU Workshop" |
+| **3.3** | **The AINCURU Method (Why)** | ✅ **shipped** (commit pending) | `components/WhyNeoPerion.tsx` → "AINCURU Method" pentagon diagram with 5 principles |
 | 4 | About + Founder Letter + Industries | ⏳ pending | — |
 | 5 | Services detail template | ⏳ pending | — |
 | 6 | Blog + Case Studies + Insights | ⏳ pending | — |
@@ -58,24 +59,44 @@
 
 **Avoided:** generic SaaS cards, glassmorphism, gradient blobs, rounded cards, Pinterest collage, watermarked stock.
 
-### WhyNeoPerion → "The AINCURU Codex"
+### WhyNeoPerion → "The AINCURU Method"
 
-**Concept:** *Seven principles behind every system we build.*
+**Concept:** *Five decisions that shape every AINCURU engagement. Context before intelligence.*
 
-**Layout:** Single vertical timeline. One continuous hand-drawn SVG ink line runs down the centre of the section; seven numbered folios alternate left/right around it. On mobile, folios stack under a left-aligned ink line.
+**Layout:** A central pentagon diagram (the "AINCURU Method") flanked by five manuscript cards. Each principle lives at a vertex of the pentagon and pairs with a card on the left or right side of the diagram. Desktop = 12-column grid (3 / 6 / 3). Tablet = stacked diagram + 2-column cards. Mobile = stacked diagram (capped at 300px) + 5 stacked cards.
 
-**Each folio has:**
-- A wax-seal-style circular marker centered on the ink line (with the discipline's lucide icon)
-- A card with: chapter-eyebrow "Folio N · AINCURU Codex" → serif title → body → chip pair → Caveat marginalia annotation ("first we learn", "one team, the whole bench", etc.)
-- An opposite-side plate: small glyph (per-folio SVG technical diagram) + chapter-eyebrow "Evidence" + serif headline (`back.headline`) + bullet list (`back.points`) + optional sepia-tinted image
+**The five principles (single source of truth):**
 
-**The ink line is alive:** `useScroll` + `useTransform` drives `strokeDashoffset` from 1 → 0 as the user scrolls past the section, so the line draws itself as they read. Static fallback for `useReducedMotion`.
+| # | Label | Title | Supporting |
+|---|---|---|---|
+| 01 | CONTEXT | Context before technology. | Understand first |
+| 02 | PRODUCT | From idea to working product. | Build the right thing |
+| 03 | JUDGEMENT | AI when it earns its place. | Use with judgement |
+| 04 | PEOPLE | Close to the builders. | Close to the builders |
+| 05 | CONTINUITY | Shipping isn't the end. | Improve continuously |
 
-**Reveal mechanism:** Each folio's card uses `useInView({ once: true, margin: "-15% 0px -15% 0px" })` so its content fades + slides in once it crosses ~15% into the viewport. Folio marker changes colour (border + icon flip from ink-muted to rust-deep) when the folio is in view.
+**Each principle's card has:**
+- Wax-seal-style circular marker at the pentagon vertex (with the principle's hand-coded SVG icon)
+- Chapter-eyebrow "0N · LABEL" in rustDeep uppercase
+- Cormorant Garamond serif title
+- Body description (max 3 lines)
+- Footer: supporting label + small icon glyph (e.g., lightbulb / magnifying glass / brain)
 
-**Hard constraints preserved:** 7 reasons + their titles + descriptions + chips + back.headline + back.points + image paths byte-identical.
+**Diagram mechanics:**
+- Center rosette: 16 tick marks + 8-point compass rose + "AINCURU METHOD" label in a circular cutout
+- Five dashed rust connector lines from center to each node
+- Node pills positioned absolutely using `Math.cos(angle)` / `Math.sin(angle)` with the same `angle` field on each principle
+- Hover OR focus on a card highlights that vertex; the diagram node "lifts" (shadow + scale) and the connector deepens
 
-**Avoided:** seven cards, glassmorphism, gradient blobs, rounded cards.
+**Manuscript decoration:**
+- Top-right folio note "AINCURU LLP / ENGINEERING NOTE · 001" in tracked uppercase
+- Bottom-left: `BooksAndQuill` SVG (open folio + quill)
+- Bottom-right: `CornerCompass` SVG (small compass rose)
+- Subtle inset border on the outer frame
+
+**Hard constraints preserved:** Component name (`WhyNeoPerion`) + mount point (`Index.tsx:30`) + CTA destination (`/contact`) untouchable. All copy is new but consistent with the existing brand voice.
+
+**Avoided:** seven cards, glassmorphism, gradient blobs, rounded cards, Pinterest collage, watermarked stock.
 
 ### Accessibility + motion hygiene
 
@@ -88,7 +109,8 @@
 
 - `npm run lint` — clean
 - `npm run build` — green (only pre-existing bundle-size warning remains)
-- Static review at 1440 / 1280 / 1024 / 768 / 390 / 375 — grid collapses cleanly, ink line stays visible, no horizontal overflow
+- Static review at 1440 / 1280 / 1024 / 768 / 430 / 390 / 320 — pentagon diagram scales correctly, no horizontal overflow, icons pin to 20px in card footers, no giant unwrapped SVGs
+- Console: clean (only pre-existing React Router future-flag warnings + pre-existing Clutch widget CORS error from `widget.clutch.co`)
 
 ## Decisions log (see `memory/design-decisions.md` for full)
 
