@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = resolve(__filename, '..');
 const ROOT = resolve(__dirname, '..');
 
-const APEX = 'https://neoperion.com';
-const WWW = 'https://www.neoperion.com';
+const APEX = 'https://aincuru.com';
+const WWW = 'https://www.aincuru.com';
 const ROBOTS = `${ROOT}/public/robots.txt`;
 const SITEMAP = `${ROOT}/public/sitemap.xml`;
 const INDEX_HTML = `${ROOT}/index.html`;
