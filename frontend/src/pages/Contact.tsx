@@ -38,7 +38,7 @@ export default function Contact() {
 
                 <ContactForm />
 
-                <div className="mt-12 pt-10 border-t border-white/[0.06]">
+                <div className="mt-12 pt-10 border-t border-manuscript-walnut/15">
                   <LocationMap />
                 </div>
               </div>
@@ -93,26 +93,26 @@ export default function Contact() {
       </div>
     }>
       {/* Mobile layout */}
-      <MobileShell nav="bottom" showFooter>
-        <div className="w-full pb-8 bg-[#0A0A0B]">
-          <ContactHero />
+      <MobileShell nav="bottom" showFooter bgClass="bg-manuscript-parchment">
+        <div className="w-full pb-8 bg-manuscript-parchment">
+          <ContactHero theme="light" />
           <div className="px-5 pt-6">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D] mb-2">01 — Message</p>
-            <h2 className="text-2xl font-black text-white tracking-tight mb-6">Send us a message</h2>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper mb-2">01 — Message</p>
+            <h2 className="text-2xl font-black text-manuscript-ink tracking-tight mb-6">Send us a message</h2>
             <ContactForm />
 
             <div className="flex items-center gap-4 my-10">
-              <div className="flex-1 h-px parchment-surface/[0.06]" />
-              <span className="font-mono text-[10px] font-bold text-white/25 tracking-widest">OR</span>
-              <div className="flex-1 h-px parchment-surface/[0.06]" />
+              <div className="flex-1 h-px bg-manuscript-walnut/20" />
+              <span className="font-mono text-[10px] font-bold text-manuscript-copperMuted tracking-widest">OR</span>
+              <div className="flex-1 h-px bg-manuscript-walnut/20" />
             </div>
 
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D] mb-2">02 — Call</p>
-            <h2 className="text-2xl font-black text-white tracking-tight mb-4">Book a discovery call</h2>
-            <p className="text-[13px] text-white/40 leading-relaxed mb-6">Free 30-minute session with our product architects.</p>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper mb-2">02 — Call</p>
+            <h2 className="text-2xl font-black text-manuscript-ink tracking-tight mb-4">Book a discovery call</h2>
+            <p className="text-[13px] text-manuscript-inkSoft leading-relaxed mb-6">Free 30-minute session with our product architects.</p>
             <CalendlyEmbed />
 
-            <div className="mt-10 pt-8 border-t border-white/[0.06]">
+            <div className="mt-10 pt-8 border-t border-manuscript-walnut/15">
               <LocationMap />
             </div>
           </div>

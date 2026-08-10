@@ -33,54 +33,54 @@ export default function UsClients() {
   const usProjects = projectsData.filter((p) => p.featured).slice(0, 3);
 
   const desktop = (
-    <div className='bg-[#0A0A0B] text-white min-h-screen flex flex-col'>
+    <div className='bg-manuscript-parchment text-manuscript-ink min-h-screen flex flex-col'>
       <SEO
         {...seoConfig.forUsClients}
         jsonLd={[
-          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: seoConfig.forUsClients.title, description: seoConfig.forUsClients.description, inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'AINCURU Solutions', url: `${SITE_URL}/` } },
+          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: seoConfig.forUsClients.title, description: seoConfig.forUsClients.description, inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'AINCURU', url: `${SITE_URL}/` } },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'For US Clients', item: `${SITE_URL}/for-us-clients` } ] },
           buildFAQSchema(usClientsFaqs),
         ]}
       />
       <Header />
       <main className='flex-grow'>
-        <section className='relative overflow-hidden border-b border-white/[0.07]'>
-          <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(247,126,13,0.10),transparent_60%)]' />
+        <section className='relative overflow-hidden border-b border-manuscript-walnut/15'>
+          <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(168,74,40,0.10),transparent_60%)]' />
           <div className='relative z-10 mx-auto max-w-[1200px] px-8 pt-32 pb-24 md:pt-40 md:pb-28 lg:px-12'>
-            <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className='mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-[#F77E0D]'>For US Clients</motion.p>
-            <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className='font-display font-black leading-[0.95] tracking-tight text-white' style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5.25rem)' }}>
+            <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className='mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-manuscript-copper'>For US Clients</motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className='font-manuscript font-black leading-[0.95] tracking-tight text-manuscript-ink' style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5.25rem)' }}>
               AI &amp; Software Engineering,
               <br />
-              <span className='text-[#F77E0D]'>built for US time zones.</span>
+              <span className='text-manuscript-copper'>built for US time zones.</span>
             </motion.h1>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.4 }} className='mt-8 max-w-2xl'>
-              <p className='text-[16px] leading-[1.75] text-neutral-300'>AINCURU Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern Time exceeds four hours; we invoice in USD; we contract under NDA-first, US-friendly terms; and IP - code, infrastructure, design assets, documentation, and credentials - transfers to your company on final payment. We are not affiliated with Perion Network Ltd.</p>
+              <p className='text-[16px] leading-[1.75] text-manuscript-inkSoft'>AINCURU is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern Time exceeds four hours; we invoice in USD; we contract under NDA-first, US-friendly terms; and IP - code, infrastructure, design assets, documentation, and credentials - transfers to your company on final payment. We are not affiliated with Perion Network Ltd.</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.55 }} className='mt-10 flex flex-wrap items-center gap-4'>
-              <button onClick={() => navigate('/contact')} className='group inline-flex items-center gap-2 rounded-full bg-[#F77E0D] px-7 py-3.5 text-[14px] font-bold text-[#0A0A0B] transition-all duration-200 hover:bg-[#ff8f20]'>Book a 30-min discovery call<ArrowRight size={15} className='transition-transform group-hover:translate-x-0.5' /></button>
-              <button onClick={() => navigate('/company/case-studies')} className='text-[14px] font-semibold text-white/70 transition-colors hover:text-white'>See case studies</button>
+              <button onClick={() => navigate('/contact')} className='group inline-flex items-center gap-2 rounded-full bg-manuscript-copper px-7 py-3.5 text-[14px] font-bold text-manuscript-parchmentLight transition-all duration-200 hover:bg-manuscript-rustDeep'>Book a 30-min discovery call<ArrowRight size={15} className='transition-transform group-hover:translate-x-0.5' /></button>
+              <button onClick={() => navigate('/company/case-studies')} className='text-[14px] font-semibold text-manuscript-inkSoft transition-colors hover:text-manuscript-ink'>See case studies</button>
             </motion.div>
           </div>
         </section>
-        <section className='border-b border-white/[0.07] bg-[#0A0A0B] px-8 py-20 lg:px-12'>
+        <section className='border-b border-manuscript-walnut/15 bg-manuscript-parchment px-8 py-20 lg:px-12'>
           <div className='mx-auto max-w-[1200px]'>
-            <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>How we work with US clients</p>
-            <h2 className='mb-12 max-w-2xl font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white'>Four things that stay constant on every engagement.</h2>
-            <div className='grid grid-cols-1 gap-px bg-white/[0.07] md:grid-cols-2'>
+            <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>How we work with US clients</p>
+            <h2 className='mb-12 max-w-2xl font-manuscript text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-manuscript-ink'>Four things that stay constant on every engagement.</h2>
+            <div className='grid grid-cols-1 gap-px bg-manuscript-walnut/15 md:grid-cols-2'>
               {facts.map((f) => { const Icon = f.icon; return (
-                <div key={f.title} className='bg-[#0A0A0B] p-8'>
-                  <div className='mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#F77E0D]/10 border border-[#F77E0D]/20'><Icon size={18} className='text-[#F77E0D]' /></div>
-                  <h3 className='mb-3 text-[1.15rem] font-bold text-white'>{f.title}</h3>
-                  <p className='text-[14px] leading-[1.75] text-neutral-400'>{f.body}</p>
+                <div key={f.title} className='bg-manuscript-parchmentLight p-8'>
+                  <div className='mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-manuscript-copper/10 border border-manuscript-copper/20'><Icon size={18} className='text-manuscript-copper' /></div>
+                  <h3 className='mb-3 text-[1.15rem] font-bold text-manuscript-ink'>{f.title}</h3>
+                  <p className='text-[14px] leading-[1.75] text-manuscript-inkSoft'>{f.body}</p>
                 </div>
               ); })}
             </div>
           </div>
         </section>
-        <section className='border-b border-white/[0.07] bg-[#0A0A0B] px-8 py-20 lg:px-12'>
+        <section className='border-b border-manuscript-walnut/15 bg-manuscript-parchment px-8 py-20 lg:px-12'>
           <div className='mx-auto max-w-[1200px]'>
-            <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>Engagement timeline</p>
-            <h2 className='mb-12 max-w-2xl font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white'>From first call to signed code, in weeks.</h2>
+            <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>Engagement timeline</p>
+            <h2 className='mb-12 max-w-2xl font-manuscript text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-manuscript-ink'>From first call to signed code, in weeks.</h2>
             <ol className="grid gap-6 md:grid-cols-5">
               {[
                 { step: "01", title: "Discovery", body: "A free 30-minute call. We listen, ask, and assess fit before any commitment." },
@@ -89,40 +89,40 @@ export default function UsClients() {
                 { step: "04", title: "Build + weekly demos", body: "Senior engineers, weekly demos, formal UAT before launch, sign-off before invoice." },
                 { step: "05", title: "Handoff", body: "Code, infrastructure, and credentials transfer to your team on final payment." },
               ].map((s) => (
-                <li key={s.step} className="border-l border-white/[0.10] pl-5">
-                  <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D]">{s.step}</p>
-                  <h3 className="mb-2 text-[15px] font-bold text-white">{s.title}</h3>
-                  <p className="text-[13px] leading-[1.7] text-neutral-400">{s.body}</p>
+                <li key={s.step} className="border-l border-manuscript-walnut/20 pl-5">
+                  <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">{s.step}</p>
+                  <h3 className="mb-2 text-[15px] font-bold text-manuscript-ink">{s.title}</h3>
+                  <p className="text-[13px] leading-[1.7] text-manuscript-inkSoft">{s.body}</p>
                 </li>
               ))}
             </ol>
           </div>
         </section>
         {usProjects.length > 0 && (
-          <section className='border-b border-white/[0.07] bg-[#0A0A0B] px-8 py-20 lg:px-12'>
+          <section className='border-b border-manuscript-walnut/15 bg-manuscript-parchment px-8 py-20 lg:px-12'>
             <div className='mx-auto max-w-[1200px]'>
-              <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>Selected work</p>
-              <h2 className='mb-12 max-w-2xl font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white'>Recent platforms shipped.</h2>
+              <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>Selected work</p>
+              <h2 className='mb-12 max-w-2xl font-manuscript text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-manuscript-ink'>Recent platforms shipped.</h2>
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 {usProjects.map((p) => (
-                  <button key={p.slug} onClick={() => navigate(`/portfolio/${p.slug}`)} className='group rounded-2xl border border-white/[0.08] bg-[#111012] p-6 text-left transition-all duration-200 hover:border-[#F77E0D]/30 active:scale-[0.99]'>
-                    <p className='mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D]/70'>{p.category}</p>
-                    <h3 className='mb-3 text-[1.1rem] font-bold text-white group-hover:text-[#F77E0D] transition-colors'>{p.title}</h3>
-                    <p className='text-[13px] leading-[1.7] text-neutral-400'>{p.overview}</p>
-                    <div className='mt-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#F77E0D]'>Read case study<ArrowRight size={13} className='transition-transform group-hover:translate-x-0.5' /></div>
+                  <button key={p.slug} onClick={() => navigate(`/portfolio/${p.slug}`)} className='group rounded-2xl border border-manuscript-walnut/15 bg-manuscript-parchmentLight p-6 text-left transition-all duration-200 hover:border-manuscript-copper/30 active:scale-[0.99]'>
+                    <p className='mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper/80'>{p.category}</p>
+                    <h3 className='mb-3 text-[1.1rem] font-bold text-manuscript-ink group-hover:text-manuscript-copper transition-colors'>{p.title}</h3>
+                    <p className='text-[13px] leading-[1.7] text-manuscript-inkSoft'>{p.overview}</p>
+                    <div className='mt-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-manuscript-copper'>Read case study<ArrowRight size={13} className='transition-transform group-hover:translate-x-0.5' /></div>
                   </button>
                 ))}
               </div>
             </div>
           </section>
         )}
-        <section className='border-b border-white/[0.07] bg-[#0A0A0B] px-8 py-20 lg:px-12'>
+        <section className='border-b border-manuscript-walnut/15 bg-manuscript-parchment px-8 py-20 lg:px-12'>
           <div className='mx-auto max-w-[1200px]'>
             <div className='grid gap-12 md:grid-cols-[1fr_1.4fr]'>
               <div>
-                <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>Why US teams hire us</p>
-                <h2 className='font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white'>The model US founders and product leaders keep coming back to.</h2>
-                <p className='mt-5 text-[14px] leading-[1.75] text-neutral-400'>We are not a staffing shop. We are a founder-led engineering team with named humans on every project. Every engagement starts with a written agreement, runs on weekly demos, and ends with full code and credentials transferring to your company.</p>
+                <p className='mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>Why US teams hire us</p>
+                <h2 className='font-manuscript text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-manuscript-ink'>The model US founders and product leaders keep coming back to.</h2>
+                <p className='mt-5 text-[14px] leading-[1.75] text-manuscript-inkSoft'>We are not a staffing shop. We are a founder-led engineering team with named humans on every project. Every engagement starts with a written agreement, runs on weekly demos, and ends with full code and credentials transferring to your company.</p>
               </div>
               <ul className='grid gap-5 sm:grid-cols-2'>
                 {[
@@ -133,14 +133,14 @@ export default function UsClients() {
                   'Daily overlap with US Eastern and Pacific time zones.',
                   'Production-grade delivery, not prototypes - built to scale after launch.'
                 ].map((line) => (
-                  <li key={line} className='flex items-start gap-3 text-[14px] leading-[1.7] text-neutral-300'><CheckCircle2 size={16} className='mt-1 shrink-0 text-[#F77E0D]' /><span>{line}</span></li>
+                  <li key={line} className='flex items-start gap-3 text-[14px] leading-[1.7] text-manuscript-inkSoft'><CheckCircle2 size={16} className='mt-1 shrink-0 text-manuscript-copper' /><span>{line}</span></li>
                 ))}
               </ul>
             </div>
           </div>
         </section>
-        <FAQBlock items={usClientsFaqs} heading='US clients FAQ' eyebrow='FAQ' />
-        <section className='relative overflow-hidden bg-[#ffa959] px-8 py-24'>
+        <FAQBlock items={usClientsFaqs} heading='US clients FAQ' eyebrow='FAQ' className="bg-manuscript-parchment [&_h2]:!text-manuscript-ink [&_h3]:!text-manuscript-ink [&_p]:!text-manuscript-inkSoft [&_div.divide-y]:!divide-manuscript-walnut/20 [&_div.border-y]:!border-manuscript-walnut/20 [&_span]:!text-manuscript-copper" />
+        <section className='relative overflow-hidden bg-manuscript-parchmentWarm px-8 py-24'>
           <div
             className='pointer-events-none absolute inset-0 opacity-[0.06]'
             style={{
@@ -150,12 +150,12 @@ export default function UsClients() {
             }}
           />
           <div className='relative z-10 mx-auto max-w-[900px] text-center'>
-            <p className='mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#0A0A0B]'>Ready when you are</p>
-            <h2 className='mb-6 font-display text-[clamp(2.2rem,4.6vw,3.8rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0B]'>Let us talk about your build.</h2>
-            <p className='mx-auto mb-10 max-w-xl text-[16px] leading-[1.8] text-[#0A0A0B]/70'>A free 30-minute call with our product architects. No pitch - just honest advice about your project, your timeline, and the right way to engage.</p>
+            <p className='mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper'>Ready when you are</p>
+            <h2 className='mb-6 font-manuscript text-[clamp(2.2rem,4.6vw,3.8rem)] font-black leading-[1.05] tracking-tight text-manuscript-ink'>Let us talk about your build.</h2>
+            <p className='mx-auto mb-10 max-w-xl text-[16px] leading-[1.8] text-manuscript-inkSoft'>A free 30-minute call with our product architects. No pitch - just honest advice about your project, your timeline, and the right way to engage.</p>
             <div className='flex flex-wrap items-center justify-center gap-4'>
-              <button onClick={() => navigate('/contact')} className='group inline-flex items-center gap-2 rounded-full bg-[#0A0A0B] px-9 py-4 text-sm font-bold text-white transition-all hover:bg-[#1c1c1e]'>Book a discovery call<ArrowRight size={16} className='transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5' /></button>
-              <button onClick={() => navigate('/services')} className='rounded-full border-2 border-[#0A0A0B]/25 px-9 py-4 text-sm font-bold text-[#0A0A0B] transition-colors hover:border-[#0A0A0B]/50'>See what we build</button>
+              <button onClick={() => navigate('/contact')} className='group inline-flex items-center gap-2 rounded-full bg-manuscript-copper px-9 py-4 text-sm font-bold text-manuscript-parchmentLight transition-all hover:bg-manuscript-rustDeep'>Book a discovery call<ArrowRight size={16} className='transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5' /></button>
+              <button onClick={() => navigate('/services')} className='rounded-full border border-manuscript-ink bg-manuscript-parchmentLight px-9 py-4 text-sm font-bold text-manuscript-ink transition-colors hover:bg-manuscript-parchmentWarm shadow-sm'>See what we build</button>
             </div>
           </div>
         </section>
@@ -164,36 +164,36 @@ export default function UsClients() {
     </div>
   );
   const mobile = (
-    <MobileShell nav='bottom' showFooter bgClass='bg-[#0A0A0B]'>
-      <div className='w-full bg-[#0A0A0B] text-white pb-10'>
+    <MobileShell nav='bottom' showFooter bgClass='bg-manuscript-parchment'>
+      <div className='w-full bg-manuscript-parchment text-manuscript-ink pb-10'>
         <section className='relative overflow-hidden px-5 pt-24 pb-12 min-h-[55vh] flex items-start'>
-          <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(247,126,13,0.12),transparent_60%)]' />
+          <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(168,74,40,0.12),transparent_60%)]' />
           <div className='relative z-10 w-full'>
-            <p className='mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D]'>For US Clients</p>
-            <h1 className='font-display text-[2.2rem] font-black leading-[1.0] tracking-tight text-white'>AI &amp; Software Engineering,<br /><span className='text-[#F77E0D]'>built for US time zones.</span></h1>
-            <p className='mt-5 text-sm leading-relaxed text-neutral-400'>AINCURU Solutions is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern exceeds four hours. We invoice in USD, contract under NDA-first US-friendly terms, and transfer full IP to your company on final payment. Not affiliated with Perion Network Ltd.</p>
+            <p className='mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper'>For US Clients</p>
+            <h1 className='font-manuscript text-[2.2rem] font-black leading-[1.0] tracking-tight text-manuscript-ink'>AI &amp; Software Engineering,<br /><span className='text-manuscript-copper'>built for US time zones.</span></h1>
+            <p className='mt-5 text-sm leading-relaxed text-manuscript-inkSoft'>AINCURU is a founder-led AI and software team based in Chennai, India, working with US startups, SMBs, and product teams. Daily overlap with US Eastern exceeds four hours. We invoice in USD, contract under NDA-first US-friendly terms, and transfer full IP to your company on final payment. Not affiliated with Perion Network Ltd.</p>
             <div className='mt-7 flex flex-col gap-3'>
-              <button onClick={() => navigate('/contact')} className='w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all'>Book a 30-min discovery call</button>
-              <button onClick={() => navigate('/company/case-studies')} className='w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all'>See case studies</button>
+              <button onClick={() => navigate('/contact')} className='w-full rounded-full bg-manuscript-copper py-4 text-sm font-bold text-manuscript-parchmentLight active:scale-[0.98] transition-all shadow-sm'>Book a 30-min discovery call</button>
+              <button onClick={() => navigate('/company/case-studies')} className='w-full rounded-full border border-manuscript-ink py-4 text-sm font-bold text-manuscript-ink active:scale-[0.98] transition-all shadow-sm'>See case studies</button>
             </div>
           </div>
         </section>
-        <section className='px-5 py-10 border-t border-white/[0.07]'>
-          <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>How we work with US clients</p>
-          <h2 className='mb-6 font-display text-xl font-bold text-white'>Four things that stay constant.</h2>
+        <section className='px-5 py-10 border-t border-manuscript-walnut/15'>
+          <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>How we work with US clients</p>
+          <h2 className='mb-6 font-manuscript text-xl font-bold text-manuscript-ink'>Four things that stay constant.</h2>
           <div className='space-y-5'>
             {facts.map((f) => { const Icon = f.icon; return (
-              <div key={f.title} className='rounded-2xl border border-white/[0.07] bg-[#111012] p-5'>
-                <div className='mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#F77E0D]/10 border border-[#F77E0D]/20'><Icon size={16} className='text-[#F77E0D]' /></div>
-                <h3 className='mb-1.5 text-[14px] font-bold text-white'>{f.title}</h3>
-                <p className='text-[12.5px] leading-[1.7] text-neutral-400'>{f.body}</p>
+              <div key={f.title} className='rounded-2xl border border-manuscript-walnut/15 bg-manuscript-parchmentLight p-5 shadow-[0_4px_16px_rgba(31,26,20,0.04)]'>
+                <div className='mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-manuscript-copper/10 border border-manuscript-copper/20'><Icon size={16} className='text-manuscript-copper' /></div>
+                <h3 className='mb-1.5 text-[14px] font-bold text-manuscript-ink'>{f.title}</h3>
+                <p className='text-[12.5px] leading-[1.7] text-manuscript-inkSoft'>{f.body}</p>
               </div>
             ); })}
           </div>
         </section>
-        <section className='px-5 py-10 border-t border-white/[0.07]'>
-          <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>Engagement timeline</p>
-          <h2 className='mb-6 font-display text-xl font-bold text-white'>From first call to signed code, in weeks.</h2>
+        <section className='px-5 py-10 border-t border-manuscript-walnut/15'>
+          <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>Engagement timeline</p>
+          <h2 className='mb-6 font-manuscript text-xl font-bold text-manuscript-ink'>From first call to signed code, in weeks.</h2>
           <ol className="space-y-5">
             {[
               { step: "01", title: "Discovery", body: "A free 30-minute call. We listen and assess fit before any commitment." },
@@ -202,30 +202,30 @@ export default function UsClients() {
               { step: "04", title: "Build + weekly demos", body: "Senior engineers, weekly demos, formal UAT before launch, sign-off before invoice." },
               { step: "05", title: "Handoff", body: "Code, infrastructure, and credentials transfer to your team on final payment." },
             ].map((s) => (
-              <li key={s.step} className="border-l border-white/[0.10] pl-4">
-                <p className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D]">{s.step}</p>
-                <h3 className="mb-1 text-[14px] font-bold text-white">{s.title}</h3>
-                <p className="text-[12.5px] leading-[1.7] text-neutral-400">{s.body}</p>
+              <li key={s.step} className="border-l border-manuscript-walnut/20 pl-4">
+                <p className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">{s.step}</p>
+                <h3 className="mb-1 text-[14px] font-bold text-manuscript-ink">{s.title}</h3>
+                <p className="text-[12.5px] leading-[1.7] text-manuscript-inkSoft">{s.body}</p>
               </li>
             ))}
           </ol>
         </section>
         {usProjects.length > 0 && (
-          <section className='px-5 py-10 border-t border-white/[0.07]'>
-            <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]'>Selected work</p>
-            <h2 className='mb-6 font-display text-xl font-bold text-white'>Recent platforms shipped.</h2>
+          <section className='px-5 py-10 border-t border-manuscript-walnut/15'>
+            <p className='mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-manuscript-copper'>Selected work</p>
+            <h2 className='mb-6 font-manuscript text-xl font-bold text-manuscript-ink'>Recent platforms shipped.</h2>
             <div className='space-y-4'>
               {usProjects.map((p) => (
-                <button key={p.slug} onClick={() => navigate(`/portfolio/${p.slug}`)} className='w-full rounded-2xl border border-white/[0.08] bg-[#111012] p-5 text-left active:scale-[0.99] transition-all'>
-                  <p className='mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#F77E0D]/70'>{p.category}</p>
-                  <h3 className='mb-2 text-[1rem] font-bold text-white'>{p.title}</h3>
-                  <p className='text-[12.5px] leading-[1.7] text-neutral-400'>{p.overview}</p>
+                <button key={p.slug} onClick={() => navigate(`/portfolio/${p.slug}`)} className='w-full rounded-2xl border border-manuscript-walnut/15 bg-manuscript-parchmentLight p-5 text-left active:scale-[0.99] transition-all shadow-sm'>
+                  <p className='mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-manuscript-copper/80'>{p.category}</p>
+                  <h3 className='mb-2 text-[1rem] font-bold text-manuscript-ink'>{p.title}</h3>
+                  <p className='text-[12.5px] leading-[1.7] text-manuscript-inkSoft'>{p.overview}</p>
                 </button>
               ))}
             </div>
           </section>
         )}
-        <FAQBlock items={usClientsFaqs} heading='US clients FAQ' eyebrow='FAQ' className='px-5' />
+        <FAQBlock items={usClientsFaqs} heading='US clients FAQ' eyebrow='FAQ' className='px-5 bg-manuscript-parchment [&_h2]:!text-manuscript-ink [&_h3]:!text-manuscript-ink [&_p]:!text-manuscript-inkSoft [&_div.divide-y]:!divide-manuscript-walnut/20 [&_div.border-y]:!border-manuscript-walnut/20 [&_span]:!text-manuscript-copper' />
       </div>
     </MobileShell>
   );

@@ -11,7 +11,7 @@ export const brandVariants = {
   official: [
     "AINCURU",
     "AINCURU LLP",
-    "AINCURU Solutions"
+    "AINCURU"
   ],
 
   spacingVariants: [
