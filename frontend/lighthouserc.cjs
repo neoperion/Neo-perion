@@ -5,8 +5,7 @@ module.exports = {
       buildScript: 'build',
       // The directory containing the build output
       staticDistDir: './dist',
-      // Serve the build and run Lighthouse against the root
-      url: ['http://localhost/'],
+      // Serve the build and run Lighthouse against discovered HTML files
       numberOfRuns: 3,
     },
     assert: {
