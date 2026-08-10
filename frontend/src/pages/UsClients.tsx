@@ -9,6 +9,7 @@ import { Footer } from '@/components/Footer';
 import { FAQBlock, type FAQItem } from '@/components/shared/FAQBlock';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { SITE_URL, buildFAQSchema } from '@/lib/seo';
+import { seoConfig } from '@/lib/seoConfig';
 import { projectsData } from '@/data/projectsData';
 
 const usClientsFaqs: FAQItem[] = [
@@ -34,12 +35,9 @@ export default function UsClients() {
   const desktop = (
     <div className='bg-[#0A0A0B] text-white min-h-screen flex flex-col'>
       <SEO
-        title='AI & Software Development for US Clients | AINCURU Solutions'
-        description='AINCURU Solutions is a founder-led AI and software team in Chennai, India, serving US startups and SMBs. Daily US ET overlap, USD invoicing, NDA-first contracting, and full IP transfer on final payment.'
-        keywords='offshore AI development team for US startups, India AI development partner, US-friendly software outsourcing, AI development company India for US clients'
-        url={`${SITE_URL}/for-us-clients`}
+        {...seoConfig.forUsClients}
         jsonLd={[
-          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: 'AI & Software Development for US Clients | AINCURU Solutions', description: 'Founder-led AI and software team in Chennai, India, serving US startups and SMBs with NDA-first contracting, USD invoicing, and full IP transfer.', inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'AINCURU Solutions', url: `${SITE_URL}/` } },
+          { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE_URL}/for-us-clients`, name: seoConfig.forUsClients.title, description: seoConfig.forUsClients.description, inLanguage: 'en-US', isPartOf: { '@type': 'WebSite', name: 'AINCURU Solutions', url: `${SITE_URL}/` } },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'For US Clients', item: `${SITE_URL}/for-us-clients` } ] },
           buildFAQSchema(usClientsFaqs),
         ]}

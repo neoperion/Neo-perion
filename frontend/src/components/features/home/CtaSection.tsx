@@ -29,7 +29,7 @@ export const CtaSection: React.FC = () => {
               Book Consultation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-2">
+            <button className="w-full sm:w-auto px-8 py-4 rounded-xl parchment-surface/5 hover:parchment-surface/10 text-white font-medium border border-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-2">
               <MessageSquare className="w-4 h-4" />
               Start Your Project
             </button>

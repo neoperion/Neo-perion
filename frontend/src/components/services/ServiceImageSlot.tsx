@@ -18,7 +18,7 @@ export function ServiceImageSlot({ src, label, className = "" }: ServiceImageSlo
   const show = src && !failed;
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121113] ${className}`}>
+    <div className={`relative overflow-hidden rounded-2xl border border-manuscriptAlpha-ink-15 bg-manuscript-parchmentLight ${className}`}>
       {show ? (
         <img
           src={src}
@@ -28,9 +28,9 @@ export function ServiceImageSlot({ src, label, className = "" }: ServiceImageSlo
           onError={() => setFailed(true)}
         />
       ) : (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[radial-gradient(120%_120%_at_70%_0%,#1A1A1D_0%,#0A0A0B_70%)]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[radial-gradient(120%_120%_at_70%_0%,#1A1A1D_0%,#F4EBD7_70%)]">
           <ImageIcon className="text-brand/60" size={28} />
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-manuscript-inkMuted">
             {label}
           </span>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-export const FooterTransition: React.FC = () => {
+export const FooterTransition: React.FC<{ theme?: "dark" | "manuscript" }> = ({ theme = "dark" }) => {
+  if (theme === "manuscript") return null;
   return (
     <div 
       className="w-full h-[80px]" 

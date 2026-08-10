@@ -57,10 +57,12 @@ export const ShareButtons: React.FC<Props> = ({ url, title, theme = 'dark' }) =>
     );
   }
 
-  // Dark (mobile / legacy)
+  // Dark (manuscript/rustDeep)
   return (
-    <div className="my-12 flex items-center gap-4 border-y border-white/10 py-8">
-      <span className="text-sm font-bold uppercase tracking-widest text-white">Share this article</span>
+    <div className="my-12 flex items-center gap-4 border-y border-manuscript-gold/20 py-8">
+      <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-manuscript-gold">
+        Share
+      </span>
       <div className="flex gap-2">
         {links.map(({ Icon, href, label }) => (
           <a
@@ -69,7 +71,7 @@ export const ShareButtons: React.FC<Props> = ({ url, title, theme = 'dark' }) =>
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-slate-400 transition-all hover:border-neo-blue/50 hover:text-neo-blue"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-manuscript-gold/20 bg-manuscript-ink text-manuscript-parchment/60 transition-all hover:border-manuscript-gold/50 hover:bg-manuscript-gold/10 hover:text-manuscript-gold"
           >
             <Icon className="h-4 w-4" />
           </a>
@@ -77,9 +79,9 @@ export const ShareButtons: React.FC<Props> = ({ url, title, theme = 'dark' }) =>
         <button
           onClick={copyToClipboard}
           aria-label="Copy link"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-slate-400 transition-all hover:border-neo-blue/50 hover:text-neo-blue"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-manuscript-gold/20 bg-manuscript-ink text-manuscript-parchment/60 transition-all hover:border-manuscript-gold/50 hover:bg-manuscript-gold/10 hover:text-manuscript-gold"
         >
-          {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
+          {copied ? <Check className="h-4 w-4 text-manuscript-gold" /> : <LinkIcon className="h-4 w-4" />}
         </button>
       </div>
     </div>

@@ -1,17 +1,25 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SEO } from "@/components/SEO";
+import { seoConfig } from "@/lib/seoConfig";
+import { SITE_URL } from "@/lib/seo";
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HomeCTA } from "@/components/HomeCTA";
+
 import { AboutHero } from "@/components/about/AboutHero";
-import { CompanyStory } from "@/components/about/CompanyStory";
+import { AboutOrigin } from "@/components/about/AboutOrigin";
 import { AboutTimeline } from "@/components/about/AboutTimeline";
-import { EngineeringPrinciples } from "@/components/about/EngineeringPrinciples";
-import { FounderSection } from "@/components/about/FounderSection";
-import { CompanyStats } from "@/components/about/CompanyStats";
+import { AboutLessons } from "@/components/about/AboutLessons";
+import { AboutMethod } from "@/components/about/AboutMethod";
+import { AboutOfferings } from "@/components/about/AboutOfferings";
+import { AboutPeople } from "@/components/about/AboutPeople";
+import { AboutFuture } from "@/components/about/AboutFuture";
+import { AboutFounderCTA } from "@/components/about/AboutFounderCTA";
+
 import { MobileGate } from "@/components/mobile";
 import { MobileAbout } from "@/components/mobile/About/MobileAbout";
-import { useLocation } from 'react-router-dom';
-import { SITE_URL } from "@/lib/seo";
 
 export default function AboutPage() {
   const location = useLocation();
@@ -56,21 +64,39 @@ export default function AboutPage() {
       "@type": "WebPage",
       "@id": `${SITE_URL}/company/about`
     },
-    "name": "About AINCURU Solutions",
-    "description": "Meet the founders and team behind AINCURU Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
+    "name": "About AINCURU LLP",
+    "description": "Meet the founders and team behind AINCURU LLP: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
   };
 
   return (
     <>
-      <SEO
-        title="About AINCURU Solutions — AI & Software Company, Chennai"
-        description="Meet the founders and team behind AINCURU Solutions: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
-        url={`${SITE_URL}/company/about`}
-        jsonLd={jsonLd}
-      />
+      <SEO {...seoConfig.about} />
       <MobileGate mobileOnly fallback={
-        <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
-          <Header /><main><AboutHero /><CompanyStats /><CompanyStory /><AboutTimeline /><EngineeringPrinciples /><FounderSection /></main><Footer />
+        <div className="manuscript-root min-h-[auto] overflow-x-clip max-w-full w-full box-border">
+          <Header />
+          <main>
+            {/* 01 HERO */}
+            <AboutHero />
+            {/* 02 ORIGIN */}
+            <AboutOrigin />
+            {/* 03 THE JOURNEY */}
+            <AboutTimeline />
+            {/* 04 WHAT WE LEARNED */}
+            <AboutLessons />
+            {/* 05 THE AINCURU METHOD */}
+            <AboutMethod />
+            {/* 06 WHAT WE BUILD */}
+            <AboutOfferings />
+            {/* 07 THE PEOPLE */}
+            <AboutPeople />
+            {/* 08 WHAT COMES NEXT */}
+            <AboutFuture />
+            {/* 09 FOUNDER LETTER CTA */}
+            <AboutFounderCTA />
+            {/* 10 FINAL CTA */}
+            <HomeCTA />
+          </main>
+          <Footer />
         </div>
       }>
         <MobileAbout />
@@ -78,4 +104,5 @@ export default function AboutPage() {
     </>
   );
 }
+
 

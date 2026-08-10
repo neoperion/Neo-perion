@@ -50,7 +50,7 @@ export const AdminLayout: React.FC = () => {
           noindex tag is belt-and-suspenders for crawlers that ignore it. */}
       <Helmet>
         <meta name="robots" content="noindex,nofollow" />
-        <title>Admin | AINCURU Solutions</title>
+        <title>Admin | AINCURU LLP</title>
       </Helmet>
       {/* Mobile Sidebar Toggle */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -100,7 +100,7 @@ export const AdminLayout: React.FC = () => {
               {user?.email?.charAt(0).toUpperCase() || 'A'}
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-sm font-medium text-white truncate">{user?.email || 'admin@neoperion.com'}</p>
+              <p className="text-sm font-medium text-white truncate">{user?.email || 'admin@aincuru.com'}</p>
               <p className="text-xs text-slate-500">Super Admin</p>
             </div>
           </div>

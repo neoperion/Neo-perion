@@ -26,20 +26,20 @@ const COLUMNS = [
   {
     title: 'Profiles',
     links: [
-      { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/neoperion-solutions', external: true },
-      { label: 'Clutch',     href: 'https://www.clutch.co/profile/neoperion-solutions', external: true },
-      { label: 'GoodFirms',  href: 'https://www.goodfirms.co/company/neoperion-solutions', external: true },
-      { label: 'GitHub',     href: 'https://github.com/neoperion', external: true },
-      { label: 'Crunchbase', href: 'https://www.crunchbase.com/organization/neoperion-solutions', external: true },
+      { label: 'LinkedIn',    href: 'https://www.linkedin.com/company/aincuru/',           external: true },
+      { label: 'Instagram',   href: 'https://www.instagram.com/_aincuru',                  external: true },
+      { label: 'X (Twitter)', href: 'https://x.com/aincuru',                               external: true },
+      { label: 'Facebook',    href: 'https://www.facebook.com/share/1FCuj6vXfz/',         external: true },
+      { label: 'Clutch',      href: 'https://www.clutch.co/profile/neoperion-solutions',  external: true },
     ],
   },
 ];
 
 const SOCIALS = [
-  { href: 'https://www.instagram.com/neoperion',                     Icon: Instagram,     label: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/neoperion-solutions',  Icon: Linkedin,      label: 'LinkedIn'  },
-  { href: 'https://www.facebook.com/neoperion',                      Icon: Facebook,      label: 'Facebook'  },
-  { href: 'https://wa.me/917339125472',                              Icon: MessageCircle, label: 'WhatsApp'  },
+  { href: 'https://www.instagram.com/_aincuru',              Icon: Instagram,     label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/aincuru/',       Icon: Linkedin,      label: 'LinkedIn'  },
+  { href: 'https://www.facebook.com/share/1FCuj6vXfz/',     Icon: Facebook,      label: 'Facebook'  },
+  { href: 'https://wa.me/917810005472',                      Icon: MessageCircle, label: 'WhatsApp'  },
 ];
 
 export function AccordionFooter() {

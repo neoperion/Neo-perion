@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase';
 import { Blog } from '@/types/blog';
 import { mockBlogs } from '@/data/mock/blogs';
+import { normalizeSearchQuery } from '@/seo/brandVariants';
 
 export const blogService = {
   async getBlogs(): Promise<Blog[]> {
@@ -56,6 +57,7 @@ export const blogService = {
   },
 
   async searchBlogs(query: string, category?: string): Promise<Blog[]> {
+    const normalizedQuery = normalizeSearchQuery(query);
     try {
       let queryBuilder = supabase
         .from('blogs')
@@ -63,8 +65,8 @@ export const blogService = {
         .eq('published', true)
         .order('created_at', { ascending: false });
 
-      if (query) {
-        queryBuilder = queryBuilder.ilike('title', `%${query}%`);
+      if (normalizedQuery) {
+        queryBuilder = queryBuilder.ilike('title', `%${normalizedQuery}%`);
       }
       if (category && category !== 'All') {
         queryBuilder = queryBuilder.eq('category', category);
@@ -76,7 +78,7 @@ export const blogService = {
       if (!data || data.length === 0) {
         // Mock filter fallback
         return mockBlogs.filter(b => {
-          const matchesQuery = query ? b.title.toLowerCase().includes(query.toLowerCase()) : true;
+          const matchesQuery = normalizedQuery ? b.title.toLowerCase().includes(normalizedQuery.toLowerCase()) : true;
           const matchesCategory = category && category !== 'All' ? b.category === category : true;
           return matchesQuery && matchesCategory;
         });
@@ -84,7 +86,7 @@ export const blogService = {
       return data as Blog[];
     } catch (error) {
        return mockBlogs.filter(b => {
-          const matchesQuery = query ? b.title.toLowerCase().includes(query.toLowerCase()) : true;
+          const matchesQuery = normalizedQuery ? b.title.toLowerCase().includes(normalizedQuery.toLowerCase()) : true;
           const matchesCategory = category && category !== 'All' ? b.category === category : true;
           return matchesQuery && matchesCategory;
         });

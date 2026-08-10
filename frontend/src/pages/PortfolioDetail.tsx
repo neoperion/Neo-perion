@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
+import { SITE_URL } from '@/lib/seo';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { projectsData, Project } from '@/data/projectsData';
@@ -39,11 +40,27 @@ const PortfolioDetail: React.FC = () => {
 
   if (!project) return <Navigate to="/not-found" replace />;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": project.title,
+    "description": project.overview,
+    "url": `${SITE_URL}/portfolio/${project.slug}`,
+    "applicationCategory": "BusinessApplication",
+    "provider": {
+      "@type": "Organization",
+      "name": "AINCURU LLP"
+    }
+  };
+
   const seo = (
-    <Helmet>
-      <title>{project.title} | Portfolio | AINCURU Solutions</title>
-      <meta name="description" content={project.overview} />
-    </Helmet>
+    <SEO
+      title={`${project.title} | AINCURU Portfolio`}
+      description={project.overview}
+      url={`${SITE_URL}/portfolio/${project.slug}`}
+      keywords={`${project.title}, software development portfolio, AINCURU portfolio`}
+      jsonLd={jsonLd}
+    />
   );
 
   const mainContent = (
@@ -66,7 +83,7 @@ const PortfolioDetail: React.FC = () => {
         /* ── Desktop ──────────────────────────────── */
         <div className="bg-[#0A0A0B] min-h-screen text-slate-300">
           {seo}
-          <Header heroDark />
+          <Header />
           <main>{mainContent}</main>
           <Footer />
         </div>
@@ -84,3 +101,4 @@ const PortfolioDetail: React.FC = () => {
 };
 
 export default PortfolioDetail;
+

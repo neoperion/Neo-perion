@@ -34,11 +34,11 @@ export function MobileDynamicIndustry({ industry }: Props) {
         <h2 className="text-lg font-bold text-white mb-6">Solutions</h2>
         <div className="grid grid-cols-1 gap-4">
           {industry.offerings.map((offering, i) => (
-            <div key={i} className="p-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] relative overflow-hidden backdrop-blur-glass-1">
+            <div key={i} className="p-6 rounded-3xl border border-white/[0.08] parchment-surface/[0.02] relative overflow-hidden backdrop-blur-glass-1">
               <div className="absolute top-0 right-0 p-4 opacity-5">
                 <offering.icon size={80} style={{ color: industry.color }} />
               </div>
-              <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center mb-5 relative z-10">
+              <div className="w-12 h-12 rounded-xl parchment-surface/[0.05] border border-white/[0.1] flex items-center justify-center mb-5 relative z-10">
                 <offering.icon size={24} style={{ color: industry.color }} />
               </div>
               <h3 className="text-[16px] font-bold text-white mb-2 relative z-10">{offering.title}</h3>

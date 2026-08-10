@@ -19,9 +19,9 @@ const variantStyles: Record<GlassButtonVariant, string> = {
   primary:
     'bg-gradient-to-br from-neo-deep via-neo-blue to-neo-highlight text-white border-white/20 shadow-[0_8px_24px_-4px_rgba(247,126,13,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]',
   secondary:
-    'bg-white/[0.06] backdrop-blur-glass-1 backdrop-saturate-glass text-white border-white/[0.12] hover:bg-white/[0.10]',
+    'parchment-surface/[0.06] backdrop-blur-glass-1 backdrop-saturate-glass text-white border-white/[0.12] hover:parchment-surface/[0.10]',
   ghost:
-    'bg-transparent text-white border-transparent hover:bg-white/[0.06]',
+    'bg-transparent text-white border-transparent hover:parchment-surface/[0.06]',
   destructive:
     'bg-gradient-to-br from-red-500 to-red-700 text-white border-red-300/30 shadow-[0_8px_24px_-4px_rgba(239,68,68,0.4)]',
 };
@@ -57,7 +57,7 @@ export const GlassButton = forwardRef<HTMLButtonElement, GlassButtonProps>(funct
       {...rest}
     >
       {loading && (
-        <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+        <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center parchment-surface--deep/20 backdrop-blur-sm">
           <span className="h-5 w-5 rounded-full border-2 border-white/40 border-t-white animate-spin" />
         </span>
       )}

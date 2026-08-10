@@ -1,327 +1,197 @@
-import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Check, ChevronRight, Sparkles, Blocks, Code2, Cloud, Compass } from "lucide-react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-
-import { Section } from "@/components/marketing/Section";
-import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface Capability {
+  id: string;
   title: string;
-  // PLACEHOLDER icon — drop your own 24×24 SVG at this path (see icons/ folder).
-  icon: string;
-  // Blue accent icon used by the right-side hover card.
-  accent: React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
-  kicker: string;
   shortDesc: string;
   description: string;
   features: string[];
   cta: string;
   href: string;
-  // Hover background — product UI screenshot or GIF (drop yours in /public/images/home).
   image: string;
 }
 
 const CAPABILITIES: Capability[] = [
   {
+    id: "01",
     title: "AI Solutions",
-    icon: "/images/home/icons/ai.svg",
-    accent: Sparkles,
-    kicker: "AI-driven Solutions",
-    shortDesc: "Safe, predictable AI models and agents deployed inside your existing workflows.",
-    description:
-      "RAG pipelines, AI agents, and LLM integration constrained by strict code and human-in-the-loop checks — so your outputs stay secure, auditable, and production-hardened.",
-    features: ["RAG & agents", "LLM integration", "Evals & observability"],
-    cta: "Explore AI solutions",
+    shortDesc: "Safe, predictable AI models.",
+    description: "RAG pipelines, AI agents, and LLM integration constrained by strict code and human-in-the-loop checks.",
+    features: ["RAG & agents", "LLM integration", "Observability"],
+    cta: "Explore AI",
     href: "/services/ai-systems-automation",
-    image: "/images/home/cap-ai.svg",
+    image: "/images/3d_icon_ai.png",
   },
   {
-    title: "Product Development",
-    icon: "/images/home/icons/mobile.svg",
-    accent: Blocks,
-    kicker: "End-to-end Engineering",
-    shortDesc: "From MVP to scalable SaaS — owned from first commit to launch.",
-    description:
-      "We design, build, and ship complete products — from first architecture to launch and scale. One accountable team across strategy, engineering, and deployment.",
+    id: "02",
+    title: "Product Engineering",
+    shortDesc: "From MVP to scalable SaaS.",
+    description: "We design, build, and ship complete products — from first architecture to launch and scale.",
     features: ["MVP → scale", "SaaS platforms", "Full ownership"],
-    cta: "Build your product",
+    cta: "Build product",
     href: "/services/enterprise-product-engineering",
-    image: "/images/home/cap-mobile.svg",
+    image: "/images/3d_icon_product.png",
   },
   {
-    title: "Web Development",
-    icon: "/images/home/icons/web.svg",
-    accent: Code2,
-    kicker: "Modern Web",
-    shortDesc: "Fast, accessible web apps and sites engineered to convert.",
-    description:
-      "High-performance React/Next.js apps, PWAs, and marketing sites — engineered for speed, accessibility, and conversion, and built to scale with your traffic.",
+    id: "03",
+    title: "Web Platforms",
+    shortDesc: "Fast, accessible web apps.",
+    description: "High-performance React/Next.js apps engineered for speed, accessibility, and conversion.",
     features: ["React / Next.js", "PWAs", "Performance-first"],
-    cta: "Build for the web",
+    cta: "Build web",
     href: "/services/cloud-native-web-platforms",
-    image: "/images/home/cap-web.svg",
+    image: "/images/3d_icon_web.png",
   },
   {
+    id: "04",
     title: "Cloud & DevOps",
-    icon: "/images/home/icons/cloud.svg",
-    accent: Cloud,
-    kicker: "Cloud Infrastructure",
-    shortDesc: "Scalable infrastructure and automation on AWS and GCP.",
-    description:
-      "Kubernetes, CI/CD, and full observability on AWS/GCP. We build cloud infrastructure that holds up under real production load — automated and monitored end to end.",
-    features: ["AWS / GCP", "Kubernetes & CI/CD", "Monitoring"],
-    cta: "Scale your infrastructure",
+    shortDesc: "Scalable infrastructure.",
+    description: "Kubernetes, CI/CD, and full observability on AWS/GCP. We build cloud infrastructure that holds up.",
+    features: ["AWS / GCP", "Kubernetes", "Monitoring"],
+    cta: "Scale infra",
     href: "/services/intelligent-operations-automation",
-    image: "/images/home/cap-cloud.svg",
+    image: "/images/3d_icon_cloud.png",
   },
   {
+    id: "05",
     title: "Technical Consulting",
-    icon: "/images/home/icons/consulting.svg",
-    accent: Compass,
-    kicker: "Senior Guidance",
-    shortDesc: "Architecture reviews, due diligence, and fractional-CTO guidance.",
-    description:
-      "Senior direction when you need it — architecture audits, technical due diligence, and fractional-CTO guidance to de-risk decisions and accelerate your roadmap.",
-    features: ["Architecture audits", "Due diligence", "Fractional CTO"],
-    cta: "Get expert guidance",
+    shortDesc: "Architecture reviews & CTO guidance.",
+    description: "Senior direction when you need it — architecture audits, and fractional-CTO guidance.",
+    features: ["Audits", "Due diligence", "Fractional CTO"],
+    cta: "Get guidance",
     href: "/services/startup-to-scale-engineering",
-    image: "/images/home/cap-consulting.svg",
+    image: "/images/3d_icon_consulting.png",
   },
 ];
 
-/** Mobile inline visual (template unchanged) — simple framed product image. */
-function VisualFrame({ image, title }: { image: string; title: string }) {
-  return (
-    <div className="overflow-hidden border border-hairline bg-paper shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
-      <div className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
-        <span className="h-2.5 w-2.5 rounded-full bg-hairline" />
-      </div>
-      <div className="aspect-[16/10] w-full overflow-hidden bg-canvas">
-        <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
-      </div>
-    </div>
-  );
-}
-
-const HOVER_GIF = "/images/feed%20your%20mind.gif";
-
-// Per-service card backgrounds (fall back to the neural gif).
-const CARD_BG: Record<string, string> = {
-  "Product Development": "/images/product.mp4",
-  "Cloud & DevOps": "/images/cloud.mp4",
-  "Web Development": "/images/web.mp4",
-  "Technical Consulting": "/images/technical.mp4",
-};
-
-const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
-
-/**
- * Right-side panel (same size as the existing service-block visual).
- * Always shows the neural-particle gif as a dark background with the content
- * in white — title + kicker + description + a round arrow CTA. Swaps per
- * active capability as you scroll.
- */
-function HoverVisualCard({ cap }: { cap: Capability }) {
-  const navigate = useNavigate();
-  const bg = CARD_BG[cap.title] ?? HOVER_GIF;
-  return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-navy/30 bg-navy shadow-[0_24px_60px_rgba(8,9,13,0.35)]">
-      {/* Background — per-service video/image, else the neural-particle gif */}
-      {isVideo(bg) ? (
-        <video
-          key={bg}
-          src={bg}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-        />
-      ) : (
-        <img
-          src={bg}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-        />
-      )}
-      {/* Legibility gradient — darker where the text sits (left) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/25" />
-
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-center p-6 lg:p-9">
-        <h4 className="text-[22px] lg:text-[27px] font-bold tracking-tight text-white">{cap.title}</h4>
-        <p className="mt-1 lg:mt-2 text-[11px] lg:text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8FB8FF]">
-          {cap.kicker}
-        </p>
-        <p className="mt-2 lg:mt-4 max-w-md text-[13px] lg:text-[14.5px] leading-relaxed text-white/85 line-clamp-2 lg:line-clamp-none">
-          {cap.description}
-        </p>
-        <button
-          type="button"
-          onClick={() => navigate(cap.href)}
-          aria-label={`${cap.title} — learn more`}
-          className="mt-4 lg:mt-7 flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition-colors duration-200 hover:bg-[#D96A05]"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export const Services = () => {
   const navigate = useNavigate();
-  const [active, setActive] = useState(0);
-  const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.index);
-            if (!Number.isNaN(idx)) setActive(idx);
-          }
-        });
-      },
-      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
-    );
-    blockRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const current = CAPABILITIES[active];
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      // 400px width + 32px gap approximately
+      const scrollAmount = window.innerWidth >= 768 ? 432 : window.innerWidth * 0.85;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <Section id="services" bg="paper" rhythm="primary" divider>
-      <SectionHeading
-        eyebrow="What we do"
-        title="Our Services"
-        lead="We design, build, and ship production-grade software — from AI solutions to full product development. Senior engineers only, no offshoring."
-        className="mb-12 max-w-2xl"
-      />
-
-      <div className="grid gap-x-16 lg:grid-cols-2 relative">
-        {/* Mobile sticky visual (Top) */}
-        <div className="sticky top-16 z-20 block w-full lg:hidden mb-8 pt-4 bg-paper">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+    <section id="services" className="parchment-surface relative py-24 md:py-32 overflow-hidden bg-manuscript-parchmentDark">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        
+        {/* Header & Controls */}
+        <div className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <p className="chapter-eyebrow text-manuscript-copper mb-4">THE ENGINEERING LEDGER</p>
+            <h2 className="heading-manuscript text-4xl md:text-5xl lg:text-6xl max-w-2xl leading-[1.1]">
+              What we build.
+            </h2>
+          </div>
+          
+          {/* Manual Scroll Controls (Hidden on mobile, visible on tablet/desktop) */}
+          <div className="hidden md:flex items-center gap-3">
+            <button 
+              onClick={() => scroll('left')}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-manuscriptAlpha-ink-20 bg-manuscript-parchment text-manuscript-ink hover:border-manuscript-copper hover:text-manuscript-copper transition-colors shadow-sm"
+              aria-label="Scroll left"
             >
-              <HoverVisualCard cap={current} />
-            </motion.div>
-          </AnimatePresence>
-          {/* Progress rail for mobile */}
-          <div className="mt-4 flex gap-2">
-            {CAPABILITIES.map((cap, i) => (
-              <span
-                key={cap.title}
-                className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                  i === active ? "bg-brand" : "bg-hairline"
-                }`}
-              />
-            ))}
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-manuscriptAlpha-ink-20 bg-manuscript-parchment text-manuscript-ink hover:border-manuscript-copper hover:text-manuscript-copper transition-colors shadow-sm"
+              aria-label="Scroll right"
+            >
+              <ArrowRight className="h-5 w-5" />
+            </button>
           </div>
         </div>
 
-        {/* Left — scrolling capability blocks */}
-        <div>
-          {CAPABILITIES.map((cap, i) => {
-            const isActive = i === active;
-            return (
-              <div
-                key={cap.title}
-                data-index={i}
-                ref={(el) => (blockRefs.current[i] = el)}
-                className="flex min-h-[60vh] flex-col justify-center border-t border-hairline py-10 first:border-t-0 lg:min-h-[48vh]"
-              >
-                <div
-                  className={`transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-40"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`font-mono text-sm font-semibold transition-colors duration-300 ${
-                        isActive ? "text-brand" : "text-faint"
-                      }`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-px w-8 bg-hairline" />
-                    <img src={cap.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
-                  </div>
+      </div>
 
-                  <h3 className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-bold leading-tight tracking-tight text-ink">
+      {/* Mobile Swipe Carousel / Desktop Grid */}
+      <div className="w-full relative">
+        
+        {/* Scrollable Container */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 md:gap-8 px-6 lg:px-8 overflow-x-auto snap-x snap-mandatory pb-12 hide-scrollbar container mx-auto"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          
+          {CAPABILITIES.map((cap, i) => (
+            <motion.div 
+              key={cap.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="w-[85vw] md:w-[400px] shrink-0 snap-center flex flex-col relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-manuscript-copper focus-visible:ring-offset-4 focus-visible:ring-offset-manuscript-parchmentLight rounded-lg"
+              onClick={() => navigate(cap.href)}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate(cap.href);
+                }
+              }}
+            >
+              
+              {/* Card Surface */}
+              <div className="relative overflow-hidden bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-15 h-full min-h-[560px] flex flex-col transition-all duration-500 group-hover:shadow-[0_20px_40px_-15px_rgba(31,26,20,0.2)] group-hover:-translate-y-1">
+                
+                {/* 3D Image Half */}
+                <div className="relative h-[240px] shrink-0 w-full overflow-hidden bg-[#1a1714]">
+                  {/* Subtle radial glow behind image */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a1714] z-10 mix-blend-multiply" />
+                  <img 
+                    src={cap.image} 
+                    alt={cap.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 right-4 z-20 chapter-eyebrow text-white/50">
+                    {cap.id}
+                  </div>
+                </div>
+
+                {/* Text Half */}
+                <div className="relative flex-1 p-6 md:p-8 flex flex-col">
+                  <h3 className="heading-manuscript text-2xl md:text-3xl text-manuscript-ink mb-2">
                     {cap.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-[16px] leading-relaxed text-body">
+                  <p className="font-manuscriptBody text-sm italic text-manuscript-walnutDeep mb-4">
+                    {cap.shortDesc}
+                  </p>
+                  
+                  <p className="font-manuscriptBody text-[14px] leading-relaxed text-manuscript-inkSoft mb-6 line-clamp-3">
                     {cap.description}
                   </p>
 
-                  <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
-                    {cap.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm font-medium text-body">
-                        <Check className="h-4 w-4 shrink-0 text-brand" strokeWidth={2} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button
-                    onClick={() => navigate(cap.href)}
-                    className="group mt-7 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand"
-                  >
-                    {cap.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </button>
+                  <div className="mt-auto flex items-center justify-between border-t border-manuscriptAlpha-ink-10 pt-4">
+                    <span className="font-manuscriptBody text-[12px] font-semibold tracking-widest uppercase text-manuscript-copper transition-colors group-hover:text-manuscript-rustDeep">
+                      {cap.cta}
+                    </span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-manuscriptAlpha-ink-15 text-manuscript-copper group-hover:border-manuscript-rustDeep/40 transition-colors">
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
 
-        {/* Right — pinned hover card that swaps on scroll */}
-        <div className="hidden lg:block">
-          <div className="sticky top-28 flex h-[calc(100vh-7rem)] items-center">
-            <div className="w-full">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                >
-                  <HoverVisualCard cap={current} />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* progress rail */}
-              <div className="mt-6 flex gap-2">
-                {CAPABILITIES.map((cap, i) => (
-                  <span
-                    key={cap.title}
-                    className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                      i === active ? "bg-brand" : "bg-hairline"
-                    }`}
-                  />
-                ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
+
         </div>
+        
       </div>
-    </Section>
+    </section>
   );
 };

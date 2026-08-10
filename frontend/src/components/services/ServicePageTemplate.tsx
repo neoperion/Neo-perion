@@ -23,12 +23,12 @@ export const ServicePageTemplate: React.FC = () => {
 
   if (!service) {
     return (
-      <div className="min-h-[auto] bg-neutral-900 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl font-bold text-white mb-4">Service Not Found</h1>
-        <p className="text-neutral-400 mb-8">The service you are looking for does not exist.</p>
+      <div className="min-h-[auto] bg-manuscript-parchmentDark flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-4xl font-bold text-manuscript-ink mb-4">Service Not Found</h1>
+        <p className="text-manuscript-inkSoft mb-8">The service you are looking for does not exist.</p>
         <button
           onClick={() => navigate('/services')}
-          className="px-6 py-3 bg-neo-blue text-white rounded-lg font-bold"
+          className="px-6 py-3 bg-neo-blue text-manuscript-ink rounded-lg font-bold"
         >
           View all services
         </button>
@@ -40,6 +40,7 @@ export const ServicePageTemplate: React.FC = () => {
     switch (slug) {
       // The 5 "What we do" services share one KnackForge-style layout.
       case 'ai-systems-automation':
+        return <AiSystemsPage service={service} />;
       case 'enterprise-product-engineering':
       case 'cloud-native-web-platforms':
       case 'intelligent-operations-automation':
@@ -52,7 +53,7 @@ export const ServicePageTemplate: React.FC = () => {
         return <MobileProductPage service={service} />;
       default:
         return (
-          <div className="min-h-[auto] bg-neutral-900 flex flex-col items-center justify-center">
+          <div className="min-h-[auto] bg-manuscript-parchmentDark flex flex-col items-center justify-center">
             <h2>Template Not Implemented</h2>
           </div>
         );

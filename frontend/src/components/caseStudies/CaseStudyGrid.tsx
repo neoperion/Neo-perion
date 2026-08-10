@@ -10,8 +10,8 @@ export const CaseStudyGrid: React.FC<Props> = ({ caseStudies }) => {
   if (!caseStudies || caseStudies.length === 0) {
     return (
       <div className="py-20 text-center">
-        <h3 className="text-2xl font-bold text-white mb-2">No projects found</h3>
-        <p className="text-slate-400">Try adjusting your industry or service filters.</p>
+        <h3 className="heading-manuscript text-2xl text-manuscript-ink mb-2">No projects found</h3>
+        <p className="font-manuscriptBody text-manuscript-inkMuted">Try adjusting your industry or service filters.</p>
       </div>
     );
   }

@@ -27,4 +27,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.neoperion.com/sitemap.xml
+Sitemap: https://www.aincuru.com/sitemap.xml

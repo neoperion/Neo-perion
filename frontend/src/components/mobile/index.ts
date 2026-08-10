@@ -21,7 +21,7 @@ export type { CaseStudyCardData, CaseStudyStoryProps } from './CaseStudies/CaseS
 export { JobExpandCard, ApplicationSheet } from './Careers/CareersMobile';
 export type { JobListingData } from './Careers/CareersMobile';
 
-export { ConversationForm, NewsletterGlass } from './Forms/FormsMobile';
+export { ConversationForm } from './Forms/FormsMobile';
 export type { ConversationFormProps, ConversationField, ConversationStepId } from './Forms/FormsMobile';
 
 export { BottomTabBar, AdminTopBar, AdminDrawer, AdminStatCard, AdminTable, MobileAdminShell } from './Admin/AdminMobile';

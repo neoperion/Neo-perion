@@ -15,7 +15,7 @@ export function MobileIndustriesHero() {
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto px-mobile-base pt-10 text-center">
         <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }} className="flex flex-col items-center">
           <motion.div variants={fadeUp} className="mb-4">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.05] backdrop-blur-glass-1 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#a78bfa]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] parchment-surface/[0.05] backdrop-blur-glass-1 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#a78bfa]">
               Industries
             </span>
           </motion.div>

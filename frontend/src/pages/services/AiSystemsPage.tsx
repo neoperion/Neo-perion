@@ -46,7 +46,7 @@ const aiSystemsFaqs: FAQItem[] = [
 export function AiSystemsPage({ service }: Props) {
   const seo = (
     <SEO
-      title={`${service.title} - Custom AI Chatbots & LLM Integration | AINCURU Solutions`}
+      title={`${service.title} - Custom AI Chatbots & LLM Integration | AINCURU LLP`}
       description={service.description}
       keywords="AI Chatbot Development, Enterprise Conversational AI, Custom LLM Integration, RAG Architectures, AI Automation Services, Intelligent Agents, Deep AI Engineering"
       jsonLd={[
@@ -58,8 +58,8 @@ export function AiSystemsPage({ service }: Props) {
           description: service.description,
           provider: {
             '@type': 'LocalBusiness',
-            name: 'AINCURU Solutions',
-            image: 'https://www.neoperion.com/images/np-logo.png',
+            name: 'AINCURU LLP',
+            image: 'https://www.aincuru.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },
           areaServed: [
@@ -85,38 +85,26 @@ export function AiSystemsPage({ service }: Props) {
   // KnackForge-style alternating flow: grids ↔ editorial ↔ image-led sections.
   const sections = (
     <>
-      <ServiceTrustStrip service={service} />
-      <ServiceStatement service={service} />
-      <ServiceSolutionCards service={service} />
-      <ServiceCaseStudyCarousel service={service} />
-      <ServiceTestimonials service={service} />
+      <ServiceStatement service={service} theme="manuscript" />
+      <ServiceSolutionCards service={service} theme="manuscript" />
+      <ServiceCaseStudyCarousel service={service} theme="manuscript" />
+      <ServiceJourney service={service} theme="manuscript" />
     </>
   );
 
   return (
-    <MobileGate
-      mobileOnly
-      fallback={
-        <div className="flex min-h-[auto] flex-col bg-[#0A0A0B] text-white">
+        <div className="flex min-h-[auto] flex-col bg-manuscript-parchment text-manuscript-ink">
           {seo}
           <Header />
           <main className="flex-grow">
-            <ServiceVideoHero service={service} />
+            <ServiceVideoHero service={service} theme="manuscript" />
             {sections}
-            <FAQBlock items={aiSystemsFaqs} heading={`${service.title}: FAQ`} />
-            <ServiceStickyCta service={service} />
-            <FooterTransition />
+            <FAQBlock items={aiSystemsFaqs} heading={`${service.title}: FAQ`} className="bg-manuscript-parchment [&_h2]:!text-manuscript-ink [&_h3]:!text-manuscript-ink [&_p]:!text-manuscript-inkSoft [&_div.divide-y]:!divide-manuscript-walnut/20 [&_div.border-y]:!border-manuscript-walnut/20 [&_span]:!text-manuscript-copper" />
+            <ServiceStickyCta service={service} theme="manuscript" />
+            <FooterTransition theme="manuscript" />
           </main>
           <Footer />
         </div>
-      }
-    >
-      <MobileShell nav="bottom" showFooter bgClass="bg-[#0A0A0B]">
-        {seo}
-        <ServiceVideoHero service={service} compact />
-        {sections}
-        <FooterTransition />
-      </MobileShell>
-    </MobileGate>
   );
 }
+

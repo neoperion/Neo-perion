@@ -1,4 +1,4 @@
-import { Section } from "@/components/marketing/Section";
+import * as React from "react";
 
 // Real client logos (uploaded to public/images). Spaces in filenames are URL-encoded.
 const LOGOS = [
@@ -7,20 +7,20 @@ const LOGOS = [
   { src: "/images/krishna%20packers.png", alt: "Krishna Packers" },
   { src: "/images/holo%20mehnd.png", alt: "Holo Mehndi" },
   { src: "/images/images.png", alt: "Client" },
-  { src: "/images/WhatsApp%20Image%202026-06-22%20at%202.11.35%20PM.jpeg", alt: "Client" },
 ];
 
 function LogoRow({ hidden = false }: { hidden?: boolean }) {
   return (
-    <div className="flex shrink-0 items-center gap-16 pr-16 md:gap-24 md:pr-24" aria-hidden={hidden}>
+    <div className="flex shrink-0 items-center gap-12 pr-12 md:gap-20 md:pr-20" aria-hidden={hidden}>
       {LOGOS.map((logo, i) => (
-        <img
-          key={`${logo.alt}-${i}`}
-          src={logo.src}
-          alt={hidden ? "" : logo.alt}
-          loading="lazy"
-          className="h-12 w-auto object-contain md:h-16"
-        />
+        <div key={`${logo.alt}-${i}`} className="flex items-center justify-center opacity-80 hover:opacity-100 transition-all duration-300">
+          <img
+            src={logo.src}
+            alt={hidden ? "" : logo.alt}
+            loading="lazy"
+            className="h-10 w-auto object-contain md:h-14"
+          />
+        </div>
       ))}
     </div>
   );
@@ -28,18 +28,35 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
 
 export const TrustedBy = () => {
   return (
-    <Section bg="paper" rhythm="supporting" divider>
-      <p className="text-center text-[12px] font-semibold uppercase tracking-[0.08em] text-muted2">
-        Trusted by the teams we build with
-      </p>
-
-      {/* Auto-scrolling logo marquee (left → right) */}
-      <div className="np-marquee-group relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="np-marquee flex w-max items-center [animation-direction:reverse]">
-          <LogoRow />
-          <LogoRow hidden />
+    <section className="parchment-surface py-16 md:py-24 border-b border-manuscriptAlpha-ink-10">
+      <div className="container mx-auto max-w-[1200px] px-6 lg:px-8">
+        
+        <div className="flex flex-col items-center justify-center space-y-2 mb-12">
+          <p className="chapter-eyebrow text-manuscript-copper">FIELD NOTES</p>
+          <h2 className="heading-manuscript text-3xl md:text-4xl text-center max-w-2xl">
+            Built alongside ambitious teams.
+          </h2>
         </div>
+
+        <hr className="ink-rule w-full max-w-4xl mx-auto mb-10" />
+
+        {/* Auto-scrolling logo marquee (left → right) */}
+        <div className="np-marquee-group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
+          <div className="np-marquee flex w-max items-center">
+            <LogoRow />
+            <LogoRow hidden />
+          </div>
+        </div>
+        
+        <hr className="ink-rule w-full max-w-4xl mx-auto mt-10 mb-8" />
+        
+        <div className="flex justify-center">
+          <p className="font-manuscriptBody text-[11px] font-semibold tracking-[0.2em] uppercase text-manuscript-inkMuted">
+            AINCURU · FIELD NOTE
+          </p>
+        </div>
+
       </div>
-    </Section>
+    </section>
   );
 };

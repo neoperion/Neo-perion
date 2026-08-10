@@ -92,7 +92,7 @@ export function AIOrbHero({
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
         <motion.div variants={fadeUp} className="mb-6">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-sm">
+          <span className="inline-flex items-center gap-1.5 rounded-full parchment-surface--deep px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-sm">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neo-blue opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-neo-blue" />
@@ -122,7 +122,7 @@ export function AIOrbHero({
           <Link
             to={primaryCta.href}
             onClick={() => haptic('medium')}
-            className="group relative w-full h-[48px] rounded-xl bg-slate-900 text-white font-bold text-[14px] flex items-center justify-center gap-2 shadow-md active:scale-[0.97] transition-transform"
+            className="group relative w-full h-[48px] rounded-xl parchment-surface--deep text-white font-bold text-[14px] flex items-center justify-center gap-2 shadow-md active:scale-[0.97] transition-transform"
           >
             {primaryCta.label}
             <ArrowRight size={14} strokeWidth={2.5} />

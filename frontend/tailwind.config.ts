@@ -74,6 +74,44 @@ export default {
           hover: "#D96A05",
           tint: "rgba(247,126,13,0.08)",
         },
+        // ─── MANUSCRIPT PALETTE (Phase 1 — additive, namespace `manuscript.*`) ───
+        // 70% parchment / 20% ink / 7% walnut-rust / 3% gold / sage accent.
+        // Old `ink`/`body`/`paper` tokens above are kept for legacy components.
+        manuscript: {
+          // Parchment tier (canvas, large surfaces)
+          parchment:       "#F5ECDC",
+          parchmentWarm:   "#EFE2C8",
+          parchmentLight:  "#F7EFDB",
+          parchmentDeep:   "#E8D8B8",
+          // Ink tier (body text, hairlines)
+          ink:             "#1F1A14",
+          inkSoft:         "#2C241B",
+          inkMuted:        "#5A4A3A",
+          // Walnut / rust tier (secondary headings, dividers, accents)
+          walnut:          "#5B3A1F",
+          walnutDeep:      "#3F2812",
+          rust:            "#A6432A",
+          rustDeep:        "#8B3A1F",
+          // Gold tier (primary CTA, eyebrow, ornaments — 3% use)
+          gold:            "#B68A35",
+          goldWarm:        "#D4A857",
+          goldDeep:        "#8E6A20",
+          // Copper tier (editorial annotations)
+          copper:          "#A84A28",
+          copperMuted:     "#C17A55",
+          // Sage (tags/badges only)
+          sage:            "#6B7F5A",
+          sageSoft:        "#8DA37C",
+        },
+        manuscriptAlpha: {
+          // Translucent overlays for glass/parchment layering
+          "parchment-90":  "rgba(245, 236, 220, 0.90)",
+          "parchment-70":  "rgba(245, 236, 220, 0.70)",
+          "parchment-50":  "rgba(245, 236, 220, 0.50)",
+          "ink-10":        "rgba(31, 26, 20, 0.10)",
+          "ink-20":        "rgba(31, 26, 20, 0.20)",
+          "gold-20":       "rgba(182, 138, 53, 0.20)",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -81,6 +119,12 @@ export default {
         logo: ['"Press Start 2P"', 'monospace'],
         editorial: ['Instrument Serif', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        // ─── MANUSCRIPT TOKENS (Phase 1 — Living Manuscript rebrand) ───
+        // Loaded from index.html Google Fonts request. Cormorant for display,
+        // Inter retained for body, Caveat for handwritten accents.
+        manuscript: ['"Cormorant Garamond"', 'Garamond', 'Georgia', 'serif'],
+        manuscriptBody: ['Inter', 'system-ui', 'sans-serif'],
+        manuscriptHand: ['Caveat', '"Brush Script MT"', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",

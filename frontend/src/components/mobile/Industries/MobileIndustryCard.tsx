@@ -18,12 +18,12 @@ export function MobileIndustryCard() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="relative p-6 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-glass-1 overflow-hidden"
+            className="relative p-6 rounded-[2rem] parchment-surface/[0.02] border border-white/[0.08] backdrop-blur-glass-1 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br opacity-[0.08] blur-3xl pointer-events-none" style={{ backgroundImage: `linear-gradient(to bottom right, ${industry.color}, transparent)` }} />
             
             <div className="relative z-10">
-              <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-white/[0.05] border border-white/[0.1] mb-5 shadow-glow">
+              <div className="inline-flex items-center justify-center p-3 rounded-2xl parchment-surface/[0.05] border border-white/[0.1] mb-5 shadow-glow">
                 <Icon className="w-6 h-6" style={{ color: industry.color }} />
               </div>
               
@@ -59,7 +59,7 @@ export function MobileIndustryCard() {
               
               <button 
                 onClick={() => navigate(`/industries/${industry.id}`)}
-                className="w-full flex items-center justify-center gap-2 h-12 rounded-xl text-white font-bold text-[13px] bg-white/[0.05] border border-white/[0.1] hover:bg-white/[0.1] active:scale-[0.98] transition-all"
+                className="w-full flex items-center justify-center gap-2 h-12 rounded-xl text-white font-bold text-[13px] parchment-surface/[0.05] border border-white/[0.1] hover:parchment-surface/[0.1] active:scale-[0.98] transition-all"
               >
                 Explore {industry.title}
                 <ArrowRight className="w-4 h-4" />

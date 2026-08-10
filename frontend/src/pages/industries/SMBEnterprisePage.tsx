@@ -121,8 +121,8 @@ export function SMBEnterprisePage() {
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "AINCURU Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "name": "AINCURU LLP",
+      "image": "https://www.aincuru.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -143,7 +143,7 @@ export function SMBEnterprisePage() {
         <SEO
           title="SMB & Enterprise Solutions | Business Automation & Digital Transformation | AINCURU"
           description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/smbs"
+          url="https://www.aincuru.com/industries/smbs"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />
@@ -167,12 +167,12 @@ export function SMBEnterprisePage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                AINCURU Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+                AINCURU LLP builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-8 py-4 parchment-surface--deep text-white rounded-xl font-bold hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {industry.ctaText} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -243,7 +243,7 @@ export function SMBEnterprisePage() {
         </section>
 
         {/* ═══════════════ HOW WE WORK — PROCESS ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-900 text-white relative overflow-hidden">
+        <section className="py-24 px-6 lg:px-12 parchment-surface--deep text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-900/30 via-transparent to-transparent" />
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-800/20 rounded-full blur-[120px] pointer-events-none" />
 
@@ -274,7 +274,7 @@ export function SMBEnterprisePage() {
                   className="relative group"
                 >
                   {i < 3 && <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-amber-500/30 to-transparent z-0" />}
-                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-amber-500/30 transition-all duration-500 h-full">
+                  <div className="relative parchment-surface/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:parchment-surface/10 hover:border-amber-500/30 transition-all duration-500 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-black text-xl group-hover:bg-amber-500/20 transition-all">
                       {step.step}
                     </div>
@@ -338,9 +338,9 @@ export function SMBEnterprisePage() {
                     }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-neutral-800 p-8 overflow-hidden group hover:shadow-xl hover:shadow-amber-50 transition-all duration-500`}
                   >
-                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
+                    <div className="absolute -top-8 -right-8 w-24 h-24 parchment-surface/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
                     <div className="relative z-10">
-                      <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-slate-200/60 shadow-sm flex items-center justify-center mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-manuscriptAlpha-ink-15/60 shadow-sm flex items-center justify-center mb-6">
                         <Icon className="text-amber-400" size={22} />
                       </div>
                       <div className="mb-4">
@@ -357,7 +357,7 @@ export function SMBEnterprisePage() {
                         </div>
                         <p className="text-sm text-neutral-200 font-semibold">{item.after}</p>
                       </div>
-                      <div className="pt-4 border-t border-slate-200/50">
+                      <div className="pt-4 border-t border-manuscriptAlpha-ink-15/50">
                         <span className="text-lg font-black text-amber-400">{item.metric}</span>
                       </div>
                     </div>
@@ -453,7 +453,7 @@ export function SMBEnterprisePage() {
 
           <div className="max-w-4xl mx-auto relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
+              <div className="w-16 h-16 rounded-2xl parchment-surface/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
                 <Building2 className="text-white" size={30} />
               </div>
               <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">Ready to Transform Your Business?</h2>
@@ -464,7 +464,7 @@ export function SMBEnterprisePage() {
                 <button onClick={() => navigate('/contact')} className="group px-8 py-4 bg-neutral-900 text-amber-400 rounded-xl font-bold hover:bg-amber-500/10 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-amber-900/20">
                   Get Your Free Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button onClick={() => navigate('/services')} className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <button onClick={() => navigate('/services')} className="px-8 py-4 parchment-surface/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:parchment-surface/20 transition-all duration-300">
                   Explore All Services
                 </button>
               </div>
@@ -488,7 +488,7 @@ export function SMBEnterprisePage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            AINCURU Solutions builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
+            AINCURU LLP builds custom CRM and ERP systems, internal dashboards, workflow automations, and data analytics platforms for small and mid-sized businesses and enterprises. Pilots and integrations typically ship in 4–10 weeks; full enterprise platforms in 3–6 months, with a written agreement that names deliverables and acceptance gates up front.
           </p>
           
           <button 
@@ -503,7 +503,7 @@ export function SMBEnterprisePage() {
         {/* ROI Calculator Mobile */}
         <section className="px-6 py-10 bg-[#030B1D] border-t border-white/[0.08]">
           <h2 className="text-lg font-bold text-white mb-6">Automation ROI Impact</h2>
-          <div className="rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
+          <div className="rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
             <ROIImpactCalculator />
           </div>
         </section>
@@ -515,7 +515,7 @@ export function SMBEnterprisePage() {
              {industry.offerings.map((offering, i) => {
                const Icon = offering.icon;
                return (
-                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
+                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1">
                    <div className="flex items-start gap-3">
                      <Icon className="text-amber-400 shrink-0 mt-0.5" size={20} />
                      <div>
@@ -553,7 +553,7 @@ export function SMBEnterprisePage() {
                 color: 'text-amber-500'
               }
             ].map((item, i) => (
-               <div key={i} className="bg-white/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
+               <div key={i} className="parchment-surface/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-2 h-2 rounded-full bg-red-400" />
@@ -581,7 +581,7 @@ export function SMBEnterprisePage() {
           <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">Tech Stack</h2>
           <div className="flex flex-wrap gap-2">
             {industry.techStack.map((tech, i) => (
-              <span key={i} className="px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
+              <span key={i} className="px-3 py-1.5 parchment-surface/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
                 {tech}
               </span>
             ))}
@@ -593,4 +593,5 @@ export function SMBEnterprisePage() {
     </MobileGate>
   );
 }
+
 

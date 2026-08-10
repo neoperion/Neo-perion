@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
       "Built organic search discoverability."
     ],
     gallery: ['/portfolio-images/krishna-gallery-admin.png', '/portfolio-images/krishna-gallery-contact.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328951/krishna_packers_website_o1byjp.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328951/krishna_packers_website_o1byjp.mp4",
     thumbnail: "/portfolio-images/krishna-thumbnail.png",
     featured: false
   },
@@ -105,7 +105,7 @@ export const projectsData: Project[] = [
       "Centralized product and inventory management."
     ],
     gallery: ['/portfolio-images/izhaiyam2gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328981/izhaiyam_twmt16.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328981/izhaiyam_twmt16.mp4",
     thumbnail: "/portfolio-images/izhaiyamthumnail.png",
     featured: false
   },
@@ -146,7 +146,7 @@ export const projectsData: Project[] = [
       "Built an extensible foundation for future school integrations."
     ],
     gallery: ['/portfolio-images/funnovo2gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328988/funnovo_alpqhd.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328988/funnovo_alpqhd.mp4",
     thumbnail: "/portfolio-images/funnovothamnail1.png",
     featured: true
   },
@@ -188,7 +188,7 @@ export const projectsData: Project[] = [
       "Established a foundation for multiple revenue streams."
     ],
     gallery: ['/portfolio-images/lexzify2gallery.png', '/portfolio-images/lexzify3gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328988/lexzify_io3vha.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328988/lexzify_io3vha.mp4",
     thumbnail: "/portfolio-images/lexzifythumbnail.png",
     featured: true
   },
@@ -231,7 +231,7 @@ export const projectsData: Project[] = [
       "Provides channel-level selling optimization."
     ],
     gallery: ['/portfolio-images/farmer2gallery.png', '/portfolio-images/farmer3gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328972/farmer_profit_anazer_lfpzee.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328972/farmer_profit_anazer_lfpzee.mp4",
     thumbnail: "/portfolio-images/farmerthumnail.png",
     featured: true
   },
@@ -274,7 +274,7 @@ export const projectsData: Project[] = [
     gallery: [
       "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80"
     ],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328944/donation_project_doxfjt.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328944/donation_project_doxfjt.mp4",
     thumbnail: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80",
     featured: false
   },
@@ -310,7 +310,7 @@ export const projectsData: Project[] = [
       "Improved brand retention and loyalty."
     ],
     gallery: ['/portfolio-images/mobileecommerce2gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328972/mobile_accesories_e_commerce_website_hfl4qh.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328972/mobile_accesories_e_commerce_website_hfl4qh.mp4",
     thumbnail: "/portfolio-images/mobileecommercethumbnail.png",
     featured: false
   },
@@ -350,7 +350,7 @@ export const projectsData: Project[] = [
       "Improves customer trust and long-term engagement."
     ],
     gallery: ['/portfolio-images/polystore2gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328975/polystore_with_voice_pexjxs.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328975/polystore_with_voice_pexjxs.mp4",
     thumbnail: "/portfolio-images/polystorethumnail.png",
     featured: false
   },
@@ -390,7 +390,7 @@ export const projectsData: Project[] = [
       "Provides a commercially viable SaaS platform."
     ],
     gallery: ['/portfolio-images/webanalzer2gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328983/final_web_analyzer_aab19j.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328983/final_web_analyzer_aab19j.mp4",
     thumbnail: "/portfolio-images/webanalyzerthumnail.png",
     featured: false
   },
@@ -425,7 +425,7 @@ export const projectsData: Project[] = [
       "Elevated the brand's digital presence."
     ],
     gallery: ['/portfolio-images/holomehndi2gallery.png', '/portfolio-images/holomenhdi3gallery.png'],
-    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/v1782328952/holomehndi_website_hwlnn9.mp4",
+    video: "https://res.cloudinary.com/dkkdmpulb/video/upload/fl_progressive/v1782328952/holomehndi_website_hwlnn9.mp4",
     thumbnail: "/portfolio-images/holomendithumbail.png",
     featured: false
   }

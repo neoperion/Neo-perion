@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { SEO } from '@/components/SEO';
+import { seoConfig } from '@/lib/seoConfig';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { BlogHero } from '@/components/blog/BlogHero';
@@ -75,41 +76,19 @@ export const BlogPage: React.FC = () => {
     "description": "Thoughts, guides and industry insights from the AINCURU engineering team on AI, Product Development, and SaaS.",
     "publisher": {
       "@type": "Organization",
-      "@id": "https://www.neoperion.com/#organization",
-      "name": "AINCURU Solutions",
+      "@id": "https://www.aincuru.com/#organization",
+      "name": "AINCURU LLP",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://www.aincuru.com/images/np-logo.png"
       }
     }
   };
 
   return (
-    <MobileGate mobileOnly fallback={
-      <div className="min-h-screen bg-canvas font-sans text-ink selection:bg-brand/20">
-        <SEO
-          title="Blog — AI, Software & Building in Public | AINCURU Solutions"
-          description="Practical writing from the AINCURU team: how we build AI systems, what works in production, and honest lessons for startups and SMEs."
-          url={`${SITE_URL}/company/blog`}
-          jsonLd={[
-            blogListSchema,
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": `${SITE_URL}/`
-              },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": `${SITE_URL}/company/blog`
-              }]
-            }
-          ]}
-        />
+      <div className="manuscript-root min-h-screen parchment-surface selection:bg-manuscript-copper/20">
+      
+        <SEO {...seoConfig.blog} />
         <Header />
 
         <main>
@@ -122,11 +101,11 @@ export const BlogPage: React.FC = () => {
               onCategoryChange={setActiveCategory}
             />
           ) : (
-            <section className="relative overflow-hidden border-b border-hairline bg-canvas pb-12 pt-36">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,#D7DCE5_1px,transparent_1px)] bg-[size:28px_28px] opacity-25 [mask-image:radial-gradient(ellipse_at_top,black,transparent_80%)]" />
+            <section className="relative overflow-hidden border-b border-manuscript-parchmentDeep parchment-surface pb-12 pt-36">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(91,58,31,0.08)_1px,transparent_1px)] bg-[size:28px_28px] opacity-25 [mask-image:radial-gradient(ellipse_at_top,black,transparent_80%)]" />
               <div className="relative mx-auto w-full max-w-[1200px] px-6 lg:px-8">
-                <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-brand">Blog &amp; Insights</p>
-                <h1 className="mt-3 font-display text-[clamp(30px,3.5vw,44px)] font-bold tracking-tight text-ink">
+                <p className="chapter-eyebrow mb-6">Blog &amp; Insights</p>
+                <h1 className="mt-3 heading-manuscript text-[clamp(30px,3.5vw,44px)] font-bold tracking-tight text-manuscript-ink">
                   {searchQuery ? `Results for "${searchQuery}"` : activeCategory}
                 </h1>
               </div>
@@ -135,7 +114,7 @@ export const BlogPage: React.FC = () => {
 
           <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
             {/* Sticky filter + search bar */}
-            <div className="sticky top-[76px] z-30 -mx-6 mt-16 border-y border-hairline bg-canvas/90 px-6 py-4 backdrop-blur-xl lg:-mx-8 lg:px-8">
+            <div className="sticky top-[76px] z-30 -mx-6 mt-16 border-y border-manuscript-parchmentDeep bg-manuscript-parchment/90 px-6 py-4 backdrop-blur-xl lg:-mx-8 lg:px-8">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <BlogFilters
                   categories={CATEGORIES}
@@ -149,17 +128,17 @@ export const BlogPage: React.FC = () => {
 
             <section className="py-14">
               <div className="mb-8 flex items-baseline justify-between">
-                <h2 className="font-display text-xl font-bold tracking-tight text-ink">
+                <h2 className="heading-manuscript text-2xl tracking-tight text-manuscript-ink">
                   {isFiltering ? 'Results' : 'All articles'}
                 </h2>
-                <span className="text-[13px] text-faint">
+                <span className="text-[13px] font-manuscriptBody text-manuscript-inkMuted">
                   {blogs.length} article{blogs.length === 1 ? '' : 's'}
                 </span>
               </div>
 
               {blogsLoading ? (
                 <div className="flex items-center justify-center py-32">
-                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-brand/20 border-t-brand" />
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-manuscript-copper/20 border-t-manuscript-copper" />
                 </div>
               ) : (
                 <>
@@ -175,70 +154,14 @@ export const BlogPage: React.FC = () => {
             </section>
           </div>
 
-          {/* Newsletter CTA */}
-          <section className="border-t border-hairline bg-paper">
-            <div className="mx-auto w-full max-w-[1200px] px-6 py-16 lg:px-8">
-              <div className="relative overflow-hidden border border-navy/40 bg-navy px-8 py-12 lg:px-14 lg:py-16">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_15%,rgba(247,126,13,0.25),transparent_55%)]" />
-                <div className="relative max-w-xl">
-                  <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#8FB8FF]">
-                    Newsletter
-                  </p>
-                  <h2 className="mt-2 font-display text-[clamp(26px,3vw,40px)] font-bold leading-tight text-white">
-                    Engineering notes, straight to your inbox
-                  </h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-white/70">
-                    No noise — just our best writing on AI, product, and scale, about twice a month.
-                  </p>
-                  <form onSubmit={(e) => e.preventDefault()} className="mt-7 flex max-w-md flex-col gap-2 sm:flex-row">
-                    <input
-                      type="email"
-                      required
-                      placeholder="you@company.com"
-                      className="flex-1 border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-brand"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
-                  <p className="mt-3 text-[12px] text-white/40">We respect your inbox. Unsubscribe anytime.</p>
-                </div>
-              </div>
-            </div>
-          </section>
+
         </main>
         <Footer />
       </div>
-    }>
-      <MobileShell nav="bottom" showFooter>
-        <div className="w-full pb-8">
-          <div className="px-mobile-base pt-8">
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Blog &amp; Insights</p>
-            <h1 className="text-display-lg text-white tracking-tight">
-              {isFiltering
-                ? searchQuery
-                  ? `Results for "${searchQuery}"`
-                  : activeCategory
-                : 'Engineering notes on AI, products & scale'}
-            </h1>
-            <p className="text-base text-white/70 mt-3">Deep-dives from our engineering team.</p>
-          </div>
-          {!isFiltering && featuredPost && <FeaturedPost post={featuredPost} theme="dark" />}
-          <BlogSearch onSearch={setSearchQuery} theme="dark" />
-          <BlogFilters categories={CATEGORIES} activeCategory={activeCategory} onCategoryChange={setActiveCategory} theme="dark" />
-          {blogsLoading ? (
-            <div className="py-20 flex justify-center"><div className="w-7 h-7 rounded-full border-2 border-neo-blue/30 border-t-neo-blue animate-spin" /></div>
-          ) : (
-            <div className="px-mobile-base"><BlogGrid blogs={paginatedBlogs} theme="dark" /></div>
-          )}
-          <BlogPagination currentPage={currentPage} totalPages={Math.ceil(blogs.length / POSTS_PER_PAGE)} onPageChange={setCurrentPage} theme="dark" />
-        </div>
-      </MobileShell>
-    </MobileGate>
   );
 };
 
 export default BlogPage;
+
+
+

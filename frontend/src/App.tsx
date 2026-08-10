@@ -23,7 +23,6 @@ import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import Contact from "./pages/Contact";
 import UsClients from "./pages/UsClients";
-import Newsletter from "./pages/Newsletter";
 import Security from "./pages/Security";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -37,7 +36,6 @@ import Dashboard from "./pages/admin/Dashboard";
 import CareersAdmin from "./pages/admin/CareersAdmin";
 import ApplicationsAdmin from "./pages/admin/ApplicationsAdmin";
 import LeadsAdmin from "./pages/admin/LeadsAdmin";
-import NewsletterAdmin from "./pages/admin/NewsletterAdmin";
 import BlogAdmin from "./pages/admin/BlogAdmin";
 import AdminCaseStudies from "./pages/admin/AdminCaseStudies";
 import AdminTestimonials from "./pages/admin/AdminTestimonials";
@@ -81,7 +79,6 @@ const App = () => (
               <Route path="/company/careers" element={<Careers />} />
               <Route path="/company/careers/:slug" element={<CareerDetail />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/company/newsletter" element={<Newsletter />} />
               <Route path="/security" element={<Security />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
@@ -103,7 +100,6 @@ const App = () => (
                 <Route path="careers" element={<CareersAdmin />} />
                 <Route path="applications" element={<ApplicationsAdmin />} />
                 <Route path="leads" element={<LeadsAdmin />} />
-                <Route path="newsletter" element={<NewsletterAdmin />} />
                 <Route path="case-studies" element={<AdminCaseStudies />} />
                 <Route path="testimonials" element={<AdminTestimonials />} />
                 <Route path="talent-network" element={<AdminTalentNetwork />} />

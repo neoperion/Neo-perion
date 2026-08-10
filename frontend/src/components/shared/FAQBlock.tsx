@@ -10,6 +10,7 @@ interface FAQBlockProps {
   heading?: string;
   eyebrow?: string;
   className?: string;
+  theme?: 'light' | 'dark';
 }
 
 /**
@@ -23,8 +24,10 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({
   heading = 'Frequently Asked Questions',
   eyebrow = 'FAQ',
   className = '',
+  theme = 'dark',
 }) => {
   if (!items || items.length === 0) return null;
+  const isLight = theme === 'light';
 
   return (
     <section
@@ -32,17 +35,17 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl px-6">
-        <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">
+        <p className={isLight ? "chapter-eyebrow mb-6" : "mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]"}>
           {eyebrow}
         </p>
         <h2
           id="faq-heading"
-          className="mb-10 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white"
+          className={isLight ? "mb-10 heading-manuscript text-[clamp(1.75rem,3vw,2.5rem)] text-manuscript-ink" : "mb-10 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white"}
         >
           {heading}
         </h2>
 
-        <div className="divide-y divide-white/[0.07] border-y border-white/[0.07]">
+        <div className={`divide-y border-y ${isLight ? 'divide-manuscript-parchmentDeep border-manuscript-parchmentDeep' : 'divide-white/[0.07] border-white/[0.07]'}`}>
           {items.map((item, i) => (
             <details
               key={i}
@@ -51,17 +54,17 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({
               <summary
                 className="flex cursor-pointer list-none items-start justify-between gap-6 text-left"
               >
-                <h3 className="text-[1.05rem] font-semibold leading-snug text-white">
+                <h3 className={isLight ? "heading-manuscript text-xl text-manuscript-ink group-hover:text-manuscript-rust transition-colors" : "text-[1.05rem] font-semibold leading-snug text-white"}>
                   {item.question}
                 </h3>
                 <span
                   aria-hidden="true"
-                  className="mt-1 shrink-0 text-[#F77E0D] transition-transform duration-200 group-open:rotate-45"
+                  className={`mt-1 shrink-0 transition-transform duration-200 group-open:rotate-45 ${isLight ? 'text-manuscript-copper' : 'text-[#F77E0D]'}`}
                 >
                   +
                 </span>
               </summary>
-              <p className="mt-4 max-w-2xl text-[15px] leading-[1.75] text-neutral-400">
+              <p className={`mt-4 max-w-2xl font-manuscriptBody ${isLight ? 'text-[15px] leading-[1.75] text-manuscript-inkMuted' : 'text-[15px] leading-[1.75] text-neutral-400'}`}>
                 {item.answer}
               </p>
             </details>

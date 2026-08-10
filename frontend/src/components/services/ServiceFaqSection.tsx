@@ -19,12 +19,12 @@ export function ServiceFaqSection({ service }: { service: ServiceData }) {
   };
 
   return (
-    <section className="bg-[#0A0A0B] py-16">
+    <section className="bg-manuscript-parchmentDark py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="container mx-auto max-w-3xl px-6 lg:px-8">
         <div className="mb-12 text-center">
           <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.25em] text-brand">FAQ</p>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-white">
+          <h2 className="font-manuscript text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-tight text-manuscript-ink">
             Frequently asked questions
           </h2>
         </div>
@@ -32,13 +32,13 @@ export function ServiceFaqSection({ service }: { service: ServiceData }) {
           {service.faqs.map((faq, idx) => {
             const open = openIndex === idx;
             return (
-              <div key={idx} className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121113]">
+              <div key={idx} className="overflow-hidden rounded-xl border border-manuscriptAlpha-ink-15 bg-manuscript-parchmentLight">
                 <button
                   onClick={() => setOpenIndex(open ? null : idx)}
-                  className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-white/[0.03]"
+                  className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:parchment-surface/[0.03]"
                   aria-expanded={open}
                 >
-                  <span className="pr-8 font-bold text-white">{faq.question}</span>
+                  <span className="pr-8 font-bold text-manuscript-ink">{faq.question}</span>
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 text-brand transition-transform ${open ? "rotate-180" : ""}`}
                   />
@@ -51,7 +51,7 @@ export function ServiceFaqSection({ service }: { service: ServiceData }) {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-white/[0.06] px-6 pb-5 pt-4 leading-relaxed text-neutral-400">
+                      <div className="border-t border-white/[0.06] px-6 pb-5 pt-4 leading-relaxed text-manuscript-inkSoft">
                         {faq.answer}
                       </div>
                     </motion.div>

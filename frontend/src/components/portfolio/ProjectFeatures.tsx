@@ -9,7 +9,7 @@ interface ProjectFeaturesProps {
 
 export const ProjectFeatures: React.FC<ProjectFeaturesProps> = ({ project }) => {
   return (
-    <section className="py-14 md:py-24 bg-[#050816] relative">
+    <section className="py-14 md:py-24 bg-manuscript-rustDeep relative overflow-hidden">
       <div className="container mx-auto px-4">
         
         <motion.div
@@ -18,10 +18,10 @@ export const ProjectFeatures: React.FC<ProjectFeaturesProps> = ({ project }) => 
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-manuscript-parchmentLight mb-4">
             Key Features
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="text-manuscript-parchment/90 max-w-2xl mx-auto text-lg">
             The core capabilities that power this product experience.
           </p>
         </motion.div>
@@ -34,16 +34,21 @@ export const ProjectFeatures: React.FC<ProjectFeaturesProps> = ({ project }) => 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-5 md:p-8 rounded-2xl md:rounded-3xl bg-slate-900 border border-white/5 hover:border-neo-blue/30 transition-colors group"
+              className="p-5 md:p-8 rounded-2xl md:rounded-3xl bg-manuscript-ink/50 border border-manuscript-gold/20 shadow-lg shadow-black/10 hover:-translate-y-1 hover:shadow-xl hover:border-manuscript-gold/40 transition-all duration-300 group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-neo-blue/20 transition-colors">
-                <Sparkles className="w-6 h-6 text-slate-400 group-hover:text-neo-blue transition-colors" />
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-manuscript-gold/10 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-manuscript-gold" />
+                </div>
+                <span className="text-xs font-mono font-bold text-manuscript-gold/60 tracking-widest">
+                  0{index + 1}
+                </span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-display font-semibold text-manuscript-parchmentLight mb-3 group-hover:text-manuscript-gold transition-colors">
                 {feature.title}
               </h3>
               {feature.description && (
-                <p className="text-slate-400">
+                <p className="text-manuscript-parchment/70 leading-relaxed">
                   {feature.description}
                 </p>
               )}

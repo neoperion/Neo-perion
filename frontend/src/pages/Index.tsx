@@ -5,10 +5,12 @@ import { WhyNeoPerion } from "@/components/WhyNeoPerion";
 import { HomeCTA } from "@/components/HomeCTA";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { SITE_URL } from "@/lib/seo";
+import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo";
+import { seoConfig } from "@/lib/seoConfig";
 
 import { TrustedBy } from "@/components/features/home/TrustedBy";
-import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
+import { SelectedWork } from "@/components/features/home/SelectedWork";
+import { AboutFounderCTA } from "@/components/about/AboutFounderCTA";
 
 /**
  * Homepage. Responsive-first single design language across all breakpoints
@@ -16,19 +18,15 @@ import { HomeTestimonials } from "@/components/features/home/HomeTestimonials";
  */
 const Index = () => (
   <div className="min-h-screen bg-canvas text-ink selection:bg-brand/20">
-    <SEO
-      title="AINCURU Solutions | AI Automation, Web & App Development"
-      description="AINCURU Solutions develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster."
-      keywords="AI automation company, custom web application development, mobile app development, data analytics, AI engineering, India software company"
-      url={`${SITE_URL}/`}
-    />
+    <SEO {...seoConfig.home} />
     <Header />
     <main>
       <Hero />
       <TrustedBy />
       <Services />
+      <AboutFounderCTA />
       <WhyNeoPerion />
-      <HomeTestimonials />
+      <SelectedWork />
       <HomeCTA />
     </main>
     <Footer />

@@ -67,7 +67,7 @@ export const AdminLogin: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-[#02040A] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:border-neo-blue transition-colors"
-                  placeholder="admin@neoperion.com"
+                  placeholder="admin@aincuru.com"
                 />
               </div>
             </div>
@@ -111,4 +111,5 @@ export const AdminLogin: React.FC = () => {
 };
 
 export default AdminLogin;
+
 

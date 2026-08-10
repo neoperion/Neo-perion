@@ -128,8 +128,8 @@ export function StartupsPage() {
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "AINCURU Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "name": "AINCURU LLP",
+      "image": "https://www.aincuru.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -150,7 +150,7 @@ export function StartupsPage() {
         <SEO
           title="Startup & Founder Solutions | MVP Development & SaaS | AINCURU"
           description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/startups"
+          url="https://www.aincuru.com/industries/startups"
           jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
         />
         <Header />
@@ -174,12 +174,12 @@ export function StartupsPage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                AINCURU Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+                AINCURU LLP partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-violet-600 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-8 py-4 parchment-surface--deep text-white rounded-xl font-bold hover:bg-violet-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {industry.ctaText} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -250,7 +250,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ HOW WE WORK — TIMELINE ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-900 text-white relative overflow-hidden">
+        <section className="py-24 px-6 lg:px-12 parchment-surface--deep text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-violet-900/30 via-transparent to-transparent" />
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-800/20 rounded-full blur-[120px] pointer-events-none" />
 
@@ -281,7 +281,7 @@ export function StartupsPage() {
                   className="relative group"
                 >
                   {i < 3 && <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-violet-500/30 to-transparent z-0" />}
-                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-violet-500/30 transition-all duration-500 h-full">
+                  <div className="relative parchment-surface/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:parchment-surface/10 hover:border-violet-500/30 transition-all duration-500 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-6 text-violet-400 font-black text-xl group-hover:bg-violet-500/20 transition-all">
                       {step.step}
                     </div>
@@ -329,9 +329,9 @@ export function StartupsPage() {
                     }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-neutral-800 p-10 overflow-hidden group hover:shadow-xl hover:shadow-violet-50 transition-all duration-500`}
                   >
-                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
+                    <div className="absolute -top-8 -right-8 w-24 h-24 parchment-surface/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
                     <div className="relative z-10">
-                      <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-slate-200/60 shadow-sm flex items-center justify-center mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-manuscriptAlpha-ink-15/60 shadow-sm flex items-center justify-center mb-6">
                         <Icon className="text-violet-600" size={22} />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
@@ -429,7 +429,7 @@ export function StartupsPage() {
 
           <div className="max-w-4xl mx-auto relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
+              <div className="w-16 h-16 rounded-2xl parchment-surface/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
                 <Rocket className="text-white" size={30} />
               </div>
               <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">Ready to Launch Your Startup?</h2>
@@ -440,7 +440,7 @@ export function StartupsPage() {
                 <button onClick={() => navigate('/contact')} className="group px-8 py-4 bg-neutral-900 text-violet-700 rounded-xl font-bold hover:bg-violet-50 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-violet-900/20">
                   Book a Founder Call <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button onClick={() => navigate('/services')} className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <button onClick={() => navigate('/services')} className="px-8 py-4 parchment-surface/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:parchment-surface/20 transition-all duration-300">
                   Explore All Services
                 </button>
               </div>
@@ -464,7 +464,7 @@ export function StartupsPage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            AINCURU Solutions partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
+            AINCURU LLP partners with founders to design, build, and ship investor-ready MVPs and SaaS platforms, and provides fractional CTO support — from idea validation to Series A due diligence. Core MVPs typically ship in 6–10 weeks on a written agreement, with full code, infrastructure, and IP transferring to the company on final payment.
           </p>
           
           <button 
@@ -479,7 +479,7 @@ export function StartupsPage() {
         {/* Startup Journey Mobile */}
         <section className="px-6 py-10 bg-[#030B1D] border-t border-white/[0.08]">
           <h2 className="text-lg font-bold text-white mb-6">Your Startup Journey</h2>
-          <div className="rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
+          <div className="rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
             <StartupJourneySlider />
           </div>
         </section>
@@ -491,7 +491,7 @@ export function StartupsPage() {
              {industry.offerings.map((offering, i) => {
                const Icon = offering.icon;
                return (
-                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
+                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1">
                    <div className="flex items-start gap-3">
                      <Icon className="text-violet-400 shrink-0 mt-0.5" size={20} />
                      <div>
@@ -514,7 +514,7 @@ export function StartupsPage() {
               { icon: Shield, title: 'Investor Ready', color: 'text-violet-400' },
               { icon: DollarSign, title: 'Cost Predictability', color: 'text-violet-400' }
             ].map((feature, i) => (
-               <div key={i} className="flex gap-4 items-center bg-white/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
+               <div key={i} className="flex gap-4 items-center parchment-surface/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
                  <feature.icon className={feature.color} size={24} />
                  <div className="flex-1">
                     <h4 className="text-[15px] font-bold text-white">{feature.title}</h4>
@@ -529,7 +529,7 @@ export function StartupsPage() {
           <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">Tech Stack</h2>
           <div className="flex flex-wrap gap-2">
             {industry.techStack.map((tech, i) => (
-              <span key={i} className="px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
+              <span key={i} className="px-3 py-1.5 parchment-surface/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
                 {tech}
               </span>
             ))}
@@ -541,4 +541,5 @@ export function StartupsPage() {
     </MobileGate>
   );
 }
+
 

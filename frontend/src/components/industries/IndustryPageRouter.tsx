@@ -24,7 +24,7 @@ export const IndustryPageRouter: React.FC = () => {
         <p className="text-neutral-400 mb-8">The industry page you are looking for does not exist.</p>
         <button
           onClick={() => navigate('/industries')}
-          className="px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-orange-600 transition-colors"
+          className="px-6 py-3 parchment-surface--deep text-white rounded-xl font-bold hover:bg-orange-600 transition-colors"
         >
           View All Industries
         </button>
@@ -48,7 +48,7 @@ export const IndustryPageRouter: React.FC = () => {
             <h2 className="text-2xl font-bold text-white">Industry page coming soon</h2>
             <button
               onClick={() => navigate('/industries')}
-              className="mt-4 px-6 py-3 bg-slate-900 text-white rounded-xl font-bold"
+              className="mt-4 px-6 py-3 parchment-surface--deep text-white rounded-xl font-bold"
             >
               Back to Industries
             </button>

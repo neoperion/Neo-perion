@@ -13,10 +13,10 @@ export const ProjectTechStack: React.FC<ProjectTechStackProps> = ({ project }) =
     if (!items || items.length === 0) return null;
     return (
       <div className="mb-8">
-        <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">{title}</h3>
-        <div className="flex flex-wrap gap-3">
+        <h3 className="text-[10px] sm:text-xs font-mono font-semibold text-manuscript-copper/80 uppercase tracking-widest mb-4">{title}</h3>
+        <div className="flex flex-wrap gap-2 md:gap-3">
           {items.map((item, idx) => (
-            <div key={idx} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-slate-900 border border-white/10 text-slate-300 text-sm font-medium">
+            <div key={idx} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-manuscript-parchmentWarm border border-manuscript-ink/10 text-manuscript-ink text-xs md:text-sm font-medium">
               {item}
             </div>
           ))}
@@ -26,7 +26,7 @@ export const ProjectTechStack: React.FC<ProjectTechStackProps> = ({ project }) =
   };
 
   return (
-    <section className="py-14 md:py-24 bg-slate-900 relative">
+    <section className="py-14 md:py-24 bg-manuscript-parchment relative overflow-hidden">
       <div className="container mx-auto px-4">
         
         <div className="max-w-4xl mx-auto">
@@ -36,10 +36,10 @@ export const ProjectTechStack: React.FC<ProjectTechStackProps> = ({ project }) =
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-manuscript-ink mb-4">
               Technology Architecture
             </h2>
-            <p className="text-slate-400 text-lg">
+            <p className="text-manuscript-inkSoft text-lg">
               The engineering foundation built for scale, security, and performance.
             </p>
           </motion.div>

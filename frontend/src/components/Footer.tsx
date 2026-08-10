@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SOCIALS = [
-  { img: "/images/instagram.png", href: "https://www.instagram.com/neoperion",                          label: "Instagram" },
-  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/neoperion-solutions",       label: "LinkedIn"  },
-  { img: "/images/facebook.png",  href: "https://www.facebook.com/neoperion",                           label: "Facebook"  },
-  { img: null,                    href: "https://wa.me/917339125472",                                    label: "WhatsApp"  },
+  { img: "/images/instagram.png", href: "https://www.instagram.com/_aincuru",              label: "Instagram" },
+  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/aincuru/",       label: "LinkedIn"  },
+  { img: "/images/facebook.png",  href: "https://www.facebook.com/share/1FCuj6vXfz/",     label: "Facebook"  },
+  { img: null,                    href: "https://wa.me/917810005472",                       label: "WhatsApp"  },
 ];
 
 const COLUMNS = [
@@ -39,11 +39,11 @@ const COLUMNS = [
   {
     heading: "Profiles",
     links: [
-      { label: "LinkedIn", to: "https://www.linkedin.com/company/neoperion-solutions", external: true },
-      { label: "Clutch", to: "https://www.clutch.co/profile/neoperion-solutions", external: true },
-      { label: "GoodFirms", to: "https://www.goodfirms.co/company/neoperion-solutions", external: true },
-      { label: "GitHub", to: "https://github.com/neoperion", external: true },
-      { label: "Crunchbase", to: "https://www.crunchbase.com/organization/neoperion-solutions", external: true },
+      { label: "LinkedIn",   to: "https://www.linkedin.com/company/aincuru/",                        external: true },
+      { label: "Instagram",  to: "https://www.instagram.com/_aincuru",                               external: true },
+      { label: "X (Twitter)", to: "https://x.com/aincuru",                                           external: true },
+      { label: "Facebook",   to: "https://www.facebook.com/share/1FCuj6vXfz/",                       external: true },
+      { label: "Clutch",     to: "https://www.clutch.co/profile/neoperion-solutions",                external: true },
     ],
   },
   {
@@ -61,61 +61,47 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    let script = document.querySelector('script[src="https://widget.clutch.co/static/js/widget.js"]') as HTMLScriptElement;
-    if (!script) {
-      script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://widget.clutch.co/static/js/widget.js";
-      script.async = true;
-      document.body.appendChild(script);
-    } else if ((window as any).CLUTCHCO) {
-      (window as any).CLUTCHCO.Init();
-    }
-  }, []);
+
 
   return (
-    <footer className="relative overflow-hidden border-t border-hairline bg-gradient-to-b from-canvas to-[#0A0A0B] text-muted2">
-      {/* Soft brand-orange glow rising from the bottom (two-tone) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(70%_60%_at_88%_100%,rgba(247,126,13,0.12),transparent_70%),radial-gradient(60%_55%_at_8%_100%,rgba(247,126,13,0.08),transparent_70%)]"
-      />
-      <div className="container relative z-10 mx-auto max-w-[1200px] px-6 pb-4 pt-16 lg:px-8">
+    <footer className="parchment-surface relative overflow-x-clip w-full border-t border-manuscriptAlpha-ink-15">
+      <div className="container relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 pb-4 pt-16 lg:px-8 w-full box-border">
+        
         {/* Slim CTA strip */}
-        <div className="mb-16 flex flex-col items-start justify-between gap-4 border-b border-hairline pb-12 sm:flex-row sm:items-center">
-          <p className="text-base font-medium text-ink">
-            Have a product in mind? Let&apos;s scope it together.
+        <div className="mb-16 flex flex-col items-start justify-between gap-4 border-b border-manuscriptAlpha-ink-15 pb-12 sm:flex-row sm:items-center">
+          <p className="font-manuscriptBody text-[16px] sm:text-[17px] font-medium text-manuscript-ink">
+            Have a product in mind? Let's scope it together.
           </p>
           <button
             onClick={() => navigate("/contact")}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-brand"
+            className="group inline-flex items-center gap-2 font-manuscriptBody text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase text-manuscript-rustDeep transition-colors hover:text-manuscript-copper"
           >
             Start your project
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
 
-        {/* Giant faded brand wordmark — top of footer */}
-        <div aria-hidden className="pointer-events-none mb-14 select-none overflow-hidden">
-          <div className="whitespace-nowrap text-center font-logo text-[clamp(20px,7vw,80px)] leading-none">
-            <span className="text-brand/[0.12]">AI</span><span className="text-ink/[0.05]">NCURU</span>
+        {/* Giant faded brand wordmark */}
+        <div aria-hidden className="pointer-events-none mb-14 select-none overflow-hidden w-full max-w-full">
+          <div className="whitespace-nowrap text-center font-manuscript text-[clamp(40px,10vw,120px)] leading-none font-bold tracking-tight">
+            <span className="text-manuscript-copper/10">AI</span><span className="text-manuscript-ink/5">NCURU</span>
           </div>
         </div>
 
         {/* Links */}
-        <div className="mb-14 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
-          <div className="space-y-6 lg:col-span-2">
+        <div className="mb-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-12 md:grid-cols-3 lg:grid-cols-6 lg:gap-8">
+          <div className="col-span-2 space-y-6 md:col-span-3 lg:col-span-2">
+            
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <img src="/images/np-logo.png" alt="AINCURU" className="h-10 w-auto object-contain" />
+              <span className="font-manuscriptBody text-xl font-bold tracking-widest text-manuscript-ink">AINCURU</span>
             </div>
 
-            <p className="max-w-xs text-sm leading-relaxed text-muted2">
+            <p className="max-w-xs font-manuscriptBody text-sm leading-relaxed text-manuscript-inkSoft">
               Stable, scalable SaaS platforms and AI systems for teams that need to ship.
             </p>
 
-            {/* Social icons using brand PNGs */}
+            {/* Social icons */}
             <div className="flex gap-3">
               {SOCIALS.map((social) => (
                 <a
@@ -124,43 +110,30 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline bg-paper transition-all duration-200 hover:border-brand/30 hover:scale-105"
+                  className="flex h-10 w-10 items-center justify-center rounded-sm border border-manuscriptAlpha-ink-15 bg-manuscript-parchmentLight transition-all duration-200 hover:border-manuscript-copper hover:text-manuscript-copper text-manuscript-inkSoft"
                 >
                   {social.img ? (
                     <img
                       src={social.img}
                       alt={social.label}
-                      className="h-5 w-5 object-contain"
-                      style={{ filter: 'brightness(0) invert(1)' }}
+                      className="h-5 w-5 object-contain opacity-70 transition-opacity hover:opacity-100"
+                      style={{ filter: 'brightness(0) sepia(1) hue-rotate(10deg) saturate(0.5)' }}
                     />
                   ) : (
-                    <MessageCircle size={18} className="text-muted2" />
+                    <MessageCircle size={18} />
                   )}
                 </a>
               ))}
             </div>
 
-            {/* Clutch Widget */}
-            <div className="pt-4">
-              <div 
-                className="clutch-widget" 
-                data-url="https://widget.clutch.co" 
-                data-widget-type="7" 
-                data-height="65" 
-                data-nofollow="false" 
-                data-expandifr="true" 
-                data-scale="100" 
-                data-clutchcompany-id="2691323"
-              ></div>
-            </div>
           </div>
 
           {COLUMNS.map((column) => (
-            <div key={column.heading} className="lg:col-span-1">
-              <h4 className="mb-5 text-sm font-semibold uppercase tracking-wide text-muted2">
+            <div key={column.heading} className="col-span-1">
+              <h4 className="mb-4 sm:mb-5 font-manuscriptBody text-[11px] font-semibold uppercase tracking-[0.2em] text-manuscript-walnutDeep">
                 {column.heading}
               </h4>
-              <ul className="space-y-3 text-sm font-medium text-body">
+              <ul className="space-y-3 font-manuscriptBody text-[13px] sm:text-[14px] text-manuscript-inkSoft">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     {link.external ? (
@@ -168,14 +141,14 @@ export const Footer = () => {
                         href={link.to}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-colors hover:text-brand"
+                        className="transition-colors hover:text-manuscript-rustDeep"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.to}
-                        className="transition-colors hover:text-brand"
+                        className="transition-colors hover:text-manuscript-rustDeep"
                         onClick={() => window.scrollTo(0, 0)}
                       >
                         {link.label}
@@ -188,7 +161,7 @@ export const Footer = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 text-sm text-muted2 md:flex-row">
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-manuscriptAlpha-ink-15 pt-8 font-manuscriptBody text-[13px] text-manuscript-inkMuted md:flex-row md:items-center">
           <p>© {currentYear} AINCURU · Chennai, Tamil Nadu, India</p>
           <div className="flex items-center gap-6">
             <button
@@ -196,11 +169,11 @@ export const Footer = () => {
                 e.preventDefault();
                 import("@/shared/CookieManager").then((m) => m.resetConsent());
               }}
-              className="cursor-pointer transition-colors hover:text-brand"
+              className="cursor-pointer transition-colors hover:text-manuscript-rustDeep"
             >
               Cookie Settings
             </button>
-            <span>Designed for scale.</span>
+            <span className="italic">Designed for scale.</span>
           </div>
         </div>
       </div>

@@ -152,7 +152,7 @@ export const desktopNavSections: DesktopSection[] = [
         title: 'RESOURCES',
         items: [
           { label: 'Blog', href: '/company/blog', icon: BookOpen },
-          { label: 'AI Newsletter', href: '/company/newsletter', icon: Newspaper },
+
           { label: 'Technology Insights', href: '/company/insights', icon: Cpu },
         ],
       },

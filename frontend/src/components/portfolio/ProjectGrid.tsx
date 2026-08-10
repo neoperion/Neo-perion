@@ -42,7 +42,22 @@ export const ProjectGrid: React.FC = () => {
   });
 
   return (
-    <section className="py-16 md:py-24 bg-[#0A0A0B] relative z-10">
+    <section
+      className="py-16 md:py-24 relative z-10"
+      style={{
+        background: '#EDE5D4',
+        // Subtle engineering grid
+        backgroundImage: 'linear-gradient(rgba(31,26,20,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(31,26,20,0.03) 1px, transparent 1px)',
+        backgroundSize: '48px 48px',
+      }}
+    >
+      {/* Subtle top copper rule */}
+      <div
+        aria-hidden="true"
+        className="w-full h-px mb-0"
+        style={{ background: 'rgba(168,82,30,0.12)' }}
+      />
+
       <div className="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
         <ProjectFilters 
           selectedCategory={selectedCategory}
@@ -70,12 +85,13 @@ export const ProjectGrid: React.FC = () => {
           </>
         ) : (
           <div className="flex flex-col items-center py-28 text-center">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D] mb-4">No results</p>
-            <h3 className="font-display text-2xl font-black text-white mb-2">No projects found</h3>
-            <p className="font-sans text-[14px] text-white/40 mb-8">Try a different category or clear the search.</p>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] mb-4" style={{ color: '#A8521E' }}>No results</p>
+            <h3 className="font-display text-2xl font-black mb-2" style={{ color: '#1F1A14' }}>No projects found</h3>
+            <p className="font-sans text-[14px] mb-8" style={{ color: '#6B5B47' }}>Try a different category or clear the search.</p>
             <button
               onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#F77E0D] px-5 py-2.5 text-[13px] font-bold font-mono text-[#0A0A0B] hover:bg-[#ff8f20] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[13px] font-bold font-mono transition-colors"
+              style={{ background: '#A8521E', color: '#F3EBDD' }}
             >
               Clear Filters
             </button>

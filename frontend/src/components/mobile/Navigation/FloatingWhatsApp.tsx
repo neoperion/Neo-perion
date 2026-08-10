@@ -6,7 +6,7 @@ export interface FloatingWhatsAppProps {
   href?: string;
 }
 
-export function FloatingWhatsApp({ href = 'https://wa.me/917339125472?text=Hello' }: FloatingWhatsAppProps) {
+export function FloatingWhatsApp({ href = 'https://wa.me/917810005472?text=Hello' }: FloatingWhatsAppProps) {
   return (
     <motion.a
       href={href}

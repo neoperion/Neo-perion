@@ -44,7 +44,7 @@ export const BlogFilters: React.FC<Props> = ({ categories, activeCategory, onCat
           className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
             activeCategory === category
               ? 'bg-neo-blue text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]'
-              : 'border border-white/10 bg-white/5 text-slate-300 hover:border-neo-blue/50 hover:bg-white/10'
+              : 'border border-white/10 parchment-surface/5 text-slate-300 hover:border-neo-blue/50 hover:parchment-surface/10'
           }`}
         >
           {category}

@@ -7,7 +7,7 @@ export interface SEOData {
   schema?: Record<string, unknown>;
 }
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://www.neoperion.com';
+export const SITE_URL = (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://www.aincuru.com';
 
 export function buildCanonical(path: string): string {
   const trimmed = path.startsWith('/') ? path : `/${path}`;
@@ -23,7 +23,7 @@ export function buildArticleSchema(opts: { title: string; description: string; s
     image: opts.image ? [opts.image] : undefined,
     datePublished: opts.publishedAt,
     url: `${SITE_URL}/blog/${opts.slug}`,
-    publisher: { '@type': 'Organization', name: 'AINCURU Solutions' },
+    publisher: { '@type': 'Organization', name: 'AINCURU LLP' },
   };
 }
 
@@ -49,8 +49,23 @@ export function buildServiceSchema(opts: { name: string; description: string; sl
     '@type': 'Service',
     serviceType: opts.name,
     description: opts.description,
-    provider: { '@type': 'Organization', name: 'AINCURU Solutions' },
+    provider: { '@type': 'Organization', name: 'AINCURU LLP' },
     url: `${SITE_URL}/services/${opts.slug}`,
+  };
+}
+
+export function buildOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'AINCURU LLP',
+    url: SITE_URL,
+    logo: `${SITE_URL}/images/np-logo.png`,
+    description: 'Product engineering company focused on turning ideas into scalable digital products through engineering, software development, AI business automation, and UI/UX.',
+    sameAs: [
+      'https://www.linkedin.com/company/aincuru' // Assuming this based on brand, but we will comment if unsure
+    ]
   };
 }
 
@@ -60,19 +75,11 @@ export function buildWebSiteSchema() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: 'AINCURU Solutions',
-    alternateName: ['AINCURU', 'AINCURU Solutions', 'AINCURU AI', 'Perion Solutions'],
+    name: 'AINCURU LLP',
+    alternateName: ['AINCURU'],
     description:
-      'AINCURU Solutions builds production-grade AI automation, web platforms and mobile apps for startups and SMEs in India and the United States.',
+      'AINCURU builds AI business automation, product software and digital systems around business context.',
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-US',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/company/blog?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }

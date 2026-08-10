@@ -27,7 +27,7 @@ interface Props {
 export function ServicePage({ service }: Props) {
   const seo = (
     <SEO
-      title={`${service.title} | AINCURU Solutions`}
+      title={`${service.title} | AINCURU LLP`}
       description={service.description}
       keywords={`${service.title}, ${service.technologies?.join(', ') ?? ''}, AINCURU`}
       jsonLd={[
@@ -39,8 +39,8 @@ export function ServicePage({ service }: Props) {
           description: service.description,
           provider: {
             '@type': 'LocalBusiness',
-            name: 'AINCURU Solutions',
-            image: 'https://www.neoperion.com/images/np-logo.png',
+            name: 'AINCURU LLP',
+            image: 'https://www.aincuru.com/images/np-logo.png',
             address: { '@type': 'PostalAddress', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
           },
           areaServed: [
@@ -53,9 +53,9 @@ export function ServicePage({ service }: Props) {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.neoperion.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.neoperion.com/services' },
-            { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.neoperion.com/services/${service.slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.aincuru.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.aincuru.com/services' },
+            { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.aincuru.com/services/${service.slug}` },
           ],
         },
       ]}
@@ -64,12 +64,10 @@ export function ServicePage({ service }: Props) {
 
   const sections = (
     <>
-      <ServiceTrustStrip service={service} />
-      <ServiceStatement service={service} />
-      <ServiceSolutionCards service={service} />
-      <ServiceCaseStudyCarousel service={service} />
-      <ServiceJourney service={service} />
-      <ServiceTestimonials service={service} />
+      <ServiceStatement service={service} theme="manuscript" />
+      <ServiceSolutionCards service={service} theme="manuscript" />
+      <ServiceCaseStudyCarousel service={service} theme="manuscript" />
+      <ServiceJourney service={service} theme="manuscript" />
     </>
   );
 
@@ -77,25 +75,26 @@ export function ServicePage({ service }: Props) {
     <MobileGate
       mobileOnly
       fallback={
-        <div className="flex min-h-[auto] flex-col bg-[#0A0A0B] text-white">
+        <div className="flex min-h-[auto] flex-col bg-manuscript-parchment text-manuscript-ink">
           {seo}
           <Header />
           <main className="flex-grow">
-            <ServiceVideoHero service={service} />
+            <ServiceVideoHero service={service} theme="manuscript" />
             {sections}
-            <ServiceStickyCta service={service} />
-            <FooterTransition />
+            <ServiceStickyCta service={service} theme="manuscript" />
+            <FooterTransition theme="manuscript" />
           </main>
           <Footer />
         </div>
       }
     >
-      <MobileShell nav="bottom" showFooter bgClass="bg-[#0A0A0B]">
+      <MobileShell nav="bottom" showFooter bgClass="bg-manuscript-parchment">
         {seo}
-        <ServiceVideoHero service={service} compact />
+        <ServiceVideoHero service={service} compact theme="manuscript" />
         {sections}
-        <FooterTransition />
+        <FooterTransition theme="manuscript" />
       </MobileShell>
     </MobileGate>
   );
 }
+

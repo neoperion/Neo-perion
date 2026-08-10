@@ -105,8 +105,8 @@
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
           {
-            "type": "prompt",
-            "prompt": "If the file path matches `frontend/.env*` or `frontend/src/**` AND the change introduces a `VITE_SUPABASE_SERVICE_KEY`, `VITE_SUPABASE_SECRET_*`, `VITE_SUPABASE_PRIVATE_*`, `*SERVICE*KEY`, `*SECRET*KEY`, or `*PRIVATE*KEY` env var, refuse with this message: 'Refused: server-side Supabase keys must not be exposed to the browser bundle. The frontend can only use `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. For service-role work, route through the Express backend at backend/src/ instead.'"
+            "type": "command",
+            "command": "node \"D:/neoperion official website/Neo-perion/backend/scripts/guard-frontend-secrets.js\""
           }
         ]
       }

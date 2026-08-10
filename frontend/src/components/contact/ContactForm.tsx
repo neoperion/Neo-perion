@@ -11,8 +11,6 @@ const contactSchema = z.object({
   phone: z.string().optional(),
   company: z.string().optional(),
   service_required: z.string().min(1, 'Please select a service'),
-  budget: z.string().optional(),
-  timeline: z.string().optional(),
   message: z.string().min(10, 'Please provide more details about your project'),
 });
 
@@ -37,7 +35,7 @@ function Field({ label, error, children }: { label: string; error?: string; chil
 }
 
 const inputCls =
-  'w-full bg-transparent border-0 border-b border-hairline/60 py-3 text-[14px] text-ink placeholder:text-faint focus:outline-none focus:border-brand transition-colors duration-200';
+  'w-full bg-transparent border-0 border-b border-hairline/60 py-3 text-[14px] text-manuscript-ink placeholder:text-manuscript-inkMuted focus:outline-none focus:border-brand transition-colors duration-200';
 
 const SelectInput = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttributes<HTMLSelectElement> & { error?: string }>(
   ({ children, error, ...props }, ref) => {
@@ -50,7 +48,7 @@ const SelectInput = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttribut
         >
           {children}
         </select>
-        <ChevronDown size={13} className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-faint" />
+        <ChevronDown size={13} className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-manuscript-inkMuted" />
       </div>
     );
   }
@@ -72,10 +70,10 @@ export function ContactForm() {
     setErrorMsg('');
     try {
       const { error } = await supabase.functions.invoke('submit-lead', {
-        body: { name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, budget: data.budget || null, message: data.message, source: 'contact' },
+        body: { name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, message: data.message, source: 'contact' },
       });
       if (error) {
-        const { error: dbError } = await supabase.from('leads').insert({ name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, budget: data.budget || null, message: data.message, source: 'contact', status: 'new' });
+        const { error: dbError } = await supabase.from('leads').insert({ name: data.name, email: data.email, phone: data.phone || null, company: data.company || null, project_type: data.service_required, message: data.message, source: 'contact', status: 'new' });
         if (dbError) throw dbError;
       }
       setSuccess(true);
@@ -115,56 +113,36 @@ export function ContactForm() {
       {/* Row 1 */}
       <div className="grid md:grid-cols-2 gap-7">
         <Field label="Full Name *" error={errors.name?.message}>
-          <input {...register('name')} className={inputCls} placeholder="Jane Smith" />
+          <input {...register('name')} className={inputCls} />
         </Field>
         <Field label="Work Email *" error={errors.email?.message}>
-          <input {...register('email')} type="email" className={inputCls} placeholder="jane@company.com" />
+          <input {...register('email')} type="email" className={inputCls} />
         </Field>
       </div>
 
       {/* Row 2 */}
       <div className="grid md:grid-cols-2 gap-7">
         <Field label="Company">
-          <input {...register('company')} className={inputCls} placeholder="Acme Inc." />
+          <input {...register('company')} className={inputCls} />
         </Field>
         <Field label="Phone">
-          <input {...register('phone')} className={inputCls} placeholder="+91 98765 43210" />
+          <input {...register('phone')} className={inputCls} />
         </Field>
       </div>
 
       {/* Service */}
       <Field label="What can we help with? *" error={errors.service_required?.message}>
         <SelectInput {...register('service_required')}>
-          <option value="" className="bg-paper">Choose a service…</option>
-          <option value="AI Integration" className="bg-paper">AI Integration & Automation</option>
-          <option value="Custom Web App" className="bg-paper">Custom Web Application</option>
-          <option value="Mobile App" className="bg-paper">Mobile App Development</option>
-          <option value="SaaS Architecture" className="bg-paper">SaaS Architecture</option>
-          <option value="Other" className="bg-paper">Other</option>
+          <option value="" className="bg-white text-black">Choose a service…</option>
+          <option value="AI Integration" className="bg-white text-black">AI Integration & Automation</option>
+          <option value="Custom Web App" className="bg-white text-black">Custom Web Application</option>
+          <option value="Mobile App" className="bg-white text-black">Mobile App Development</option>
+          <option value="SaaS Architecture" className="bg-white text-black">SaaS Architecture</option>
+          <option value="Other" className="bg-white text-black">Other</option>
         </SelectInput>
       </Field>
 
-      {/* Budget + Timeline */}
-      <div className="grid md:grid-cols-2 gap-7">
-        <Field label="Project Budget">
-          <SelectInput {...register('budget')}>
-            <option value="" className="bg-paper">Budget range…</option>
-            <option value="<$10k" className="bg-paper">Under $10,000</option>
-            <option value="$10k-$25k" className="bg-paper">$10,000 – $25,000</option>
-            <option value="$25k-$50k" className="bg-paper">$25,000 – $50,000</option>
-            <option value="$50k+" className="bg-paper">$50,000+</option>
-          </SelectInput>
-        </Field>
-        <Field label="Timeline">
-          <SelectInput {...register('timeline')}>
-            <option value="" className="bg-paper">When to start…</option>
-            <option value="ASAP" className="bg-paper">As soon as possible</option>
-            <option value="1-3 months" className="bg-paper">1 – 3 months</option>
-            <option value="3-6 months" className="bg-paper">3 – 6 months</option>
-            <option value="Just exploring" className="bg-paper">Just exploring</option>
-          </SelectInput>
-        </Field>
-      </div>
+
 
       {/* Message */}
       <Field label="Project Details *" error={errors.message?.message}>
