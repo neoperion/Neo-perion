@@ -41,7 +41,7 @@ export function GlassToggle({
         'border border-white/[0.10]',
         checked
           ? 'bg-gradient-to-br from-neo-blue to-neo-highlight shadow-[0_0_18px_rgba(247,126,13,0.4)]'
-          : 'bg-white/[0.08] backdrop-blur-glass-1',
+          : 'parchment-surface/[0.08] backdrop-blur-glass-1',
         sizes.track,
         disabled && 'opacity-50 pointer-events-none',
         className,

@@ -67,7 +67,7 @@ export function MobileServiceTechStack({ eyebrow = 'Stack', title = 'Built with.
             <p className="text-[11px] uppercase tracking-[0.18em] text-white/45 font-bold mb-2 px-1">{cat}</p>
             <div className="flex flex-wrap gap-2">
               {list.map((t) => (
-                <span key={t.name} className="h-9 px-3.5 rounded-full bg-white/[0.05] border border-white/[0.10] backdrop-blur-glass-1 text-[12px] font-medium text-white/85 flex items-center">{t.name}</span>
+                <span key={t.name} className="h-9 px-3.5 rounded-full parchment-surface/[0.05] border border-white/[0.10] backdrop-blur-glass-1 text-[12px] font-medium text-white/85 flex items-center">{t.name}</span>
               ))}
             </div>
           </div>
@@ -90,7 +90,7 @@ export function MobileServiceChallenges({ eyebrow = 'Problems We Solve', title =
           return (
             <motion.div key={c.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }}
               transition={{ delay: i * 0.05, type: 'spring', stiffness: 320, damping: 32, mass: 0.9 }}
-              className={cn('relative rounded-2xl border border-white/[0.10] bg-white/[0.04] backdrop-blur-glass-1 p-3 overflow-hidden', i % 2 === 0 ? 'h-[140px]' : 'h-[160px]')}
+              className={cn('relative rounded-2xl border border-white/[0.10] parchment-surface/[0.04] backdrop-blur-glass-1 p-3 overflow-hidden', i % 2 === 0 ? 'h-[140px]' : 'h-[160px]')}
             >
               <Icon size={18} className="text-neo-highlight mb-2" />
               <h3 className="text-[13px] font-bold text-white leading-tight">{c.title}</h3>
@@ -112,7 +112,7 @@ export function MobileServiceCTA({ headline, sub, primary, secondary }: MobileSe
         {sub && <p className="relative text-sm text-white/85 mb-6 max-w-sm mx-auto">{sub}</p>}
         <div className="relative flex flex-col gap-3">
           {primary && <a href={primary.href} className="h-12 px-5 rounded-2xl bg-neutral-900 text-white font-bold text-sm flex items-center justify-center active:scale-[0.98] transition-transform">{primary.label}</a>}
-          {secondary && <a href={secondary.href} className="h-12 px-5 rounded-2xl bg-white/[0.18] border border-white/30 backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center">{secondary.label}</a>}
+          {secondary && <a href={secondary.href} className="h-12 px-5 rounded-2xl parchment-surface/[0.18] border border-white/30 backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center">{secondary.label}</a>}
         </div>
       </div>
     </section>

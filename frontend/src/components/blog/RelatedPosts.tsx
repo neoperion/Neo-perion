@@ -15,12 +15,12 @@ export const RelatedPosts: React.FC<Props> = ({ category, currentSlug, theme = '
   if (isLoading || !relatedBlogs || relatedBlogs.length === 0) return null;
 
   return (
-    <div className={`mt-20 border-t pt-16 ${isLight ? 'border-hairline' : 'border-white/10'}`}>
+    <div className={`mt-20 border-t pt-16 ${isLight ? 'border-hairline' : 'border-manuscript-gold/20'}`}>
       <div className="mb-10">
-        <p className={`font-mono text-[12px] font-semibold uppercase tracking-[0.1em] ${isLight ? 'text-brand' : 'text-neo-blue'}`}>
+        <p className={`font-mono text-[12px] font-semibold uppercase tracking-[0.1em] ${isLight ? 'text-brand' : 'text-manuscript-gold'}`}>
           Keep reading
         </p>
-        <h2 className={`mt-2 font-display text-[28px] font-bold tracking-tight ${isLight ? 'text-ink' : 'text-white'}`}>
+        <h2 className={`mt-2 font-display text-[28px] font-bold tracking-tight ${isLight ? 'text-ink' : 'text-manuscript-parchmentLight'}`}>
           More on {category}
         </h2>
       </div>

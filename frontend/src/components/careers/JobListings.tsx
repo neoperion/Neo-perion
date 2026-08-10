@@ -31,14 +31,14 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
   }, []);
 
   return (
-    <section id="open-roles" className={`px-8 lg:px-16 py-24 max-w-4xl mx-auto border-t ${isLight ? 'border-neutral-800' : 'border-white/5'}`}>
+    <section id="open-roles" className={`px-8 lg:px-16 py-24 max-w-4xl mx-auto border-t ${isLight ? 'border-manuscript-parchmentDeep' : 'border-white/5'}`}>
       <div className="mb-12">
-        <h2 className={`text-4xl font-black ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Open Roles</h2>
+        <h2 className={isLight ? 'heading-manuscript text-4xl' : 'text-4xl font-black text-white'}>Open Roles</h2>
       </div>
       
       {loading ? (
         <div className="flex justify-center py-20">
-          <div className="w-8 h-8 rounded-full border-2 border-neo-blue border-t-transparent animate-spin"></div>
+          <div className={`w-8 h-8 rounded-full border-2 border-t-transparent animate-spin ${isLight ? 'border-manuscript-copper' : 'border-neo-blue'}`}></div>
         </div>
       ) : jobs.length === 0 ? (
         <TalentPipeline theme={theme} />
@@ -48,31 +48,31 @@ export function JobListings({ theme = 'dark' }: JobListingsProps) {
             <div 
               key={job.id} 
               onClick={() => navigate(`/company/careers/${job.slug || job.id}`)}
-              className={`group p-6 rounded-2xl border transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 ${
+              className={`group p-6 rounded-2xl transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 ${
                 isLight 
-                  ? 'border-zinc-200/80 bg-neutral-900 hover:border-neutral-800 hover:shadow-sm'
-                  : 'border-white/5 bg-[#0a0a0a] hover:border-neo-blue/30'
+                  ? 'manuscript-card border border-manuscript-copper/10 hover:border-manuscript-copper/40'
+                  : 'border border-white/5 bg-[#0a0a0a] hover:border-neo-blue/30'
               }`}
             >
               <div>
-                <h3 className={`text-xl font-bold mb-2 transition-colors ${
-                  isLight ? 'text-[#09090B] group-hover:text-neo-blue' : 'text-white group-hover:text-neo-blue'
+                <h3 className={`text-xl mb-2 transition-colors ${
+                  isLight ? 'heading-manuscript text-manuscript-ink group-hover:text-manuscript-copper' : 'font-bold text-white group-hover:text-neo-blue'
                 }`}>{job.title}</h3>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
+                <div className={`flex flex-wrap items-center gap-4 text-sm ${isLight ? 'font-manuscriptBody text-manuscript-inkMuted' : 'text-slate-400'}`}>
                   <span className="flex items-center gap-1.5"><MapPin size={14} /> {job.location}</span>
                   <span className="flex items-center gap-1.5"><Clock size={14} /> {job.employment_type || 'Full Time'}</span>
                   <span className={`px-2 py-0.5 rounded-full text-xs border ${
                     isLight 
-                      ? 'bg-neutral-900 text-neutral-400 border-neutral-800' 
-                      : 'bg-white/5 text-slate-300 border-white/10'
+                      ? 'bg-manuscript-parchmentWarm text-manuscript-inkSoft border-manuscript-copper/20' 
+                      : 'parchment-surface/5 text-slate-300 border-white/10'
                   }`}>{job.department}</span>
                 </div>
               </div>
               <div className="flex items-center justify-end">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                   isLight
-                    ? 'bg-neutral-900 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-neutral-400'
-                    : 'bg-white/5 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-white'
+                    ? 'bg-manuscript-parchment border border-manuscript-copper/20 text-manuscript-copper group-hover:bg-manuscript-copper/10'
+                    : 'parchment-surface/5 group-hover:bg-neo-blue/10 group-hover:text-neo-blue text-white'
                 }`}>
                   <ArrowRight size={18} />
                 </div>

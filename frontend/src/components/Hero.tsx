@@ -61,7 +61,7 @@ export const Hero = () => {
                 >
                   <div className="manuscript-card border-l-2 border-manuscript-gold p-5">
                     <p className="font-manuscriptBody text-[15px] leading-relaxed text-manuscript-inkSoft">
-                      AINCURU Solutions is a founder-led software and AI company in Chennai, Tamil
+                      AINCURU LLP is a founder-led software and AI company in Chennai, Tamil
                       Nadu, India, building production-grade AI automation, custom web platforms, and
                       mobile applications for startups and SMEs in India and the United States. Every
                       engagement starts with a written agreement that names scope, timeline, and IP
@@ -92,3 +92,4 @@ export const Hero = () => {
     </section>
   );
 };
+

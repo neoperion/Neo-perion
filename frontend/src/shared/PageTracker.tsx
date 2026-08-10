@@ -7,7 +7,12 @@ export const PageTracker = () => {
 
   useEffect(() => {
     trackPageView(location.pathname + location.search);
-  }, [location]);
+    
+    // Check if there is a hash in the URL to avoid scrolling to top if we are navigating to a specific section
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.search, location.hash]);
 
   return null;
 };

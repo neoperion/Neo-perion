@@ -2,64 +2,77 @@ import React from 'react';
 
 const milestones = [
   {
-    year: "2024",
-    title: "Founded in Tamil Nadu, India",
-    description: "Established with a vision for enterprise product engineering. Partnered with One Football Academy, Chennai as our inaugural client."
+    year: 'ORIGIN',
+    title: 'The first builds',
+    description:
+      'AI, data and software projects turned classroom knowledge into real engineering experience.',
   },
   {
-    year: "2024",
-    title: "First AI Deployment",
-    description: "Successfully architected and shipped an Energy Management System powered by predictive analytics."
+    year: 'EXPERIMENTATION',
+    title: 'Learning by shipping',
+    description:
+      'Hackathons, prototypes and early client work taught us to move beyond demonstrations and build systems people could actually use.',
   },
   {
-    year: "2025",
-    title: "Enterprise SaaS Launch",
-    description: "Developed and launched the comprehensive Dr. D.P. Sudhagar e-commerce and logistics platform."
+    year: 'FIRST PRODUCTS',
+    title: 'From projects to products',
+    description:
+      'We began working on complete digital products — from education platforms and commerce systems to intelligent applications. Projects like FunNova and Izhaiyam proved our capability to deliver at scale.',
   },
   {
-    year: "2025",
-    title: "Product Engineering Focus",
-    description: "Led the end-to-end development of the FUNNOVA EdTech platform, scaling it for concurrent classroom use."
+    year: 'ENGINEERING',
+    title: 'A broader problem set',
+    description:
+      'Web platforms, SaaS products, automation, AI systems and business software became part of the same engineering practice.',
   },
   {
-    year: "2026",
-    title: "AI-First Engineering Company",
-    description: "Architecting the Lexzify travel intelligence ecosystem with deeply integrated LLMs and knowledge graphs."
+    year: 'AINCURU',
+    title: 'A company with a clearer direction',
+    description:
+      'AINCURU brings those experiences together around one idea: build technology with context, engineering discipline and a reason to exist.',
   },
-  {
-    year: "Future",
-    title: "Global Expansion",
-    description: "Targeting 50+ active enterprise clients globally, pushing the boundaries of AI agentic workflows."
-  }
 ];
 
 export function AboutTimeline() {
   return (
-    <section className="py-24 bg-[#0A0A0B] border-b border-[#27272A]/60">
+    <section className="py-16 md:py-24 parchment-surface--light border-b border-manuscript-parchmentDeep">
       <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
-        <div className="mb-16">
-          <p className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4">Our Journey</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
-            How we got here
-          </h2>
+        <div className="mb-12 md:mb-20">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper mb-6">
+            02 · THE JOURNEY
+          </p>
+          <h2 className="heading-manuscript text-4xl md:text-5xl">From building projects<br/><span className="italic text-manuscript-rustDeep">to building a company.</span></h2>
         </div>
 
-        <div className="relative pl-6 md:pl-0">
-          {/* Vertical Line */}
-          <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#27272A] -translate-x-1/2"></div>
-          
+        <div className="relative">
+          {/* Vertical spine — copper ink */}
+          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-px bg-manuscript-copper/25 -translate-x-1/2" />
+
           <div className="space-y-12">
             {milestones.map((milestone, index) => (
-              <div key={index} className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
-                {/* Center Node */}
-                <div className="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-neutral-900 border-[3px] border-neo-blue -translate-x-1/2 mt-1.5 md:mt-0 z-10 group-hover:scale-125 transition-transform duration-300"></div>
-                
-                {/* Content */}
-                <div className={`ml-12 md:ml-0 w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
-                  <div className="bg-neutral-900 border-[0.5px] border-[#27272A] rounded-xl p-8 hover:border-[#A1A1AA] hover:-translate-y-0.5 transition-all duration-150 ease-out shadow-sm">
-                    <span className="text-neo-blue font-bold tracking-widest text-sm mb-2 block">{milestone.year}</span>
-                    <h3 className="text-xl font-bold text-white mb-3">{milestone.title}</h3>
-                    <p className="text-neutral-400 leading-relaxed font-medium">{milestone.description}</p>
+              <div
+                key={index}
+                className={`relative flex flex-col md:flex-row items-start md:items-center w-full ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                } group`}
+              >
+                {/* Timeline node */}
+                <div className="absolute left-[15px] md:left-1/2 w-3 h-3 rounded-full bg-manuscript-parchment border-2 border-manuscript-copper -translate-x-1/2 mt-7 md:mt-0 z-10 group-hover:scale-125 transition-transform duration-300" />
+
+                {/* Content card */}
+                <div
+                  className={`w-full md:w-1/2 pl-10 md:pl-0 box-border ${
+                    index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'
+                  }`}
+                >
+                  <div className="manuscript-card rounded-lg p-6 md:p-8 w-full box-border">
+                    <span className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase text-manuscript-copper mb-2 block">
+                      {milestone.year}
+                    </span>
+                    <h3 className="heading-manuscript text-xl mb-3">{milestone.title}</h3>
+                    <p className="text-manuscript-inkMuted leading-relaxed text-[15px]">
+                      {milestone.description}
+                    </p>
                   </div>
                 </div>
               </div>

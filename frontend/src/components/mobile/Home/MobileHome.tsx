@@ -125,7 +125,7 @@ function MobileCaseStudies() {
             {/* Image 16:9 */}
             <div className="aspect-video w-full bg-neutral-900 border-b border-neutral-800 relative">
               <img src={study.cover_image} alt={study.client_name} className="w-full h-full object-cover" />
-              <span className="absolute bottom-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-white/95 px-2 py-0.5 rounded-full text-neo-blue border border-neutral-800">
+              <span className="absolute bottom-3 left-3 text-[9px] font-bold uppercase tracking-wider parchment-surface/95 px-2 py-0.5 rounded-full text-neo-blue border border-neutral-800">
                 {study.industry}
               </span>
             </div>

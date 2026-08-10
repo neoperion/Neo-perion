@@ -9,10 +9,10 @@ export const CaseStudyGallery: React.FC<Props> = ({ gallery }) => {
 
   return (
     <div className="my-16">
-      <h3 className="text-2xl font-display font-bold text-white mb-8">Project Gallery</h3>
+      <h3 className="text-2xl font-display font-bold text-manuscript-parchmentLight mb-8">Project Gallery</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {gallery.map((image, idx) => (
-          <div key={idx} className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
+          <div key={idx} className="relative aspect-video rounded-2xl overflow-hidden border border-manuscript-gold/20 shadow-lg shadow-black/10 group">
             <img 
               src={image} 
               alt={`Project screenshot ${idx + 1}`}

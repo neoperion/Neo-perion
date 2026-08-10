@@ -122,8 +122,8 @@ export function HealthcarePage() {
     "description": industry.heroSubtext,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "AINCURU Solutions",
-      "image": "https://www.neoperion.com/images/np-logo.png",
+      "name": "AINCURU LLP",
+      "image": "https://www.aincuru.com/images/np-logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
@@ -141,12 +141,7 @@ export function HealthcarePage() {
   return (
     <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto]">
-        <SEO
-          title="Healthcare Solutions | HIPAA-Compliant Software & AI Diagnostics | AINCURU"
-          description={industry.heroSubtext}
-          url="https://www.neoperion.com/industries/healthcare"
-          jsonLd={[seoSchema, buildFAQSchema(industry.faq)]}
-        />
+        <SEO {...seoConfig.healthcare} />
         <Header />
 
         {/* ═══════════════ HERO SECTION ═══════════════ */}
@@ -168,12 +163,12 @@ export function HealthcarePage() {
               <p className="text-xl text-neutral-400 mb-10 leading-relaxed font-medium max-w-xl">{industry.heroSubtext}</p>
               {/* Phase 4 GEO — answer-first sentence for AI/SEO. No pricing; timeframe + process only. */}
               <p className="text-base text-neutral-400 mb-10 leading-relaxed max-w-xl">
-                AINCURU Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
+                AINCURU LLP builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-emerald-600 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-8 py-4 parchment-surface--deep text-white rounded-xl font-bold hover:bg-emerald-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {industry.ctaText} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -244,7 +239,7 @@ export function HealthcarePage() {
         </section>
 
         {/* ═══════════════ HOW WE WORK — PROCESS ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-slate-900 text-white relative overflow-hidden">
+        <section className="py-24 px-6 lg:px-12 parchment-surface--deep text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-900/30 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-800/20 rounded-full blur-[120px] pointer-events-none" />
 
@@ -275,7 +270,7 @@ export function HealthcarePage() {
                   className="relative group"
                 >
                   {i < 3 && <div className="hidden md:block absolute top-12 left-[calc(100%)] w-full h-[2px] bg-gradient-to-r from-emerald-500/30 to-transparent z-0" />}
-                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-500 h-full">
+                  <div className="relative parchment-surface/5 backdrop-blur-sm border border-white/10 rounded-[24px] p-8 hover:parchment-surface/10 hover:border-emerald-500/30 transition-all duration-500 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-black text-xl group-hover:bg-emerald-500/20 transition-all">
                       {step.step}
                     </div>
@@ -321,10 +316,10 @@ export function HealthcarePage() {
                     }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-neutral-800 p-10 overflow-hidden group hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500`}
                   >
-                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
+                    <div className="absolute -top-8 -right-8 w-24 h-24 parchment-surface/60 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-700 pointer-events-none" />
                     <div className="relative z-10">
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-slate-200/60 shadow-sm flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-manuscriptAlpha-ink-15/60 shadow-sm flex items-center justify-center">
                           <Icon className="text-emerald-600" size={22} />
                         </div>
                         <span className="text-[10px] font-black bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full tracking-wider">{item.badge}</span>
@@ -424,7 +419,7 @@ export function HealthcarePage() {
 
           <div className="max-w-4xl mx-auto relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
+              <div className="w-16 h-16 rounded-2xl parchment-surface/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-8">
                 <HeartPulse className="text-white" size={30} />
               </div>
               <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">Ready to Modernize Patient Care?</h2>
@@ -435,7 +430,7 @@ export function HealthcarePage() {
                 <button onClick={() => navigate('/contact')} className="group px-8 py-4 bg-neutral-900 text-emerald-700 rounded-xl font-bold hover:bg-emerald-50 transition-all duration-300 flex items-center gap-2 shadow-xl shadow-emerald-900/20">
                   Discuss Your Health-Tech Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button onClick={() => navigate('/services')} className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <button onClick={() => navigate('/services')} className="px-8 py-4 parchment-surface/10 backdrop-blur-sm text-white rounded-xl font-bold border border-white/20 hover:parchment-surface/20 transition-all duration-300">
                   Explore All Services
                 </button>
               </div>
@@ -459,7 +454,7 @@ export function HealthcarePage() {
           <p className="text-base text-white/70 mb-8">{industry.heroSubtext}</p>
           {/* Phase 4 GEO — mobile answer-first sentence. Mirrors the desktop copy. */}
           <p className="text-sm text-white/70 mb-8 leading-relaxed">
-            AINCURU Solutions builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
+            AINCURU LLP builds HIPAA-aware patient management platforms, clinical workflow tools, and AI-assisted triage and documentation systems for hospitals, clinics, and health-tech startups in India and the US. Pilots typically ship in 4–10 weeks; full platforms in 3–6 months, with a written agreement that names compliance, scope, and IP terms before any work begins.
           </p>
           
           <button 
@@ -480,7 +475,7 @@ export function HealthcarePage() {
               { icon: Lock, title: 'SOC 2 Type II', color: 'text-emerald-400', badge: 'AUDITED' },
               { icon: FileCheck, title: 'HL7/FHIR Ready', color: 'text-emerald-400', badge: 'INTEROPERABLE' }
             ].map((feature, i) => (
-               <div key={i} className="flex gap-4 items-center bg-white/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
+               <div key={i} className="flex gap-4 items-center parchment-surface/[0.02] border border-white/[0.05] p-5 rounded-3xl backdrop-blur-glass-1">
                  <feature.icon className={feature.color} size={24} />
                  <div className="flex-1">
                     <h4 className="text-[15px] font-bold text-white mb-1">{feature.title}</h4>
@@ -494,7 +489,7 @@ export function HealthcarePage() {
         {/* Checklist Mobile */}
         <section className="px-6 py-10 bg-[#02040A] border-t border-white/[0.08]">
           <h2 className="text-lg font-bold text-white mb-6">Interactive Checklist</h2>
-          <div className="rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
+          <div className="rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1 overflow-hidden p-1">
             <ComplianceChecklist />
           </div>
         </section>
@@ -506,7 +501,7 @@ export function HealthcarePage() {
              {industry.offerings.map((offering, i) => {
                const Icon = offering.icon;
                return (
-                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
+                 <div key={i} className="p-5 rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1">
                    <div className="flex items-start gap-3">
                      <Icon className="text-emerald-400 shrink-0 mt-0.5" size={20} />
                      <div>
@@ -525,7 +520,7 @@ export function HealthcarePage() {
           <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">Tech Stack</h2>
           <div className="flex flex-wrap gap-2">
             {industry.techStack.map((tech, i) => (
-              <span key={i} className="px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
+              <span key={i} className="px-3 py-1.5 parchment-surface/[0.03] border border-white/10 rounded-full text-[11px] font-semibold text-white/70">
                 {tech}
               </span>
             ))}
@@ -537,4 +532,5 @@ export function HealthcarePage() {
     </MobileGate>
   );
 }
+
 

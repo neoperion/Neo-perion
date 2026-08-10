@@ -13,17 +13,15 @@ export default function AdminAnalytics() {
   const fetchStats = async () => {
     setLoading(true);
     try {
-      const [leads, blogs, cases, subs] = await Promise.all([
+      const [leads, blogs, cases] = await Promise.all([
         supabase.from('leads').select('id', { count: 'exact', head: true }),
         supabase.from('blogs').select('id', { count: 'exact', head: true }).eq('published', true),
         supabase.from('case_studies').select('id', { count: 'exact', head: true }).eq('published', true),
-        supabase.from('newsletter_subscribers').select('id', { count: 'exact', head: true }).eq('active', true),
       ]);
       setStats([
         { label: 'Total Leads', value: leads.count ?? 0 },
         { label: 'Published Blogs', value: blogs.count ?? 0 },
         { label: 'Published Cases', value: cases.count ?? 0 },
-        { label: 'Active Subscribers', value: subs.count ?? 0 },
       ]);
     } catch {
       setStats([]);
@@ -40,7 +38,7 @@ export default function AdminAnalytics() {
 
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[1, 2, 3, 4].map((i) => (
+          {[1, 2, 3].map((i) => (
             <div key={i} className="bg-slate-900 border border-white/10 rounded-2xl p-6 animate-pulse">
               <div className="h-4 bg-slate-800 rounded w-24 mb-4" />
               <div className="h-8 bg-slate-800 rounded w-16" />

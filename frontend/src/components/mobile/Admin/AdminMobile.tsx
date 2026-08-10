@@ -40,7 +40,7 @@ export function BottomTabBar({ tabs = DEFAULT_TABS }: { tabs?: AdminTabItem[] })
 export function AdminTopBar({ title, onMenu, onAction, actionLabel }: { title: string; onMenu: () => void; onAction?: () => void; actionLabel?: string }) {
   return (
     <header className="sticky top-0 z-mobile-nav md:hidden bg-[rgba(15,23,42,0.78)] backdrop-blur-glass-3 border-b border-white/[0.10] pt-safe-or-4 pb-3 px-mobile-base flex items-center justify-between">
-      <button type="button" onClick={onMenu} aria-label="Open menu" className="h-10 w-10 rounded-full bg-white/[0.05] border border-white/[0.10] flex items-center justify-center text-white/80"><Menu size={18} /></button>
+      <button type="button" onClick={onMenu} aria-label="Open menu" className="h-10 w-10 rounded-full parchment-surface/[0.05] border border-white/[0.10] flex items-center justify-center text-white/80"><Menu size={18} /></button>
       <h1 className="text-[15px] font-bold text-white truncate flex-1 mx-3 text-center">{title}</h1>
       {onAction && actionLabel ? (
         <button type="button" onClick={onAction} className="h-10 px-3.5 rounded-full bg-gradient-to-br from-neo-blue to-neo-highlight text-white text-[12px] font-bold active:scale-95">{actionLabel}</button>
@@ -55,13 +55,13 @@ export function AdminDrawer({ open, onClose, tabs = DEFAULT_TABS }: { open: bool
     <AnimatePresence>
       {open && (
         <>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="fixed inset-0 z-mobile-overlay bg-black/60 backdrop-blur-glass-2" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="fixed inset-0 z-mobile-overlay parchment-surface--deep/60 backdrop-blur-glass-2" />
           <motion.aside initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', stiffness: 380, damping: 28, mass: 0.8 }}
             role="dialog" aria-modal="true" aria-label="Admin menu"
             className="fixed top-0 bottom-0 left-0 z-mobile-sheet w-[300px] bg-[rgba(2,4,10,0.92)] backdrop-blur-glass-3 border-r border-white/[0.14] p-4 pt-safe"
           >
             <div className="flex items-center justify-between mb-6"><span className="text-base font-bold text-white">Admin</span>
-              <button onClick={onClose} className="h-9 w-9 rounded-full bg-white/[0.06] text-white/70 flex items-center justify-center"><X size={16} /></button>
+              <button onClick={onClose} className="h-9 w-9 rounded-full parchment-surface/[0.06] text-white/70 flex items-center justify-center"><X size={16} /></button>
             </div>
             <nav className="space-y-1">
               {tabs.map((t) => {
@@ -70,7 +70,7 @@ export function AdminDrawer({ open, onClose, tabs = DEFAULT_TABS }: { open: bool
                 return (
                   <Link key={t.href} to={t.href} onClick={onClose}
                     className={cn('flex items-center gap-3 h-12 px-3 rounded-xl text-[14px] font-semibold transition-colors',
-                      active ? 'bg-gradient-to-br from-neo-blue/20 to-neo-highlight/10 text-neo-highlight border border-neo-highlight/30' : 'text-white/80 hover:bg-white/[0.05]')}>
+                      active ? 'bg-gradient-to-br from-neo-blue/20 to-neo-highlight/10 text-neo-highlight border border-neo-highlight/30' : 'text-white/80 hover:parchment-surface/[0.05]')}>
                     <Icon size={16} /> {t.label} {active && <ChevronRight size={14} className="ml-auto" />}
                   </Link>
                 );
@@ -103,7 +103,7 @@ export function AdminStatCard({ label, value, delta, accent = 'cyan' }: { label:
 export interface AdminTableRow { id: string; primary: string; secondary?: string; badge?: string; meta?: string }
 export function AdminTable({ headers, rows }: { headers: string[]; rows: AdminTableRow[] }) {
   return (
-    <div className="rounded-2xl border border-white/[0.10] bg-white/[0.03] backdrop-blur-glass-1 overflow-hidden">
+    <div className="rounded-2xl border border-white/[0.10] parchment-surface/[0.03] backdrop-blur-glass-1 overflow-hidden">
       <div className="px-4 py-3 border-b border-white/[0.08] hidden sm:block">
         <div className="grid gap-2 text-[10px] uppercase tracking-[0.15em] text-white/45 font-bold" style={{ gridTemplateColumns: `2fr 1fr 1fr auto` }}>
           {headers.map((h) => <span key={h}>{h}</span>)}
@@ -111,7 +111,7 @@ export function AdminTable({ headers, rows }: { headers: string[]; rows: AdminTa
       </div>
       <ul className="divide-y divide-white/[0.06]">
         {rows.map((r) => (
-          <li key={r.id} className="px-4 py-3 active:bg-white/[0.04] transition-colors">
+          <li key={r.id} className="px-4 py-3 active:parchment-surface/[0.04] transition-colors">
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0 flex-1">
                 <p className="text-[13px] font-semibold text-white truncate">{r.primary}</p>

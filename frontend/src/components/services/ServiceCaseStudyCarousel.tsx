@@ -9,7 +9,7 @@ import { ServiceImageSlot } from "./ServiceImageSlot";
 const AUTO_MS = 6000;
 const TICK_MS = 50;
 
-export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) {
+export function ServiceCaseStudyCarousel({ service, theme = "dark" }: { service: ServiceData; theme?: "dark" | "manuscript" }) {
   const navigate = useNavigate();
   const { data: all = [], isLoading } = useCaseStudies();
   const [index, setIndex] = useState(0);
@@ -49,27 +49,27 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0A0A0B] py-24"
+      className={`relative overflow-hidden py-24 ${theme === "manuscript" ? "bg-manuscript-parchment border-y border-manuscript-walnut/15" : "bg-manuscript-parchmentDark"}`}
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
     >
       {/* Auto-progress bar */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-white/[0.05]">
+      <div className={`absolute inset-x-0 top-0 h-[2px] ${theme === "manuscript" ? "bg-manuscript-walnut/10" : "bg-white/5"}`}>
         <div
-          className="h-full bg-[#F77E0D] transition-none"
+          className="h-full bg-manuscript-copper transition-none"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-<div className="container mx-auto max-w-[1200px] px-6 lg:px-8">
+        <div className="container mx-auto max-w-[1200px] px-6 lg:px-8">
         {/* Top bar: label + counter + arrows */}
-        <div className="mb-12 flex items-center justify-between">
-          <p className="text-[11px] font-bold tracking-[0.3em] uppercase text-white/25">
-            Success Stories
+        <div className="mb-12 flex items-center justify-between border-b pb-4" style={{ borderColor: theme === "manuscript" ? "rgba(44,36,27,0.15)" : "rgba(255,255,255,0.1)" }}>
+          <p className={`text-[11px] font-bold tracking-[0.3em] uppercase ${theme === "manuscript" ? "text-manuscript-copper" : "text-white/40"}`}>
+            {theme === "manuscript" ? "AINCURU CASE FILE" : "Success Stories"}
           </p>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-sm text-white/30">
-              <span className="text-white font-bold">
+            <span className={`font-mono text-sm ${theme === "manuscript" ? "text-manuscript-inkSoft" : "text-white/40"}`}>
+              <span className={`font-bold ${theme === "manuscript" ? "text-manuscript-ink" : "text-white"}`}>
                 {String(safeIndex + 1).padStart(2, "0")}
               </span>
               {" / "}
@@ -80,14 +80,22 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
                 <button
                   onClick={prev}
                   aria-label="Previous story"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all hover:border-[#F77E0D]/60 hover:text-[#F77E0D]"
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all ${
+                    theme === "manuscript" 
+                      ? "border-manuscript-walnut/20 text-manuscript-inkSoft hover:border-manuscript-copper hover:text-manuscript-copper"
+                      : "border-white/10 text-white/40 hover:border-[#A84A28]/60 hover:text-[#A84A28]"
+                  }`}
                 >
                   <ChevronLeft size={16} />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next story"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all hover:border-[#F77E0D]/60 hover:text-[#F77E0D]"
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all ${
+                    theme === "manuscript" 
+                      ? "border-manuscript-walnut/20 text-manuscript-inkSoft hover:border-manuscript-copper hover:text-manuscript-copper"
+                      : "border-white/10 text-white/40 hover:border-[#A84A28]/60 hover:text-[#A84A28]"
+                  }`}
                 >
                   <ChevronRight size={16} />
                 </button>
@@ -110,27 +118,20 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
             >
               {/* Tag pills */}
               <div className="mb-6 flex flex-wrap gap-2">
-                {story.industry && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#F77E0D]/30 bg-[#F77E0D]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#F77E0D]">
+                  <p className={`mb-4 inline-block font-mono text-[10px] font-bold uppercase tracking-widest ${theme === "manuscript" ? "text-manuscript-copper" : "text-brand"}`}>
                     {story.industry}
-                  </span>
-                )}
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
-                  Success Story
-                </span>
+                  </p>
+                  <h3 className={`font-manuscript text-[clamp(2rem,3.5vw,3.25rem)] font-bold leading-[1.05] tracking-tight ${theme === "manuscript" ? "text-manuscript-ink" : "text-white"}`}>
+                    {story.title}
+                  </h3>
+                  <p className={`mt-6 text-lg leading-relaxed ${theme === "manuscript" ? "text-manuscript-inkSoft" : "text-white/70"}`}>
+                    {story.card_description || story.short_description}
+                  </p>
               </div>
 
-              <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-tight tracking-tight text-white">
-                {story.title}
-              </h2>
-
-              <p className="mt-5 line-clamp-3 text-lg leading-relaxed text-neutral-400">
-                {story.problem}
-              </p>
-
               {story.outcome && (
-                <div className="mt-6 border-l-2 border-[#F77E0D] pl-5">
-                  <p className="text-[15px] font-semibold leading-relaxed text-[#F77E0D]">
+                <div className="mt-6 border-l-2 border-[#A84A28] pl-5">
+                  <p className="text-[15px] font-semibold leading-relaxed text-manuscript-copper">
                     {story.outcome}
                   </p>
                 </div>
@@ -139,7 +140,11 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => navigate(`/company/case-studies/${story.slug}`)}
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#F77E0D] px-7 py-3.5 text-sm font-bold text-[#0A0A0B] transition-all hover:bg-[#FB8C2A]"
+                  className={`group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all ${
+                    theme === "manuscript"
+                      ? "bg-manuscript-copper text-manuscript-parchmentLight hover:bg-manuscript-rustDeep"
+                      : "bg-manuscript-copper text-manuscript-parchmentLight hover:bg-[#FB8C2A]"
+                  }`}
                 >
                   Read More
                   <ArrowUpRight
@@ -149,7 +154,11 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
                 </button>
                 <button
                   onClick={() => navigate("/company/case-studies")}
-                  className="rounded-full border border-white/15 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:border-[#F77E0D]/50 hover:text-[#F77E0D]"
+                  className={`rounded-full border px-7 py-3.5 text-sm font-bold transition-colors ${
+                    theme === "manuscript"
+                      ? "border-manuscript-ink/20 text-manuscript-ink hover:border-manuscript-copper hover:text-manuscript-copper hover:bg-manuscript-ink/5"
+                      : "border-white/15 text-white hover:border-[#A84A28]/50 hover:text-manuscript-copper"
+                  }`}
                 >
                   View All Success Stories
                 </button>
@@ -165,8 +174,8 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
                       aria-label={`Go to story ${i + 1}`}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         i === safeIndex
-                          ? "w-8 bg-[#F77E0D]"
-                          : "w-4 bg-white/15 hover:bg-white/30"
+                          ? "w-8 bg-manuscript-copper"
+                          : "w-4 parchment-surface/15 hover:parchment-surface/30"
                       }`}
                     />
                   ))}
@@ -187,7 +196,7 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
                 className="relative"
               >
                 {/* Glow halo behind image */}
-                <div className="absolute -inset-6 rounded-3xl bg-[#F77E0D]/[0.07] blur-3xl" />
+                <div className="absolute -inset-6 rounded-3xl bg-manuscript-copper/[0.07] blur-3xl" />
                 {/* Image card */}
                 <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/[0.07] shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
                   <ServiceImageSlot
@@ -196,7 +205,7 @@ export function ServiceCaseStudyCarousel({ service }: { service: ServiceData }) 
                     className="aspect-[4/3] w-full"
                   />
                   {/* Gradient vignette */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#0A0A0B]/40 via-transparent to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-manuscript-parchmentDark/40 via-transparent to-transparent" />
                 </div>
               </motion.div>
             </AnimatePresence>

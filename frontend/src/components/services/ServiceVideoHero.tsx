@@ -10,6 +10,7 @@ interface ServiceVideoHeroProps {
   secondaryCtaHref?: string;
   /** Compact height for mobile shells */
   compact?: boolean;
+  theme?: "dark" | "manuscript";
 }
 
 /**
@@ -25,6 +26,7 @@ export function ServiceVideoHero({
   secondaryCtaLabel = "See case studies",
   secondaryCtaHref = "/company/case-studies",
   compact = false,
+  theme = "dark",
 }: ServiceVideoHeroProps) {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -58,7 +60,11 @@ export function ServiceVideoHero({
   return (
     <section
       ref={sectionRef}
-      className={`relative flex items-center overflow-hidden border-b border-white/[0.08] bg-[#0A0A0B] ${
+      className={`relative flex items-center overflow-hidden border-b ${
+        theme === "manuscript" 
+          ? "border-manuscript-walnut/15 bg-manuscript-parchment" 
+          : "border-manuscriptAlpha-ink-15 bg-[#0A0A0B]"
+      } ${
         compact
           ? service.heroFullHeight
             ? "min-h-screen pt-24"
@@ -71,7 +77,7 @@ export function ServiceVideoHero({
       {/* Media layer */}
       <div className="absolute inset-0 z-0">
         {/* Always-present backdrop (prevents blank flash + reduced-motion fallback) */}
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_80%_0%,#1A1A1D_0%,#0A0A0B_60%)]" />
+        <div className={`absolute inset-0 bg-[radial-gradient(120%_120%_at_80%_0%,${theme === "manuscript" ? "#F4EBD7_0%,#E8DDCA_60%" : "#1A1A1D_0%,#0A0A0B_60%"})]`} />
         {useImage && (
           <img
             src={service.heroImage}
@@ -96,6 +102,7 @@ export function ServiceVideoHero({
           <video
             ref={videoRef}
             src={service.heroVideo}
+            crossOrigin="anonymous"
             muted
             loop
             playsInline
@@ -110,7 +117,11 @@ export function ServiceVideoHero({
       {/* Legibility scrim: left→right + subtle orange glow bottom-right */}
       <div
         aria-hidden
-        className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(10,10,11,0.94)_0%,rgba(10,10,11,0.6)_45%,rgba(10,10,11,0.2)_100%)]"
+        className={`absolute inset-0 z-10 ${
+          theme === "manuscript"
+            ? "bg-[linear-gradient(90deg,rgba(244,235,215,0.94)_0%,rgba(244,235,215,0.6)_45%,rgba(244,235,215,0.2)_100%)]"
+            : "bg-[linear-gradient(90deg,rgba(10,10,11,0.94)_0%,rgba(10,10,11,0.6)_45%,rgba(10,10,11,0.2)_100%)]"
+        }`}
       />
       <div
         aria-hidden
@@ -120,32 +131,40 @@ export function ServiceVideoHero({
       {/* Content */}
       <div className="container relative z-20 mx-auto max-w-[1200px] px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.25em] text-brand">
+          <p className={`mb-4 text-[12px] font-bold uppercase tracking-[0.25em] ${theme === "manuscript" ? "text-manuscript-copper" : "text-brand"}`}>
             {service.tagline}
           </p>
-          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight text-white">
+          <h1 className={`font-manuscript text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight ${theme === "manuscript" ? "text-manuscript-ink" : "text-white"}`}>
             {service.heroHeadline}
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+          <p className={`mt-6 max-w-xl text-lg leading-relaxed ${theme === "manuscript" ? "text-manuscript-inkSoft" : "text-white/70"}`}>
             {service.heroSubtext}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <button
               onClick={() => navigate("/contact")}
-              className="inline-flex items-center gap-2 rounded-xl bg-brand px-7 py-4 text-sm font-bold text-[#0A0A0B] transition-colors hover:bg-[#FB8C2A]"
+              className={`inline-flex items-center gap-2 rounded-xl px-7 py-4 text-sm font-bold transition-colors ${
+                theme === "manuscript"
+                  ? "bg-manuscript-copper text-manuscript-parchmentLight hover:bg-manuscript-rustDeep"
+                  : "bg-brand text-white hover:bg-[#FB8C2A]"
+              }`}
             >
               {service.ctaText} <ArrowRight size={16} />
             </button>
             <button
               onClick={() => navigate(secondaryCtaHref)}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-7 py-4 text-sm font-bold text-white transition-colors hover:border-brand/50"
+              className={`inline-flex items-center gap-2 rounded-xl border px-7 py-4 text-sm font-bold transition-colors ${
+                theme === "manuscript"
+                  ? "border-manuscript-ink/20 text-manuscript-ink hover:border-manuscript-ink/40 hover:bg-manuscript-ink/5"
+                  : "border-white/15 text-white hover:border-brand/50"
+              }`}
             >
               {secondaryCtaLabel}
             </button>
             {service.heroVideo && reducedMotion && !manualPlay && (
               <button
                 onClick={() => setManualPlay(true)}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-300 transition-colors hover:text-white"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-manuscript-inkSoft transition-colors hover:text-manuscript-ink"
               >
                 <Play size={16} /> Play video
               </button>

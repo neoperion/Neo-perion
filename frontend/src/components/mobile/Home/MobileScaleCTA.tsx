@@ -11,7 +11,7 @@ export function MobileScaleCTA() {
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-neo-blue/20 blur-[80px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="w-12 h-12 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center mb-6">
+        <div className="w-12 h-12 parchment-surface/[0.03] border border-white/10 rounded-2xl flex items-center justify-center mb-6">
           <Blocks className="text-neo-blue" size={24} />
         </div>
 
@@ -37,7 +37,7 @@ export function MobileScaleCTA() {
           
           <button 
             onClick={() => navigate('/company/case-studies')}
-            className="w-full h-12 rounded-xl bg-white/[0.03] border border-white/10 text-white font-bold text-[14px] flex items-center justify-center active:bg-white/5 transition-colors"
+            className="w-full h-12 rounded-xl parchment-surface/[0.03] border border-white/10 text-white font-bold text-[14px] flex items-center justify-center active:parchment-surface/5 transition-colors"
           >
             See our work
           </button>

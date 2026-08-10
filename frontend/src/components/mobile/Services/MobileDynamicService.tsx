@@ -41,7 +41,7 @@ export function MobileDynamicService({ service }: Props) {
         <h2 className="text-lg font-bold text-white mb-6">Capabilities</h2>
         <div className="space-y-3">
           {service.features.map((feature, i) => (
-            <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
+            <div key={i} className="p-5 rounded-3xl border border-white/[0.08] parchment-surface/[0.02] backdrop-blur-glass-1">
               <div className="flex items-start gap-3">
                 <CheckCircle2 size={20} style={{ color: service.color }} className="shrink-0 mt-0.5" />
                 <div>

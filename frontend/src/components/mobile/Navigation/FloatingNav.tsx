@@ -38,7 +38,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
     if (q.section === 'services')  return location.pathname.startsWith('/services');
     if (q.section === 'company')   return (
       ['/company/about', '/company/careers', '/company/blog', '/company/case-studies',
-       '/company/newsletter', '/company/insights', '/company/testimonials',
+       '/company/insights', '/company/testimonials',
        '/company/success-stories', '/company/founder-letter'].some((p) => location.pathname.startsWith(p))
     );
     return false;
@@ -64,7 +64,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
           style={{ backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")" }} />
 
         {/* Home logo */}
-        <Link to="/" className="h-10 w-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center" aria-label="AINCURU home">
+        <Link to="/" className="h-10 w-10 rounded-full parchment-surface/[0.04] border border-white/[0.08] flex items-center justify-center" aria-label="AINCURU home">
           <img src="/images/np-logo.png" alt="" className="h-6 w-6 object-contain" />
         </Link>
 
@@ -83,7 +83,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
                     'h-9 px-3.5 rounded-full text-[12px] font-bold uppercase tracking-[0.04em] flex items-center transition-colors',
                     active
                       ? 'bg-[#F77E0D]/20 text-[#F77E0D]'
-                      : 'text-white/75 hover:text-white hover:bg-white/[0.06]',
+                      : 'text-white/75 hover:text-white hover:parchment-surface/[0.06]',
                   )}
                 >
                   {q.label}
@@ -100,7 +100,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
                   'h-9 px-3.5 rounded-full text-[12px] font-bold uppercase tracking-[0.04em] flex items-center transition-colors',
                   active
                     ? 'bg-[#F77E0D]/20 text-[#F77E0D]'
-                    : 'text-white/75 hover:text-white hover:bg-white/[0.06]',
+                    : 'text-white/75 hover:text-white hover:parchment-surface/[0.06]',
                 )}
               >
                 {q.label}

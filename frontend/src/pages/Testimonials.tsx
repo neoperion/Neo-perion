@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { SEO } from "@/components/SEO";
+import { seoConfig } from "@/lib/seoConfig";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Quote, Star } from "lucide-react";
@@ -8,18 +9,33 @@ import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 
 interface TestimonialData {
-  name: string;
   feedback: string;
   company: string;
-  designation: string;
   rating?: number;
   industry?: string;
 }
 
-const fallbackTestimonials: TestimonialData[] = [
-  { feedback: "AINCURU didn't just write code; they transformed our entire product strategy. Their AI expertise is unmatched.", name: "Sarah J.", designation: "CTO", company: "TechCorp", rating: 5 },
-  { feedback: "The most reliable engineering partner we've worked with. Period.", name: "Michael T.", designation: "Founder", company: "SaaS Start", rating: 5 },
-  { feedback: "Their architecture decisions saved us months of rework when we started scaling rapidly.", name: "Elena R.", designation: "VP Engineering", company: "DataCo", rating: 5 },
+const clientTestimonials: TestimonialData[] = [
+  { 
+    feedback: "AINCURU completely changed how we handle online orders. Before them, our website would crash during festive sales and inventory was a mess. They rebuilt our platform from scratch. It's fast, handles massive traffic without a hiccup, and honestly, the team feels more like our own engineering partners than an external agency.", 
+    company: "Izhaiyam", 
+    rating: 5 
+  },
+  { 
+    feedback: "We needed a system that actual farmers could use on the field with spotty internet, not some bloated enterprise software. The AINCURU team spent days just understanding the ground reality. The offline-first app they engineered is so simple and reliable. They are brutally honest about what works and what doesn't.", 
+    company: "Farmer", 
+    rating: 5 
+  },
+  { 
+    feedback: "Building SaaS for the legal industry is notoriously difficult because of compliance and data security. We went through two other dev shops who overpromised and underdelivered. AINCURU stepped in, audited the mess, and engineered a highly secure, beautiful platform in just four months. Absolute lifesavers.", 
+    company: "Lexizfy", 
+    rating: 5 
+  },
+  { 
+    feedback: "When we wanted to scale our digital presence and add smart recommendations, we thought it would take a year and a massive budget. AINCURU mapped out a practical architecture and delivered it in weeks. They don't just write code; they care deeply about the business outcomes. The conversion rate speaks for itself.", 
+    company: "Funnovo", 
+    rating: 5 
+  },
 ];
 
 export default function Testimonials() {
@@ -27,42 +43,25 @@ export default function Testimonials() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTestimonials() {
-      try {
-        const { data, error } = await supabase
-          .from('testimonials')
-          .select('name, company, designation, feedback, rating, industry')
-          .eq('active', true)
-          .order('created_at', { ascending: false });
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setTestimonials(data);
-        } else {
-          setTestimonials(fallbackTestimonials);
-        }
-      } catch (err) {
-        console.error("Failed to fetch testimonials, using fallback:", err);
-        setTestimonials(fallbackTestimonials);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchTestimonials();
+    // Simulating a quick load to keep the animation smooth
+    const timer = setTimeout(() => {
+      setTestimonials(clientTestimonials);
+      setLoading(false);
+    }, 400);
+    return () => clearTimeout(timer);
   }, []);
 
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Client Testimonials - AINCURU",
-    "description": "Read reviews and testimonials from CTOs, founders, and product leaders who partner with AINCURU for AI and SaaS product engineering.",
+    "name": seoConfig.testimonials.title,
+    "description": seoConfig.testimonials.description,
     "publisher": {
       "@type": "Organization",
-      "name": "AINCURU Solutions",
+      "name": "AINCURU LLP",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://www.aincuru.com/images/np-logo.png"
       }
     }
   };
@@ -91,42 +90,43 @@ export default function Testimonials() {
   };
 
   return (
-    <MobileGate mobileOnly fallback={
-      <div className="min-h-[auto] bg-[#0A0A0B] text-white selection:bg-neo-blue/20">
-        <SEO 
-          title="Client Testimonials & Feedback | AINCURU"
-          description="Read reviews and testimonials from CTOs, founders, and product leaders who partner with AINCURU for AI and SaaS product engineering."
-          url="https://www.neoperion.com/company/testimonials"
-          jsonLd={seoSchema}
-        />
+      <div className="manuscript-root min-h-[auto]">
+        <SEO {...seoConfig.testimonials} />
         <Header />
         
-        <main className="pt-36 pb-24 relative overflow-hidden">
-          {/* Subtle grid background pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-50/50 rounded-full blur-[100px] pointer-events-none opacity-60" />
+        <main className="pt-36 pb-24 parchment-surface relative overflow-hidden">
+          {/* Engineering grid */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(91,58,31,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(91,58,31,0.035) 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+            }}
+          />
+          {/* Copper warm glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-manuscript-copper/4 blur-[120px] rounded-full pointer-events-none opacity-60" />
 
           <section className="text-center px-8 mb-20 max-w-4xl mx-auto relative z-10">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-[12px] font-bold tracking-[0.25em] uppercase text-neo-blue mb-4"
+              className="chapter-eyebrow mb-6"
             >
-              Social Proof
+              Client Letters
             </motion.p>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl lg:text-7xl font-black mb-6 tracking-tight text-white"
+              className="heading-manuscript text-5xl lg:text-7xl mb-6"
             >
               What our clients say
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-neutral-400 font-medium max-w-2xl mx-auto leading-relaxed"
+              className="text-xl text-manuscript-inkMuted font-manuscriptBody max-w-2xl mx-auto leading-relaxed"
             >
               Don't just take our word for it. Hear directly from the product leaders and engineering executives we build for.
             </motion.p>
@@ -134,44 +134,49 @@ export default function Testimonials() {
 
           {loading ? (
             <div className="py-20 flex justify-center items-center">
-              <div className="w-8 h-8 rounded-full border-4 border-neo-blue/20 border-t-neo-blue animate-spin" />
+              <div className="w-8 h-8 rounded-full border-2 border-manuscript-copper/20 border-t-manuscript-copper animate-spin" />
             </div>
           ) : (
-            <motion.section 
+            <motion.section
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-50px" }}
-              className="max-w-6xl mx-auto px-8 grid md:grid-cols-3 gap-8 relative z-10"
+              className="max-w-6xl mx-auto px-8 grid md:grid-cols-3 gap-6 relative z-10"
             >
               {testimonials.map((t, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   variants={cardVariants}
-                  className="p-8 rounded-3xl border border-zinc-200/80 bg-neutral-900 shadow-sm hover:border-neutral-800 hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-between relative overflow-hidden"
+                  className="manuscript-card rounded-md p-8 flex flex-col justify-between relative overflow-hidden"
                 >
-                  <Quote className="text-zinc-100 absolute top-6 right-6 pointer-events-none" size={60} />
-                  
+                  {/* Large decorative quote mark */}
+                  <span
+                    className="font-manuscript text-8xl text-manuscript-copper/12 absolute top-3 right-5 pointer-events-none select-none leading-none"
+                    aria-hidden="true"
+                  >
+                    “
+                  </span>
+
                   <div className="relative z-10 flex-1">
                     {/* Stars */}
-                    <div className="flex gap-1 mb-6" aria-label={`Rating: ${t.rating || 5} out of 5 stars`}>
+                    <div className="flex gap-1 mb-5" aria-label={`Rating: ${t.rating || 5} out of 5 stars`}>
                       {Array.from({ length: t.rating || 5 }).map((_, idx) => (
-                        <Star key={idx} className="text-amber-400 fill-amber-400" size={16} />
+                        <Star key={idx} className="text-amber-500 fill-amber-500" size={14} />
                       ))}
                     </div>
 
-                    <p className="text-lg text-neutral-400 italic relative z-10 mb-8 leading-relaxed">
-                      "{t.feedback}"
+                    <p className="text-base text-manuscript-inkSoft italic relative z-10 mb-8 leading-relaxed font-manuscript">
+                      &ldquo;{t.feedback}&rdquo;
                     </p>
                   </div>
-                  
-                  <div className="pt-6 border-t border-neutral-800 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center font-bold text-neutral-200 text-sm uppercase">
-                      {t.name.charAt(0)}
+
+                  <div className="pt-5 border-t border-manuscript-parchmentDeep flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-manuscript-parchmentWarm border border-manuscript-copper/25 flex items-center justify-center font-bold text-manuscript-copper text-sm uppercase">
+                      {t.company.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-white text-sm">{t.name}</p>
-                      <p className="text-xs text-neo-blue font-semibold">{t.designation}, {t.company}</p>
+                      <p className="font-semibold text-manuscript-inkSoft text-base font-manuscriptBody tracking-wide">{t.company}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -181,49 +186,5 @@ export default function Testimonials() {
         </main>
         <Footer />
       </div>
-    }>
-      <MobileShell nav="bottom" showFooter>
-        <div className="w-full pb-8">
-          <main className="pt-8 pb-12">
-            <section className="text-center px-6 mb-12">
-               <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-neo-highlight mb-2">Testimonials</p>
-               <h1 className="text-display-lg text-white tracking-tight mb-4">Client Voice.</h1>
-               <p className="text-base text-white/70">What our clients say about working with AINCURU.</p>
-            </section>
-            
-            {loading ? (
-              <div className="py-12 flex justify-center"><div className="w-6 h-6 rounded-full border-2 border-neo-blue/30 border-t-neo-blue animate-spin" /></div>
-            ) : (
-              <section className="px-6 space-y-4">
-                 {testimonials.map((t, i) => (
-                   <div key={i} className="p-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1 relative overflow-hidden">
-                     <Quote className="text-white/5 absolute top-4 right-4" size={40} />
-                     
-                     <div className="flex gap-1 mb-4">
-                       {Array.from({ length: t.rating || 5 }).map((_, idx) => (
-                         <Star key={idx} className="text-neo-highlight fill-neo-highlight" size={14} />
-                       ))}
-                     </div>
-                     
-                     <p className="text-[15px] text-white/80 italic leading-relaxed mb-6">"{t.feedback}"</p>
-                     
-                     <div className="flex items-center gap-3">
-                       <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold text-sm uppercase">
-                         {t.name.charAt(0)}
-                       </div>
-                       <div>
-                         <p className="font-bold text-white text-sm">{t.name}</p>
-                         <p className="text-xs text-white/50">{t.designation}, {t.company}</p>
-                       </div>
-                     </div>
-                   </div>
-                 ))}
-              </section>
-            )}
-          </main>
-        </div>
-      </MobileShell>
-    </MobileGate>
   );
 }
-

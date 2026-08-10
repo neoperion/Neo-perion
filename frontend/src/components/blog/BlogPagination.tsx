@@ -58,7 +58,7 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="rounded-lg border border-white/10 p-2 text-slate-400 transition-colors hover:bg-white/5 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+        className="rounded-lg border border-white/10 p-2 text-slate-400 transition-colors hover:parchment-surface/5 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Previous page"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -70,7 +70,7 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
           className={`h-10 w-10 rounded-lg text-sm font-medium transition-colors ${
             currentPage === page
               ? 'bg-neo-blue text-white'
-              : 'border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white'
+              : 'border border-white/10 text-slate-400 hover:parchment-surface/5 hover:text-white'
           }`}
         >
           {page}
@@ -79,7 +79,7 @@ export const BlogPagination: React.FC<Props> = ({ currentPage, totalPages, onPag
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="rounded-lg border border-white/10 p-2 text-slate-400 transition-colors hover:bg-white/5 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+        className="rounded-lg border border-white/10 p-2 text-slate-400 transition-colors hover:parchment-surface/5 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Next page"
       >
         <ChevronRight className="h-5 w-5" />

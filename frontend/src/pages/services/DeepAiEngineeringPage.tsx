@@ -66,79 +66,8 @@ export function DeepAiEngineeringPage({ service }: Props) {
   ];
 
   return (
-    <MobileGate mobileOnly fallback={
       <div className="bg-neutral-900 text-white min-h-[auto] flex flex-col">
-        <SEO 
-          title={`${service.title} - Custom AI Models & AI Agents | AINCURU Solutions`}
-          description={service.description}
-          keywords="Deep AI Engineering, Custom Fine-Tuned Models, Multi-Agent Orchestration, Enterprise AI Development, AI Consulting, Custom LLMs, Autonomous AI Agents"
-          jsonLd={[
-            {
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "name": "Deep AI Engineering & Custom Models",
-              "serviceType": service.title,
-              "description": service.description,
-              "provider": {
-                "@type": "LocalBusiness",
-                "name": "AINCURU Solutions",
-                "image": "https://www.neoperion.com/images/np-logo.png",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Chennai",
-                  "addressRegion": "Tamil Nadu",
-                  "addressCountry": "IN"
-                }
-              },
-              "areaServed": [
-                { "@type": "Country", "name": "India" },
-                { "@type": "Country", "name": "United States" },
-                { "@type": "Country", "name": "Global" }
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Deep AI Offerings",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Custom Fine-Tuned LLMs"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Multi-Agent System Orchestration"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.neoperion.com/"
-              },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://www.neoperion.com/services"
-              },{
-                "@type": "ListItem",
-                "position": 3,
-                "name": service.title,
-                "item": `${SITE_URL}/services/${service.slug}`
-              }]
-            },
-            buildFAQSchema(deepAiFaqs)
-          ]}
-        />
+        <SEO {...seoConfig.deepAiEngineering} />
         <Header />
         
         <main className="flex-grow">
@@ -157,14 +86,14 @@ export function DeepAiEngineeringPage({ service }: Props) {
               </p>
               <button
                 onClick={() => navigate('/contact')}
-                className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-neo-blue transition-colors duration-300"
+                className="px-8 py-4 parchment-surface--deep text-white rounded-xl font-bold hover:bg-neo-blue transition-colors duration-300"
               >
                 {service.ctaText}
               </button>
             </div>
 
             {/* Interactive Neural Network Visualization */}
-            <div className="relative premium-card p-8 bg-slate-900 overflow-hidden flex items-center justify-center min-h-[400px]">
+            <div className="relative premium-card p-8 parchment-surface--deep overflow-hidden flex items-center justify-center min-h-[400px]">
               <h3 className="absolute top-8 text-sm font-bold text-neutral-400 uppercase tracking-widest text-center w-full left-0">Neural Topology</h3>
               
               <svg viewBox="0 0 400 300" className="w-full max-w-[350px] overflow-visible">
@@ -286,132 +215,6 @@ export function DeepAiEngineeringPage({ service }: Props) {
 
         <Footer />
       </div>
-    }>
-      <MobileShell nav="bottom" showFooter bgClass="bg-[#030B1D]">
-        {/* Hero */}
-        <section className="pt-24 pb-12 px-6 relative overflow-hidden bg-[#02040A]">
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
-          <div className="absolute -top-[20%] -right-[10%] w-[120%] h-[60%] blur-[100px] rounded-full pointer-events-none opacity-20" style={{ backgroundColor: service.color }} />
-          
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4" style={{ color: service.color }}>
-            {service.tagline}
-          </p>
-          <h1 className="text-display-lg text-white tracking-tight mb-4">{service.heroHeadline}</h1>
-          <p className="text-base text-white/70 mb-8">{service.heroSubtext}</p>
-          
-          <button 
-            onClick={() => navigate('/contact')}
-            className="w-full h-12 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 relative overflow-hidden border border-white/10 active:scale-[0.98] transition-transform"
-          >
-            <div className="absolute inset-0 opacity-20" style={{ backgroundColor: service.color }} />
-            <span className="relative z-10 flex items-center gap-2">{service.ctaText} <ArrowRight size={16} /></span>
-          </button>
-        </section>
-
-        {/* Interactive Neural Network Visualization (Mobile) */}
-        <section className="px-6 py-10 bg-[#030B1D] border-t border-white/[0.08] flex flex-col items-center justify-center min-h-[300px]">
-          <p className="text-[10px] font-bold tracking-[0.2em] text-white/50 mb-6 uppercase">Neural Topology</p>
-          <svg viewBox="0 0 400 300" className="w-full max-w-[300px] overflow-visible">
-            {/* Connections (Edges) */}
-            <g strokeWidth="2" fill="none">
-              {/* Input to Hidden 1 */}
-              {[0, 1].map(i => [0, 1, 2].map(j => (
-                <path key={`e1-${i}-${j}`} d={`M 50 ${100 + i * 100} Q 125 ${100 + i * 100} 200 ${50 + j * 100}`} 
-                  stroke={activeNode === i || activeNode === j + 2 ? service.color : 'rgba(255,255,255,0.05)'} 
-                  className="transition-colors duration-500" 
-                />
-              )))}
-              
-              {/* Hidden 1 to Output */}
-              {[0, 1, 2].map(i => [0, 1].map(j => (
-                <path key={`e2-${i}-${j}`} d={`M 200 ${50 + i * 100} Q 275 ${50 + i * 100} 350 ${100 + j * 100}`} 
-                  stroke={activeNode === i + 2 || activeNode === j ? service.color : 'rgba(255,255,255,0.05)'} 
-                  className="transition-colors duration-500" 
-                />
-              )))}
-            </g>
-
-            {/* Nodes (Vertices) */}
-            {/* Input Layer */}
-            {[0, 1].map(i => (
-              <circle key={`n1-${i}`} cx="50" cy={100 + i * 100} r="15" 
-                fill={activeNode === i ? service.color : '#02040A'} 
-                stroke={activeNode === i ? service.color : 'rgba(255,255,255,0.1)'} strokeWidth="4" 
-                className="transition-all duration-300" 
-              />
-            ))}
-
-            {/* Hidden Layer */}
-            {[0, 1, 2].map(i => (
-              <circle key={`n2-${i}`} cx="200" cy={50 + i * 100} r="15" 
-                fill={activeNode === i + 2 ? service.color : '#02040A'} 
-                stroke={activeNode === i + 2 ? service.color : 'rgba(255,255,255,0.1)'} strokeWidth="4" 
-                className="transition-all duration-300" 
-              />
-            ))}
-
-            {/* Output Layer */}
-            {[0, 1].map(i => (
-              <circle key={`n3-${i}`} cx="350" cy={100 + i * 100} r="15" 
-                fill={activeNode === i ? service.color : '#02040A'} 
-                stroke={activeNode === i ? service.color : 'rgba(255,255,255,0.1)'} strokeWidth="4" 
-                className="transition-all duration-300" 
-              />
-            ))}
-          </svg>
-        </section>
-
-        {/* Side-by-Side Comparison Table (Mobile) */}
-        <section className="px-6 py-10 bg-[#02040A] border-t border-white/[0.08]">
-          <h2 className="text-lg font-bold text-white mb-2">The Deep Engineering Difference</h2>
-          <p className="text-[13px] text-white/60 mb-8">Real enterprise AI requires robust, testable, and secure engineering.</p>
-
-          <div className="space-y-4">
-            {comparisonData.map((row, i) => (
-              <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
-                <div className="flex items-start gap-3 mb-4 pb-4 border-b border-white/[0.05]">
-                  <X className="text-red-400 shrink-0" size={16} />
-                  <div>
-                    <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1">Basic</h3>
-                    <p className="text-[13px] text-white/60 leading-tight">{row.basic}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <AnimatedCheck delay={i * 0.1} color={service.color} className="w-4 h-4 mt-0.5" />
-                  <div>
-                    <h3 className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: service.color }}>Deep Engineering</h3>
-                    <p className="text-[13px] text-white font-medium leading-tight">{row.advanced}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Capabilities Grid (Mobile) */}
-        <section className="px-6 py-10 bg-[#030B1D] border-t border-white/[0.08]">
-          <h2 className="text-lg font-bold text-white mb-6">Capabilities</h2>
-          <div className="space-y-3">
-            {service.features.map((feature, i) => (
-              <div key={i} className="p-5 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-glass-1">
-                <div className="flex items-start gap-3">
-                  <Cpu size={20} style={{ color: service.color }} className="shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-sm font-bold text-white mb-1">{feature.title}</h3>
-                    <p className="text-[13px] text-white/60 leading-relaxed">{feature.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <TechStack />
-        <BusinessOutcomes />
-        <EnterpriseCTA />
-        <FooterTransition />
-      </MobileShell>
-    </MobileGate>
   );
 }
 

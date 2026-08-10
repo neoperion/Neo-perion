@@ -96,6 +96,9 @@ export default {
           gold:            "#B68A35",
           goldWarm:        "#D4A857",
           goldDeep:        "#8E6A20",
+          // Copper tier (editorial annotations)
+          copper:          "#A84A28",
+          copperMuted:     "#C17A55",
           // Sage (tags/badges only)
           sage:            "#6B7F5A",
           sageSoft:        "#8DA37C",

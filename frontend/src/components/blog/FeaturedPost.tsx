@@ -71,9 +71,9 @@ export const FeaturedPost: React.FC<Props> = ({ post, theme = 'dark' }) => {
       animate={{ opacity: 1, y: 0 }}
       className="group relative mb-16 w-full overflow-hidden rounded-[2rem] border border-white/10"
     >
-      <div className="flex flex-col bg-slate-900/60 lg:flex-row">
+      <div className="flex flex-col parchment-surface--deep/60 lg:flex-row">
         <div className="relative aspect-video w-full overflow-hidden lg:aspect-auto lg:w-3/5">
-          <div className="absolute inset-0 z-10 bg-black/20 transition-colors group-hover:bg-transparent" />
+          <div className="absolute inset-0 z-10 parchment-surface--deep/20 transition-colors group-hover:bg-transparent" />
           <img
             src={post.cover_image}
             alt={post.title}

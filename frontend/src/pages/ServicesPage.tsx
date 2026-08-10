@@ -8,10 +8,11 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MobileGate, MobileShell } from "@/components/mobile";
 import { SITE_URL, buildFAQSchema } from "@/lib/seo";
+import { seoConfig } from "@/lib/seoConfig";
 
 const servicesFaqs: FAQItem[] = [
   {
-    question: 'What services does AINCURU Solutions offer?',
+    question: 'What services does AINCURU LLP offer?',
     answer:
       'We design, build, and ship production-grade software across seven capabilities: AI Systems & Automation, Deep AI Engineering, Enterprise Product Engineering, Cloud-Native Web Platforms, Mobile Product Engineering, Intelligent Operations Automation, and Startup-to-Scale Engineering. Each is delivered by senior engineers — no offshoring, no juniors hidden behind account managers.',
   },
@@ -92,20 +93,8 @@ export default function ServicesPage() {
 
   /* ─── Desktop ──────────────────────────────────────────── */
   const desktop = (
-    <div className="bg-[#0A0A0B] text-white min-h-[auto] flex flex-col">
-      <SEO
-        title="AI Automation & Software Development Services | AINCURU Solutions"
-        description="AI automation, custom web platforms, mobile apps and data analytics — scoped, priced and delivered production-grade. Five core capabilities from one founder-led team."
-        url={`${SITE_URL}/services`}
-        keywords="AI automation services, custom web application development, mobile app development, data analytics, AI engineering India"
-        jsonLd={[
-          { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-            { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
-          ]},
-          buildFAQSchema(servicesFaqs),
-        ]}
-      />
+    <div className="bg-manuscript-parchment text-manuscript-ink min-h-[auto] flex flex-col">
+      <SEO {...seoConfig.services} />
       <Header />
       <main className="flex-grow">
 
@@ -118,17 +107,19 @@ export default function ServicesPage() {
             src="/images/12557570_1920_1080_30fps.mp4"
           />
 
-          {/* Cinematic overlay — transparent at top, dark from midpoint down */}
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #0A0A0B 0%, rgba(10,10,11,0.80) 38%, rgba(10,10,11,0.25) 65%, transparent 100%)' }} />
+          {/* Base intensity reducer */}
+          <div className="absolute inset-0 pointer-events-none bg-manuscript-parchment/25" />
+          {/* Cinematic overlay — transparent at top, manuscript from midpoint down */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #F4EBD7 0%, rgba(244,235,215,0.92) 40%, rgba(244,235,215,0.5) 70%, rgba(244,235,215,0.15) 100%)' }} />
           {/* Left vignette */}
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(10,10,11,0.65) 0%, rgba(10,10,11,0.20) 50%, transparent 100%)' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(244,235,215,0.88) 0%, rgba(244,235,215,0.45) 50%, transparent 100%)' }} />
 
           {/* Orange top frame line */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="absolute top-0 left-0 right-0 h-[2px] origin-left z-20 bg-[#F77E0D]"
+            className="absolute top-0 left-0 right-0 h-[2px] origin-left z-20 bg-manuscript-copper"
           />
 
           {/* Content — absolutely anchored bottom-left */}
@@ -139,7 +130,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.5 }}
-              className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-[#F77E0D]"
+              className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-manuscript-copper"
             >
               Our Services
             </motion.p>
@@ -150,7 +141,7 @@ export default function ServicesPage() {
                 initial={{ y: '105%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.82, delay: 0.52, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-black leading-[0.88] tracking-tight text-white"
+                className="font-manuscript font-black leading-[0.88] tracking-tight text-manuscript-ink"
                 style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)' }}
               >
                 What We
@@ -161,7 +152,7 @@ export default function ServicesPage() {
                 initial={{ y: '105%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.82, delay: 0.64, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-black leading-[0.88] tracking-tight text-[#F77E0D]"
+                className="font-manuscript font-black leading-[0.88] tracking-tight text-manuscript-copper"
                 style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)' }}
               >
                 Build.
@@ -175,7 +166,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: 0.85 }}
               className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-10"
             >
-              <p className="text-[14px] leading-[1.65] text-neutral-400" style={{ maxWidth: '46ch' }}>
+              <p className="text-[14px] leading-[1.65] text-manuscript-inkSoft" style={{ maxWidth: '46ch' }}>
                 Seven engineering capabilities — AI systems, deep AI engineering, enterprise product,
                 cloud-native web, mobile, intelligent operations, and startup-to-scale — delivered
                 to clients in India and the United States. Most MVPs and AI pilots ship in 6–10 weeks;
@@ -186,16 +177,16 @@ export default function ServicesPage() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#F77E0D] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0B] transition-all duration-200 hover:bg-[#ff8f20]"
+                  className="group inline-flex items-center gap-2 rounded-full bg-manuscript-copper px-6 py-2.5 text-[13px] font-bold text-manuscript-parchmentLight transition-all duration-200 hover:bg-manuscript-rustDeep shadow-sm"
                 >
                   Book a Consultation
                   <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
                 <button
                   onClick={() => document.getElementById('svc-list')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-[13px] font-medium text-white/45 transition-colors duration-200 hover:text-white/80"
+                  className="group inline-flex items-center gap-2 rounded-full border border-manuscript-ink/20 px-6 py-2.5 text-[13px] font-bold text-manuscript-ink transition-colors duration-200 hover:border-manuscript-ink/40 hover:bg-manuscript-ink/5"
                 >
-                  View All Services →
+                  View All Services <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </button>
               </div>
             </motion.div>
@@ -205,7 +196,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="mt-7 mb-6 h-px bg-white/[0.08]"
+              className="mt-7 mb-6 h-px bg-manuscriptAlpha-ink-15"
             />
 
             {/* Stats */}
@@ -217,10 +208,10 @@ export default function ServicesPage() {
             >
               {stats.map((s) => (
                 <div key={s.label}>
-                  <div className="mb-0.5 font-display text-[1.6rem] font-black leading-none text-white">
+                  <div className="mb-0.5 font-manuscript text-[1.6rem] font-black leading-none text-manuscript-ink">
                     {s.value}
                   </div>
-                  <div className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-neutral-600">
+                  <div className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-manuscript-inkSoft">
                     {s.label}
                   </div>
                 </div>
@@ -230,12 +221,12 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Service List ──────────────────────────────────── */}
-        <section id="svc-list" className="bg-[#0A0A0B] px-8 py-24">
+        <section id="svc-list" className="bg-manuscript-parchment px-8 py-24">
           <div className="mx-auto max-w-[1200px]">
 
             <div className="mb-14">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Capabilities</p>
-              <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-white">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper">Capabilities</p>
+              <h2 className="font-manuscript text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-manuscript-ink">
                 Every capability. One partner.
               </h2>
             </div>
@@ -251,38 +242,37 @@ export default function ServicesPage() {
                   }}
                   viewport={{ once: true, margin: '-40px' }}
                   onClick={() => navigate(`/services/${svc.slug}`)}
-                  className="group relative min-h-[520px] cursor-pointer overflow-hidden rounded-2xl border border-white/[0.09] bg-[#0A0A0B]"
+                  className="group relative min-h-[520px] cursor-pointer overflow-hidden rounded-2xl border border-manuscript-walnut/15 bg-manuscript-parchmentLight shadow-[0_4px_16px_rgba(31,26,20,0.04)] transition-shadow hover:shadow-[0_8px_24px_rgba(31,26,20,0.08)]"
                 >
                   {/* ── DEFAULT face — large icon centred ── */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center transition-all duration-300 ease-in-out group-hover:-translate-y-6 group-hover:opacity-0">
-                    <div className="mb-8 flex h-[116px] w-[116px] items-center justify-center rounded-3xl bg-[#F77E0D]">
+                    <div className="mb-8 flex h-[116px] w-[116px] items-center justify-center rounded-3xl bg-manuscript-parchmentWarm border border-manuscript-walnut/15 shadow-sm">
                       <img
                         src={svc.png}
                         alt={svc.title}
-                        className="h-[68px] w-[68px] object-contain"
-                        style={{ filter: 'invert(1)' }}
+                        className="h-[54px] w-[54px] object-contain"
                       />
                     </div>
-                    <h3 className="text-[1.25rem] font-bold leading-tight text-white">{svc.title}</h3>
-                    <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/50">{svc.tagline}</p>
+                    <h3 className="text-[1.25rem] font-bold leading-tight text-manuscript-ink">{svc.title}</h3>
+                    <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-manuscript-copper">{svc.tagline}</p>
                   </div>
 
                   {/* ── HOVER face — cinematic bg image + title + desc + arrow ── */}
                   <div className="absolute inset-0 translate-y-6 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
                     {/* Background image */}
                     <div
-                      className="absolute inset-0 bg-cover bg-center"
+                      className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-20"
                       style={{ backgroundImage: `url(${svc.bg})` }}
                     />
-                    {/* Dark overlay — 58% so bg image bleeds through */}
-                    <div className="absolute inset-0 bg-[#0A0A0B]/58" />
+                    {/* Warm parchment overlay to preserve legibility */}
+                    <div className="absolute inset-0 bg-manuscript-parchmentLight/85 backdrop-blur-[2px]" />
                     {/* Content over image */}
                     <div className="relative z-10 flex h-full flex-col p-8">
-                      <h3 className="text-[1.4rem] font-bold leading-tight text-white">{svc.title}</h3>
-                      <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/60">{svc.tagline}</p>
-                      <p className="mt-5 flex-grow text-[13.5px] leading-[1.85] text-neutral-300">{svc.desc}</p>
+                      <h3 className="text-[1.4rem] font-bold leading-tight text-manuscript-ink">{svc.title}</h3>
+                      <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-manuscript-copper">{svc.tagline}</p>
+                      <p className="mt-5 flex-grow text-[13.5px] leading-[1.85] text-manuscript-inkSoft">{svc.desc}</p>
                       <div className="mt-auto pt-6">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F77E0D] text-[#0A0A0B]">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-manuscript-copper text-manuscript-parchmentLight shadow-sm">
                           <ArrowUpRight size={20} />
                         </div>
                       </div>
@@ -295,7 +285,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Delivery Principles ───────────────────────── */}
-        <section className="bg-[#0A0A0B] px-8 py-24">
+        <section className="bg-manuscript-parchment px-8 py-24">
           <div className="mx-auto max-w-[1200px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -303,8 +293,8 @@ export default function ServicesPage() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
             >
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Principles</p>
-              <h2 className="mb-16 font-display text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-white">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-manuscript-copper">Principles</p>
+              <h2 className="mb-16 font-manuscript text-[clamp(1.75rem,3vw,2.75rem)] font-bold tracking-tight text-manuscript-ink">
                 How We Deliver
               </h2>
 
@@ -329,14 +319,14 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-40px' }}
                     transition={{ duration: 0.45, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
-                    className={`${i !== 0 ? 'md:border-l md:border-white/[0.07] md:pl-14' : ''} ${i !== 2 ? 'md:pr-14' : ''}`}
+                    className={`${i !== 0 ? 'md:border-l md:border-manuscript-walnut/20 md:pl-14' : ''} ${i !== 2 ? 'md:pr-14' : ''}`}
                   >
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F77E0D]/10 text-[#F77E0D]">
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-manuscript-parchmentWarm text-manuscript-copper border border-manuscript-walnut/10 shadow-sm">
                       <span className="font-mono text-sm font-bold">0{i + 1}</span>
                     </div>
-                    <h3 className="mb-4 text-[1.2rem] font-bold text-white">{principle.title}</h3>
-                    <div className="mb-4 h-[2px] w-10 bg-[#F77E0D]/30" />
-                    <p className="text-[14px] leading-[1.75] text-neutral-500">{principle.desc}</p>
+                    <h3 className="mb-4 text-[1.2rem] font-bold text-manuscript-ink">{principle.title}</h3>
+                    <div className="mb-4 h-[2px] w-10 bg-manuscript-copper/50" />
+                    <p className="text-[14px] leading-[1.75] text-manuscript-inkSoft">{principle.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -345,10 +335,14 @@ export default function ServicesPage() {
         </section>
 
         {/* ── FAQ ─────────────────────────────────────────── */}
-        <FAQBlock items={servicesFaqs} heading="Services FAQ" />
+        <FAQBlock 
+          items={servicesFaqs} 
+          heading="Services FAQ" 
+          className="bg-manuscript-parchment [&_h2]:!text-manuscript-ink [&_h3]:!text-manuscript-ink [&_p]:!text-manuscript-inkSoft [&_div.divide-y]:!divide-manuscript-walnut/20 [&_div.border-y]:!border-manuscript-walnut/20 [&_span]:!text-manuscript-copper"
+        />
 
         {/* ── CTA ──────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-[#ffa959] px-8 py-28">
+        <section className="relative overflow-hidden bg-manuscript-parchment px-8 py-28">
           <div className="pointer-events-none absolute inset-0 opacity-[0.06]"
             style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.5) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent,rgba(0,0,0,0.06))]" />
@@ -360,27 +354,27 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
             >
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0A0A0B]/20 bg-[#0A0A0B]/10 px-4 py-1.5">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#0A0A0B]" />
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#0A0A0B]">Now Taking Projects</span>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-manuscriptAlpha-ink-15 bg-manuscriptAlpha-ink-5 px-4 py-1.5">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-manuscript-copper" />
+                <span className="text-[11px] font-bold uppercase tracking-widest text-manuscript-copper">Now Taking Projects</span>
               </div>
 
-              <h2 className="mb-6 font-display text-[clamp(2.6rem,5vw,4.2rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0B]">
+              <h2 className="mb-6 font-manuscript text-[clamp(2.6rem,5vw,4.2rem)] font-black leading-[1.05] tracking-tight text-manuscript-ink">
                 Ready to ship something<br />that actually lasts?
               </h2>
 
-              <p className="mx-auto mb-10 max-w-xl text-[17px] leading-[1.8] text-[#0A0A0B]/70">
+              <p className="mx-auto mb-10 max-w-xl text-[17px] leading-[1.8] text-manuscript-inkSoft">
                 Most agencies prototype. We production-deploy. Work with AINCURU's AI-first team and go from idea to live product faster than you thought possible.
               </p>
 
               <div className="mb-10 flex flex-wrap justify-center gap-4">
                 <button onClick={() => navigate('/contact')}
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#0A0A0B] px-9 py-4 text-sm font-bold text-white transition-all hover:bg-[#1c1c1e]">
+                  className="group inline-flex items-center gap-2 rounded-full bg-manuscript-copper px-9 py-4 text-sm font-bold text-manuscript-parchmentLight transition-all hover:bg-manuscript-rustDeep shadow-sm">
                   Book Strategy Call
                   <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </button>
                 <button onClick={() => navigate('/company/case-studies')}
-                  className="rounded-full border-2 border-[#0A0A0B]/25 px-9 py-4 text-sm font-bold text-[#0A0A0B] transition-colors hover:border-[#0A0A0B]/50">
+                  className="rounded-full border border-manuscript-ink bg-manuscript-parchmentLight px-9 py-4 text-sm font-bold text-manuscript-ink transition-colors hover:bg-manuscript-parchmentWarm shadow-sm">
                   View Case Studies
                 </button>
               </div>
@@ -396,8 +390,8 @@ export default function ServicesPage() {
 
   /* ─── Mobile ───────────────────────────────────────────── */
   const mobile = (
-    <MobileShell nav="bottom" showFooter bgClass="bg-[#0A0A0B]">
-      <div className="w-full bg-[#0A0A0B] text-white pb-10">
+    <MobileShell nav="bottom" showFooter bgClass="bg-manuscript-parchment">
+      <div className="w-full bg-manuscript-parchment text-manuscript-ink pb-10">
 
         {/* Hero */}
         <section className="relative overflow-hidden px-5 pt-10 pb-12 min-h-[60vh] flex items-start">
@@ -410,35 +404,35 @@ export default function ServicesPage() {
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
             src="/images/12557570_1920_1080_30fps.mp4"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[#0A0A0B]/80" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0A0B] to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-manuscript-parchmentLight/90" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-manuscript-parchmentDark to-transparent" />
           <div className="relative z-10 w-full">
-            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#F77E0D]">Services</p>
-            <h1 className="font-display text-[2.4rem] font-black leading-[1.0] tracking-tight text-white">
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper">Services</p>
+            <h1 className="font-manuscript text-[2.4rem] font-black leading-[1.0] tracking-tight text-manuscript-ink">
               What We<br />
-              <span className="text-[#F77E0D]">Build.</span>
+              <span className="text-manuscript-copper">Build.</span>
             </h1>
-            <p className="mt-5 text-sm leading-relaxed text-neutral-400">
+            <p className="mt-5 text-sm leading-relaxed text-manuscript-inkSoft">
               Seven engineering capabilities — AI, web, mobile, data — delivered to clients in
               India and the US. Most MVPs and AI pilots ship in 6–10 weeks; full platforms run
               3–6 months. Every engagement starts with a written agreement.
             </p>
             <div className="mt-8 flex flex-col gap-3">
               <button onClick={() => navigate('/contact')}
-                className="w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all">
+                className="w-full rounded-full bg-manuscript-copper py-4 text-sm font-bold text-manuscript-parchmentLight active:scale-[0.98] transition-all shadow-sm">
                 Book a Consultation
               </button>
               <button onClick={() => document.getElementById('m-svc-list')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all">
+                className="w-full rounded-full border border-manuscript-ink py-4 text-sm font-bold text-manuscript-ink active:scale-[0.98] transition-all bg-manuscript-parchmentLight shadow-sm">
                 View All Services
               </button>
             </div>
             {/* Stats */}
-            <div className="mt-10 grid grid-cols-2 gap-5 border-t border-white/[0.07] pt-8">
+            <div className="mt-10 grid grid-cols-2 gap-5 border-t border-manuscriptAlpha-ink-15 pt-8">
               {stats.map(s => (
                 <div key={s.label}>
-                  <p className="text-[1.8rem] font-black tracking-tight text-white">{s.value}</p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-neutral-500">{s.label}</p>
+                  <p className="text-[1.8rem] font-black tracking-tight text-manuscript-ink">{s.value}</p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-manuscript-inkSoft">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -447,32 +441,32 @@ export default function ServicesPage() {
 
         {/* Service list */}
         <section id="m-svc-list" className="px-5 py-8">
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#F77E0D]">Capabilities</p>
-          <h2 className="mb-8 font-display text-xl font-bold text-white">Every capability. One partner.</h2>
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-manuscript-copper">Capabilities</p>
+          <h2 className="mb-8 font-manuscript text-xl font-bold text-manuscript-ink">Every capability. One partner.</h2>
 
           <div className="grid grid-cols-1 gap-4">
             {services.map((svc) => (
               <button
                 key={svc.slug}
                 onClick={() => navigate(`/services/${svc.slug}`)}
-                className="group rounded-2xl border border-white/[0.07] bg-[#111012] p-5 text-left transition-all active:scale-[0.98]"
+                className="group rounded-2xl border border-manuscript-walnut/15 bg-manuscript-parchmentLight p-5 text-left transition-all active:scale-[0.98] shadow-[0_4px_16px_rgba(31,26,20,0.04)]"
               >
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F77E0D] shadow-lg">
-                    <img src={svc.png} alt={svc.title} className="h-7 w-7 object-contain" style={{ filter: 'invert(1)' }} />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-manuscript-parchmentWarm border border-manuscript-walnut/15 shadow-sm">
+                    <img src={svc.png} alt={svc.title} className="h-7 w-7 object-contain" />
                   </div>
-                  <span className="font-mono text-[10px] font-bold text-[#F77E0D]/50">{svc.num}</span>
+                  <span className="font-mono text-[10px] font-bold text-manuscript-copper">{svc.num}</span>
                 </div>
-                <p className="text-sm font-bold text-white">{svc.title}</p>
-                <p className="mt-0.5 mb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-[#F77E0D]/50">{svc.tagline}</p>
-                <p className="text-[12px] leading-relaxed text-neutral-500">{svc.desc}</p>
+                <p className="text-sm font-bold text-manuscript-ink">{svc.title}</p>
+                <p className="mt-0.5 mb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-manuscript-copper">{svc.tagline}</p>
+                <p className="text-[12px] leading-relaxed text-manuscript-inkSoft">{svc.desc}</p>
                 <div className="mt-4 flex items-center justify-between">
                   <div className="flex flex-wrap gap-1.5">
                     {svc.tech.slice(0, 2).map(t => (
-                      <span key={t} className="rounded-full border border-[#F77E0D]/20 bg-[#F77E0D]/10 px-2 py-0.5 text-[10px] font-semibold text-[#F77E0D]">{t}</span>
+                      <span key={t} className="rounded-full border border-manuscript-copper/20 bg-manuscript-copper/10 px-2 py-0.5 text-[10px] font-semibold text-manuscript-copper">{t}</span>
                     ))}
                   </div>
-                  <ArrowUpRight size={16} className="shrink-0 text-[#F77E0D]" />
+                  <ArrowUpRight size={16} className="shrink-0 text-manuscript-copper" />
                 </div>
               </button>
             ))}
@@ -481,18 +475,18 @@ export default function ServicesPage() {
 
         {/* Mobile CTA */}
         <section className="px-5 pb-6">
-          <div className="relative overflow-hidden rounded-2xl border border-[#F77E0D]/20 bg-[#0D0C0E] p-8 text-center">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(247,126,13,0.09),transparent_60%)]" />
+          <div className="relative overflow-hidden rounded-2xl border border-manuscriptAlpha-ink-15 bg-manuscript-parchmentLight shadow-sm p-8 text-center">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(247,126,13,0.06),transparent_60%)]" />
             <div className="relative z-10">
-              <h2 className="mb-3 font-display text-xl font-bold text-white">Ready to build?</h2>
-              <p className="mb-6 text-xs leading-relaxed text-neutral-400">Work with AINCURU's AI-first engineering team.</p>
+              <h2 className="mb-3 font-manuscript text-xl font-bold text-manuscript-ink">Ready to build?</h2>
+              <p className="mb-6 text-xs leading-relaxed text-manuscript-inkSoft">Work with AINCURU's AI-first engineering team.</p>
               <div className="flex flex-col gap-3">
                 <button onClick={() => navigate('/contact')}
-                  className="w-full rounded-full bg-[#F77E0D] py-4 text-sm font-bold text-[#0A0A0B] active:scale-[0.98] transition-all">
+                  className="w-full rounded-full bg-manuscript-copper py-4 text-sm font-bold text-manuscript-parchmentLight active:scale-[0.98] transition-all shadow-sm">
                   Book Strategy Call
                 </button>
                 <button onClick={() => navigate('/company/case-studies')}
-                  className="w-full rounded-full border border-white/[0.12] py-4 text-sm font-bold text-white/70 active:scale-[0.98] transition-all">
+                  className="w-full rounded-full border border-manuscript-ink bg-manuscript-parchmentLight py-4 text-sm font-bold text-manuscript-ink active:scale-[0.98] transition-all shadow-sm">
                   View Case Studies
                 </button>
               </div>
@@ -501,7 +495,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Mobile FAQ */}
-        <FAQBlock items={servicesFaqs} heading="Services FAQ" eyebrow="FAQ" className="px-5" />
+        <FAQBlock 
+          items={servicesFaqs} 
+          heading="Services FAQ" 
+          eyebrow="FAQ" 
+          className="px-5 bg-manuscript-parchment [&_h2]:!text-manuscript-ink [&_h3]:!text-manuscript-ink [&_p]:!text-manuscript-inkSoft [&_div.divide-y]:!divide-manuscript-walnut/20 [&_div.border-y]:!border-manuscript-walnut/20 [&_span]:!text-manuscript-copper" 
+        />
 
       </div>
     </MobileShell>
@@ -509,3 +508,4 @@ export default function ServicesPage() {
 
   return <MobileGate mobileOnly fallback={desktop}>{mobile}</MobileGate>;
 }
+

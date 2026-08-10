@@ -35,18 +35,20 @@
 - Founders: Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO).
 - Engagement model: written agreement before work; weekly demos; UAT sign-off; IP transfers to client on final payment.
 - Serves: startups and SMEs in India and the United States.
-- Public email: hello@neoperion.com. Phone: +91 7339125472.
-- LinkedIn: https://www.linkedin.com/company/neo-perion-solutions
-- Instagram: https://www.instagram.com/neoperion
-- Twitter / X: https://twitter.com/neoperion
+- Public email: hello@aincuru.com. Phone: +91 7810005472.
+- LinkedIn: https://www.linkedin.com/company/aincuru/
+- Instagram: https://www.instagram.com/_aincuru
+- X / Twitter: https://x.com/aincuru
+- Facebook: https://www.facebook.com/share/1FCuj6vXfz/
+- Website: https://www.aincuru.com
 - Tech stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Supabase, AWS, Docker, Kubernetes, OpenAI, Anthropic Claude, Google Gemini.
 
 ## Profiles (placeholders — owner to register when each goes live)
-- LinkedIn: https://www.linkedin.com/company/neo-perion-solutions
-- Clutch: https://www.clutch.co/profile/neo-perion-solutions
-- GoodFirms: https://www.goodfirms.co/company/neo-perion-solutions
-- GitHub: https://github.com/neo-perion
-- Crunchbase: https://www.crunchbase.com/organization/neo-perion-solutions
+- LinkedIn: https://www.linkedin.com/company/aincuru/
+- Instagram: https://www.instagram.com/_aincuru
+- X / Twitter: https://x.com/aincuru
+- Facebook: https://www.facebook.com/share/1FCuj6vXfz/
+- Clutch: https://www.clutch.co/profile/neoperion-solutions
 
 ## What we are not
 - Not affiliated with Perion Network Ltd.

@@ -20,7 +20,7 @@ interface Node {
  * Honors prefers-reduced-motion (renders a single static frame) and pauses
  * when the tab is hidden.
  */
-export function NeuralNetworkBg({ color = "#F77E0D", density = 1 }: NeuralNetworkBgProps) {
+export function NeuralNetworkBg({ color = "#A84A28", density = 1 }: NeuralNetworkBgProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

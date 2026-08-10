@@ -31,10 +31,10 @@ export function FoundersCards({ founders }: { founders: Founder[] }) {
       </div>
       <div className="mt-5 flex items-center justify-between">
         <button type="button" aria-label="Previous" onClick={() => setIndex((i) => (i - 1 + founders.length) % founders.length)}
-          className="h-10 w-10 rounded-full bg-white/[0.06] border border-white/[0.10] flex items-center justify-center text-white active:scale-95"><ChevronLeft size={18} /></button>
-        <div className="flex gap-1.5">{founders.map((f, i) => (<span key={f.name} className={cn('h-1.5 rounded-full transition-all', i === index ? 'w-6 bg-neo-highlight' : 'w-1.5 bg-white/20')} />))}</div>
+          className="h-10 w-10 rounded-full parchment-surface/[0.06] border border-white/[0.10] flex items-center justify-center text-white active:scale-95"><ChevronLeft size={18} /></button>
+        <div className="flex gap-1.5">{founders.map((f, i) => (<span key={f.name} className={cn('h-1.5 rounded-full transition-all', i === index ? 'w-6 bg-neo-highlight' : 'w-1.5 parchment-surface/20')} />))}</div>
         <button type="button" aria-label="Next" onClick={() => setIndex((i) => (i + 1) % founders.length)}
-          className="h-10 w-10 rounded-full bg-white/[0.06] border border-white/[0.10] flex items-center justify-center text-white active:scale-95"><ChevronRight size={18} /></button>
+          className="h-10 w-10 rounded-full parchment-surface/[0.06] border border-white/[0.10] flex items-center justify-center text-white active:scale-95"><ChevronRight size={18} /></button>
       </div>
     </section>
   );

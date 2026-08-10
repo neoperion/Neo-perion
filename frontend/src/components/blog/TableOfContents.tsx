@@ -51,17 +51,19 @@ export const TableOfContents: React.FC<Props> = ({ content, theme = 'dark' }) =>
     );
   }
 
-  // Dark (mobile / legacy)
+  // Dark (manuscript/rustDeep)
   return (
-    <div className="sticky top-32 hidden rounded-2xl border border-white/10 bg-slate-900/40 p-6 lg:block">
-      <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white">Table of Contents</h4>
-      <nav className="space-y-3">
+    <div className="sticky top-32 hidden rounded-2xl border border-manuscript-gold/20 bg-manuscript-ink/50 p-6 lg:block shadow-xl shadow-black/10">
+      <h4 className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-manuscript-gold">
+        On this page
+      </h4>
+      <nav className="space-y-3 border-l border-manuscript-gold/20">
         {headings.map((heading, index) => (
           <a
             key={index}
             href={`#${heading.id}`}
-            className={`block text-sm transition-colors hover:text-neo-blue ${
-              heading.level === 2 ? 'font-medium text-slate-300' : 'pl-4 text-neutral-400'
+            className={`-ml-px block border-l-2 border-transparent text-[13.5px] leading-snug transition-colors hover:border-manuscript-gold hover:text-manuscript-gold ${
+              heading.level === 2 ? 'pl-4 font-medium text-manuscript-parchment/90' : 'pl-7 text-manuscript-parchment/60'
             }`}
           >
             {heading.text}

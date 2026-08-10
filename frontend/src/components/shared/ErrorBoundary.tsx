@@ -35,12 +35,12 @@ export class ErrorBoundary extends Component<Props, State> {
       
       return (
         <div className="min-h-[auto] bg-[#050816] flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-red-500/20 rounded-2xl p-8 max-w-lg w-full text-center">
+          <div className="parchment-surface--deep border border-red-500/20 rounded-2xl p-8 max-w-lg w-full text-center">
             <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
             <p className="text-slate-400 mb-6">
               An unexpected error has occurred. Our engineering team has been notified.
             </p>
-            <div className="bg-slate-950 rounded border border-white/5 p-4 text-left overflow-auto text-sm text-red-400 font-mono mb-6 max-h-40">
+            <div className="parchment-surface--deep rounded border border-white/5 p-4 text-left overflow-auto text-sm text-red-400 font-mono mb-6 max-h-40">
               {this.state.error?.message || 'Unknown error'}
             </div>
             <Button 

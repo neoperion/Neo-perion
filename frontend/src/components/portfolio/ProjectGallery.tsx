@@ -10,7 +10,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ project }) => {
   if (!project.gallery || project.gallery.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-24 bg-[#050816] relative">
+    <section className="py-14 md:py-24 bg-manuscript-rustDeep relative overflow-hidden">
       <div className="container mx-auto px-4">
         
         <motion.div
@@ -19,7 +19,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ project }) => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-manuscript-parchmentLight mb-4">
             Project Gallery
           </h2>
         </motion.div>
@@ -32,11 +32,12 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ project }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`rounded-3xl overflow-hidden border border-white/10 bg-slate-900 ${index % 3 === 0 ? 'md:col-span-2' : ''}`}
+              className={`rounded-3xl overflow-hidden border border-manuscript-gold/20 bg-manuscript-ink/50 shadow-xl shadow-black/10 ${index % 3 === 0 ? 'md:col-span-2' : ''}`}
             >
               {media.includes('.mp4') ? (
                 <video 
                   src={media} 
+                  crossOrigin="anonymous"
                   autoPlay 
                   loop 
                   muted 

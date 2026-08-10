@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowLeft, MapPin, Clock, Briefcase, Upload, CheckCircle2, AlertCircle } from 'lucide-react';
 import { MobileGate, MobileShell } from '@/components/mobile';
 import { SEO } from '@/components/SEO';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const applicationSchema = z.object({
   full_name: z.string().min(2, 'Name is required'),
@@ -151,11 +151,11 @@ export default function CareerDetail() {
     "employmentType": getEmploymentTypeForSchema(job.employment_type || job.type || 'Full Time'),
     "hiringOrganization": {
       "@type": "Organization",
-      "name": "AINCURU Solutions",
-      "sameAs": "https://www.neoperion.com",
+      "name": "AINCURU LLP",
+      "sameAs": "https://www.aincuru.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.neoperion.com/images/np-logo.png"
+        "url": "https://www.aincuru.com/images/np-logo.png"
       }
     },
     "jobLocation": {
@@ -170,7 +170,7 @@ export default function CareerDetail() {
     "industry": job.department || undefined
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -180,7 +180,7 @@ export default function CareerDetail() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     show: { 
       opacity: 1, 
@@ -259,7 +259,7 @@ export default function CareerDetail() {
           </div>
 
           <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className={`sticky top-32 p-6 rounded-2xl border transition-all ${isLight ? 'border-neutral-800 bg-neutral-900 shadow-md' : 'border-white/10 bg-white/[0.02]'}`}>
+            <div className={`sticky top-32 p-6 rounded-2xl border transition-all ${isLight ? 'border-neutral-800 bg-neutral-900 shadow-md' : 'border-white/10 parchment-surface/[0.02]'}`}>
               <h3 className={`text-xl font-bold mb-6 tracking-tight ${isLight ? 'text-[#09090B]' : 'text-white'}`}>Apply for this position</h3>
               
               {success ? (
@@ -284,7 +284,7 @@ export default function CareerDetail() {
                       aria-required="true"
                       aria-invalid={errors.full_name ? 'true' : 'false'}
                       aria-describedby={errors.full_name ? 'full_name_error' : undefined}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="Jane Doe"
                     />
                     {errors.full_name && <p id="full_name_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.full_name.message}</p>}
@@ -299,7 +299,7 @@ export default function CareerDetail() {
                       aria-required="true"
                       aria-invalid={errors.email ? 'true' : 'false'}
                       aria-describedby={errors.email ? 'email_error' : undefined}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="jane@example.com"
                     />
                     {errors.email && <p id="email_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.email.message}</p>}
@@ -310,7 +310,7 @@ export default function CareerDetail() {
                     <input 
                       id="phone"
                       {...register('phone')}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -330,7 +330,7 @@ export default function CareerDetail() {
                       />
                       <label 
                         htmlFor="resume-upload"
-                        className={`flex items-center justify-center gap-2 w-full border border-dashed rounded-lg px-4 py-4 cursor-pointer transition-colors ${isLight ? 'bg-neutral-900 border-neutral-800 hover:border-neo-blue/50 text-neutral-200' : 'bg-black/50 border-white/20 hover:border-neo-blue/50 text-slate-300'}`}
+                        className={`flex items-center justify-center gap-2 w-full border border-dashed rounded-lg px-4 py-4 cursor-pointer transition-colors ${isLight ? 'bg-neutral-900 border-neutral-800 hover:border-neo-blue/50 text-neutral-200' : 'parchment-surface--deep/50 border-white/20 hover:border-neo-blue/50 text-slate-300'}`}
                       >
                         <Upload size={18} />
                         <span className="text-sm">{resumeFile ? resumeFile.name : 'Upload Resume'}</span>
@@ -346,7 +346,7 @@ export default function CareerDetail() {
                       {...register('linkedin')}
                       aria-invalid={errors.linkedin ? 'true' : 'false'}
                       aria-describedby={errors.linkedin ? 'linkedin_error' : undefined}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="https://linkedin.com/in/..."
                     />
                     {errors.linkedin && <p id="linkedin_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.linkedin.message}</p>}
@@ -359,7 +359,7 @@ export default function CareerDetail() {
                       {...register('portfolio')}
                       aria-invalid={errors.portfolio ? 'true' : 'false'}
                       aria-describedby={errors.portfolio ? 'portfolio_error' : undefined}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="https://mywork.com"
                     />
                     {errors.portfolio && <p id="portfolio_error" className={`text-xs mt-1 font-medium ${isLight ? 'text-red-600' : 'text-red-400'}`}>{errors.portfolio.message}</p>}
@@ -371,7 +371,7 @@ export default function CareerDetail() {
                       id="cover_letter"
                       {...register('cover_letter')}
                       rows={3}
-                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors resize-none focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'bg-black/50 border-white/10 text-white placeholder:text-neutral-400'}`}
+                      className={`w-full border rounded-lg px-4 py-2.5 transition-colors resize-none focus:outline-none focus:border-neo-blue ${isLight ? 'bg-neutral-900 border-neutral-800 text-[#09090B] placeholder:text-zinc-400' : 'parchment-surface--deep/50 border-white/10 text-white placeholder:text-neutral-400'}`}
                       placeholder="Tell us why you'd be a great fit..."
                     />
                   </div>
@@ -379,7 +379,7 @@ export default function CareerDetail() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className={`w-full py-3.5 rounded-lg font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4 ${isLight ? 'bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm' : 'bg-neo-blue text-white hover:bg-neo-blue/90'}`}
+                    className={`w-full py-3.5 rounded-lg font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4 ${isLight ? 'parchment-surface--deep text-white hover:bg-zinc-800 shadow-sm' : 'bg-neo-blue text-white hover:bg-neo-blue/90'}`}
                   >
                     {submitting ? 'Submitting...' : 'Submit Application'}
                   </button>
@@ -393,12 +393,11 @@ export default function CareerDetail() {
   };
 
   return (
-    <MobileGate mobileOnly fallback={
       <div className="min-h-[auto] bg-[#0A0A0B] text-[#09090B] selection:bg-neo-blue/20">
         <SEO 
           title={`${job.title} | Build the Future | AINCURU`}
           description={job.description.substring(0, 160)}
-          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
+          url={`https://www.aincuru.com/company/careers/${job.slug || job.id}`}
           jsonLd={jobPostingSchema}
         />
         <Header />
@@ -410,19 +409,7 @@ export default function CareerDetail() {
         </main>
         <Footer />
       </div>
-    }>
-      <MobileShell nav="bottom" showFooter>
-        <SEO 
-          title={`${job.title} | Careers | AINCURU`}
-          description={job.description.substring(0, 160)}
-          url={`https://www.neoperion.com/company/careers/${job.slug || job.id}`}
-          jsonLd={jobPostingSchema}
-        />
-        <div className="pt-8 pb-8 px-6">
-          {renderContent('dark')}
-        </div>
-      </MobileShell>
-    </MobileGate>
   );
 }
+
 

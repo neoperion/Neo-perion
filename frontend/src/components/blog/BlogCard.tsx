@@ -19,11 +19,11 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0, theme = 'dark' }) =
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.4, delay: Math.min(index, 5) * 0.06 }}
-        className="group relative flex h-full flex-col border border-hairline bg-paper transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
+        className="manuscript-card group relative flex h-full flex-col bg-manuscript-parchmentLight border border-manuscript-parchmentDeep transition-all duration-300 hover:-translate-y-1 hover:border-manuscript-copper/40"
       >
         <Link to={`/company/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${post.title}`} />
 
-        <div className="relative aspect-[16/10] overflow-hidden border-b border-hairline">
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-manuscript-parchmentDeep rounded-t-md">
           <img
             src={post.cover_image}
             alt={post.title}
@@ -33,19 +33,19 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0, theme = 'dark' }) =
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-brand">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-manuscript-copper">
             {post.category}
           </span>
-          <h3 className="mt-3 text-[19px] font-bold leading-snug tracking-tight text-ink transition-colors group-hover:text-brand line-clamp-2">
+          <h3 className="heading-manuscript mt-3 text-[20px] font-bold leading-snug tracking-tight transition-colors group-hover:text-manuscript-rustDeep line-clamp-2">
             {post.title}
           </h3>
-          <p className="mt-2 flex-grow text-[14px] leading-relaxed text-muted2 line-clamp-2">
+          <p className="mt-2 flex-grow text-[14px] leading-relaxed text-manuscript-inkMuted font-manuscriptBody line-clamp-2">
             {post.excerpt}
           </p>
 
-          <div className="mt-5 flex items-center gap-2.5 border-t border-hairline pt-4 text-[12px] text-faint">
+          <div className="mt-5 flex items-center gap-2.5 border-t border-manuscript-parchmentDeep pt-4 text-[12px] font-manuscriptBody text-manuscript-inkSoft">
             <span>{format(new Date(post.created_at), 'MMM dd, yyyy')}</span>
-            <span className="h-1 w-1 rounded-full bg-hairline" />
+            <span className="h-1 w-1 rounded-full bg-manuscript-parchmentDeep" />
             <span>{post.read_time} min read</span>
           </div>
         </div>
@@ -53,41 +53,41 @@ export const BlogCard: React.FC<Props> = ({ post, index = 0, theme = 'dark' }) =
     );
   }
 
-  // Dark (mobile / legacy)
+  // Dark (manuscript/rustDeep)
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 transition-all duration-300 hover:border-neo-blue/50"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-manuscript-gold/20 bg-manuscript-ink/50 shadow-xl shadow-black/10 transition-all duration-300 hover:border-manuscript-gold/50 hover:-translate-y-1"
     >
       <Link to={`/company/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Read ${post.title}`} />
-      <div className="relative aspect-video overflow-hidden">
-        <div className="absolute inset-0 z-10 bg-black/20 transition-colors group-hover:bg-transparent" />
+      <div className="relative aspect-video overflow-hidden border-b border-manuscript-gold/20">
+        <div className="absolute inset-0 z-10 bg-manuscript-ink/30 transition-colors group-hover:bg-transparent" />
         <img
           src={post.cover_image}
           alt={post.title}
           className="h-full w-full transform object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute left-4 top-4 z-20">
-          <span className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-neo-blue backdrop-blur-md">
+          <span className="rounded-full bg-manuscript-ink/80 border border-manuscript-gold/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-manuscript-gold backdrop-blur-md">
             {post.category}
           </span>
         </div>
       </div>
       <div className="flex flex-grow flex-col p-6">
-        <h3 className="mb-3 text-xl font-bold text-white transition-colors line-clamp-2 group-hover:text-neo-blue">
+        <h3 className="mb-3 text-xl font-bold text-manuscript-parchmentLight transition-colors line-clamp-2 group-hover:text-manuscript-gold">
           {post.title}
         </h3>
-        <p className="mb-6 flex-grow text-sm text-slate-400 line-clamp-3">{post.excerpt}</p>
-        <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-xs text-neutral-400">
+        <p className="mb-6 flex-grow text-sm text-manuscript-parchment/70 line-clamp-3">{post.excerpt}</p>
+        <div className="mt-auto flex items-center justify-between border-t border-manuscript-gold/20 pt-4 text-[12px] text-manuscript-parchment/60">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="h-4 w-4 text-manuscript-gold/50" />
               {format(new Date(post.created_at), 'MMM dd, yyyy')}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4" />
+              <Clock className="h-4 w-4 text-manuscript-gold/50" />
               {post.read_time} min read
             </span>
           </div>

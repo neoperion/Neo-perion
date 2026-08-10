@@ -37,11 +37,12 @@ const NAV = [
 export interface MobileMenuV2Props {
   open: boolean;
   onClose: () => void;
+  theme?: "manuscript" | "dark" | "cinematic";
   focusSection?: string | null;
   onFocusConsumed?: () => void;
 }
 
-export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
+export function MobileMenuV2({ open, onClose, theme = "manuscript" }: MobileMenuV2Props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -62,11 +63,16 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
   const go = (href: string) => {
     onClose();
     setExpanded(null);
-    setTimeout(() => navigate(href), 60);
+    setTimeout(() => {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 60);
   };
 
   const toggle = (label: string) =>
     setExpanded(prev => (prev === label ? null : label));
+
+    const isDarkTheme = theme === "dark" || theme === "cinematic";
 
   return (
     <AnimatePresence>
@@ -85,7 +91,9 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             type="button"
             aria-label="Close"
             onClick={onClose}
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className={`absolute inset-0 backdrop-blur-sm ${
+              isDarkTheme ? 'bg-black/60' : 'parchment-surface--deep/50'
+            }`}
           />
 
           {/* Panel */}
@@ -94,22 +102,32 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 340, damping: 32, mass: 0.85 }}
-            className="absolute inset-y-0 right-0 w-[85%] max-w-sm flex flex-col bg-manuscript-parchmentLight border-l border-manuscriptAlpha-ink-20"
+            className={`absolute inset-y-0 right-0 w-[85%] max-w-sm flex flex-col border-l ${
+              isDarkTheme 
+                ? 'bg-[#101010] border-[rgba(255,255,255,0.08)] text-[#F4EBDD]' 
+                : 'bg-manuscript-parchmentLight border-[rgba(80,55,30,0.15)] text-manuscript-ink'
+            }`}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b border-manuscriptAlpha-ink-20">
+            <div className={`flex items-center justify-between px-6 pt-safe-or-5 pb-5 border-b ${
+              isDarkTheme ? 'border-[rgba(255,255,255,0.08)]' : 'border-[rgba(80,55,30,0.1)]'
+            }`}>
               <button type="button" onClick={() => go('/')} className="flex items-center">
                 <img
                   src="/images/aincuru-logo.png"
                   alt="AINCURU — Context Creates Intelligence"
-                  className="h-9 w-auto"
+                  className="h-[90px] w-auto object-contain"
                 />
               </button>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close menu"
-                className="h-9 w-9 rounded-full border border-manuscriptAlpha-ink-20 flex items-center justify-center text-manuscript-inkMuted hover:text-manuscript-ink transition-colors"
+                className={`h-9 w-9 rounded-full border flex items-center justify-center transition-colors ${
+                  isDarkTheme 
+                    ? 'border-[rgba(255,255,255,0.15)] text-[#F4EBDD]/60 hover:text-[#F4EBDD]' 
+                    : 'border-manuscriptAlpha-ink-20 text-manuscript-inkMuted hover:text-manuscript-ink'
+                }`}
               >
                 <X size={17} />
               </button>
@@ -121,7 +139,13 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
               <button
                 type="button"
                 onClick={() => go('/')}
-                className={`w-full text-left py-3.5 font-manuscriptBody text-[16px] font-semibold transition-colors border-b border-manuscriptAlpha-ink-10 ${location.pathname === '/' ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
+                className={`w-full text-left py-4 font-manuscriptBody text-[18px] tracking-wide uppercase font-semibold transition-colors border-b ${
+                  isDarkTheme ? 'border-[rgba(255,255,255,0.08)]' : 'border-manuscriptAlpha-ink-10'
+                } ${
+                  location.pathname === '/' 
+                    ? 'text-manuscript-copper' 
+                    : isDarkTheme ? 'text-[#F4EBDD] hover:text-manuscript-copper' : 'text-manuscript-ink hover:text-manuscript-copper'
+                }`}
               >
                 Home
               </button>
@@ -135,7 +159,13 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                       key={item.label}
                       type="button"
                       onClick={() => go(item.href)}
-                      className={`w-full text-left py-3.5 font-manuscriptBody text-[16px] font-semibold transition-colors border-b border-manuscriptAlpha-ink-10 ${active ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
+                      className={`w-full text-left py-4 font-manuscriptBody text-[18px] tracking-wide uppercase font-semibold transition-colors border-b ${
+                        isDarkTheme ? 'border-[rgba(255,255,255,0.08)]' : 'border-manuscriptAlpha-ink-10'
+                      } ${
+                        active 
+                          ? 'text-manuscript-copper' 
+                          : isDarkTheme ? 'text-[#F4EBDD] hover:text-manuscript-copper' : 'text-manuscript-ink hover:text-manuscript-copper'
+                      }`}
                     >
                       {item.label}
                     </button>
@@ -147,12 +177,16 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                 const isOpen = expanded === item.label;
                 const sectionActive = location.pathname.startsWith(item.href);
                 return (
-                  <div key={item.label} className="border-b border-manuscriptAlpha-ink-10">
-                    <div className="flex items-center justify-between py-3.5">
+                  <div key={item.label} className={`border-b ${isDarkTheme ? 'border-[rgba(255,255,255,0.08)]' : 'border-manuscriptAlpha-ink-10'}`}>
+                    <div className="flex items-center justify-between py-4">
                       <button
                         type="button"
                         onClick={() => go(item.href)}
-                        className={`flex-1 text-left font-manuscriptBody text-[16px] font-semibold transition-colors ${sectionActive ? 'text-manuscript-rustDeep' : 'text-manuscript-ink hover:text-manuscript-rustDeep'}`}
+                        className={`flex-1 text-left font-manuscriptBody text-[18px] tracking-wide uppercase font-semibold transition-colors ${
+                          sectionActive 
+                            ? 'text-manuscript-copper' 
+                            : isDarkTheme ? 'text-[#F4EBDD] hover:text-manuscript-copper' : 'text-manuscript-ink hover:text-manuscript-copper'
+                        }`}
                       >
                         {item.label}
                       </button>
@@ -160,14 +194,15 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                         type="button"
                         onClick={() => toggle(item.label)}
                         aria-label={isOpen ? 'Collapse' : 'Expand'}
-                        className="ml-3 h-8 w-8 flex items-center justify-center rounded-full hover:bg-manuscriptAlpha-ink-10 transition-colors"
+                        className={`ml-3 h-8 w-8 flex items-center justify-center rounded-full transition-colors ${
+                          isDarkTheme ? 'hover:bg-[rgba(255,255,255,0.1)]' : 'hover:bg-manuscriptAlpha-ink-10'
+                        }`}
                       >
-                        <motion.span
-                          animate={{ rotate: isOpen ? 180 : 0 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <ChevronDown size={16} className="text-manuscript-inkMuted" />
-                        </motion.span>
+                        <span className={`text-[18px] font-medium leading-none mb-1 ${
+                          isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                        }`}>
+                          {isOpen ? '−' : '+'}
+                        </span>
                       </button>
                     </div>
 
@@ -180,16 +215,16 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
                           transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
                           className="overflow-hidden"
                         >
-                          <div className="pb-3 space-y-0.5">
+                          <div className="pb-4 space-y-1">
                             {item.children.map((child) => (
                               <button
                                 key={child.href}
                                 type="button"
                                 onClick={() => go(child.href)}
-                                className={`w-full text-left px-3 py-2.5 rounded text-[14px] font-medium transition-colors ${
+                                className={`w-full text-left px-3 py-3 rounded-lg text-[15px] font-medium transition-colors ${
                                   location.pathname === child.href
-                                    ? 'text-manuscript-rustDeep bg-manuscript-parchment'
-                                    : 'text-manuscript-inkMuted hover:text-manuscript-ink hover:bg-manuscript-parchment'
+                                    ? isDarkTheme ? 'text-manuscript-copper bg-[rgba(255,255,255,0.05)]' : 'text-manuscript-copper bg-[rgba(80,55,30,0.05)]'
+                                    : isDarkTheme ? 'text-[#F4EBDD]/70 hover:text-[#F4EBDD] hover:bg-[rgba(255,255,255,0.02)]' : 'text-manuscript-inkMuted hover:text-manuscript-ink hover:bg-[rgba(80,55,30,0.03)]'
                                 }`}
                               >
                                 {child.label}
@@ -205,13 +240,19 @@ export function MobileMenuV2({ open, onClose }: MobileMenuV2Props) {
             </nav>
 
             {/* Footer CTA */}
-            <div className="px-6 pb-safe-or-8 pt-5 border-t border-manuscriptAlpha-ink-20">
+            <div className={`px-6 pb-safe-or-8 pt-5 border-t ${
+              isDarkTheme ? 'border-[rgba(255,255,255,0.08)]' : 'border-manuscriptAlpha-ink-20'
+            }`}>
               <button
                 type="button"
                 onClick={() => go('/contact')}
-                className="btn-manuscript-primary w-full"
+                className={`w-full flex items-center justify-center gap-2 rounded-full py-3.5 font-bold text-[14px] tracking-wide transition-colors ${
+                  isDarkTheme 
+                    ? "bg-manuscript-copper text-[#F4EBDD] hover:bg-manuscript-copperDeep" 
+                    : "bg-manuscript-copper text-white hover:bg-manuscript-copperDeep"
+                }`}
               >
-                Get in Touch <ArrowUpRight size={16} strokeWidth={2.5} />
+                CONTACT &rarr;
               </button>
             </div>
           </motion.div>

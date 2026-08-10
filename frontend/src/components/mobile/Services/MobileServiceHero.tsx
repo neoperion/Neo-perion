@@ -68,7 +68,7 @@ export function MobileServiceHero({ eyebrow, title, subtitle, icon: Icon, visual
             </Link>
           )}
           {secondaryCta && (
-            <Link to={secondaryCta.href} className="h-12 px-5 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-white/[0.10] transition-colors">{secondaryCta.label}</Link>
+            <Link to={secondaryCta.href} className="h-12 px-5 rounded-2xl parchment-surface/[0.06] border border-white/[0.12] backdrop-blur-glass-1 text-white font-semibold text-sm flex items-center justify-center gap-2 hover:parchment-surface/[0.10] transition-colors">{secondaryCta.label}</Link>
           )}
         </motion.div>
       </div>

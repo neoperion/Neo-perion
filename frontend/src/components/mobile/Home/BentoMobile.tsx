@@ -57,8 +57,8 @@ export function BentoMobile({ eyebrow = 'Why AINCURU', title = 'Built different.
                   <Icon size={24} />
                 </div>
               )}
-              <h3 className="text-[24px] font-bold tracking-tight text-white font-display leading-tight max-w-[80%] bg-white/80 backdrop-blur-sm rounded-lg">{c.title}</h3>
-              <p className="text-[15px] text-neutral-400 mt-2 leading-relaxed font-medium max-w-[90%] bg-white/80 backdrop-blur-sm rounded-lg">{c.description}</p>
+              <h3 className="text-[24px] font-bold tracking-tight text-white font-display leading-tight max-w-[80%] parchment-surface/80 backdrop-blur-sm rounded-lg">{c.title}</h3>
+              <p className="text-[15px] text-neutral-400 mt-2 leading-relaxed font-medium max-w-[90%] parchment-surface/80 backdrop-blur-sm rounded-lg">{c.description}</p>
             </motion.div>
           );
         })}

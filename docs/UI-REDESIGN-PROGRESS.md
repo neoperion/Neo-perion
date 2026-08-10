@@ -24,7 +24,7 @@
 | 3 | Home sections (Phase A — palette pass) | ✅ shipped (commit `7329044`) | `components/WhyNeoPerion.tsx`, `components/Services.tsx`, `components/features/home/TrustedBy.tsx`, `HomeTestimonials.tsx`, `HomeCTA.tsx` |
 | 3.1 | Logo swap + first editorial pass | ✅ shipped (commit `bc43046`) | logo file + same 4 files |
 | 3.2 | Workshop (Services) | ✅ shipped (pending commit) | `components/Services.tsx` → "AINCURU Workshop" |
-| **3.3** | **The AINCURU Method (Why)** | ✅ **shipped** (commit pending) | `components/WhyNeoPerion.tsx` → "AINCURU Method" pentagon diagram with 5 principles |
+| **3.3** | **The AINCURU Method (Why)** | ✅ **shipped** (commit pending) | `components/WhyNeoPerion.tsx` → "AINCURU Method" manuscript page (large labelled rosette + 5 orbiting notes + bottom still-life) |
 | 4 | About + Founder Letter + Industries | ⏳ pending | — |
 | 5 | Services detail template | ⏳ pending | — |
 | 6 | Blog + Case Studies + Insights | ⏳ pending | — |
@@ -61,42 +61,39 @@
 
 ### WhyNeoPerion → "The AINCURU Method"
 
-**Concept:** *Five decisions that shape every AINCURU engagement. Context before intelligence.*
+**Concept:** *Five decisions that shape every AINCURU engagement. Context before intelligence.* The section is one continuous manuscript page — header, large labelled rosette, five orbiting notes, and the closing philosophy + plaque CTA all share the same parchment surface.
 
-**Layout:** A central pentagon diagram (the "AINCURU Method") flanked by five manuscript cards. Each principle lives at a vertex of the pentagon and pairs with a card on the left or right side of the diagram. Desktop = 12-column grid (3 / 6 / 3). Tablet = stacked diagram + 2-column cards. Mobile = stacked diagram (capped at 300px) + 5 stacked cards.
+**Layout (rebuilt — was a pentagon grid, now a manuscript page):**
 
-**The five principles (single source of truth):**
+**Desktop (≥1024px):** Single `max-w-[1400px]` × `min-h-[1100px]` wrapper. Five manuscript notes orbit a centred 560px rosette: `01 CONTEXT` (top-left, 315°), `02 PRODUCT` (top-right, 45°), `03 JUDGEMENT` (bottom-right, 135°), `04 PEOPLE` (bottom-left, 225°). `05 CONTINUITY` is stacked centred BELOW the rosette at 270°. The rosette has 5 quadrant dividers + 36 outer tick marks + a centre compass rose + the `AINCURU METHOD` wordmark. Each quadrant carries two stacked labels — the diagram label (e.g. `CONTEXT`) and its supporting line (e.g. `UNDERSTAND FIRST`).
 
-| # | Label | Title | Supporting |
-|---|---|---|---|
-| 01 | CONTEXT | Context before technology. | Understand first |
-| 02 | PRODUCT | From idea to working product. | Build the right thing |
-| 03 | JUDGEMENT | AI when it earns its place. | Use with judgement |
-| 04 | PEOPLE | Close to the builders. | Close to the builders |
-| 05 | CONTINUITY | Shipping isn't the end. | Improve continuously |
+**Tablet (768–1023px):** Compressed composition — diagram centred (~440px), 4 cards in a 2×2 grid, `CONTINUITY` centred full-width below.
+
+**Mobile (<768px):** Vertical reading mode — header → centred diagram (~360px) → 5 stacked notes → closing philosophy → plaque CTA.
 
 **Each principle's card has:**
-- Wax-seal-style circular marker at the pentagon vertex (with the principle's hand-coded SVG icon)
-- Chapter-eyebrow "0N · LABEL" in rustDeep uppercase
-- Cormorant Garamond serif title
-- Body description (max 3 lines)
-- Footer: supporting label + small icon glyph (e.g., lightbulb / magnifying glass / brain)
+- Chapter-eyebrow `0N · LABEL` in rustDeep uppercase (Cormorant Garamond)
+- Cormorant Garamond serif title (e.g. "Context before technology.")
+- Body description (max 3 lines, Inter)
+- Footer: supporting label + small ✦ ornament + a hand-coded SVG illustration (botanical / ship / engineers / flask / mountain) at low opacity
 
 **Diagram mechanics:**
-- Center rosette: 16 tick marks + 8-point compass rose + "AINCURU METHOD" label in a circular cutout
-- Five dashed rust connector lines from center to each node
-- Node pills positioned absolutely using `Math.cos(angle)` / `Math.sin(angle)` with the same `angle` field on each principle
-- Hover OR focus on a card highlights that vertex; the diagram node "lifts" (shadow + scale) and the connector deepens
+- Single SVG: outer construction circle (dashed) + 5 concentric rings + 36 outer tick marks (every 10°, longer at every 90°) + 5 radial quadrant dividers (every 72°) + small construction dots at quadrant midpoints + a centre compass-rose + the `AINCURU METHOD` wordmark.
+- HTML labels are positioned with `Math.cos(angle) * rMain * 100 / SIZE` so the same `angleDeg` field on each principle drives both the radial dividers and the label positions.
+- Hover OR focus on a card highlights that quadrant; the labels for that quadrant shift to rustDeep and the corresponding dashed rust connector line (drawn as a single SVG that fills the wrapper) renders from the card's inner edge to the rosette's outer circumference.
 
-**Manuscript decoration:**
-- Top-right folio note "AINCURU LLP / ENGINEERING NOTE · 001" in tracked uppercase
-- Bottom-left: `BooksAndQuill` SVG (open folio + quill)
-- Bottom-right: `CornerCompass` SVG (small compass rose)
-- Subtle inset border on the outer frame
+**Manuscript decoration (built fresh, all inline SVG):**
+- Top-right folio note: `AINCURU LLP / ENGINEERING NOTE · 001` in tracked uppercase with a `~ folio ~` Caveat accent.
+- Bottom-left: `BooksAndQuill` (stacked antique books + ink bottle + feather quill angled diagonally).
+- Bottom-right: `CompassMap` (antique compass rose + partial map fragment).
+- Background artifacts at 0.04–0.15 opacity: faint handwriting (top), technical construction (centre), map lines + scale ticks (bottom), side botanical strokes (left + right).
+- Manuscript frame: hairline border around the wrapper, corner ornament ticks at the four corners.
+- Closing philosophy block: "Context before intelligence." in italic Cormorant Garamond, followed by the 3-line mantra (`We begin with understanding. / We build with clarity. / We stay to make it better.`).
+- Manuscript plaque CTA: rustDeep background, ✦ compass icon, `LET'S BUILD WITH CONTEXT →` in tracked uppercase — replaces the previous SaaS rounded button.
 
-**Hard constraints preserved:** Component name (`WhyNeoPerion`) + mount point (`Index.tsx:30`) + CTA destination (`/contact`) untouchable. All copy is new but consistent with the existing brand voice.
+**Hard constraints preserved:** Component name (`WhyNeoPerion`) + mount point (`Index.tsx:30`) + CTA destination (`/contact`) all untouched. The five principle titles + supporting labels are byte-identical to the previous build; only the visual composition changed. No new dependencies, no new CSS files — reuses the existing `manuscript*` Tailwind tokens and `manuscript.css` utility classes.
 
-**Avoided:** seven cards, glassmorphism, gradient blobs, rounded cards, Pinterest collage, watermarked stock.
+**Avoided:** seven cards, glassmorphism, gradient blobs, rounded-2xl cards, Pinterest collage, watermarked stock, neon / futuristic palettes, separate "header / diagram / cards / CTA" vertical bands (now one continuous manuscript page).
 
 ### Accessibility + motion hygiene
 

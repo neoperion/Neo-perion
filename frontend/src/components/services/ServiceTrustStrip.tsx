@@ -1,7 +1,7 @@
 import type { ServiceData } from "@/data/servicesData";
 
 /** Full-color client logos in a left→right marquee. Renders nothing without trustLogos. */
-export function ServiceTrustStrip({ service }: { service: ServiceData }) {
+export function ServiceTrustStrip({ service, theme = "dark" }: { service: ServiceData; theme?: "dark" | "manuscript" }) {
   if (!service.trustLogos || service.trustLogos.length === 0) return null;
 
   const Row = ({ hidden = false }: { hidden?: boolean }) => (
@@ -12,16 +12,16 @@ export function ServiceTrustStrip({ service }: { service: ServiceData }) {
           src={logo.src}
           alt={hidden ? "" : logo.alt}
           loading="lazy"
-          className="h-16 w-auto object-contain md:h-24"
+          className={`h-16 w-auto object-contain md:h-24 ${theme === "manuscript" ? "grayscale opacity-75 mix-blend-multiply" : ""}`}
         />
       ))}
     </div>
   );
 
   return (
-    <section className="border-b border-white/[0.08] bg-[#0A0A0B] py-12">
+    <section className={`border-b py-12 ${theme === "manuscript" ? "bg-manuscript-parchment border-manuscript-walnut/15" : "bg-[#0A0A0B] border-manuscriptAlpha-ink-15"}`}>
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-8">
-        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
+        <p className={`text-center text-[11px] font-semibold uppercase tracking-[0.2em] ${theme === "manuscript" ? "text-manuscript-inkSoft" : "text-white/40"}`}>
           Trusted by teams shipping real products
         </p>
         {/* Auto-scrolling marquee, left → right */}
