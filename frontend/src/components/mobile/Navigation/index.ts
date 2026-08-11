@@ -1,8 +1,8 @@
 export { AINavOrb } from './AINavOrb';
 export type { AINavOrbProps } from './AINavOrb';
 
-export { MobileMenuV2 } from './MobileMenuV2';
-export type { MobileMenuV2Props } from './MobileMenuV2';
+export { MobileNavigation } from './MobileNavigation';
+export type { MobileNavigationProps } from './MobileNavigation';
 
 export { FloatingNav } from './FloatingNav';
 export type { FloatingNavProps } from './FloatingNav';

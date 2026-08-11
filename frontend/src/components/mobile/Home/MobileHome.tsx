@@ -164,7 +164,7 @@ function MobileCaseStudies() {
 
 export function MobileHome() {
   return (
-    <MobileShell nav="bottom" showFooter>
+    <MobileShell nav="bottom" showFooter theme="dark">
       <AIOrbHero
         headline="The product engineering firm that doesn't disappear after launch"
         subheadline="AI-native platforms, SaaS infrastructure, and enterprise automation — engineered for production from day one."

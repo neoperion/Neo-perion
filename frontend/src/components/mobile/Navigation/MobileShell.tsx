@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
-import { MobileMenuV2 } from './MobileMenuV2';
+import { MobileNavigation } from './MobileNavigation';
 import { Footer } from '@/components/Footer';
 
 export interface MobileShellProps {
@@ -8,40 +8,50 @@ export interface MobileShellProps {
   showFooter?: boolean;
   children: React.ReactNode;
   bgClass?: string;
+  theme?: "manuscript" | "dark" | "cinematic";
 }
 
-export function MobileShell({ nav = 'bottom', showFooter = true, children, bgClass = 'bg-[#02040A]' }: MobileShellProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const open = useCallback(() => setMenuOpen(true), []);
-  const close = useCallback(() => setMenuOpen(false), []);
+export function MobileShell({ nav = 'bottom', showFooter = true, children, bgClass, theme = "manuscript" }: MobileShellProps) {
 
   const showHeader = nav !== 'none';
+  const isDarkTheme = theme === "dark" || theme === "cinematic";
+  
+  const defaultBg = isDarkTheme ? 'bg-[#02040A]' : 'bg-manuscript-parchment';
+  const backgroundClass = bgClass || defaultBg;
+
+  const headerBgClass = isDarkTheme
+    ? "bg-[rgba(10,10,11,0.82)] border-white/[0.06]"
+    : "bg-[rgba(245,236,216,0.82)] border-[rgba(80,55,30,0.12)]";
 
   return (
-    <div className={`min-h-[auto] ${bgClass}`}>
+    <div className={`min-h-[auto] ${backgroundClass}`}>
       {/* Sticky top header — visible on all nav modes except 'none' */}
       {showHeader && (
-        <header className="fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5 pt-safe-or-4 pb-3 bg-[rgba(10,10,11,0.82)] backdrop-blur-md border-b border-white/[0.06]">
-          <a href="/" className="flex items-center gap-2.5">
-            <img src="/images/np-logo.png" alt="AINCURU" className="h-7 w-auto object-contain" />
+        <header className={`fixed top-0 left-0 right-0 z-50 md:hidden flex h-[72px] items-center justify-between px-4 pt-safe-or-4 pb-0 backdrop-blur-md border-b ${headerBgClass}`}>
+          <a href="/" className="flex shrink-0 items-center">
+            <img 
+              src={isDarkTheme ? "/images/np-logo.png" : "/images/aincuru-logo.png"} 
+              alt="AINCURU — Context Creates Intelligence" 
+              className="w-[125px] md:w-[145px] object-contain" 
+            />
           </a>
-          <button
-            type="button"
-            onClick={menuOpen ? close : open}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            aria-haspopup="dialog"
-            className="h-9 w-9 rounded-full border border-white/[0.12] flex items-center justify-center text-white/70 hover:text-white hover:border-white/25 transition-colors"
+          <a
+            href="/contact"
+            className={`inline-flex items-center justify-center rounded-full px-[18px] h-[36px] md:px-[24px] md:h-[44px] font-bold text-[11px] md:text-[13px] tracking-wide transition-colors ${
+              isDarkTheme 
+                ? "bg-manuscript-copper text-[#F4EBDD] hover:bg-manuscript-copperDeep" 
+                : "bg-manuscript-copper text-white hover:bg-manuscript-copperDeep"
+            }`}
           >
-            {menuOpen ? <X size={17} /> : <Menu size={17} />}
-          </button>
+            CONTACT &rarr;
+          </a>
         </header>
       )}
 
       {/* Page content — add top padding to clear the fixed header */}
       <div className={showHeader ? 'pt-[60px]' : ''}>{children}</div>
 
-      <MobileMenuV2 open={menuOpen} onClose={close} focusSection={null} onFocusConsumed={() => {}} />
+      <MobileNavigation theme={theme} />
       {showFooter && <Footer />}
     </div>
   );

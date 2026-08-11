@@ -3,7 +3,7 @@ import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { MobileMenuV2 } from "@/components/mobile/Navigation/MobileMenuV2";
+import { MobileNavigation } from "@/components/mobile/Navigation/MobileNavigation";
 
 interface Row {
   label: string;
@@ -67,7 +67,7 @@ const NAV: NavItem[] = [
 ];
 
 export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark" | "cinematic" }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -85,7 +85,6 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
 
   const handleNavigation = (href: string) => {
     setActiveDropdown(null);
-    setMobileMenuOpen(false);
     if (href.startsWith("#")) {
       if (location.pathname !== "/") {
         navigate("/");
@@ -228,29 +227,18 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
             })}
           </div>
 
-          {/* CTA + mobile toggle */}
-          <div className="ml-auto flex shrink-0 items-center gap-3 pointer-events-auto">
+          {/* CTA */}
+          <div className="ml-auto flex shrink-0 items-center pointer-events-auto">
             <button
               type="button"
               onClick={() => handleNavigation("/contact")}
-              className={`hidden md:inline-flex items-center justify-center rounded-full px-[24px] h-[44px] font-bold text-[13px] tracking-wide transition-colors ${
+              className={`inline-flex items-center justify-center rounded-full px-[18px] h-[36px] md:px-[24px] md:h-[44px] font-bold text-[11px] md:text-[13px] tracking-wide transition-colors ${
                 isDarkTheme || isTransparent 
                   ? "bg-manuscript-copper text-[#F4EBDD] hover:bg-manuscript-copperDeep" 
                   : "bg-manuscript-copper text-white hover:bg-manuscript-copperDeep"
               }`}
             >
               CONTACT &rarr;
-            </button>
-            <button
-              aria-label="Open menu"
-              className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden ${
-                isDarkTheme || isTransparent 
-                  ? "text-[#F4EBDD] hover:bg-[rgba(255,255,255,0.1)]" 
-                  : "text-manuscript-ink hover:bg-[rgba(80,55,30,0.05)]"
-              }`}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </nav>
@@ -340,7 +328,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
         </AnimatePresence>
       </header>
 
-      <MobileMenuV2 open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} theme={theme} />
+      <MobileNavigation theme={theme} />
     </>
   );
 };
