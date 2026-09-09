@@ -26,6 +26,49 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: "project-finanezy",
+    slug: "finanezy-msme-automation",
+    title: "Finanezy — Business Registrations & Document Automation",
+    category: "AI Products",
+    industry: "Finance & Accounting",
+    overview: "Finanezy is an intelligent statutory registration and workflow automation engine engineered for accounting and finance firms. Across high-volume regulatory filings — starting with MSME / Udyam and expanding to GST, MCA, and compliance licenses — Finanezy collapses 30–40 minutes of manual data entry per filing into a 1-minute automated preparation with deterministic validation and 1-click human verification.",
+    businessProblem: [
+      "Bengaluru finance & accounting practices were spending 30–40 minutes per client manually reading identity proofs, bank statements, and PAN cards.",
+      "Staff had to transcribe 30+ fields into government portals, creating frequent typographical errors and costly rejected submissions.",
+      "Senior accountants were trapped doing low-value administrative copy-pasting instead of high-value advisory work.",
+      "Scaling client registration volume required hiring linear data-entry headcount, inflating operational burn."
+    ],
+    solution: "AINCURU engineered an intelligent extraction and automated portal preparation pipeline. Using Vision AI models and deterministic schema checksums, the platform parses raw documents, structures entity details, validates rules prior to submission, and surfaces a single-screen human verification dashboard before generating filings.",
+    features: [
+      { title: "AI-Powered Document Ingestion", description: "Automated extraction from PAN cards, Aadhaar, electricity bills, and bank statements." },
+      { title: "MSME & Udyam 1-Minute Preparation", description: "Deterministic mapping of NIC business activities and entity classifications." },
+      { title: "Multi-Portal Registration Engine", description: "Extensible pipeline supporting GST REG-01, MCA SPICe+, IEC, and FSSAI filings." },
+      { title: "Human-in-the-Loop Review Console", description: "Accountants retain complete oversight with 1-click validation and error prevention." },
+      { title: "Audit Trail & Compliance Logging", description: "Full digital paper trail of extracted sources, timestamps, and professional approvals." }
+    ],
+    techStack: {
+      frontend: ["React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      backend: ["FastAPI", "Python", "Node.js"],
+      ai: ["Vision LLMs", "Document OCR", "Deterministic Schema Validator"],
+      database: ["PostgreSQL", "Redis"],
+      infrastructure: ["Docker", "Secure Vault"]
+    },
+    challenges: [
+      "Processing varied, low-resolution scanned government documents and watermarked PDFs with 100% extraction accuracy.",
+      "Guaranteeing that statutory submissions have zero validation failures on sensitive government portals.",
+      "Designing a frictionless workflow where the professional remains in full control without unnecessary clicks."
+    ],
+    impact: [
+      "40 minutes became ~1 minute: over 95% reduction in manual data entry preparation time.",
+      "0% portal rejection rate achieved through automated pre-submission schema checks.",
+      "Allowed a single accountant to process up to 30x the registration volume with zero fatigue."
+    ],
+    gallery: ['/portfolio-images/finanezy-thumbnail.png', '/portfolio-images/finanezy-gallery-1.png'],
+    video: "",
+    thumbnail: "/portfolio-images/finanezy-thumbnail.png",
+    featured: true
+  },
+  {
     id: "project-01",
     slug: "krishna-packers-movers",
     title: "Krishna Packers & Movers",

@@ -1,4 +1,4 @@
-import { GraduationCap, Rocket, Building2, HeartPulse, BookOpen, BarChart3, Bot, ClipboardCheck, Code2, Layers, Lightbulb, Users, Briefcase, TrendingUp, PieChart, Settings, Stethoscope, Video, Brain, Activity, LucideIcon } from 'lucide-react';
+import { GraduationCap, Rocket, Building2, HeartPulse, BookOpen, BarChart3, Bot, ClipboardCheck, Code2, Layers, Lightbulb, Users, Briefcase, TrendingUp, PieChart, Settings, Stethoscope, Video, Brain, Activity, FileSpreadsheet, FileCheck, Calculator, LucideIcon } from 'lucide-react';
 
 export interface IndustryOffering {
   title: string;
@@ -288,85 +288,88 @@ export const industriesData: IndustryData[] = [
     ]
   },
   {
-    id: 'healthcare',
-    title: 'Healthcare',
-    slug: 'healthcare',
-    tagline: 'INTELLIGENT HEALTH-TECH',
-    heroHeadline: 'Build Secure, Compliant Healthcare Solutions',
-    heroSubtext: 'From patient management platforms to AI-powered diagnostics, we build HIPAA-compliant healthcare software that modernizes care delivery while maintaining the highest standards of data security and privacy.',
-    ctaText: 'Discuss Your Health-Tech Project',
-    description: 'Modernizing patient care with secure, compliant, and intelligent health-tech solutions.',
-    icon: HeartPulse,
-    color: '#10b981',
-    colorLight: '#ecfdf5',
-    gradientFrom: '#10b981',
-    gradientTo: '#059669',
+    id: 'accounting-automation',
+    title: 'Business Registrations & Accounting Automation',
+    slug: 'accounting-automation',
+    tagline: 'WORK THAT DISAPPEARS',
+    heroHeadline: 'The Work Your Team Shouldn\'t Have To Do',
+    heroSubtext: 'We turn repetitive business registrations and statutory workflows into intelligent, human-controlled systems. One methodology applied across MSME, GST, MCA, and compliance operations.',
+    ctaText: 'Automate Your Registrations',
+    description: 'We find repetitive business workflows and turn them into intelligent, human-controlled systems.',
+    icon: FileSpreadsheet,
+    color: '#A8521E',
+    colorLight: '#fdf8f4',
+    gradientFrom: '#A8521E',
+    gradientTo: '#7C3411',
     solutions: [
-      'Patient Platforms',
-      'Telemedicine',
-      'AI Diagnostics',
-      'Healthcare Analytics',
-      'EHR Integration'
+      'MSME & Udyam Registrations',
+      'GST Filing & Registration Automation',
+      'MCA & Incorporation Workflows',
+      'Statutory & License Filings (IEC, FSSAI)',
+      'Document Extraction & Verification'
     ],
     benefits: [
-      { title: 'HIPAA Compliance', description: 'Security-first architecture that protects sensitive patient data.' },
-      { title: 'Predictive Care', description: 'AI models that assist in diagnosing and forecasting patient needs.' },
-      { title: 'Seamless Integration', description: 'Connecting legacy EHR systems with modern patient portals.' }
+      { title: '40 Minutes → 1 Minute', description: 'Dramatic reduction in manual data entry cycles with instant document parsing.' },
+      { title: 'All Registration Workflows', description: 'One proven methodology applied across MSME, GST, MCA, and license filings.' },
+      { title: 'Human-in-the-Loop Control', description: 'The system extracts and prepares; the professional reviews and executes.' }
     ],
 
     offerings: [
       {
-        title: 'Patient Management Platforms',
-        description: 'End-to-end patient portals with appointment scheduling, medical records access, prescription management, and secure messaging between providers.',
-        icon: Stethoscope
+        title: 'MSME & Statutory Registrations',
+        description: 'Automated intake of identity, bank, and business proofs. Instant field extraction and automated portal preparation with 1-click human verification.',
+        icon: FileCheck
       },
       {
-        title: 'Telemedicine Solutions',
-        description: 'HIPAA-compliant video consultation platforms with waiting rooms, screen sharing, e-prescriptions, and integrated payment processing.',
-        icon: Video
+        title: 'GST & Tax Compliance Prep',
+        description: 'Multi-state invoice parsing, reconciliation engines, and automated draft preparation that eliminate repetitive portal data entry.',
+        icon: Calculator
       },
       {
-        title: 'AI-Powered Diagnostics',
-        description: 'Computer vision and NLP models for medical imaging analysis, symptom assessment, clinical decision support, and pathology report parsing.',
-        icon: Brain
+        title: 'MCA & Corporate Incorporations',
+        description: 'Name reservation collation, Director KYC parsing, SPICe+ form preparation, and license filings (IEC, FSSAI, Shop & Establishment).',
+        icon: Building2
       },
       {
-        title: 'Healthcare Analytics',
-        description: 'Population health dashboards, clinical outcome tracking, resource utilization analytics, and predictive models for patient risk stratification.',
-        icon: Activity
+        title: 'Intelligent Document Extraction',
+        description: 'OCR & Vision AI pipelines that convert raw PDFs, images, and scanned identity documents into structured schema ready for portal execution.',
+        icon: Bot
       }
     ],
     process: [
-      { step: 1, title: 'Compliance Review', description: 'HIPAA/SOC2/HL7 compliance assessment, security architecture planning, and regulatory requirement mapping for your specific use case.' },
-      { step: 2, title: 'Clinical Workflow Design', description: 'Collaborate with healthcare professionals to map clinical workflows, patient journeys, and data flow between systems.' },
-      { step: 3, title: 'Secure Development', description: 'Build with encryption-at-rest, encryption-in-transit, PHI access controls, audit logging, and penetration testing at every milestone.' },
-      { step: 4, title: 'Validation & Deployment', description: 'Clinical validation, EHR integration testing, provider training, and phased go-live with 24/7 monitoring.' }
+      { step: 1, title: 'Workflow Auditing', description: 'Map repetitive data entry, document verification, and portal submission bottlenecks across your office.' },
+      { step: 2, title: 'Extraction & Validation Engine', description: 'Train deterministic schema validation on your document templates with 100% field accuracy checks.' },
+      { step: 3, title: 'Human Verification Interface', description: 'Deploy a clean dashboard where professionals review auto-prepared drafts before final portal submission.' },
+      { step: 4, title: 'Cross-Service Scaling', description: 'Expand the same automation pipeline across GST, MCA, and regulatory filings without adding headcount.' }
     ],
-    techStack: ['React', 'Node.js', 'PostgreSQL', 'Python', 'FHIR', 'HL7', 'AWS HIPAA', 'Docker', 'TensorFlow', 'WebRTC'],
+    techStack: ['Python', 'FastAPI', 'Document AI', 'Vision LLMs', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
     caseStudyPreview: {
-      title: 'AI-Assisted Telehealth Platform for Rural Healthcare',
-      client: 'Regional Healthcare Network',
-      result: 'Deployed a telemedicine platform connecting 50+ rural clinics with specialist doctors, reducing patient wait times by 70% and improving diagnostic accuracy.',
-      metric: '70%',
-      metricLabel: 'Reduction in Patient Wait Times'
+      title: 'MSME Registration: 40 Minutes Became 1 Minute',
+      client: 'Bengaluru Finance & Accounting Firm',
+      result: 'Transformed a 30–40 minute manual data entry ordeal into a 1-minute automated preparation with one human in final control.',
+      metric: '40m → 1m',
+      metricLabel: 'Preparation Time Transformation'
     },
     faq: [
       {
-        question: 'Is your development process HIPAA-compliant?',
-        answer: 'Yes. We follow HIPAA Security Rule requirements at every stage — from BAA agreements with cloud providers, to encryption standards, access controls, audit trails, and regular security assessments.'
+        question: 'Does this replace our accounting professionals?',
+        answer: 'No. AI doesn\'t replace the professional — it removes the repetition. The system handles extraction, preparation, and repetitive data entry. The professional reviews the information and remains in full control of the final action.'
       },
       {
-        question: 'Can you integrate with existing EHR systems like Epic or Cerner?',
-        answer: 'Absolutely. We build FHIR-compliant APIs and HL7 interfaces that integrate with Epic, Cerner, Allscripts, and any EHR system supporting standard healthcare interoperability protocols.'
+        question: 'Can this engine handle registrations other than MSME?',
+        answer: 'Yes. While MSME registration serves as our benchmark proof point, the exact same extraction and preparation methodology automates GST, MCA / Company Incorporations, IEC, FSSAI, Trademarks, and client onboarding workflows.'
       },
       {
-        question: 'How do you handle sensitive medical data during development?',
-        answer: 'We use synthetic/anonymized data during development, implement strict access controls, sign BAAs, and never store PHI on developer machines. All environments are SOC2 Type II compliant.'
+        question: 'How do you guarantee accuracy on statutory portals?',
+        answer: 'We enforce deterministic validation rules and checksum calculations on all extracted fields (PAN, Aadhaar, GSTIN, Bank IFSC) prior to presentation. No filing is submitted without professional verification and approval.'
       }
     ]
   }
 ];
 
 export function getIndustryBySlug(slug: string): IndustryData | undefined {
+  if (slug === 'healthcare' || slug === 'finance-accounting') {
+    return industriesData.find(i => i.slug === 'accounting-automation');
+  }
   return industriesData.find(i => i.slug === slug);
 }
