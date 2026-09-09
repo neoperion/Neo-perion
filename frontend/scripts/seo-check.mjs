@@ -95,7 +95,7 @@ else {
   if (apex.length > 0) fail(`index.html contains ${apex.length} apex URL literal(s)`);
   else pass('index.html: no apex URL literals');
 
-  const gaIdPattern = /G-[A-Z0-9]{6,}/g;
+  const gaIdPattern = /\bG-[A-Z0-9]{6,}\b/g;
   const gaMatches = [...text.matchAll(gaIdPattern)];
   if (gaMatches.length > 0) pass(`index.html contains hardcoded GA4 ID(s): ${gaMatches.map((m) => m[0]).join(', ')} (allowed)`);
   else pass('index.html: no hardcoded GA4 measurement ID');
@@ -123,7 +123,7 @@ else {
       apexHits += apex.length;
       fail(`${relative(ROOT, path)} contains ${apex.length} apex URL literal(s)`);
     }
-    const ga = [...text.matchAll(/G-[A-Z0-9]{6,}/g)];
+    const ga = [...text.matchAll(/\bG-[A-Z0-9]{6,}\b/g)];
     if (ga.length > 0) {
       hardcodedGaIds += ga.length;
       fail(`${relative(ROOT, path)} contains hardcoded GA4 ID(s): ${ga.map((m) => m[0]).join(', ')}`);

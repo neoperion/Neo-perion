@@ -873,7 +873,7 @@ const AccountingSection = () => {
               <FileSpreadsheet className="w-5 h-5 text-manuscript-rustDeep" />
             </div>
             <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-manuscript-rustDeep font-bold">
-              04 — ACCOUNTING-AUTOMATION
+              04 — ACCOUNTING AUTOMATION
             </span>
           </div>
 
