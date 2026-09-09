@@ -27,6 +27,14 @@ const FOUNDERS = [
     linkedin: 'https://www.linkedin.com/in/tamilselvanjk/',
     schemaSameAs: 'https://www.linkedin.com/in/tamilselvanjk/',
   },
+  {
+    name: 'Srinath',
+    role: 'Head of Growth & Operations',
+    img: '/images/srinath.jpg',
+    pos: 'center' as const,
+    linkedin: 'https://www.linkedin.com/in/srinath29/',
+    schemaSameAs: 'https://www.linkedin.com/in/srinath29/',
+  },
 ];
 
 export function AboutPeople() {
@@ -37,28 +45,28 @@ export function AboutPeople() {
       itemType="https://schema.org/Organization"
     >
       {/* Hidden structured data for GEO/SEO */}
-      <meta itemProp="name" content="AINCURU LLP" />
+      <meta itemProp="name" content="Aincuru" />
       <meta itemProp="url" content="https://www.aincuru.com" />
-      <link itemProp="sameAs" href="https://www.linkedin.com/company/aincuru/" />
-      <link itemProp="sameAs" href="https://www.instagram.com/_aincuru" />
+      <link itemProp="sameAs" href="https://in.linkedin.com/company/aincuru" />
+      <link itemProp="sameAs" href="https://www.instagram.com/aincuru__/" />
       <link itemProp="sameAs" href="https://x.com/aincuru" />
-      <link itemProp="sameAs" href="https://www.facebook.com/share/1FCuj6vXfz/" />
+      <link itemProp="sameAs" href="https://www.facebook.com/profile.php?id=61592616857347" />
 
       <div className="max-w-6xl mx-auto w-full box-border">
 
         {/* Section header & Narrative */}
-        <div className="mb-12 md:mb-20 grid lg:grid-cols-2 gap-12">
+        <div className="mb-12 md:mb-20 grid lg:grid-cols-2 gap-12 font-sans">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper mb-6">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper mb-4">
               06 · THE PEOPLE
             </p>
-            <h2 className="heading-manuscript text-4xl md:text-5xl leading-tight">
+            <h2 className="font-sans font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-manuscript-ink tracking-tight">
               Small team.<br/>
-              <span className="italic text-manuscript-rustDeep">Serious responsibility.</span>
+              <span className="text-manuscript-rustDeep">Serious responsibility.</span>
             </h2>
           </div>
 
-          <div className="pt-2 lg:pt-8 font-manuscriptBody text-[16px] leading-[1.8] text-manuscript-inkSoft space-y-4 max-w-lg">
+          <div className="pt-2 lg:pt-8 font-sans text-[15px] sm:text-[16px] leading-[1.8] text-manuscript-inkSoft space-y-4 max-w-lg">
             <p>AINCURU is founder-led and engineering-driven.</p>
             <p>We believe the people making the decisions should stay close to the problems being solved.</p>
             <p>That means fewer layers between the idea and the people building it — and more ownership over the result.</p>
@@ -66,7 +74,7 @@ export function AboutPeople() {
         </div>
 
         {/* Founder cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 justify-items-center mb-12">
           {FOUNDERS.map((founder, i) => (
             <div
               key={i}
@@ -80,14 +88,14 @@ export function AboutPeople() {
               <link itemProp="sameAs" href={founder.schemaSameAs} />
               <link itemProp="worksFor" href="https://www.aincuru.com/company/about" />
 
-              <div className="mb-6 w-full max-w-[280px]">
+              <div className="mb-6 w-full max-w-[260px] sm:max-w-[280px]">
                 <TiltedCard
                   imageSrc={founder.img}
                   altText={founder.name}
                   captionText={founder.name}
-                  containerHeight="280px"
+                  containerHeight="270px"
                   containerWidth="100%"
-                  imageHeight="280px"
+                  imageHeight="270px"
                   imageWidth="100%"
                   rotateAmplitude={10}
                   scaleOnHover={1.05}
@@ -98,7 +106,7 @@ export function AboutPeople() {
                 />
               </div>
 
-              <h3 className="heading-manuscript text-xl" itemProp="name">{founder.name}</h3>
+              <h3 className="font-sans font-bold text-lg text-manuscript-ink" itemProp="name">{founder.name}</h3>
               <p className="text-manuscript-copper font-medium mt-1 text-sm tracking-wide" itemProp="jobTitle">
                 {founder.role}
               </p>

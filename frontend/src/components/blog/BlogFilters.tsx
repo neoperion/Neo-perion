@@ -10,23 +10,24 @@ interface Props {
 export const BlogFilters: React.FC<Props> = ({ categories, activeCategory, onCategoryChange, theme = 'dark' }) => {
   if (theme === 'light') {
     return (
-      <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
+      <div 
+        className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide py-1 -mx-2 px-2 sm:mx-0 sm:px-0 lg:flex-wrap"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
         {categories.map((category) => {
           const active = activeCategory === category;
           return (
             <button
               key={category}
+              type="button"
               onClick={() => onCategoryChange(category)}
-              className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                active ? 'text-ink' : 'text-muted2 hover:text-ink'
+              className={`relative shrink-0 rounded-full px-3.5 py-1.5 text-[13px] font-sans transition-all duration-200 ${
+                active
+                  ? 'bg-manuscript-ink text-manuscript-parchmentLight font-semibold shadow-sm'
+                  : 'bg-manuscript-parchmentWarm/70 text-manuscript-inkSoft font-medium border border-manuscriptAlpha-ink-10 hover:border-manuscript-copper/40 hover:text-manuscript-ink hover:bg-manuscript-parchmentLight'
               }`}
             >
               {category}
-              <span
-                className={`absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand transition-opacity ${
-                  active ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
             </button>
           );
         })}

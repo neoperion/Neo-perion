@@ -13,7 +13,7 @@ import { HomeCTA } from '@/components/HomeCTA';
 export function MobileAbout() {
   return (
     <MobileShell nav="bottom" showFooter>
-      <div className="manuscript-root overflow-x-clip max-w-full w-full box-border">
+      <div className="manuscript-root font-sans overflow-x-clip max-w-full w-full box-border [&_h1]:font-sans [&_h2]:font-sans [&_h3]:font-sans [&_h4]:font-sans [&_p]:font-sans">
         <AboutHero />
         <AboutOrigin />
         <AboutTimeline />

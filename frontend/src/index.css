@@ -78,11 +78,20 @@
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     @apply border-border;
   }
 
-  html, body {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
   }
 
@@ -94,10 +103,17 @@
   html {
     scroll-behavior: smooth;
   }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Serif', 'Newsreader', Georgia, serif;
-    @apply tracking-tight;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    @apply tracking-tight font-bold;
   }
 
   code, kbd, samp, pre {

@@ -143,7 +143,7 @@ export function EducationPage() {
   };
 
   return (
-    <div className="manuscript-root min-h-screen parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white">
+    <div className="manuscript-root min-h-screen w-full max-w-full overflow-x-clip box-border parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white">
       <SEO
         title="Education & EdTech Solutions | AI-Powered Learning Platforms | AINCURU"
         description={industry.heroSubtext}
@@ -152,13 +152,13 @@ export function EducationPage() {
       />
       <Header theme="manuscript" />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-clip box-border">
         {/* ═══════════════ HERO SECTION ═══════════════ */}
-        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 border-b border-manuscript-parchmentDeep relative overflow-hidden">
+        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 border-b border-manuscript-parchmentDeep relative overflow-hidden w-full max-w-full box-border">
           <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-manuscript-copper/8 rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-manuscript-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 w-full min-w-0">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -206,9 +206,10 @@ export function EducationPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
+              className="w-full min-w-0"
             >
               <LMSArchitectureDiagram />
             </motion.div>
@@ -216,8 +217,8 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
+          <div className="max-w-6xl mx-auto w-full min-w-0">
             <div className="mb-12 sm:mb-16 text-center sm:text-left">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
                 What We Build
@@ -255,8 +256,8 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ HOW WE WORK — PROCESS ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
+          <div className="max-w-6xl mx-auto w-full min-w-0">
             <div className="text-center mb-12 sm:mb-16">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
                 Our Process
@@ -293,8 +294,8 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ BENEFITS ═══════════════ */}
-        <section id="benefits" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
-          <div className="max-w-6xl mx-auto">
+        <section id="benefits" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
+          <div className="max-w-6xl mx-auto w-full min-w-0">
             <div className="mb-12 sm:mb-16 text-center sm:text-left">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
                 Why Choose Us
@@ -330,8 +331,8 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ TECH STACK ═══════════════ */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
+          <div className="max-w-6xl mx-auto w-full min-w-0">
             <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
               <div className="shrink-0">
                 <h3 className="font-mono text-xs font-bold text-manuscript-copper uppercase tracking-[0.2em]">
@@ -353,8 +354,8 @@ export function EducationPage() {
         </section>
 
         {/* ═══════════════ CASE STUDY PREVIEW ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
+          <div className="max-w-6xl mx-auto w-full min-w-0">
             <div className="relative rounded-3xl overflow-hidden bg-[#FFFDF9] border-2 border-manuscript-copper/30 p-8 sm:p-12 md:p-16 shadow-sm">
               <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-8 sm:gap-12 items-center">
                 <div className="space-y-4">
@@ -395,8 +396,8 @@ export function EducationPage() {
 
         {/* ═══════════════ FAQ ACCORDION ═══════════════ */}
         {industry.faq && industry.faq.length > 0 && (
-          <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
-            <div className="max-w-3xl mx-auto">
+          <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
+            <div className="max-w-3xl mx-auto w-full min-w-0">
               <div className="text-center mb-10 sm:mb-14">
                 <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
                   FAQ
@@ -448,8 +449,8 @@ export function EducationPage() {
         )}
 
         {/* ═══════════════ BOTTOM MANUSCRIPT CTA ═══════════════ */}
-        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep">
-          <div className="container mx-auto max-w-3xl relative z-10 space-y-6 sm:space-y-8">
+        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep w-full max-w-full box-border">
+          <div className="container mx-auto max-w-3xl relative z-10 space-y-6 sm:space-y-8 w-full min-w-0 box-border">
             <span className="chapter-eyebrow font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-manuscript-copper font-bold block">
               Start Your EdTech Platform
             </span>

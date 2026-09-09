@@ -12,12 +12,12 @@ export function AboutFuture() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper mb-6">
+          <p className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper mb-4">
             07 · WHAT COMES NEXT
           </p>
-          <h2 className="heading-manuscript text-4xl md:text-5xl leading-tight text-manuscript-ink mb-12">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-manuscript-ink tracking-tight mb-10">
             We're still early.<br/>
-            <span className="italic text-manuscript-rustDeep">That's the point.</span>
+            <span className="text-manuscript-rustDeep">That's the point.</span>
           </h2>
         </motion.div>
 
@@ -26,7 +26,7 @@ export function AboutFuture() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-manuscriptBody text-[18px] leading-[1.8] text-manuscript-inkSoft max-w-2xl mx-auto space-y-6"
+          className="font-sans text-[16px] md:text-[18px] leading-[1.8] text-manuscript-inkSoft max-w-2xl mx-auto space-y-6"
         >
           <p>
             AINCURU is still being built.
@@ -36,8 +36,8 @@ export function AboutFuture() {
           </p>
           
           <div className="py-8">
-            <p className="font-manuscript text-2xl text-manuscript-ink mb-2">The ambition is simple:</p>
-            <div className="text-manuscript-rust space-y-1 font-semibold italic text-lg">
+            <p className="font-sans font-bold text-xl md:text-2xl text-manuscript-ink mb-3 tracking-tight">The ambition is simple:</p>
+            <div className="text-manuscript-rust space-y-1 font-semibold text-base md:text-lg">
               <p>Build better systems.</p>
               <p>Build better products.</p>
               <p>Build a better company.</p>
@@ -50,7 +50,7 @@ export function AboutFuture() {
 
           <div className="pt-12">
             <div className="w-12 h-px bg-manuscript-copper/40 mx-auto mb-4" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-manuscript-copper">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-manuscript-copper">
               The next chapter is being built now.
             </p>
           </div>

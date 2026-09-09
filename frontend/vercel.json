@@ -4,6 +4,18 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/company/about",
+      "permanent": true
+    },
+    {
+      "source": "/founder-letter",
+      "destination": "/company/founder-letter",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!zohoverify).*)",

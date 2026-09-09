@@ -20,11 +20,11 @@ export const BlogSearch: React.FC<Props> = ({ onSearch, theme = 'dark' }) => {
 
   if (isLight) {
     return (
-      <div className="relative w-full sm:max-w-xs">
-        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-manuscript-inkMuted" />
+      <div className="relative w-full lg:w-72 xl:w-80">
+        <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-manuscript-copper" />
         <input
           type="text"
-          className="block w-full border border-manuscriptAlpha-ink-20 bg-transparent py-2.5 pl-10 pr-9 text-sm text-manuscript-ink placeholder-manuscript-inkMuted outline-none transition-colors focus:border-manuscript-copper focus:ring-1 focus:ring-manuscript-copper"
+          className="block w-full rounded-full border border-manuscriptAlpha-ink-15 bg-manuscript-parchmentWarm/60 py-2 sm:py-2.5 pl-9 pr-9 text-[13px] font-sans text-manuscript-ink placeholder:text-manuscript-inkMuted/70 outline-none transition-all duration-200 focus:border-manuscript-copper focus:bg-manuscript-parchmentLight focus:ring-2 focus:ring-manuscript-copper/15"
           placeholder="Search articles…"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -33,9 +33,9 @@ export const BlogSearch: React.FC<Props> = ({ onSearch, theme = 'dark' }) => {
           <button
             onClick={() => setSearchTerm('')}
             aria-label="Clear search"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-manuscript-inkMuted transition-colors hover:text-manuscript-ink"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-manuscript-inkMuted transition-colors hover:text-manuscript-copper"
           >
-            <X className="h-4 w-4" />
+            <X className="h-3.5 w-3.5" />
           </button>
         )}
       </div>

@@ -26,16 +26,17 @@
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Canonical, title, description, keywords, and per-route OG/Twitter are set
-       per-page by <SEO /> in src/components/SEO.tsx via react-helmet-async.
-       Keeping a static fallback description here for crawlers that fetch before
-       React hydrates; the SEO component replaces it on render. -->
+  <!-- Canonical, title, description, keywords, and per-route OG/Twitter are also
+       hydrated per-page by <SEO /> in src/components/SEO.tsx via react-helmet-async.
+       Static declarations here ensure immediate crawler indexability prior to JS execution. -->
+  <title>Aincuru | AI, Software &amp; Digital Solutions</title>
+  <link rel="canonical" href="https://www.aincuru.com/" />
 
   <!-- Primary Meta Tags -->
   <meta name="description"
-    content="AINCURU develops AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
-  <meta name="keywords" content="AINCURU, AINCURU AI, Perion Solutions, Perion AI, AI software company India, AI automation company Chennai, software company Tamil Nadu, AI development company India, custom web platform development India, AI chatbot development India, startup MVP development India, RAG chatbot company" />
-  <meta name="author" content="AINCURU" />
+    content="Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses." />
+  <meta name="keywords" content="Aincuru, Aincuru AI, Aincuru software, Aincuru services, Aincuru LLP, Aincuru technology, AI software company India, AI automation company Chennai, software company Tamil Nadu, AI development company India, custom web platform development India, AI chatbot development India, startup MVP development India, RAG chatbot company" />
+  <meta name="author" content="Aincuru" />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <meta name="revisit-after" content="7 days" />
@@ -45,22 +46,23 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.aincuru.com/" />
-  <meta property="og:title" content="AINCURU | AI Automation, Web &amp; App Development" />
+  <meta property="og:title" content="Aincuru | AI, Software &amp; Digital Solutions" />
   <meta property="og:description"
-    content="AINCURU builds AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
+    content="Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses." />
   <meta property="og:image" content="https://www.aincuru.com/images/np-logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="AINCURU" />
+  <meta property="og:site_name" content="Aincuru" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.aincuru.com/" />
-  <meta name="twitter:title" content="AINCURU | AI Automation, Web &amp; App Development" />
+  <meta name="twitter:title" content="Aincuru | AI, Software &amp; Digital Solutions" />
   <meta name="twitter:description"
-    content="AINCURU builds AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster." />
+    content="Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses." />
   <meta name="twitter:image" content="https://www.aincuru.com/images/np-logo.png" />
+  <meta name="twitter:site" content="@aincuru" />
   <meta name="twitter:creator" content="@aincuru" />
 
   <script type="application/ld+json">
@@ -68,26 +70,29 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": "https://www.aincuru.com/#organization",
-      "name": "AINCURU LLP",
-      "alternateName": ["AINCURU", "AINCURU LLP", "AINCURU AI", "PERION"],
-      "url": "https://www.aincuru.com",
+      "name": "Aincuru",
+      "legalName": "AINCURU LLP",
+      "alternateName": ["Aincuru", "Aincuru AI", "Aincuru Software", "Aincuru Technologies", "AINCURU LLP"],
+      "url": "https://www.aincuru.com/",
       "logo": "https://www.aincuru.com/images/np-logo.png",
       "image": "https://www.aincuru.com/images/np-logo.png",
-      "description": "AINCURU builds AI-powered software, automation systems, web applications, and digital platforms that help organizations scale faster.",
+      "description": "Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses.",
       "foundingDate": "2024",
       "founders": [
-        {"@type": "Person", "name": "Vasantharaj S",  "jobTitle": "Chief Executive Officer (CEO)",  "image": "https://www.aincuru.com/images/founder.jpg",     "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/company/aincuru/"]},
-        {"@type": "Person", "name": "Adhi Ganesh K",  "jobTitle": "Chief Operating Officer (COO)",  "image": "https://www.aincuru.com/images/adhi.png",        "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/company/aincuru/"]},
-        {"@type": "Person", "name": "Tamilselvan",    "jobTitle": "Chief Technology Officer (CTO)",  "image": "https://www.aincuru.com/images/tamilselvan.jpg", "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/company/aincuru/"]}
+        {"@type": "Person", "name": "Vasantharaj S",  "jobTitle": "Chief Executive Officer (CEO)",  "image": "https://www.aincuru.com/images/founder.jpg",     "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/in/vasantharaj-s/"]},
+        {"@type": "Person", "name": "Adhi Ganesh K",  "jobTitle": "Chief Operating Officer (COO)",  "image": "https://www.aincuru.com/images/adhi.png",        "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/in/adhi-ganesh/"]},
+        {"@type": "Person", "name": "Tamilselvan",    "jobTitle": "Chief Technology Officer (CTO)",  "image": "https://www.aincuru.com/images/tamilselvan.jpg", "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/in/tamilselvanjk/"]},
+        {"@type": "Person", "name": "Srinath",        "jobTitle": "Head of Growth & Operations",     "image": "https://www.aincuru.com/images/srinath.jpg",     "url": "https://www.aincuru.com/company/about", "sameAs": ["https://www.linkedin.com/in/srinath29/"]}
       ],
       "address": {"@type": "PostalAddress", "addressLocality": "Chennai", "addressRegion": "Tamil Nadu", "addressCountry": "IN"},
       "areaServed": [{"@type": "Country", "name": "India"}, {"@type": "Country", "name": "United States"}],
       "knowsAbout": ["Artificial Intelligence", "Large Language Models", "Retrieval-Augmented Generation", "AI Agents", "React", "Next.js", "Node.js", "Python", "TypeScript", "PostgreSQL", "Supabase", "AWS", "Docker", "Kubernetes", "Mobile App Development", "Cloud-Native Architecture"],
       "sameAs": [
-        "https://www.linkedin.com/company/aincuru/",
+        "https://in.linkedin.com/company/aincuru",
         "https://x.com/aincuru",
-        "https://www.instagram.com/_aincuru",
-        "https://www.facebook.com/share/1FCuj6vXfz/",
+        "https://x.com/svr_siva21881",
+        "https://www.instagram.com/aincuru__/",
+        "https://www.facebook.com/profile.php?id=61592616857347",
         "https://www.clutch.co/profile/neoperion-solutions",
         "https://www.goodfirms.co/company/neoperion-solutions"
       ],
@@ -103,10 +108,10 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://www.aincuru.com/#website",
-      "url": "https://www.aincuru.com",
-      "name": "AINCURU",
-      "alternateName": ["AINCURU", "AINCURU LLP", "AINCURU AI"],
-      "description": "AINCURU builds production-grade AI automation, web platforms and mobile apps for startups and SMEs in India and the United States.",
+      "url": "https://www.aincuru.com/",
+      "name": "Aincuru",
+      "alternateName": ["Aincuru", "Aincuru AI", "Aincuru Software", "AINCURU LLP"],
+      "description": "Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses.",
       "publisher": {"@id": "https://www.aincuru.com/#organization"},
       "inLanguage": "en-US",
       "potentialAction": {

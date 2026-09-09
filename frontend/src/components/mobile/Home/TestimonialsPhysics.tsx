@@ -84,7 +84,7 @@ export function TestimonialsPhysics({ eyebrow = 'Voices', title = 'What clients 
                   <Quote size={80} className="fill-slate-100 stroke-none" />
                 </div>
                 
-                <blockquote className="relative text-[18px] text-neutral-200 leading-relaxed font-serif italic mb-auto pt-4 min-h-[120px]">
+                <blockquote className="relative text-[18px] text-neutral-200 leading-relaxed font-sans font-medium mb-auto pt-4 min-h-[120px]">
                   "{current.feedback}"
                 </blockquote>
                 

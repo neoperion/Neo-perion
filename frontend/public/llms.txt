@@ -32,22 +32,22 @@
 
 ## Facts
 - Founded: 2024. Headquarters: Chennai, Tamil Nadu, India.
-- Founders: Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO).
+- Founders & Leadership: Vasantharaj S (CEO), Adhi Ganesh K (COO), Tamilselvan (CTO), Srinath (Head of Growth & Operations).
 - Engagement model: written agreement before work; weekly demos; UAT sign-off; IP transfers to client on final payment.
 - Serves: startups and SMEs in India and the United States.
 - Public email: hello@aincuru.com. Phone: +91 7810005472.
-- LinkedIn: https://www.linkedin.com/company/aincuru/
-- Instagram: https://www.instagram.com/_aincuru
+- LinkedIn: https://in.linkedin.com/company/aincuru
+- Instagram: https://www.instagram.com/aincuru__/
 - X / Twitter: https://x.com/aincuru
-- Facebook: https://www.facebook.com/share/1FCuj6vXfz/
+- Facebook: https://www.facebook.com/profile.php?id=61592616857347
 - Website: https://www.aincuru.com
 - Tech stack: React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Supabase, AWS, Docker, Kubernetes, OpenAI, Anthropic Claude, Google Gemini.
 
 ## Profiles (placeholders — owner to register when each goes live)
-- LinkedIn: https://www.linkedin.com/company/aincuru/
-- Instagram: https://www.instagram.com/_aincuru
+- LinkedIn: https://in.linkedin.com/company/aincuru
+- Instagram: https://www.instagram.com/aincuru__/
 - X / Twitter: https://x.com/aincuru
-- Facebook: https://www.facebook.com/share/1FCuj6vXfz/
+- Facebook: https://www.facebook.com/profile.php?id=61592616857347
 - Clutch: https://www.clutch.co/profile/neoperion-solutions
 
 ## What we are not

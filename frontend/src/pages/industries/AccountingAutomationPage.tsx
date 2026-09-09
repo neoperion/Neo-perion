@@ -93,20 +93,20 @@ export function AccountingAutomationPage() {
   }, []);
 
   return (
-    <div className="manuscript-root min-h-screen parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white">
+    <div className="manuscript-root min-h-screen parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white w-full max-w-full overflow-x-clip box-border">
       <SEO {...seoConfig.accountingAutomation} />
       <Header theme="manuscript" />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-clip box-border">
         {/* ══════════════════════════════════════════════════════
             01 HERO: THE STEVE JOBS MINIMAL STATEMENT
         ══════════════════════════════════════════════════════ */}
-        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 relative overflow-hidden border-b border-manuscript-parchmentDeep">
+        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 relative overflow-hidden border-b border-manuscript-parchmentDeep w-full max-w-full box-border">
           {/* Subtle warm glow background */}
           <div className="absolute top-0 right-1/4 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-manuscript-copper/8 blur-[120px] sm:blur-[160px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-6 sm:left-10 w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] bg-manuscript-gold/5 blur-[90px] sm:blur-[140px] rounded-full pointer-events-none" />
 
-          <div className="container mx-auto max-w-5xl text-center relative z-10">
+          <div className="container mx-auto max-w-5xl text-center relative z-10 w-full">
             {/* Eyebrow */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -155,7 +155,7 @@ export function AccountingAutomationPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="inline-flex flex-wrap justify-center items-center gap-2 p-2 rounded-2xl bg-manuscript-parchmentWarm/80 border border-manuscript-walnut/20 max-w-3xl mx-auto"
+              className="flex flex-wrap justify-center items-center gap-2 p-2 rounded-2xl bg-manuscript-parchmentWarm/80 border border-manuscript-walnut/20 max-w-3xl mx-auto w-full box-border"
             >
               <span className="font-mono text-[10px] uppercase tracking-wider text-manuscript-copper font-bold px-2">Coverage:</span>
               {['MSME / Udyam', 'GST Registrations', 'MCA Incorporations', 'IEC & DGFT', 'FSSAI & Licenses', 'Tax & Compliance'].map((item, idx) => (
@@ -173,7 +173,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             02 THE ONE STORY (MSME REGISTRATION BENCHMARK)
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 relative">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 relative w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-4xl">
             {/* Story kicker */}
             <div className="text-center mb-10 sm:mb-16">
@@ -246,7 +246,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             03 THE MAGIC: VISUAL PIPELINE TRANSFORMATION
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-10 sm:mb-16">
               <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-manuscript-copper block mb-3 font-bold">
@@ -338,7 +338,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             04 ALL STATUTORY REGISTRATIONS WE AUTOMATE
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-10 sm:mb-16">
               <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-manuscript-copper block mb-3 font-bold">
@@ -400,7 +400,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             05 THE PHILOSOPHY (CORE PRINCIPLE)
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep relative">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep relative w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-3xl text-center">
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-manuscript-copper block mb-4 font-bold">
               Core Philosophy
@@ -427,7 +427,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             06 THE PROOF (THREE NUMBERS)
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-10 sm:mb-16">
               <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-manuscript-copper block mb-3 font-bold">
@@ -475,7 +475,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             07 EXPAND THE IDEA: BEYOND ONE WORKFLOW
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-4xl text-center">
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-manuscript-copper block mb-3 font-bold">
               Scale Your Practice
@@ -485,7 +485,7 @@ export function AccountingAutomationPage() {
             </h2>
 
             {/* Operations Badges Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4 my-8 sm:my-10 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4 my-8 sm:my-10 max-w-2xl mx-auto w-full box-border">
               {[
                 'GST Filings',
                 'Accounting Automation',
@@ -499,7 +499,7 @@ export function AccountingAutomationPage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#FFFDF9] border border-manuscript-walnut/20 font-manuscriptBody text-xs sm:text-sm md:text-base font-semibold text-manuscript-ink hover:border-manuscript-copper/50 hover:bg-manuscript-parchmentWarm transition-colors shadow-sm"
+                  className="py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl bg-[#FFFDF9] border border-manuscript-walnut/20 font-manuscriptBody text-xs sm:text-sm md:text-base font-semibold text-manuscript-ink hover:border-manuscript-copper/50 hover:bg-manuscript-parchmentWarm transition-colors shadow-sm text-center break-words min-w-0"
                 >
                   {item}
                 </div>
@@ -515,7 +515,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             08 PORTFOLIO EVIDENCE CARD (FINANEZY PROOF POINT)
         ══════════════════════════════════════════════════════ */}
-        <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-5xl">
             <div className="p-6 sm:p-10 md:p-12 rounded-3xl bg-[#FFFDF9] border-2 border-manuscript-copper/30 flex flex-col lg:flex-row items-center gap-8 sm:gap-10 shadow-sm">
               <div className="flex-1 space-y-4 sm:space-y-6">
@@ -573,7 +573,7 @@ export function AccountingAutomationPage() {
             09 FAQ SECTION
         ══════════════════════════════════════════════════════ */}
         {industry.faq && industry.faq.length > 0 && (
-          <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+          <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
             <div className="container mx-auto max-w-3xl">
               <h2 className="heading-manuscript text-3xl md:text-4xl font-normal !text-manuscript-ink text-center mb-8 sm:mb-12">
                 Frequently Asked Questions
@@ -623,7 +623,7 @@ export function AccountingAutomationPage() {
         {/* ══════════════════════════════════════════════════════
             10 THE KILLER CTA: SHOW US THE WORK
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep">
+        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep w-full max-w-full box-border">
           <div className="container mx-auto max-w-3xl relative z-10 space-y-6 sm:space-y-8">
             <span className="chapter-eyebrow font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-manuscript-copper font-bold block">
               Start With One Workflow

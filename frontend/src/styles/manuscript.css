@@ -23,7 +23,11 @@
 /* ─── BASE LAYER: manuscript typography defaults ─── */
 @layer base {
   .manuscript-root {
-    font-family: theme('fontFamily.manuscriptBody');
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
     color: theme('colors.manuscript.ink');
     background-color: theme('colors.manuscript.parchment');
     -webkit-font-smoothing: antialiased;
@@ -32,11 +36,14 @@
 
   .manuscript-root h1,
   .manuscript-root h2,
-  .manuscript-root h3 {
-    font-family: theme('fontFamily.manuscript');
-    font-weight: 400;
+  .manuscript-root h3,
+  .manuscript-root h4,
+  .manuscript-root h5,
+  .manuscript-root h6 {
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    font-weight: 700;
     color: theme('colors.manuscript.ink');
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -156,24 +163,24 @@
 
   /* ─── Manuscript display heading ─── */
   .heading-manuscript {
-    font-family: theme('fontFamily.manuscript');
-    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    font-weight: 700;
     color: theme('colors.manuscript.ink');
     line-height: 1.08;
-    letter-spacing: -0.012em;
+    letter-spacing: -0.02em;
   }
   .heading-manuscript--italic {
-    font-style: italic;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
   }
 
   /* ─── Pull-quote ───
-     Used inline in blog posts and case studies. Caveat for warmth. */
+     Used inline in blog posts and case studies. */
   .pull-quote {
-    font-family: theme('fontFamily.manuscriptHand');
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    line-height: 1.25;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
     color: theme('colors.manuscript.walnut');
     border-left: 2px solid theme('colors.manuscript.gold');
     padding-left: 1.25rem;
@@ -333,22 +340,22 @@
 .prose-manuscript h2,
 .prose-manuscript h3,
 .prose-manuscript h4 {
-  font-family: theme('fontFamily.manuscript');
-  font-weight: 400;
-  letter-spacing: -0.012em;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .prose-manuscript p,
 .prose-manuscript li {
-  font-family: theme('fontFamily.manuscriptBody');
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   line-height: 1.75;
 }
 
 .prose-manuscript blockquote {
-  font-family: theme('fontFamily.manuscriptHand');
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
   color: theme('colors.manuscript.walnut');
   border-left-color: theme('colors.manuscript.gold');
 }

@@ -1,86 +1,112 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const principles = [
+  {
+    num: '01',
+    title: 'Understand the problem in context.',
+    body: 'Every challenge is shaped by the people, workflows, and constraints around it. Context determines what the right solution should be before writing code.',
+  },
+  {
+    num: '02',
+    title: 'Build for reality, not presentations.',
+    body: 'Prototypes prove concepts, but production systems endure reality. We engineer software to survive scale, messy inputs, and critical production needs.',
+  },
+  {
+    num: '03',
+    title: 'Put software in the hands of real users.',
+    body: 'Value is only proven when working software solves an actual bottleneck in daily operations. We test assumptions against real usage.',
+  },
+  {
+    num: '04',
+    title: 'Learn and iterate from what happens next.',
+    body: 'The best engineering is never static. It evolves through close observation of how people interact with systems in the wild.',
+  },
+];
+
 export function AboutOrigin() {
   return (
-    <section id="origin" className="relative py-16 md:py-32 overflow-hidden parchment-surface border-b border-manuscript-parchmentDeep">
-      {/* ── Faint Technical Sketches Background ───────────────── */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(91,58,31,0.04) 25%, transparent 25%, transparent 75%, rgba(91,58,31,0.04) 75%, rgba(91,58,31,0.04)), 
-            linear-gradient(45deg, rgba(91,58,31,0.04) 25%, transparent 25%, transparent 75%, rgba(91,58,31,0.04) 75%, rgba(91,58,31,0.04))
-          `,
-          backgroundSize: '40px 40px',
-          backgroundPosition: '0 0, 20px 20px',
-        }}
-      />
+    <section id="origin" className="relative py-16 md:py-24 parchment-surface border-b border-manuscript-parchmentDeep font-sans">
+      <div className="relative z-10 px-5 sm:px-6 md:px-12 lg:px-16 container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-      <div className="relative z-10 px-6 md:px-16 lg:px-24 container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          
-          {/* Left Column: Heading */}
-          <div className="lg:col-span-5">
+          {/* ── Left Column: Editorial Narrative & Lineage ───────────────── */}
+          <div className="lg:col-span-6 space-y-8">
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              className="sticky top-32"
+              className="space-y-6"
             >
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper mb-6">
-                01 · ORIGIN
-              </p>
-              <h2 className="heading-manuscript leading-[1.1] text-manuscript-ink" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)' }}>
-                AINCURU didn't start with a company.<br />
-                <span className="italic text-manuscript-rustDeep">It started with a problem.</span>
-              </h2>
+              <div>
+                <p className="font-sans font-semibold text-xs uppercase tracking-[0.25em] text-manuscript-copper mb-4">
+                  01 · ORIGIN
+                </p>
+                <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.12] text-manuscript-ink tracking-tight">
+                  AINCURU didn't start with a company.<br />
+                  <span className="text-manuscript-rustDeep block mt-1">It started with a problem.</span>
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-manuscript-inkSoft text-base sm:text-[17px] leading-relaxed font-sans">
+                <p>
+                  We started by building — AI systems, data pipelines, web platforms, and hackathon prototypes.
+                </p>
+                <p>
+                  Each build taught us what happens when ideas have to survive outside of a classroom, a demo, or a slide presentation. An idea is only as valuable as what happens when real people depend on it.
+                </p>
+                <p>
+                  Over time, building through real constraints became an engineering philosophy.
+                </p>
+              </div>
+
+              {/* Heritage Note */}
+              <div className="pt-6 border-t border-manuscript-parchmentDeep/70">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-manuscript-copper shrink-0" />
+                  <p className="font-sans text-xs sm:text-sm text-manuscript-inkMuted leading-relaxed">
+                    <strong className="font-semibold text-manuscript-ink">Foundational Heritage:</strong> Previously developed as Neo Perion Solutions — now evolved into AINCURU with a dedicated focus on context-driven AI automation.
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Body Copy Manuscript */}
-          <div className="lg:col-span-7">
+          {/* ── Right Column: The 4 Operating Truths ───────────────── */}
+          <div className="lg:col-span-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="manuscript-card p-8 md:p-12 relative"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="p-6 sm:p-8 md:p-10 rounded-2xl bg-manuscript-parchmentLight/90 border border-manuscript-parchmentDeep/70 shadow-xs relative"
             >
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-manuscript-copper/20 rounded-l-2xl" />
-              
-              <div className="space-y-6 font-manuscriptBody text-[16px] leading-[1.8] text-manuscript-inkSoft">
-                <p>
-                  We started by building.
-                </p>
-                <p>
-                  AI projects. Data systems. Websites. Experiments. Hackathon prototypes. Small products. Client work.
-                </p>
-                <p>
-                  Each project taught us something different — not only about technology, but about what happens when an idea has to work outside a classroom, a demo, or a presentation.
-                </p>
-                <p>
-                  Over time, those projects became a way of thinking.
-                </p>
-                <div className="pl-6 py-2 my-6 border-l border-manuscript-copper/40 text-manuscript-ink italic">
-                  <p className="mb-2">Understand the problem.</p>
-                  <p className="mb-2">Build the system.</p>
-                  <p className="mb-2">Put it in the hands of people.</p>
-                  <p>Learn from what happens next.</p>
-                </div>
-                <p>
-                  That foundation became <strong className="font-semibold text-manuscript-ink">Neo Perion Solutions</strong>.
-                </p>
-                <p>
-                  AINCURU is the next chapter of that journey.
-                </p>
+              <div className="mb-6 pb-4 border-b border-manuscript-parchmentDeep/60 flex items-center justify-between">
+                <span className="font-sans font-semibold text-xs tracking-[0.2em] uppercase text-manuscript-copper">
+                  OPERATING PRINCIPLES
+                </span>
+                <span className="font-sans text-xs text-manuscript-inkMuted">
+                  How We Think
+                </span>
+              </div>
 
-                <div className="pt-8 mt-10 border-t border-manuscript-parchmentDeep">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-manuscript-copperMuted">
-                    Previously developed as Neo Perion Solutions.
-                  </p>
-                </div>
+              <div className="space-y-6">
+                {principles.map((p) => (
+                  <div key={p.num} className="group flex items-start gap-4">
+                    <span className="font-sans font-bold text-sm text-manuscript-copper pt-0.5 shrink-0">
+                      {p.num}
+                    </span>
+                    <div className="space-y-1">
+                      <h3 className="font-sans font-bold text-base sm:text-[17px] text-manuscript-ink leading-snug">
+                        {p.title}
+                      </h3>
+                      <p className="font-sans text-sm text-manuscript-inkSoft leading-relaxed">
+                        {p.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -90,3 +116,5 @@ export function AboutOrigin() {
     </section>
   );
 }
+
+

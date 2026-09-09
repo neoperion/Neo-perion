@@ -208,10 +208,14 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                 );
               } else {
                 return (
-                  <button
+                  <a
                     key={item.label}
+                    href={item.href}
                     onMouseEnter={scheduleClose}
-                    onClick={() => handleNavigation(item.href)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(item.href);
+                    }}
                     className={`relative px-[14px] py-[10px] rounded-full font-manuscriptBody text-[14px] font-medium transition-colors duration-150 ${
                       isActive ? activeTextClass : textClass
                     } ${hoverBgClass}`}
@@ -222,7 +226,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                         isActive ? "opacity-100" : "opacity-0"
                       }`}
                     />
-                  </button>
+                  </a>
                 );
               }
             })}
@@ -230,9 +234,12 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
 
           {/* CTA */}
           <div className="ml-auto flex shrink-0 items-center pointer-events-auto">
-            <button
-              type="button"
-              onClick={() => handleNavigation("/contact")}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation("/contact");
+              }}
               className={`inline-flex items-center justify-center rounded-full px-[18px] h-[36px] md:px-[24px] md:h-[44px] font-bold text-[11px] md:text-[13px] tracking-wide transition-colors ${
                 isDarkTheme || isTransparent 
                   ? "bg-manuscript-copper text-[#F4EBDD] hover:bg-manuscript-copperDeep" 
@@ -240,7 +247,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
               }`}
             >
               CONTACT &rarr;
-            </button>
+            </a>
           </div>
         </nav>
 
@@ -280,8 +287,12 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                   }`}>
                     {active.description}
                   </p>
-                  <button
-                    onClick={() => handleNavigation(active.viewAll.href)}
+                  <a
+                    href={active.viewAll.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(active.viewAll.href);
+                    }}
                     className={`mt-5 lg:mt-6 inline-flex w-fit items-center rounded-full border px-4 py-2 lg:px-5 lg:py-2.5 font-manuscriptBody text-[12px] lg:text-[13px] font-semibold transition-colors duration-200 ${
                       isDarkTheme
                         ? 'border-[rgba(255,255,255,0.2)] text-[#F4EBDD] hover:bg-white hover:text-black'
@@ -289,7 +300,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                     }`}
                   >
                     {active.viewAll.label}
-                  </button>
+                  </a>
                 </div>
 
                 {/* Right — compact two-column rows */}
@@ -297,9 +308,13 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                   isDarkTheme ? 'border-[rgba(255,255,255,0.1)]' : 'border-[rgba(80,55,30,0.1)]'
                 }`}>
                   {active.rows.map((row, idx) => (
-                    <button
+                    <a
                       key={row.href + idx}
-                      onClick={() => handleNavigation(row.href)}
+                      href={row.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavigation(row.href);
+                      }}
                       className={`group flex w-full items-center justify-between gap-3 rounded-xl border border-transparent px-3 py-2.5 lg:px-4 lg:py-3 text-left transition-colors ${
                         isDarkTheme
                           ? 'hover:bg-[rgba(255,255,255,0.04)]'
@@ -320,7 +335,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                       }`}>
                         <ChevronRight size={14} className="lg:w-[15px] lg:h-[15px]" />
                       </span>
-                    </button>
+                    </a>
                   ))}
                 </div>
               </div>
