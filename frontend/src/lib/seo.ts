@@ -59,12 +59,20 @@ export function buildOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
-    name: 'AINCURU LLP',
-    url: SITE_URL,
+    name: 'Aincuru',
+    legalName: 'AINCURU LLP',
+    alternateName: ['Aincuru', 'Aincuru AI', 'Aincuru Software', 'Aincuru Technologies', 'AINCURU LLP'],
+    url: `${SITE_URL}/`,
     logo: `${SITE_URL}/images/np-logo.png`,
-    description: 'Product engineering company focused on turning ideas into scalable digital products through engineering, software development, AI business automation, and UI/UX.',
+    description: 'Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses.',
     sameAs: [
-      'https://www.linkedin.com/company/aincuru' // Assuming this based on brand, but we will comment if unsure
+      'https://in.linkedin.com/company/aincuru',
+      'https://x.com/aincuru',
+      'https://x.com/svr_siva21881',
+      'https://www.instagram.com/aincuru__/',
+      'https://www.facebook.com/profile.php?id=61592616857347',
+      'https://www.clutch.co/profile/neoperion-solutions',
+      'https://www.goodfirms.co/company/neoperion-solutions'
     ]
   };
 }
@@ -74,11 +82,11 @@ export function buildWebSiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
-    url: SITE_URL,
-    name: 'AINCURU LLP',
-    alternateName: ['AINCURU'],
+    url: `${SITE_URL}/`,
+    name: 'Aincuru',
+    alternateName: ['Aincuru', 'Aincuru AI', 'Aincuru Software', 'AINCURU LLP'],
     description:
-      'AINCURU builds AI business automation, product software and digital systems around business context.',
+      'Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses.',
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-US',
   };

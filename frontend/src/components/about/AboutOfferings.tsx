@@ -25,14 +25,14 @@ const offerings = [
 export function AboutOfferings() {
   return (
     <section className="py-16 md:py-24 parchment-surface border-b border-manuscript-parchmentDeep">
-      <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 lg:px-12 max-w-6xl font-sans">
         <div className="mb-12 md:mb-16">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-manuscript-copper mb-6">
+          <p className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper mb-4">
             05 · WHAT WE BUILD
           </p>
-          <h2 className="heading-manuscript text-4xl md:text-5xl leading-tight text-manuscript-ink">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-manuscript-ink tracking-tight">
             Different technologies.<br/>
-            <span className="italic text-manuscript-rustDeep">One engineering mindset.</span>
+            <span className="text-manuscript-rustDeep">One engineering mindset.</span>
           </h2>
         </div>
 
@@ -46,10 +46,10 @@ export function AboutOfferings() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="manuscript-card p-6 md:p-10 w-full box-border"
             >
-              <h3 className="heading-manuscript text-2xl mb-3 text-manuscript-ink">
+              <h3 className="font-sans font-bold text-xl md:text-2xl mb-3 text-manuscript-ink tracking-tight">
                 {offering.title}
               </h3>
-              <p className="font-manuscriptBody text-[15px] leading-relaxed text-manuscript-inkSoft">
+              <p className="font-sans text-[15px] leading-relaxed text-manuscript-inkSoft">
                 {offering.description}
               </p>
             </motion.div>
@@ -59,7 +59,7 @@ export function AboutOfferings() {
         <div className="mt-16 flex justify-center">
           <Link
             to="/services"
-            className="group flex items-center gap-2 font-manuscriptBody font-semibold text-[15px] text-manuscript-copper transition-colors hover:text-manuscript-rustDeep"
+            className="group flex items-center gap-2 font-sans font-semibold text-[15px] text-manuscript-copper transition-colors hover:text-manuscript-rustDeep"
           >
             See everything we build
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

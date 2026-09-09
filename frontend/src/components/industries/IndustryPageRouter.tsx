@@ -5,8 +5,6 @@ import { EducationPage } from '@/pages/industries/EducationPage';
 import { StartupsPage } from '@/pages/industries/StartupsPage';
 import { SMBEnterprisePage } from '@/pages/industries/SMBEnterprisePage';
 import { AccountingAutomationPage } from '@/pages/industries/AccountingAutomationPage';
-import { MobileGate } from '@/components/mobile';
-import { MobileDynamicIndustry } from '@/components/mobile/Industries/MobileDynamicIndustry';
 
 export const IndustryPageRouter: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -19,7 +17,7 @@ export const IndustryPageRouter: React.FC = () => {
 
   if (!industry) {
     return (
-      <div className="manuscript-root min-h-[60vh] parchment-surface flex flex-col items-center justify-center text-center px-4 py-24">
+      <div className="manuscript-root min-h-[60vh] parchment-surface flex flex-col items-center justify-center text-center px-4 py-24 w-full max-w-full overflow-x-clip box-border">
         <h1 className="heading-manuscript text-4xl sm:text-5xl font-normal !text-manuscript-ink mb-4">Industry Not Found</h1>
         <p className="font-manuscriptBody text-manuscript-inkMuted mb-8 max-w-md">The industry publication you are looking for does not exist.</p>
         <button
@@ -46,7 +44,7 @@ export const IndustryPageRouter: React.FC = () => {
         return <AccountingAutomationPage />;
       default:
         return (
-          <div className="manuscript-root min-h-[60vh] parchment-surface flex flex-col items-center justify-center text-center px-4 py-24">
+          <div className="manuscript-root min-h-[60vh] parchment-surface flex flex-col items-center justify-center text-center px-4 py-24 w-full max-w-full overflow-x-clip box-border">
             <h2 className="heading-manuscript text-3xl sm:text-4xl font-normal !text-manuscript-ink mb-3">Industry Field Notes in Preparation</h2>
             <p className="font-manuscriptBody text-manuscript-inkMuted mb-6 max-w-md">This domain dossier is currently being prepared by our editorial engineering team.</p>
             <button

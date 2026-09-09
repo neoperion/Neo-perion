@@ -26,19 +26,19 @@ const COLUMNS = [
   {
     title: 'Profiles',
     links: [
-      { label: 'LinkedIn',    href: 'https://www.linkedin.com/company/aincuru/',           external: true },
-      { label: 'Instagram',   href: 'https://www.instagram.com/_aincuru',                  external: true },
+      { label: 'LinkedIn',    href: 'https://in.linkedin.com/company/aincuru',            external: true },
+      { label: 'Instagram',   href: 'https://www.instagram.com/aincuru__/',                external: true },
       { label: 'X (Twitter)', href: 'https://x.com/aincuru',                               external: true },
-      { label: 'Facebook',    href: 'https://www.facebook.com/share/1FCuj6vXfz/',         external: true },
+      { label: 'Facebook',    href: 'https://www.facebook.com/profile.php?id=61592616857347', external: true },
       { label: 'Clutch',      href: 'https://www.clutch.co/profile/neoperion-solutions',  external: true },
     ],
   },
 ];
 
 const SOCIALS = [
-  { href: 'https://www.instagram.com/_aincuru',              Icon: Instagram,     label: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/aincuru/',       Icon: Linkedin,      label: 'LinkedIn'  },
-  { href: 'https://www.facebook.com/share/1FCuj6vXfz/',     Icon: Facebook,      label: 'Facebook'  },
+  { href: 'https://www.instagram.com/aincuru__/',            Icon: Instagram,     label: 'Instagram' },
+  { href: 'https://in.linkedin.com/company/aincuru',         Icon: Linkedin,      label: 'LinkedIn'  },
+  { href: 'https://www.facebook.com/profile.php?id=61592616857347', Icon: Facebook,   label: 'Facebook'  },
   { href: 'https://wa.me/917810005472',                      Icon: MessageCircle, label: 'WhatsApp'  },
 ];
 

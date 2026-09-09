@@ -64,15 +64,15 @@ export default function AboutPage() {
       "@type": "WebPage",
       "@id": `${SITE_URL}/company/about`
     },
-    "name": "About AINCURU LLP",
-    "description": "Meet the founders and team behind AINCURU LLP: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
+    "name": "About Aincuru",
+    "description": "Meet the founders and team behind Aincuru: founder-led AI, web and mobile engineering from Chennai, Tamil Nadu, India."
   };
 
   return (
     <>
-      <SEO {...seoConfig.about} />
+      <SEO {...seoConfig.about} jsonLd={[jsonLd, seoConfig.about.jsonLd]} />
       <MobileGate mobileOnly fallback={
-        <div className="manuscript-root min-h-[auto] overflow-x-clip max-w-full w-full box-border">
+        <div className="manuscript-root font-sans min-h-[auto] overflow-x-clip max-w-full w-full box-border [&_h1]:font-sans [&_h2]:font-sans [&_h3]:font-sans [&_h4]:font-sans [&_p]:font-sans">
           <Header />
           <main>
             {/* 01 HERO */}

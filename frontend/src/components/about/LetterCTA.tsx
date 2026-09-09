@@ -20,7 +20,7 @@ export const LetterCTA: React.FC<LetterCTAProps> = ({ theme = 'dark' }) => {
       <div className="text-center px-8">
         <h2
           id="letter-cta-heading"
-          className={`font-manuscript text-2xl md:text-3xl font-semibold mb-3 ${
+          className={`font-sans text-2xl md:text-3xl font-bold tracking-tight mb-3 ${
             isLight ? 'text-manuscript-ink' : 'text-white'
           }`}
         >

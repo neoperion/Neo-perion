@@ -30,12 +30,12 @@ export const Hero = () => {
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 lg:px-8">
         <div className="grid items-center gap-x-12 gap-y-10 lg:grid-cols-12">
-          {/* Headline — keyword-aligned for SEO (production-grade AI software for SMEs) */}
+          {/* Headline — keyword-aligned for SEO (Aincuru brand + what we do) */}
           <div className="lg:col-span-7">
-            <p className="chapter-eyebrow mb-5">A Living Manuscript of Engineering</p>
-            <h1 className="font-manuscript text-[clamp(38px,6vw,76px)] font-semibold leading-[1.04] tracking-[-0.015em] text-manuscript-ink">
-              <span className="block">Production-Grade AI &amp; Software Systems</span>
-              <span className="block italic text-manuscript-rustDeep">for Growing Businesses</span>
+            <p className="chapter-eyebrow mb-5">Context Before Intelligence</p>
+            <h1 className="font-manuscript text-[clamp(32px,4.6vw,60px)] font-semibold leading-[1.06] tracking-[-0.015em] text-manuscript-ink">
+              <span className="block">Aincuru — Building AI-Powered</span>
+              <span className="block italic text-manuscript-rustDeep">Digital Solutions &amp; Software Systems</span>
             </h1>
             <hr className="ink-rule--gold ink-rule-draw mt-8 w-48" />
           </div>
@@ -61,9 +61,8 @@ export const Hero = () => {
                 >
                   <div className="manuscript-card border-l-2 border-manuscript-gold p-5">
                     <p className="font-manuscriptBody text-[15px] leading-relaxed text-manuscript-inkSoft">
-                      AINCURU LLP is a founder-led software and AI company in Chennai, Tamil
-                      Nadu, India, building production-grade AI automation, custom web platforms, and
-                      mobile applications for startups and SMEs in India and the United States. Every
+                      Aincuru is a technology company building AI-powered software, automation systems,
+                      custom web platforms, and digital products for modern businesses. Every
                       engagement starts with a written agreement that names scope, timeline, and IP
                       terms, and ends with full code, infrastructure, and credentials transferring to
                       the client on final payment.
@@ -77,15 +76,19 @@ export const Hero = () => {
               In a world of constant change, durable engineering wins. We help teams ship AI-native
               products in weeks — and keep evolving them long after launch.
             </p>
-            <button
-              onClick={() => navigate("/services")}
+            <a
+              href="/services"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/services");
+              }}
               className="group mt-7 inline-flex items-center gap-3 font-manuscriptBody text-[15px] font-semibold text-manuscript-ink"
             >
               See what we do
               <span className="flex h-7 w-7 items-center justify-center bg-manuscript-ink text-manuscript-parchmentLight transition-transform duration-200 group-hover:translate-x-0.5">
                 <ArrowRight className="h-4 w-4" />
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

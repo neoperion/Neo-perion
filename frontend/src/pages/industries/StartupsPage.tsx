@@ -167,7 +167,7 @@ export function StartupsPage() {
   };
 
   return (
-    <div className="manuscript-root min-h-screen parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white">
+    <div className="manuscript-root min-h-screen parchment-surface text-manuscript-ink selection:bg-manuscript-copper selection:text-white w-full max-w-full overflow-x-clip box-border">
       <SEO
         title="Startup & Founder Solutions | MVP Development & SaaS | AINCURU"
         description={industry.heroSubtext}
@@ -176,9 +176,9 @@ export function StartupsPage() {
       />
       <Header theme="manuscript" />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-clip box-border">
         {/* ═══════════════ HERO SECTION ═══════════════ */}
-        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 border-b border-manuscript-parchmentDeep relative overflow-hidden">
+        <section className="pt-36 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 lg:px-12 border-b border-manuscript-parchmentDeep relative overflow-hidden w-full max-w-full box-border">
           <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-manuscript-copper/8 rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-manuscript-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -223,14 +223,14 @@ export function StartupsPage() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }} className="w-full max-w-full overflow-hidden">
               <StartupJourneySlider />
             </motion.div>
           </div>
         </section>
 
         {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <div className="mb-12 sm:mb-16 text-center sm:text-left">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
@@ -269,7 +269,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ HOW WE WORK — TIMELINE ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
@@ -307,7 +307,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ FOUNDER TRUST SIGNALS ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <div className="mb-12 sm:mb-16 text-center sm:text-left">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
@@ -347,7 +347,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ TECH STACK ═══════════════ */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
               <div className="shrink-0">
@@ -370,7 +370,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ CASE STUDY PREVIEW ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <div className="relative rounded-3xl overflow-hidden bg-[#FFFDF9] border-2 border-manuscript-copper/30 p-8 sm:p-12 md:p-16 shadow-sm">
               <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-8 sm:gap-12 items-center">
@@ -411,7 +411,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ FAQ ═══════════════ */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 parchment-surface border-b border-manuscript-parchmentDeep w-full max-w-full overflow-hidden box-border">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10 sm:mb-14">
               <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.25em] uppercase text-manuscript-copper mb-2 block">
@@ -460,7 +460,7 @@ export function StartupsPage() {
         </section>
 
         {/* ═══════════════ CTA SECTION ═══════════════ */}
-        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep">
+        <section className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 lg:px-12 parchment-surface--deep text-center relative overflow-hidden border-t border-manuscript-parchmentDeep w-full max-w-full box-border">
           <div className="container mx-auto max-w-3xl relative z-10 space-y-6 sm:space-y-8">
             <span className="chapter-eyebrow font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-manuscript-copper font-bold block">
               Founder Sprint Partnership

@@ -34,6 +34,23 @@ export default function LiquidEther({
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // Check WebGL availability to prevent unhandled runtime errors
+    const isWebGLSupported = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        return !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        );
+      } catch (e) {
+        return false;
+      }
+    };
+
+    if (!isWebGLSupported()) {
+      return;
+    }
+
     function makePaletteTexture(stops) {
       let arr;
       if (Array.isArray(stops) && stops.length > 0) {
@@ -87,16 +104,21 @@ export default function LiquidEther({
         this.container = container;
         this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
         this.resize();
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        this.renderer.autoClear = false;
-        this.renderer.setClearColor(new THREE.Color(0x000000), 0);
-        this.renderer.setPixelRatio(this.pixelRatio);
-        this.renderer.setSize(this.width, this.height);
-        this.renderer.domElement.style.width = '100%';
-        this.renderer.domElement.style.height = '100%';
-        this.renderer.domElement.style.display = 'block';
-        this.clock = new THREE.Clock();
-        this.clock.start();
+        try {
+          this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'default' });
+          this.renderer.autoClear = false;
+          this.renderer.setClearColor(new THREE.Color(0x000000), 0);
+          this.renderer.setPixelRatio(this.pixelRatio);
+          this.renderer.setSize(this.width, this.height);
+          this.renderer.domElement.style.width = '100%';
+          this.renderer.domElement.style.height = '100%';
+          this.renderer.domElement.style.display = 'block';
+          this.clock = new THREE.Clock();
+          this.clock.start();
+        } catch (e) {
+          console.warn('LiquidEther: WebGLRenderer creation failed, using CSS fallback', e);
+          throw e;
+        }
       }
       resize() {
         if (!this.container) return;
@@ -1008,16 +1030,22 @@ export default function LiquidEther({
     container.style.position = container.style.position || 'relative';
     container.style.overflow = container.style.overflow || 'hidden';
 
-    const webgl = new WebGLManager({
-      $wrapper: container,
-      autoDemo,
-      autoSpeed,
-      autoIntensity,
-      takeoverDuration,
-      autoResumeDelay,
-      autoRampDuration
-    });
-    webglRef.current = webgl;
+    let webgl = null;
+    try {
+      webgl = new WebGLManager({
+        $wrapper: container,
+        autoDemo,
+        autoSpeed,
+        autoIntensity,
+        takeoverDuration,
+        autoResumeDelay,
+        autoRampDuration
+      });
+      webglRef.current = webgl;
+    } catch (e) {
+      console.warn('LiquidEther: WebGL simulation could not be initialized, falling back to CSS.', e);
+      return;
+    }
 
     const applyOptionsFromProps = () => {
       if (!webglRef.current) return;

@@ -3,9 +3,9 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SOCIALS = [
-  { img: "/images/instagram.png", href: "https://www.instagram.com/_aincuru",              label: "Instagram" },
-  { img: "/images/linkedin.png",  href: "https://www.linkedin.com/company/aincuru/",       label: "LinkedIn"  },
-  { img: "/images/facebook.png",  href: "https://www.facebook.com/share/1FCuj6vXfz/",     label: "Facebook"  },
+  { img: "/images/instagram.png", href: "https://www.instagram.com/aincuru__/",            label: "Instagram" },
+  { img: "/images/linkedin.png",  href: "https://in.linkedin.com/company/aincuru",          label: "LinkedIn"  },
+  { img: "/images/facebook.png",  href: "https://www.facebook.com/profile.php?id=61592616857347", label: "Facebook" },
   { img: null,                    href: "https://wa.me/917810005472",                       label: "WhatsApp"  },
 ];
 
@@ -40,10 +40,10 @@ const COLUMNS = [
   {
     heading: "Profiles",
     links: [
-      { label: "LinkedIn",   to: "https://www.linkedin.com/company/aincuru/",                        external: true },
-      { label: "Instagram",  to: "https://www.instagram.com/_aincuru",                               external: true },
+      { label: "LinkedIn",   to: "https://in.linkedin.com/company/aincuru",                          external: true },
+      { label: "Instagram",  to: "https://www.instagram.com/aincuru__/",                             external: true },
       { label: "X (Twitter)", to: "https://x.com/aincuru",                                           external: true },
-      { label: "Facebook",   to: "https://www.facebook.com/share/1FCuj6vXfz/",                       external: true },
+      { label: "Facebook",   to: "https://www.facebook.com/profile.php?id=61592616857347",          external: true },
       { label: "Clutch",     to: "https://www.clutch.co/profile/neoperion-solutions",                external: true },
     ],
   },

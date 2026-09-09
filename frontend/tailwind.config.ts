@@ -115,19 +115,15 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
-        logo: ['"Press Start 2P"', 'monospace'],
-        editorial: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
-        serif: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-        // ─── HIGH-END EDITORIAL TECH (Editorial Craft + Cutting-Edge Intelligence) ───
-        // Display / Headings: Instrument Serif (or Newsreader)
-        // Body & UI: Plus Jakarta Sans
-        // Telemetry / Code: JetBrains Mono
-        manuscript: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
-        manuscriptBody: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        manuscriptHand: ['Caveat', '"Brush Script MT"', 'cursive'],
-        manuscriptCode: ['"JetBrains Mono"', 'monospace'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        logo: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        editorial: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Plus Jakarta Sans"', 'Inter', 'monospace'],
+        manuscript: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        manuscriptBody: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        manuscriptHand: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        manuscriptCode: ['"Plus Jakarta Sans"', 'Inter', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",

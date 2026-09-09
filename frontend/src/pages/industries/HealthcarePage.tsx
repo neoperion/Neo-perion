@@ -181,7 +181,7 @@ export function HealthcarePage() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="w-full max-w-full overflow-hidden">
               <ComplianceChecklist />
             </motion.div>
           </div>
@@ -190,7 +190,7 @@ export function HealthcarePage() {
 
 
         {/* ═══════════════ SOLUTIONS GRID ═══════════════ */}
-        <section className="py-24 px-6 lg:px-12 bg-neutral-900">
+        <section className="py-24 px-6 lg:px-12 bg-neutral-900 w-full max-w-full overflow-hidden box-border">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-emerald-600 mb-3 block">What We Build</span>
@@ -218,8 +218,8 @@ export function HealthcarePage() {
                   <motion.div
                     key={i}
                     variants={{
-                      hidden: { opacity: 0, x: 30 },
-                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                      hidden: { opacity: 0, y: 20 },
+                      show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
                     className="group relative p-8 rounded-[24px] bg-neutral-900 border border-neutral-800 hover:border-emerald-200 hover:bg-neutral-900 hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500"
                   >
@@ -264,8 +264,8 @@ export function HealthcarePage() {
                 <motion.div 
                   key={i} 
                   variants={{
-                    hidden: { opacity: 0, x: 30 },
-                    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                   }}
                   className="relative group"
                 >
@@ -311,8 +311,8 @@ export function HealthcarePage() {
                   <motion.div
                     key={i}
                     variants={{
-                      hidden: { opacity: 0, x: 30 },
-                      show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                      hidden: { opacity: 0, y: 20 },
+                      show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                     }}
                     className={`relative rounded-[24px] bg-gradient-to-br ${item.gradient} border border-neutral-800 p-10 overflow-hidden group hover:shadow-xl hover:shadow-emerald-50 transition-all duration-500`}
                   >

@@ -1,8 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ChevronDown,
+  GraduationCap,
+  Rocket,
+  Building2,
+  FileSpreadsheet,
+  Compass,
+  Sparkles,
+  Home,
+  Briefcase
+} from 'lucide-react';
 
 const SERVICES_NAV = [
+  { label: 'All Services Overview', href: '/services', badge: 'Hub' },
   { label: 'AI Solutions', href: '/services/ai-systems-automation' },
   { label: 'Product Development', href: '/services/enterprise-product-engineering' },
   { label: 'Web Development', href: '/services/cloud-native-web-platforms' },
@@ -10,13 +22,38 @@ const SERVICES_NAV = [
   { label: 'Technical Consulting', href: '/services/startup-to-scale-engineering' },
 ];
 
-const ABOUT_NAV = [
-  { label: 'Our Story', href: '/company/about' },
-  { label: 'Case Studies', href: '/company/case-studies' },
-  { label: 'Testimonials', href: '/company/testimonials' },
-  { label: 'Careers', href: '/company/careers' },
-  { label: 'International Engagements', href: '/for-us-clients' },
-  { label: 'Blog & Insights', href: '/company/blog' },
+const INDUSTRIES_SUBNAV = [
+  {
+    label: 'All Industries Overview',
+    href: '/industries',
+    desc: 'Explore sectors & capabilities',
+    icon: Compass,
+    badge: 'Hub'
+  },
+  {
+    label: 'Education & EdTech',
+    href: '/industries/education',
+    desc: 'AI learning & LMS platforms',
+    icon: GraduationCap
+  },
+  {
+    label: 'Startups & Founders',
+    href: '/industries/startups',
+    desc: 'MVP & product engineering',
+    icon: Rocket
+  },
+  {
+    label: 'SMBs & Enterprise',
+    href: '/industries/smbs',
+    desc: 'Business automation & CRM',
+    icon: Building2
+  },
+  {
+    label: 'Accounting Automation',
+    href: '/industries/accounting-automation',
+    desc: 'Registrations & filing workflows',
+    icon: FileSpreadsheet
+  },
 ];
 
 export interface MobileNavigationProps {
@@ -29,6 +66,16 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
   const navigate = useNavigate();
   const location = useLocation();
   const [activeSheet, setActiveSheet] = useState<SheetType>(null);
+  const [industriesExpanded, setIndustriesExpanded] = useState<boolean>(() =>
+    location.pathname.startsWith('/industries')
+  );
+
+  // Auto-expand industries when visiting an industries route
+  useEffect(() => {
+    if (location.pathname.startsWith('/industries')) {
+      setIndustriesExpanded(true);
+    }
+  }, [location.pathname]);
 
   // Lock body scroll when any sheet is open
   useEffect(() => {
@@ -37,9 +84,9 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setActiveSheet(null); };
     document.addEventListener('keydown', onKey);
-    return () => { 
-      document.removeEventListener('keydown', onKey); 
-      document.body.style.overflow = prev; 
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
     };
   }, [activeSheet]);
 
@@ -62,16 +109,22 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
   };
 
   const isDarkTheme = theme === "dark" || theme === "cinematic";
-  
+
   // AINCURU Visual language colors
   const navBg = isDarkTheme ? "bg-[rgba(16,16,16,0.95)]" : "bg-[rgba(248,243,232,0.95)]";
   const navBorder = isDarkTheme ? "border-[rgba(255,255,255,0.08)]" : "border-[rgba(80,55,30,0.15)]";
-  
+
   // Determine active states based on current route or active sheet
   const isHomeActive = location.pathname === '/';
   const isServicesActive = location.pathname.startsWith('/services') || activeSheet === 'services';
   const isWorkActive = location.pathname.startsWith('/portfolio');
-  const isAboutActive = location.pathname.startsWith('/company') || location.pathname.startsWith('/for-us-clients') || activeSheet === 'about';
+  const isAboutActive =
+    location.pathname.startsWith('/company') ||
+    location.pathname.startsWith('/for-us-clients') ||
+    location.pathname.startsWith('/industries') ||
+    activeSheet === 'about';
+
+  const isIndustriesRoute = location.pathname.startsWith('/industries');
 
   const getNavTextClass = (isActive: boolean) => {
     if (isActive) {
@@ -79,9 +132,6 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
     }
     return isDarkTheme ? "text-[#F4EBDD]/70 font-semibold" : "text-manuscript-ink font-semibold";
   };
-
-  const currentSheetNav = activeSheet === 'services' ? SERVICES_NAV : ABOUT_NAV;
-  const sheetTitle = activeSheet === 'services' ? 'SERVICES' : 'ABOUT AINCURU';
 
   return (
     <>
@@ -101,7 +151,7 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
 
             {/* Sheet */}
             <motion.div
-              key={activeSheet} // Ensures animation plays nicely if we wanted to switch directly, though we just replace content
+              key={activeSheet}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
@@ -114,21 +164,19 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
                   setActiveSheet(null);
                 }
               }}
-              className={`absolute left-4 right-4 bottom-[calc(88px+env(safe-area-inset-bottom))] flex flex-col rounded-3xl border overflow-hidden shadow-2xl ${navBg} ${navBorder}`}
+              className={`absolute left-4 right-4 bottom-[calc(72px+env(safe-area-inset-bottom))] flex flex-col rounded-3xl border overflow-hidden shadow-2xl max-w-[calc(100vw-32px)] mx-auto box-border ${navBg} ${navBorder}`}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/5 dark:border-white/5 border-manuscriptAlpha-ink-10">
-                <span className={`font-manuscriptBody text-[13px] tracking-[0.12em] uppercase font-bold ${
-                  isDarkTheme ? 'text-manuscript-copper' : 'text-manuscript-copper'
-                }`}>
-                  {sheetTitle}
+              <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/5 dark:border-white/5 border-manuscriptAlpha-ink-10 w-full box-border">
+                <span className={`font-manuscriptBody text-[13px] tracking-[0.12em] uppercase font-bold ${isDarkTheme ? 'text-manuscript-copper' : 'text-manuscript-copper'
+                  }`}>
+                  {activeSheet === 'services' ? 'SERVICES' : 'ABOUT AINCURU'}
                 </span>
                 <button
                   type="button"
                   onClick={() => setActiveSheet(null)}
-                  className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                    isDarkTheme ? 'text-[#F4EBDD]/60 hover:bg-white/5' : 'text-manuscript-ink/60 hover:bg-black/5'
-                  }`}
+                  className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${isDarkTheme ? 'text-[#F4EBDD]/60 hover:bg-white/5' : 'text-manuscript-ink/60 hover:bg-black/5'
+                    }`}
                   aria-label="Close"
                 >
                   <span className="text-[20px] leading-none mb-0.5">−</span>
@@ -136,92 +184,361 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
               </div>
 
               {/* List */}
-              <nav className="flex flex-col py-2 max-h-[60vh] overflow-y-auto">
-                {currentSheetNav.map((item) => (
-                  <button
-                    key={item.href}
-                    type="button"
-                    onClick={() => go(item.href)}
-                    className={`text-left px-6 py-[18px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${
-                      location.pathname === item.href
-                        ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
-                        : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
-                    }`}
-                  >
-                    {item.label}
-                    {location.pathname === item.href && (
-                       <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
-                    )}
-                  </button>
-                ))}
+              <nav className="flex flex-col py-2 max-h-[62vh] overflow-y-auto">
+                {activeSheet === 'services' ? (
+                  // SERVICES LIST
+                  SERVICES_NAV.map((item) => (
+                    <button
+                      key={item.href}
+                      type="button"
+                      onClick={() => go(item.href)}
+                      className={`text-left px-6 py-[16px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === item.href
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>{item.label}</span>
+                        {item.badge && (
+                          <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                      {location.pathname === item.href && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+                  ))
+                ) : (
+                  // ABOUT LIST (with Industries Sub-Section)
+                  <>
+                    {/* 01 Our Story */}
+                    <button
+                      type="button"
+                      onClick={() => go('/company/about')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/company/about'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>Our Story</span>
+                      {location.pathname === '/company/about' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 02 Industries Navigation Menu Sub-Section */}
+                    <div className="border-y border-manuscriptAlpha-ink-10/40 my-1 py-1">
+                      <button
+                        type="button"
+                        onClick={() => setIndustriesExpanded(prev => !prev)}
+                        className={`w-full text-left px-6 py-[14px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${isIndustriesRoute
+                            ? 'text-manuscript-copper font-semibold'
+                            : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                          }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span>Industries</span>
+                          <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
+                            4 Sectors
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {isIndustriesRoute && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                          )}
+                          <ChevronDown
+                            size={16}
+                            className={`text-manuscript-copper transition-transform duration-200 ${industriesExpanded ? 'rotate-180' : ''
+                              }`}
+                          />
+                        </div>
+                      </button>
+
+                      {/* Industries Collapsible / Expandable Submenu */}
+                      <AnimatePresence>
+                        {industriesExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="px-4 pb-2 space-y-1"
+                          >
+                            <div className={`rounded-2xl p-2 border ${isDarkTheme ? 'bg-white/[0.03] border-white/[0.08]' : 'bg-[#FAF6EE] border-[rgba(80,55,30,0.12)]'
+                              }`}>
+                              {INDUSTRIES_SUBNAV.map((sub) => {
+                                const isSubActive = location.pathname === sub.href;
+                                const Icon = sub.icon;
+                                return (
+                                  <button
+                                    key={sub.href}
+                                    type="button"
+                                    onClick={() => go(sub.href)}
+                                    className={`w-full text-left px-3 py-2.5 rounded-xl text-[14px] font-manuscriptBody transition-all flex items-center justify-between ${isSubActive
+                                        ? (isDarkTheme ? 'bg-white/[0.08] text-manuscript-copper font-bold' : 'bg-white text-manuscript-copper font-bold shadow-sm')
+                                        : (isDarkTheme ? 'text-[#F4EBDD]/80 hover:bg-white/[0.04]' : 'text-manuscript-ink hover:bg-white/60')
+                                      }`}
+                                  >
+                                    <div className="flex items-center gap-2.5 min-w-0">
+                                      <span className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSubActive
+                                          ? 'bg-manuscript-copper text-white'
+                                          : (isDarkTheme ? 'bg-white/[0.06] text-manuscript-copper' : 'bg-white text-manuscript-copper border border-[rgba(80,55,30,0.1)]')
+                                        }`}>
+                                        <Icon size={14} />
+                                      </span>
+                                      <div className="flex flex-col min-w-0">
+                                        <div className="flex items-center gap-1.5">
+                                          <span className="truncate leading-tight font-medium">{sub.label}</span>
+                                          {sub.badge && (
+                                            <span className="font-mono text-[8px] uppercase px-1.5 py-0.2 rounded bg-manuscript-copper/10 text-manuscript-copper font-bold">
+                                              {sub.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <span className="text-[11px] font-manuscriptBody text-manuscript-inkMuted truncate leading-none mt-0.5">
+                                          {sub.desc}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    {isSubActive && (
+                                      <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper shrink-0 ml-2" />
+                                    )}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* 03 Case Studies */}
+                    <button
+                      type="button"
+                      onClick={() => go('/company/case-studies')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/company/case-studies'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>Case Studies</span>
+                      {location.pathname === '/company/case-studies' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 04 Testimonials */}
+                    <button
+                      type="button"
+                      onClick={() => go('/company/testimonials')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/company/testimonials'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>Testimonials</span>
+                      {location.pathname === '/company/testimonials' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 05 Careers */}
+                    <button
+                      type="button"
+                      onClick={() => go('/company/careers')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/company/careers'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>Careers</span>
+                      {location.pathname === '/company/careers' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 06 International Engagements */}
+                    <button
+                      type="button"
+                      onClick={() => go('/for-us-clients')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/for-us-clients'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>International Engagements</span>
+                      {location.pathname === '/for-us-clients' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 07 Blog & Insights */}
+                    <button
+                      type="button"
+                      onClick={() => go('/company/blog')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === '/company/blog'
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                        }`}
+                    >
+                      <span>Blog & Insights</span>
+                      {location.pathname === '/company/blog' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+                  </>
+                )}
               </nav>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
-      {/* Floating Bottom Nav */}
-      <div 
-        className={`fixed left-4 right-4 z-[70] md:hidden pb-[env(safe-area-inset-bottom)] bottom-3`}
+      {/* Floating Bottom Nav — Telegram / Minimal Island Style */}
+      <div
+        className="fixed left-0 right-0 z-[70] md:hidden pb-[env(safe-area-inset-bottom)] bottom-2.5 px-3 flex justify-center pointer-events-none"
       >
-        <nav 
-          className={`h-[78px] rounded-[24px] border shadow-[0_12px_24px_rgba(0,0,0,0.08)] flex items-center justify-around px-1 backdrop-blur-md ${navBg} ${navBorder}`}
+        <nav
+          className={`h-[56px] w-full max-w-[330px] rounded-full border shadow-[0_8px_24px_-4px_rgba(40,25,10,0.1),0_2px_6px_rgba(0,0,0,0.04)] flex items-center justify-between px-1 backdrop-blur-xl box-border pointer-events-auto transition-all ${isDarkTheme
+              ? 'bg-[#121214]/92 border-white/10'
+              : 'bg-[#FFFDF9]/92 border-[rgba(80,55,30,0.14)]'
+            }`}
+          role="navigation"
+          aria-label="Mobile Bottom Navigation"
         >
-          <button
+          {/* 01 HOME */}
+          <motion.button
             type="button"
             onClick={() => go('/')}
-            className={`flex-1 h-full flex flex-col items-center justify-center gap-[4px] font-manuscriptBody text-[10px] tracking-[0.08em] uppercase transition-all active:scale-95 ${getNavTextClass(isHomeActive)}`}
+            whileTap={{ scale: 0.92 }}
+            className="flex-1 h-full flex flex-col items-center justify-center relative py-1 select-none"
+            aria-label="Home"
+            aria-current={isHomeActive ? 'page' : undefined}
           >
-            <img 
-              src="/images/header icons/icons8-home-100.png" 
-              alt="" 
-              aria-hidden="true" 
-              className={`w-[28px] h-[28px] object-contain transition-all duration-300 ${isHomeActive ? 'opacity-100 scale-105' : 'opacity-60 saturate-50'}`} 
-            />
-            <span>HOME</span>
-          </button>
-          
-          <button
+            <div className="relative w-[24px] h-[24px] flex items-center justify-center">
+              {isHomeActive && (
+                <motion.div
+                  layoutId="telegram-nav-pill"
+                  transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  className={`absolute inset-0 rounded-full ${isDarkTheme ? 'bg-manuscript-copper/25' : 'bg-manuscript-copper/15'
+                    }`}
+                />
+              )}
+              <span className={`relative z-10 transition-colors duration-200 ${isHomeActive
+                  ? 'text-manuscript-copper'
+                  : isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                }`}>
+                <Home size={16} strokeWidth={isHomeActive ? 2.3 : 1.9} />
+              </span>
+            </div>
+            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isHomeActive
+                ? 'font-bold text-manuscript-copper'
+                : isDarkTheme ? 'font-medium text-[#F4EBDD]/70' : 'font-medium text-manuscript-inkMuted'
+              }`}>
+              Home
+            </span>
+          </motion.button>
+
+          {/* 02 SERVICES */}
+          <motion.button
             type="button"
             onClick={() => toggleSheet('services')}
-            className={`flex-1 h-full flex flex-col items-center justify-center gap-[4px] font-manuscriptBody text-[10px] tracking-[0.08em] uppercase transition-all active:scale-95 ${getNavTextClass(isServicesActive)}`}
+            whileTap={{ scale: 0.92 }}
+            className="flex-1 h-full flex flex-col items-center justify-center relative py-1 select-none"
+            aria-label="Services Menu"
+            aria-expanded={activeSheet === 'services'}
           >
-            <img 
-              src="/images/header icons/icons8-service-100.png" 
-              alt="" 
-              aria-hidden="true" 
-              className={`w-[28px] h-[28px] object-contain transition-all duration-300 ${isServicesActive ? 'opacity-100 scale-105' : 'opacity-60 saturate-50'}`} 
-            />
-            <span>SERVICES</span>
-          </button>
-          
-          <button
+            <div className="relative w-[24px] h-[24px] flex items-center justify-center">
+              {isServicesActive && (
+                <motion.div
+                  layoutId="telegram-nav-pill"
+                  transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  className={`absolute inset-0 rounded-full ${isDarkTheme ? 'bg-manuscript-copper/25' : 'bg-manuscript-copper/15'
+                    }`}
+                />
+              )}
+              <span className={`relative z-10 transition-colors duration-200 ${isServicesActive
+                  ? 'text-manuscript-copper'
+                  : isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                }`}>
+                <Sparkles size={16} strokeWidth={isServicesActive ? 2.3 : 1.9} />
+              </span>
+            </div>
+            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isServicesActive
+                ? 'font-bold text-manuscript-copper'
+                : isDarkTheme ? 'font-medium text-[#F4EBDD]/70' : 'font-medium text-manuscript-inkMuted'
+              }`}>
+              Services
+            </span>
+          </motion.button>
+
+          {/* 03 WORK */}
+          <motion.button
             type="button"
             onClick={() => go('/portfolio')}
-            className={`flex-1 h-full flex flex-col items-center justify-center gap-[4px] font-manuscriptBody text-[10px] tracking-[0.08em] uppercase transition-all active:scale-95 ${getNavTextClass(isWorkActive)}`}
+            whileTap={{ scale: 0.92 }}
+            className="flex-1 h-full flex flex-col items-center justify-center relative py-1 select-none"
+            aria-label="Portfolio Work"
+            aria-current={isWorkActive ? 'page' : undefined}
           >
-            <img 
-              src="/images/header icons/icons8-work-48.png" 
-              alt="" 
-              aria-hidden="true" 
-              className={`w-[28px] h-[28px] object-contain transition-all duration-300 ${isWorkActive ? 'opacity-100 scale-105' : 'opacity-60 saturate-50'}`} 
-            />
-            <span>WORK</span>
-          </button>
-          
-          <button
+            <div className="relative w-[24px] h-[24px] flex items-center justify-center">
+              {isWorkActive && (
+                <motion.div
+                  layoutId="telegram-nav-pill"
+                  transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  className={`absolute inset-0 rounded-full ${isDarkTheme ? 'bg-manuscript-copper/25' : 'bg-manuscript-copper/15'
+                    }`}
+                />
+              )}
+              <span className={`relative z-10 transition-colors duration-200 ${isWorkActive
+                  ? 'text-manuscript-copper'
+                  : isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                }`}>
+                <Briefcase size={16} strokeWidth={isWorkActive ? 2.3 : 1.9} />
+              </span>
+            </div>
+            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isWorkActive
+                ? 'font-bold text-manuscript-copper'
+                : isDarkTheme ? 'font-medium text-[#F4EBDD]/70' : 'font-medium text-manuscript-inkMuted'
+              }`}>
+              Work
+            </span>
+          </motion.button>
+
+          {/* 04 ABOUT */}
+          <motion.button
             type="button"
             onClick={() => toggleSheet('about')}
-            className={`flex-1 h-full flex flex-col items-center justify-center gap-[4px] font-manuscriptBody text-[10px] tracking-[0.08em] uppercase transition-all active:scale-95 ${getNavTextClass(isAboutActive)}`}
+            whileTap={{ scale: 0.92 }}
+            className="flex-1 h-full flex flex-col items-center justify-center relative py-1 select-none"
+            aria-label="About & Industries Menu"
+            aria-expanded={activeSheet === 'about'}
           >
-            <img 
-              src="/images/header icons/icons8-about-100.png" 
-              alt="" 
-              aria-hidden="true" 
-              className={`w-[28px] h-[28px] object-contain transition-all duration-300 ${isAboutActive ? 'opacity-100 scale-105' : 'opacity-60 saturate-50'}`} 
-            />
-            <span>ABOUT</span>
-          </button>
+            <div className="relative w-[24px] h-[24px] flex items-center justify-center">
+              {isAboutActive && (
+                <motion.div
+                  layoutId="telegram-nav-pill"
+                  transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  className={`absolute inset-0 rounded-full ${isDarkTheme ? 'bg-manuscript-copper/25' : 'bg-manuscript-copper/15'
+                    }`}
+                />
+              )}
+              <span className={`relative z-10 transition-colors duration-200 ${isAboutActive
+                  ? 'text-manuscript-copper'
+                  : isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                }`}>
+                <Compass size={16} strokeWidth={isAboutActive ? 2.3 : 1.9} />
+              </span>
+            </div>
+            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isAboutActive
+                ? 'font-bold text-manuscript-copper'
+                : isDarkTheme ? 'font-medium text-[#F4EBDD]/70' : 'font-medium text-manuscript-inkMuted'
+              }`}>
+              About
+            </span>
+          </motion.button>
         </nav>
       </div>
     </>

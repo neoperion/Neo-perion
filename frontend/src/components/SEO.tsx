@@ -11,9 +11,9 @@ interface SEOProps {
   jsonLd?: object | object[];
 }
 
-const DEFAULT_TITLE = 'AINCURU | Product Engineering & AI Solutions';
+const DEFAULT_TITLE = 'Aincuru | AI, Software & Digital Solutions';
 const DEFAULT_DESCRIPTION =
-  'AINCURU builds AI business automation, product software and digital systems around business context.';
+  'Aincuru builds AI solutions, software, websites, automation systems, and digital products for modern businesses.';
 
 export const SEO = ({
   title,
@@ -25,12 +25,12 @@ export const SEO = ({
   jsonLd
 }: SEOProps) => {
 
-  const siteName = "AINCURU LLP";
+  const siteName = "Aincuru";
   
   // Format the title logically without keyword stuffing
   let fullTitle = DEFAULT_TITLE;
   if (title) {
-    fullTitle = title.includes("AINCURU") ? title : `${title} | AINCURU`;
+    fullTitle = /aincuru/i.test(title) ? title : `${title} | Aincuru`;
   }
 
   // Handle both array of schemas and single schema safely
@@ -70,6 +70,8 @@ export const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={finalOgImage} />
+      <meta name="twitter:site" content="@aincuru" />
+      <meta name="twitter:creator" content="@aincuru" />
 
       {/* JSON-LD Structured Data */}
       {jsonLdString && (

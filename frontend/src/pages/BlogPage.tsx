@@ -114,15 +114,19 @@ export const BlogPage: React.FC = () => {
 
           <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
             {/* Sticky filter + search bar */}
-            <div className="sticky top-[76px] z-30 -mx-6 mt-16 border-y border-manuscript-parchmentDeep bg-manuscript-parchment/90 px-6 py-4 backdrop-blur-xl lg:-mx-8 lg:px-8">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <BlogFilters
-                  categories={CATEGORIES}
-                  activeCategory={activeCategory}
-                  onCategoryChange={setActiveCategory}
-                  theme="light"
-                />
-                <BlogSearch onSearch={setSearchQuery} theme="light" />
+            <div className="sticky top-[68px] md:top-[76px] z-30 -mx-4 sm:-mx-6 lg:-mx-8 mt-12 sm:mt-16 border-y border-manuscript-parchmentDeep/70 bg-manuscript-parchment/95 px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8 backdrop-blur-xl transition-all shadow-[0_4px_24px_rgba(91,58,31,0.03)]">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                <div className="min-w-0 flex-1">
+                  <BlogFilters
+                    categories={CATEGORIES}
+                    activeCategory={activeCategory}
+                    onCategoryChange={setActiveCategory}
+                    theme="light"
+                  />
+                </div>
+                <div className="w-full lg:w-auto shrink-0">
+                  <BlogSearch onSearch={setSearchQuery} theme="light" />
+                </div>
               </div>
             </div>
 
