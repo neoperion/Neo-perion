@@ -71,12 +71,19 @@ export const seoConfig = {
     url: '/industries/manufacturing',
     jsonLd: buildServiceSchema({ name: 'Manufacturing Software Solutions', description: 'Digital transformation for manufacturing companies.', slug: 'manufacturing' })
   },
+  accountingAutomation: {
+    title: 'Business Registrations & Accounting Automation | AINCURU',
+    description: 'Automate repetitive business registrations, MSME, GST, and statutory filings with intelligent human-controlled systems. 40 minutes becomes 1 minute.',
+    keywords: 'accounting automation, business registration automation, MSME registration automation, GST filing software, MCA incorporation automation, workflow automation',
+    url: '/industries/accounting-automation',
+    jsonLd: buildServiceSchema({ name: 'Business Registrations & Accounting Automation', description: 'Intelligent automation for statutory registrations, finance, and accounting workflows.', slug: 'accounting-automation' })
+  },
   healthcare: {
-    title: 'Healthcare Software Solutions | AINCURU',
-    description: 'Build secure patient portals, healthcare apps, and automate hospital administrative tasks with custom software and AI.',
-    keywords: 'healthcare software solutions, healthcare automation, healthcare AI, hospital software development',
-    url: '/industries/healthcare',
-    jsonLd: buildServiceSchema({ name: 'Healthcare Software Solutions', description: 'Custom software and AI automation for healthcare organizations.', slug: 'healthcare' })
+    title: 'Business Registrations & Accounting Automation | AINCURU',
+    description: 'Automate repetitive business registrations, MSME, GST, and statutory filings with intelligent human-controlled systems.',
+    keywords: 'accounting automation, business registration automation, MSME registration automation',
+    url: '/industries/accounting-automation',
+    jsonLd: buildServiceSchema({ name: 'Business Registrations & Accounting Automation', description: 'Intelligent automation for statutory registrations, finance, and accounting workflows.', slug: 'accounting-automation' })
   },
   portfolio: {
     title: 'Software Development Portfolio | AINCURU',

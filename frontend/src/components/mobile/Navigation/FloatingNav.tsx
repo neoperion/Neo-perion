@@ -39,7 +39,7 @@ export function FloatingNav({ onOrbClick, onSectionClick, orbOpen = false }: Flo
     if (q.section === 'company')   return (
       ['/company/about', '/company/careers', '/company/blog', '/company/case-studies',
        '/company/insights', '/company/testimonials',
-       '/company/success-stories', '/company/founder-letter'].some((p) => location.pathname.startsWith(p))
+       '/company/success-stories', '/company/founder-letter', '/industries'].some((p) => location.pathname.startsWith(p))
     );
     return false;
   };

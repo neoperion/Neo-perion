@@ -1,7 +1,7 @@
 import {
   Brain, Sparkles, Cog, Blocks, Cloud, Smartphone, Rocket, Lightbulb,
   GraduationCap, HeartPulse, Building2, Briefcase, BookOpen, Newspaper, Cpu,
-  FileText, TrendingUp, MessageSquare, PenTool, Target, ShieldCheck,
+  FileText, TrendingUp, MessageSquare, PenTool, Target, ShieldCheck, FileSpreadsheet,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -102,13 +102,13 @@ export const desktopNavSections: DesktopSection[] = [
         ],
       },
       {
-        title: 'HEALTHCARE', icon: HeartPulse, href: '/industries/healthcare',
-        description: 'Healthcare software, patient management systems and AI-powered healthcare solutions.',
+        title: 'REGISTRATIONS & ACCOUNTING', icon: FileSpreadsheet, href: '/industries/accounting-automation',
+        description: 'Automated statutory registrations, MSME, GST, MCA corporate filings, and human-in-the-loop workflows.',
         items: [
-          { label: 'Patient Platforms', href: '/industries/healthcare' },
-          { label: 'Telemedicine', href: '/industries/healthcare' },
-          { label: 'AI Diagnostics', href: '/industries/healthcare' },
-          { label: 'Healthcare Analytics', href: '/industries/healthcare' },
+          { label: 'MSME Registrations', href: '/industries/accounting-automation' },
+          { label: 'GST Automation', href: '/industries/accounting-automation' },
+          { label: 'MCA & Incorporations', href: '/industries/accounting-automation' },
+          { label: 'Document Verification', href: '/industries/accounting-automation' },
         ],
       },
     ],

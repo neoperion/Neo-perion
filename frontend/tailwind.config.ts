@@ -114,17 +114,20 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter Tight', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
         logo: ['"Press Start 2P"', 'monospace'],
-        editorial: ['Instrument Serif', 'serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-        // ─── MANUSCRIPT TOKENS (Phase 1 — Living Manuscript rebrand) ───
-        // Loaded from index.html Google Fonts request. Cormorant for display,
-        // Inter retained for body, Caveat for handwritten accents.
-        manuscript: ['"Cormorant Garamond"', 'Garamond', 'Georgia', 'serif'],
-        manuscriptBody: ['Inter', 'system-ui', 'sans-serif'],
+        editorial: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
+        serif: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        // ─── HIGH-END EDITORIAL TECH (Editorial Craft + Cutting-Edge Intelligence) ───
+        // Display / Headings: Instrument Serif (or Newsreader)
+        // Body & UI: Plus Jakarta Sans
+        // Telemetry / Code: JetBrains Mono
+        manuscript: ['"Instrument Serif"', 'Newsreader', 'Georgia', 'serif'],
+        manuscriptBody: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         manuscriptHand: ['Caveat', '"Brush Script MT"', 'cursive'],
+        manuscriptCode: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",

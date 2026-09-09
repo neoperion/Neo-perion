@@ -57,6 +57,7 @@ const NAV: NavItem[] = [
     viewAll: { label: "About us", href: "/company/about" },
     rows: [
       { label: "Our Story", href: "/company/about" },
+      { label: "Industries", href: "/industries" },
       { label: "Case Studies", href: "/company/case-studies" },
       { label: "Testimonials", href: "/company/testimonials" },
       { label: "Careers", href: "/company/careers" },
