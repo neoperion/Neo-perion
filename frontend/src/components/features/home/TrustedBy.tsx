@@ -1,12 +1,28 @@
 import * as React from "react";
 
 // Real client logos (uploaded to public/images). Spaces in filenames are URL-encoded.
-const LOGOS = [
+interface LogoItem {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+const LOGOS: LogoItem[] = [
   { src: "/images/lexizfy.png", alt: "Lexizfy" },
   { src: "/images/izhaiyam.png", alt: "Izhaiyam" },
   { src: "/images/krishna%20packers.png", alt: "Krishna Packers" },
   { src: "/images/holo%20mehnd.png", alt: "Holo Mehndi" },
-  { src: "/images/images.png", alt: "Client" },
+  { 
+    src: "/images/mas%20trader%20logo.jpeg", 
+    alt: "MAS Trader",
+    className: "mix-blend-multiply rounded-full"
+  },
+  { 
+    src: "/images/fritado-logo.png", 
+    alt: "Fritado", 
+    className: "invert mix-blend-multiply dark:invert-0 dark:mix-blend-screen" 
+  },
+  { src: "/images/images.png", alt: "Garden City University" },
 ];
 
 function LogoRow({ hidden = false }: { hidden?: boolean }) {
@@ -18,7 +34,7 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
             src={logo.src}
             alt={hidden ? "" : logo.alt}
             loading="lazy"
-            className="h-10 w-auto object-contain md:h-14"
+            className={`h-10 w-auto object-contain md:h-14 ${logo.className || ""}`}
           />
         </div>
       ))}

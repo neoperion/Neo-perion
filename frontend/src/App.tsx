@@ -21,6 +21,7 @@ import PortfolioDetail from "./pages/PortfolioDetail";
 import FounderLetter from "./pages/FounderLetter";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
+import FritadoPage from "./pages/FritadoPage";
 import Contact from "./pages/Contact";
 import UsClients from "./pages/UsClients";
 import Security from "./pages/Security";
@@ -91,6 +92,8 @@ const App = () => (
               <Route path="/for-us-clients" element={<UsClients />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+              <Route path="/products/fritado" element={<FritadoPage />} />
+              <Route path="/fritado" element={<Navigate to="/products/fritado" replace />} />
 
               {/* Admin Login - Outside of AdminLayout Guard */}
               <Route path="/admin/login" element={<AdminLogin />} />

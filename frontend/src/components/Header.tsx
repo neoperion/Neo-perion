@@ -8,6 +8,8 @@ import { MobileNavigation } from "@/components/mobile/Navigation/MobileNavigatio
 interface Row {
   label: string;
   href: string;
+  badge?: string;
+  description?: string;
 }
 
 interface DropdownMenu {
@@ -44,6 +46,22 @@ const NAV: NavItem[] = [
     ],
   },
   {
+    kind: "dropdown",
+    label: "Products",
+    panelTitle: "Products by AINCURU",
+    description:
+      "Proprietary software and AI workflow engines designed, engineered, and operated by AINCURU.",
+    viewAll: { label: "View all products", href: "/products/fritado" },
+    rows: [
+      { 
+        label: "Fritado", 
+        href: "/products/fritado",
+        badge: "AI Growth Engine",
+        description: "AI-powered B2B pipeline workflow & growth platform",
+      },
+    ],
+  },
+  {
     kind: "link",
     label: "Portfolio",
     href: "/portfolio",
@@ -66,11 +84,21 @@ const NAV: NavItem[] = [
     ],
   },
 ];
+export interface HeaderProps {
+  theme?: "manuscript" | "dark" | "cinematic";
+  heroLogo?: string;
+  heroElementId?: string;
+}
 
-export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark" | "cinematic" }) => {
+export const Header = ({ 
+  theme = "manuscript",
+  heroLogo,
+  heroElementId = "fritado-hero",
+}: HeaderProps) => {
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -78,11 +106,24 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 24);
+
+      if (heroLogo) {
+        const heroEl = document.getElementById(heroElementId);
+        if (heroEl) {
+          const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+          setIsPastHero(scrollY + 70 >= heroBottom);
+        } else {
+          setIsPastHero(scrollY > 600);
+        }
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [heroLogo, heroElementId]);
 
   const handleNavigation = (href: string) => {
     setActiveDropdown(null);
@@ -115,7 +156,7 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
       if (closeTimer.current) clearTimeout(closeTimer.current);
       if (openTimer.current) clearTimeout(openTimer.current);
     },
-    [],
+    []
   );
 
   const active = NAV.find((n) => n.kind === "dropdown" && n.label === activeDropdown) as
@@ -140,13 +181,22 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
               e.preventDefault();
               handleNavigation("/");
             }}
+            aria-label="AINCURU Home"
             className="flex shrink-0 cursor-pointer items-center pointer-events-auto"
           >
+            {heroLogo && !isPastHero ? (
+              <img
+                src={heroLogo}
+                alt="AINCURU — Context Creates Intelligence"
+                className="w-[140px] md:w-[165px] h-auto object-contain transition-opacity duration-300"
+              />
+            ) : (
               <img
                 src="/images/aincuru-logo.png"
                 alt="AINCURU — Context Creates Intelligence"
-                className="w-[125px] md:w-[145px] object-contain"
+                className="w-[125px] md:w-[145px] object-contain transition-opacity duration-300"
               />
+            )}
           </a>
 
           {/* Centered nav */}
@@ -321,13 +371,29 @@ export const Header = ({ theme = "manuscript" }: { theme?: "manuscript" | "dark"
                           : 'hover:bg-white/50'
                       }`}
                     >
-                      <span className={`font-manuscriptBody text-[14px] lg:text-[15px] font-semibold leading-snug transition-colors ${
-                        isDarkTheme
-                          ? 'text-[#F4EBDD]/90 group-hover:text-manuscript-copper'
-                          : 'text-manuscript-ink group-hover:text-manuscript-rustDeep'
-                      }`}>
-                        {row.label}
-                      </span>
+                      <div className="flex flex-col">
+                        <div className="flex items-center gap-2">
+                          <span className={`font-manuscriptBody text-[14px] lg:text-[15px] font-semibold leading-snug transition-colors ${
+                            isDarkTheme
+                              ? 'text-[#F4EBDD]/90 group-hover:text-manuscript-copper'
+                              : 'text-manuscript-ink group-hover:text-manuscript-rustDeep'
+                          }`}>
+                            {row.label}
+                          </span>
+                          {row.badge && (
+                            <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20 whitespace-nowrap">
+                              {row.badge}
+                            </span>
+                          )}
+                        </div>
+                        {row.description && (
+                          <span className={`text-[12px] leading-tight mt-0.5 ${
+                            isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
+                          }`}>
+                            {row.description}
+                          </span>
+                        )}
+                      </div>
                       <span className={`flex h-6 w-6 lg:h-7 lg:w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
                         isDarkTheme
                           ? 'border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] text-[#F4EBDD]/50 group-hover:border-manuscript-copper group-hover:bg-manuscript-copper group-hover:text-black'

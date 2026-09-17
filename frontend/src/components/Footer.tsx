@@ -23,6 +23,7 @@ const COLUMNS = [
   {
     heading: "Capabilities",
     links: [
+      { label: "Fritado (AI Pipeline)", to: "/products/fritado" },
       { label: "AI & LLMs", to: "/services/ai-systems-automation" },
       { label: "Automation", to: "/services/intelligent-operations-automation" },
       { label: "Product Engineering", to: "/services/enterprise-product-engineering" },
@@ -66,7 +67,7 @@ export const Footer = () => {
 
   return (
     <footer className="parchment-surface relative overflow-x-clip w-full border-t border-manuscriptAlpha-ink-15">
-      <div className="container relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 pb-4 pt-16 lg:px-8 w-full box-border">
+      <div className="container relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 pb-28 md:pb-6 pt-16 lg:px-8 w-full box-border">
         
         {/* Slim CTA strip */}
         <div className="mb-16 flex flex-col items-start justify-between gap-4 border-b border-manuscriptAlpha-ink-15 pb-12 sm:flex-row sm:items-center">

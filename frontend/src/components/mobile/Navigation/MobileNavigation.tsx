@@ -10,7 +10,9 @@ import {
   Compass,
   Sparkles,
   Home,
-  Briefcase
+  Briefcase,
+  Layers,
+  ArrowRight
 } from 'lucide-react';
 
 const SERVICES_NAV = [
@@ -60,7 +62,7 @@ export interface MobileNavigationProps {
   theme?: "manuscript" | "dark" | "cinematic";
 }
 
-type SheetType = 'services' | 'about' | null;
+type SheetType = 'services' | 'products' | 'about' | null;
 
 export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps) {
   const navigate = useNavigate();
@@ -117,11 +119,15 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
   // Determine active states based on current route or active sheet
   const isHomeActive = location.pathname === '/';
   const isServicesActive = location.pathname.startsWith('/services') || activeSheet === 'services';
-  const isWorkActive = location.pathname.startsWith('/portfolio');
+  const isProductsActive =
+    location.pathname.startsWith('/products') ||
+    location.pathname === '/fritado' ||
+    activeSheet === 'products';
   const isAboutActive =
     location.pathname.startsWith('/company') ||
     location.pathname.startsWith('/for-us-clients') ||
     location.pathname.startsWith('/industries') ||
+    location.pathname.startsWith('/portfolio') ||
     activeSheet === 'about';
 
   const isIndustriesRoute = location.pathname.startsWith('/industries');
@@ -170,7 +176,11 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
               <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/5 dark:border-white/5 border-manuscriptAlpha-ink-10 w-full box-border">
                 <span className={`font-manuscriptBody text-[13px] tracking-[0.12em] uppercase font-bold ${isDarkTheme ? 'text-manuscript-copper' : 'text-manuscript-copper'
                   }`}>
-                  {activeSheet === 'services' ? 'SERVICES' : 'ABOUT AINCURU'}
+                  {activeSheet === 'services' 
+                    ? 'SERVICES' 
+                    : activeSheet === 'products' 
+                      ? 'PRODUCTS BY AINCURU' 
+                      : 'ABOUT AINCURU'}
                 </span>
                 <button
                   type="button"
@@ -187,31 +197,123 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
               <nav className="flex flex-col py-2 max-h-[62vh] overflow-y-auto">
                 {activeSheet === 'services' ? (
                   // SERVICES LIST
-                  SERVICES_NAV.map((item) => (
-                    <button
-                      key={item.href}
-                      type="button"
-                      onClick={() => go(item.href)}
-                      className={`text-left px-6 py-[16px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === item.href
-                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
-                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
-                        }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <span>{item.label}</span>
-                        {item.badge && (
-                          <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
-                            {item.badge}
-                          </span>
+                  <>
+                    {SERVICES_NAV.map((item) => (
+                      <button
+                        key={item.href}
+                        type="button"
+                        onClick={() => go(item.href)}
+                        className={`text-left px-6 py-[16px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${location.pathname === item.href
+                            ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                            : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                          }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span>{item.label}</span>
+                          {item.badge && (
+                            <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                        {location.pathname === item.href && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
                         )}
+                      </button>
+                    ))}
+                  </>
+                ) : activeSheet === 'products' ? (
+                  // PRODUCTS LIST
+                  <div className="p-4 space-y-3">
+                    {/* Featured Flagship Product Card: Fritado */}
+                    <div
+                      className={`relative rounded-2xl p-4 sm:p-5 border transition-all ${
+                        location.pathname === '/products/fritado' || location.pathname === '/fritado'
+                          ? (isDarkTheme 
+                              ? 'bg-manuscript-copper/10 border-manuscript-copper/40 shadow-lg' 
+                              : 'bg-manuscript-parchmentLight border-manuscript-copper/40 shadow-md')
+                          : (isDarkTheme 
+                              ? 'bg-white/[0.03] border-white/[0.08]' 
+                              : 'bg-[#FAF6EE] border-[rgba(80,55,30,0.12)]')
+                      }`}
+                    >
+                      {/* Header with Title + Badge + Live Pulse */}
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-mono text-[10px] uppercase tracking-wider text-manuscript-copper font-bold">
+                              FLAGSHIP PLATFORM
+                            </span>
+                            <span className="inline-flex items-center gap-1 font-mono text-[9px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Live Engine
+                            </span>
+                          </div>
+                          <h4 className={`font-manuscript text-[22px] font-bold tracking-tight ${
+                            isDarkTheme ? 'text-[#F4EBDD]' : 'text-manuscript-ink'
+                          }`}>
+                            Fritado
+                          </h4>
+                        </div>
+
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-manuscript-copper/15 text-manuscript-copper font-bold border border-manuscript-copper/30 shrink-0">
+                          AI Growth Engine
+                        </span>
                       </div>
-                      {location.pathname === item.href && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
-                      )}
+
+                      {/* One-Liner Description */}
+                      <p className={`font-manuscriptBody text-[13.5px] leading-relaxed mb-3.5 ${
+                        isDarkTheme ? 'text-[#F4EBDD]/75' : 'text-manuscript-inkMuted'
+                      }`}>
+                        AI-powered B2B pipeline engine for discovering high-intent accounts, compiling executive dossiers, and orchestrating verified outbound.
+                      </p>
+
+                      {/* Key Capabilities Pills */}
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {['Lead Flow', 'AI Research', 'Review Gate', 'CRM Sync'].map((feat) => (
+                          <span 
+                            key={feat}
+                            className={`font-mono text-[10px] px-2 py-0.5 rounded-md border ${
+                              isDarkTheme 
+                                ? 'bg-white/[0.04] text-[#F4EBDD]/70 border-white/[0.08]' 
+                                : 'bg-white text-manuscript-inkMuted border-manuscriptAlpha-ink-10'
+                            }`}
+                          >
+                            {feat}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Primary Action Button */}
+                      <button
+                        type="button"
+                        onClick={() => go('/products/fritado')}
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-manuscript-copper hover:bg-manuscript-copperDeep text-white py-3 px-4 font-manuscriptBody text-[14px] font-bold tracking-wide transition-all shadow-sm active:scale-[0.99]"
+                      >
+                        <span>Explore Fritado Platform</span>
+                        <ArrowRight size={15} />
+                      </button>
+                    </div>
+
+                    {/* All Products Overview Link */}
+                    <button
+                      type="button"
+                      onClick={() => go('/products/fritado')}
+                      className={`w-full text-left px-4 py-3 rounded-xl font-manuscriptBody text-[14px] transition-colors flex items-center justify-between ${
+                        isDarkTheme ? 'text-[#F4EBDD]/80 hover:bg-white/[0.04]' : 'text-manuscript-ink hover:bg-white/60'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Layers size={16} className="text-manuscript-copper" />
+                        <span className="font-medium">All Products Overview</span>
+                      </div>
+                      <span className="font-mono text-[11px] text-manuscript-copper font-semibold">
+                        /products/fritado
+                      </span>
                     </button>
-                  ))
+                  </div>
                 ) : (
-                  // ABOUT LIST (with Industries Sub-Section)
+                  // ABOUT LIST (with Work & Industries Sub-Section)
                   <>
                     {/* 01 Our Story */}
                     <button
@@ -224,6 +326,30 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
                     >
                       <span>Our Story</span>
                       {location.pathname === '/company/about' && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+                      )}
+                    </button>
+
+                    {/* 02 Work / Portfolio */}
+                    <button
+                      type="button"
+                      onClick={() => go('/portfolio')}
+                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${
+                        location.pathname === '/portfolio' || location.pathname.startsWith('/portfolio')
+                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
+                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-2">
+                          <Briefcase size={16} className="text-manuscript-copper shrink-0" />
+                          <span>Work</span>
+                        </div>
+                        <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
+                          Portfolio
+                        </span>
+                      </div>
+                      {(location.pathname === '/portfolio' || location.pathname.startsWith('/portfolio')) && (
                         <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
                       )}
                     </button>
@@ -474,17 +600,18 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
             </span>
           </motion.button>
 
-          {/* 03 WORK */}
+          {/* 03 PRODUCTS */}
           <motion.button
             type="button"
-            onClick={() => go('/portfolio')}
+            onClick={() => toggleSheet('products')}
             whileTap={{ scale: 0.92 }}
             className="flex-1 h-full flex flex-col items-center justify-center relative py-1 select-none"
-            aria-label="Portfolio Work"
-            aria-current={isWorkActive ? 'page' : undefined}
+            aria-label="Products Menu"
+            aria-expanded={activeSheet === 'products'}
+            aria-current={isProductsActive ? 'page' : undefined}
           >
             <div className="relative w-[24px] h-[24px] flex items-center justify-center">
-              {isWorkActive && (
+              {isProductsActive && (
                 <motion.div
                   layoutId="telegram-nav-pill"
                   transition={{ type: "spring", stiffness: 450, damping: 32 }}
@@ -492,18 +619,18 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
                     }`}
                 />
               )}
-              <span className={`relative z-10 transition-colors duration-200 ${isWorkActive
+              <span className={`relative z-10 transition-colors duration-200 ${isProductsActive
                   ? 'text-manuscript-copper'
                   : isDarkTheme ? 'text-[#F4EBDD]/60' : 'text-manuscript-inkMuted'
                 }`}>
-                <Briefcase size={16} strokeWidth={isWorkActive ? 2.3 : 1.9} />
+                <Layers size={16} strokeWidth={isProductsActive ? 2.3 : 1.9} />
               </span>
             </div>
-            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isWorkActive
+            <span className={`text-[9.5px] font-manuscriptBody leading-tight transition-colors duration-200 mt-0.5 ${isProductsActive
                 ? 'font-bold text-manuscript-copper'
                 : isDarkTheme ? 'font-medium text-[#F4EBDD]/70' : 'font-medium text-manuscript-inkMuted'
               }`}>
-              Work
+              Products
             </span>
           </motion.button>
 

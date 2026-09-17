@@ -26,6 +26,7 @@ const staticRoutes = [
   '/terms',
   '/security',
   '/portfolio',
+  '/products/fritado',
   '/for-us-clients',
 ];
 

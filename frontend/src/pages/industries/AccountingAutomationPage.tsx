@@ -513,35 +513,35 @@ export function AccountingAutomationPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════════
-            08 PORTFOLIO EVIDENCE CARD (FINANEZY PROOF POINT)
+            08 PORTFOLIO EVIDENCE CARD
         ══════════════════════════════════════════════════════ */}
         <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-12 bg-manuscript-parchmentLight border-b border-manuscript-walnut/15 w-full max-w-full overflow-hidden box-border">
           <div className="container mx-auto max-w-5xl">
             <div className="p-6 sm:p-10 md:p-12 rounded-3xl bg-[#FFFDF9] border-2 border-manuscript-copper/30 flex flex-col lg:flex-row items-center gap-8 sm:gap-10 shadow-sm">
               <div className="flex-1 space-y-4 sm:space-y-6">
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-manuscript-copper font-bold">
-                  Portfolio Evidence Case File
+                  Portfolio & Case Studies
                 </span>
                 <h3 className="heading-manuscript text-2xl sm:text-3xl md:text-4xl font-normal !text-manuscript-ink">
-                  Finanezy: MSME & Registration Automation Engine
+                  Finance & Regulatory Workflow Automation
                 </h3>
                 <p className="font-manuscriptBody text-xs sm:text-sm md:text-base text-manuscript-inkSoft leading-relaxed">
-                  Explore the full technical architecture, document AI validation schemas, and audited benchmarks behind our real-world finance automation deployment.
+                  Explore our technical architecture, document AI validation schemas, and audited benchmarks behind our enterprise workflow deployments.
                 </p>
 
                 <div className="flex flex-wrap gap-3 pt-2">
                   <button
-                    onClick={() => navigate('/portfolio/finanezy-msme-automation')}
+                    onClick={() => navigate('/portfolio')}
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded bg-manuscript-ink text-manuscript-parchmentLight font-manuscriptBody text-[13px] font-bold tracking-wider uppercase transition-all duration-200 hover:bg-manuscript-walnutDeep shadow-sm"
                   >
-                    <span>View Portfolio Evidence</span>
+                    <span>View All Case Studies</span>
                     <ExternalLink size={14} className="text-manuscript-gold" />
                   </button>
                   <button
-                    onClick={() => navigate('/portfolio')}
+                    onClick={() => navigate('/contact')}
                     className="px-5 py-3 rounded border border-manuscript-walnut/30 text-xs font-mono font-bold text-manuscript-ink bg-manuscript-parchmentLight hover:bg-manuscript-parchmentWarm transition-colors"
                   >
-                    All Case Studies
+                    Discuss Your Project
                   </button>
                 </div>
               </div>
