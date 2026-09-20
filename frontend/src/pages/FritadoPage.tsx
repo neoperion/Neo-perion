@@ -8,8 +8,6 @@ import { SEO } from "@/components/SEO";
 import { fritadoConfig } from "@/data/fritadoConfig";
 import { trackEvent } from "@/shared/analytics";
 
-import { FritadoProductVisual } from "@/components/fritado/FritadoProductVisual";
-import { FritadoStickyNav } from "@/components/fritado/FritadoStickyNav";
 import { FritadoWorkflow } from "@/components/fritado/FritadoWorkflow";
 import { FritadoModules } from "@/components/fritado/FritadoModules";
 import { FritadoExperienceTabs } from "@/components/fritado/FritadoExperienceTabs";
@@ -250,53 +248,7 @@ export default function FritadoPage() {
           </motion.div>
         </section>
 
-        {/* ============================================================
-            01.5: ENTERPRISE CONTROL SURFACE (SECTION 04) - AINCURU GLOBAL THEME
-        ============================================================ */}
-        <section 
-          id="control-surface"
-          className="relative w-full parchment-surface bg-manuscript-parchment py-12 sm:py-16 lg:py-20 border-b border-manuscriptAlpha-ink-15 text-manuscript-ink scroll-mt-24"
-        >
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div 
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 max-w-2xl"
-            >
-              <div className="flex items-center gap-2 text-xs font-sans mb-2.5">
-                <span className="w-2 h-2 rounded-full bg-manuscript-copper" />
-                <span className="uppercase tracking-wider font-bold text-manuscript-copper">
-                  LIVE PLATFORM PREVIEW
-                </span>
-                <span className="text-manuscript-inkMuted/40">/</span>
-                <span className="text-manuscript-inkMuted uppercase tracking-wider font-semibold text-[11px]">
-                  INTERACTIVE SALES COCKPIT
-                </span>
-              </div>
-              <h2 className="font-manuscript text-2xl sm:text-3xl lg:text-4xl font-bold text-manuscript-ink tracking-tight">
-                An enterprise sales cockpit where your team stays in control.
-              </h2>
-              <p className="mt-2.5 font-manuscriptBody text-sm sm:text-base text-manuscript-inkMuted leading-relaxed">
-                Experience how Fritado pulls live buying signals, gathers account background, and prepares review-ready outreach before anything ever touches your CRM.
-              </p>
-            </motion.div>
 
-            {/* Seamless Hero -> Product Visual transition */}
-            <motion.div
-              initial={{ opacity: 0.9, y: 28, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <FritadoProductVisual />
-            </motion.div>
-          </div>
-        </section>
-
-        {/* COMPACT STICKY PRODUCT NAVIGATION */}
-        <FritadoStickyNav />
 
         {/* ============================================================
             02: PRODUCT OVERVIEW (SECTION 15)

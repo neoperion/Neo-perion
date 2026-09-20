@@ -26,47 +26,49 @@ export const FritadoFinalCTA: React.FC = () => {
   };
 
   return (
-    <section id="trial" className="scroll-mt-28 py-20 sm:py-28 relative overflow-hidden bg-manuscript-parchment text-manuscript-ink font-sans border-t border-manuscript-parchmentDeep">
+    <section id="trial" className="scroll-mt-28 py-20 sm:py-28 relative overflow-hidden bg-[#07080A] text-white font-sans border-t border-white/10">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 text-center">
         <div className="max-w-2xl mx-auto space-y-6">
+
           {/* Eyebrow badge with Viewport Entrance */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center"
           >
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-sans font-bold uppercase tracking-wider bg-manuscript-copper/10 text-manuscript-copper border border-manuscript-copper/20 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-sans font-bold uppercase tracking-wider bg-[#A84A28]/20 text-[#E07050] border border-[#A84A28]/30 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#A84A28]" />
               7-DAY FREE TRIAL AVAILABLE
             </span>
           </motion.div>
 
           {/* Headline with Viewport Entrance */}
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="font-manuscript text-3xl sm:text-4xl lg:text-5xl font-bold text-manuscript-ink tracking-tight leading-tight"
+            className="font-manuscript text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+            style={{ color: "#D4A090" }}
           >
             Experience Fritado.
           </motion.h2>
 
           {/* Subtext with Viewport Entrance */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="font-manuscriptBody text-base sm:text-lg text-manuscript-inkMuted leading-relaxed max-w-xl mx-auto"
+            className="font-manuscriptBody text-base sm:text-lg text-white/65 leading-relaxed max-w-xl mx-auto"
           >
             Start your 7-day free trial and explore the platform yourself.
           </motion.p>
 
           {/* Dual CTAs with Stagger & Tap Feedback */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -78,7 +80,7 @@ export const FritadoFinalCTA: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={handlePrimaryClick}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-sans font-semibold text-sm tracking-wide bg-manuscript-copper text-white hover:bg-manuscript-copperDeep transition-colors duration-150 shadow-md group focus:outline-none focus:ring-2 focus:ring-manuscript-copper focus:ring-offset-2 select-none"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-sans font-semibold text-sm tracking-wide bg-[#A84A28] text-white hover:bg-[#8F3A1D] transition-colors duration-150 shadow-md group focus:outline-none focus:ring-2 focus:ring-[#A84A28] focus:ring-offset-2 focus:ring-offset-[#07080A] select-none"
             >
               <span>START 7-DAY FREE TRIAL</span>
               <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -89,32 +91,33 @@ export const FritadoFinalCTA: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={handleSecondaryClick}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-sans font-semibold text-sm tracking-wide bg-white/80 border border-manuscriptAlpha-ink-20 text-manuscript-ink hover:bg-white transition-colors group focus:outline-none focus:ring-2 focus:ring-manuscript-ink/30 select-none"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-sans font-semibold text-sm tracking-wide border border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/35 transition-colors group focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-[#07080A] select-none"
             >
               <span>VISIT FRITADO</span>
-              <ExternalLink size={14} className="text-manuscript-inkMuted group-hover:text-manuscript-ink transition-colors" />
+              <ExternalLink size={14} className="text-white/60 group-hover:text-white transition-colors" />
             </motion.button>
           </motion.div>
 
           {/* Microcopy */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.32 }}
-            className="pt-2 text-xs font-sans text-manuscript-inkMuted"
+            className="pt-2 text-xs font-sans text-white/45"
           >
             7-day free trial · No credit card required*
           </motion.p>
 
           {/* Small: A product from AINCURU */}
-          <div className="pt-8 border-t border-manuscriptAlpha-ink-10 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs font-sans text-manuscript-inkMuted">
-            <span className="font-bold text-manuscript-ink">A product from AINCURU</span>
+          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs font-sans text-white/35">
+            <span className="font-bold text-white/60">A product from AINCURU</span>
             <span className="hidden sm:inline">·</span>
             <span>Enterprise B2B Technology Platform</span>
             <span className="hidden sm:inline">·</span>
             <span>All rights reserved</span>
           </div>
+
         </div>
       </div>
     </section>

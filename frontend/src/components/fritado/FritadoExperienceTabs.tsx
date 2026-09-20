@@ -28,7 +28,7 @@ interface PillarDefinition {
   num: string;
   label: string;
   oneLiner: string;
-  icon: React.ElementType;
+  iconSrc: string;
   description: string;
   metrics: { label: string; value: string }[];
   tags: string[];
@@ -41,7 +41,7 @@ const PILLARS: PillarDefinition[] = [
     num: "01",
     label: "Lead Flow",
     oneLiner: "Targeting accounts that match your exact ICP.",
-    icon: Layers,
+    iconSrc: "/images/searching.png",
     description: "Filter verified directories by employee count, production tech stack, and location. Automatically checks your CRM to skip existing clients.",
     metrics: [
       { label: "Accounts Identified", value: "12,480" },
@@ -55,7 +55,7 @@ const PILLARS: PillarDefinition[] = [
     num: "02",
     label: "AI Research",
     oneLiner: "Deep background briefs compiled in 30 seconds.",
-    icon: Search,
+    iconSrc: "/images/artificial-intelligence.png",
     description: "Synthesizes company milestones, recent engineering hires, leadership announcements, and operational challenges so your reps understand the account.",
     metrics: [
       { label: "Signals Analyzed", value: "18,920" },
@@ -69,7 +69,7 @@ const PILLARS: PillarDefinition[] = [
     num: "03",
     label: "Outreach",
     oneLiner: "Contextual messages with 100% human rep sign-off.",
-    icon: Mail,
+    iconSrc: "/images/customer-service.png",
     description: "Prepares customized message openers tied directly to recent company news. Staged in your review queue with SPF/DKIM domain safeguards.",
     metrics: [
       { label: "Drafts Staged", value: "62 today" },
@@ -83,7 +83,7 @@ const PILLARS: PillarDefinition[] = [
     num: "04",
     label: "Nurture",
     oneLiner: "Intelligent follow-ups that halt in 2s on reply.",
-    icon: RefreshCw,
+    iconSrc: "/images/group-users.png",
     description: "Coordinates natural follow-ups across email and LinkedIn, automatically pausing the second a prospect replies, objects, or books a demo.",
     metrics: [
       { label: "Active Follow-ups", value: "39" },
@@ -97,7 +97,7 @@ const PILLARS: PillarDefinition[] = [
     num: "05",
     label: "Pipeline",
     oneLiner: "Clean CRM handoffs to Salesforce & HubSpot.",
-    icon: CheckCircle2,
+    iconSrc: "/images/pipeline.png",
     description: "Hands off interested leads, full conversation histories, and booked meetings straight into HubSpot, Salesforce, or your custom pipeline.",
     metrics: [
       { label: "Review-Ready Today", value: "35 accounts" },
@@ -214,10 +214,7 @@ export const FritadoExperienceTabs: React.FC = () => {
               <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">
                 PRODUCT EXPERIENCE
               </span>
-              <span className="text-manuscript-inkMuted/40">/</span>
-              <span className="font-sans text-[11px] uppercase tracking-wider text-manuscript-inkMuted font-semibold">
-                SECTION 04 · INTERACTIVE PRODUCT PREVIEW
-              </span>
+
             </div>
             <h2 className="font-manuscript text-3xl sm:text-4xl lg:text-5xl font-bold text-manuscript-ink tracking-tight leading-tight">
               Built for how high-performing sales reps actually work.
@@ -282,7 +279,6 @@ export const FritadoExperienceTabs: React.FC = () => {
                 {/* The 5 Radial Pillar Nodes & Connector Rows (Right on desktop) */}
                 <div className="md:col-span-7 space-y-3.5 relative z-10">
                   {PILLARS.map((pillar) => {
-                    const Icon = pillar.icon;
                     const isSelected = activeTab === pillar.id;
 
                     return (
@@ -311,12 +307,12 @@ export const FritadoExperienceTabs: React.FC = () => {
                         </div>
 
                         {/* Icon in Circle */}
-                        <div className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center transition-colors ${
+                        <div className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center p-1.5 transition-colors ${
                           isSelected
-                            ? "bg-manuscript-copper/15 text-manuscript-copper"
-                            : "bg-white text-manuscript-inkMuted border border-manuscriptAlpha-ink-10 group-hover:text-manuscript-copper"
+                            ? "bg-manuscript-copper/15"
+                            : "bg-white border border-manuscriptAlpha-ink-10"
                         }`}>
-                          <Icon size={14} />
+                          <img src={pillar.iconSrc} alt={pillar.label} className="w-full h-full object-contain" />
                         </div>
 
                         {/* Text Block: Title & Short Explanation */}
@@ -635,8 +631,8 @@ export const FritadoExperienceTabs: React.FC = () => {
             {/* Pillar Overview */}
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-copper shadow-2xs shrink-0">
-                  <currentPillar.icon size={14} />
+                <div className="w-7 h-7 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center shadow-2xs shrink-0 p-1.5">
+                  <img src={currentPillar.iconSrc} alt={currentPillar.label} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-manuscript text-xl font-bold text-manuscript-ink leading-snug">
                   {currentPillar.label}

@@ -330,29 +330,6 @@ export function MobileNavigation({ theme = "manuscript" }: MobileNavigationProps
                       )}
                     </button>
 
-                    {/* 02 Work / Portfolio */}
-                    <button
-                      type="button"
-                      onClick={() => go('/portfolio')}
-                      className={`text-left px-6 py-[15px] font-manuscriptBody text-[16px] transition-colors flex items-center justify-between relative ${
-                        location.pathname === '/portfolio' || location.pathname.startsWith('/portfolio')
-                          ? (isDarkTheme ? 'text-manuscript-copper font-semibold' : 'text-manuscript-copper font-semibold')
-                          : (isDarkTheme ? 'text-[#F4EBDD] font-medium' : 'text-manuscript-ink font-medium')
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div className="flex items-center gap-2">
-                          <Briefcase size={16} className="text-manuscript-copper shrink-0" />
-                          <span>Work</span>
-                        </div>
-                        <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-manuscript-copper/10 text-manuscript-copper font-bold border border-manuscript-copper/20">
-                          Portfolio
-                        </span>
-                      </div>
-                      {(location.pathname === '/portfolio' || location.pathname.startsWith('/portfolio')) && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-manuscript-copper" />
-                      )}
-                    </button>
 
                     {/* 02 Industries Navigation Menu Sub-Section */}
                     <div className="border-y border-manuscriptAlpha-ink-10/40 my-1 py-1">

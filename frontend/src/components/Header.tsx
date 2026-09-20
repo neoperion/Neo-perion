@@ -62,11 +62,6 @@ const NAV: NavItem[] = [
     ],
   },
   {
-    kind: "link",
-    label: "Portfolio",
-    href: "/portfolio",
-  },
-  {
     kind: "dropdown",
     label: "About",
     panelTitle: "About AINCURU",

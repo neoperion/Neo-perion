@@ -1,147 +1,116 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { 
-  Search, 
-  Database, 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
-  ShieldCheck, 
-  Send, 
-  RefreshCw,
-  TrendingUp,
-  Cpu,
-  Share2,
-  ChevronDown,
-  Pause,
-  Play
-} from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, ArrowRight, Share2 } from "lucide-react";
 import { trackEvent } from "@/shared/analytics";
-import { fritadoConfig } from "@/data/fritadoConfig";
 
-interface WorkflowCardItem {
+/* ─────────────────────────────────────────────────
+   WORKFLOW STEPS DATA
+   ───────────────────────────────────────────────── */
+
+interface Step {
   id: string;
   num: string;
-  shortTitle: string;
+  label: string;
   headline: string;
   description: string;
-  icon: React.ElementType;
-  specs: string;
-  metric: string;
-  image: string;
-  imageAlt: string;
+  iconSrc: string;
+  stat: string;
+  statLabel: string;
+  details: string[];
 }
 
-const WORKFLOW_CARDS: WorkflowCardItem[] = [
+const STEPS: Step[] = [
   {
     id: "discover",
-    num: "01.",
-    shortTitle: "Amplify Discovery",
+    num: "01",
+    label: "Discover",
     headline: "Target Verified Accounts",
-    description: "Filters public business registries and hiring boards by employee count, modern tech stack, and capital raises. Automatically checks your CRM to prevent pitching existing clients.",
-    icon: Search,
-    specs: "1,884 target accounts indexed daily · Zero dead inboxes",
-    metric: "1,884 Accounts / Day",
-    image: "/images/fritado-flow-discover.jpg",
-    imageAlt: "Abstract 3D parametric copper flow representing account discovery",
+    description:
+      "Filters public registries, hiring boards, and tech-stack databases by employee count, modern infrastructure, and capital raises. Automatically checks your CRM to prevent pitching existing clients.",
+    iconSrc: "/images/searching.png",
+    stat: "1,884",
+    statLabel: "accounts/day",
+    details: [
+      "Live job board & registry scanning",
+      "CRM deduplication in real-time",
+      "Zero dead inboxes",
+    ],
   },
   {
     id: "research",
-    num: "02.",
-    shortTitle: "Command Intelligence",
+    num: "02",
+    label: "Research",
     headline: "Assemble Deep Context",
-    description: "Compiles recent funding rounds, open engineering positions, and decision-maker roles into an executive briefing dossier in under 30 seconds before anyone reaches out.",
-    icon: Database,
-    specs: "30-second executive dossier · 100% verified registry data",
-    metric: "30s Dossier Assembly",
-    image: "/images/fritado-flow-engine.jpg",
-    imageAlt: "Isometric 3D interconnected system representing deep intelligence",
+    description:
+      "Compiles recent funding rounds, open engineering positions, and decision-maker roles into an executive briefing dossier in under 30 seconds before anyone reaches out.",
+    iconSrc: "/images/artificial-intelligence.png",
+    stat: "30s",
+    statLabel: "dossier assembly",
+    details: [
+      "Funding & milestone tracking",
+      "Decision-maker mapping",
+      "100% verified registry data",
+    ],
   },
   {
     id: "personalize",
-    num: "03.",
-    shortTitle: "Eliminate Spam",
-    headline: "Contextual Evidence Outreach",
-    description: "Prepares customized message openers connected directly to recent company initiatives. Every staged message waits in your rep's review desk with SPF/DKIM domain safeguards.",
-    icon: Sparkles,
-    specs: "100% rep sign-off required · 99.4% inbox placement",
-    metric: "100% Rep Approved",
-    image: "/images/fritado-flow-discover.jpg",
-    imageAlt: "Abstract sculptural wave representing evidence-based outreach",
+    num: "03",
+    label: "Personalize",
+    headline: "Evidence-Based Outreach",
+    description:
+      "Prepares customized message openers connected directly to recent company initiatives. Every staged message waits in your rep's review desk with SPF/DKIM domain safeguards.",
+    iconSrc: "/images/seen.png",
+    stat: "100%",
+    statLabel: "rep-approved",
+    details: [
+      "Context-aware message drafts",
+      "SPF/DKIM/DMARC protection",
+      "99.4% inbox placement rate",
+    ],
   },
   {
     id: "handoff",
-    num: "04.",
-    shortTitle: "Scale with Clarity",
-    headline: "Automated CRM Pipeline Handoff",
-    description: "Monitors replies with instant 2-second sequence auto-pausing and hands off qualified meetings, conversation trails, and opportunity cards directly into HubSpot and Salesforce.",
-    icon: CheckCircle2,
-    specs: "Instant 2s cutoff on reply · Bi-directional live sync",
-    metric: "Two-Way CRM Sync",
-    image: "/images/fritado-flow-engine.jpg",
-    imageAlt: "Interconnected system architecture representing CRM handoff",
+    num: "04",
+    label: "Handoff",
+    headline: "Automated CRM Pipeline",
+    description:
+      "Monitors replies with instant 2-second sequence auto-pausing and hands off qualified meetings, conversation trails, and opportunity cards directly into HubSpot and Salesforce.",
+    iconSrc: "/images/pipeline.png",
+    stat: "2s",
+    statLabel: "reply detection",
+    details: [
+      "Instant sequence auto-pause",
+      "Bi-directional CRM sync",
+      "Meeting handoff to AE",
+    ],
   },
 ];
 
+/* ─────────────────────────────────────────────────
+   COMPONENT
+   ───────────────────────────────────────────────── */
+
 export const FritadoWorkflow: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(1); // Card 02 active by default, exactly like screenshot
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [mobileProgress, setMobileProgress] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState(0);
 
-  // Always Auto-Run simulation (cycles smoothly every 4 seconds unless paused or hovered)
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setMobileProgress((prev) => {
-        if (prev >= 100) {
-          setActiveIndex((curr) => (curr + 1) % WORKFLOW_CARDS.length);
-          return 0;
-        }
-        return prev + (50 / 4000) * 100;
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [isHovered, activeIndex]);
-
-  const handleCardClick = (idx: number) => {
-    setActiveIndex(idx);
-    setMobileProgress(0);
-    trackEvent("fritado_workflow_card_select", {
-      step: WORKFLOW_CARDS[idx].shortTitle,
-      stepNum: WORKFLOW_CARDS[idx].num,
-    });
-  };
-
-  const handleCta = () => {
-    trackEvent("fritado_workflow_cta_click", {
-      destination: fritadoConfig.primaryUrl,
-    });
-    window.open(fritadoConfig.primaryUrl, "_blank", "noopener,noreferrer");
-  };
+  const current = STEPS[activeStep];
 
   return (
-    <section 
-      id="overview" 
+    <section
+      id="overview"
       className="relative scroll-mt-24 py-14 sm:py-20 lg:py-24 border-b border-manuscript-parchmentDeep bg-manuscript-parchment text-manuscript-ink font-sans overflow-hidden"
     >
-      {/* ─── AMBIENT GRID LINES (Matching Reference Screenshot) ─── */}
-      <div 
-        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(31,26,20,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(31,26,20,0.04)_1px,transparent_1px)] bg-[size:44px_44px] pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6">
-        {/* ─── SECTION HEADER (Exact Typography & Pill Button Balance with Viewport Reveal) ─── */}
-        <motion.div 
+
+        {/* ─── SECTION HEADER ─── */}
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
+          className="mb-10 lg:mb-12"
         >
-          {/* Left: Eyebrow + Master Headline */}
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-manuscriptAlpha-ink-15 text-[11px] font-sans font-bold uppercase tracking-[0.2em] text-manuscript-copper mb-4 shadow-2xs">
               <Share2 size={12} className="text-manuscript-copper" />
               <span>HOW IT WORKS</span>
@@ -152,286 +121,271 @@ export const FritadoWorkflow: React.FC = () => {
               <span className="text-manuscript-copper">Growth Intelligence.</span>
             </h2>
           </div>
-
-          {/* Right: Paragraph + Dark Pill CTA Button */}
-          <div className="max-w-md flex flex-col items-start lg:items-end text-left lg:text-right space-y-4">
-            <p className="font-manuscriptBody text-xs sm:text-sm text-manuscript-inkMuted leading-relaxed">
-              Fritado brings clarity, not complexity—uniting prospect discovery, deep account research, personalized outreach, and CRM pipeline handoffs into one connected, rep-governed rhythm.
-            </p>
-
-            <motion.button
-              whileTap={{ scale: 0.98 }}
-              type="button"
-              onClick={handleCta}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-manuscript-ink text-white hover:bg-manuscript-copper transition-colors duration-200 text-xs font-semibold font-sans shadow-md group"
-            >
-              <span>Explore Workflow</span>
-              <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
-            </motion.button>
-          </div>
         </motion.div>
 
-        {/* ─── INTERACTIVE EXPANDING CARD DECK (Matching Reference Image) ─── */}
-        {/* On Desktop: Smooth horizontal flex expansion with auto-run */}
-        {/* On Mobile: Compact responsive interactive cards without long scroll */}
-        <motion.div 
+        {/* ─── DESKTOP: Left tabs + Right detail panel ─── */}
+        <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="hidden md:flex gap-4 items-stretch min-h-[520px]"
+          className="hidden md:grid md:grid-cols-[320px_1fr] lg:grid-cols-[360px_1fr] gap-0 rounded-2xl border border-manuscriptAlpha-ink-15 bg-white shadow-[0_16px_48px_rgba(80,55,30,0.06)] overflow-hidden"
         >
-          {WORKFLOW_CARDS.map((card, idx) => {
-            const Icon = card.icon;
-            const isActive = activeIndex === idx;
-
-            return (
-              <div
-                key={card.id}
-                onClick={() => handleCardClick(idx)}
-                className={`relative rounded-3xl transition-all duration-500 ease-out cursor-pointer overflow-hidden flex flex-col justify-between ${
-                  isActive 
-                    ? "flex-[2.6] bg-white border border-manuscriptAlpha-ink-15 shadow-[0_16px_40px_rgba(80,55,30,0.08)] p-6 z-10 -translate-y-1" 
-                    : "flex-1 bg-white/90 hover:bg-white border border-manuscriptAlpha-ink-10 hover:border-manuscript-copper/40 p-5 shadow-2xs hover:shadow-sm"
-                }`}
-              >
-                {/* When ACTIVE: Show full image, rich title, and detailed copy */}
-                {isActive ? (
-                  <div className="flex flex-col h-full justify-between space-y-4">
-                    {/* Top Image (Abstract 3D Wave from AI generator) */}
-                    <div className="relative w-full h-[220px] rounded-2xl overflow-hidden bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 shadow-inner shrink-0">
-                      <img 
-                        src={card.image} 
-                        alt={card.imageAlt}
-                        className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                      />
-                      {/* Subtle gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-
-                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-mono font-bold text-manuscript-copper shadow-xs">
-                        STAGE {card.num}
-                      </div>
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="space-y-2.5 pt-1">
-                      <div className="w-8 h-8 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-copper shadow-2xs">
-                        <Icon size={16} />
-                      </div>
-
-                      <h3 className="font-manuscript text-xl sm:text-2xl font-bold text-manuscript-ink tracking-tight leading-snug">
-                        {card.headline}
-                      </h3>
-
-                      <p className="font-manuscriptBody text-xs sm:text-sm text-manuscript-inkMuted leading-relaxed">
-                        {card.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Status & Specs */}
-                    <div className="pt-3 border-t border-manuscriptAlpha-ink-10 flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-1.5 text-manuscript-copper font-medium text-[11px]">
-                        <ShieldCheck size={13} />
-                        <span>{card.specs}</span>
-                      </div>
-                      <span className="text-[10px] font-mono font-bold text-manuscript-ink px-2 py-0.5 rounded bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10">
-                        {card.metric}
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  /* When COLLAPSED: Show large watermark number at top, icon and title at bottom */
-                  <div className="flex flex-col h-full justify-between select-none">
-                    {/* Top Watermark Number */}
-                    <div>
-                      <span className="font-manuscript text-3xl lg:text-4xl font-bold text-manuscript-inkMuted/30 block tracking-tighter">
-                        {card.num}
-                      </span>
-                    </div>
-
-                    {/* Bottom Icon & Title */}
-                    <div className="space-y-3 pt-6">
-                      <div className="w-7 h-7 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-inkMuted shadow-2xs">
-                        <Icon size={14} />
-                      </div>
-
-                      <div className="font-sans text-xs lg:text-sm font-bold text-manuscript-ink leading-tight">
-                        {card.shortTitle}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </motion.div>
-
-        {/* ─── MOBILE RESPONSIVE VERSION (Expanding Card Deck with Fluid Animations) ─── */}
-        <div className="md:hidden space-y-3">
-          {/* Top Progress & Play/Pause Control Bar */}
-          <div className="flex items-center justify-between text-xs px-1 mb-2">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-manuscript-copper animate-pulse" />
-              <span className="font-sans font-bold text-manuscript-copper text-[11px] uppercase tracking-wider">
-                STAGE {WORKFLOW_CARDS[activeIndex].num}
-              </span>
-              <button
-                type="button"
-                onClick={() => setIsHovered(!isHovered)}
-                className="px-2 py-0.5 rounded-full text-[10px] font-sans font-semibold border flex items-center gap-1 bg-white border-manuscriptAlpha-ink-15 text-manuscript-ink hover:text-manuscript-copper transition-colors"
-                title={isHovered ? "Resume auto-rotation" : "Pause auto-rotation"}
-              >
-                {isHovered ? (
-                  <>
-                    <Play size={10} className="text-manuscript-copper" />
-                    <span>Paused</span>
-                  </>
-                ) : (
-                  <>
-                    <Pause size={10} className="text-manuscript-copper" />
-                    <span>Auto</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* 4-Segment Progress Bar */}
-            <div className="flex items-center gap-1.5 w-28">
-              {WORKFLOW_CARDS.map((_, idx) => (
-                <div 
-                  key={idx} 
-                  className="flex-1 h-1 rounded-full bg-manuscriptAlpha-ink-15 overflow-hidden"
-                >
-                  <div 
-                    className="h-full bg-manuscript-copper transition-all duration-75"
-                    style={{
-                      width: activeIndex === idx 
-                        ? `${mobileProgress}%` 
-                        : activeIndex > idx 
-                          ? "100%" 
-                          : "0%"
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Vertical Expanding Cards Stack (Matches Desktop Deck) */}
-          <div className="space-y-2.5">
-            {WORKFLOW_CARDS.map((card, idx) => {
-              const Icon = card.icon;
-              const isActive = activeIndex === idx;
+          {/* Left: Step tabs */}
+          <div className="border-r border-manuscriptAlpha-ink-10 bg-manuscript-parchmentLight/40">
+            {STEPS.map((step, idx) => {
+              const Icon = step.iconSrc;
+              const isActive = activeStep === idx;
+              const isPast = idx < activeStep;
 
               return (
-                <div
-                  key={card.id}
+                <button
+                  key={step.id}
+                  type="button"
                   onClick={() => {
-                    handleCardClick(idx);
-                    setIsHovered(true); // pause auto-run when tapped
+                    setActiveStep(idx);
+                    trackEvent("fritado_workflow_card_select", {
+                      step: step.label,
+                      stepNum: step.num,
+                    });
                   }}
-                  className={`rounded-2xl transition-all duration-500 ease-out overflow-hidden border cursor-pointer ${
+                  className={`w-full text-left p-5 lg:p-6 border-b border-manuscriptAlpha-ink-10 last:border-b-0 transition-all duration-200 group relative ${
                     isActive
-                      ? "bg-white border-manuscript-copper ring-2 ring-manuscript-copper/20 shadow-md p-4 sm:p-5"
-                      : "bg-white/80 hover:bg-white border-manuscriptAlpha-ink-15 p-3.5 shadow-2xs hover:border-manuscript-copper/40"
+                      ? "bg-white"
+                      : "hover:bg-white/60"
                   }`}
                 >
-                  {isActive ? (
-                    /* ─── ACTIVE EXPANDED MOBILE CARD ─── */
-                    <div className="space-y-3.5 animate-fadeIn">
-                      {/* 3D Wave Artwork */}
-                      <div className="relative w-full h-[190px] rounded-xl overflow-hidden bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 shadow-inner">
-                        <img 
-                          src={card.image} 
-                          alt={card.imageAlt}
-                          className="w-full h-full object-cover object-center"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
-                        <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-mono font-bold text-manuscript-copper shadow-xs">
-                          STAGE {card.num}
-                        </div>
-                        <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold text-white shadow-xs">
-                          {card.metric}
-                        </div>
-                      </div>
-
-                      {/* Content Section */}
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-copper shadow-2xs shrink-0">
-                            <Icon size={14} />
-                          </div>
-                          <span className="font-sans text-xs font-bold text-manuscript-copper uppercase tracking-wider">
-                            {card.shortTitle}
-                          </span>
-                        </div>
-
-                        <h3 className="font-manuscript text-lg sm:text-xl font-bold text-manuscript-ink leading-snug">
-                          {card.headline}
-                        </h3>
-
-                        <p className="font-manuscriptBody text-xs text-manuscript-inkMuted leading-relaxed">
-                          {card.description}
-                        </p>
-                      </div>
-
-                      {/* Governance Footnote */}
-                      <div className="pt-2.5 border-t border-manuscriptAlpha-ink-10 flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1.5 text-manuscript-copper font-medium text-[11px]">
-                          <ShieldCheck size={13} />
-                          <span>{card.specs}</span>
-                        </div>
-                        <span className="text-[10px] font-mono font-bold text-manuscript-ink px-2 py-0.5 rounded bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10">
-                          Active
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    /* ─── COLLAPSED SLIM MOBILE CARD ─── */
-                    <div className="flex items-center justify-between select-none py-0.5">
-                      <div className="flex items-center gap-3">
-                        <span className="font-manuscript text-xl font-bold text-manuscript-copper block tracking-tighter w-8">
-                          {card.num}
-                        </span>
-                        <div className="w-6 h-6 rounded-full bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-inkMuted shrink-0">
-                          <Icon size={12} />
-                        </div>
-                        <div className="font-sans text-xs font-bold text-manuscript-ink">
-                          {card.shortTitle}
-                        </div>
-                      </div>
-
-                      <div className="text-[11px] font-sans font-semibold text-manuscript-inkMuted flex items-center gap-1">
-                        <span>Explore</span>
-                        <span className="text-manuscript-copper font-bold">↓</span>
-                      </div>
-                    </div>
+                  {/* Active indicator bar */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-manuscript-copper rounded-r"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
                   )}
-                </div>
+
+                  <div className="flex items-start gap-3.5">
+                    {/* Step number circle */}
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-200 ${
+                        isActive
+                          ? "bg-manuscript-copper text-white shadow-sm"
+                          : isPast
+                            ? "bg-manuscript-copper/10 text-manuscript-copper"
+                            : "bg-manuscript-parchmentLight text-manuscript-inkMuted group-hover:text-manuscript-copper"
+                      }`}
+                    >
+                      {isPast ? (
+                        <CheckCircle2 size={18} />
+                      ) : (
+                        <span className="text-sm font-bold font-mono">{step.num}</span>
+                      )}
+                    </div>
+
+                    <div className="min-w-0 pt-0.5">
+                      <div className={`text-[11px] font-bold uppercase tracking-wider mb-0.5 transition-colors ${
+                        isActive ? "text-manuscript-copper" : "text-manuscript-inkMuted"
+                      }`}>
+                        {step.label}
+                      </div>
+                      <div className={`text-[14px] font-bold leading-snug transition-colors ${
+                        isActive ? "text-manuscript-ink" : "text-manuscript-ink/70 group-hover:text-manuscript-ink"
+                      }`}>
+                        {step.headline}
+                      </div>
+                    </div>
+                  </div>
+                </button>
               );
             })}
           </div>
+
+          {/* Right: Detail panel */}
+          <div className="p-6 lg:p-8 flex flex-col justify-between">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.id}
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -16 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-6"
+              >
+                {/* Top: Icon + Eyebrow */}
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-manuscript-copper/10 border border-manuscript-copper/20 flex items-center justify-center p-2">
+                    <img src={current.iconSrc} alt={current.label} className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-manuscript-copper uppercase tracking-wider">
+                      Step {current.num}
+                    </span>
+                    <h3 className="text-xl lg:text-2xl font-bold text-manuscript-ink tracking-tight leading-snug font-manuscript">
+                      {current.headline}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Big stat */}
+                <div className="flex items-baseline gap-3 p-5 rounded-xl bg-manuscript-parchmentLight/60 border border-manuscriptAlpha-ink-10">
+                  <span className="text-4xl lg:text-5xl font-bold text-manuscript-copper tracking-tight font-mono">
+                    {current.stat}
+                  </span>
+                  <span className="text-sm text-manuscript-inkMuted font-medium">
+                    {current.statLabel}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-[14px] lg:text-[15px] text-manuscript-inkMuted leading-relaxed font-manuscriptBody">
+                  {current.description}
+                </p>
+
+                {/* Detail checklist */}
+                <div className="space-y-2.5">
+                  {current.details.map((detail, i) => (
+                    <motion.div
+                      key={detail}
+                      initial={{ opacity: 0, x: 8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: i * 0.08 }}
+                      className="flex items-center gap-2.5"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-manuscript-copper/10 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={12} className="text-manuscript-copper" />
+                      </div>
+                      <span className="text-[13px] text-manuscript-ink font-medium">{detail}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Bottom navigation */}
+            <div className="flex items-center justify-between pt-6 mt-6 border-t border-manuscriptAlpha-ink-10">
+              <div className="flex items-center gap-1.5">
+                {STEPS.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setActiveStep(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      activeStep === i
+                        ? "w-6 bg-manuscript-copper"
+                        : "w-1.5 bg-manuscriptAlpha-ink-20 hover:bg-manuscript-copper/40"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setActiveStep((p) => (p + 1) % STEPS.length)}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-manuscript-copper hover:text-manuscript-copperDeep transition-colors group"
+              >
+                <span>{activeStep < STEPS.length - 1 ? "Next Step" : "Back to Start"}</span>
+                <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ─── MOBILE: Stacked cards ─── */}
+        <div className="md:hidden space-y-3">
+          {STEPS.map((step, idx) => {
+            const Icon = step.iconSrc;
+            const isActive = activeStep === idx;
+
+            return (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setActiveStep(isActive ? -1 : idx)}
+                  className={`w-full text-left rounded-xl border transition-all duration-300 overflow-hidden ${
+                    isActive
+                      ? "bg-white border-manuscript-copper/30 shadow-md"
+                      : "bg-white/80 border-manuscriptAlpha-ink-10 hover:border-manuscript-copper/30"
+                  }`}
+                >
+                  {/* Header row — always visible */}
+                  <div className="flex items-center gap-3 p-4">
+                    <div
+                      className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                        isActive
+                          ? "bg-manuscript-copper text-white"
+                          : "bg-manuscript-parchmentLight text-manuscript-inkMuted"
+                      }`}
+                    >
+                      <span className="text-xs font-bold font-mono">{step.num}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className={`text-[10px] font-bold uppercase tracking-wider ${
+                        isActive ? "text-manuscript-copper" : "text-manuscript-inkMuted"
+                      }`}>
+                        {step.label}
+                      </div>
+                      <div className="text-[13px] font-bold text-manuscript-ink leading-snug truncate">
+                        {step.headline}
+                      </div>
+                    </div>
+                    <div className={`transition-transform duration-200 ${isActive ? "rotate-180" : ""}`}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-manuscript-inkMuted">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Expandable content */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 pb-4 space-y-3">
+                          {/* Stat highlight */}
+                          <div className="flex items-baseline gap-2 p-3 rounded-lg bg-manuscript-parchmentLight/60 border border-manuscriptAlpha-ink-10">
+                            <span className="text-2xl font-bold text-manuscript-copper tracking-tight font-mono">
+                              {step.stat}
+                            </span>
+                            <span className="text-[11px] text-manuscript-inkMuted font-medium">
+                              {step.statLabel}
+                            </span>
+                          </div>
+
+                          <p className="text-xs text-manuscript-inkMuted leading-relaxed font-manuscriptBody">
+                            {step.description}
+                          </p>
+
+                          {/* Checklist */}
+                          <div className="space-y-1.5">
+                            {step.details.map((detail) => (
+                              <div key={detail} className="flex items-center gap-2">
+                                <CheckCircle2 size={12} className="text-manuscript-copper shrink-0" />
+                                <span className="text-[11px] text-manuscript-ink font-medium">{detail}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Bottom Trust Micro-Bar */}
-        <div className="mt-8 pt-6 border-t border-manuscriptAlpha-ink-10 flex flex-wrap items-center justify-between gap-3 text-xs text-manuscript-inkMuted">
-          <span className="font-sans text-[11px] font-bold text-manuscript-inkSoft uppercase tracking-wider">
-            Connected Outbound Rhythm:
-          </span>
-          <div className="flex flex-wrap gap-2 text-[11px]">
-            <span className="px-3 py-1 rounded-full bg-white border border-manuscriptAlpha-ink-15 font-medium text-manuscript-ink">
-              100% Rep-Audited
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white border border-manuscriptAlpha-ink-15 font-medium text-manuscript-ink">
-              SPF/DKIM/DMARC Protection
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white border border-manuscriptAlpha-ink-15 font-medium text-manuscript-ink">
-              HubSpot &amp; Salesforce Sync
-            </span>
-          </div>
-        </div>
+
       </div>
     </section>
   );

@@ -14,6 +14,7 @@ interface CapabilityItem {
   num: string;
   title: string;
   oneLiner: string;
+  iconSrc: string;
   specs: string[];
   governanceNote: string;
   auditStatus: string;
@@ -25,6 +26,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "01",
     title: "Lead Flow",
     oneLiner: "AI-powered prospect discovery.",
+    iconSrc: "/images/searching.png",
     specs: [
       "Custom ICP attribute weighting across headcount, funding rounds, tech stack, and hiring signals",
       "Automated deduplication against your internal CRM records and active accounts",
@@ -38,6 +40,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "02",
     title: "AI Research",
     oneLiner: "Account and prospect intelligence.",
+    iconSrc: "/images/artificial-intelligence.png",
     specs: [
       "Automated synthesis of quarterly earnings, tech stack migration, and open engineering positions",
       "Maps true problem owners based on verified organizational scope and direct budget authority",
@@ -51,6 +54,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "03",
     title: "Outreach",
     oneLiner: "Contextual outbound communication with human review.",
+    iconSrc: "/images/customer-service.png",
     specs: [
       "Ties opening message angles to verified company triggers rather than generic AI pitch templates",
       "Keeps your sales reps in full control with one-click review, quick inline edits, or manual approval",
@@ -64,6 +68,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "04",
     title: "Nurture",
     oneLiner: "Intelligent follow-up sequences with instant 2s cutoff.",
+    iconSrc: "/images/group-users.png",
     specs: [
       "Coordinates natural cadence follow-ups across email and verified social touchpoints",
       "Instant 2-second reply listener auto-pauses pending touches the moment a prospect responds",
@@ -77,6 +82,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "05",
     title: "Qualification",
     oneLiner: "Pass genuinely interested, review-ready accounts to sales.",
+    iconSrc: "/images/checklist.png",
     specs: [
       "Scores buyer readiness based on real engagement, verified decision-making authority, and budget fit",
       "Delivers clean opportunity cards with full context dossiers directly into Salesforce, HubSpot, or custom CRM",
@@ -90,6 +96,7 @@ const CAPABILITIES: CapabilityItem[] = [
     num: "06",
     title: "Intelligence",
     oneLiner: "Context-aware decision support and unified signal synthesis.",
+    iconSrc: "/images/monitoring-system.png",
     specs: [
       "Combines website intent, tech stack shifts, and hiring signals into unified account fit scoring",
       "Alerts sales reps the moment a high-value account visits your pricing or documentation pages",
@@ -155,10 +162,7 @@ export const FritadoModules: React.FC = () => {
               <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">
                 CAPABILITIES
               </span>
-              <span className="text-manuscript-inkMuted/40">/</span>
-              <span className="font-sans text-[11px] uppercase tracking-wider text-manuscript-inkMuted font-semibold">
-                SECTION 03 · THE SALES ENGINE
-              </span>
+
             </div>
             <h2 className="font-manuscript text-3xl sm:text-4xl lg:text-5xl font-bold text-manuscript-ink tracking-tight leading-tight">
               Capabilities built for real conversations, not automated spam.
@@ -198,10 +202,15 @@ export const FritadoModules: React.FC = () => {
                   aria-expanded={isExpanded}
                 >
                   <div className="flex items-start sm:items-center gap-4 sm:gap-6 min-w-0">
-                    {/* Number with Copper Highlight */}
-                    <span className="font-sans text-base sm:text-lg font-bold text-manuscript-copper group-hover:scale-105 transition-transform shrink-0">
-                      {cap.num}
-                    </span>
+                    {/* Number + PNG Icon */}
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="font-sans text-base sm:text-lg font-bold text-manuscript-copper group-hover:scale-105 transition-transform">
+                        {cap.num}
+                      </span>
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-manuscript-copper/8 border border-manuscript-copper/15 flex items-center justify-center p-1.5">
+                        <img src={cap.iconSrc} alt={cap.title} className="w-full h-full object-contain" />
+                      </div>
+                    </div>
 
                     {/* Title & One-Liner */}
                     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 min-w-0">
@@ -234,7 +243,7 @@ export const FritadoModules: React.FC = () => {
                   </div>
                 </button>
 
-                {/* Expanded Capability Drawer with Smooth Height & Content Reveal */}
+                {/* Expanded Capability Drawer — single GPU-composited layer for silky 60fps */}
                 <AnimatePresence initial={false}>
                   {isExpanded && (
                     <motion.div
@@ -242,14 +251,13 @@ export const FritadoModules: React.FC = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
+                      transition={{
+                        height: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+                        opacity: { duration: 0.25, ease: "easeOut" },
+                      }}
+                      className="overflow-hidden will-change-[height,opacity]"
                     >
-                      <motion.div
-                        initial={{ y: 8, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 8, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      <div
                         className="px-5 sm:px-8 pb-7 pt-2 border-t border-manuscriptAlpha-ink-10 bg-white"
                       >
                         {cap.num === "01" ? (
@@ -385,7 +393,7 @@ export const FritadoModules: React.FC = () => {
                             </div>
                           </div>
                         )}
-                      </motion.div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
