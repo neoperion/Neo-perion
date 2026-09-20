@@ -21,34 +21,34 @@ import {
 interface SignalItem {
   title: string;
   desc: string;
-  icon: React.ElementType;
+  iconSrc: string;
 }
 
 const INPUT_SIGNALS: SignalItem[] = [
   {
     title: "Company Profile",
     desc: "Industry, verified tech stack, team size, funding stage",
-    icon: Building,
+    iconSrc: "/images/company.png",
   },
   {
     title: "Market Signals",
     desc: "New capital rounds, expansion news, product launches",
-    icon: Radio,
+    iconSrc: "/images/global-network.png",
   },
   {
     title: "Decision-Maker Roles",
     desc: "Verified VPs and Directors who own the actual budget",
-    icon: UserCheck,
+    iconSrc: "/images/group-users.png",
   },
   {
     title: "Website Intent",
     desc: "Target accounts actively browsing your pricing pages",
-    icon: Zap,
+    iconSrc: "/images/monitoring-system.png",
   },
   {
     title: "Timing Triggers",
     desc: "Hiring surges, new leadership, and project cycles",
-    icon: Clock,
+    iconSrc: "/images/critical.png",
   },
 ];
 
@@ -57,7 +57,7 @@ interface SignalScenario {
   title: string;
   category: string;
   desc: string;
-  icon: React.ElementType;
+  iconSrc: string;
   triggerDetail: string;
   fitScore: string;
   contextAngle: string;
@@ -71,7 +71,7 @@ const SIGNAL_SCENARIOS: SignalScenario[] = [
     title: "Company Profile",
     category: "Verified Tech Stack",
     desc: "Filters companies by verified cloud tooling, headcount, and ARR",
-    icon: Building,
+    iconSrc: "/images/company.png",
     triggerDetail: "Fintech enterprise · 450 headcount · Series B · AWS / Kafka",
     fitScore: "96.8% Fit",
     contextAngle: "Targeted Data Compliance & Governance",
@@ -83,7 +83,7 @@ const SIGNAL_SCENARIOS: SignalScenario[] = [
     title: "Market Signals",
     category: "Expansion Round",
     desc: "Monitors fresh capital raises and regional expansions",
-    icon: Radio,
+    iconSrc: "/images/global-network.png",
     triggerDetail: "$28M expansion round announced 14 days ago",
     fitScore: "98.4% Fit",
     contextAngle: "Scale Infrastructure & Rapid Hiring Support",
@@ -95,7 +95,7 @@ const SIGNAL_SCENARIOS: SignalScenario[] = [
     title: "Decision Roles",
     category: "Budget Authority",
     desc: "Pins true problem owners who hold direct signing authority",
-    icon: UserCheck,
+    iconSrc: "/images/group-users.png",
     triggerDetail: "New VP Engineering & Head of Data appointed",
     fitScore: "99.1% Fit",
     contextAngle: "First 90-Day Engineering Priority Alignment",
@@ -107,7 +107,7 @@ const SIGNAL_SCENARIOS: SignalScenario[] = [
     title: "Website Intent",
     category: "High-Intent Surge",
     desc: "Catches target accounts actively reading your pricing pages",
-    icon: Zap,
+    iconSrc: "/images/monitoring-system.png",
     triggerDetail: "4 sessions on Pricing & API Docs in last 48h from target IP",
     fitScore: "99.6% Fit",
     contextAngle: "High-Urgency Implementation Rationale",
@@ -119,7 +119,7 @@ const SIGNAL_SCENARIOS: SignalScenario[] = [
     title: "Timing Triggers",
     category: "Hiring Velocity",
     desc: "Detects engineering surges, migrations, and product launches",
-    icon: Clock,
+    iconSrc: "/images/critical.png",
     triggerDetail: "+35 open engineering roles in pipeline across 3 offices",
     fitScore: "97.5% Fit",
     contextAngle: "Engineering Bandwidth & Ramp Acceleration",
@@ -150,7 +150,6 @@ export const FritadoArchitecture: React.FC = () => {
   }, [isAutoCycling, activeSignalIdx]);
 
   const currentScenario = SIGNAL_SCENARIOS[activeSignalIdx];
-  const CurrentIcon = currentScenario.icon;
 
   return (
     <section id="intelligence" className="scroll-mt-28 py-16 sm:py-24 border-b border-manuscript-parchmentDeep bg-manuscript-parchmentLight text-manuscript-ink font-sans">
@@ -167,10 +166,7 @@ export const FritadoArchitecture: React.FC = () => {
             <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">
               INTELLIGENCE
             </span>
-            <span className="text-manuscript-inkMuted/40">/</span>
-            <span className="font-sans text-[11px] uppercase tracking-wider text-manuscript-inkMuted font-semibold">
-              SECTION 05 · HOW IT ACTUALLY WORKS
-            </span>
+
           </div>
           <h2 className="font-manuscript text-3xl sm:text-4xl font-bold text-manuscript-ink tracking-tight leading-tight">
             Context-driven intelligence
@@ -213,14 +209,13 @@ export const FritadoArchitecture: React.FC = () => {
               </div>
 
               {INPUT_SIGNALS.map((sig) => {
-                const Icon = sig.icon;
                 return (
                   <div 
                     key={sig.title} 
                     className="p-3 rounded-lg bg-manuscript-parchmentLight border border-manuscriptAlpha-ink-10 flex items-start gap-3 transition-colors hover:border-manuscript-copper/40"
                   >
-                    <div className="w-7 h-7 rounded bg-white border border-manuscriptAlpha-ink-10 flex items-center justify-center text-manuscript-copper shrink-0 mt-0.5 shadow-sm">
-                      <Icon size={14} />
+                    <div className="w-7 h-7 rounded bg-white border border-manuscriptAlpha-ink-10 flex items-center justify-center shrink-0 mt-0.5 shadow-sm p-1">
+                      <img src={sig.iconSrc} alt={sig.title} className="w-full h-full object-contain" />
                     </div>
                     <div className="min-w-0">
                       <h4 className="font-sans text-xs font-bold text-manuscript-ink truncate">
@@ -369,7 +364,6 @@ export const FritadoArchitecture: React.FC = () => {
             {/* Horizontal Scrollable Signal Selector Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
               {SIGNAL_SCENARIOS.map((sc, idx) => {
-                const Icon = sc.icon;
                 const isSelected = activeSignalIdx === idx;
                 return (
                   <button
@@ -386,7 +380,9 @@ export const FritadoArchitecture: React.FC = () => {
                         : "bg-white text-manuscript-ink border-manuscriptAlpha-ink-15 hover:border-manuscript-copper/40"
                     }`}
                   >
-                    <Icon size={12} className={isSelected ? "text-white" : "text-manuscript-copper"} />
+                    <div className="w-3 h-3 shrink-0">
+                      <img src={sc.iconSrc} alt={sc.title} className="w-full h-full object-contain" style={{ filter: isSelected ? "brightness(0) invert(1)" : undefined }} />
+                    </div>
                     <span className="text-[11px] whitespace-nowrap">{sc.title}</span>
                   </button>
                 );
@@ -399,8 +395,8 @@ export const FritadoArchitecture: React.FC = () => {
               <div className="p-3 rounded-xl bg-white border border-manuscriptAlpha-ink-15 shadow-2xs space-y-1.5">
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-lg bg-manuscript-copper/10 text-manuscript-copper flex items-center justify-center shrink-0">
-                      <CurrentIcon size={12} />
+                    <div className="w-6 h-6 rounded-lg bg-manuscript-copper/10 flex items-center justify-center shrink-0 p-1">
+                      <img src={currentScenario.iconSrc} alt={currentScenario.title} className="w-full h-full object-contain" />
                     </div>
                     <span className="font-sans font-bold text-manuscript-ink text-xs">
                       {currentScenario.title}

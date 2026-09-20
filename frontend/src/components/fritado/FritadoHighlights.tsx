@@ -1,5 +1,5 @@
 import React from "react";
-import { Eye, ShieldCheck, Layers, Gauge, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProofBlock {
@@ -7,7 +7,7 @@ interface ProofBlock {
   label: string;
   title: string;
   desc: string;
-  icon: React.ElementType;
+  iconSrc: string;
   meta: string;
 }
 
@@ -17,7 +17,7 @@ const PROOF_BLOCKS: ProofBlock[] = [
     label: "PROSPECT ACCURACY",
     title: "Verified buyer profiles",
     desc: "Up-to-date business data pulled from live company job boards, verified LinkedIn changes, and business registries so reps reach real decision-makers.",
-    icon: Eye,
+    iconSrc: "/images/searching.png",
     meta: "Continuous Ingestion",
   },
   {
@@ -25,7 +25,7 @@ const PROOF_BLOCKS: ProofBlock[] = [
     label: "REPUTATION SAFETY",
     title: "Rep-approved messages",
     desc: "Every single email and note waits in a dedicated queue for your sales reps to review and sign off. Zero runaway bots.",
-    icon: ShieldCheck,
+    iconSrc: "/images/security.png",
     meta: "Human in the Loop",
   },
   {
@@ -33,7 +33,7 @@ const PROOF_BLOCKS: ProofBlock[] = [
     label: "CONSOLIDATED TOOLKIT",
     title: "One connected workflow",
     desc: "Replaces your disparate scraper, data enricher, email sequencer, and AI writer with one intuitive, focused workspace.",
-    icon: Layers,
+    iconSrc: "/images/layers.png",
     meta: "Unified Pipeline",
   },
   {
@@ -41,7 +41,7 @@ const PROOF_BLOCKS: ProofBlock[] = [
     label: "FAST CRM SYNC",
     title: "Instant sequence cutoff",
     desc: "The moment a buyer responds or books time on your calendar, follow-ups halt across all channels so you never look awkward.",
-    icon: Gauge,
+    iconSrc: "/images/settings.png",
     meta: "Zero Spam Risk",
   },
 ];
@@ -62,10 +62,7 @@ export const FritadoHighlights: React.FC = () => {
             <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-manuscript-copper">
               HIGHLIGHTS
             </span>
-            <span className="text-manuscript-inkMuted/40">/</span>
-            <span className="font-sans text-[11px] uppercase tracking-wider text-manuscript-inkMuted font-semibold">
-              SECTION 06 · WHY SALES TEAMS CHOOSE FRITADO
-            </span>
+
           </div>
           <h2 className="font-manuscript text-3xl sm:text-4xl font-bold text-manuscript-ink tracking-tight leading-tight">
             Product highlights
@@ -78,7 +75,6 @@ export const FritadoHighlights: React.FC = () => {
         {/* ─── DESKTOP & TABLET 4-COLUMN / 2-COLUMN GRID (sm and above) ─── */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PROOF_BLOCKS.map((block, idx) => {
-            const Icon = block.icon;
             return (
               <motion.div
                 key={block.title}
@@ -90,8 +86,8 @@ export const FritadoHighlights: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-9 h-9 rounded-lg bg-manuscript-copper/10 border border-manuscript-copper/20 flex items-center justify-center text-manuscript-copper">
-                      <Icon size={16} />
+                    <div className="w-9 h-9 rounded-lg bg-manuscript-copper/10 border border-manuscript-copper/20 flex items-center justify-center p-1.5">
+                      <img src={block.iconSrc} alt={block.label} className="w-full h-full object-contain" />
                     </div>
                     <span className="text-[10px] font-sans font-bold text-manuscript-copper uppercase tracking-wider">
                       {block.label}
@@ -123,7 +119,6 @@ export const FritadoHighlights: React.FC = () => {
         {/* ─── MOBILE 2x2 COMPACT PROOF MATRIX (< sm) ─── */}
         <div className="grid grid-cols-2 gap-2.5 sm:hidden">
           {PROOF_BLOCKS.map((block, idx) => {
-            const Icon = block.icon;
             return (
               <motion.div
                 key={block.title}
@@ -135,8 +130,8 @@ export const FritadoHighlights: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-7 h-7 rounded-lg bg-manuscript-copper/10 border border-manuscript-copper/20 flex items-center justify-center text-manuscript-copper shrink-0">
-                      <Icon size={14} />
+                    <div className="w-7 h-7 rounded-lg bg-manuscript-copper/10 border border-manuscript-copper/20 flex items-center justify-center p-1 shrink-0">
+                      <img src={block.iconSrc} alt={block.label} className="w-full h-full object-contain" />
                     </div>
                     <span className="text-[9px] font-sans font-bold text-manuscript-copper uppercase tracking-wider text-right truncate pl-1">
                       {block.label.split(" ")[0]}

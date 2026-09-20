@@ -15,7 +15,6 @@ export interface FloatingNavProps {
 // Mirrors the desktop header: What we do → Services, Portfolio (direct), About → company
 const quickLinks = [
   { label: 'Services',  kind: 'section', section: 'services' as const },
-  { label: 'Portfolio', kind: 'link',    href: '/portfolio' },
   { label: 'About',     kind: 'section', section: 'company' as const },
 ] as const;
 

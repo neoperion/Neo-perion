@@ -175,7 +175,7 @@ export const Footer = () => {
             >
               Cookie Settings
             </button>
-            <span className="italic">Designed for scale.</span>
+
           </div>
         </div>
       </div>
